@@ -1,10 +1,20 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:zeleno_v2/app/di/di.dart';
+import 'package:zeleno_v2/features/navigation/router.dart';
 import 'package:zeleno_v2/uikit/theme/color_theme.dart';
 import 'package:zeleno_v2/uikit/theme/dimensions.dart';
 import 'package:zeleno_v2/uikit/theme/theme.dart';
 import 'package:zeleno_v2/uikit/theme/typography.dart';
 
-void main() {
+void main() async {
+  final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  await initializeDependencies();
+
+  final dio = Dio();
+  dio.get("http://213.171.4.22/api/search/species");
+
   runApp(const MyApp());
 }
 
@@ -16,7 +26,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
+  final _appRouter = AppRouter();
 
   final zelenoThemeLight = ZTheme(
     colorScheme: const ZColorScheme.light(),
@@ -32,59 +42,19 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('ru'),
+      ],
       theme: zelenoThemeLight.createThemeData(),
       darkTheme: zelenoThemeDark.createThemeData(),
       title: 'Flutter Demo',
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      routerConfig: _appRouter.config(),
     );
   }
 }
