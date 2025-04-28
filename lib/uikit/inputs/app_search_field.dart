@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 // TODO(darbinyan): in progress
 
 class AppSearchField extends StatelessWidget {
@@ -36,7 +35,7 @@ class AppSearchField extends StatelessWidget {
   InputBorder? getBorders(BuildContext context) =>
       border ??
       OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.white),
+        borderSide: const BorderSide(color: Colors.white),
         borderRadius: BorderRadius.circular(18),
       );
 

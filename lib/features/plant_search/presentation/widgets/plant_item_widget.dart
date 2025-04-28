@@ -1,0 +1,78 @@
+import 'package:flutter/material.dart';
+import 'package:zeleno_v2/features/plant_search/domain/models/plant_search_item.dart';
+
+class PlantItemWidget extends StatelessWidget {
+  final PlantSearchItem item;
+
+  const PlantItemWidget({
+    required this.item,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Column(
+          children: [
+            ClipRRect(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(10),
+                bottomLeft: Radius.circular(10),
+              ),
+              child: SizedBox(
+                height: 171,
+                width: 136,
+                child: Image.network(
+                  fit: BoxFit.cover,
+                  item.imageUrl ?? '',
+                  errorBuilder: (_, __, ___) {
+                    return const Placeholder();
+                  },
+                  // Проблема с загрузкой картинок без впн
+                  // loadingBuilder: (_, __, ___) {
+                  //   return Container(
+                  //     height: 171,
+                  //     width: 136,
+                  //     decoration: const BoxDecoration(
+                  //       color: Colors.grey,
+                  //     ),
+                  //     child: const SizedBox(),
+                  //   );
+                  // },
+                ),
+              ),
+            ),
+          ],
+        ),
+        Container(
+          height: 171,
+          padding: const EdgeInsets.only(
+            left: 12,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Flexible(
+                child: Text(
+                    item.mainCommonName ??
+                        'null', // TODO(darbinyan): Вынести в локализацию
+                    style: const TextStyle(
+                      fontSize: 17,
+                    ) // TODO(darbinyan): Вынести в тему,
+                    ),
+              ),
+              Flexible(
+                child: Text(item.latinName ?? 'null',
+                    style: const TextStyle(
+                      fontSize: 17,
+                    ) // TODO(darbinyan): Вынести в тему
+                    ),
+              ),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+}
