@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zeleno_v2/features/plant_search/domain/models/plant_search_item.dart';
+import 'package:zeleno_v2/uikit/theme/typography.dart';
 
 class PlantItemWidget extends StatelessWidget {
   final PlantSearchItem item;
@@ -11,6 +12,7 @@ class PlantItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = ZTypography.of(context);
     return Row(
       children: [
         Column(
@@ -55,19 +57,13 @@ class PlantItemWidget extends StatelessWidget {
             children: [
               Flexible(
                 child: Text(
-                    item.mainCommonName ??
-                        'null', // TODO(darbinyan): Вынести в локализацию
-                    style: const TextStyle(
-                      fontSize: 17,
-                    ) // TODO(darbinyan): Вынести в тему,
-                    ),
+                  item.mainCommonName ??
+                      "No name", // TODO(darbinyan): Вынести в локализацию
+                  style: textTheme.title, // TODO(darbinyan): Вынести в тему,
+                ),
               ),
               Flexible(
-                child: Text(item.latinName ?? 'null',
-                    style: const TextStyle(
-                      fontSize: 17,
-                    ) // TODO(darbinyan): Вынести в тему
-                    ),
+                child: Text(item.latinName ?? 'null', style: textTheme.body),
               ),
             ],
           ),
