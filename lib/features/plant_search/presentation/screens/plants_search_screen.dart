@@ -31,36 +31,36 @@ class PlantsSearchScreen extends StatefulWidget {
 class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
   final Debouncer _debouncer = Debouncer(milliseconds: 500);
 
-  Future<void> onRefresh() async {
-    // return widget.bloc.add(
-    //   const PlantSearchEvent.loadPlantList(
-    //     refresh: true,
-    //   ),
-    // );
+  Future<void> onRefresh(PlantSearchBloc bloc) async {
+    return bloc.add(
+      const PlantSearchEvent.loadPlantList(
+        refresh: true,
+      ),
+    );
   }
 
   Future<void> onItemTap(String slug) async {}
 
-  bool onPagination(ScrollNotification scrollInfo) {
-    // if (scrollInfo.metrics.pixels >= scrollInfo.metrics.maxScrollExtent) {
-    //   widget.bloc.add(
-    //     const PlantSearchEvent.loadPlantList(),
-    //   );
-    // }
+  bool onPagination(ScrollNotification scrollInfo, PlantSearchBloc bloc) {
+    if (scrollInfo.metrics.pixels >= scrollInfo.metrics.maxScrollExtent) {
+      bloc.add(
+        const PlantSearchEvent.loadPlantList(),
+      );
+    }
     return false;
   }
 
-  void onSearch(String text) {
-    // _debouncer.run(
-    //   () {
-    //     widget.bloc.add(
-    //       PlantSearchEvent.loadPlantList(
-    //         refresh: true,
-    //         name: text,
-    //       ),
-    //     );
-    //   },
-    // );
+  void onSearch(String text, PlantSearchBloc bloc) {
+    _debouncer.run(
+      () {
+        bloc.add(
+          PlantSearchEvent.loadPlantList(
+            refresh: true,
+            name: text,
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -74,56 +74,76 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
           ),
         child: Builder(
           builder: (context) {
+            final bloc = context.readPlantSearchBloc;
             return NotificationListener<ScrollNotification>(
-              onNotification: onPagination,
-              child: RefreshIndicator(
-                onRefresh: onRefresh,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsets.fromLTRB(18, kToolbarHeight, 18, 24),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: AppSearchField(
-                              onChanged: onSearch,
-                              hintText: 'Поиск',
-                              fillColor: const Color.fromRGBO(248, 248, 252, 1),
+              onNotification: (scrollInfo) => onPagination(scrollInfo, bloc),
+              child: Column(
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 18),
+                      child: RefreshIndicator(
+                        onRefresh: () => onRefresh(bloc),
+                        child: CustomScrollView(
+                          shrinkWrap: true,
+                          slivers: [
+                            SliverPadding(
+                              padding: const EdgeInsets.fromLTRB(
+                                  0, kToolbarHeight + 22, 0, 24),
+                              sliver: SliverToBoxAdapter(
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: AppSearchField(
+                                        onChanged: (text) =>
+                                            onSearch(text, bloc),
+                                        hintText: 'Поиск',
+                                        fillColor: const Color.fromRGBO(
+                                            248, 248, 252, 1),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 10),
+                                      child: Container(
+                                          height: 40,
+                                          width: 40,
+                                          decoration: BoxDecoration(
+                                            color: const Color.fromRGBO(
+                                                248, 248, 252, 1),
+                                            // TODO(darbinyan): Вынести цвета,
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          child: const Icon(Icons
+                                              .filter_alt_outlined) // TODO(darbinyan): Внести иконку из фигмы,
+                                          ),
+                                    )
+                                  ],
+                                ),
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10),
-                            child: Container(
-                                height: 40,
-                                width: 40,
-                                decoration: BoxDecoration(
-                                  color: const Color.fromRGBO(248, 248, 252,
-                                      1), // TODO(darbinyan): Вынести цвета,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: const Icon(Icons
-                                    .filter_alt_outlined) // TODO(darbinyan): Внести иконку из фигмы,
-                                ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 18),
-                        child: BlocBuilder<PlantSearchBloc, PlantSearchState>(
-                          builder: (context, state) {
-                            if (state.status.isLoading && !state.isPaginating) {
-                              return const Center(
-                                child:
-                                    CircularProgressIndicator(), // TODO(darbinyan): Сделать интересный лоадер,
-                              );
-                            }
-                            return CustomScrollView(
-                              shrinkWrap: true,
-                              slivers: [
-                                SliverList.separated(
+                            BlocBuilder<PlantSearchBloc, PlantSearchState>(
+                              builder: (context, state) {
+                                if (state.status.isLoading &&
+                                    !state.isPaginating) {
+                                  return const SliverFillRemaining(
+                                    child: Center(
+                                      child:
+                                          CircularProgressIndicator(), // TODO(darbinyan): Сделать интересный лоадер,
+                                    ),
+                                  );
+                                }
+
+                                if (state.items.isEmpty) {
+                                  return const SliverFillRemaining(
+                                    child: Center(
+                                      child: Text(
+                                        'no items',
+                                      ), // TODO(darbiunayn): Согласовать экран (выенсти в локализацию),
+                                    ),
+                                  );
+                                }
+                                return SliverList.separated(
                                   itemBuilder: (context, index) {
                                     return GestureDetector(
                                       onTap: () {
@@ -140,35 +160,31 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
                                     );
                                   },
                                   itemCount: state.items.length,
-                                ),
-                                if (state.status.isLoading &&
-                                    state.isPaginating) ...[
-                                  const SliverPadding(
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 20),
-                                    sliver: SliverToBoxAdapter(
-                                      child: Center(
-                                        child: CircularProgressIndicator(),
-                                      ),
-                                    ),
-                                  )
-                                ] else if (state.items.isEmpty) ...[
-                                  const SliverToBoxAdapter(
+                                );
+                              },
+                            ),
+                            BlocBuilder<PlantSearchBloc, PlantSearchState>(
+                                builder: (context, state) {
+                              if (state.status.isLoading &&
+                                  state.isPaginating) {
+                                return const SliverPadding(
+                                  padding: EdgeInsets.symmetric(horizontal: 20),
+                                  sliver: SliverToBoxAdapter(
                                     child: Center(
-                                      child: Text(
-                                        'no items',
-                                      ), // TODO(darbiunayn): Согласовать экран (выенсти в локализацию),
+                                      child: CircularProgressIndicator(),
                                     ),
-                                  )
-                                ]
-                              ],
-                            );
-                          },
+                                  ),
+                                );
+                              }
+
+                              return const SliverToBoxAdapter();
+                            })
+                          ],
                         ),
                       ),
-                    )
-                  ],
-                ),
+                    ),
+                  )
+                ],
               ),
             );
           },
