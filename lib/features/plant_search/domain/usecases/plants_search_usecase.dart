@@ -16,6 +16,8 @@ class PlantsSearchUsecase {
       name: name,
     );
 
-    return response.items;
+    return response.items
+        .where((element) => element.mainCommonName != null)
+        .toList();
   }
 }
