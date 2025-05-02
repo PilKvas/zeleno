@@ -6,8 +6,8 @@ part 'plant_search_item_dto.freezed.dart';
 part 'plant_search_item_dto.g.dart';
 
 @freezed
-@JsonSerializable(fieldRename: FieldRename.snake, includeIfNull: false)
 class PlantSearchItemDto with _$PlantSearchItemDto {
+  @JsonSerializable(fieldRename: FieldRename.snake, includeIfNull: false)
   const factory PlantSearchItemDto({
     required String slug,
     String? latinName,

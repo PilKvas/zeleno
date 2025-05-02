@@ -7,6 +7,7 @@ import 'package:zeleno_v2/features/core/enums/status.dart';
 import 'package:zeleno_v2/features/plant_search/presentation/bloc/plant_search_bloc.dart';
 import 'package:zeleno_v2/features/plant_search/presentation/widgets/plant_item_widget.dart';
 import 'package:zeleno_v2/uikit/inputs/app_search_field.dart';
+import 'package:zeleno_v2/uikit/theme/color_theme.dart';
 
 @RoutePage()
 class PlantSearchStackScreen extends StatelessWidget {
@@ -65,61 +66,71 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: BlocProvider<PlantSearchBloc>(
-        create: (context) => PlantSearchBloc(
-          injection(),
-        )..add(
-            const PlantSearchEvent.loadPlantList(),
-          ),
-        child: Builder(
-          builder: (context) {
-            final bloc = context.readPlantSearchBloc;
-            return NotificationListener<ScrollNotification>(
-              onNotification: (scrollInfo) => onPagination(scrollInfo, bloc),
-              child: Column(
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 18),
+    final color = ZColorScheme.of(context);
+    return SafeArea(
+      child: Scaffold(
+        body: BlocProvider<PlantSearchBloc>(
+          create: (context) => PlantSearchBloc(
+            injection(),
+          )..add(
+              const PlantSearchEvent.loadPlantList(),
+            ),
+          child: Builder(
+            builder: (context) {
+              final bloc = context.readPlantSearchBloc;
+              return NotificationListener<ScrollNotification>(
+                onNotification: (scrollInfo) => onPagination(scrollInfo, bloc),
+                child: Column(
+                  children: [
+                    Expanded(
                       child: RefreshIndicator(
                         onRefresh: () => onRefresh(bloc),
                         child: CustomScrollView(
                           shrinkWrap: true,
                           slivers: [
-                            SliverPadding(
-                              padding: const EdgeInsets.fromLTRB(
-                                  0, kToolbarHeight + 22, 0, 24),
-                              sliver: SliverToBoxAdapter(
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      child: AppSearchField(
-                                        onChanged: (text) =>
-                                            onSearch(text, bloc),
-                                        hintText: 'Поиск',
-                                        fillColor: const Color.fromRGBO(
-                                            248, 248, 252, 1),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 10),
-                                      child: Container(
-                                          height: 40,
-                                          width: 40,
-                                          decoration: BoxDecoration(
-                                            color: const Color.fromRGBO(
-                                                248, 248, 252, 1),
-                                            // TODO(darbinyan): Вынести цвета,
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          child: const Icon(Icons
-                                              .filter_alt_outlined) // TODO(darbinyan): Внести иконку из фигмы,
-                                          ),
-                                    )
-                                  ],
+                            SliverAppBar(
+                              floating: true,
+                              pinned: false,
+                              snap: true,
+                              bottom: PreferredSize(
+                                preferredSize: const Size.fromHeight(4.0),
+                                child: Container(
+                                  color: color.action,
+                                  height: 1,
                                 ),
+                              ),
+                              flexibleSpace: FlexibleSpaceBar(
+                                background: Container(
+                                  color: color.background,
+                                ),
+                              ),
+                              title: Row(
+                                children: [
+                                  Expanded(
+                                    child: AppSearchField(
+                                      onChanged: (text) => onSearch(text, bloc),
+                                      hintText: 'Поиск',
+                                      fillColor: const Color.fromRGBO(
+                                          248, 248, 252, 1),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 10),
+                                    child: Container(
+                                        height: 40,
+                                        width: 40,
+                                        decoration: BoxDecoration(
+                                          color: const Color.fromRGBO(
+                                              248, 248, 252, 1),
+                                          // TODO(darbinyan): Вынести цвета,
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        child: const Icon(Icons
+                                            .filter_alt_outlined) // TODO(darbinyan): Внести иконку из фигмы,
+                                        ),
+                                  )
+                                ],
                               ),
                             ),
                             BlocBuilder<PlantSearchBloc, PlantSearchState>(
@@ -143,23 +154,30 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
                                     ),
                                   );
                                 }
-                                return SliverList.separated(
-                                  itemBuilder: (context, index) {
-                                    return GestureDetector(
-                                      onTap: () {
-                                        onItemTap(state.items[index].slug);
-                                      },
-                                      child: PlantItemWidget(
-                                        item: state.items[index],
-                                      ),
-                                    );
-                                  },
-                                  separatorBuilder: (context, index) {
-                                    return const SizedBox(
-                                      height: 20,
-                                    );
-                                  },
-                                  itemCount: state.items.length,
+                                return SliverPadding(
+                                  padding: const EdgeInsets.only(
+                                    top: 5,
+                                    left: 8,
+                                    right: 8,
+                                  ),
+                                  sliver: SliverList.separated(
+                                    itemBuilder: (context, index) {
+                                      return GestureDetector(
+                                        onTap: () {
+                                          onItemTap(state.items[index].slug);
+                                        },
+                                        child: PlantItemWidget(
+                                          item: state.items[index],
+                                        ),
+                                      );
+                                    },
+                                    separatorBuilder: (context, index) {
+                                      return const SizedBox(
+                                        height: 20,
+                                      );
+                                    },
+                                    itemCount: state.items.length,
+                                  ),
                                 );
                               },
                             ),
@@ -182,12 +200,12 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
                           ],
                         ),
                       ),
-                    ),
-                  )
-                ],
-              ),
-            );
-          },
+                    )
+                  ],
+                ),
+              );
+            },
+          ),
         ),
       ),
     );

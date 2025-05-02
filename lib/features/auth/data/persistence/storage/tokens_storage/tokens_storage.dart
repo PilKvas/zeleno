@@ -1,6 +1,6 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:zeleno_v2/data/persistence/storage/tokens_storage/data/auth_tokens_storage_dto.dart';
-import 'package:zeleno_v2/data/persistence/storage/tokens_storage/i_tokens_storage.dart';
+import 'package:zeleno_v2/features/auth/data/persistence/storage/tokens_storage/i_tokens_storage.dart';
+import 'package:zeleno_v2/features/auth/domain/model/token_model.dart';
 
 /// {@template tokens_storage.class}
 /// Implementation [ITokensStorage]
@@ -9,7 +9,7 @@ final class TokensStorage implements ITokensStorage {
   final FlutterSecureStorage _secureStorage;
 
   /// {@macro tokens_storage.class}
-  const TokensStorage(this._secureStorage);
+  TokensStorage(this._secureStorage);
 
   @override
   Future<String?> get accessToken =>
@@ -20,12 +20,11 @@ final class TokensStorage implements ITokensStorage {
       _secureStorage.read(key: TokensStorageKeys.refreshToken.keyName);
 
   @override
-  Future<void> saveTokens(AuthTokensStorageDto tokens) async {
+  Future<void> saveTokens(TokenModel tokens) async {
     await _secureStorage.write(
-        key: TokensStorageKeys.accessToken.keyName, value: tokens.accessToken);
+        key: TokensStorageKeys.accessToken.keyName, value: tokens.access);
     await _secureStorage.write(
-        key: TokensStorageKeys.refreshToken.keyName,
-        value: tokens.refreshToken);
+        key: TokensStorageKeys.refreshToken.keyName, value: tokens.refresh);
   }
 
   @override
