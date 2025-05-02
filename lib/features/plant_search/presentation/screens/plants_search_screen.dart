@@ -182,21 +182,23 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
                               },
                             ),
                             BlocBuilder<PlantSearchBloc, PlantSearchState>(
-                                builder: (context, state) {
-                              if (state.status.isLoading &&
-                                  state.isPaginating) {
-                                return const SliverPadding(
-                                  padding: EdgeInsets.symmetric(horizontal: 20),
-                                  sliver: SliverToBoxAdapter(
-                                    child: Center(
-                                      child: CircularProgressIndicator(),
+                              builder: (context, state) {
+                                if (state.status.isLoading &&
+                                    state.isPaginating) {
+                                  return const SliverPadding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 20),
+                                    sliver: SliverToBoxAdapter(
+                                      child: Center(
+                                        child: CircularProgressIndicator(),
+                                      ),
                                     ),
-                                  ),
-                                );
-                              }
+                                  );
+                                }
 
-                              return const SliverToBoxAdapter();
-                            })
+                                return const SliverToBoxAdapter();
+                              },
+                            )
                           ],
                         ),
                       ),
