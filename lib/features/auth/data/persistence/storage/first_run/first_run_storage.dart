@@ -1,14 +1,9 @@
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:zeleno_v2/data/persistence/storage/first_run/i_first_run_storage.dart';
+import 'package:zeleno_v2/features/auth/data/persistence/storage/first_run/i_first_run_storage.dart';
 
-/// {@template first_run_storage.class}
-/// Repository for working with first app status.
-/// {@endtemplate}
 class FirstRunStorage implements IFirstRunStorage {
   final SharedPreferences _prefs;
 
-  /// Create an instance [FirstRunStorage].
-  /// {@macro first_run_storage.class}
   const FirstRunStorage(this._prefs);
 
   @override
@@ -21,12 +16,9 @@ class FirstRunStorage implements IFirstRunStorage {
       _prefs.setBool(FirstRunStorageKeys.firstRun.keyName, value);
 }
 
-/// Keys for [FirstRunStorage].
 enum FirstRunStorageKeys {
-  /// @nodoc.
   firstRun('first_run');
 
-  /// Key Name.
   final String keyName;
 
   const FirstRunStorageKeys(this.keyName);

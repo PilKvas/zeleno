@@ -1,15 +1,11 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:zeleno_v2/data/persistence/storage/theme_storage/i_theme_mode_storage.dart';
+import 'package:zeleno_v2/features/auth/data/persistence/storage/theme_storage/i_theme_mode_storage.dart';
 
-/// Persistent storage for theme mode.
-///
-/// Based on SharedPreferences.
 class ThemeModeStorage implements IThemeModeStorage {
   final SharedPreferences _prefs;
 
-  /// Create an instance [ThemeModeStorage].
   const ThemeModeStorage(this._prefs);
 
   @override
@@ -28,10 +24,8 @@ class ThemeModeStorage implements IThemeModeStorage {
 
 /// Keys for [ThemeModeStorage].
 enum ThemeStorageKeys {
-  /// Theme mode.
   mode('theme_mode');
 
-  /// Key Name.
   final String keyName;
 
   const ThemeStorageKeys(this.keyName);

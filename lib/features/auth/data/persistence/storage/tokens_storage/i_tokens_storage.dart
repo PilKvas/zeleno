@@ -1,4 +1,4 @@
-import 'package:zeleno_v2/data/persistence/storage/tokens_storage/data/auth_tokens_storage_dto.dart';
+import 'package:zeleno_v2/features/auth/domain/model/token_model.dart';
 
 /// Storage for tokens
 abstract interface class ITokensStorage {
@@ -9,7 +9,7 @@ abstract interface class ITokensStorage {
   Future<String?> get refreshToken;
 
   /// Save tokens
-  Future<void> saveTokens(AuthTokensStorageDto tokens);
+  Future<void> saveTokens(TokenModel tokens);
 
   /// Clear storage
   Future<void> clear();
