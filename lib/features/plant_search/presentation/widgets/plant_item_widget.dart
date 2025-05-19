@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zeleno_v2/features/plant_search/domain/models/plant_search_item.dart';
+import 'package:zeleno_v2/resources/resources.dart';
+import 'package:zeleno_v2/uikit/theme/color_theme.dart';
 import 'package:zeleno_v2/uikit/theme/typography.dart';
 
 class PlantItemWidget extends StatelessWidget {
@@ -13,6 +15,7 @@ class PlantItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = ZTypography.of(context);
+    final colors = ZColorScheme.of(context);
     return Row(
       children: [
         Column(
@@ -29,17 +32,25 @@ class PlantItemWidget extends StatelessWidget {
                   fit: BoxFit.cover,
                   item.imageUrl ?? '',
                   errorBuilder: (_, __, ___) {
-                    return const Placeholder();
+                    return Image.asset(ZImages.dryTree, width: 50, height: 50);
                   },
-                  // Проблема с загрузкой картинок без впн
                   // loadingBuilder: (_, __, ___) {
-                  //   return Container(
-                  //     height: 171,
-                  //     width: 136,
-                  //     decoration: const BoxDecoration(
-                  //       color: Colors.grey,
+                  //   return Shimmer.fromColors(
+                  //     baseColor: Colors.grey,
+                  //     highlightColor: colors.surface,
+                  //     child: ClipRRect(
+                  //       borderRadius: const BorderRadius.only(
+                  //         topLeft: Radius.circular(10),
+                  //         bottomLeft: Radius.circular(10),
+                  //       ),
+                  //       child: Container(
+                  //         height: 171,
+                  //         width: 136,
+                  //         decoration: const BoxDecoration(
+                  //           color: Colors.grey,
+                  //         ),
+                  //       ),
                   //     ),
-                  //     child: const SizedBox(),
                   //   );
                   // },
                 ),

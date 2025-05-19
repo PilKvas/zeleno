@@ -1,12 +1,16 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:zeleno_v2/app/di/di.dart';
 import 'package:zeleno_v2/core/helper/debouncer.dart';
 import 'package:zeleno_v2/features/core/enums/status.dart';
+import 'package:zeleno_v2/features/navigation/router.gr.dart';
 import 'package:zeleno_v2/features/plant_search/presentation/bloc/plant_search_bloc.dart';
 import 'package:zeleno_v2/features/plant_search/presentation/widgets/plant_item_widget.dart';
+import 'package:zeleno_v2/features/plant_search/presentation/widgets/plant_search_filters_sheet.dart';
 import 'package:zeleno_v2/uikit/inputs/app_search_field.dart';
+import 'package:zeleno_v2/uikit/loading_widget.dart';
 import 'package:zeleno_v2/uikit/theme/color_theme.dart';
 
 @RoutePage()
@@ -40,7 +44,9 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
     );
   }
 
-  Future<void> onItemTap(String slug) async {}
+  Future<void> onItemTap(String slug) async {
+    context.router.push(PlantDetailsRoute(slug: slug));
+  }
 
   bool onPagination(ScrollNotification scrollInfo, PlantSearchBloc bloc) {
     if (scrollInfo.metrics.pixels >= scrollInfo.metrics.maxScrollExtent) {
@@ -61,6 +67,88 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
           ),
         );
       },
+    );
+  }
+
+  Widget _buildShimmerItem(BuildContext context) {
+    final color = ZColorScheme.of(context);
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Shimmer for image placeholder
+            Shimmer.fromColors(
+              baseColor: Colors.grey,
+              highlightColor: color.surface,
+              child: ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  bottomLeft: Radius.circular(10),
+                ),
+                child: Container(
+                  height: 171,
+                  width: 136,
+                  decoration: const BoxDecoration(
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Shimmer.fromColors(
+                    baseColor: Colors.grey,
+                    highlightColor: color.surface,
+                    child: Container(
+                      width: double.infinity,
+                      height: 20,
+                      decoration: BoxDecoration(
+                        color: color.onBrand,
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  // Shimmer for subtitle
+                  Shimmer.fromColors(
+                    baseColor: Colors.grey,
+                    highlightColor: color.surface,
+                    child: Container(
+                      width: 150,
+                      height: 16,
+                      decoration: BoxDecoration(
+                        color: color.action,
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildShimmerList() {
+    return SliverPadding(
+      padding: const EdgeInsets.only(top: 5, left: 8, right: 8),
+      sliver: SliverList(
+        delegate: SliverChildBuilderDelegate(
+          (context, index) => _buildShimmerItem(context),
+          childCount: 6, // Number of shimmer items to show
+        ),
+      ),
     );
   }
 
@@ -116,19 +204,34 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(left: 10),
-                                    child: Container(
-                                        height: 40,
-                                        width: 40,
-                                        decoration: BoxDecoration(
-                                          color: const Color.fromRGBO(
-                                              248, 248, 252, 1),
-                                          // TODO(darbinyan): Вынести цвета,
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        child: const Icon(Icons
-                                            .filter_alt_outlined) // TODO(darbinyan): Внести иконку из фигмы,
-                                        ),
+                                    child: BlocBuilder<PlantSearchBloc,
+                                        PlantSearchState>(
+                                      builder: (context, state) {
+                                        return IconButton(
+                                          onPressed: () {
+                                            showModalBottomSheet(
+                                              context: context,
+                                              isScrollControlled: true,
+                                              builder: (context) => BlocProvider.value(
+                                                value: bloc,
+                                                child: PlantSearchFiltersSheet(
+                                                  bloc: bloc,
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                          icon: Icon(
+                                            Icons.filter_list,
+                                            color:
+                                                state.filters.hasActiveFilters
+                                                    ? Theme.of(context)
+                                                        .colorScheme
+                                                        .primary
+                                                    : null,
+                                          ),
+                                        );
+                                      },
+                                    ),
                                   )
                                 ],
                               ),
@@ -137,12 +240,7 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
                               builder: (context, state) {
                                 if (state.status.isLoading &&
                                     !state.isPaginating) {
-                                  return const SliverFillRemaining(
-                                    child: Center(
-                                      child:
-                                          CircularProgressIndicator(), // TODO(darbinyan): Сделать интересный лоадер,
-                                    ),
-                                  );
+                                  return _buildShimmerList();
                                 }
 
                                 if (state.items.isEmpty) {
@@ -150,7 +248,7 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
                                     child: Center(
                                       child: Text(
                                         'no items',
-                                      ), // TODO(darbiunayn): Согласовать экран (выенсти в локализацию),
+                                      ),
                                     ),
                                   );
                                 }
@@ -189,8 +287,10 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
                                     padding:
                                         EdgeInsets.symmetric(horizontal: 20),
                                     sliver: SliverToBoxAdapter(
-                                      child: Center(
-                                        child: CircularProgressIndicator(),
+                                      child: SizedBox(
+                                        height: 50,
+                                        width: 50,
+                                        child: ZLoading(),
                                       ),
                                     ),
                                   );

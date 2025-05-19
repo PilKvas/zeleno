@@ -26,7 +26,8 @@ class _AuthService implements AuthService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = authModel;
+    final _data = <String, dynamic>{};
+    _data.addAll(authModel.toJson());
     final _options = _setStreamType<void>(Options(
       method: 'POST',
       headers: _headers,
@@ -51,7 +52,9 @@ class _AuthService implements AuthService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = authModel;
+    final _data = <String, dynamic>{};
+    _data.addAll(authModel.toJson());
+    _data.removeWhere((k, v) => v == null);
     final _options = _setStreamType<TokenModel>(Options(
       method: 'POST',
       headers: _headers,

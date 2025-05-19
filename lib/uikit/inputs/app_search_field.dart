@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:zeleno_v2/uikit/theme/color_theme.dart';
 
 // TODO(darbinyan): in progress
 
@@ -15,6 +17,9 @@ class AppSearchField extends StatelessWidget {
   final Color? fillColor;
   final TextStyle? style;
   final InputDecoration? decoration;
+  final List<TextInputFormatter>? inputFormatters;
+  final String? Function(String?)? validator;
+  final bool? obscureText;
 
   const AppSearchField({
     super.key,
@@ -30,6 +35,9 @@ class AppSearchField extends StatelessWidget {
     this.border,
     this.style,
     this.decoration,
+    this.inputFormatters,
+    this.validator,
+    this.obscureText,
   });
 
   InputBorder? getBorders(BuildContext context) =>
@@ -41,6 +49,7 @@ class AppSearchField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = ZColorScheme.of(context);
     return GestureDetector(
       onTap: onTap,
       behavior: HitTestBehavior.opaque,
@@ -48,14 +57,21 @@ class AppSearchField extends StatelessWidget {
         ignoring: onTap != null,
         child: SizedBox(
           height: 42,
-          child: TextField(
+          child: TextFormField(
             // style: style ?? textStyles.labelLarge,
+            validator: validator,
+            obscureText: obscureText ?? false,
+            textAlign: TextAlign.start,
             controller: controller,
             onChanged: onChanged,
-            onSubmitted: onSubmitted,
             autofocus: autofocus,
             focusNode: focusNode,
+            inputFormatters: inputFormatters,
             decoration: InputDecoration(
+              hintStyle: TextStyle(
+                color: colors.secondaryText,
+              ),
+              hintText: hintText,
               filled: fillColor != null,
               fillColor: fillColor,
               suffixIcon: suffixIcon,

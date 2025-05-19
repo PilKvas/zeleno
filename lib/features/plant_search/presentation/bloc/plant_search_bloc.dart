@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:zeleno_v2/features/core/enums/status.dart';
+import 'package:zeleno_v2/features/plant_search/domain/models/plant_search_filters.dart';
 import 'package:zeleno_v2/features/plant_search/domain/models/plant_search_item.dart';
 import 'package:zeleno_v2/features/plant_search/domain/usecases/plants_search_usecase.dart';
 
@@ -21,8 +22,7 @@ class PlantSearchBloc extends Bloc<PlantSearchEvent, PlantSearchState> {
       (event, emit) async {
         if (state.hasReachedEnd && !event.refresh) return;
 
-        var page = (state.items.length ~/ 20) +
-            1; // TODO(darbinyan): Вынести в константы;
+        var page = (state.items.length ~/ 20) + 1;
         emit(
           state.copyWith(
             status: Status.loading,
@@ -48,6 +48,20 @@ class PlantSearchBloc extends Bloc<PlantSearchEvent, PlantSearchState> {
         );
       },
       transformer: droppable(),
+    );
+
+    on<_ApplyFilters>(
+      (event, emit) {
+        emit(state.copyWith(filters: event.filters));
+        add(PlantSearchEvent.loadPlantList(refresh: true));
+      },
+    );
+
+    on<_ClearFilters>(
+      (event, emit) {
+        emit(state.copyWith(filters: const PlantSearchFilters()));
+        add(PlantSearchEvent.loadPlantList(refresh: true));
+      },
     );
   }
 }

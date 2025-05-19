@@ -9,4 +9,6 @@ abstract class IAuthRepository {
   Future<TokenModel> signIn({
     required AuthModel authModel,
   });
+
+  Future<bool> hasValidTokens();
 }

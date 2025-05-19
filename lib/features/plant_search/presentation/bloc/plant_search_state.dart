@@ -8,5 +8,6 @@ class PlantSearchState with _$PlantSearchState {
     @Default(false) bool hasReachedEnd,
     @Default(Status.loading) Status status,
     @Default([]) List<PlantSearchItem> items,
+    @Default(PlantSearchFilters()) PlantSearchFilters filters,
   }) = _PlantSearchState;
 }

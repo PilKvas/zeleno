@@ -11,10 +11,7 @@ class PlantsSearchUsecase {
     required int page,
     String? name,
   }) async {
-    final response = await _iPlantRepository.getPlants(
-      page: page,
-      name: name,
-    );
+    final response = await _iPlantRepository.getPlants(page: page, name: name);
 
     return response.items;
   }

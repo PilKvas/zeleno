@@ -30,6 +30,7 @@ final class ZColorScheme extends ThemeExtension<ZColorScheme> {
     this.onAction = const Color(0xFFFFFFFF),
     this.actionSecondary = const Color(0xFF8EAD9A),
     this.onActionSecondary = const Color(0xFFFFFFFF),
+    this.secondaryText = const Color(0xFF6F6F6F),
   });
 
   /// Basic dark scheme.
@@ -45,6 +46,7 @@ final class ZColorScheme extends ThemeExtension<ZColorScheme> {
     this.onAction = const Color(0xFFFFFFFF),
     this.actionSecondary = const Color(0xFF60fc9c),
     this.onActionSecondary = const Color(0xFF000000),
+    this.secondaryText = const Color(0xFF6F6F6F),
   });
 
   const ZColorScheme({
@@ -59,6 +61,7 @@ final class ZColorScheme extends ThemeExtension<ZColorScheme> {
     required this.onAction,
     required this.actionSecondary,
     required this.onActionSecondary,
+    required this.secondaryText,
   });
 
   final Brightness brightness;
@@ -78,6 +81,8 @@ final class ZColorScheme extends ThemeExtension<ZColorScheme> {
   final Color actionSecondary;
   final Color onActionSecondary;
 
+  final Color secondaryText;
+
   @override
   ThemeExtension<ZColorScheme> copyWith({
     Brightness? brightness,
@@ -91,6 +96,7 @@ final class ZColorScheme extends ThemeExtension<ZColorScheme> {
     Color? onAction,
     Color? actionSecondary,
     Color? onActionSecondary,
+    Color? secondaryText,
   }) {
     return ZColorScheme(
       brightness: brightness ?? this.brightness,
@@ -104,30 +110,31 @@ final class ZColorScheme extends ThemeExtension<ZColorScheme> {
       onAction: onAction ?? this.onAction,
       actionSecondary: actionSecondary ?? this.actionSecondary,
       onActionSecondary: onActionSecondary ?? this.onActionSecondary,
+      secondaryText: secondaryText ?? this.secondaryText,
     );
   }
 
   @override
   ThemeExtension<ZColorScheme> lerp(
-      ThemeExtension<ZColorScheme>? other,
-      double t,
-      ) {
+    ThemeExtension<ZColorScheme>? other,
+    double t,
+  ) {
     if (other is! ZColorScheme) {
       return this;
     }
 
     return copyWith(
-      brand: Color.lerp(brand, other.brand, t),
-      onBrand: Color.lerp(onBrand, other.onBrand, t),
-      background: Color.lerp(background, other.background, t),
-      onBackground: Color.lerp(onBackground, other.onBackground, t),
-      surface: Color.lerp(surface, other.surface, t),
-      onSurface: Color.lerp(onSurface, other.onSurface, t),
-      action: Color.lerp(action, other.action, t),
-      onAction: Color.lerp(onAction, other.onAction, t),
-      actionSecondary: Color.lerp(actionSecondary, other.actionSecondary, t),
-      onActionSecondary:
-      Color.lerp(onActionSecondary, other.onActionSecondary, t),
-    );
+        brand: Color.lerp(brand, other.brand, t),
+        onBrand: Color.lerp(onBrand, other.onBrand, t),
+        background: Color.lerp(background, other.background, t),
+        onBackground: Color.lerp(onBackground, other.onBackground, t),
+        surface: Color.lerp(surface, other.surface, t),
+        onSurface: Color.lerp(onSurface, other.onSurface, t),
+        action: Color.lerp(action, other.action, t),
+        onAction: Color.lerp(onAction, other.onAction, t),
+        actionSecondary: Color.lerp(actionSecondary, other.actionSecondary, t),
+        onActionSecondary:
+            Color.lerp(onActionSecondary, other.onActionSecondary, t),
+        secondaryText: Color.lerp(secondaryText, other.secondaryText, t));
   }
 }

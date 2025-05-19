@@ -11,7 +11,7 @@ abstract class AuthService {
 
   @POST('/api/auth/signup')
   Future<void> signUp({
-    @Body(nullToAbsent: true) required AuthModel authModel,
+    @Body() required AuthModel authModel,
   });
 
   @POST('/api/auth/signin')
