@@ -50,7 +50,7 @@ class _GardenService implements GardenService {
   @override
   Future<List<GardenPlantsResponse>> getGardenPlantsList({int? roomId}) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'roomId': roomId};
+    final queryParameters = <String, dynamic>{r'room_id': roomId};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;

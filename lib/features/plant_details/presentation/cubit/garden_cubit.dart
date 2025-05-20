@@ -72,6 +72,23 @@ class GardenCubit extends Cubit<GardenState> {
     }
   }
 
+  Future<void> deletePlantFromGarden(String uid) async {
+    try {
+      emit(state.copyWith(status: Status.loading));
+      
+      await _gardenPlantRepository.deletePlanFromGarden(uid: uid);
+      
+      emit(state.copyWith(
+        status: Status.success,
+      ));
+    } catch (e) {
+      emit(state.copyWith(
+        status: Status.failure,
+        errorMessage: e.toString(),
+      ));
+    }
+  }
+
   void navigateToRoomsTab(StackRouter router) {
     router.navigate(const HomeRoute(children: [RoomRoute()]));
   }

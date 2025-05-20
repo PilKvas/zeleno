@@ -317,6 +317,16 @@ enum ZColor {
   RED,
   @JsonValue("White")
   WHITE,
+  @JsonValue("Cream")
+  CREAM,
+  @JsonValue("Pink")
+  PINK,
+  @JsonValue("Purple")
+  PURPLE,
+  @JsonValue("Yellow")
+  YELLOW,
+  @JsonValue("Gold")
+  GOLD,
 }
 
 final colorValues = EnumValues({
@@ -326,6 +336,11 @@ final colorValues = EnumValues({
   "Orange": ZColor.ORANGE,
   "Red": ZColor.RED,
   "White": ZColor.WHITE,
+  "Cream": ZColor.CREAM,
+  "Pink": ZColor.PINK,
+  "Purple": ZColor.PURPLE,
+  "Yellow": ZColor.YELLOW,
+  "Gold": ZColor.GOLD,
 });
 
 @freezed
