@@ -1,4 +1,4 @@
-import 'package:zeleno_v2/features/auth/data/persistence/storage/tokens_storage/tokens_storage.dart';
+import 'package:zeleno_v2/features/auth/data/persistence/storage/tokens_storage/i_tokens_storage.dart';
 import 'package:zeleno_v2/features/auth/data/service/auth_service.dart';
 import 'package:zeleno_v2/features/auth/domain/model/auth_model.dart';
 import 'package:zeleno_v2/features/auth/domain/model/token_model.dart';
@@ -6,10 +6,10 @@ import 'package:zeleno_v2/features/auth/domain/repository/i_auth_repository.dart
 
 class AuthRepository implements IAuthRepository {
   final AuthService _authService;
-  final TokensStorage _tokensStorage;
+  final ITokensStorage _tokensStorage;
 
   AuthRepository({
-    required TokensStorage tokenStorage,
+    required ITokensStorage tokenStorage,
     required AuthService authService,
   })  : _authService = authService,
         _tokensStorage = tokenStorage;
@@ -25,5 +25,11 @@ class AuthRepository implements IAuthRepository {
   @override
   Future<void> signUp({required AuthModel authModel}) async {
     _authService.signUp(authModel: authModel);
+  }
+
+  @override
+  Future<bool> hasValidTokens() {
+    // TODO: implement hasValidTokens
+    throw UnimplementedError();
   }
 }

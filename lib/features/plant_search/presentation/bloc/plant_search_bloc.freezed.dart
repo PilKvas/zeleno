@@ -16,45 +16,49 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$PlantSearchEvent {
-  String? get name => throw _privateConstructorUsedError;
-  bool get refresh => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? name, bool refresh) loadPlantList,
+    required TResult Function(PlantSearchFilters filters) applyFilters,
+    required TResult Function() clearFilters,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String? name, bool refresh)? loadPlantList,
+    TResult? Function(PlantSearchFilters filters)? applyFilters,
+    TResult? Function()? clearFilters,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? name, bool refresh)? loadPlantList,
+    TResult Function(PlantSearchFilters filters)? applyFilters,
+    TResult Function()? clearFilters,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadPlantList value) loadPlantList,
+    required TResult Function(_ApplyFilters value) applyFilters,
+    required TResult Function(_ClearFilters value) clearFilters,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadPlantList value)? loadPlantList,
+    TResult? Function(_ApplyFilters value)? applyFilters,
+    TResult? Function(_ClearFilters value)? clearFilters,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadPlantList value)? loadPlantList,
+    TResult Function(_ApplyFilters value)? applyFilters,
+    TResult Function(_ClearFilters value)? clearFilters,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  /// Create a copy of PlantSearchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $PlantSearchEventCopyWith<PlantSearchEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -63,8 +67,6 @@ abstract class $PlantSearchEventCopyWith<$Res> {
   factory $PlantSearchEventCopyWith(
           PlantSearchEvent value, $Res Function(PlantSearchEvent) then) =
       _$PlantSearchEventCopyWithImpl<$Res, PlantSearchEvent>;
-  @useResult
-  $Res call({String? name, bool refresh});
 }
 
 /// @nodoc
@@ -79,32 +81,13 @@ class _$PlantSearchEventCopyWithImpl<$Res, $Val extends PlantSearchEvent>
 
   /// Create a copy of PlantSearchEvent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = freezed,
-    Object? refresh = null,
-  }) {
-    return _then(_value.copyWith(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      refresh: null == refresh
-          ? _value.refresh
-          : refresh // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$LoadPlantListImplCopyWith<$Res>
-    implements $PlantSearchEventCopyWith<$Res> {
+abstract class _$$LoadPlantListImplCopyWith<$Res> {
   factory _$$LoadPlantListImplCopyWith(
           _$LoadPlantListImpl value, $Res Function(_$LoadPlantListImpl) then) =
       __$$LoadPlantListImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String? name, bool refresh});
 }
@@ -178,6 +161,8 @@ class _$LoadPlantListImpl implements _LoadPlantList {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? name, bool refresh) loadPlantList,
+    required TResult Function(PlantSearchFilters filters) applyFilters,
+    required TResult Function() clearFilters,
   }) {
     return loadPlantList(name, refresh);
   }
@@ -186,6 +171,8 @@ class _$LoadPlantListImpl implements _LoadPlantList {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String? name, bool refresh)? loadPlantList,
+    TResult? Function(PlantSearchFilters filters)? applyFilters,
+    TResult? Function()? clearFilters,
   }) {
     return loadPlantList?.call(name, refresh);
   }
@@ -194,6 +181,8 @@ class _$LoadPlantListImpl implements _LoadPlantList {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? name, bool refresh)? loadPlantList,
+    TResult Function(PlantSearchFilters filters)? applyFilters,
+    TResult Function()? clearFilters,
     required TResult orElse(),
   }) {
     if (loadPlantList != null) {
@@ -206,6 +195,8 @@ class _$LoadPlantListImpl implements _LoadPlantList {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadPlantList value) loadPlantList,
+    required TResult Function(_ApplyFilters value) applyFilters,
+    required TResult Function(_ClearFilters value) clearFilters,
   }) {
     return loadPlantList(this);
   }
@@ -214,6 +205,8 @@ class _$LoadPlantListImpl implements _LoadPlantList {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadPlantList value)? loadPlantList,
+    TResult? Function(_ApplyFilters value)? applyFilters,
+    TResult? Function(_ClearFilters value)? clearFilters,
   }) {
     return loadPlantList?.call(this);
   }
@@ -222,6 +215,8 @@ class _$LoadPlantListImpl implements _LoadPlantList {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadPlantList value)? loadPlantList,
+    TResult Function(_ApplyFilters value)? applyFilters,
+    TResult Function(_ClearFilters value)? clearFilters,
     required TResult orElse(),
   }) {
     if (loadPlantList != null) {
@@ -235,17 +230,284 @@ abstract class _LoadPlantList implements PlantSearchEvent {
   const factory _LoadPlantList({final String? name, final bool refresh}) =
       _$LoadPlantListImpl;
 
-  @override
   String? get name;
-  @override
   bool get refresh;
 
   /// Create a copy of PlantSearchEvent
   /// with the given fields replaced by the non-null parameter values.
-  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadPlantListImplCopyWith<_$LoadPlantListImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ApplyFiltersImplCopyWith<$Res> {
+  factory _$$ApplyFiltersImplCopyWith(
+          _$ApplyFiltersImpl value, $Res Function(_$ApplyFiltersImpl) then) =
+      __$$ApplyFiltersImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({PlantSearchFilters filters});
+
+  $PlantSearchFiltersCopyWith<$Res> get filters;
+}
+
+/// @nodoc
+class __$$ApplyFiltersImplCopyWithImpl<$Res>
+    extends _$PlantSearchEventCopyWithImpl<$Res, _$ApplyFiltersImpl>
+    implements _$$ApplyFiltersImplCopyWith<$Res> {
+  __$$ApplyFiltersImplCopyWithImpl(
+      _$ApplyFiltersImpl _value, $Res Function(_$ApplyFiltersImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PlantSearchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? filters = null,
+  }) {
+    return _then(_$ApplyFiltersImpl(
+      filters: null == filters
+          ? _value.filters
+          : filters // ignore: cast_nullable_to_non_nullable
+              as PlantSearchFilters,
+    ));
+  }
+
+  /// Create a copy of PlantSearchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PlantSearchFiltersCopyWith<$Res> get filters {
+    return $PlantSearchFiltersCopyWith<$Res>(_value.filters, (value) {
+      return _then(_value.copyWith(filters: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$ApplyFiltersImpl implements _ApplyFilters {
+  const _$ApplyFiltersImpl({required this.filters});
+
+  @override
+  final PlantSearchFilters filters;
+
+  @override
+  String toString() {
+    return 'PlantSearchEvent.applyFilters(filters: $filters)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ApplyFiltersImpl &&
+            (identical(other.filters, filters) || other.filters == filters));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, filters);
+
+  /// Create a copy of PlantSearchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ApplyFiltersImplCopyWith<_$ApplyFiltersImpl> get copyWith =>
+      __$$ApplyFiltersImplCopyWithImpl<_$ApplyFiltersImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? name, bool refresh) loadPlantList,
+    required TResult Function(PlantSearchFilters filters) applyFilters,
+    required TResult Function() clearFilters,
+  }) {
+    return applyFilters(filters);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? name, bool refresh)? loadPlantList,
+    TResult? Function(PlantSearchFilters filters)? applyFilters,
+    TResult? Function()? clearFilters,
+  }) {
+    return applyFilters?.call(filters);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? name, bool refresh)? loadPlantList,
+    TResult Function(PlantSearchFilters filters)? applyFilters,
+    TResult Function()? clearFilters,
+    required TResult orElse(),
+  }) {
+    if (applyFilters != null) {
+      return applyFilters(filters);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadPlantList value) loadPlantList,
+    required TResult Function(_ApplyFilters value) applyFilters,
+    required TResult Function(_ClearFilters value) clearFilters,
+  }) {
+    return applyFilters(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadPlantList value)? loadPlantList,
+    TResult? Function(_ApplyFilters value)? applyFilters,
+    TResult? Function(_ClearFilters value)? clearFilters,
+  }) {
+    return applyFilters?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadPlantList value)? loadPlantList,
+    TResult Function(_ApplyFilters value)? applyFilters,
+    TResult Function(_ClearFilters value)? clearFilters,
+    required TResult orElse(),
+  }) {
+    if (applyFilters != null) {
+      return applyFilters(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ApplyFilters implements PlantSearchEvent {
+  const factory _ApplyFilters({required final PlantSearchFilters filters}) =
+      _$ApplyFiltersImpl;
+
+  PlantSearchFilters get filters;
+
+  /// Create a copy of PlantSearchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ApplyFiltersImplCopyWith<_$ApplyFiltersImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ClearFiltersImplCopyWith<$Res> {
+  factory _$$ClearFiltersImplCopyWith(
+          _$ClearFiltersImpl value, $Res Function(_$ClearFiltersImpl) then) =
+      __$$ClearFiltersImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ClearFiltersImplCopyWithImpl<$Res>
+    extends _$PlantSearchEventCopyWithImpl<$Res, _$ClearFiltersImpl>
+    implements _$$ClearFiltersImplCopyWith<$Res> {
+  __$$ClearFiltersImplCopyWithImpl(
+      _$ClearFiltersImpl _value, $Res Function(_$ClearFiltersImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PlantSearchEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ClearFiltersImpl implements _ClearFilters {
+  const _$ClearFiltersImpl();
+
+  @override
+  String toString() {
+    return 'PlantSearchEvent.clearFilters()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ClearFiltersImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? name, bool refresh) loadPlantList,
+    required TResult Function(PlantSearchFilters filters) applyFilters,
+    required TResult Function() clearFilters,
+  }) {
+    return clearFilters();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? name, bool refresh)? loadPlantList,
+    TResult? Function(PlantSearchFilters filters)? applyFilters,
+    TResult? Function()? clearFilters,
+  }) {
+    return clearFilters?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? name, bool refresh)? loadPlantList,
+    TResult Function(PlantSearchFilters filters)? applyFilters,
+    TResult Function()? clearFilters,
+    required TResult orElse(),
+  }) {
+    if (clearFilters != null) {
+      return clearFilters();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadPlantList value) loadPlantList,
+    required TResult Function(_ApplyFilters value) applyFilters,
+    required TResult Function(_ClearFilters value) clearFilters,
+  }) {
+    return clearFilters(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadPlantList value)? loadPlantList,
+    TResult? Function(_ApplyFilters value)? applyFilters,
+    TResult? Function(_ClearFilters value)? clearFilters,
+  }) {
+    return clearFilters?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadPlantList value)? loadPlantList,
+    TResult Function(_ApplyFilters value)? applyFilters,
+    TResult Function(_ClearFilters value)? clearFilters,
+    required TResult orElse(),
+  }) {
+    if (clearFilters != null) {
+      return clearFilters(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ClearFilters implements PlantSearchEvent {
+  const factory _ClearFilters() = _$ClearFiltersImpl;
 }
 
 /// @nodoc
@@ -255,6 +517,7 @@ mixin _$PlantSearchState {
   bool get hasReachedEnd => throw _privateConstructorUsedError;
   Status get status => throw _privateConstructorUsedError;
   List<PlantSearchItem> get items => throw _privateConstructorUsedError;
+  PlantSearchFilters get filters => throw _privateConstructorUsedError;
 
   /// Create a copy of PlantSearchState
   /// with the given fields replaced by the non-null parameter values.
@@ -274,7 +537,10 @@ abstract class $PlantSearchStateCopyWith<$Res> {
       bool isPaginating,
       bool hasReachedEnd,
       Status status,
-      List<PlantSearchItem> items});
+      List<PlantSearchItem> items,
+      PlantSearchFilters filters});
+
+  $PlantSearchFiltersCopyWith<$Res> get filters;
 }
 
 /// @nodoc
@@ -297,6 +563,7 @@ class _$PlantSearchStateCopyWithImpl<$Res, $Val extends PlantSearchState>
     Object? hasReachedEnd = null,
     Object? status = null,
     Object? items = null,
+    Object? filters = null,
   }) {
     return _then(_value.copyWith(
       name: freezed == name
@@ -319,7 +586,21 @@ class _$PlantSearchStateCopyWithImpl<$Res, $Val extends PlantSearchState>
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List<PlantSearchItem>,
+      filters: null == filters
+          ? _value.filters
+          : filters // ignore: cast_nullable_to_non_nullable
+              as PlantSearchFilters,
     ) as $Val);
+  }
+
+  /// Create a copy of PlantSearchState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PlantSearchFiltersCopyWith<$Res> get filters {
+    return $PlantSearchFiltersCopyWith<$Res>(_value.filters, (value) {
+      return _then(_value.copyWith(filters: value) as $Val);
+    });
   }
 }
 
@@ -336,7 +617,11 @@ abstract class _$$PlantSearchStateImplCopyWith<$Res>
       bool isPaginating,
       bool hasReachedEnd,
       Status status,
-      List<PlantSearchItem> items});
+      List<PlantSearchItem> items,
+      PlantSearchFilters filters});
+
+  @override
+  $PlantSearchFiltersCopyWith<$Res> get filters;
 }
 
 /// @nodoc
@@ -357,6 +642,7 @@ class __$$PlantSearchStateImplCopyWithImpl<$Res>
     Object? hasReachedEnd = null,
     Object? status = null,
     Object? items = null,
+    Object? filters = null,
   }) {
     return _then(_$PlantSearchStateImpl(
       name: freezed == name
@@ -379,6 +665,10 @@ class __$$PlantSearchStateImplCopyWithImpl<$Res>
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
               as List<PlantSearchItem>,
+      filters: null == filters
+          ? _value.filters
+          : filters // ignore: cast_nullable_to_non_nullable
+              as PlantSearchFilters,
     ));
   }
 }
@@ -391,7 +681,8 @@ class _$PlantSearchStateImpl implements _PlantSearchState {
       this.isPaginating = false,
       this.hasReachedEnd = false,
       this.status = Status.loading,
-      final List<PlantSearchItem> items = const []})
+      final List<PlantSearchItem> items = const [],
+      this.filters = const PlantSearchFilters()})
       : _items = items;
 
   @override
@@ -415,8 +706,12 @@ class _$PlantSearchStateImpl implements _PlantSearchState {
   }
 
   @override
+  @JsonKey()
+  final PlantSearchFilters filters;
+
+  @override
   String toString() {
-    return 'PlantSearchState(name: $name, isPaginating: $isPaginating, hasReachedEnd: $hasReachedEnd, status: $status, items: $items)';
+    return 'PlantSearchState(name: $name, isPaginating: $isPaginating, hasReachedEnd: $hasReachedEnd, status: $status, items: $items, filters: $filters)';
   }
 
   @override
@@ -430,12 +725,19 @@ class _$PlantSearchStateImpl implements _PlantSearchState {
             (identical(other.hasReachedEnd, hasReachedEnd) ||
                 other.hasReachedEnd == hasReachedEnd) &&
             (identical(other.status, status) || other.status == status) &&
-            const DeepCollectionEquality().equals(other._items, _items));
+            const DeepCollectionEquality().equals(other._items, _items) &&
+            (identical(other.filters, filters) || other.filters == filters));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, isPaginating,
-      hasReachedEnd, status, const DeepCollectionEquality().hash(_items));
+  int get hashCode => Object.hash(
+      runtimeType,
+      name,
+      isPaginating,
+      hasReachedEnd,
+      status,
+      const DeepCollectionEquality().hash(_items),
+      filters);
 
   /// Create a copy of PlantSearchState
   /// with the given fields replaced by the non-null parameter values.
@@ -453,7 +755,8 @@ abstract class _PlantSearchState implements PlantSearchState {
       final bool isPaginating,
       final bool hasReachedEnd,
       final Status status,
-      final List<PlantSearchItem> items}) = _$PlantSearchStateImpl;
+      final List<PlantSearchItem> items,
+      final PlantSearchFilters filters}) = _$PlantSearchStateImpl;
 
   @override
   String? get name;
@@ -465,6 +768,8 @@ abstract class _PlantSearchState implements PlantSearchState {
   Status get status;
   @override
   List<PlantSearchItem> get items;
+  @override
+  PlantSearchFilters get filters;
 
   /// Create a copy of PlantSearchState
   /// with the given fields replaced by the non-null parameter values.

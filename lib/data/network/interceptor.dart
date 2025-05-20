@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:zeleno_v2/data/network/error_response.dart';
 import 'package:zeleno_v2/data/network/exeptions/exeptions.dart';
 import 'package:zeleno_v2/features/auth/data/persistence/storage/tokens_storage/i_tokens_storage.dart';
 import 'package:zeleno_v2/features/auth/domain/model/token_model.dart';
@@ -20,7 +21,7 @@ class MiddlewareInterceptor extends Interceptor {
       DioException err, ErrorInterceptorHandler handler) async {
     switch (err.response?.statusCode) {
       case 400:
-        // final validationList = ValidationErrorHelper.getErrorList(err);
+        // final response = ErrorResponse.fromJson(err.response);
         handler.reject(
           BadRequest(requestOptions: err.requestOptions),
         );
@@ -30,6 +31,17 @@ class MiddlewareInterceptor extends Interceptor {
         handler.reject(Forbidden(requestOptions: err.requestOptions));
       case 404:
         handler.reject(NotFound(requestOptions: err.requestOptions));
+      case 409:
+        if (err.response?.data is Map<String, dynamic>) {
+          final response = ErrorResponse.fromJson(
+              err.response!.data as Map<String, dynamic>);
+          handler.reject(
+            Conflict(
+              requestOptions: err.requestOptions,
+              errorResponse: response,
+            ),
+          );
+        }
       case 500 || 502:
         handler.reject(ServerUnavailable(requestOptions: err.requestOptions));
       case 503:

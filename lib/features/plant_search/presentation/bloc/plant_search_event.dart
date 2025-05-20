@@ -6,4 +6,10 @@ class PlantSearchEvent with _$PlantSearchEvent {
     String? name,
     @Default(false) bool refresh,
   }) = _LoadPlantList;
+
+  const factory PlantSearchEvent.applyFilters({
+    required PlantSearchFilters filters,
+  }) = _ApplyFilters;
+
+  const factory PlantSearchEvent.clearFilters() = _ClearFilters;
 }

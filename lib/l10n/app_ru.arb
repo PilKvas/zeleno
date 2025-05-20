@@ -24,6 +24,42 @@
   "plantDetailDescription": "Описание",
   "plantDetailScientificClassification": "Научная классификация",
   "tags": "Теги",
+  "unknownName": "Неизвестное имя",
+  "noTagsAvailable": "Нет тегов",
+  "noInfoAboutRegularEvents": "Нет информации о регулярных событиях",
+  "plantHeightRange": "{from} - {to} см",
+  "@plantHeightRange": {
+    "placeholders": {
+      "from": {
+        "type": "String"
+      },
+      "to": {
+        "type": "String"
+      }
+    }
+  },
+  "plantWidthRange": "{from} - {to} см",
+  "@plantWidthRange": {
+    "placeholders": {
+      "from": {
+        "type": "String"
+      },
+      "to": {
+        "type": "String"
+      }
+    }
+  },
+  "plantYearsToMaxHeightRange": "{from}-{to} лет",
+  "@plantYearsToMaxHeightRange": {
+    "placeholders": {
+      "from": {
+        "type": "String"
+      },
+      "to": {
+        "type": "String"
+      }
+    }
+  },
   "@segmentExamples": {
     "---------": "---------",
     "description": "Примеры"
@@ -135,5 +171,27 @@
     "description": "Пример фичи"
   },
   "featureExampleFailedLoadIpMessage": "Не удалось загрузить IP-адрес",
-  "search": "Поиск"
+  "search": "Поиск",
+  "title": "FROM SEED",
+
+  "@segmentOnBoarding": {
+    "---------": "---------",
+    "description": "On boarding"
+  },
+  "firstPageTitle": "Энциклопедия в вашем телефоне",
+   "firstPageSubTitle": "Более 500 000 видов с детальным описанием.Находите нужное растение за секунды через умный поиск.",
+   "secondPageTitle": "Уход за растениями без сложностей",
+   "secondPageSubTitle": "Понятные карточки растений с важными параметрами ухода.Точно знайте, когда поливать и пересаживать",
+   "thirdPageTitle": "Станьте экспертом по выращиванию",
+   "thirdPageSubTitle": "Персонализированные гайды с пошаговыми инструкциями.От семечка до цветущего растения под вашим руководством",
+   "next": "Далее",
+   "start": "Начать",
+
+  "@segmentAuth": {
+    "---------": "---------",
+    "description": "Auth"
+  },
+
+  "login": "Войдите в аккаунт",
+  "register": "Создайте аккаунт"
 }

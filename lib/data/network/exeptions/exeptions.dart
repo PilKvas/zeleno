@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:zeleno_v2/data/network/error_response.dart';
 
 class BaseException extends DioException implements Exception {
   BaseException(
@@ -24,10 +25,19 @@ class NotFound extends BaseException {
   }) : super(requestOptions);
 }
 
-class Conflict extends BaseException {
+class Conflict extends DioException {
+  final ErrorResponse? errorResponse;
+
   Conflict({
-    required RequestOptions requestOptions,
-  }) : super(requestOptions);
+    required super.requestOptions,
+    this.errorResponse,
+  }) : super(
+          error: errorResponse?.detail,
+          response: Response(
+            requestOptions: requestOptions,
+            data: errorResponse?.toJson(),
+          ),
+        );
 }
 
 class Unauthorized extends BaseException {

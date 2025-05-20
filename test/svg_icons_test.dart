@@ -11,6 +11,7 @@ void main() {
     expect(File(SvgIcons.userFilled).existsSync(), isTrue);
     expect(File(SvgIcons.eye).existsSync(), isTrue);
     expect(File(SvgIcons.height).existsSync(), isTrue);
+    expect(File(SvgIcons.openEye).existsSync(), isTrue);
     expect(File(SvgIcons.photoPlaceholder).existsSync(), isTrue);
     expect(File(SvgIcons.plant).existsSync(), isTrue);
     expect(File(SvgIcons.plantFilled).existsSync(), isTrue);

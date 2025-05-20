@@ -13,6 +13,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(context) {
     return AutoTabsScaffold(
       routes: const [
+        RoomRoute(),
         PlantsSearchRoute(),
         ProfileRoute(),
       ],
@@ -27,6 +28,15 @@ class HomeScreen extends StatelessWidget {
             currentIndex: tabsRouter.activeIndex,
             onTap: tabsRouter.setActiveIndex,
             items: [
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset(SvgIcons.plant),
+                activeIcon: SvgPicture.asset(
+                  SvgIcons.plant,
+                  colorFilter:
+                      ColorFilter.mode(colorScheme.action, BlendMode.srcIn),
+                ),
+                label: '',
+              ),
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(SvgIcons.search),
                 activeIcon: SvgPicture.asset(
