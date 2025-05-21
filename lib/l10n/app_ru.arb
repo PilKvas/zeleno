@@ -1,0 +1,197 @@
+{
+  "@@locale": "ru",
+  "@segmentCommon": {
+    "---------": "---------",
+    "description": "Общие сроки"
+  },
+  "positiveResponse": "Да",
+  "@segmentMenu": {
+    "---------": "---------",
+    "description": "Строки для меню"
+  },
+  "bottomMenuFirstItem": "Мой сад",
+  "bottomMenuSecondItem": "Поиск",
+  "bottomMenuThirdItem": "Профиль",
+  "@segmentPlantDetail": {
+    "---------": "---------",
+    "description": "Plant details"
+  },
+  "startWithTutorialButtonTitle": "Выращивать по туториалу",
+  "toTheGardenButtonTitle": "В сад",
+  "plantDetailMenuSpecifications": "Характеристики",
+  "plantDetailMenuCare": "Уход",
+  "plantDetailMenuGrowth": "Развитие",
+  "plantDetailDescription": "Описание",
+  "plantDetailScientificClassification": "Научная классификация",
+  "tags": "Теги",
+  "unknownName": "Неизвестное имя",
+  "noTagsAvailable": "Нет тегов",
+  "noInfoAboutRegularEvents": "Нет информации о регулярных событиях",
+  "plantHeightRange": "{from} - {to} см",
+  "@plantHeightRange": {
+    "placeholders": {
+      "from": {
+        "type": "String"
+      },
+      "to": {
+        "type": "String"
+      }
+    }
+  },
+  "plantWidthRange": "{from} - {to} см",
+  "@plantWidthRange": {
+    "placeholders": {
+      "from": {
+        "type": "String"
+      },
+      "to": {
+        "type": "String"
+      }
+    }
+  },
+  "plantYearsToMaxHeightRange": "{from}-{to} лет",
+  "@plantYearsToMaxHeightRange": {
+    "placeholders": {
+      "from": {
+        "type": "String"
+      },
+      "to": {
+        "type": "String"
+      }
+    }
+  },
+  "@segmentExamples": {
+    "---------": "---------",
+    "description": "Примеры"
+  },
+  "examplesTitle": "Примеры",
+  "examplesLocalizationTitle": "Примеры локализации",
+  "string": "Привет, {name}!",
+  "@string": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "weekDay": "{date}",
+  "@weekDay": {
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "E"
+      }
+    }
+  },
+  "dateAndTime": "{date}, {time}",
+  "@dateAndTime": {
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "MMMMd"
+      },
+      "time": {
+        "type": "DateTime",
+        "format": "jm"
+      }
+    }
+  },
+  "inboxCount": "{count, plural, zero{У вас нет новых сообщений} one{У вас 1 новое ообщение} other{У вас {count} новых сообщений}}",
+  "@inboxCount": {
+    "description": "Количетво сообщений",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "@segmentTempScreen": {
+    "---------": "---------",
+    "description": "Temp screen"
+  },
+  "tempScreenDashNavBarItemLabel": "Dash экран",
+  "tempScreenInfoNavBarItemLabel": "Инфо экран",
+  "tempScreenDebugNavBarItemLabel": "Дебаг экран",
+  "@segmentDebugScreen": {
+    "---------": "---------",
+    "description": "Дебаг экран"
+  },
+  "debugScreenTitle": "Экран отладки",
+  "debugScreenServerSubtitle": "Сервер",
+  "debugScreenServerConnectButton": "Переключить сервер",
+  "debugScreenProxySubtitle": "Прокси",
+  "debugScreenProxyInfo": "Активирует передачу через прокси сервер.",
+  "debugScreenProxyEditTextLabel": "Введите адресс прокси сервера",
+  "debugScreenProxyConnectButton": "Подключить",
+  "debugScreenThemeSubtitle": "Тема приложения",
+  "debugScreenThemeLight": "Светлая тема",
+  "debugScreenThemeDark": "Темная темя",
+  "debugScreenThemeSystem": "Системная тема",
+  "debugScreenUikitNavigateButton": "Открыть UIKit",
+  "debugScreenReloadAppMessage": "Перезагрузите приложение, чтобы увидеть примененные изменения",
+  "@segmentUiKitScreen": {
+    "---------": "---------",
+    "description": "Ui kit screen"
+  },
+  "uiKitScreenTitle": "UI Kit",
+  "uiKitScreenTextFieldLabel": "Text Field",
+  "uiKitScreenCardText": "Card",
+  "uiKitScreenText": "Text",
+  "uiKitScreenPrimaryButtonText": "Primary Button",
+  "uiKitScreenPrimaryButtonSnackText": "Primary Button Pressed",
+  "uiKitScreenSecondaryButtonText": "Secondary Button",
+  "uiKitScreenSecondaryButtonSnackText": "Secondary Button Pressed",
+  "uiKitScreenTertiaryButtonText": "Tertiary Button",
+  "uiKitScreenTertiaryButtonSnackText": "Tertiary Button Pressed",
+  "uiKitScreenTetradicButtonText": "Tetradic button",
+  "uiKitScreenTetradicButtonSnackText": "Tetradic Button Pressed",
+  "uiKitScreenDangerSnackButtonText": "Danger snack",
+  "uiKitScreenDangerSnackText": "Danger snack",
+  "uiKitScreenPositiveSnackButtonText": "Positive snack",
+  "uiKitScreenPositiveSnackText": "Positive snack",
+  "uiKitScreenColorCardPrimaryName": "Primary",
+  "uiKitScreenColorCardSecondaryName": "Secondary",
+  "uiKitScreenColorCardSurfaceName": "Surface",
+  "uiKitScreenColorCardSurfaceSecondaryName": "Surface Secondary",
+  "uiKitScreenColorCardBackgroundName": "Background",
+  "uiKitScreenColorCardBackgroundSecondaryName": "Background Secondary",
+  "uiKitScreenColorCardBackgroundTertiaryName": "Background Tertiary",
+  "uiKitScreenColorCardBackgroundTetradicName": "Tetradic Background",
+  "uiKitScreenColorCardDangerName": "Danger",
+  "uiKitScreenColorCardDangerSecondaryName": "Danger Secondary",
+  "uiKitScreenColorCardTextFieldName": "Text Field",
+  "uiKitScreenColorCardTextFieldLabelName": "Text Field Label",
+  "uiKitScreenColorCardTextFieldHelperName": "Text Field Helper",
+  "uiKitScreenColorCardFrameTextFieldSecondaryName": "Frame Text Field Secondary",
+  "uiKitScreenColorCardInactiveName": "Inactive",
+  "uiKitScreenColorCardPositiveName": "Positive",
+  "uiKitScreenColorCardSkeletonPrimaryName": "Skeleton Primary",
+  "uiKitScreenColorCardSkeletonSecondaryName": "Skeleton Secondary",
+  "uiKitScreenColorCardSkeletonTertiaryName": "Skeleton Tertiary",
+  "@segmentFeatureExample": {
+    "---------": "---------",
+    "description": "Пример фичи"
+  },
+  "featureExampleFailedLoadIpMessage": "Не удалось загрузить IP-адрес",
+  "search": "Поиск",
+  "title": "FROM SEED",
+
+  "@segmentOnBoarding": {
+    "---------": "---------",
+    "description": "On boarding"
+  },
+  "firstPageTitle": "Энциклопедия в вашем телефоне",
+   "firstPageSubTitle": "Более 500 000 видов с детальным описанием.Находите нужное растение за секунды через умный поиск.",
+   "secondPageTitle": "Уход за растениями без сложностей",
+   "secondPageSubTitle": "Понятные карточки растений с важными параметрами ухода.Точно знайте, когда поливать и пересаживать",
+   "thirdPageTitle": "Станьте экспертом по выращиванию",
+   "thirdPageSubTitle": "Персонализированные гайды с пошаговыми инструкциями.От семечка до цветущего растения под вашим руководством",
+   "next": "Далее",
+   "start": "Начать",
+
+  "@segmentAuth": {
+    "---------": "---------",
+    "description": "Auth"
+  },
+
+  "login": "Войдите в аккаунт",
+  "register": "Создайте аккаунт"
+}
