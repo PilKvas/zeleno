@@ -1,5 +1,5 @@
+// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
-
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -155,7 +155,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get debugScreenUikitNavigateButton => 'Открыть UIKit';
 
   @override
-  String get debugScreenReloadAppMessage => 'Перезагрузите приложение, чтобы увидеть примененные изменения';
+  String get debugScreenReloadAppMessage =>
+      'Перезагрузите приложение, чтобы увидеть примененные изменения';
 
   @override
   String get uiKitScreenTitle => 'UI Kit';
@@ -221,13 +222,16 @@ class AppLocalizationsRu extends AppLocalizations {
   String get uiKitScreenColorCardBackgroundName => 'Background';
 
   @override
-  String get uiKitScreenColorCardBackgroundSecondaryName => 'Background Secondary';
+  String get uiKitScreenColorCardBackgroundSecondaryName =>
+      'Background Secondary';
 
   @override
-  String get uiKitScreenColorCardBackgroundTertiaryName => 'Background Tertiary';
+  String get uiKitScreenColorCardBackgroundTertiaryName =>
+      'Background Tertiary';
 
   @override
-  String get uiKitScreenColorCardBackgroundTetradicName => 'Tetradic Background';
+  String get uiKitScreenColorCardBackgroundTetradicName =>
+      'Tetradic Background';
 
   @override
   String get uiKitScreenColorCardDangerName => 'Danger';
@@ -245,7 +249,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get uiKitScreenColorCardTextFieldHelperName => 'Text Field Helper';
 
   @override
-  String get uiKitScreenColorCardFrameTextFieldSecondaryName => 'Frame Text Field Secondary';
+  String get uiKitScreenColorCardFrameTextFieldSecondaryName =>
+      'Frame Text Field Secondary';
 
   @override
   String get uiKitScreenColorCardInactiveName => 'Inactive';
@@ -263,7 +268,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get uiKitScreenColorCardSkeletonTertiaryName => 'Skeleton Tertiary';
 
   @override
-  String get featureExampleFailedLoadIpMessage => 'Не удалось загрузить IP-адрес';
+  String get featureExampleFailedLoadIpMessage =>
+      'Не удалось загрузить IP-адрес';
 
   @override
   String get search => 'Поиск';
@@ -275,19 +281,22 @@ class AppLocalizationsRu extends AppLocalizations {
   String get firstPageTitle => 'Энциклопедия в вашем телефоне';
 
   @override
-  String get firstPageSubTitle => 'Более 500 000 видов с детальным описанием.Находите нужное растение за секунды через умный поиск.';
+  String get firstPageSubTitle =>
+      'Более 500 000 видов с детальным описанием.Находите нужное растение за секунды через умный поиск.';
 
   @override
   String get secondPageTitle => 'Уход за растениями без сложностей';
 
   @override
-  String get secondPageSubTitle => 'Понятные карточки растений с важными параметрами ухода.Точно знайте, когда поливать и пересаживать';
+  String get secondPageSubTitle =>
+      'Понятные карточки растений с важными параметрами ухода.Точно знайте, когда поливать и пересаживать';
 
   @override
   String get thirdPageTitle => 'Станьте экспертом по выращиванию';
 
   @override
-  String get thirdPageSubTitle => 'Персонализированные гайды с пошаговыми инструкциями.От семечка до цветущего растения под вашим руководством';
+  String get thirdPageSubTitle =>
+      'Персонализированные гайды с пошаговыми инструкциями.От семечка до цветущего растения под вашим руководством';
 
   @override
   String get next => 'Далее';
