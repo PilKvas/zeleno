@@ -7,7 +7,7 @@ import 'package:zeleno_v2/uikit/loading_widget.dart';
 import 'package:zeleno_v2/uikit/theme/color_theme.dart';
 import 'package:zeleno_v2/uikit/theme/typography.dart';
 
-class SelectRoomBottomSheet extends StatelessWidget {
+class SelectRoomBottomSheet extends StatefulWidget {
   final GardenCubit gardenCubit;
   final int specieId;
 
@@ -18,12 +18,27 @@ class SelectRoomBottomSheet extends StatelessWidget {
   });
 
   @override
+  State<SelectRoomBottomSheet> createState() => _SelectRoomBottomSheetState();
+}
+
+class _SelectRoomBottomSheetState extends State<SelectRoomBottomSheet> {
+  final _controller = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  RoomModel? _selectedRoom;
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final textTheme = ZTypography.of(context);
     final colors = ZColorScheme.of(context);
 
     return BlocBuilder<GardenCubit, GardenState>(
-      bloc: gardenCubit,
+      bloc: widget.gardenCubit,
       builder: (context, state) {
         return Padding(
           padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
@@ -62,14 +77,46 @@ class SelectRoomBottomSheet extends StatelessWidget {
                 )
               else
                 Flexible(
-                  child: ListView.separated(
-                    shrinkWrap: true,
-                    itemCount: state.rooms.length,
-                    separatorBuilder: (context, index) => const Divider(),
-                    itemBuilder: (context, index) {
-                      final room = state.rooms[index];
-                      return _buildRoomItem(context, room);
-                    },
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      children: [
+                        TextFormField(
+                          controller: _controller,
+                          decoration: InputDecoration(
+                            hintText: 'Введите название растения',
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide: BorderSide(
+                                color: colors.action,
+                                width: 2,
+                              ),
+                            ),
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Пожалуйста, введите название';
+                            }
+                            return null;
+                          },
+                        ),
+                        const SizedBox(height: 16),
+                        Flexible(
+                          child: ListView.separated(
+                            shrinkWrap: true,
+                            itemCount: state.rooms.length,
+                            separatorBuilder: (context, index) => const Divider(),
+                            itemBuilder: (context, index) {
+                              final room = state.rooms[index];
+                              return _buildRoomItem(context, room);
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
             ],
@@ -85,11 +132,14 @@ class SelectRoomBottomSheet extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        gardenCubit.addPlantToGarden(
-          roomId: room.id,
-          specieId: specieId,
-        );
-        Navigator.pop(context, room);
+        if (_formKey.currentState!.validate()) {
+          widget.gardenCubit.addPlantToGarden(
+            roomId: room.id,
+            specieId: widget.specieId,
+            customName: _controller.text,
+          );
+          Navigator.pop(context, room);
+        }
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12),

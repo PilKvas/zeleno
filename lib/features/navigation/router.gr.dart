@@ -1,3 +1,4 @@
+// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
@@ -30,10 +31,7 @@ import 'package:zeleno_v2/features/rooms/presentation/screens/room_screen.dart'
 /// [_i1.HomeScreen]
 class HomeRoute extends _i9.PageRouteInfo<void> {
   const HomeRoute({List<_i9.PageRouteInfo>? children})
-      : super(
-          HomeRoute.name,
-          initialChildren: children,
-        );
+    : super(HomeRoute.name, initialChildren: children);
 
   static const String name = 'HomeRoute';
 
@@ -49,10 +47,7 @@ class HomeRoute extends _i9.PageRouteInfo<void> {
 /// [_i2.LoginScreen]
 class LoginRoute extends _i9.PageRouteInfo<void> {
   const LoginRoute({List<_i9.PageRouteInfo>? children})
-      : super(
-          LoginRoute.name,
-          initialChildren: children,
-        );
+    : super(LoginRoute.name, initialChildren: children);
 
   static const String name = 'LoginRoute';
 
@@ -68,10 +63,7 @@ class LoginRoute extends _i9.PageRouteInfo<void> {
 /// [_i3.OnBoardingScreen]
 class OnBoardingRoute extends _i9.PageRouteInfo<void> {
   const OnBoardingRoute({List<_i9.PageRouteInfo>? children})
-      : super(
-          OnBoardingRoute.name,
-          initialChildren: children,
-        );
+    : super(OnBoardingRoute.name, initialChildren: children);
 
   static const String name = 'OnBoardingRoute';
 
@@ -91,13 +83,10 @@ class PlantDetailsRoute extends _i9.PageRouteInfo<PlantDetailsRouteArgs> {
     required String slug,
     List<_i9.PageRouteInfo>? children,
   }) : super(
-          PlantDetailsRoute.name,
-          args: PlantDetailsRouteArgs(
-            key: key,
-            slug: slug,
-          ),
-          initialChildren: children,
-        );
+         PlantDetailsRoute.name,
+         args: PlantDetailsRouteArgs(key: key, slug: slug),
+         initialChildren: children,
+       );
 
   static const String name = 'PlantDetailsRoute';
 
@@ -105,19 +94,13 @@ class PlantDetailsRoute extends _i9.PageRouteInfo<PlantDetailsRouteArgs> {
     name,
     builder: (data) {
       final args = data.argsAs<PlantDetailsRouteArgs>();
-      return _i4.PlantDetailsScreen(
-        key: args.key,
-        slug: args.slug,
-      );
+      return _i4.PlantDetailsScreen(key: args.key, slug: args.slug);
     },
   );
 }
 
 class PlantDetailsRouteArgs {
-  const PlantDetailsRouteArgs({
-    this.key,
-    required this.slug,
-  });
+  const PlantDetailsRouteArgs({this.key, required this.slug});
 
   final _i10.Key? key;
 
@@ -133,10 +116,7 @@ class PlantDetailsRouteArgs {
 /// [_i5.PlantSearchStackScreen]
 class PlantSearchStackRoute extends _i9.PageRouteInfo<void> {
   const PlantSearchStackRoute({List<_i9.PageRouteInfo>? children})
-      : super(
-          PlantSearchStackRoute.name,
-          initialChildren: children,
-        );
+    : super(PlantSearchStackRoute.name, initialChildren: children);
 
   static const String name = 'PlantSearchStackRoute';
 
@@ -152,10 +132,7 @@ class PlantSearchStackRoute extends _i9.PageRouteInfo<void> {
 /// [_i5.PlantsSearchScreen]
 class PlantsSearchRoute extends _i9.PageRouteInfo<void> {
   const PlantsSearchRoute({List<_i9.PageRouteInfo>? children})
-      : super(
-          PlantsSearchRoute.name,
-          initialChildren: children,
-        );
+    : super(PlantsSearchRoute.name, initialChildren: children);
 
   static const String name = 'PlantsSearchRoute';
 
@@ -171,10 +148,7 @@ class PlantsSearchRoute extends _i9.PageRouteInfo<void> {
 /// [_i6.ProfileScreen]
 class ProfileRoute extends _i9.PageRouteInfo<void> {
   const ProfileRoute({List<_i9.PageRouteInfo>? children})
-      : super(
-          ProfileRoute.name,
-          initialChildren: children,
-        );
+    : super(ProfileRoute.name, initialChildren: children);
 
   static const String name = 'ProfileRoute';
 
@@ -190,10 +164,7 @@ class ProfileRoute extends _i9.PageRouteInfo<void> {
 /// [_i6.ProfileStackScreen]
 class ProfileStackRoute extends _i9.PageRouteInfo<void> {
   const ProfileStackRoute({List<_i9.PageRouteInfo>? children})
-      : super(
-          ProfileStackRoute.name,
-          initialChildren: children,
-        );
+    : super(ProfileStackRoute.name, initialChildren: children);
 
   static const String name = 'ProfileStackRoute';
 
@@ -209,10 +180,7 @@ class ProfileStackRoute extends _i9.PageRouteInfo<void> {
 /// [_i7.RegistrationScreen]
 class RegistrationRoute extends _i9.PageRouteInfo<void> {
   const RegistrationRoute({List<_i9.PageRouteInfo>? children})
-      : super(
-          RegistrationRoute.name,
-          initialChildren: children,
-        );
+    : super(RegistrationRoute.name, initialChildren: children);
 
   static const String name = 'RegistrationRoute';
 
@@ -228,10 +196,7 @@ class RegistrationRoute extends _i9.PageRouteInfo<void> {
 /// [_i8.RoomScreen]
 class RoomRoute extends _i9.PageRouteInfo<void> {
   const RoomRoute({List<_i9.PageRouteInfo>? children})
-      : super(
-          RoomRoute.name,
-          initialChildren: children,
-        );
+    : super(RoomRoute.name, initialChildren: children);
 
   static const String name = 'RoomRoute';
 
@@ -247,10 +212,7 @@ class RoomRoute extends _i9.PageRouteInfo<void> {
 /// [_i8.RoomStackScreen]
 class RoomStackRoute extends _i9.PageRouteInfo<void> {
   const RoomStackRoute({List<_i9.PageRouteInfo>? children})
-      : super(
-          RoomStackRoute.name,
-          initialChildren: children,
-        );
+    : super(RoomStackRoute.name, initialChildren: children);
 
   static const String name = 'RoomStackRoute';
 

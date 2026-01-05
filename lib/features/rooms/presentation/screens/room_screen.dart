@@ -4,11 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zeleno_v2/app/di/di.dart';
 import 'package:zeleno_v2/features/core/enums/status.dart';
 import 'package:zeleno_v2/features/core/widgets/custom_snackbar.dart';
+import 'package:zeleno_v2/features/plant_details/presentation/cubit/garden_cubit.dart';
 import 'package:zeleno_v2/features/rooms/domain/models/room_model.dart';
 import 'package:zeleno_v2/features/rooms/presentation/cubit/room_plants_cubit.dart';
 import 'package:zeleno_v2/features/rooms/presentation/cubit/rooms_cubit.dart';
 import 'package:zeleno_v2/features/rooms/presentation/widgets/add_room_bottom_sheet.dart';
-import 'package:zeleno_v2/uikit/loading_widget.dart';
+import 'package:zeleno_v2/features/rooms/presentation/widgets/room_shimmer.dart';
 import 'package:zeleno_v2/uikit/theme/color_theme.dart';
 import 'package:zeleno_v2/uikit/theme/typography.dart';
 
@@ -71,6 +72,12 @@ class _RoomScreenState extends State<RoomScreen> {
         BlocProvider.value(
           value: _roomPlantsCubit,
         ),
+        BlocProvider(
+          create: (context) => GardenCubit(
+            gardenPlantRepository: injection(),
+            roomRepository: injection(),
+          ),
+        ),
       ],
       child: Builder(
         builder: (context) {
@@ -98,44 +105,46 @@ class _RoomScreenState extends State<RoomScreen> {
             builder: (context, state) {
               if (state.status == Status.loading && state.rooms.isEmpty) {
                 return const Scaffold(
-                  body: Center(
-                    child: ZLoading(),
-                  ),
+                  body: RoomShimmer(),
                 );
               }
 
               return Scaffold(
                 backgroundColor: const Color.fromRGBO(248, 248, 252, 1),
-                body: CustomScrollView(
-                  slivers: [
-                    SliverAppBar(
-                      backgroundColor: const Color.fromRGBO(248, 248, 252, 1),
-                      centerTitle: false,
-                      title: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Мои растения",
-                            style: textTheme.title.copyWith(
-                              fontSize: 28,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Nunito',
+                body: AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 300),
+                  child: CustomScrollView(
+                    key: ValueKey(state.status),
+                    slivers: [
+                      SliverAppBar(
+                        backgroundColor: const Color.fromRGBO(248, 248, 252, 1),
+                        centerTitle: false,
+                        title: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Мои растения",
+                              style: textTheme.title.copyWith(
+                                fontSize: 28,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Nunito',
+                              ),
                             ),
-                          ),
-                          Text(
-                            "Теплица",
-                            style: textTheme.title.copyWith(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
+                            Text(
+                              "Теплица",
+                              style: textTheme.title.copyWith(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    state.rooms.isEmpty
-                        ? const _EmptyRoomsScreen()
-                        : _buildRoomsView(context, state.rooms),
-                  ],
+                      state.rooms.isEmpty
+                          ? const _EmptyRoomsScreen()
+                          : _buildRoomsView(context, state.rooms),
+                    ],
+                  ),
                 ),
                 floatingActionButton: FloatingActionButton(
                   backgroundColor: colors.action,
@@ -242,37 +251,35 @@ class _RoomScreenState extends State<RoomScreen> {
     return BlocBuilder<RoomPlantsCubit, RoomPlantsState>(
       builder: (context, state) {
         if (state.status == Status.loading) {
-          return const Center(child: ZLoading());
+          return const RoomShimmer();
         }
 
-        if (state.status == Status.failure && state.errorMessage != null) {
-          return Center(
-            child: Text(
-              'Ошибка загрузки растений: ${state.errorMessage}',
-              style: textTheme.body.copyWith(color: Colors.red),
-            ),
-          );
-        }
-
-        return ListView(
-          padding: const EdgeInsets.all(16),
-          children: [
-            Text(
-              'Все комнаты',
-              style: textTheme.title,
-            ),
-            const SizedBox(height: 16),
-            ...rooms.map((room) => _buildRoomListItem(context, room)),
-            if (state.plants.isNotEmpty) ...[
-              const SizedBox(height: 24),
+        return AnimatedSwitcher(
+          duration: const Duration(milliseconds: 300),
+          child: ListView(
+            key: ValueKey(state.status),
+            padding: const EdgeInsets.only(top: 16),
+            children: [
               Text(
-                'Все растения',
+                'Все комнаты',
                 style: textTheme.title,
               ),
               const SizedBox(height: 16),
-              ...state.plants.map((plant) => _buildPlantCard(context, plant)),
+              ...rooms.map((room) => _buildRoomListItem(context, room)),
+              if (state.plants.isNotEmpty) ...[
+                const SizedBox(height: 24),
+                Text(
+                  'Все растения',
+                  style: textTheme.title,
+                ),
+                const SizedBox(height: 16),
+                ...state.plants.map((plant) => _buildPlantCard(
+                      context: context,
+                      plant: plant,
+                    )),
+              ],
             ],
-          ],
+          ),
         );
       },
     );
@@ -304,20 +311,13 @@ class _RoomScreenState extends State<RoomScreen> {
     return BlocBuilder<RoomPlantsCubit, RoomPlantsState>(
       builder: (context, state) {
         if (state.status == Status.loading) {
-          return const Center(child: ZLoading());
-        }
-
-        if (state.status == Status.failure && state.errorMessage != null) {
-          return Center(
-            child: Text(
-              'Ошибка загрузки растений: ${state.errorMessage}',
-              style: textTheme.body.copyWith(color: Colors.red),
-            ),
-          );
+          return const RoomShimmer();
         }
 
         return SingleChildScrollView(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.only(
+            top: 16,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -380,18 +380,6 @@ class _RoomScreenState extends State<RoomScreen> {
                   ],
                 ),
               ),
-              Text(
-                room.name,
-                style: textTheme.title,
-              ),
-              if (room.description != null) ...[
-                const SizedBox(height: 8),
-                Text(
-                  room.description!,
-                  style: textTheme.body,
-                ),
-              ],
-              const SizedBox(height: 16),
               if (state.plants.isEmpty)
                 Center(
                   child: Column(
@@ -412,7 +400,13 @@ class _RoomScreenState extends State<RoomScreen> {
                   ),
                 )
               else
-                ...state.plants.map((plant) => _buildPlantCard(context, plant)),
+                ...state.plants.map(
+                  (plant) => _buildPlantCard(
+                    context: context,
+                    plant: plant,
+                    room: room,
+                  ),
+                ),
             ],
           ),
         );
@@ -420,9 +414,17 @@ class _RoomScreenState extends State<RoomScreen> {
     );
   }
 
-  Widget _buildPlantCard(BuildContext context, GardenPlantsResponse plant) {
+  Widget _buildPlantCard({
+    required BuildContext context,
+    required GardenPlantsResponse plant,
+    RoomModel? room,
+  }) {
     final textTheme = ZTypography.of(context);
     final colors = ZColorScheme.of(context);
+
+    final gardenCubit = context.read<GardenCubit>();
+
+    final roomPlantsCubit = context.read<RoomPlantsCubit>();
 
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
@@ -451,6 +453,34 @@ class _RoomScreenState extends State<RoomScreen> {
             color: Colors.grey,
             fontSize: 14,
           ),
+        ),
+        trailing: IconButton(
+          icon: const Icon(Icons.delete_outline, color: Colors.red),
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                title: const Text('Удалить растение?'),
+                content: Text(
+                    'Вы уверены, что хотите удалить ${plant.customName ?? plant.latinName}?'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: const Text('Отмена'),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      gardenCubit.deletePlantFromGarden(plant.id.toString());
+                      roomPlantsCubit.loadRoomPlants(roomId: room?.id);
+                      Navigator.pop(context);
+                    },
+                    child: const Text('Удалить',
+                        style: TextStyle(color: Colors.red)),
+                  ),
+                ],
+              ),
+            );
+          },
         ),
       ),
     );

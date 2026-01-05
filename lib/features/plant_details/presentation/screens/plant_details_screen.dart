@@ -366,19 +366,21 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen>
                                   Text(context.l10n.noInfoAboutRegularEvents),
                                 const SizedBox(height: 16),
                                 PlantImagesSectionWidget(
-                                    images: state.plantDetails?.images ??
-                                        const Images(
-                                            bark: [],
-                                            fruit: [],
-                                            flower: [],
-                                            habit: [],
-                                            leaf: [],
-                                            other: [],
-                                            root: [],
-                                            stem: [],
-                                            seed: [],
-                                            tuber: [],
-                                            foliage: [])),
+                                  images: state.plantDetails?.images ??
+                                      const Images(
+                                        bark: [],
+                                        fruit: [],
+                                        flower: [],
+                                        habit: [],
+                                        leaf: [],
+                                        other: [],
+                                        root: [],
+                                        stem: [],
+                                        seed: [],
+                                        tuber: [],
+                                        foliage: [],
+                                      ),
+                                ),
                               ],
                             ),
                           ),
@@ -402,7 +404,6 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen>
 
     showModalBottomSheet(
       context: context,
-      isScrollControlled: true,
       backgroundColor: Colors.white,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
