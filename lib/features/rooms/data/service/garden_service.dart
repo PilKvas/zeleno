@@ -17,7 +17,6 @@ abstract class GardenService {
   @GET('/api/garden/plants')
   Future<List<GardenPlantsResponse>> getGardenPlantsList({
     @Query('room_id') int? roomId,
-    @Query('roomId') int? roomId,
   });
 
   @DELETE('/api/garden/plant/{uid}')

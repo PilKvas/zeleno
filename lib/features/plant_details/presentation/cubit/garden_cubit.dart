@@ -1,5 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:zeleno_v2/features/core/enums/status.dart';
 import 'package:zeleno_v2/features/navigation/router.gr.dart';
@@ -28,9 +28,9 @@ class GardenCubit extends Cubit<GardenState> {
   Future<void> loadRooms() async {
     try {
       emit(state.copyWith(status: Status.loading));
-      
+
       final rooms = await _roomRepository.getRoomsList();
-      
+
       emit(state.copyWith(
         status: Status.success,
         rooms: rooms,
@@ -51,16 +51,16 @@ class GardenCubit extends Cubit<GardenState> {
   }) async {
     try {
       emit(state.copyWith(status: Status.loading));
-      
+
       final gardenModel = GardenModel(
         roomId: roomId,
         specieId: specieId,
         customName: customName,
         description: description,
       );
-      
+
       await _gardenPlantRepository.createGardenPlant(gardenModel: gardenModel);
-      
+
       emit(state.copyWith(
         status: Status.success,
       ));
@@ -92,4 +92,4 @@ class GardenCubit extends Cubit<GardenState> {
   void navigateToRoomsTab(StackRouter router) {
     router.navigate(const HomeRoute(children: [RoomRoute()]));
   }
-} 
+}

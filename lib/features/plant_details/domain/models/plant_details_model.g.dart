@@ -596,6 +596,7 @@ const _$ZColorEnumMap = {
   ZColor.PINK: 'Pink',
   ZColor.PURPLE: 'Purple',
   ZColor.YELLOW: 'Yellow',
+  ZColor.GOLD: 'Gold',
 };
 
 _$PathogensImpl _$$PathogensImplFromJson(Map<String, dynamic> json) =>

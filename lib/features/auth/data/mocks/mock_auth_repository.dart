@@ -12,13 +12,11 @@ class MockAuthRepository implements IAuthRepository {
 
   @override
   Future<void> signUp({required AuthModel authModel}) async {
-    // Mock implementation
     await Future.delayed(const Duration(milliseconds: 500));
   }
 
   @override
   Future<TokenModel> signIn({required AuthModel authModel}) async {
-    // Mock implementation
     await Future.delayed(const Duration(milliseconds: 500));
     _hasValidTokens = true;
     return _mockToken;
@@ -26,8 +24,7 @@ class MockAuthRepository implements IAuthRepository {
 
   @override
   Future<bool> hasValidTokens() async {
-    // Mock implementation
     await Future.delayed(const Duration(milliseconds: 500));
     return _hasValidTokens;
   }
-} 
+}
