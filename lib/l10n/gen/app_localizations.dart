@@ -625,6 +625,192 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'Создайте аккаунт'**
   String get register;
+
+  /// No description provided for @nameHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Имя'**
+  String get nameHint;
+
+  /// No description provided for @passwordHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пароль'**
+  String get passwordHint;
+
+  /// No description provided for @loginButton.
+  ///
+  /// In ru, this message translates to:
+  /// **'Войти'**
+  String get loginButton;
+
+  /// No description provided for @enterNameError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Введите имя'**
+  String get enterNameError;
+
+  /// No description provided for @nameTooShortError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Имя слишком короткое'**
+  String get nameTooShortError;
+
+  /// No description provided for @enterPasswordError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Введите пароль'**
+  String get enterPasswordError;
+
+  /// No description provided for @passwordTooShortError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пароль меньше 8 символов'**
+  String get passwordTooShortError;
+
+  /// No description provided for @loginSuccess.
+  ///
+  /// In ru, this message translates to:
+  /// **'Успешный вход в аккаунт!'**
+  String get loginSuccess;
+
+  /// No description provided for @orSeparator.
+  ///
+  /// In ru, this message translates to:
+  /// **'ИЛИ'**
+  String get orSeparator;
+
+  /// No description provided for @noAccountQuestion.
+  ///
+  /// In ru, this message translates to:
+  /// **'Не имеете аккаунта?'**
+  String get noAccountQuestion;
+
+  /// No description provided for @registerAction.
+  ///
+  /// In ru, this message translates to:
+  /// **'Зарегистрируйтесь!'**
+  String get registerAction;
+
+  /// No description provided for @enterEmailError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Введите email'**
+  String get enterEmailError;
+
+  /// No description provided for @emailInvalidError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Введите корректный email'**
+  String get emailInvalidError;
+
+  /// No description provided for @registrationSuccess.
+  ///
+  /// In ru, this message translates to:
+  /// **'Регистрация прошла успешно! Теперь вы можете войти в систему.'**
+  String get registrationSuccess;
+
+  /// No description provided for @emailHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Почта'**
+  String get emailHint;
+
+  /// No description provided for @confirmPasswordHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Повторите пароль'**
+  String get confirmPasswordHint;
+
+  /// No description provided for @passwordMatchError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пароли не совпадают'**
+  String get passwordMatchError;
+
+  /// No description provided for @registerButton.
+  ///
+  /// In ru, this message translates to:
+  /// **'Зарегистрироваться'**
+  String get registerButton;
+
+  /// No description provided for @alreadyHaveAccountQuestion.
+  ///
+  /// In ru, this message translates to:
+  /// **'Уже есть аккаунт?'**
+  String get alreadyHaveAccountQuestion;
+
+  /// No description provided for @loginAction.
+  ///
+  /// In ru, this message translates to:
+  /// **'Войдите!'**
+  String get loginAction;
+
+  /// No description provided for @loginError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ошибка входа'**
+  String get loginError;
+
+  /// No description provided for @invalidCredentialsError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Неверное имя пользователя или пароль'**
+  String get invalidCredentialsError;
+
+  /// No description provided for @badRequestError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Некорректные данные для входа'**
+  String get badRequestError;
+
+  /// No description provided for @noInternetError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Отсутствует подключение к интернету'**
+  String get noInternetError;
+
+  /// No description provided for @serverUnavailableError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сервер временно недоступен, попробуйте позже'**
+  String get serverUnavailableError;
+
+  /// No description provided for @unknownError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Произошла ошибка при входе в приложение'**
+  String get unknownError;
+
+  /// No description provided for @registrationError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ошибка регистрации'**
+  String get registrationError;
+
+  /// No description provided for @usernameAlreadyExists.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пользователь с таким именем уже существует'**
+  String get usernameAlreadyExists;
+
+  /// No description provided for @emailAlreadyExists.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пользователь с таким email уже существует'**
+  String get emailAlreadyExists;
+
+  /// No description provided for @badRequestRegistrationError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Некорректные данные для регистрации'**
+  String get badRequestRegistrationError;
+
+  /// No description provided for @unknownRegistrationError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Произошла ошибка при регистрации'**
+  String get unknownRegistrationError;
 }
 
 class _AppLocalizationsDelegate

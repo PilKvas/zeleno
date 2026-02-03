@@ -4,6 +4,6 @@ part of 'registration_cubit.dart';
 class RegistrationState with _$RegistrationState {
   const factory RegistrationState({
     required Status status,
-    String? errorResponse,
+    Object? error,
   }) = _RegistrationState;
 }
