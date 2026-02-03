@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$RegistrationState {
   Status get status => throw _privateConstructorUsedError;
-  String? get errorResponse => throw _privateConstructorUsedError;
+  Object? get error => throw _privateConstructorUsedError;
 
   /// Create a copy of RegistrationState
   /// with the given fields replaced by the non-null parameter values.
@@ -32,7 +32,7 @@ abstract class $RegistrationStateCopyWith<$Res> {
           RegistrationState value, $Res Function(RegistrationState) then) =
       _$RegistrationStateCopyWithImpl<$Res, RegistrationState>;
   @useResult
-  $Res call({Status status, String? errorResponse});
+  $Res call({Status status, Object? error});
 }
 
 /// @nodoc
@@ -51,17 +51,14 @@ class _$RegistrationStateCopyWithImpl<$Res, $Val extends RegistrationState>
   @override
   $Res call({
     Object? status = null,
-    Object? errorResponse = freezed,
+    Object? error = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Status,
-      errorResponse: freezed == errorResponse
-          ? _value.errorResponse
-          : errorResponse // ignore: cast_nullable_to_non_nullable
-              as String?,
+      error: freezed == error ? _value.error : error,
     ) as $Val);
   }
 }
@@ -74,7 +71,7 @@ abstract class _$$RegistrationStateImplCopyWith<$Res>
       __$$RegistrationStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Status status, String? errorResponse});
+  $Res call({Status status, Object? error});
 }
 
 /// @nodoc
@@ -91,17 +88,14 @@ class __$$RegistrationStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = null,
-    Object? errorResponse = freezed,
+    Object? error = freezed,
   }) {
     return _then(_$RegistrationStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Status,
-      errorResponse: freezed == errorResponse
-          ? _value.errorResponse
-          : errorResponse // ignore: cast_nullable_to_non_nullable
-              as String?,
+      error: freezed == error ? _value.error : error,
     ));
   }
 }
@@ -109,16 +103,16 @@ class __$$RegistrationStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$RegistrationStateImpl implements _RegistrationState {
-  const _$RegistrationStateImpl({required this.status, this.errorResponse});
+  const _$RegistrationStateImpl({required this.status, this.error});
 
   @override
   final Status status;
   @override
-  final String? errorResponse;
+  final Object? error;
 
   @override
   String toString() {
-    return 'RegistrationState(status: $status, errorResponse: $errorResponse)';
+    return 'RegistrationState(status: $status, error: $error)';
   }
 
   @override
@@ -127,12 +121,12 @@ class _$RegistrationStateImpl implements _RegistrationState {
         (other.runtimeType == runtimeType &&
             other is _$RegistrationStateImpl &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.errorResponse, errorResponse) ||
-                other.errorResponse == errorResponse));
+            const DeepCollectionEquality().equals(other.error, error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, errorResponse);
+  int get hashCode => Object.hash(
+      runtimeType, status, const DeepCollectionEquality().hash(error));
 
   /// Create a copy of RegistrationState
   /// with the given fields replaced by the non-null parameter values.
@@ -147,12 +141,12 @@ class _$RegistrationStateImpl implements _RegistrationState {
 abstract class _RegistrationState implements RegistrationState {
   const factory _RegistrationState(
       {required final Status status,
-      final String? errorResponse}) = _$RegistrationStateImpl;
+      final Object? error}) = _$RegistrationStateImpl;
 
   @override
   Status get status;
   @override
-  String? get errorResponse;
+  Object? get error;
 
   /// Create a copy of RegistrationState
   /// with the given fields replaced by the non-null parameter values.

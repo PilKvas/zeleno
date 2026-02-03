@@ -53,14 +53,14 @@ class PlantSearchBloc extends Bloc<PlantSearchEvent, PlantSearchState> {
     on<_ApplyFilters>(
       (event, emit) {
         emit(state.copyWith(filters: event.filters));
-        add(PlantSearchEvent.loadPlantList(refresh: true));
+        add(const PlantSearchEvent.loadPlantList(refresh: true));
       },
     );
 
     on<_ClearFilters>(
       (event, emit) {
         emit(state.copyWith(filters: const PlantSearchFilters()));
-        add(PlantSearchEvent.loadPlantList(refresh: true));
+        add(const PlantSearchEvent.loadPlantList(refresh: true));
       },
     );
   }

@@ -24,12 +24,14 @@ class AuthRepository implements IAuthRepository {
 
   @override
   Future<void> signUp({required AuthModel authModel}) async {
-    _authService.signUp(authModel: authModel);
+    await _authService.signUp(authModel: authModel);
   }
 
   @override
-  Future<bool> hasValidTokens() {
-    // TODO: implement hasValidTokens
-    throw UnimplementedError();
+  Future<bool> hasValidTokens() async {
+    final access = await _tokensStorage.accessToken;
+    final refresh = await _tokensStorage.refreshToken;
+    
+    return access != null && refresh != null;
   }
 }

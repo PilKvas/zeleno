@@ -21,34 +21,50 @@ class MiddlewareInterceptor extends Interceptor {
       DioException err, ErrorInterceptorHandler handler) async {
     switch (err.response?.statusCode) {
       case 400:
-        // final response = ErrorResponse.fromJson(err.response);
         handler.reject(
           BadRequest(requestOptions: err.requestOptions),
         );
+        return;
       case 401:
         await refreshToken(err.requestOptions, handler);
+        return;
       case 403:
         handler.reject(Forbidden(requestOptions: err.requestOptions));
+        return;
       case 404:
         handler.reject(NotFound(requestOptions: err.requestOptions));
+        return;
       case 409:
+        ErrorResponse? response;
         if (err.response?.data is Map<String, dynamic>) {
-          final response = ErrorResponse.fromJson(
-              err.response!.data as Map<String, dynamic>);
-          handler.reject(
-            Conflict(
-              requestOptions: err.requestOptions,
-              errorResponse: response,
-            ),
-          );
+          final data = err.response!.data as Map<String, dynamic>;
+          try {
+            response = ErrorResponse.fromJson(data);
+          } catch (_) {
+            final detail = data['detail'] as String?;
+            response = detail != null
+                ? ErrorResponse(code: 'conflict', detail: detail, errors: const [])
+                : null;
+          }
         }
-      case 500 || 502:
+        handler.reject(
+          Conflict(
+            requestOptions: err.requestOptions,
+            errorResponse: response,
+          ),
+        );
+        return;
+      case 500:
+      case 502:
         handler.reject(ServerUnavailable(requestOptions: err.requestOptions));
+        return;
       case 503:
         handler.reject(
             ServiceTemporarilyUnavailable(requestOptions: err.requestOptions));
+        return;
       default:
         handler.reject(UnknownError(requestOptions: err.requestOptions));
+        return;
     }
   }
 

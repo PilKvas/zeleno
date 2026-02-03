@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$LoginState {
   Status get status => throw _privateConstructorUsedError;
-  String? get errorResponse => throw _privateConstructorUsedError;
+  Object? get error => throw _privateConstructorUsedError;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -32,7 +32,7 @@ abstract class $LoginStateCopyWith<$Res> {
           LoginState value, $Res Function(LoginState) then) =
       _$LoginStateCopyWithImpl<$Res, LoginState>;
   @useResult
-  $Res call({Status status, String? errorResponse});
+  $Res call({Status status, Object? error});
 }
 
 /// @nodoc
@@ -51,17 +51,14 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
   @override
   $Res call({
     Object? status = null,
-    Object? errorResponse = freezed,
+    Object? error = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Status,
-      errorResponse: freezed == errorResponse
-          ? _value.errorResponse
-          : errorResponse // ignore: cast_nullable_to_non_nullable
-              as String?,
+      error: freezed == error ? _value.error : error,
     ) as $Val);
   }
 }
@@ -74,7 +71,7 @@ abstract class _$$LoginStateImplCopyWith<$Res>
       __$$LoginStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Status status, String? errorResponse});
+  $Res call({Status status, Object? error});
 }
 
 /// @nodoc
@@ -91,17 +88,14 @@ class __$$LoginStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = null,
-    Object? errorResponse = freezed,
+    Object? error = freezed,
   }) {
     return _then(_$LoginStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Status,
-      errorResponse: freezed == errorResponse
-          ? _value.errorResponse
-          : errorResponse // ignore: cast_nullable_to_non_nullable
-              as String?,
+      error: freezed == error ? _value.error : error,
     ));
   }
 }
@@ -109,16 +103,16 @@ class __$$LoginStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoginStateImpl implements _LoginState {
-  const _$LoginStateImpl({required this.status, this.errorResponse});
+  const _$LoginStateImpl({required this.status, this.error});
 
   @override
   final Status status;
   @override
-  final String? errorResponse;
+  final Object? error;
 
   @override
   String toString() {
-    return 'LoginState(status: $status, errorResponse: $errorResponse)';
+    return 'LoginState(status: $status, error: $error)';
   }
 
   @override
@@ -127,12 +121,12 @@ class _$LoginStateImpl implements _LoginState {
         (other.runtimeType == runtimeType &&
             other is _$LoginStateImpl &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.errorResponse, errorResponse) ||
-                other.errorResponse == errorResponse));
+            const DeepCollectionEquality().equals(other.error, error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, errorResponse);
+  int get hashCode => Object.hash(
+      runtimeType, status, const DeepCollectionEquality().hash(error));
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -145,13 +139,12 @@ class _$LoginStateImpl implements _LoginState {
 
 abstract class _LoginState implements LoginState {
   const factory _LoginState(
-      {required final Status status,
-      final String? errorResponse}) = _$LoginStateImpl;
+      {required final Status status, final Object? error}) = _$LoginStateImpl;
 
   @override
   Status get status;
   @override
-  String? get errorResponse;
+  Object? get error;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
