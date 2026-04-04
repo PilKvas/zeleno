@@ -1,6 +1,5 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
+import 'package:zeleno_v2/data/network/connectivity_checker.dart';
 import 'package:zeleno_v2/data/network/error_response.dart';
 import 'package:zeleno_v2/data/network/exeptions/exeptions.dart';
 import 'package:zeleno_v2/features/auth/data/persistence/storage/tokens_storage/i_tokens_storage.dart';
@@ -8,104 +7,146 @@ import 'package:zeleno_v2/features/auth/domain/model/token_model.dart';
 import 'package:zeleno_v2/features/auth/domain/repository/i_refresh_repository.dart';
 
 class MiddlewareInterceptor extends Interceptor {
-  final ITokensStorage tokensStorage;
-  final IRefreshRepository refreshRepository;
-
   MiddlewareInterceptor({
+    required this.dio,
     required this.tokensStorage,
     required this.refreshRepository,
+    required this.connectivityChecker,
   });
 
-  @override
-  Future<void> onError(
-      DioException err, ErrorInterceptorHandler handler) async {
-    switch (err.response?.statusCode) {
-      case 400:
-        // final response = ErrorResponse.fromJson(err.response);
-        handler.reject(
-          BadRequest(requestOptions: err.requestOptions),
-        );
-      case 401:
-        await refreshToken(err.requestOptions, handler);
-      case 403:
-        handler.reject(Forbidden(requestOptions: err.requestOptions));
-      case 404:
-        handler.reject(NotFound(requestOptions: err.requestOptions));
-      case 409:
-        if (err.response?.data is Map<String, dynamic>) {
-          final response = ErrorResponse.fromJson(
-              err.response!.data as Map<String, dynamic>);
-          handler.reject(
-            Conflict(
-              requestOptions: err.requestOptions,
-              errorResponse: response,
-            ),
-          );
-        }
-      case 500 || 502:
-        handler.reject(ServerUnavailable(requestOptions: err.requestOptions));
-      case 503:
-        handler.reject(
-            ServiceTemporarilyUnavailable(requestOptions: err.requestOptions));
-      default:
-        handler.reject(UnknownError(requestOptions: err.requestOptions));
-    }
+  final Dio dio;
+  final ITokensStorage tokensStorage;
+  final IRefreshRepository refreshRepository;
+  final IConnectivityChecker connectivityChecker;
+
+  Future<TokenModel?>? _refreshFuture;
+
+  Future<void> _clearAndReject(
+    RequestOptions options,
+    ErrorInterceptorHandler handler,
+  ) async {
+    await tokensStorage.clear();
+    handler.reject(Unauthorized(requestOptions: options));
   }
 
   Future<void> refreshToken(
-      RequestOptions options, ErrorInterceptorHandler handler) async {
-    await tokensStorage.clear();
-    final refreshToken = await tokensStorage.refreshToken;
-
-    if (refreshToken != null) {
-      final response = await refreshRepository.refreshTokens(
-        tokenModel: TokenModel(refresh: refreshToken),
-      );
-      await tokensStorage.saveTokens(response);
-
-      options.headers['Authorization'] = 'Bearer ${response.access}';
-
-      final request = await Dio().fetch(options);
-
-      return handler.resolve(request);
+    RequestOptions options,
+    ErrorInterceptorHandler handler,
+  ) async {
+    final refreshTokenValue = await tokensStorage.refreshToken;
+    if (refreshTokenValue == null) {
+      await _clearAndReject(options, handler);
+      return;
     }
+    _refreshFuture ??= _doRefresh(refreshTokenValue);
+    TokenModel? newTokens;
+    try {
+      newTokens = await _refreshFuture;
+    } finally {
+      _refreshFuture = null;
+    }
+    if (newTokens == null || newTokens.access == null) {
+      await _clearAndReject(options, handler);
+      return;
+    }
+    options.headers['Authorization'] = 'Bearer ${newTokens.access}';
+    try {
+      final response = await dio.fetch(options);
+      handler.resolve(response);
+    } on DioException catch (e) {
+      if (e.response?.statusCode == 401) {
+        await _clearAndReject(options, handler);
+      } else {
+        handler.reject(e);
+      }
+    }
+  }
 
-    return handler.reject(
-      Unauthorized(requestOptions: options),
-    );
+  Future<TokenModel?> _doRefresh(String refreshTokenValue) async {
+    try {
+      final tokens = await refreshRepository.refreshTokens(
+        tokenModel: TokenModel(refresh: refreshTokenValue),
+      );
+      await tokensStorage.saveTokens(tokens);
+      return tokens;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  @override
+  Future<void> onError(
+    DioException err,
+    ErrorInterceptorHandler handler,
+  ) async {
+    switch (err.response?.statusCode) {
+      case 400:
+        handler.reject(
+          BadRequest(requestOptions: err.requestOptions),
+        );
+        return;
+      case 401:
+        await refreshToken(err.requestOptions, handler);
+        return;
+      case 403:
+        handler.reject(Forbidden(requestOptions: err.requestOptions));
+        return;
+      case 404:
+        handler.reject(NotFound(requestOptions: err.requestOptions));
+        return;
+      case 409:
+        ErrorResponse? response;
+        if (err.response?.data is Map<String, dynamic>) {
+          final data = err.response!.data as Map<String, dynamic>;
+          try {
+            response = ErrorResponse.fromJson(data);
+          } catch (_) {
+            final detail = data['detail'] as String?;
+            response = detail != null
+                ? ErrorResponse(
+                    code: 'conflict',
+                    detail: detail,
+                    errors: const [],
+                  )
+                : null;
+          }
+        }
+        handler.reject(
+          Conflict(
+            requestOptions: err.requestOptions,
+            errorResponse: response,
+          ),
+        );
+        return;
+      case 500:
+      case 502:
+        handler.reject(ServerUnavailable(requestOptions: err.requestOptions));
+        return;
+      case 503:
+        handler.reject(
+          ServiceTemporarilyUnavailable(requestOptions: err.requestOptions),
+        );
+        return;
+      default:
+        handler.reject(UnknownError(requestOptions: err.requestOptions));
+        return;
+    }
   }
 
   @override
   Future<void> onRequest(
-      RequestOptions options, RequestInterceptorHandler handler) async {
-    if (!(await ConnectivityHelper.hasConnection())) {
+    RequestOptions options,
+    RequestInterceptorHandler handler,
+  ) async {
+    if (!(await connectivityChecker.hasConnection())) {
       return handler.reject(
         NoInternetConnection(requestOptions: options),
       );
     }
     final accessToken = await tokensStorage.accessToken;
-
     if (accessToken != null) {
       options.headers.putIfAbsent('Authorization', () => 'Bearer $accessToken');
     }
-
     return handler.next(options);
-  }
-}
-
-class ConnectivityHelper {
-  static Future<bool> hasConnection() async {
-    var hasConnection = false;
-
-    try {
-      final result = await InternetAddress.lookup('google.com');
-
-      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-        hasConnection = true;
-      }
-    } on SocketException catch (_) {
-      hasConnection = false;
-    }
-    return hasConnection;
   }
 }

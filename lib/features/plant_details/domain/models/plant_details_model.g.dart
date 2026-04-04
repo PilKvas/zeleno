@@ -586,12 +586,17 @@ Map<String, dynamic> _$$PartsColorBarkImplToJson(
     };
 
 const _$ZColorEnumMap = {
-  ZColor.GREEN: 'Green',
+  ZColor.Green: 'Green',
   ZColor.BLUE: 'Blue',
   ZColor.BLACK: 'Black',
   ZColor.ORANGE: 'Orange',
   ZColor.RED: 'Red',
   ZColor.WHITE: 'White',
+  ZColor.CREAM: 'Cream',
+  ZColor.PINK: 'Pink',
+  ZColor.PURPLE: 'Purple',
+  ZColor.YELLOW: 'Yellow',
+  ZColor.GOLD: 'Gold',
 };
 
 _$PathogensImpl _$$PathogensImplFromJson(Map<String, dynamic> json) =>

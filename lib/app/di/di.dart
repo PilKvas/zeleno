@@ -3,9 +3,11 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zeleno_v2/core/config/url.dart';
+import 'package:zeleno_v2/data/network/connectivity_checker.dart';
 import 'package:zeleno_v2/data/network/interceptor.dart';
 import 'package:zeleno_v2/features/auth/data/persistence/storage/first_run/first_run_storage.dart';
 import 'package:zeleno_v2/features/auth/data/persistence/storage/first_run/i_first_run_storage.dart';
+import 'package:zeleno_v2/features/auth/data/persistence/storage/tokens_storage/i_tokens_storage.dart';
 import 'package:zeleno_v2/features/auth/data/persistence/storage/tokens_storage/tokens_storage.dart';
 import 'package:zeleno_v2/features/auth/data/repository/auth_repository.dart';
 import 'package:zeleno_v2/features/auth/data/repository/refresh_repository.dart';
@@ -20,14 +22,15 @@ import 'package:zeleno_v2/features/plant_search/data/repository/plant_search_rep
 import 'package:zeleno_v2/features/plant_search/data/service/plant_search_service.dart';
 import 'package:zeleno_v2/features/plant_search/domain/repository/i_plant_search_repository.dart';
 import 'package:zeleno_v2/features/plant_search/domain/usecases/plants_search_usecase.dart';
+import 'package:zeleno_v2/features/profile/data/repository/profile_repository.dart';
+import 'package:zeleno_v2/features/profile/data/service/profile_service.dart';
+import 'package:zeleno_v2/features/profile/domain/repository/i_profile_repository.dart';
 import 'package:zeleno_v2/features/rooms/data/repository/garden_plants_repository.dart';
 import 'package:zeleno_v2/features/rooms/data/repository/room_repository.dart';
 import 'package:zeleno_v2/features/rooms/data/service/garden_service.dart';
 import 'package:zeleno_v2/features/rooms/data/service/room_service.dart';
 import 'package:zeleno_v2/features/rooms/domain/repository/i_garden_repository.dart';
 import 'package:zeleno_v2/features/rooms/domain/repository/i_room_repository.dart';
-
-import '../../features/auth/data/persistence/storage/tokens_storage/i_tokens_storage.dart';
 
 final injection = GetIt.instance;
 
@@ -41,6 +44,9 @@ Future<void> initializeDependencies() async {
   const secureStorage = FlutterSecureStorage();
 
   injection
+    ..registerLazySingleton<IConnectivityChecker>(
+      ConnectivityChecker.new,
+    )
     ..registerLazySingleton<ITokensStorage>(
       () => TokensStorage(secureStorage),
     )
@@ -66,6 +72,9 @@ Future<void> initializeDependencies() async {
     )
     ..registerLazySingleton<GardenService>(
       () => GardenService(dio),
+    )
+    ..registerLazySingleton<ProfileService>(
+      () => ProfileService(dio),
     );
 
   injection
@@ -95,7 +104,10 @@ Future<void> initializeDependencies() async {
       () => GardenPlantsRepository(
         gardenService: injection(),
       ),
-    );
+    )
+    ..registerLazySingleton<IProfileRepository>(() => ProfileRepository(
+          profileService: injection(),
+        ));
 
   injection.registerLazySingleton<PlantsSearchUsecase>(
     () => PlantsSearchUsecase(iPlantRepository: injection()),
@@ -103,8 +115,10 @@ Future<void> initializeDependencies() async {
 
   dio.interceptors.add(
     MiddlewareInterceptor(
+      dio: dio,
       tokensStorage: injection<ITokensStorage>(),
       refreshRepository: injection<IRefreshRepository>(),
+      connectivityChecker: injection<IConnectivityChecker>(),
     ),
   );
 }

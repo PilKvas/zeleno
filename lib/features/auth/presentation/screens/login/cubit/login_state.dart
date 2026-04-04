@@ -4,6 +4,6 @@ part of 'login_cubit.dart';
 class LoginState with _$LoginState {
   const factory LoginState({
     required Status status,
-    String? errorResponse,
+    Object? error,
   }) = _LoginState;
 }

@@ -1,5 +1,5 @@
+// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
-
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -155,7 +155,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get debugScreenUikitNavigateButton => 'Открыть UIKit';
 
   @override
-  String get debugScreenReloadAppMessage => 'Перезагрузите приложение, чтобы увидеть примененные изменения';
+  String get debugScreenReloadAppMessage =>
+      'Перезагрузите приложение, чтобы увидеть примененные изменения';
 
   @override
   String get uiKitScreenTitle => 'UI Kit';
@@ -221,13 +222,16 @@ class AppLocalizationsRu extends AppLocalizations {
   String get uiKitScreenColorCardBackgroundName => 'Background';
 
   @override
-  String get uiKitScreenColorCardBackgroundSecondaryName => 'Background Secondary';
+  String get uiKitScreenColorCardBackgroundSecondaryName =>
+      'Background Secondary';
 
   @override
-  String get uiKitScreenColorCardBackgroundTertiaryName => 'Background Tertiary';
+  String get uiKitScreenColorCardBackgroundTertiaryName =>
+      'Background Tertiary';
 
   @override
-  String get uiKitScreenColorCardBackgroundTetradicName => 'Tetradic Background';
+  String get uiKitScreenColorCardBackgroundTetradicName =>
+      'Tetradic Background';
 
   @override
   String get uiKitScreenColorCardDangerName => 'Danger';
@@ -245,7 +249,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get uiKitScreenColorCardTextFieldHelperName => 'Text Field Helper';
 
   @override
-  String get uiKitScreenColorCardFrameTextFieldSecondaryName => 'Frame Text Field Secondary';
+  String get uiKitScreenColorCardFrameTextFieldSecondaryName =>
+      'Frame Text Field Secondary';
 
   @override
   String get uiKitScreenColorCardInactiveName => 'Inactive';
@@ -263,7 +268,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get uiKitScreenColorCardSkeletonTertiaryName => 'Skeleton Tertiary';
 
   @override
-  String get featureExampleFailedLoadIpMessage => 'Не удалось загрузить IP-адрес';
+  String get featureExampleFailedLoadIpMessage =>
+      'Не удалось загрузить IP-адрес';
 
   @override
   String get search => 'Поиск';
@@ -275,19 +281,22 @@ class AppLocalizationsRu extends AppLocalizations {
   String get firstPageTitle => 'Энциклопедия в вашем телефоне';
 
   @override
-  String get firstPageSubTitle => 'Более 500 000 видов с детальным описанием.Находите нужное растение за секунды через умный поиск.';
+  String get firstPageSubTitle =>
+      'Более 500 000 видов с детальным описанием.Находите нужное растение за секунды через умный поиск.';
 
   @override
   String get secondPageTitle => 'Уход за растениями без сложностей';
 
   @override
-  String get secondPageSubTitle => 'Понятные карточки растений с важными параметрами ухода.Точно знайте, когда поливать и пересаживать';
+  String get secondPageSubTitle =>
+      'Понятные карточки растений с важными параметрами ухода.Точно знайте, когда поливать и пересаживать';
 
   @override
   String get thirdPageTitle => 'Станьте экспертом по выращиванию';
 
   @override
-  String get thirdPageSubTitle => 'Персонализированные гайды с пошаговыми инструкциями.От семечка до цветущего растения под вашим руководством';
+  String get thirdPageSubTitle =>
+      'Персонализированные гайды с пошаговыми инструкциями.От семечка до цветущего растения под вашим руководством';
 
   @override
   String get next => 'Далее';
@@ -300,4 +309,101 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get register => 'Создайте аккаунт';
+
+  @override
+  String get nameHint => 'Имя';
+
+  @override
+  String get passwordHint => 'Пароль';
+
+  @override
+  String get loginButton => 'Войти';
+
+  @override
+  String get enterNameError => 'Введите имя';
+
+  @override
+  String get nameTooShortError => 'Имя слишком короткое';
+
+  @override
+  String get enterPasswordError => 'Введите пароль';
+
+  @override
+  String get passwordTooShortError => 'Пароль меньше 8 символов';
+
+  @override
+  String get loginSuccess => 'Успешный вход в аккаунт!';
+
+  @override
+  String get orSeparator => 'ИЛИ';
+
+  @override
+  String get noAccountQuestion => 'Не имеете аккаунта?';
+
+  @override
+  String get registerAction => 'Зарегистрируйтесь!';
+
+  @override
+  String get enterEmailError => 'Введите email';
+
+  @override
+  String get emailInvalidError => 'Введите корректный email';
+
+  @override
+  String get registrationSuccess =>
+      'Регистрация прошла успешно! Теперь вы можете войти в систему.';
+
+  @override
+  String get emailHint => 'Почта';
+
+  @override
+  String get confirmPasswordHint => 'Повторите пароль';
+
+  @override
+  String get passwordMatchError => 'Пароли не совпадают';
+
+  @override
+  String get registerButton => 'Зарегистрироваться';
+
+  @override
+  String get alreadyHaveAccountQuestion => 'Уже есть аккаунт?';
+
+  @override
+  String get loginAction => 'Войдите!';
+
+  @override
+  String get loginError => 'Ошибка входа';
+
+  @override
+  String get invalidCredentialsError => 'Неверное имя пользователя или пароль';
+
+  @override
+  String get badRequestError => 'Некорректные данные для входа';
+
+  @override
+  String get noInternetError => 'Отсутствует подключение к интернету';
+
+  @override
+  String get serverUnavailableError =>
+      'Сервер временно недоступен, попробуйте позже';
+
+  @override
+  String get unknownError => 'Произошла ошибка при входе в приложение';
+
+  @override
+  String get registrationError => 'Ошибка регистрации';
+
+  @override
+  String get usernameAlreadyExists =>
+      'Пользователь с таким именем уже существует';
+
+  @override
+  String get emailAlreadyExists => 'Пользователь с таким email уже существует';
+
+  @override
+  String get badRequestRegistrationError =>
+      'Некорректные данные для регистрации';
+
+  @override
+  String get unknownRegistrationError => 'Произошла ошибка при регистрации';
 }

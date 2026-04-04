@@ -65,4 +65,4 @@ class CustomSnackBar {
         return Colors.blue;
     }
   }
-} 
+}
