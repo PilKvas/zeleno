@@ -4,23 +4,23 @@ import 'package:zeleno_v2/features/navigation/router.gr.dart';
 @AutoRouterConfig(replaceInRouteName: 'Screen|Page,Route')
 class AppRouter extends RootStackRouter {
   @override
-  RouteType get defaultRouteType => const RouteType.cupertino();
+  RouteType get defaultRouteType => const RouteType.adaptive();
+
+  static RouteType get _noTransition => RouteType.custom(
+        transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+            child,
+        durationInMilliseconds: 100,
+      );
 
   @override
   List<AutoRoute> get routes => [
         AutoRoute(
+          page: SplashRoute.page,
           initial: true,
+        ),
+        AutoRoute(
           page: OnBoardingRoute.page,
         ),
-        AutoRoute(
-          page: RegistrationRoute.page,
-        ),
-        AutoRoute(
-          page: LoginRoute.page,
-        ),
-        // AutoRoute(
-        //   page: PlantDetailsRoute.page,
-        // ),
         AutoRoute(
           page: HomeRoute.page,
           children: [
@@ -44,8 +44,15 @@ class AppRouter extends RootStackRouter {
               children: [
                 AutoRoute(
                   initial: true,
+                  page: LoginRoute.page,
+                ),
+                AutoRoute(
+                  page: RegistrationRoute.page,
+                ),
+                AutoRoute(
                   page: ProfileRoute.page,
-                )
+                  type: _noTransition,
+                ),
               ],
             ),
           ],

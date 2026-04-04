@@ -40,8 +40,7 @@ class _Content extends StatelessWidget {
       listener: (context, state) {
         if (state.status == Status.success) {
           _onSuccess(context);
-        } else if (state.status == Status.failure &&
-            state.error != null) {
+        } else if (state.status == Status.failure && state.error != null) {
           _onError(context, mapErrorToMessage(state.error!, context.l10n));
         }
       },
@@ -70,14 +69,8 @@ class _Content extends StatelessWidget {
   }
 
   void _onSuccess(BuildContext context) {
-    CustomSnackBar.show(
-      context: context,
-      message: context.l10n.loginSuccess,
-      type: SnackBarType.success,
-    );
-
     context.router.pushAndPopUntil(
-      const HomeRoute(),
+      const ProfileRoute(),
       predicate: (_) => false,
     );
   }
