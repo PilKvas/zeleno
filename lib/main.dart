@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:zeleno_v2/app/di/di.dart';
+import 'package:zeleno_v2/features/auth/domain/repository/i_auth_repository.dart';
+import 'package:zeleno_v2/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:zeleno_v2/features/navigation/router.dart';
 import 'package:zeleno_v2/l10n/gen/app_localizations.dart';
 import 'package:zeleno_v2/uikit/theme/color_theme.dart';
@@ -10,6 +14,7 @@ import 'package:zeleno_v2/uikit/theme/typography.dart';
 
 void main() async {
   final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await initializeDependencies();
 
   runApp(const MyApp());
@@ -39,7 +44,9 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return BlocProvider(
+      create: (_) => AuthCubit(authRepository: injection<IAuthRepository>()),
+      child: MaterialApp.router(
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -54,6 +61,7 @@ class _MyAppState extends State<MyApp> {
       darkTheme: zelenoThemeDark.createThemeData(),
       title: 'Flutter Demo',
       routerConfig: _appRouter.config(),
+      ),
     );
   }
 }

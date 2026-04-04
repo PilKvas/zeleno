@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
       routes: const [
         RoomRoute(),
         PlantsSearchRoute(),
-        ProfileRoute(),
+        LoginRoute(),
       ],
       bottomNavigationBuilder: (context, tabsRouter) {
         final colorScheme = ZColorScheme.of(context);

@@ -81,7 +81,6 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Shimmer for image placeholder
             Shimmer.fromColors(
               baseColor: Colors.grey,
               highlightColor: color.surface,
@@ -146,7 +145,7 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
       sliver: SliverList(
         delegate: SliverChildBuilderDelegate(
           (context, index) => _buildShimmerItem(context),
-          childCount: 6, // Number of shimmer items to show
+          childCount: 6,
         ),
       ),
     );
@@ -212,7 +211,8 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
                                             showModalBottomSheet(
                                               context: context,
                                               isScrollControlled: true,
-                                              builder: (context) => BlocProvider.value(
+                                              builder: (context) =>
+                                                  BlocProvider.value(
                                                 value: bloc,
                                                 child: PlantSearchFiltersSheet(
                                                   bloc: bloc,
@@ -298,7 +298,7 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
 
                                 return const SliverToBoxAdapter();
                               },
-                            )
+                            ),
                           ],
                         ),
                       ),

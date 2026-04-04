@@ -306,7 +306,7 @@ class PartsColorBark with _$PartsColorBark {
 
 enum ZColor {
   @JsonValue("Green")
-  GREEN,
+  Green,
   @JsonValue("Blue")
   BLUE,
   @JsonValue("Black")
@@ -330,7 +330,7 @@ enum ZColor {
 }
 
 final colorValues = EnumValues({
-  "Green": ZColor.GREEN,
+  "Green": ZColor.Green,
   "Blue": ZColor.BLUE,
   "Black": ZColor.BLACK,
   "Orange": ZColor.ORANGE,

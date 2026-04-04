@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zeleno_v2/app/di/di.dart';
 import 'package:zeleno_v2/features/core/enums/status.dart';
-import 'package:zeleno_v2/features/core/widgets/custom_snackbar.dart';
 import 'package:zeleno_v2/features/plant_details/presentation/cubit/garden_cubit.dart';
 import 'package:zeleno_v2/features/rooms/domain/models/room_model.dart';
 import 'package:zeleno_v2/features/rooms/presentation/cubit/room_plants_cubit.dart';
@@ -83,14 +82,14 @@ class _RoomScreenState extends State<RoomScreen> {
         builder: (context) {
           return BlocConsumer<RoomsCubit, RoomsState>(
             listener: (context, state) {
-              if (state.status == Status.failure &&
-                  state.errorMessage != null) {
-                CustomSnackBar.show(
-                  context: context,
-                  message: state.errorMessage!,
-                  type: SnackBarType.error,
-                );
-              }
+              // if (state.status == Status.failure &&
+              //     state.errorMessage != null) {
+              //   CustomSnackBar.show(
+              //     context: context,
+              //     message: state.errorMessage!,
+              //     type: SnackBarType.error,
+              //   );
+              // }
 
               if (state.status == Status.success && _selectedRoom != null) {
                 final roomExists =
