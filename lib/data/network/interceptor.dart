@@ -101,18 +101,42 @@ class MiddlewareInterceptor extends Interceptor {
           try {
             response = ErrorResponse.fromJson(data);
           } catch (_) {
-            final detail = data['detail'] as String?;
-            response = detail != null
+            final message = data['message'] as String?;
+            final error = data['error'] as String?;
+            response = message != null && error != null
                 ? ErrorResponse(
-                    code: 'conflict',
-                    detail: detail,
-                    errors: const [],
+                    error: error,
+                    message: message,
                   )
                 : null;
           }
         }
         handler.reject(
           Conflict(
+            requestOptions: err.requestOptions,
+            errorResponse: response,
+          ),
+        );
+        return;
+      case 422:
+        ErrorResponse? response;
+        if (err.response?.data is Map<String, dynamic>) {
+          final data = err.response!.data as Map<String, dynamic>;
+          try {
+            response = ErrorResponse.fromJson(data);
+          } catch (_) {
+            final message = data['message'] as String?;
+            final error = data['error'] as String?;
+            response = message != null && error != null
+                ? ErrorResponse(
+                    error: error,
+                    message: message,
+                  )
+                : null;
+          }
+        }
+        handler.reject(
+          UnprocessableError(
             requestOptions: err.requestOptions,
             errorResponse: response,
           ),

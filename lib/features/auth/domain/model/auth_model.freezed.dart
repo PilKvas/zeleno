@@ -20,8 +20,7 @@ AuthModel _$AuthModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AuthModel {
-  String? get email => throw _privateConstructorUsedError;
-  String get username => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
 
   /// Serializes this AuthModel to a JSON map.
@@ -39,7 +38,7 @@ abstract class $AuthModelCopyWith<$Res> {
   factory $AuthModelCopyWith(AuthModel value, $Res Function(AuthModel) then) =
       _$AuthModelCopyWithImpl<$Res, AuthModel>;
   @useResult
-  $Res call({String? email, String username, String password});
+  $Res call({String email, String password});
 }
 
 /// @nodoc
@@ -57,18 +56,13 @@ class _$AuthModelCopyWithImpl<$Res, $Val extends AuthModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
-    Object? username = null,
+    Object? email = null,
     Object? password = null,
   }) {
     return _then(_value.copyWith(
-      email: freezed == email
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
               as String,
       password: null == password
           ? _value.password
@@ -86,7 +80,7 @@ abstract class _$$AuthModelImplCopyWith<$Res>
       __$$AuthModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? email, String username, String password});
+  $Res call({String email, String password});
 }
 
 /// @nodoc
@@ -102,18 +96,13 @@ class __$$AuthModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
-    Object? username = null,
+    Object? email = null,
     Object? password = null,
   }) {
     return _then(_$AuthModelImpl(
-      email: freezed == email
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
               as String,
       password: null == password
           ? _value.password
@@ -126,22 +115,19 @@ class __$$AuthModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$AuthModelImpl implements _AuthModel {
-  const _$AuthModelImpl(
-      {this.email, required this.username, required this.password});
+  const _$AuthModelImpl({required this.email, required this.password});
 
   factory _$AuthModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$AuthModelImplFromJson(json);
 
   @override
-  final String? email;
-  @override
-  final String username;
+  final String email;
   @override
   final String password;
 
   @override
   String toString() {
-    return 'AuthModel(email: $email, username: $username, password: $password)';
+    return 'AuthModel(email: $email, password: $password)';
   }
 
   @override
@@ -150,15 +136,13 @@ class _$AuthModelImpl implements _AuthModel {
         (other.runtimeType == runtimeType &&
             other is _$AuthModelImpl &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.username, username) ||
-                other.username == username) &&
             (identical(other.password, password) ||
                 other.password == password));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, email, username, password);
+  int get hashCode => Object.hash(runtimeType, email, password);
 
   /// Create a copy of AuthModel
   /// with the given fields replaced by the non-null parameter values.
@@ -178,17 +162,14 @@ class _$AuthModelImpl implements _AuthModel {
 
 abstract class _AuthModel implements AuthModel {
   const factory _AuthModel(
-      {final String? email,
-      required final String username,
+      {required final String email,
       required final String password}) = _$AuthModelImpl;
 
   factory _AuthModel.fromJson(Map<String, dynamic> json) =
       _$AuthModelImpl.fromJson;
 
   @override
-  String? get email;
-  @override
-  String get username;
+  String get email;
   @override
   String get password;
 

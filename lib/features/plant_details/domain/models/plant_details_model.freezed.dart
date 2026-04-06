@@ -20,88 +20,88 @@ PlantDetailsModel _$PlantDetailsModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PlantDetailsModel {
-  @JsonKey(name: "main_common_name")
-  String? get mainCommonName => throw _privateConstructorUsedError;
-  @JsonKey(name: "id")
+  @JsonKey(name: 'id')
   int? get id => throw _privateConstructorUsedError;
-  @JsonKey(name: "tags")
-  List<String>? get tags => throw _privateConstructorUsedError;
-  @JsonKey(name: "synonyms")
-  List<String>? get synonyms => throw _privateConstructorUsedError;
-  @JsonKey(name: "sources")
-  List<Source>? get sources => throw _privateConstructorUsedError;
-  @JsonKey(name: "common_names")
-  Map<String, List<String>>? get commonNames =>
-      throw _privateConstructorUsedError;
-  @JsonKey(name: "images")
-  Images? get images => throw _privateConstructorUsedError;
-  @JsonKey(name: "pathogens")
-  Pathogens? get pathogens => throw _privateConstructorUsedError;
-  @JsonKey(name: "growth_tips")
-  GrowthTips? get growthTips => throw _privateConstructorUsedError;
-  @JsonKey(name: "distributions")
-  List<Distribution>? get distributions => throw _privateConstructorUsedError;
-  @JsonKey(name: "regular_events")
-  List<RegularEvent>? get regularEvents => throw _privateConstructorUsedError;
-  @JsonKey(name: "parts_color")
-  PartsColor? get partsColor => throw _privateConstructorUsedError;
-  @JsonKey(name: "exposure")
-  Exposure? get exposure => throw _privateConstructorUsedError;
-  @JsonKey(name: "duration")
-  dynamic get duration => throw _privateConstructorUsedError;
-  @JsonKey(name: "edible_part")
-  List<dynamic>? get ediblePart => throw _privateConstructorUsedError;
-  @JsonKey(name: "soil_type")
-  List<Exposure>? get soilType => throw _privateConstructorUsedError;
-  @JsonKey(name: "soil_moisture")
-  List<Exposure>? get soilMoisture => throw _privateConstructorUsedError;
-  @JsonKey(name: "soil_ph")
-  List<Exposure>? get soilPh => throw _privateConstructorUsedError;
-  @JsonKey(name: "position_sunlight")
-  List<Exposure>? get positionSunlight => throw _privateConstructorUsedError;
-  @JsonKey(name: "position_side")
-  List<Exposure>? get positionSide => throw _privateConstructorUsedError;
-  @JsonKey(name: "fragrance")
-  List<Exposure>? get fragrance => throw _privateConstructorUsedError;
-  @JsonKey(name: "harvest")
-  List<Exposure>? get harvest => throw _privateConstructorUsedError;
-  @JsonKey(name: "planting")
-  List<Exposure>? get planting => throw _privateConstructorUsedError;
-  @JsonKey(name: "toxicity")
-  List<Exposure>? get toxicity => throw _privateConstructorUsedError;
-  @JsonKey(name: "foliage")
-  List<Exposure>? get foliage => throw _privateConstructorUsedError;
-  @JsonKey(name: "habit")
-  List<Exposure>? get habit => throw _privateConstructorUsedError;
-  @JsonKey(name: "height_cm")
-  HeightCm? get heightCm => throw _privateConstructorUsedError;
-  @JsonKey(name: "years_to_max_height")
-  HeightCm? get yearsToMaxHeight => throw _privateConstructorUsedError;
-  @JsonKey(name: "spread_cm")
-  HeightCm? get spreadCm => throw _privateConstructorUsedError;
-  @JsonKey(name: "scientific_classification")
-  ScientificClassification? get scientificClassification =>
-      throw _privateConstructorUsedError;
-  @JsonKey(name: "slug")
-  String? get slug => throw _privateConstructorUsedError;
-  @JsonKey(name: "latin_name")
-  String? get latinName => throw _privateConstructorUsedError;
-  @JsonKey(name: "image_url")
-  String? get imageUrl => throw _privateConstructorUsedError;
-  @JsonKey(name: "genus_description")
-  String? get genusDescription => throw _privateConstructorUsedError;
-  @JsonKey(name: "edible")
-  dynamic get edible => throw _privateConstructorUsedError;
-  @JsonKey(name: "rating")
-  int? get rating => throw _privateConstructorUsedError;
-  @JsonKey(name: "cultivation")
-  String? get cultivation => throw _privateConstructorUsedError;
-  @JsonKey(name: "created")
+  @JsonKey(name: 'common_names')
+  List<CommonNameEntry>? get commonNames => throw _privateConstructorUsedError;
+  @JsonKey(name: 'created')
   DateTime? get created => throw _privateConstructorUsedError;
-  @JsonKey(name: "modified")
+  @JsonKey(name: 'cultivation')
+  String? get cultivation => throw _privateConstructorUsedError;
+  @JsonKey(name: 'duration')
+  List<String>? get duration => throw _privateConstructorUsedError;
+  @JsonKey(name: 'edible_parts')
+  List<NamedSlug>? get edibleParts => throw _privateConstructorUsedError;
+  @JsonKey(name: 'exposure')
+  List<String>? get exposure => throw _privateConstructorUsedError;
+  @JsonKey(name: 'foliage')
+  List<String>? get foliage => throw _privateConstructorUsedError;
+  @JsonKey(name: 'fragrance')
+  List<String>? get fragrance => throw _privateConstructorUsedError;
+  @JsonKey(name: 'genus_description')
+  String? get genusDescription => throw _privateConstructorUsedError;
+  @JsonKey(name: 'growth_tips')
+  List<GrowthTip>? get growthTips => throw _privateConstructorUsedError;
+  @JsonKey(name: 'habit')
+  List<NamedSlug>? get habit => throw _privateConstructorUsedError;
+  @JsonKey(name: 'hardiness_zone')
+  String? get hardinessZone => throw _privateConstructorUsedError;
+  @JsonKey(name: 'harvest')
+  List<String>? get harvest => throw _privateConstructorUsedError;
+  @JsonKey(name: 'height_max_cm')
+  int? get heightMaxCm => throw _privateConstructorUsedError;
+  @JsonKey(name: 'height_min_cm')
+  int? get heightMinCm => throw _privateConstructorUsedError;
+  @JsonKey(name: 'image_url')
+  String? get imageUrl => throw _privateConstructorUsedError;
+  @JsonKey(name: 'images')
+  List<PlantImageItem>? get images => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_edible')
+  bool? get isEdible => throw _privateConstructorUsedError;
+  @JsonKey(name: 'latin_name')
+  String? get latinName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'misc')
+  PlantMisc? get misc => throw _privateConstructorUsedError;
+  @JsonKey(name: 'modified')
   DateTime? get modified => throw _privateConstructorUsedError;
-  @JsonKey(name: "misc")
-  Misc? get misc => throw _privateConstructorUsedError;
+  @JsonKey(name: 'parts_color')
+  List<PartColorGroup>? get partsColor => throw _privateConstructorUsedError;
+  @JsonKey(name: 'pathogens')
+  List<PathogenItem>? get pathogens => throw _privateConstructorUsedError;
+  @JsonKey(name: 'planting')
+  List<String>? get planting => throw _privateConstructorUsedError;
+  @JsonKey(name: 'position_side')
+  List<String>? get positionSide => throw _privateConstructorUsedError;
+  @JsonKey(name: 'position_sunlight')
+  List<String>? get positionSunlight => throw _privateConstructorUsedError;
+  @JsonKey(name: 'rating')
+  int? get rating => throw _privateConstructorUsedError;
+  @JsonKey(name: 'regular_events')
+  List<RegularEvent>? get regularEvents => throw _privateConstructorUsedError;
+  @JsonKey(name: 'slug')
+  String? get slug => throw _privateConstructorUsedError;
+  @JsonKey(name: 'soil_moisture')
+  List<String>? get soilMoisture => throw _privateConstructorUsedError;
+  @JsonKey(name: 'soil_ph')
+  List<String>? get soilPh => throw _privateConstructorUsedError;
+  @JsonKey(name: 'soil_types')
+  List<NamedSlug>? get soilTypes => throw _privateConstructorUsedError;
+  @JsonKey(name: 'sources')
+  List<Source>? get sources => throw _privateConstructorUsedError;
+  @JsonKey(name: 'spread_max_cm')
+  int? get spreadMaxCm => throw _privateConstructorUsedError;
+  @JsonKey(name: 'spread_min_cm')
+  int? get spreadMinCm => throw _privateConstructorUsedError;
+  @JsonKey(name: 'synonyms')
+  List<SynonymItem>? get synonyms => throw _privateConstructorUsedError;
+  @JsonKey(name: 'tags')
+  List<PlantTag>? get tags => throw _privateConstructorUsedError;
+  @JsonKey(name: 'toxicity')
+  List<String>? get toxicity => throw _privateConstructorUsedError;
+  @JsonKey(name: 'years_to_max_height_max')
+  int? get yearsToMaxHeightMax => throw _privateConstructorUsedError;
+  @JsonKey(name: 'years_to_max_height_min')
+  int? get yearsToMaxHeightMin => throw _privateConstructorUsedError;
 
   /// Serializes this PlantDetailsModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -120,58 +120,49 @@ abstract class $PlantDetailsModelCopyWith<$Res> {
       _$PlantDetailsModelCopyWithImpl<$Res, PlantDetailsModel>;
   @useResult
   $Res call(
-      {@JsonKey(name: "main_common_name") String? mainCommonName,
-      @JsonKey(name: "id") int? id,
-      @JsonKey(name: "tags") List<String>? tags,
-      @JsonKey(name: "synonyms") List<String>? synonyms,
-      @JsonKey(name: "sources") List<Source>? sources,
-      @JsonKey(name: "common_names") Map<String, List<String>>? commonNames,
-      @JsonKey(name: "images") Images? images,
-      @JsonKey(name: "pathogens") Pathogens? pathogens,
-      @JsonKey(name: "growth_tips") GrowthTips? growthTips,
-      @JsonKey(name: "distributions") List<Distribution>? distributions,
-      @JsonKey(name: "regular_events") List<RegularEvent>? regularEvents,
-      @JsonKey(name: "parts_color") PartsColor? partsColor,
-      @JsonKey(name: "exposure") Exposure? exposure,
-      @JsonKey(name: "duration") dynamic duration,
-      @JsonKey(name: "edible_part") List<dynamic>? ediblePart,
-      @JsonKey(name: "soil_type") List<Exposure>? soilType,
-      @JsonKey(name: "soil_moisture") List<Exposure>? soilMoisture,
-      @JsonKey(name: "soil_ph") List<Exposure>? soilPh,
-      @JsonKey(name: "position_sunlight") List<Exposure>? positionSunlight,
-      @JsonKey(name: "position_side") List<Exposure>? positionSide,
-      @JsonKey(name: "fragrance") List<Exposure>? fragrance,
-      @JsonKey(name: "harvest") List<Exposure>? harvest,
-      @JsonKey(name: "planting") List<Exposure>? planting,
-      @JsonKey(name: "toxicity") List<Exposure>? toxicity,
-      @JsonKey(name: "foliage") List<Exposure>? foliage,
-      @JsonKey(name: "habit") List<Exposure>? habit,
-      @JsonKey(name: "height_cm") HeightCm? heightCm,
-      @JsonKey(name: "years_to_max_height") HeightCm? yearsToMaxHeight,
-      @JsonKey(name: "spread_cm") HeightCm? spreadCm,
-      @JsonKey(name: "scientific_classification")
-      ScientificClassification? scientificClassification,
-      @JsonKey(name: "slug") String? slug,
-      @JsonKey(name: "latin_name") String? latinName,
-      @JsonKey(name: "image_url") String? imageUrl,
-      @JsonKey(name: "genus_description") String? genusDescription,
-      @JsonKey(name: "edible") dynamic edible,
-      @JsonKey(name: "rating") int? rating,
-      @JsonKey(name: "cultivation") String? cultivation,
-      @JsonKey(name: "created") DateTime? created,
-      @JsonKey(name: "modified") DateTime? modified,
-      @JsonKey(name: "misc") Misc? misc});
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'common_names') List<CommonNameEntry>? commonNames,
+      @JsonKey(name: 'created') DateTime? created,
+      @JsonKey(name: 'cultivation') String? cultivation,
+      @JsonKey(name: 'duration') List<String>? duration,
+      @JsonKey(name: 'edible_parts') List<NamedSlug>? edibleParts,
+      @JsonKey(name: 'exposure') List<String>? exposure,
+      @JsonKey(name: 'foliage') List<String>? foliage,
+      @JsonKey(name: 'fragrance') List<String>? fragrance,
+      @JsonKey(name: 'genus_description') String? genusDescription,
+      @JsonKey(name: 'growth_tips') List<GrowthTip>? growthTips,
+      @JsonKey(name: 'habit') List<NamedSlug>? habit,
+      @JsonKey(name: 'hardiness_zone') String? hardinessZone,
+      @JsonKey(name: 'harvest') List<String>? harvest,
+      @JsonKey(name: 'height_max_cm') int? heightMaxCm,
+      @JsonKey(name: 'height_min_cm') int? heightMinCm,
+      @JsonKey(name: 'image_url') String? imageUrl,
+      @JsonKey(name: 'images') List<PlantImageItem>? images,
+      @JsonKey(name: 'is_edible') bool? isEdible,
+      @JsonKey(name: 'latin_name') String? latinName,
+      @JsonKey(name: 'misc') PlantMisc? misc,
+      @JsonKey(name: 'modified') DateTime? modified,
+      @JsonKey(name: 'parts_color') List<PartColorGroup>? partsColor,
+      @JsonKey(name: 'pathogens') List<PathogenItem>? pathogens,
+      @JsonKey(name: 'planting') List<String>? planting,
+      @JsonKey(name: 'position_side') List<String>? positionSide,
+      @JsonKey(name: 'position_sunlight') List<String>? positionSunlight,
+      @JsonKey(name: 'rating') int? rating,
+      @JsonKey(name: 'regular_events') List<RegularEvent>? regularEvents,
+      @JsonKey(name: 'slug') String? slug,
+      @JsonKey(name: 'soil_moisture') List<String>? soilMoisture,
+      @JsonKey(name: 'soil_ph') List<String>? soilPh,
+      @JsonKey(name: 'soil_types') List<NamedSlug>? soilTypes,
+      @JsonKey(name: 'sources') List<Source>? sources,
+      @JsonKey(name: 'spread_max_cm') int? spreadMaxCm,
+      @JsonKey(name: 'spread_min_cm') int? spreadMinCm,
+      @JsonKey(name: 'synonyms') List<SynonymItem>? synonyms,
+      @JsonKey(name: 'tags') List<PlantTag>? tags,
+      @JsonKey(name: 'toxicity') List<String>? toxicity,
+      @JsonKey(name: 'years_to_max_height_max') int? yearsToMaxHeightMax,
+      @JsonKey(name: 'years_to_max_height_min') int? yearsToMaxHeightMin});
 
-  $ImagesCopyWith<$Res>? get images;
-  $PathogensCopyWith<$Res>? get pathogens;
-  $GrowthTipsCopyWith<$Res>? get growthTips;
-  $PartsColorCopyWith<$Res>? get partsColor;
-  $ExposureCopyWith<$Res>? get exposure;
-  $HeightCmCopyWith<$Res>? get heightCm;
-  $HeightCmCopyWith<$Res>? get yearsToMaxHeight;
-  $HeightCmCopyWith<$Res>? get spreadCm;
-  $ScientificClassificationCopyWith<$Res>? get scientificClassification;
-  $MiscCopyWith<$Res>? get misc;
+  $PlantMiscCopyWith<$Res>? get misc;
 }
 
 /// @nodoc
@@ -189,208 +180,213 @@ class _$PlantDetailsModelCopyWithImpl<$Res, $Val extends PlantDetailsModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? mainCommonName = freezed,
     Object? id = freezed,
-    Object? tags = freezed,
-    Object? synonyms = freezed,
-    Object? sources = freezed,
     Object? commonNames = freezed,
-    Object? images = freezed,
-    Object? pathogens = freezed,
-    Object? growthTips = freezed,
-    Object? distributions = freezed,
-    Object? regularEvents = freezed,
-    Object? partsColor = freezed,
-    Object? exposure = freezed,
+    Object? created = freezed,
+    Object? cultivation = freezed,
     Object? duration = freezed,
-    Object? ediblePart = freezed,
-    Object? soilType = freezed,
+    Object? edibleParts = freezed,
+    Object? exposure = freezed,
+    Object? foliage = freezed,
+    Object? fragrance = freezed,
+    Object? genusDescription = freezed,
+    Object? growthTips = freezed,
+    Object? habit = freezed,
+    Object? hardinessZone = freezed,
+    Object? harvest = freezed,
+    Object? heightMaxCm = freezed,
+    Object? heightMinCm = freezed,
+    Object? imageUrl = freezed,
+    Object? images = freezed,
+    Object? isEdible = freezed,
+    Object? latinName = freezed,
+    Object? misc = freezed,
+    Object? modified = freezed,
+    Object? partsColor = freezed,
+    Object? pathogens = freezed,
+    Object? planting = freezed,
+    Object? positionSide = freezed,
+    Object? positionSunlight = freezed,
+    Object? rating = freezed,
+    Object? regularEvents = freezed,
+    Object? slug = freezed,
     Object? soilMoisture = freezed,
     Object? soilPh = freezed,
-    Object? positionSunlight = freezed,
-    Object? positionSide = freezed,
-    Object? fragrance = freezed,
-    Object? harvest = freezed,
-    Object? planting = freezed,
+    Object? soilTypes = freezed,
+    Object? sources = freezed,
+    Object? spreadMaxCm = freezed,
+    Object? spreadMinCm = freezed,
+    Object? synonyms = freezed,
+    Object? tags = freezed,
     Object? toxicity = freezed,
-    Object? foliage = freezed,
-    Object? habit = freezed,
-    Object? heightCm = freezed,
-    Object? yearsToMaxHeight = freezed,
-    Object? spreadCm = freezed,
-    Object? scientificClassification = freezed,
-    Object? slug = freezed,
-    Object? latinName = freezed,
-    Object? imageUrl = freezed,
-    Object? genusDescription = freezed,
-    Object? edible = freezed,
-    Object? rating = freezed,
-    Object? cultivation = freezed,
-    Object? created = freezed,
-    Object? modified = freezed,
-    Object? misc = freezed,
+    Object? yearsToMaxHeightMax = freezed,
+    Object? yearsToMaxHeightMin = freezed,
   }) {
     return _then(_value.copyWith(
-      mainCommonName: freezed == mainCommonName
-          ? _value.mainCommonName
-          : mainCommonName // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      tags: freezed == tags
-          ? _value.tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      synonyms: freezed == synonyms
-          ? _value.synonyms
-          : synonyms // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      sources: freezed == sources
-          ? _value.sources
-          : sources // ignore: cast_nullable_to_non_nullable
-              as List<Source>?,
       commonNames: freezed == commonNames
           ? _value.commonNames
           : commonNames // ignore: cast_nullable_to_non_nullable
-              as Map<String, List<String>>?,
-      images: freezed == images
-          ? _value.images
-          : images // ignore: cast_nullable_to_non_nullable
-              as Images?,
-      pathogens: freezed == pathogens
-          ? _value.pathogens
-          : pathogens // ignore: cast_nullable_to_non_nullable
-              as Pathogens?,
-      growthTips: freezed == growthTips
-          ? _value.growthTips
-          : growthTips // ignore: cast_nullable_to_non_nullable
-              as GrowthTips?,
-      distributions: freezed == distributions
-          ? _value.distributions
-          : distributions // ignore: cast_nullable_to_non_nullable
-              as List<Distribution>?,
-      regularEvents: freezed == regularEvents
-          ? _value.regularEvents
-          : regularEvents // ignore: cast_nullable_to_non_nullable
-              as List<RegularEvent>?,
-      partsColor: freezed == partsColor
-          ? _value.partsColor
-          : partsColor // ignore: cast_nullable_to_non_nullable
-              as PartsColor?,
-      exposure: freezed == exposure
-          ? _value.exposure
-          : exposure // ignore: cast_nullable_to_non_nullable
-              as Exposure?,
-      duration: freezed == duration
-          ? _value.duration
-          : duration // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      ediblePart: freezed == ediblePart
-          ? _value.ediblePart
-          : ediblePart // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
-      soilType: freezed == soilType
-          ? _value.soilType
-          : soilType // ignore: cast_nullable_to_non_nullable
-              as List<Exposure>?,
-      soilMoisture: freezed == soilMoisture
-          ? _value.soilMoisture
-          : soilMoisture // ignore: cast_nullable_to_non_nullable
-              as List<Exposure>?,
-      soilPh: freezed == soilPh
-          ? _value.soilPh
-          : soilPh // ignore: cast_nullable_to_non_nullable
-              as List<Exposure>?,
-      positionSunlight: freezed == positionSunlight
-          ? _value.positionSunlight
-          : positionSunlight // ignore: cast_nullable_to_non_nullable
-              as List<Exposure>?,
-      positionSide: freezed == positionSide
-          ? _value.positionSide
-          : positionSide // ignore: cast_nullable_to_non_nullable
-              as List<Exposure>?,
-      fragrance: freezed == fragrance
-          ? _value.fragrance
-          : fragrance // ignore: cast_nullable_to_non_nullable
-              as List<Exposure>?,
-      harvest: freezed == harvest
-          ? _value.harvest
-          : harvest // ignore: cast_nullable_to_non_nullable
-              as List<Exposure>?,
-      planting: freezed == planting
-          ? _value.planting
-          : planting // ignore: cast_nullable_to_non_nullable
-              as List<Exposure>?,
-      toxicity: freezed == toxicity
-          ? _value.toxicity
-          : toxicity // ignore: cast_nullable_to_non_nullable
-              as List<Exposure>?,
-      foliage: freezed == foliage
-          ? _value.foliage
-          : foliage // ignore: cast_nullable_to_non_nullable
-              as List<Exposure>?,
-      habit: freezed == habit
-          ? _value.habit
-          : habit // ignore: cast_nullable_to_non_nullable
-              as List<Exposure>?,
-      heightCm: freezed == heightCm
-          ? _value.heightCm
-          : heightCm // ignore: cast_nullable_to_non_nullable
-              as HeightCm?,
-      yearsToMaxHeight: freezed == yearsToMaxHeight
-          ? _value.yearsToMaxHeight
-          : yearsToMaxHeight // ignore: cast_nullable_to_non_nullable
-              as HeightCm?,
-      spreadCm: freezed == spreadCm
-          ? _value.spreadCm
-          : spreadCm // ignore: cast_nullable_to_non_nullable
-              as HeightCm?,
-      scientificClassification: freezed == scientificClassification
-          ? _value.scientificClassification
-          : scientificClassification // ignore: cast_nullable_to_non_nullable
-              as ScientificClassification?,
-      slug: freezed == slug
-          ? _value.slug
-          : slug // ignore: cast_nullable_to_non_nullable
-              as String?,
-      latinName: freezed == latinName
-          ? _value.latinName
-          : latinName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      imageUrl: freezed == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      genusDescription: freezed == genusDescription
-          ? _value.genusDescription
-          : genusDescription // ignore: cast_nullable_to_non_nullable
-              as String?,
-      edible: freezed == edible
-          ? _value.edible
-          : edible // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      rating: freezed == rating
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as int?,
-      cultivation: freezed == cultivation
-          ? _value.cultivation
-          : cultivation // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as List<CommonNameEntry>?,
       created: freezed == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      cultivation: freezed == cultivation
+          ? _value.cultivation
+          : cultivation // ignore: cast_nullable_to_non_nullable
+              as String?,
+      duration: freezed == duration
+          ? _value.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      edibleParts: freezed == edibleParts
+          ? _value.edibleParts
+          : edibleParts // ignore: cast_nullable_to_non_nullable
+              as List<NamedSlug>?,
+      exposure: freezed == exposure
+          ? _value.exposure
+          : exposure // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      foliage: freezed == foliage
+          ? _value.foliage
+          : foliage // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      fragrance: freezed == fragrance
+          ? _value.fragrance
+          : fragrance // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      genusDescription: freezed == genusDescription
+          ? _value.genusDescription
+          : genusDescription // ignore: cast_nullable_to_non_nullable
+              as String?,
+      growthTips: freezed == growthTips
+          ? _value.growthTips
+          : growthTips // ignore: cast_nullable_to_non_nullable
+              as List<GrowthTip>?,
+      habit: freezed == habit
+          ? _value.habit
+          : habit // ignore: cast_nullable_to_non_nullable
+              as List<NamedSlug>?,
+      hardinessZone: freezed == hardinessZone
+          ? _value.hardinessZone
+          : hardinessZone // ignore: cast_nullable_to_non_nullable
+              as String?,
+      harvest: freezed == harvest
+          ? _value.harvest
+          : harvest // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      heightMaxCm: freezed == heightMaxCm
+          ? _value.heightMaxCm
+          : heightMaxCm // ignore: cast_nullable_to_non_nullable
+              as int?,
+      heightMinCm: freezed == heightMinCm
+          ? _value.heightMinCm
+          : heightMinCm // ignore: cast_nullable_to_non_nullable
+              as int?,
+      imageUrl: freezed == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      images: freezed == images
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<PlantImageItem>?,
+      isEdible: freezed == isEdible
+          ? _value.isEdible
+          : isEdible // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      latinName: freezed == latinName
+          ? _value.latinName
+          : latinName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      misc: freezed == misc
+          ? _value.misc
+          : misc // ignore: cast_nullable_to_non_nullable
+              as PlantMisc?,
       modified: freezed == modified
           ? _value.modified
           : modified // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      misc: freezed == misc
-          ? _value.misc
-          : misc // ignore: cast_nullable_to_non_nullable
-              as Misc?,
+      partsColor: freezed == partsColor
+          ? _value.partsColor
+          : partsColor // ignore: cast_nullable_to_non_nullable
+              as List<PartColorGroup>?,
+      pathogens: freezed == pathogens
+          ? _value.pathogens
+          : pathogens // ignore: cast_nullable_to_non_nullable
+              as List<PathogenItem>?,
+      planting: freezed == planting
+          ? _value.planting
+          : planting // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      positionSide: freezed == positionSide
+          ? _value.positionSide
+          : positionSide // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      positionSunlight: freezed == positionSunlight
+          ? _value.positionSunlight
+          : positionSunlight // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      rating: freezed == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as int?,
+      regularEvents: freezed == regularEvents
+          ? _value.regularEvents
+          : regularEvents // ignore: cast_nullable_to_non_nullable
+              as List<RegularEvent>?,
+      slug: freezed == slug
+          ? _value.slug
+          : slug // ignore: cast_nullable_to_non_nullable
+              as String?,
+      soilMoisture: freezed == soilMoisture
+          ? _value.soilMoisture
+          : soilMoisture // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      soilPh: freezed == soilPh
+          ? _value.soilPh
+          : soilPh // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      soilTypes: freezed == soilTypes
+          ? _value.soilTypes
+          : soilTypes // ignore: cast_nullable_to_non_nullable
+              as List<NamedSlug>?,
+      sources: freezed == sources
+          ? _value.sources
+          : sources // ignore: cast_nullable_to_non_nullable
+              as List<Source>?,
+      spreadMaxCm: freezed == spreadMaxCm
+          ? _value.spreadMaxCm
+          : spreadMaxCm // ignore: cast_nullable_to_non_nullable
+              as int?,
+      spreadMinCm: freezed == spreadMinCm
+          ? _value.spreadMinCm
+          : spreadMinCm // ignore: cast_nullable_to_non_nullable
+              as int?,
+      synonyms: freezed == synonyms
+          ? _value.synonyms
+          : synonyms // ignore: cast_nullable_to_non_nullable
+              as List<SynonymItem>?,
+      tags: freezed == tags
+          ? _value.tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<PlantTag>?,
+      toxicity: freezed == toxicity
+          ? _value.toxicity
+          : toxicity // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      yearsToMaxHeightMax: freezed == yearsToMaxHeightMax
+          ? _value.yearsToMaxHeightMax
+          : yearsToMaxHeightMax // ignore: cast_nullable_to_non_nullable
+              as int?,
+      yearsToMaxHeightMin: freezed == yearsToMaxHeightMin
+          ? _value.yearsToMaxHeightMin
+          : yearsToMaxHeightMin // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 
@@ -398,139 +394,12 @@ class _$PlantDetailsModelCopyWithImpl<$Res, $Val extends PlantDetailsModel>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ImagesCopyWith<$Res>? get images {
-    if (_value.images == null) {
-      return null;
-    }
-
-    return $ImagesCopyWith<$Res>(_value.images!, (value) {
-      return _then(_value.copyWith(images: value) as $Val);
-    });
-  }
-
-  /// Create a copy of PlantDetailsModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PathogensCopyWith<$Res>? get pathogens {
-    if (_value.pathogens == null) {
-      return null;
-    }
-
-    return $PathogensCopyWith<$Res>(_value.pathogens!, (value) {
-      return _then(_value.copyWith(pathogens: value) as $Val);
-    });
-  }
-
-  /// Create a copy of PlantDetailsModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $GrowthTipsCopyWith<$Res>? get growthTips {
-    if (_value.growthTips == null) {
-      return null;
-    }
-
-    return $GrowthTipsCopyWith<$Res>(_value.growthTips!, (value) {
-      return _then(_value.copyWith(growthTips: value) as $Val);
-    });
-  }
-
-  /// Create a copy of PlantDetailsModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PartsColorCopyWith<$Res>? get partsColor {
-    if (_value.partsColor == null) {
-      return null;
-    }
-
-    return $PartsColorCopyWith<$Res>(_value.partsColor!, (value) {
-      return _then(_value.copyWith(partsColor: value) as $Val);
-    });
-  }
-
-  /// Create a copy of PlantDetailsModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ExposureCopyWith<$Res>? get exposure {
-    if (_value.exposure == null) {
-      return null;
-    }
-
-    return $ExposureCopyWith<$Res>(_value.exposure!, (value) {
-      return _then(_value.copyWith(exposure: value) as $Val);
-    });
-  }
-
-  /// Create a copy of PlantDetailsModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $HeightCmCopyWith<$Res>? get heightCm {
-    if (_value.heightCm == null) {
-      return null;
-    }
-
-    return $HeightCmCopyWith<$Res>(_value.heightCm!, (value) {
-      return _then(_value.copyWith(heightCm: value) as $Val);
-    });
-  }
-
-  /// Create a copy of PlantDetailsModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $HeightCmCopyWith<$Res>? get yearsToMaxHeight {
-    if (_value.yearsToMaxHeight == null) {
-      return null;
-    }
-
-    return $HeightCmCopyWith<$Res>(_value.yearsToMaxHeight!, (value) {
-      return _then(_value.copyWith(yearsToMaxHeight: value) as $Val);
-    });
-  }
-
-  /// Create a copy of PlantDetailsModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $HeightCmCopyWith<$Res>? get spreadCm {
-    if (_value.spreadCm == null) {
-      return null;
-    }
-
-    return $HeightCmCopyWith<$Res>(_value.spreadCm!, (value) {
-      return _then(_value.copyWith(spreadCm: value) as $Val);
-    });
-  }
-
-  /// Create a copy of PlantDetailsModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ScientificClassificationCopyWith<$Res>? get scientificClassification {
-    if (_value.scientificClassification == null) {
-      return null;
-    }
-
-    return $ScientificClassificationCopyWith<$Res>(
-        _value.scientificClassification!, (value) {
-      return _then(_value.copyWith(scientificClassification: value) as $Val);
-    });
-  }
-
-  /// Create a copy of PlantDetailsModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $MiscCopyWith<$Res>? get misc {
+  $PlantMiscCopyWith<$Res>? get misc {
     if (_value.misc == null) {
       return null;
     }
 
-    return $MiscCopyWith<$Res>(_value.misc!, (value) {
+    return $PlantMiscCopyWith<$Res>(_value.misc!, (value) {
       return _then(_value.copyWith(misc: value) as $Val);
     });
   }
@@ -545,68 +414,50 @@ abstract class _$$PlantDetailsModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "main_common_name") String? mainCommonName,
-      @JsonKey(name: "id") int? id,
-      @JsonKey(name: "tags") List<String>? tags,
-      @JsonKey(name: "synonyms") List<String>? synonyms,
-      @JsonKey(name: "sources") List<Source>? sources,
-      @JsonKey(name: "common_names") Map<String, List<String>>? commonNames,
-      @JsonKey(name: "images") Images? images,
-      @JsonKey(name: "pathogens") Pathogens? pathogens,
-      @JsonKey(name: "growth_tips") GrowthTips? growthTips,
-      @JsonKey(name: "distributions") List<Distribution>? distributions,
-      @JsonKey(name: "regular_events") List<RegularEvent>? regularEvents,
-      @JsonKey(name: "parts_color") PartsColor? partsColor,
-      @JsonKey(name: "exposure") Exposure? exposure,
-      @JsonKey(name: "duration") dynamic duration,
-      @JsonKey(name: "edible_part") List<dynamic>? ediblePart,
-      @JsonKey(name: "soil_type") List<Exposure>? soilType,
-      @JsonKey(name: "soil_moisture") List<Exposure>? soilMoisture,
-      @JsonKey(name: "soil_ph") List<Exposure>? soilPh,
-      @JsonKey(name: "position_sunlight") List<Exposure>? positionSunlight,
-      @JsonKey(name: "position_side") List<Exposure>? positionSide,
-      @JsonKey(name: "fragrance") List<Exposure>? fragrance,
-      @JsonKey(name: "harvest") List<Exposure>? harvest,
-      @JsonKey(name: "planting") List<Exposure>? planting,
-      @JsonKey(name: "toxicity") List<Exposure>? toxicity,
-      @JsonKey(name: "foliage") List<Exposure>? foliage,
-      @JsonKey(name: "habit") List<Exposure>? habit,
-      @JsonKey(name: "height_cm") HeightCm? heightCm,
-      @JsonKey(name: "years_to_max_height") HeightCm? yearsToMaxHeight,
-      @JsonKey(name: "spread_cm") HeightCm? spreadCm,
-      @JsonKey(name: "scientific_classification")
-      ScientificClassification? scientificClassification,
-      @JsonKey(name: "slug") String? slug,
-      @JsonKey(name: "latin_name") String? latinName,
-      @JsonKey(name: "image_url") String? imageUrl,
-      @JsonKey(name: "genus_description") String? genusDescription,
-      @JsonKey(name: "edible") dynamic edible,
-      @JsonKey(name: "rating") int? rating,
-      @JsonKey(name: "cultivation") String? cultivation,
-      @JsonKey(name: "created") DateTime? created,
-      @JsonKey(name: "modified") DateTime? modified,
-      @JsonKey(name: "misc") Misc? misc});
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'common_names') List<CommonNameEntry>? commonNames,
+      @JsonKey(name: 'created') DateTime? created,
+      @JsonKey(name: 'cultivation') String? cultivation,
+      @JsonKey(name: 'duration') List<String>? duration,
+      @JsonKey(name: 'edible_parts') List<NamedSlug>? edibleParts,
+      @JsonKey(name: 'exposure') List<String>? exposure,
+      @JsonKey(name: 'foliage') List<String>? foliage,
+      @JsonKey(name: 'fragrance') List<String>? fragrance,
+      @JsonKey(name: 'genus_description') String? genusDescription,
+      @JsonKey(name: 'growth_tips') List<GrowthTip>? growthTips,
+      @JsonKey(name: 'habit') List<NamedSlug>? habit,
+      @JsonKey(name: 'hardiness_zone') String? hardinessZone,
+      @JsonKey(name: 'harvest') List<String>? harvest,
+      @JsonKey(name: 'height_max_cm') int? heightMaxCm,
+      @JsonKey(name: 'height_min_cm') int? heightMinCm,
+      @JsonKey(name: 'image_url') String? imageUrl,
+      @JsonKey(name: 'images') List<PlantImageItem>? images,
+      @JsonKey(name: 'is_edible') bool? isEdible,
+      @JsonKey(name: 'latin_name') String? latinName,
+      @JsonKey(name: 'misc') PlantMisc? misc,
+      @JsonKey(name: 'modified') DateTime? modified,
+      @JsonKey(name: 'parts_color') List<PartColorGroup>? partsColor,
+      @JsonKey(name: 'pathogens') List<PathogenItem>? pathogens,
+      @JsonKey(name: 'planting') List<String>? planting,
+      @JsonKey(name: 'position_side') List<String>? positionSide,
+      @JsonKey(name: 'position_sunlight') List<String>? positionSunlight,
+      @JsonKey(name: 'rating') int? rating,
+      @JsonKey(name: 'regular_events') List<RegularEvent>? regularEvents,
+      @JsonKey(name: 'slug') String? slug,
+      @JsonKey(name: 'soil_moisture') List<String>? soilMoisture,
+      @JsonKey(name: 'soil_ph') List<String>? soilPh,
+      @JsonKey(name: 'soil_types') List<NamedSlug>? soilTypes,
+      @JsonKey(name: 'sources') List<Source>? sources,
+      @JsonKey(name: 'spread_max_cm') int? spreadMaxCm,
+      @JsonKey(name: 'spread_min_cm') int? spreadMinCm,
+      @JsonKey(name: 'synonyms') List<SynonymItem>? synonyms,
+      @JsonKey(name: 'tags') List<PlantTag>? tags,
+      @JsonKey(name: 'toxicity') List<String>? toxicity,
+      @JsonKey(name: 'years_to_max_height_max') int? yearsToMaxHeightMax,
+      @JsonKey(name: 'years_to_max_height_min') int? yearsToMaxHeightMin});
 
   @override
-  $ImagesCopyWith<$Res>? get images;
-  @override
-  $PathogensCopyWith<$Res>? get pathogens;
-  @override
-  $GrowthTipsCopyWith<$Res>? get growthTips;
-  @override
-  $PartsColorCopyWith<$Res>? get partsColor;
-  @override
-  $ExposureCopyWith<$Res>? get exposure;
-  @override
-  $HeightCmCopyWith<$Res>? get heightCm;
-  @override
-  $HeightCmCopyWith<$Res>? get yearsToMaxHeight;
-  @override
-  $HeightCmCopyWith<$Res>? get spreadCm;
-  @override
-  $ScientificClassificationCopyWith<$Res>? get scientificClassification;
-  @override
-  $MiscCopyWith<$Res>? get misc;
+  $PlantMiscCopyWith<$Res>? get misc;
 }
 
 /// @nodoc
@@ -622,208 +473,213 @@ class __$$PlantDetailsModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? mainCommonName = freezed,
     Object? id = freezed,
-    Object? tags = freezed,
-    Object? synonyms = freezed,
-    Object? sources = freezed,
     Object? commonNames = freezed,
-    Object? images = freezed,
-    Object? pathogens = freezed,
-    Object? growthTips = freezed,
-    Object? distributions = freezed,
-    Object? regularEvents = freezed,
-    Object? partsColor = freezed,
-    Object? exposure = freezed,
+    Object? created = freezed,
+    Object? cultivation = freezed,
     Object? duration = freezed,
-    Object? ediblePart = freezed,
-    Object? soilType = freezed,
+    Object? edibleParts = freezed,
+    Object? exposure = freezed,
+    Object? foliage = freezed,
+    Object? fragrance = freezed,
+    Object? genusDescription = freezed,
+    Object? growthTips = freezed,
+    Object? habit = freezed,
+    Object? hardinessZone = freezed,
+    Object? harvest = freezed,
+    Object? heightMaxCm = freezed,
+    Object? heightMinCm = freezed,
+    Object? imageUrl = freezed,
+    Object? images = freezed,
+    Object? isEdible = freezed,
+    Object? latinName = freezed,
+    Object? misc = freezed,
+    Object? modified = freezed,
+    Object? partsColor = freezed,
+    Object? pathogens = freezed,
+    Object? planting = freezed,
+    Object? positionSide = freezed,
+    Object? positionSunlight = freezed,
+    Object? rating = freezed,
+    Object? regularEvents = freezed,
+    Object? slug = freezed,
     Object? soilMoisture = freezed,
     Object? soilPh = freezed,
-    Object? positionSunlight = freezed,
-    Object? positionSide = freezed,
-    Object? fragrance = freezed,
-    Object? harvest = freezed,
-    Object? planting = freezed,
+    Object? soilTypes = freezed,
+    Object? sources = freezed,
+    Object? spreadMaxCm = freezed,
+    Object? spreadMinCm = freezed,
+    Object? synonyms = freezed,
+    Object? tags = freezed,
     Object? toxicity = freezed,
-    Object? foliage = freezed,
-    Object? habit = freezed,
-    Object? heightCm = freezed,
-    Object? yearsToMaxHeight = freezed,
-    Object? spreadCm = freezed,
-    Object? scientificClassification = freezed,
-    Object? slug = freezed,
-    Object? latinName = freezed,
-    Object? imageUrl = freezed,
-    Object? genusDescription = freezed,
-    Object? edible = freezed,
-    Object? rating = freezed,
-    Object? cultivation = freezed,
-    Object? created = freezed,
-    Object? modified = freezed,
-    Object? misc = freezed,
+    Object? yearsToMaxHeightMax = freezed,
+    Object? yearsToMaxHeightMin = freezed,
   }) {
     return _then(_$PlantDetailsModelImpl(
-      mainCommonName: freezed == mainCommonName
-          ? _value.mainCommonName
-          : mainCommonName // ignore: cast_nullable_to_non_nullable
-              as String?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      tags: freezed == tags
-          ? _value._tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      synonyms: freezed == synonyms
-          ? _value._synonyms
-          : synonyms // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      sources: freezed == sources
-          ? _value._sources
-          : sources // ignore: cast_nullable_to_non_nullable
-              as List<Source>?,
       commonNames: freezed == commonNames
           ? _value._commonNames
           : commonNames // ignore: cast_nullable_to_non_nullable
-              as Map<String, List<String>>?,
-      images: freezed == images
-          ? _value.images
-          : images // ignore: cast_nullable_to_non_nullable
-              as Images?,
-      pathogens: freezed == pathogens
-          ? _value.pathogens
-          : pathogens // ignore: cast_nullable_to_non_nullable
-              as Pathogens?,
-      growthTips: freezed == growthTips
-          ? _value.growthTips
-          : growthTips // ignore: cast_nullable_to_non_nullable
-              as GrowthTips?,
-      distributions: freezed == distributions
-          ? _value._distributions
-          : distributions // ignore: cast_nullable_to_non_nullable
-              as List<Distribution>?,
-      regularEvents: freezed == regularEvents
-          ? _value._regularEvents
-          : regularEvents // ignore: cast_nullable_to_non_nullable
-              as List<RegularEvent>?,
-      partsColor: freezed == partsColor
-          ? _value.partsColor
-          : partsColor // ignore: cast_nullable_to_non_nullable
-              as PartsColor?,
-      exposure: freezed == exposure
-          ? _value.exposure
-          : exposure // ignore: cast_nullable_to_non_nullable
-              as Exposure?,
-      duration: freezed == duration
-          ? _value.duration
-          : duration // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      ediblePart: freezed == ediblePart
-          ? _value._ediblePart
-          : ediblePart // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
-      soilType: freezed == soilType
-          ? _value._soilType
-          : soilType // ignore: cast_nullable_to_non_nullable
-              as List<Exposure>?,
-      soilMoisture: freezed == soilMoisture
-          ? _value._soilMoisture
-          : soilMoisture // ignore: cast_nullable_to_non_nullable
-              as List<Exposure>?,
-      soilPh: freezed == soilPh
-          ? _value._soilPh
-          : soilPh // ignore: cast_nullable_to_non_nullable
-              as List<Exposure>?,
-      positionSunlight: freezed == positionSunlight
-          ? _value._positionSunlight
-          : positionSunlight // ignore: cast_nullable_to_non_nullable
-              as List<Exposure>?,
-      positionSide: freezed == positionSide
-          ? _value._positionSide
-          : positionSide // ignore: cast_nullable_to_non_nullable
-              as List<Exposure>?,
-      fragrance: freezed == fragrance
-          ? _value._fragrance
-          : fragrance // ignore: cast_nullable_to_non_nullable
-              as List<Exposure>?,
-      harvest: freezed == harvest
-          ? _value._harvest
-          : harvest // ignore: cast_nullable_to_non_nullable
-              as List<Exposure>?,
-      planting: freezed == planting
-          ? _value._planting
-          : planting // ignore: cast_nullable_to_non_nullable
-              as List<Exposure>?,
-      toxicity: freezed == toxicity
-          ? _value._toxicity
-          : toxicity // ignore: cast_nullable_to_non_nullable
-              as List<Exposure>?,
-      foliage: freezed == foliage
-          ? _value._foliage
-          : foliage // ignore: cast_nullable_to_non_nullable
-              as List<Exposure>?,
-      habit: freezed == habit
-          ? _value._habit
-          : habit // ignore: cast_nullable_to_non_nullable
-              as List<Exposure>?,
-      heightCm: freezed == heightCm
-          ? _value.heightCm
-          : heightCm // ignore: cast_nullable_to_non_nullable
-              as HeightCm?,
-      yearsToMaxHeight: freezed == yearsToMaxHeight
-          ? _value.yearsToMaxHeight
-          : yearsToMaxHeight // ignore: cast_nullable_to_non_nullable
-              as HeightCm?,
-      spreadCm: freezed == spreadCm
-          ? _value.spreadCm
-          : spreadCm // ignore: cast_nullable_to_non_nullable
-              as HeightCm?,
-      scientificClassification: freezed == scientificClassification
-          ? _value.scientificClassification
-          : scientificClassification // ignore: cast_nullable_to_non_nullable
-              as ScientificClassification?,
-      slug: freezed == slug
-          ? _value.slug
-          : slug // ignore: cast_nullable_to_non_nullable
-              as String?,
-      latinName: freezed == latinName
-          ? _value.latinName
-          : latinName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      imageUrl: freezed == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      genusDescription: freezed == genusDescription
-          ? _value.genusDescription
-          : genusDescription // ignore: cast_nullable_to_non_nullable
-              as String?,
-      edible: freezed == edible
-          ? _value.edible
-          : edible // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      rating: freezed == rating
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as int?,
-      cultivation: freezed == cultivation
-          ? _value.cultivation
-          : cultivation // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as List<CommonNameEntry>?,
       created: freezed == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      cultivation: freezed == cultivation
+          ? _value.cultivation
+          : cultivation // ignore: cast_nullable_to_non_nullable
+              as String?,
+      duration: freezed == duration
+          ? _value._duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      edibleParts: freezed == edibleParts
+          ? _value._edibleParts
+          : edibleParts // ignore: cast_nullable_to_non_nullable
+              as List<NamedSlug>?,
+      exposure: freezed == exposure
+          ? _value._exposure
+          : exposure // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      foliage: freezed == foliage
+          ? _value._foliage
+          : foliage // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      fragrance: freezed == fragrance
+          ? _value._fragrance
+          : fragrance // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      genusDescription: freezed == genusDescription
+          ? _value.genusDescription
+          : genusDescription // ignore: cast_nullable_to_non_nullable
+              as String?,
+      growthTips: freezed == growthTips
+          ? _value._growthTips
+          : growthTips // ignore: cast_nullable_to_non_nullable
+              as List<GrowthTip>?,
+      habit: freezed == habit
+          ? _value._habit
+          : habit // ignore: cast_nullable_to_non_nullable
+              as List<NamedSlug>?,
+      hardinessZone: freezed == hardinessZone
+          ? _value.hardinessZone
+          : hardinessZone // ignore: cast_nullable_to_non_nullable
+              as String?,
+      harvest: freezed == harvest
+          ? _value._harvest
+          : harvest // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      heightMaxCm: freezed == heightMaxCm
+          ? _value.heightMaxCm
+          : heightMaxCm // ignore: cast_nullable_to_non_nullable
+              as int?,
+      heightMinCm: freezed == heightMinCm
+          ? _value.heightMinCm
+          : heightMinCm // ignore: cast_nullable_to_non_nullable
+              as int?,
+      imageUrl: freezed == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      images: freezed == images
+          ? _value._images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<PlantImageItem>?,
+      isEdible: freezed == isEdible
+          ? _value.isEdible
+          : isEdible // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      latinName: freezed == latinName
+          ? _value.latinName
+          : latinName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      misc: freezed == misc
+          ? _value.misc
+          : misc // ignore: cast_nullable_to_non_nullable
+              as PlantMisc?,
       modified: freezed == modified
           ? _value.modified
           : modified // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      misc: freezed == misc
-          ? _value.misc
-          : misc // ignore: cast_nullable_to_non_nullable
-              as Misc?,
+      partsColor: freezed == partsColor
+          ? _value._partsColor
+          : partsColor // ignore: cast_nullable_to_non_nullable
+              as List<PartColorGroup>?,
+      pathogens: freezed == pathogens
+          ? _value._pathogens
+          : pathogens // ignore: cast_nullable_to_non_nullable
+              as List<PathogenItem>?,
+      planting: freezed == planting
+          ? _value._planting
+          : planting // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      positionSide: freezed == positionSide
+          ? _value._positionSide
+          : positionSide // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      positionSunlight: freezed == positionSunlight
+          ? _value._positionSunlight
+          : positionSunlight // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      rating: freezed == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as int?,
+      regularEvents: freezed == regularEvents
+          ? _value._regularEvents
+          : regularEvents // ignore: cast_nullable_to_non_nullable
+              as List<RegularEvent>?,
+      slug: freezed == slug
+          ? _value.slug
+          : slug // ignore: cast_nullable_to_non_nullable
+              as String?,
+      soilMoisture: freezed == soilMoisture
+          ? _value._soilMoisture
+          : soilMoisture // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      soilPh: freezed == soilPh
+          ? _value._soilPh
+          : soilPh // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      soilTypes: freezed == soilTypes
+          ? _value._soilTypes
+          : soilTypes // ignore: cast_nullable_to_non_nullable
+              as List<NamedSlug>?,
+      sources: freezed == sources
+          ? _value._sources
+          : sources // ignore: cast_nullable_to_non_nullable
+              as List<Source>?,
+      spreadMaxCm: freezed == spreadMaxCm
+          ? _value.spreadMaxCm
+          : spreadMaxCm // ignore: cast_nullable_to_non_nullable
+              as int?,
+      spreadMinCm: freezed == spreadMinCm
+          ? _value.spreadMinCm
+          : spreadMinCm // ignore: cast_nullable_to_non_nullable
+              as int?,
+      synonyms: freezed == synonyms
+          ? _value._synonyms
+          : synonyms // ignore: cast_nullable_to_non_nullable
+              as List<SynonymItem>?,
+      tags: freezed == tags
+          ? _value._tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<PlantTag>?,
+      toxicity: freezed == toxicity
+          ? _value._toxicity
+          : toxicity // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      yearsToMaxHeightMax: freezed == yearsToMaxHeightMax
+          ? _value.yearsToMaxHeightMax
+          : yearsToMaxHeightMax // ignore: cast_nullable_to_non_nullable
+              as int?,
+      yearsToMaxHeightMin: freezed == yearsToMaxHeightMin
+          ? _value.yearsToMaxHeightMin
+          : yearsToMaxHeightMin // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -832,143 +688,282 @@ class __$$PlantDetailsModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PlantDetailsModelImpl implements _PlantDetailsModel {
   const _$PlantDetailsModelImpl(
-      {@JsonKey(name: "main_common_name") this.mainCommonName,
-      @JsonKey(name: "id") this.id,
-      @JsonKey(name: "tags") final List<String>? tags,
-      @JsonKey(name: "synonyms") final List<String>? synonyms,
-      @JsonKey(name: "sources") final List<Source>? sources,
-      @JsonKey(name: "common_names")
-      final Map<String, List<String>>? commonNames,
-      @JsonKey(name: "images") this.images,
-      @JsonKey(name: "pathogens") this.pathogens,
-      @JsonKey(name: "growth_tips") this.growthTips,
-      @JsonKey(name: "distributions") final List<Distribution>? distributions,
-      @JsonKey(name: "regular_events") final List<RegularEvent>? regularEvents,
-      @JsonKey(name: "parts_color") this.partsColor,
-      @JsonKey(name: "exposure") this.exposure,
-      @JsonKey(name: "duration") this.duration,
-      @JsonKey(name: "edible_part") final List<dynamic>? ediblePart,
-      @JsonKey(name: "soil_type") final List<Exposure>? soilType,
-      @JsonKey(name: "soil_moisture") final List<Exposure>? soilMoisture,
-      @JsonKey(name: "soil_ph") final List<Exposure>? soilPh,
-      @JsonKey(name: "position_sunlight")
-      final List<Exposure>? positionSunlight,
-      @JsonKey(name: "position_side") final List<Exposure>? positionSide,
-      @JsonKey(name: "fragrance") final List<Exposure>? fragrance,
-      @JsonKey(name: "harvest") final List<Exposure>? harvest,
-      @JsonKey(name: "planting") final List<Exposure>? planting,
-      @JsonKey(name: "toxicity") final List<Exposure>? toxicity,
-      @JsonKey(name: "foliage") final List<Exposure>? foliage,
-      @JsonKey(name: "habit") final List<Exposure>? habit,
-      @JsonKey(name: "height_cm") this.heightCm,
-      @JsonKey(name: "years_to_max_height") this.yearsToMaxHeight,
-      @JsonKey(name: "spread_cm") this.spreadCm,
-      @JsonKey(name: "scientific_classification") this.scientificClassification,
-      @JsonKey(name: "slug") this.slug,
-      @JsonKey(name: "latin_name") this.latinName,
-      @JsonKey(name: "image_url") this.imageUrl,
-      @JsonKey(name: "genus_description") this.genusDescription,
-      @JsonKey(name: "edible") this.edible,
-      @JsonKey(name: "rating") this.rating,
-      @JsonKey(name: "cultivation") this.cultivation,
-      @JsonKey(name: "created") this.created,
-      @JsonKey(name: "modified") this.modified,
-      @JsonKey(name: "misc") this.misc})
-      : _tags = tags,
-        _synonyms = synonyms,
-        _sources = sources,
-        _commonNames = commonNames,
-        _distributions = distributions,
+      {@JsonKey(name: 'id') this.id,
+      @JsonKey(name: 'common_names') final List<CommonNameEntry>? commonNames,
+      @JsonKey(name: 'created') this.created,
+      @JsonKey(name: 'cultivation') this.cultivation,
+      @JsonKey(name: 'duration') final List<String>? duration,
+      @JsonKey(name: 'edible_parts') final List<NamedSlug>? edibleParts,
+      @JsonKey(name: 'exposure') final List<String>? exposure,
+      @JsonKey(name: 'foliage') final List<String>? foliage,
+      @JsonKey(name: 'fragrance') final List<String>? fragrance,
+      @JsonKey(name: 'genus_description') this.genusDescription,
+      @JsonKey(name: 'growth_tips') final List<GrowthTip>? growthTips,
+      @JsonKey(name: 'habit') final List<NamedSlug>? habit,
+      @JsonKey(name: 'hardiness_zone') this.hardinessZone,
+      @JsonKey(name: 'harvest') final List<String>? harvest,
+      @JsonKey(name: 'height_max_cm') this.heightMaxCm,
+      @JsonKey(name: 'height_min_cm') this.heightMinCm,
+      @JsonKey(name: 'image_url') this.imageUrl,
+      @JsonKey(name: 'images') final List<PlantImageItem>? images,
+      @JsonKey(name: 'is_edible') this.isEdible,
+      @JsonKey(name: 'latin_name') this.latinName,
+      @JsonKey(name: 'misc') this.misc,
+      @JsonKey(name: 'modified') this.modified,
+      @JsonKey(name: 'parts_color') final List<PartColorGroup>? partsColor,
+      @JsonKey(name: 'pathogens') final List<PathogenItem>? pathogens,
+      @JsonKey(name: 'planting') final List<String>? planting,
+      @JsonKey(name: 'position_side') final List<String>? positionSide,
+      @JsonKey(name: 'position_sunlight') final List<String>? positionSunlight,
+      @JsonKey(name: 'rating') this.rating,
+      @JsonKey(name: 'regular_events') final List<RegularEvent>? regularEvents,
+      @JsonKey(name: 'slug') this.slug,
+      @JsonKey(name: 'soil_moisture') final List<String>? soilMoisture,
+      @JsonKey(name: 'soil_ph') final List<String>? soilPh,
+      @JsonKey(name: 'soil_types') final List<NamedSlug>? soilTypes,
+      @JsonKey(name: 'sources') final List<Source>? sources,
+      @JsonKey(name: 'spread_max_cm') this.spreadMaxCm,
+      @JsonKey(name: 'spread_min_cm') this.spreadMinCm,
+      @JsonKey(name: 'synonyms') final List<SynonymItem>? synonyms,
+      @JsonKey(name: 'tags') final List<PlantTag>? tags,
+      @JsonKey(name: 'toxicity') final List<String>? toxicity,
+      @JsonKey(name: 'years_to_max_height_max') this.yearsToMaxHeightMax,
+      @JsonKey(name: 'years_to_max_height_min') this.yearsToMaxHeightMin})
+      : _commonNames = commonNames,
+        _duration = duration,
+        _edibleParts = edibleParts,
+        _exposure = exposure,
+        _foliage = foliage,
+        _fragrance = fragrance,
+        _growthTips = growthTips,
+        _habit = habit,
+        _harvest = harvest,
+        _images = images,
+        _partsColor = partsColor,
+        _pathogens = pathogens,
+        _planting = planting,
+        _positionSide = positionSide,
+        _positionSunlight = positionSunlight,
         _regularEvents = regularEvents,
-        _ediblePart = ediblePart,
-        _soilType = soilType,
         _soilMoisture = soilMoisture,
         _soilPh = soilPh,
-        _positionSunlight = positionSunlight,
-        _positionSide = positionSide,
-        _fragrance = fragrance,
-        _harvest = harvest,
-        _planting = planting,
-        _toxicity = toxicity,
-        _foliage = foliage,
-        _habit = habit;
+        _soilTypes = soilTypes,
+        _sources = sources,
+        _synonyms = synonyms,
+        _tags = tags,
+        _toxicity = toxicity;
 
   factory _$PlantDetailsModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlantDetailsModelImplFromJson(json);
 
   @override
-  @JsonKey(name: "main_common_name")
-  final String? mainCommonName;
-  @override
-  @JsonKey(name: "id")
+  @JsonKey(name: 'id')
   final int? id;
-  final List<String>? _tags;
+  final List<CommonNameEntry>? _commonNames;
   @override
-  @JsonKey(name: "tags")
-  List<String>? get tags {
-    final value = _tags;
-    if (value == null) return null;
-    if (_tags is EqualUnmodifiableListView) return _tags;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<String>? _synonyms;
-  @override
-  @JsonKey(name: "synonyms")
-  List<String>? get synonyms {
-    final value = _synonyms;
-    if (value == null) return null;
-    if (_synonyms is EqualUnmodifiableListView) return _synonyms;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<Source>? _sources;
-  @override
-  @JsonKey(name: "sources")
-  List<Source>? get sources {
-    final value = _sources;
-    if (value == null) return null;
-    if (_sources is EqualUnmodifiableListView) return _sources;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final Map<String, List<String>>? _commonNames;
-  @override
-  @JsonKey(name: "common_names")
-  Map<String, List<String>>? get commonNames {
+  @JsonKey(name: 'common_names')
+  List<CommonNameEntry>? get commonNames {
     final value = _commonNames;
     if (value == null) return null;
-    if (_commonNames is EqualUnmodifiableMapView) return _commonNames;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  @override
-  @JsonKey(name: "images")
-  final Images? images;
-  @override
-  @JsonKey(name: "pathogens")
-  final Pathogens? pathogens;
-  @override
-  @JsonKey(name: "growth_tips")
-  final GrowthTips? growthTips;
-  final List<Distribution>? _distributions;
-  @override
-  @JsonKey(name: "distributions")
-  List<Distribution>? get distributions {
-    final value = _distributions;
-    if (value == null) return null;
-    if (_distributions is EqualUnmodifiableListView) return _distributions;
+    if (_commonNames is EqualUnmodifiableListView) return _commonNames;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
+  @override
+  @JsonKey(name: 'created')
+  final DateTime? created;
+  @override
+  @JsonKey(name: 'cultivation')
+  final String? cultivation;
+  final List<String>? _duration;
+  @override
+  @JsonKey(name: 'duration')
+  List<String>? get duration {
+    final value = _duration;
+    if (value == null) return null;
+    if (_duration is EqualUnmodifiableListView) return _duration;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<NamedSlug>? _edibleParts;
+  @override
+  @JsonKey(name: 'edible_parts')
+  List<NamedSlug>? get edibleParts {
+    final value = _edibleParts;
+    if (value == null) return null;
+    if (_edibleParts is EqualUnmodifiableListView) return _edibleParts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<String>? _exposure;
+  @override
+  @JsonKey(name: 'exposure')
+  List<String>? get exposure {
+    final value = _exposure;
+    if (value == null) return null;
+    if (_exposure is EqualUnmodifiableListView) return _exposure;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<String>? _foliage;
+  @override
+  @JsonKey(name: 'foliage')
+  List<String>? get foliage {
+    final value = _foliage;
+    if (value == null) return null;
+    if (_foliage is EqualUnmodifiableListView) return _foliage;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<String>? _fragrance;
+  @override
+  @JsonKey(name: 'fragrance')
+  List<String>? get fragrance {
+    final value = _fragrance;
+    if (value == null) return null;
+    if (_fragrance is EqualUnmodifiableListView) return _fragrance;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  @JsonKey(name: 'genus_description')
+  final String? genusDescription;
+  final List<GrowthTip>? _growthTips;
+  @override
+  @JsonKey(name: 'growth_tips')
+  List<GrowthTip>? get growthTips {
+    final value = _growthTips;
+    if (value == null) return null;
+    if (_growthTips is EqualUnmodifiableListView) return _growthTips;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<NamedSlug>? _habit;
+  @override
+  @JsonKey(name: 'habit')
+  List<NamedSlug>? get habit {
+    final value = _habit;
+    if (value == null) return null;
+    if (_habit is EqualUnmodifiableListView) return _habit;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  @JsonKey(name: 'hardiness_zone')
+  final String? hardinessZone;
+  final List<String>? _harvest;
+  @override
+  @JsonKey(name: 'harvest')
+  List<String>? get harvest {
+    final value = _harvest;
+    if (value == null) return null;
+    if (_harvest is EqualUnmodifiableListView) return _harvest;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  @JsonKey(name: 'height_max_cm')
+  final int? heightMaxCm;
+  @override
+  @JsonKey(name: 'height_min_cm')
+  final int? heightMinCm;
+  @override
+  @JsonKey(name: 'image_url')
+  final String? imageUrl;
+  final List<PlantImageItem>? _images;
+  @override
+  @JsonKey(name: 'images')
+  List<PlantImageItem>? get images {
+    final value = _images;
+    if (value == null) return null;
+    if (_images is EqualUnmodifiableListView) return _images;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  @JsonKey(name: 'is_edible')
+  final bool? isEdible;
+  @override
+  @JsonKey(name: 'latin_name')
+  final String? latinName;
+  @override
+  @JsonKey(name: 'misc')
+  final PlantMisc? misc;
+  @override
+  @JsonKey(name: 'modified')
+  final DateTime? modified;
+  final List<PartColorGroup>? _partsColor;
+  @override
+  @JsonKey(name: 'parts_color')
+  List<PartColorGroup>? get partsColor {
+    final value = _partsColor;
+    if (value == null) return null;
+    if (_partsColor is EqualUnmodifiableListView) return _partsColor;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<PathogenItem>? _pathogens;
+  @override
+  @JsonKey(name: 'pathogens')
+  List<PathogenItem>? get pathogens {
+    final value = _pathogens;
+    if (value == null) return null;
+    if (_pathogens is EqualUnmodifiableListView) return _pathogens;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<String>? _planting;
+  @override
+  @JsonKey(name: 'planting')
+  List<String>? get planting {
+    final value = _planting;
+    if (value == null) return null;
+    if (_planting is EqualUnmodifiableListView) return _planting;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<String>? _positionSide;
+  @override
+  @JsonKey(name: 'position_side')
+  List<String>? get positionSide {
+    final value = _positionSide;
+    if (value == null) return null;
+    if (_positionSide is EqualUnmodifiableListView) return _positionSide;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<String>? _positionSunlight;
+  @override
+  @JsonKey(name: 'position_sunlight')
+  List<String>? get positionSunlight {
+    final value = _positionSunlight;
+    if (value == null) return null;
+    if (_positionSunlight is EqualUnmodifiableListView)
+      return _positionSunlight;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  @JsonKey(name: 'rating')
+  final int? rating;
   final List<RegularEvent>? _regularEvents;
   @override
-  @JsonKey(name: "regular_events")
+  @JsonKey(name: 'regular_events')
   List<RegularEvent>? get regularEvents {
     final value = _regularEvents;
     if (value == null) return null;
@@ -978,40 +973,12 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
   }
 
   @override
-  @JsonKey(name: "parts_color")
-  final PartsColor? partsColor;
+  @JsonKey(name: 'slug')
+  final String? slug;
+  final List<String>? _soilMoisture;
   @override
-  @JsonKey(name: "exposure")
-  final Exposure? exposure;
-  @override
-  @JsonKey(name: "duration")
-  final dynamic duration;
-  final List<dynamic>? _ediblePart;
-  @override
-  @JsonKey(name: "edible_part")
-  List<dynamic>? get ediblePart {
-    final value = _ediblePart;
-    if (value == null) return null;
-    if (_ediblePart is EqualUnmodifiableListView) return _ediblePart;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<Exposure>? _soilType;
-  @override
-  @JsonKey(name: "soil_type")
-  List<Exposure>? get soilType {
-    final value = _soilType;
-    if (value == null) return null;
-    if (_soilType is EqualUnmodifiableListView) return _soilType;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<Exposure>? _soilMoisture;
-  @override
-  @JsonKey(name: "soil_moisture")
-  List<Exposure>? get soilMoisture {
+  @JsonKey(name: 'soil_moisture')
+  List<String>? get soilMoisture {
     final value = _soilMoisture;
     if (value == null) return null;
     if (_soilMoisture is EqualUnmodifiableListView) return _soilMoisture;
@@ -1019,10 +986,10 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<Exposure>? _soilPh;
+  final List<String>? _soilPh;
   @override
-  @JsonKey(name: "soil_ph")
-  List<Exposure>? get soilPh {
+  @JsonKey(name: 'soil_ph')
+  List<String>? get soilPh {
     final value = _soilPh;
     if (value == null) return null;
     if (_soilPh is EqualUnmodifiableListView) return _soilPh;
@@ -1030,66 +997,60 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<Exposure>? _positionSunlight;
+  final List<NamedSlug>? _soilTypes;
   @override
-  @JsonKey(name: "position_sunlight")
-  List<Exposure>? get positionSunlight {
-    final value = _positionSunlight;
+  @JsonKey(name: 'soil_types')
+  List<NamedSlug>? get soilTypes {
+    final value = _soilTypes;
     if (value == null) return null;
-    if (_positionSunlight is EqualUnmodifiableListView)
-      return _positionSunlight;
+    if (_soilTypes is EqualUnmodifiableListView) return _soilTypes;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  final List<Exposure>? _positionSide;
+  final List<Source>? _sources;
   @override
-  @JsonKey(name: "position_side")
-  List<Exposure>? get positionSide {
-    final value = _positionSide;
+  @JsonKey(name: 'sources')
+  List<Source>? get sources {
+    final value = _sources;
     if (value == null) return null;
-    if (_positionSide is EqualUnmodifiableListView) return _positionSide;
+    if (_sources is EqualUnmodifiableListView) return _sources;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  final List<Exposure>? _fragrance;
   @override
-  @JsonKey(name: "fragrance")
-  List<Exposure>? get fragrance {
-    final value = _fragrance;
+  @JsonKey(name: 'spread_max_cm')
+  final int? spreadMaxCm;
+  @override
+  @JsonKey(name: 'spread_min_cm')
+  final int? spreadMinCm;
+  final List<SynonymItem>? _synonyms;
+  @override
+  @JsonKey(name: 'synonyms')
+  List<SynonymItem>? get synonyms {
+    final value = _synonyms;
     if (value == null) return null;
-    if (_fragrance is EqualUnmodifiableListView) return _fragrance;
+    if (_synonyms is EqualUnmodifiableListView) return _synonyms;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  final List<Exposure>? _harvest;
+  final List<PlantTag>? _tags;
   @override
-  @JsonKey(name: "harvest")
-  List<Exposure>? get harvest {
-    final value = _harvest;
+  @JsonKey(name: 'tags')
+  List<PlantTag>? get tags {
+    final value = _tags;
     if (value == null) return null;
-    if (_harvest is EqualUnmodifiableListView) return _harvest;
+    if (_tags is EqualUnmodifiableListView) return _tags;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  final List<Exposure>? _planting;
+  final List<String>? _toxicity;
   @override
-  @JsonKey(name: "planting")
-  List<Exposure>? get planting {
-    final value = _planting;
-    if (value == null) return null;
-    if (_planting is EqualUnmodifiableListView) return _planting;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<Exposure>? _toxicity;
-  @override
-  @JsonKey(name: "toxicity")
-  List<Exposure>? get toxicity {
+  @JsonKey(name: 'toxicity')
+  List<String>? get toxicity {
     final value = _toxicity;
     if (value == null) return null;
     if (_toxicity is EqualUnmodifiableListView) return _toxicity;
@@ -1097,74 +1058,16 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<Exposure>? _foliage;
   @override
-  @JsonKey(name: "foliage")
-  List<Exposure>? get foliage {
-    final value = _foliage;
-    if (value == null) return null;
-    if (_foliage is EqualUnmodifiableListView) return _foliage;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<Exposure>? _habit;
+  @JsonKey(name: 'years_to_max_height_max')
+  final int? yearsToMaxHeightMax;
   @override
-  @JsonKey(name: "habit")
-  List<Exposure>? get habit {
-    final value = _habit;
-    if (value == null) return null;
-    if (_habit is EqualUnmodifiableListView) return _habit;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  @override
-  @JsonKey(name: "height_cm")
-  final HeightCm? heightCm;
-  @override
-  @JsonKey(name: "years_to_max_height")
-  final HeightCm? yearsToMaxHeight;
-  @override
-  @JsonKey(name: "spread_cm")
-  final HeightCm? spreadCm;
-  @override
-  @JsonKey(name: "scientific_classification")
-  final ScientificClassification? scientificClassification;
-  @override
-  @JsonKey(name: "slug")
-  final String? slug;
-  @override
-  @JsonKey(name: "latin_name")
-  final String? latinName;
-  @override
-  @JsonKey(name: "image_url")
-  final String? imageUrl;
-  @override
-  @JsonKey(name: "genus_description")
-  final String? genusDescription;
-  @override
-  @JsonKey(name: "edible")
-  final dynamic edible;
-  @override
-  @JsonKey(name: "rating")
-  final int? rating;
-  @override
-  @JsonKey(name: "cultivation")
-  final String? cultivation;
-  @override
-  @JsonKey(name: "created")
-  final DateTime? created;
-  @override
-  @JsonKey(name: "modified")
-  final DateTime? modified;
-  @override
-  @JsonKey(name: "misc")
-  final Misc? misc;
+  @JsonKey(name: 'years_to_max_height_min')
+  final int? yearsToMaxHeightMin;
 
   @override
   String toString() {
-    return 'PlantDetailsModel(mainCommonName: $mainCommonName, id: $id, tags: $tags, synonyms: $synonyms, sources: $sources, commonNames: $commonNames, images: $images, pathogens: $pathogens, growthTips: $growthTips, distributions: $distributions, regularEvents: $regularEvents, partsColor: $partsColor, exposure: $exposure, duration: $duration, ediblePart: $ediblePart, soilType: $soilType, soilMoisture: $soilMoisture, soilPh: $soilPh, positionSunlight: $positionSunlight, positionSide: $positionSide, fragrance: $fragrance, harvest: $harvest, planting: $planting, toxicity: $toxicity, foliage: $foliage, habit: $habit, heightCm: $heightCm, yearsToMaxHeight: $yearsToMaxHeight, spreadCm: $spreadCm, scientificClassification: $scientificClassification, slug: $slug, latinName: $latinName, imageUrl: $imageUrl, genusDescription: $genusDescription, edible: $edible, rating: $rating, cultivation: $cultivation, created: $created, modified: $modified, misc: $misc)';
+    return 'PlantDetailsModel(id: $id, commonNames: $commonNames, created: $created, cultivation: $cultivation, duration: $duration, edibleParts: $edibleParts, exposure: $exposure, foliage: $foliage, fragrance: $fragrance, genusDescription: $genusDescription, growthTips: $growthTips, habit: $habit, hardinessZone: $hardinessZone, harvest: $harvest, heightMaxCm: $heightMaxCm, heightMinCm: $heightMinCm, imageUrl: $imageUrl, images: $images, isEdible: $isEdible, latinName: $latinName, misc: $misc, modified: $modified, partsColor: $partsColor, pathogens: $pathogens, planting: $planting, positionSide: $positionSide, positionSunlight: $positionSunlight, rating: $rating, regularEvents: $regularEvents, slug: $slug, soilMoisture: $soilMoisture, soilPh: $soilPh, soilTypes: $soilTypes, sources: $sources, spreadMaxCm: $spreadMaxCm, spreadMinCm: $spreadMinCm, synonyms: $synonyms, tags: $tags, toxicity: $toxicity, yearsToMaxHeightMax: $yearsToMaxHeightMax, yearsToMaxHeightMin: $yearsToMaxHeightMin)';
   }
 
   @override
@@ -1172,115 +1075,118 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PlantDetailsModelImpl &&
-            (identical(other.mainCommonName, mainCommonName) ||
-                other.mainCommonName == mainCommonName) &&
             (identical(other.id, id) || other.id == id) &&
-            const DeepCollectionEquality().equals(other._tags, _tags) &&
-            const DeepCollectionEquality().equals(other._synonyms, _synonyms) &&
-            const DeepCollectionEquality().equals(other._sources, _sources) &&
             const DeepCollectionEquality()
                 .equals(other._commonNames, _commonNames) &&
-            (identical(other.images, images) || other.images == images) &&
-            (identical(other.pathogens, pathogens) ||
-                other.pathogens == pathogens) &&
-            (identical(other.growthTips, growthTips) ||
-                other.growthTips == growthTips) &&
+            (identical(other.created, created) || other.created == created) &&
+            (identical(other.cultivation, cultivation) ||
+                other.cultivation == cultivation) &&
+            const DeepCollectionEquality().equals(other._duration, _duration) &&
             const DeepCollectionEquality()
-                .equals(other._distributions, _distributions) &&
+                .equals(other._edibleParts, _edibleParts) &&
+            const DeepCollectionEquality().equals(other._exposure, _exposure) &&
+            const DeepCollectionEquality().equals(other._foliage, _foliage) &&
+            const DeepCollectionEquality()
+                .equals(other._fragrance, _fragrance) &&
+            (identical(other.genusDescription, genusDescription) ||
+                other.genusDescription == genusDescription) &&
+            const DeepCollectionEquality()
+                .equals(other._growthTips, _growthTips) &&
+            const DeepCollectionEquality().equals(other._habit, _habit) &&
+            (identical(other.hardinessZone, hardinessZone) ||
+                other.hardinessZone == hardinessZone) &&
+            const DeepCollectionEquality().equals(other._harvest, _harvest) &&
+            (identical(other.heightMaxCm, heightMaxCm) ||
+                other.heightMaxCm == heightMaxCm) &&
+            (identical(other.heightMinCm, heightMinCm) ||
+                other.heightMinCm == heightMinCm) &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl) &&
+            const DeepCollectionEquality().equals(other._images, _images) &&
+            (identical(other.isEdible, isEdible) ||
+                other.isEdible == isEdible) &&
+            (identical(other.latinName, latinName) ||
+                other.latinName == latinName) &&
+            (identical(other.misc, misc) || other.misc == misc) &&
+            (identical(other.modified, modified) ||
+                other.modified == modified) &&
+            const DeepCollectionEquality()
+                .equals(other._partsColor, _partsColor) &&
+            const DeepCollectionEquality()
+                .equals(other._pathogens, _pathogens) &&
+            const DeepCollectionEquality().equals(other._planting, _planting) &&
+            const DeepCollectionEquality()
+                .equals(other._positionSide, _positionSide) &&
+            const DeepCollectionEquality()
+                .equals(other._positionSunlight, _positionSunlight) &&
+            (identical(other.rating, rating) || other.rating == rating) &&
             const DeepCollectionEquality()
                 .equals(other._regularEvents, _regularEvents) &&
-            (identical(other.partsColor, partsColor) ||
-                other.partsColor == partsColor) &&
-            (identical(other.exposure, exposure) ||
-                other.exposure == exposure) &&
-            const DeepCollectionEquality().equals(other.duration, duration) &&
-            const DeepCollectionEquality()
-                .equals(other._ediblePart, _ediblePart) &&
-            const DeepCollectionEquality().equals(other._soilType, _soilType) &&
+            (identical(other.slug, slug) || other.slug == slug) &&
             const DeepCollectionEquality()
                 .equals(other._soilMoisture, _soilMoisture) &&
             const DeepCollectionEquality().equals(other._soilPh, _soilPh) &&
             const DeepCollectionEquality()
-                .equals(other._positionSunlight, _positionSunlight) &&
-            const DeepCollectionEquality()
-                .equals(other._positionSide, _positionSide) &&
-            const DeepCollectionEquality()
-                .equals(other._fragrance, _fragrance) &&
-            const DeepCollectionEquality().equals(other._harvest, _harvest) &&
-            const DeepCollectionEquality().equals(other._planting, _planting) &&
+                .equals(other._soilTypes, _soilTypes) &&
+            const DeepCollectionEquality().equals(other._sources, _sources) &&
+            (identical(other.spreadMaxCm, spreadMaxCm) ||
+                other.spreadMaxCm == spreadMaxCm) &&
+            (identical(other.spreadMinCm, spreadMinCm) ||
+                other.spreadMinCm == spreadMinCm) &&
+            const DeepCollectionEquality().equals(other._synonyms, _synonyms) &&
+            const DeepCollectionEquality().equals(other._tags, _tags) &&
             const DeepCollectionEquality().equals(other._toxicity, _toxicity) &&
-            const DeepCollectionEquality().equals(other._foliage, _foliage) &&
-            const DeepCollectionEquality().equals(other._habit, _habit) &&
-            (identical(other.heightCm, heightCm) ||
-                other.heightCm == heightCm) &&
-            (identical(other.yearsToMaxHeight, yearsToMaxHeight) ||
-                other.yearsToMaxHeight == yearsToMaxHeight) &&
-            (identical(other.spreadCm, spreadCm) ||
-                other.spreadCm == spreadCm) &&
-            (identical(
-                    other.scientificClassification, scientificClassification) ||
-                other.scientificClassification == scientificClassification) &&
-            (identical(other.slug, slug) || other.slug == slug) &&
-            (identical(other.latinName, latinName) ||
-                other.latinName == latinName) &&
-            (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl) &&
-            (identical(other.genusDescription, genusDescription) ||
-                other.genusDescription == genusDescription) &&
-            const DeepCollectionEquality().equals(other.edible, edible) &&
-            (identical(other.rating, rating) || other.rating == rating) &&
-            (identical(other.cultivation, cultivation) ||
-                other.cultivation == cultivation) &&
-            (identical(other.created, created) || other.created == created) &&
-            (identical(other.modified, modified) ||
-                other.modified == modified) &&
-            (identical(other.misc, misc) || other.misc == misc));
+            (identical(other.yearsToMaxHeightMax, yearsToMaxHeightMax) ||
+                other.yearsToMaxHeightMax == yearsToMaxHeightMax) &&
+            (identical(other.yearsToMaxHeightMin, yearsToMaxHeightMin) ||
+                other.yearsToMaxHeightMin == yearsToMaxHeightMin));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
-        mainCommonName,
         id,
-        const DeepCollectionEquality().hash(_tags),
-        const DeepCollectionEquality().hash(_synonyms),
-        const DeepCollectionEquality().hash(_sources),
         const DeepCollectionEquality().hash(_commonNames),
-        images,
-        pathogens,
-        growthTips,
-        const DeepCollectionEquality().hash(_distributions),
+        created,
+        cultivation,
+        const DeepCollectionEquality().hash(_duration),
+        const DeepCollectionEquality().hash(_edibleParts),
+        const DeepCollectionEquality().hash(_exposure),
+        const DeepCollectionEquality().hash(_foliage),
+        const DeepCollectionEquality().hash(_fragrance),
+        genusDescription,
+        const DeepCollectionEquality().hash(_growthTips),
+        const DeepCollectionEquality().hash(_habit),
+        hardinessZone,
+        const DeepCollectionEquality().hash(_harvest),
+        heightMaxCm,
+        heightMinCm,
+        imageUrl,
+        const DeepCollectionEquality().hash(_images),
+        isEdible,
+        latinName,
+        misc,
+        modified,
+        const DeepCollectionEquality().hash(_partsColor),
+        const DeepCollectionEquality().hash(_pathogens),
+        const DeepCollectionEquality().hash(_planting),
+        const DeepCollectionEquality().hash(_positionSide),
+        const DeepCollectionEquality().hash(_positionSunlight),
+        rating,
         const DeepCollectionEquality().hash(_regularEvents),
-        partsColor,
-        exposure,
-        const DeepCollectionEquality().hash(duration),
-        const DeepCollectionEquality().hash(_ediblePart),
-        const DeepCollectionEquality().hash(_soilType),
+        slug,
         const DeepCollectionEquality().hash(_soilMoisture),
         const DeepCollectionEquality().hash(_soilPh),
-        const DeepCollectionEquality().hash(_positionSunlight),
-        const DeepCollectionEquality().hash(_positionSide),
-        const DeepCollectionEquality().hash(_fragrance),
-        const DeepCollectionEquality().hash(_harvest),
-        const DeepCollectionEquality().hash(_planting),
+        const DeepCollectionEquality().hash(_soilTypes),
+        const DeepCollectionEquality().hash(_sources),
+        spreadMaxCm,
+        spreadMinCm,
+        const DeepCollectionEquality().hash(_synonyms),
+        const DeepCollectionEquality().hash(_tags),
         const DeepCollectionEquality().hash(_toxicity),
-        const DeepCollectionEquality().hash(_foliage),
-        const DeepCollectionEquality().hash(_habit),
-        heightCm,
-        yearsToMaxHeight,
-        spreadCm,
-        scientificClassification,
-        slug,
-        latinName,
-        imageUrl,
-        genusDescription,
-        const DeepCollectionEquality().hash(edible),
-        rating,
-        cultivation,
-        created,
-        modified,
-        misc
+        yearsToMaxHeightMax,
+        yearsToMaxHeightMin
       ]);
 
   /// Create a copy of PlantDetailsModel
@@ -1302,173 +1208,175 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
 
 abstract class _PlantDetailsModel implements PlantDetailsModel {
   const factory _PlantDetailsModel(
-      {@JsonKey(name: "main_common_name") final String? mainCommonName,
-      @JsonKey(name: "id") final int? id,
-      @JsonKey(name: "tags") final List<String>? tags,
-      @JsonKey(name: "synonyms") final List<String>? synonyms,
-      @JsonKey(name: "sources") final List<Source>? sources,
-      @JsonKey(name: "common_names")
-      final Map<String, List<String>>? commonNames,
-      @JsonKey(name: "images") final Images? images,
-      @JsonKey(name: "pathogens") final Pathogens? pathogens,
-      @JsonKey(name: "growth_tips") final GrowthTips? growthTips,
-      @JsonKey(name: "distributions") final List<Distribution>? distributions,
-      @JsonKey(name: "regular_events") final List<RegularEvent>? regularEvents,
-      @JsonKey(name: "parts_color") final PartsColor? partsColor,
-      @JsonKey(name: "exposure") final Exposure? exposure,
-      @JsonKey(name: "duration") final dynamic duration,
-      @JsonKey(name: "edible_part") final List<dynamic>? ediblePart,
-      @JsonKey(name: "soil_type") final List<Exposure>? soilType,
-      @JsonKey(name: "soil_moisture") final List<Exposure>? soilMoisture,
-      @JsonKey(name: "soil_ph") final List<Exposure>? soilPh,
-      @JsonKey(name: "position_sunlight")
-      final List<Exposure>? positionSunlight,
-      @JsonKey(name: "position_side") final List<Exposure>? positionSide,
-      @JsonKey(name: "fragrance") final List<Exposure>? fragrance,
-      @JsonKey(name: "harvest") final List<Exposure>? harvest,
-      @JsonKey(name: "planting") final List<Exposure>? planting,
-      @JsonKey(name: "toxicity") final List<Exposure>? toxicity,
-      @JsonKey(name: "foliage") final List<Exposure>? foliage,
-      @JsonKey(name: "habit") final List<Exposure>? habit,
-      @JsonKey(name: "height_cm") final HeightCm? heightCm,
-      @JsonKey(name: "years_to_max_height") final HeightCm? yearsToMaxHeight,
-      @JsonKey(name: "spread_cm") final HeightCm? spreadCm,
-      @JsonKey(name: "scientific_classification")
-      final ScientificClassification? scientificClassification,
-      @JsonKey(name: "slug") final String? slug,
-      @JsonKey(name: "latin_name") final String? latinName,
-      @JsonKey(name: "image_url") final String? imageUrl,
-      @JsonKey(name: "genus_description") final String? genusDescription,
-      @JsonKey(name: "edible") final dynamic edible,
-      @JsonKey(name: "rating") final int? rating,
-      @JsonKey(name: "cultivation") final String? cultivation,
-      @JsonKey(name: "created") final DateTime? created,
-      @JsonKey(name: "modified") final DateTime? modified,
-      @JsonKey(name: "misc") final Misc? misc}) = _$PlantDetailsModelImpl;
+      {@JsonKey(name: 'id') final int? id,
+      @JsonKey(name: 'common_names') final List<CommonNameEntry>? commonNames,
+      @JsonKey(name: 'created') final DateTime? created,
+      @JsonKey(name: 'cultivation') final String? cultivation,
+      @JsonKey(name: 'duration') final List<String>? duration,
+      @JsonKey(name: 'edible_parts') final List<NamedSlug>? edibleParts,
+      @JsonKey(name: 'exposure') final List<String>? exposure,
+      @JsonKey(name: 'foliage') final List<String>? foliage,
+      @JsonKey(name: 'fragrance') final List<String>? fragrance,
+      @JsonKey(name: 'genus_description') final String? genusDescription,
+      @JsonKey(name: 'growth_tips') final List<GrowthTip>? growthTips,
+      @JsonKey(name: 'habit') final List<NamedSlug>? habit,
+      @JsonKey(name: 'hardiness_zone') final String? hardinessZone,
+      @JsonKey(name: 'harvest') final List<String>? harvest,
+      @JsonKey(name: 'height_max_cm') final int? heightMaxCm,
+      @JsonKey(name: 'height_min_cm') final int? heightMinCm,
+      @JsonKey(name: 'image_url') final String? imageUrl,
+      @JsonKey(name: 'images') final List<PlantImageItem>? images,
+      @JsonKey(name: 'is_edible') final bool? isEdible,
+      @JsonKey(name: 'latin_name') final String? latinName,
+      @JsonKey(name: 'misc') final PlantMisc? misc,
+      @JsonKey(name: 'modified') final DateTime? modified,
+      @JsonKey(name: 'parts_color') final List<PartColorGroup>? partsColor,
+      @JsonKey(name: 'pathogens') final List<PathogenItem>? pathogens,
+      @JsonKey(name: 'planting') final List<String>? planting,
+      @JsonKey(name: 'position_side') final List<String>? positionSide,
+      @JsonKey(name: 'position_sunlight') final List<String>? positionSunlight,
+      @JsonKey(name: 'rating') final int? rating,
+      @JsonKey(name: 'regular_events') final List<RegularEvent>? regularEvents,
+      @JsonKey(name: 'slug') final String? slug,
+      @JsonKey(name: 'soil_moisture') final List<String>? soilMoisture,
+      @JsonKey(name: 'soil_ph') final List<String>? soilPh,
+      @JsonKey(name: 'soil_types') final List<NamedSlug>? soilTypes,
+      @JsonKey(name: 'sources') final List<Source>? sources,
+      @JsonKey(name: 'spread_max_cm') final int? spreadMaxCm,
+      @JsonKey(name: 'spread_min_cm') final int? spreadMinCm,
+      @JsonKey(name: 'synonyms') final List<SynonymItem>? synonyms,
+      @JsonKey(name: 'tags') final List<PlantTag>? tags,
+      @JsonKey(name: 'toxicity') final List<String>? toxicity,
+      @JsonKey(name: 'years_to_max_height_max') final int? yearsToMaxHeightMax,
+      @JsonKey(name: 'years_to_max_height_min')
+      final int? yearsToMaxHeightMin}) = _$PlantDetailsModelImpl;
 
   factory _PlantDetailsModel.fromJson(Map<String, dynamic> json) =
       _$PlantDetailsModelImpl.fromJson;
 
   @override
-  @JsonKey(name: "main_common_name")
-  String? get mainCommonName;
-  @override
-  @JsonKey(name: "id")
+  @JsonKey(name: 'id')
   int? get id;
   @override
-  @JsonKey(name: "tags")
-  List<String>? get tags;
+  @JsonKey(name: 'common_names')
+  List<CommonNameEntry>? get commonNames;
   @override
-  @JsonKey(name: "synonyms")
-  List<String>? get synonyms;
-  @override
-  @JsonKey(name: "sources")
-  List<Source>? get sources;
-  @override
-  @JsonKey(name: "common_names")
-  Map<String, List<String>>? get commonNames;
-  @override
-  @JsonKey(name: "images")
-  Images? get images;
-  @override
-  @JsonKey(name: "pathogens")
-  Pathogens? get pathogens;
-  @override
-  @JsonKey(name: "growth_tips")
-  GrowthTips? get growthTips;
-  @override
-  @JsonKey(name: "distributions")
-  List<Distribution>? get distributions;
-  @override
-  @JsonKey(name: "regular_events")
-  List<RegularEvent>? get regularEvents;
-  @override
-  @JsonKey(name: "parts_color")
-  PartsColor? get partsColor;
-  @override
-  @JsonKey(name: "exposure")
-  Exposure? get exposure;
-  @override
-  @JsonKey(name: "duration")
-  dynamic get duration;
-  @override
-  @JsonKey(name: "edible_part")
-  List<dynamic>? get ediblePart;
-  @override
-  @JsonKey(name: "soil_type")
-  List<Exposure>? get soilType;
-  @override
-  @JsonKey(name: "soil_moisture")
-  List<Exposure>? get soilMoisture;
-  @override
-  @JsonKey(name: "soil_ph")
-  List<Exposure>? get soilPh;
-  @override
-  @JsonKey(name: "position_sunlight")
-  List<Exposure>? get positionSunlight;
-  @override
-  @JsonKey(name: "position_side")
-  List<Exposure>? get positionSide;
-  @override
-  @JsonKey(name: "fragrance")
-  List<Exposure>? get fragrance;
-  @override
-  @JsonKey(name: "harvest")
-  List<Exposure>? get harvest;
-  @override
-  @JsonKey(name: "planting")
-  List<Exposure>? get planting;
-  @override
-  @JsonKey(name: "toxicity")
-  List<Exposure>? get toxicity;
-  @override
-  @JsonKey(name: "foliage")
-  List<Exposure>? get foliage;
-  @override
-  @JsonKey(name: "habit")
-  List<Exposure>? get habit;
-  @override
-  @JsonKey(name: "height_cm")
-  HeightCm? get heightCm;
-  @override
-  @JsonKey(name: "years_to_max_height")
-  HeightCm? get yearsToMaxHeight;
-  @override
-  @JsonKey(name: "spread_cm")
-  HeightCm? get spreadCm;
-  @override
-  @JsonKey(name: "scientific_classification")
-  ScientificClassification? get scientificClassification;
-  @override
-  @JsonKey(name: "slug")
-  String? get slug;
-  @override
-  @JsonKey(name: "latin_name")
-  String? get latinName;
-  @override
-  @JsonKey(name: "image_url")
-  String? get imageUrl;
-  @override
-  @JsonKey(name: "genus_description")
-  String? get genusDescription;
-  @override
-  @JsonKey(name: "edible")
-  dynamic get edible;
-  @override
-  @JsonKey(name: "rating")
-  int? get rating;
-  @override
-  @JsonKey(name: "cultivation")
-  String? get cultivation;
-  @override
-  @JsonKey(name: "created")
+  @JsonKey(name: 'created')
   DateTime? get created;
   @override
-  @JsonKey(name: "modified")
+  @JsonKey(name: 'cultivation')
+  String? get cultivation;
+  @override
+  @JsonKey(name: 'duration')
+  List<String>? get duration;
+  @override
+  @JsonKey(name: 'edible_parts')
+  List<NamedSlug>? get edibleParts;
+  @override
+  @JsonKey(name: 'exposure')
+  List<String>? get exposure;
+  @override
+  @JsonKey(name: 'foliage')
+  List<String>? get foliage;
+  @override
+  @JsonKey(name: 'fragrance')
+  List<String>? get fragrance;
+  @override
+  @JsonKey(name: 'genus_description')
+  String? get genusDescription;
+  @override
+  @JsonKey(name: 'growth_tips')
+  List<GrowthTip>? get growthTips;
+  @override
+  @JsonKey(name: 'habit')
+  List<NamedSlug>? get habit;
+  @override
+  @JsonKey(name: 'hardiness_zone')
+  String? get hardinessZone;
+  @override
+  @JsonKey(name: 'harvest')
+  List<String>? get harvest;
+  @override
+  @JsonKey(name: 'height_max_cm')
+  int? get heightMaxCm;
+  @override
+  @JsonKey(name: 'height_min_cm')
+  int? get heightMinCm;
+  @override
+  @JsonKey(name: 'image_url')
+  String? get imageUrl;
+  @override
+  @JsonKey(name: 'images')
+  List<PlantImageItem>? get images;
+  @override
+  @JsonKey(name: 'is_edible')
+  bool? get isEdible;
+  @override
+  @JsonKey(name: 'latin_name')
+  String? get latinName;
+  @override
+  @JsonKey(name: 'misc')
+  PlantMisc? get misc;
+  @override
+  @JsonKey(name: 'modified')
   DateTime? get modified;
   @override
-  @JsonKey(name: "misc")
-  Misc? get misc;
+  @JsonKey(name: 'parts_color')
+  List<PartColorGroup>? get partsColor;
+  @override
+  @JsonKey(name: 'pathogens')
+  List<PathogenItem>? get pathogens;
+  @override
+  @JsonKey(name: 'planting')
+  List<String>? get planting;
+  @override
+  @JsonKey(name: 'position_side')
+  List<String>? get positionSide;
+  @override
+  @JsonKey(name: 'position_sunlight')
+  List<String>? get positionSunlight;
+  @override
+  @JsonKey(name: 'rating')
+  int? get rating;
+  @override
+  @JsonKey(name: 'regular_events')
+  List<RegularEvent>? get regularEvents;
+  @override
+  @JsonKey(name: 'slug')
+  String? get slug;
+  @override
+  @JsonKey(name: 'soil_moisture')
+  List<String>? get soilMoisture;
+  @override
+  @JsonKey(name: 'soil_ph')
+  List<String>? get soilPh;
+  @override
+  @JsonKey(name: 'soil_types')
+  List<NamedSlug>? get soilTypes;
+  @override
+  @JsonKey(name: 'sources')
+  List<Source>? get sources;
+  @override
+  @JsonKey(name: 'spread_max_cm')
+  int? get spreadMaxCm;
+  @override
+  @JsonKey(name: 'spread_min_cm')
+  int? get spreadMinCm;
+  @override
+  @JsonKey(name: 'synonyms')
+  List<SynonymItem>? get synonyms;
+  @override
+  @JsonKey(name: 'tags')
+  List<PlantTag>? get tags;
+  @override
+  @JsonKey(name: 'toxicity')
+  List<String>? get toxicity;
+  @override
+  @JsonKey(name: 'years_to_max_height_max')
+  int? get yearsToMaxHeightMax;
+  @override
+  @JsonKey(name: 'years_to_max_height_min')
+  int? get yearsToMaxHeightMin;
 
   /// Create a copy of PlantDetailsModel
   /// with the given fields replaced by the non-null parameter values.
@@ -1478,372 +1386,485 @@ abstract class _PlantDetailsModel implements PlantDetailsModel {
       throw _privateConstructorUsedError;
 }
 
-Distribution _$DistributionFromJson(Map<String, dynamic> json) {
-  return _Distribution.fromJson(json);
+CommonNameEntry _$CommonNameEntryFromJson(Map<String, dynamic> json) {
+  return _CommonNameEntry.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Distribution {
-  @JsonKey(name: "statuses")
-  List<Exposure>? get statuses => throw _privateConstructorUsedError;
-  @JsonKey(name: "name")
+mixin _$CommonNameEntry {
+  @JsonKey(name: 'is_main')
+  bool? get isMain => throw _privateConstructorUsedError;
+  @JsonKey(name: 'lang')
+  String? get lang => throw _privateConstructorUsedError;
+  @JsonKey(name: 'name')
   String? get name => throw _privateConstructorUsedError;
-  @JsonKey(name: "tdwg_code")
-  String? get tdwgCode => throw _privateConstructorUsedError;
-  @JsonKey(name: "tdwg_level")
-  int? get tdwgLevel => throw _privateConstructorUsedError;
-  @JsonKey(name: "species_count")
-  int? get speciesCount => throw _privateConstructorUsedError;
 
-  /// Serializes this Distribution to a JSON map.
+  /// Serializes this CommonNameEntry to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of Distribution
+  /// Create a copy of CommonNameEntry
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $DistributionCopyWith<Distribution> get copyWith =>
+  $CommonNameEntryCopyWith<CommonNameEntry> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DistributionCopyWith<$Res> {
-  factory $DistributionCopyWith(
-          Distribution value, $Res Function(Distribution) then) =
-      _$DistributionCopyWithImpl<$Res, Distribution>;
+abstract class $CommonNameEntryCopyWith<$Res> {
+  factory $CommonNameEntryCopyWith(
+          CommonNameEntry value, $Res Function(CommonNameEntry) then) =
+      _$CommonNameEntryCopyWithImpl<$Res, CommonNameEntry>;
   @useResult
   $Res call(
-      {@JsonKey(name: "statuses") List<Exposure>? statuses,
-      @JsonKey(name: "name") String? name,
-      @JsonKey(name: "tdwg_code") String? tdwgCode,
-      @JsonKey(name: "tdwg_level") int? tdwgLevel,
-      @JsonKey(name: "species_count") int? speciesCount});
+      {@JsonKey(name: 'is_main') bool? isMain,
+      @JsonKey(name: 'lang') String? lang,
+      @JsonKey(name: 'name') String? name});
 }
 
 /// @nodoc
-class _$DistributionCopyWithImpl<$Res, $Val extends Distribution>
-    implements $DistributionCopyWith<$Res> {
-  _$DistributionCopyWithImpl(this._value, this._then);
+class _$CommonNameEntryCopyWithImpl<$Res, $Val extends CommonNameEntry>
+    implements $CommonNameEntryCopyWith<$Res> {
+  _$CommonNameEntryCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Distribution
+  /// Create a copy of CommonNameEntry
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? statuses = freezed,
+    Object? isMain = freezed,
+    Object? lang = freezed,
     Object? name = freezed,
-    Object? tdwgCode = freezed,
-    Object? tdwgLevel = freezed,
-    Object? speciesCount = freezed,
   }) {
     return _then(_value.copyWith(
-      statuses: freezed == statuses
-          ? _value.statuses
-          : statuses // ignore: cast_nullable_to_non_nullable
-              as List<Exposure>?,
+      isMain: freezed == isMain
+          ? _value.isMain
+          : isMain // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      lang: freezed == lang
+          ? _value.lang
+          : lang // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      tdwgCode: freezed == tdwgCode
-          ? _value.tdwgCode
-          : tdwgCode // ignore: cast_nullable_to_non_nullable
-              as String?,
-      tdwgLevel: freezed == tdwgLevel
-          ? _value.tdwgLevel
-          : tdwgLevel // ignore: cast_nullable_to_non_nullable
-              as int?,
-      speciesCount: freezed == speciesCount
-          ? _value.speciesCount
-          : speciesCount // ignore: cast_nullable_to_non_nullable
-              as int?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$DistributionImplCopyWith<$Res>
-    implements $DistributionCopyWith<$Res> {
-  factory _$$DistributionImplCopyWith(
-          _$DistributionImpl value, $Res Function(_$DistributionImpl) then) =
-      __$$DistributionImplCopyWithImpl<$Res>;
+abstract class _$$CommonNameEntryImplCopyWith<$Res>
+    implements $CommonNameEntryCopyWith<$Res> {
+  factory _$$CommonNameEntryImplCopyWith(_$CommonNameEntryImpl value,
+          $Res Function(_$CommonNameEntryImpl) then) =
+      __$$CommonNameEntryImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "statuses") List<Exposure>? statuses,
-      @JsonKey(name: "name") String? name,
-      @JsonKey(name: "tdwg_code") String? tdwgCode,
-      @JsonKey(name: "tdwg_level") int? tdwgLevel,
-      @JsonKey(name: "species_count") int? speciesCount});
+      {@JsonKey(name: 'is_main') bool? isMain,
+      @JsonKey(name: 'lang') String? lang,
+      @JsonKey(name: 'name') String? name});
 }
 
 /// @nodoc
-class __$$DistributionImplCopyWithImpl<$Res>
-    extends _$DistributionCopyWithImpl<$Res, _$DistributionImpl>
-    implements _$$DistributionImplCopyWith<$Res> {
-  __$$DistributionImplCopyWithImpl(
-      _$DistributionImpl _value, $Res Function(_$DistributionImpl) _then)
+class __$$CommonNameEntryImplCopyWithImpl<$Res>
+    extends _$CommonNameEntryCopyWithImpl<$Res, _$CommonNameEntryImpl>
+    implements _$$CommonNameEntryImplCopyWith<$Res> {
+  __$$CommonNameEntryImplCopyWithImpl(
+      _$CommonNameEntryImpl _value, $Res Function(_$CommonNameEntryImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of Distribution
+  /// Create a copy of CommonNameEntry
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? statuses = freezed,
+    Object? isMain = freezed,
+    Object? lang = freezed,
     Object? name = freezed,
-    Object? tdwgCode = freezed,
-    Object? tdwgLevel = freezed,
-    Object? speciesCount = freezed,
   }) {
-    return _then(_$DistributionImpl(
-      statuses: freezed == statuses
-          ? _value._statuses
-          : statuses // ignore: cast_nullable_to_non_nullable
-              as List<Exposure>?,
+    return _then(_$CommonNameEntryImpl(
+      isMain: freezed == isMain
+          ? _value.isMain
+          : isMain // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      lang: freezed == lang
+          ? _value.lang
+          : lang // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      tdwgCode: freezed == tdwgCode
-          ? _value.tdwgCode
-          : tdwgCode // ignore: cast_nullable_to_non_nullable
-              as String?,
-      tdwgLevel: freezed == tdwgLevel
-          ? _value.tdwgLevel
-          : tdwgLevel // ignore: cast_nullable_to_non_nullable
-              as int?,
-      speciesCount: freezed == speciesCount
-          ? _value.speciesCount
-          : speciesCount // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$DistributionImpl implements _Distribution {
-  const _$DistributionImpl(
-      {@JsonKey(name: "statuses") final List<Exposure>? statuses,
-      @JsonKey(name: "name") this.name,
-      @JsonKey(name: "tdwg_code") this.tdwgCode,
-      @JsonKey(name: "tdwg_level") this.tdwgLevel,
-      @JsonKey(name: "species_count") this.speciesCount})
-      : _statuses = statuses;
+class _$CommonNameEntryImpl implements _CommonNameEntry {
+  const _$CommonNameEntryImpl(
+      {@JsonKey(name: 'is_main') this.isMain,
+      @JsonKey(name: 'lang') this.lang,
+      @JsonKey(name: 'name') this.name});
 
-  factory _$DistributionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DistributionImplFromJson(json);
+  factory _$CommonNameEntryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CommonNameEntryImplFromJson(json);
 
-  final List<Exposure>? _statuses;
   @override
-  @JsonKey(name: "statuses")
-  List<Exposure>? get statuses {
-    final value = _statuses;
-    if (value == null) return null;
-    if (_statuses is EqualUnmodifiableListView) return _statuses;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+  @JsonKey(name: 'is_main')
+  final bool? isMain;
+  @override
+  @JsonKey(name: 'lang')
+  final String? lang;
+  @override
+  @JsonKey(name: 'name')
+  final String? name;
+
+  @override
+  String toString() {
+    return 'CommonNameEntry(isMain: $isMain, lang: $lang, name: $name)';
   }
 
   @override
-  @JsonKey(name: "name")
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CommonNameEntryImpl &&
+            (identical(other.isMain, isMain) || other.isMain == isMain) &&
+            (identical(other.lang, lang) || other.lang == lang) &&
+            (identical(other.name, name) || other.name == name));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, isMain, lang, name);
+
+  /// Create a copy of CommonNameEntry
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CommonNameEntryImplCopyWith<_$CommonNameEntryImpl> get copyWith =>
+      __$$CommonNameEntryImplCopyWithImpl<_$CommonNameEntryImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CommonNameEntryImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _CommonNameEntry implements CommonNameEntry {
+  const factory _CommonNameEntry(
+      {@JsonKey(name: 'is_main') final bool? isMain,
+      @JsonKey(name: 'lang') final String? lang,
+      @JsonKey(name: 'name') final String? name}) = _$CommonNameEntryImpl;
+
+  factory _CommonNameEntry.fromJson(Map<String, dynamic> json) =
+      _$CommonNameEntryImpl.fromJson;
+
+  @override
+  @JsonKey(name: 'is_main')
+  bool? get isMain;
+  @override
+  @JsonKey(name: 'lang')
+  String? get lang;
+  @override
+  @JsonKey(name: 'name')
+  String? get name;
+
+  /// Create a copy of CommonNameEntry
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CommonNameEntryImplCopyWith<_$CommonNameEntryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+NamedSlug _$NamedSlugFromJson(Map<String, dynamic> json) {
+  return _NamedSlug.fromJson(json);
+}
+
+/// @nodoc
+mixin _$NamedSlug {
+  @JsonKey(name: 'name')
+  String? get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'slug')
+  String? get slug => throw _privateConstructorUsedError;
+
+  /// Serializes this NamedSlug to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of NamedSlug
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $NamedSlugCopyWith<NamedSlug> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $NamedSlugCopyWith<$Res> {
+  factory $NamedSlugCopyWith(NamedSlug value, $Res Function(NamedSlug) then) =
+      _$NamedSlugCopyWithImpl<$Res, NamedSlug>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'name') String? name,
+      @JsonKey(name: 'slug') String? slug});
+}
+
+/// @nodoc
+class _$NamedSlugCopyWithImpl<$Res, $Val extends NamedSlug>
+    implements $NamedSlugCopyWith<$Res> {
+  _$NamedSlugCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of NamedSlug
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = freezed,
+    Object? slug = freezed,
+  }) {
+    return _then(_value.copyWith(
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      slug: freezed == slug
+          ? _value.slug
+          : slug // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$NamedSlugImplCopyWith<$Res>
+    implements $NamedSlugCopyWith<$Res> {
+  factory _$$NamedSlugImplCopyWith(
+          _$NamedSlugImpl value, $Res Function(_$NamedSlugImpl) then) =
+      __$$NamedSlugImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'name') String? name,
+      @JsonKey(name: 'slug') String? slug});
+}
+
+/// @nodoc
+class __$$NamedSlugImplCopyWithImpl<$Res>
+    extends _$NamedSlugCopyWithImpl<$Res, _$NamedSlugImpl>
+    implements _$$NamedSlugImplCopyWith<$Res> {
+  __$$NamedSlugImplCopyWithImpl(
+      _$NamedSlugImpl _value, $Res Function(_$NamedSlugImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of NamedSlug
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = freezed,
+    Object? slug = freezed,
+  }) {
+    return _then(_$NamedSlugImpl(
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      slug: freezed == slug
+          ? _value.slug
+          : slug // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$NamedSlugImpl implements _NamedSlug {
+  const _$NamedSlugImpl(
+      {@JsonKey(name: 'name') this.name, @JsonKey(name: 'slug') this.slug});
+
+  factory _$NamedSlugImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NamedSlugImplFromJson(json);
+
+  @override
+  @JsonKey(name: 'name')
   final String? name;
   @override
-  @JsonKey(name: "tdwg_code")
-  final String? tdwgCode;
-  @override
-  @JsonKey(name: "tdwg_level")
-  final int? tdwgLevel;
-  @override
-  @JsonKey(name: "species_count")
-  final int? speciesCount;
+  @JsonKey(name: 'slug')
+  final String? slug;
 
   @override
   String toString() {
-    return 'Distribution(statuses: $statuses, name: $name, tdwgCode: $tdwgCode, tdwgLevel: $tdwgLevel, speciesCount: $speciesCount)';
+    return 'NamedSlug(name: $name, slug: $slug)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DistributionImpl &&
-            const DeepCollectionEquality().equals(other._statuses, _statuses) &&
+            other is _$NamedSlugImpl &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.tdwgCode, tdwgCode) ||
-                other.tdwgCode == tdwgCode) &&
-            (identical(other.tdwgLevel, tdwgLevel) ||
-                other.tdwgLevel == tdwgLevel) &&
-            (identical(other.speciesCount, speciesCount) ||
-                other.speciesCount == speciesCount));
+            (identical(other.slug, slug) || other.slug == slug));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_statuses),
-      name,
-      tdwgCode,
-      tdwgLevel,
-      speciesCount);
+  int get hashCode => Object.hash(runtimeType, name, slug);
 
-  /// Create a copy of Distribution
+  /// Create a copy of NamedSlug
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$DistributionImplCopyWith<_$DistributionImpl> get copyWith =>
-      __$$DistributionImplCopyWithImpl<_$DistributionImpl>(this, _$identity);
+  _$$NamedSlugImplCopyWith<_$NamedSlugImpl> get copyWith =>
+      __$$NamedSlugImplCopyWithImpl<_$NamedSlugImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$DistributionImplToJson(
+    return _$$NamedSlugImplToJson(
       this,
     );
   }
 }
 
-abstract class _Distribution implements Distribution {
-  const factory _Distribution(
-          {@JsonKey(name: "statuses") final List<Exposure>? statuses,
-          @JsonKey(name: "name") final String? name,
-          @JsonKey(name: "tdwg_code") final String? tdwgCode,
-          @JsonKey(name: "tdwg_level") final int? tdwgLevel,
-          @JsonKey(name: "species_count") final int? speciesCount}) =
-      _$DistributionImpl;
+abstract class _NamedSlug implements NamedSlug {
+  const factory _NamedSlug(
+      {@JsonKey(name: 'name') final String? name,
+      @JsonKey(name: 'slug') final String? slug}) = _$NamedSlugImpl;
 
-  factory _Distribution.fromJson(Map<String, dynamic> json) =
-      _$DistributionImpl.fromJson;
+  factory _NamedSlug.fromJson(Map<String, dynamic> json) =
+      _$NamedSlugImpl.fromJson;
 
   @override
-  @JsonKey(name: "statuses")
-  List<Exposure>? get statuses;
-  @override
-  @JsonKey(name: "name")
+  @JsonKey(name: 'name')
   String? get name;
   @override
-  @JsonKey(name: "tdwg_code")
-  String? get tdwgCode;
-  @override
-  @JsonKey(name: "tdwg_level")
-  int? get tdwgLevel;
-  @override
-  @JsonKey(name: "species_count")
-  int? get speciesCount;
+  @JsonKey(name: 'slug')
+  String? get slug;
 
-  /// Create a copy of Distribution
+  /// Create a copy of NamedSlug
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DistributionImplCopyWith<_$DistributionImpl> get copyWith =>
+  _$$NamedSlugImplCopyWith<_$NamedSlugImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-Exposure _$ExposureFromJson(Map<String, dynamic> json) {
-  return _Exposure.fromJson(json);
+GrowthTip _$GrowthTipFromJson(Map<String, dynamic> json) {
+  return _GrowthTip.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Exposure {
-  @JsonKey(name: "value")
-  String? get value => throw _privateConstructorUsedError;
-  @JsonKey(name: "label")
-  String? get label => throw _privateConstructorUsedError;
+mixin _$GrowthTip {
+  @JsonKey(name: 'name')
+  String? get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'tip_type')
+  String? get tipType => throw _privateConstructorUsedError;
 
-  /// Serializes this Exposure to a JSON map.
+  /// Serializes this GrowthTip to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of Exposure
+  /// Create a copy of GrowthTip
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ExposureCopyWith<Exposure> get copyWith =>
+  $GrowthTipCopyWith<GrowthTip> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ExposureCopyWith<$Res> {
-  factory $ExposureCopyWith(Exposure value, $Res Function(Exposure) then) =
-      _$ExposureCopyWithImpl<$Res, Exposure>;
+abstract class $GrowthTipCopyWith<$Res> {
+  factory $GrowthTipCopyWith(GrowthTip value, $Res Function(GrowthTip) then) =
+      _$GrowthTipCopyWithImpl<$Res, GrowthTip>;
   @useResult
   $Res call(
-      {@JsonKey(name: "value") String? value,
-      @JsonKey(name: "label") String? label});
+      {@JsonKey(name: 'name') String? name,
+      @JsonKey(name: 'tip_type') String? tipType});
 }
 
 /// @nodoc
-class _$ExposureCopyWithImpl<$Res, $Val extends Exposure>
-    implements $ExposureCopyWith<$Res> {
-  _$ExposureCopyWithImpl(this._value, this._then);
+class _$GrowthTipCopyWithImpl<$Res, $Val extends GrowthTip>
+    implements $GrowthTipCopyWith<$Res> {
+  _$GrowthTipCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Exposure
+  /// Create a copy of GrowthTip
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
-    Object? label = freezed,
+    Object? name = freezed,
+    Object? tipType = freezed,
   }) {
     return _then(_value.copyWith(
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      label: freezed == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
+      tipType: freezed == tipType
+          ? _value.tipType
+          : tipType // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$ExposureImplCopyWith<$Res>
-    implements $ExposureCopyWith<$Res> {
-  factory _$$ExposureImplCopyWith(
-          _$ExposureImpl value, $Res Function(_$ExposureImpl) then) =
-      __$$ExposureImplCopyWithImpl<$Res>;
+abstract class _$$GrowthTipImplCopyWith<$Res>
+    implements $GrowthTipCopyWith<$Res> {
+  factory _$$GrowthTipImplCopyWith(
+          _$GrowthTipImpl value, $Res Function(_$GrowthTipImpl) then) =
+      __$$GrowthTipImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "value") String? value,
-      @JsonKey(name: "label") String? label});
+      {@JsonKey(name: 'name') String? name,
+      @JsonKey(name: 'tip_type') String? tipType});
 }
 
 /// @nodoc
-class __$$ExposureImplCopyWithImpl<$Res>
-    extends _$ExposureCopyWithImpl<$Res, _$ExposureImpl>
-    implements _$$ExposureImplCopyWith<$Res> {
-  __$$ExposureImplCopyWithImpl(
-      _$ExposureImpl _value, $Res Function(_$ExposureImpl) _then)
+class __$$GrowthTipImplCopyWithImpl<$Res>
+    extends _$GrowthTipCopyWithImpl<$Res, _$GrowthTipImpl>
+    implements _$$GrowthTipImplCopyWith<$Res> {
+  __$$GrowthTipImplCopyWithImpl(
+      _$GrowthTipImpl _value, $Res Function(_$GrowthTipImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of Exposure
+  /// Create a copy of GrowthTip
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
-    Object? label = freezed,
+    Object? name = freezed,
+    Object? tipType = freezed,
   }) {
-    return _then(_$ExposureImpl(
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
+    return _then(_$GrowthTipImpl(
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      label: freezed == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
+      tipType: freezed == tipType
+          ? _value.tipType
+          : tipType // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1851,4756 +1872,635 @@ class __$$ExposureImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ExposureImpl implements _Exposure {
-  const _$ExposureImpl(
-      {@JsonKey(name: "value") this.value, @JsonKey(name: "label") this.label});
+class _$GrowthTipImpl implements _GrowthTip {
+  const _$GrowthTipImpl(
+      {@JsonKey(name: 'name') this.name,
+      @JsonKey(name: 'tip_type') this.tipType});
 
-  factory _$ExposureImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ExposureImplFromJson(json);
+  factory _$GrowthTipImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GrowthTipImplFromJson(json);
 
   @override
-  @JsonKey(name: "value")
-  final String? value;
+  @JsonKey(name: 'name')
+  final String? name;
   @override
-  @JsonKey(name: "label")
-  final String? label;
+  @JsonKey(name: 'tip_type')
+  final String? tipType;
 
   @override
   String toString() {
-    return 'Exposure(value: $value, label: $label)';
+    return 'GrowthTip(name: $name, tipType: $tipType)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ExposureImpl &&
-            (identical(other.value, value) || other.value == value) &&
-            (identical(other.label, label) || other.label == label));
+            other is _$GrowthTipImpl &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.tipType, tipType) || other.tipType == tipType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, value, label);
+  int get hashCode => Object.hash(runtimeType, name, tipType);
 
-  /// Create a copy of Exposure
+  /// Create a copy of GrowthTip
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ExposureImplCopyWith<_$ExposureImpl> get copyWith =>
-      __$$ExposureImplCopyWithImpl<_$ExposureImpl>(this, _$identity);
+  _$$GrowthTipImplCopyWith<_$GrowthTipImpl> get copyWith =>
+      __$$GrowthTipImplCopyWithImpl<_$GrowthTipImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ExposureImplToJson(
+    return _$$GrowthTipImplToJson(
       this,
     );
   }
 }
 
-abstract class _Exposure implements Exposure {
-  const factory _Exposure(
-      {@JsonKey(name: "value") final String? value,
-      @JsonKey(name: "label") final String? label}) = _$ExposureImpl;
+abstract class _GrowthTip implements GrowthTip {
+  const factory _GrowthTip(
+      {@JsonKey(name: 'name') final String? name,
+      @JsonKey(name: 'tip_type') final String? tipType}) = _$GrowthTipImpl;
 
-  factory _Exposure.fromJson(Map<String, dynamic> json) =
-      _$ExposureImpl.fromJson;
+  factory _GrowthTip.fromJson(Map<String, dynamic> json) =
+      _$GrowthTipImpl.fromJson;
 
   @override
-  @JsonKey(name: "value")
-  String? get value;
+  @JsonKey(name: 'name')
+  String? get name;
   @override
-  @JsonKey(name: "label")
-  String? get label;
+  @JsonKey(name: 'tip_type')
+  String? get tipType;
 
-  /// Create a copy of Exposure
+  /// Create a copy of GrowthTip
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ExposureImplCopyWith<_$ExposureImpl> get copyWith =>
+  _$$GrowthTipImplCopyWith<_$GrowthTipImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-GrowthTips _$GrowthTipsFromJson(Map<String, dynamic> json) {
-  return _GrowthTips.fromJson(json);
+PlantImageItem _$PlantImageItemFromJson(Map<String, dynamic> json) {
+  return _PlantImageItem.fromJson(json);
 }
 
 /// @nodoc
-mixin _$GrowthTips {
-  @JsonKey(name: "propagation")
-  List<String>? get propagation => throw _privateConstructorUsedError;
-  @JsonKey(name: "suggested_panting_places")
-  List<String>? get suggestedPantingPlaces =>
-      throw _privateConstructorUsedError;
-  @JsonKey(name: "pruning")
-  List<dynamic>? get pruning => throw _privateConstructorUsedError;
-
-  /// Serializes this GrowthTips to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of GrowthTips
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $GrowthTipsCopyWith<GrowthTips> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $GrowthTipsCopyWith<$Res> {
-  factory $GrowthTipsCopyWith(
-          GrowthTips value, $Res Function(GrowthTips) then) =
-      _$GrowthTipsCopyWithImpl<$Res, GrowthTips>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: "propagation") List<String>? propagation,
-      @JsonKey(name: "suggested_panting_places")
-      List<String>? suggestedPantingPlaces,
-      @JsonKey(name: "pruning") List<dynamic>? pruning});
-}
-
-/// @nodoc
-class _$GrowthTipsCopyWithImpl<$Res, $Val extends GrowthTips>
-    implements $GrowthTipsCopyWith<$Res> {
-  _$GrowthTipsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of GrowthTips
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? propagation = freezed,
-    Object? suggestedPantingPlaces = freezed,
-    Object? pruning = freezed,
-  }) {
-    return _then(_value.copyWith(
-      propagation: freezed == propagation
-          ? _value.propagation
-          : propagation // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      suggestedPantingPlaces: freezed == suggestedPantingPlaces
-          ? _value.suggestedPantingPlaces
-          : suggestedPantingPlaces // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      pruning: freezed == pruning
-          ? _value.pruning
-          : pruning // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$GrowthTipsImplCopyWith<$Res>
-    implements $GrowthTipsCopyWith<$Res> {
-  factory _$$GrowthTipsImplCopyWith(
-          _$GrowthTipsImpl value, $Res Function(_$GrowthTipsImpl) then) =
-      __$$GrowthTipsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: "propagation") List<String>? propagation,
-      @JsonKey(name: "suggested_panting_places")
-      List<String>? suggestedPantingPlaces,
-      @JsonKey(name: "pruning") List<dynamic>? pruning});
-}
-
-/// @nodoc
-class __$$GrowthTipsImplCopyWithImpl<$Res>
-    extends _$GrowthTipsCopyWithImpl<$Res, _$GrowthTipsImpl>
-    implements _$$GrowthTipsImplCopyWith<$Res> {
-  __$$GrowthTipsImplCopyWithImpl(
-      _$GrowthTipsImpl _value, $Res Function(_$GrowthTipsImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of GrowthTips
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? propagation = freezed,
-    Object? suggestedPantingPlaces = freezed,
-    Object? pruning = freezed,
-  }) {
-    return _then(_$GrowthTipsImpl(
-      propagation: freezed == propagation
-          ? _value._propagation
-          : propagation // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      suggestedPantingPlaces: freezed == suggestedPantingPlaces
-          ? _value._suggestedPantingPlaces
-          : suggestedPantingPlaces // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      pruning: freezed == pruning
-          ? _value._pruning
-          : pruning // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$GrowthTipsImpl implements _GrowthTips {
-  const _$GrowthTipsImpl(
-      {@JsonKey(name: "propagation") final List<String>? propagation,
-      @JsonKey(name: "suggested_panting_places")
-      final List<String>? suggestedPantingPlaces,
-      @JsonKey(name: "pruning") final List<dynamic>? pruning})
-      : _propagation = propagation,
-        _suggestedPantingPlaces = suggestedPantingPlaces,
-        _pruning = pruning;
-
-  factory _$GrowthTipsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GrowthTipsImplFromJson(json);
-
-  final List<String>? _propagation;
-  @override
-  @JsonKey(name: "propagation")
-  List<String>? get propagation {
-    final value = _propagation;
-    if (value == null) return null;
-    if (_propagation is EqualUnmodifiableListView) return _propagation;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<String>? _suggestedPantingPlaces;
-  @override
-  @JsonKey(name: "suggested_panting_places")
-  List<String>? get suggestedPantingPlaces {
-    final value = _suggestedPantingPlaces;
-    if (value == null) return null;
-    if (_suggestedPantingPlaces is EqualUnmodifiableListView)
-      return _suggestedPantingPlaces;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<dynamic>? _pruning;
-  @override
-  @JsonKey(name: "pruning")
-  List<dynamic>? get pruning {
-    final value = _pruning;
-    if (value == null) return null;
-    if (_pruning is EqualUnmodifiableListView) return _pruning;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  @override
-  String toString() {
-    return 'GrowthTips(propagation: $propagation, suggestedPantingPlaces: $suggestedPantingPlaces, pruning: $pruning)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GrowthTipsImpl &&
-            const DeepCollectionEquality()
-                .equals(other._propagation, _propagation) &&
-            const DeepCollectionEquality().equals(
-                other._suggestedPantingPlaces, _suggestedPantingPlaces) &&
-            const DeepCollectionEquality().equals(other._pruning, _pruning));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_propagation),
-      const DeepCollectionEquality().hash(_suggestedPantingPlaces),
-      const DeepCollectionEquality().hash(_pruning));
-
-  /// Create a copy of GrowthTips
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GrowthTipsImplCopyWith<_$GrowthTipsImpl> get copyWith =>
-      __$$GrowthTipsImplCopyWithImpl<_$GrowthTipsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GrowthTipsImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _GrowthTips implements GrowthTips {
-  const factory _GrowthTips(
-          {@JsonKey(name: "propagation") final List<String>? propagation,
-          @JsonKey(name: "suggested_panting_places")
-          final List<String>? suggestedPantingPlaces,
-          @JsonKey(name: "pruning") final List<dynamic>? pruning}) =
-      _$GrowthTipsImpl;
-
-  factory _GrowthTips.fromJson(Map<String, dynamic> json) =
-      _$GrowthTipsImpl.fromJson;
-
-  @override
-  @JsonKey(name: "propagation")
-  List<String>? get propagation;
-  @override
-  @JsonKey(name: "suggested_panting_places")
-  List<String>? get suggestedPantingPlaces;
-  @override
-  @JsonKey(name: "pruning")
-  List<dynamic>? get pruning;
-
-  /// Create a copy of GrowthTips
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GrowthTipsImplCopyWith<_$GrowthTipsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-HeightCm _$HeightCmFromJson(Map<String, dynamic> json) {
-  return _HeightCm.fromJson(json);
-}
-
-/// @nodoc
-mixin _$HeightCm {
-  @JsonKey(name: "from_value")
-  int? get fromValue => throw _privateConstructorUsedError;
-  @JsonKey(name: "to_value")
-  int? get toValue => throw _privateConstructorUsedError;
-
-  /// Serializes this HeightCm to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of HeightCm
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $HeightCmCopyWith<HeightCm> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $HeightCmCopyWith<$Res> {
-  factory $HeightCmCopyWith(HeightCm value, $Res Function(HeightCm) then) =
-      _$HeightCmCopyWithImpl<$Res, HeightCm>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: "from_value") int? fromValue,
-      @JsonKey(name: "to_value") int? toValue});
-}
-
-/// @nodoc
-class _$HeightCmCopyWithImpl<$Res, $Val extends HeightCm>
-    implements $HeightCmCopyWith<$Res> {
-  _$HeightCmCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of HeightCm
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? fromValue = freezed,
-    Object? toValue = freezed,
-  }) {
-    return _then(_value.copyWith(
-      fromValue: freezed == fromValue
-          ? _value.fromValue
-          : fromValue // ignore: cast_nullable_to_non_nullable
-              as int?,
-      toValue: freezed == toValue
-          ? _value.toValue
-          : toValue // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$HeightCmImplCopyWith<$Res>
-    implements $HeightCmCopyWith<$Res> {
-  factory _$$HeightCmImplCopyWith(
-          _$HeightCmImpl value, $Res Function(_$HeightCmImpl) then) =
-      __$$HeightCmImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: "from_value") int? fromValue,
-      @JsonKey(name: "to_value") int? toValue});
-}
-
-/// @nodoc
-class __$$HeightCmImplCopyWithImpl<$Res>
-    extends _$HeightCmCopyWithImpl<$Res, _$HeightCmImpl>
-    implements _$$HeightCmImplCopyWith<$Res> {
-  __$$HeightCmImplCopyWithImpl(
-      _$HeightCmImpl _value, $Res Function(_$HeightCmImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of HeightCm
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? fromValue = freezed,
-    Object? toValue = freezed,
-  }) {
-    return _then(_$HeightCmImpl(
-      fromValue: freezed == fromValue
-          ? _value.fromValue
-          : fromValue // ignore: cast_nullable_to_non_nullable
-              as int?,
-      toValue: freezed == toValue
-          ? _value.toValue
-          : toValue // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$HeightCmImpl implements _HeightCm {
-  const _$HeightCmImpl(
-      {@JsonKey(name: "from_value") this.fromValue,
-      @JsonKey(name: "to_value") this.toValue});
-
-  factory _$HeightCmImpl.fromJson(Map<String, dynamic> json) =>
-      _$$HeightCmImplFromJson(json);
-
-  @override
-  @JsonKey(name: "from_value")
-  final int? fromValue;
-  @override
-  @JsonKey(name: "to_value")
-  final int? toValue;
-
-  @override
-  String toString() {
-    return 'HeightCm(fromValue: $fromValue, toValue: $toValue)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$HeightCmImpl &&
-            (identical(other.fromValue, fromValue) ||
-                other.fromValue == fromValue) &&
-            (identical(other.toValue, toValue) || other.toValue == toValue));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, fromValue, toValue);
-
-  /// Create a copy of HeightCm
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$HeightCmImplCopyWith<_$HeightCmImpl> get copyWith =>
-      __$$HeightCmImplCopyWithImpl<_$HeightCmImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$HeightCmImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _HeightCm implements HeightCm {
-  const factory _HeightCm(
-      {@JsonKey(name: "from_value") final int? fromValue,
-      @JsonKey(name: "to_value") final int? toValue}) = _$HeightCmImpl;
-
-  factory _HeightCm.fromJson(Map<String, dynamic> json) =
-      _$HeightCmImpl.fromJson;
-
-  @override
-  @JsonKey(name: "from_value")
-  int? get fromValue;
-  @override
-  @JsonKey(name: "to_value")
-  int? get toValue;
-
-  /// Create a copy of HeightCm
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$HeightCmImplCopyWith<_$HeightCmImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-Images _$ImagesFromJson(Map<String, dynamic> json) {
-  return _Images.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Images {
-  @JsonKey(name: "bark")
-  List<ImagesBark>? get bark => throw _privateConstructorUsedError;
-  @JsonKey(name: "fruit")
-  List<ImagesBark>? get fruit => throw _privateConstructorUsedError;
-  @JsonKey(name: "flower")
-  List<ImagesBark>? get flower => throw _privateConstructorUsedError;
-  @JsonKey(name: "habit")
-  List<ImagesBark>? get habit => throw _privateConstructorUsedError;
-  @JsonKey(name: "leaf")
-  List<ImagesBark>? get leaf => throw _privateConstructorUsedError;
-  @JsonKey(name: "other")
-  List<ImagesBark>? get other => throw _privateConstructorUsedError;
-  @JsonKey(name: "root")
-  List<ImagesBark>? get root => throw _privateConstructorUsedError;
-  @JsonKey(name: "stem")
-  List<ImagesBark>? get stem => throw _privateConstructorUsedError;
-  @JsonKey(name: "seed")
-  List<ImagesBark>? get seed => throw _privateConstructorUsedError;
-  @JsonKey(name: "tuber")
-  List<ImagesBark>? get tuber => throw _privateConstructorUsedError;
-  @JsonKey(name: "foliage")
-  List<ImagesBark>? get foliage => throw _privateConstructorUsedError;
-
-  /// Serializes this Images to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of Images
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $ImagesCopyWith<Images> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ImagesCopyWith<$Res> {
-  factory $ImagesCopyWith(Images value, $Res Function(Images) then) =
-      _$ImagesCopyWithImpl<$Res, Images>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: "bark") List<ImagesBark>? bark,
-      @JsonKey(name: "fruit") List<ImagesBark>? fruit,
-      @JsonKey(name: "flower") List<ImagesBark>? flower,
-      @JsonKey(name: "habit") List<ImagesBark>? habit,
-      @JsonKey(name: "leaf") List<ImagesBark>? leaf,
-      @JsonKey(name: "other") List<ImagesBark>? other,
-      @JsonKey(name: "root") List<ImagesBark>? root,
-      @JsonKey(name: "stem") List<ImagesBark>? stem,
-      @JsonKey(name: "seed") List<ImagesBark>? seed,
-      @JsonKey(name: "tuber") List<ImagesBark>? tuber,
-      @JsonKey(name: "foliage") List<ImagesBark>? foliage});
-}
-
-/// @nodoc
-class _$ImagesCopyWithImpl<$Res, $Val extends Images>
-    implements $ImagesCopyWith<$Res> {
-  _$ImagesCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Images
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? bark = freezed,
-    Object? fruit = freezed,
-    Object? flower = freezed,
-    Object? habit = freezed,
-    Object? leaf = freezed,
-    Object? other = freezed,
-    Object? root = freezed,
-    Object? stem = freezed,
-    Object? seed = freezed,
-    Object? tuber = freezed,
-    Object? foliage = freezed,
-  }) {
-    return _then(_value.copyWith(
-      bark: freezed == bark
-          ? _value.bark
-          : bark // ignore: cast_nullable_to_non_nullable
-              as List<ImagesBark>?,
-      fruit: freezed == fruit
-          ? _value.fruit
-          : fruit // ignore: cast_nullable_to_non_nullable
-              as List<ImagesBark>?,
-      flower: freezed == flower
-          ? _value.flower
-          : flower // ignore: cast_nullable_to_non_nullable
-              as List<ImagesBark>?,
-      habit: freezed == habit
-          ? _value.habit
-          : habit // ignore: cast_nullable_to_non_nullable
-              as List<ImagesBark>?,
-      leaf: freezed == leaf
-          ? _value.leaf
-          : leaf // ignore: cast_nullable_to_non_nullable
-              as List<ImagesBark>?,
-      other: freezed == other
-          ? _value.other
-          : other // ignore: cast_nullable_to_non_nullable
-              as List<ImagesBark>?,
-      root: freezed == root
-          ? _value.root
-          : root // ignore: cast_nullable_to_non_nullable
-              as List<ImagesBark>?,
-      stem: freezed == stem
-          ? _value.stem
-          : stem // ignore: cast_nullable_to_non_nullable
-              as List<ImagesBark>?,
-      seed: freezed == seed
-          ? _value.seed
-          : seed // ignore: cast_nullable_to_non_nullable
-              as List<ImagesBark>?,
-      tuber: freezed == tuber
-          ? _value.tuber
-          : tuber // ignore: cast_nullable_to_non_nullable
-              as List<ImagesBark>?,
-      foliage: freezed == foliage
-          ? _value.foliage
-          : foliage // ignore: cast_nullable_to_non_nullable
-              as List<ImagesBark>?,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$ImagesImplCopyWith<$Res> implements $ImagesCopyWith<$Res> {
-  factory _$$ImagesImplCopyWith(
-          _$ImagesImpl value, $Res Function(_$ImagesImpl) then) =
-      __$$ImagesImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: "bark") List<ImagesBark>? bark,
-      @JsonKey(name: "fruit") List<ImagesBark>? fruit,
-      @JsonKey(name: "flower") List<ImagesBark>? flower,
-      @JsonKey(name: "habit") List<ImagesBark>? habit,
-      @JsonKey(name: "leaf") List<ImagesBark>? leaf,
-      @JsonKey(name: "other") List<ImagesBark>? other,
-      @JsonKey(name: "root") List<ImagesBark>? root,
-      @JsonKey(name: "stem") List<ImagesBark>? stem,
-      @JsonKey(name: "seed") List<ImagesBark>? seed,
-      @JsonKey(name: "tuber") List<ImagesBark>? tuber,
-      @JsonKey(name: "foliage") List<ImagesBark>? foliage});
-}
-
-/// @nodoc
-class __$$ImagesImplCopyWithImpl<$Res>
-    extends _$ImagesCopyWithImpl<$Res, _$ImagesImpl>
-    implements _$$ImagesImplCopyWith<$Res> {
-  __$$ImagesImplCopyWithImpl(
-      _$ImagesImpl _value, $Res Function(_$ImagesImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Images
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? bark = freezed,
-    Object? fruit = freezed,
-    Object? flower = freezed,
-    Object? habit = freezed,
-    Object? leaf = freezed,
-    Object? other = freezed,
-    Object? root = freezed,
-    Object? stem = freezed,
-    Object? seed = freezed,
-    Object? tuber = freezed,
-    Object? foliage = freezed,
-  }) {
-    return _then(_$ImagesImpl(
-      bark: freezed == bark
-          ? _value._bark
-          : bark // ignore: cast_nullable_to_non_nullable
-              as List<ImagesBark>?,
-      fruit: freezed == fruit
-          ? _value._fruit
-          : fruit // ignore: cast_nullable_to_non_nullable
-              as List<ImagesBark>?,
-      flower: freezed == flower
-          ? _value._flower
-          : flower // ignore: cast_nullable_to_non_nullable
-              as List<ImagesBark>?,
-      habit: freezed == habit
-          ? _value._habit
-          : habit // ignore: cast_nullable_to_non_nullable
-              as List<ImagesBark>?,
-      leaf: freezed == leaf
-          ? _value._leaf
-          : leaf // ignore: cast_nullable_to_non_nullable
-              as List<ImagesBark>?,
-      other: freezed == other
-          ? _value._other
-          : other // ignore: cast_nullable_to_non_nullable
-              as List<ImagesBark>?,
-      root: freezed == root
-          ? _value._root
-          : root // ignore: cast_nullable_to_non_nullable
-              as List<ImagesBark>?,
-      stem: freezed == stem
-          ? _value._stem
-          : stem // ignore: cast_nullable_to_non_nullable
-              as List<ImagesBark>?,
-      seed: freezed == seed
-          ? _value._seed
-          : seed // ignore: cast_nullable_to_non_nullable
-              as List<ImagesBark>?,
-      tuber: freezed == tuber
-          ? _value._tuber
-          : tuber // ignore: cast_nullable_to_non_nullable
-              as List<ImagesBark>?,
-      foliage: freezed == foliage
-          ? _value._foliage
-          : foliage // ignore: cast_nullable_to_non_nullable
-              as List<ImagesBark>?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$ImagesImpl implements _Images {
-  const _$ImagesImpl(
-      {@JsonKey(name: "bark") final List<ImagesBark>? bark,
-      @JsonKey(name: "fruit") final List<ImagesBark>? fruit,
-      @JsonKey(name: "flower") final List<ImagesBark>? flower,
-      @JsonKey(name: "habit") final List<ImagesBark>? habit,
-      @JsonKey(name: "leaf") final List<ImagesBark>? leaf,
-      @JsonKey(name: "other") final List<ImagesBark>? other,
-      @JsonKey(name: "root") final List<ImagesBark>? root,
-      @JsonKey(name: "stem") final List<ImagesBark>? stem,
-      @JsonKey(name: "seed") final List<ImagesBark>? seed,
-      @JsonKey(name: "tuber") final List<ImagesBark>? tuber,
-      @JsonKey(name: "foliage") final List<ImagesBark>? foliage})
-      : _bark = bark,
-        _fruit = fruit,
-        _flower = flower,
-        _habit = habit,
-        _leaf = leaf,
-        _other = other,
-        _root = root,
-        _stem = stem,
-        _seed = seed,
-        _tuber = tuber,
-        _foliage = foliage;
-
-  factory _$ImagesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ImagesImplFromJson(json);
-
-  final List<ImagesBark>? _bark;
-  @override
-  @JsonKey(name: "bark")
-  List<ImagesBark>? get bark {
-    final value = _bark;
-    if (value == null) return null;
-    if (_bark is EqualUnmodifiableListView) return _bark;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<ImagesBark>? _fruit;
-  @override
-  @JsonKey(name: "fruit")
-  List<ImagesBark>? get fruit {
-    final value = _fruit;
-    if (value == null) return null;
-    if (_fruit is EqualUnmodifiableListView) return _fruit;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<ImagesBark>? _flower;
-  @override
-  @JsonKey(name: "flower")
-  List<ImagesBark>? get flower {
-    final value = _flower;
-    if (value == null) return null;
-    if (_flower is EqualUnmodifiableListView) return _flower;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<ImagesBark>? _habit;
-  @override
-  @JsonKey(name: "habit")
-  List<ImagesBark>? get habit {
-    final value = _habit;
-    if (value == null) return null;
-    if (_habit is EqualUnmodifiableListView) return _habit;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<ImagesBark>? _leaf;
-  @override
-  @JsonKey(name: "leaf")
-  List<ImagesBark>? get leaf {
-    final value = _leaf;
-    if (value == null) return null;
-    if (_leaf is EqualUnmodifiableListView) return _leaf;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<ImagesBark>? _other;
-  @override
-  @JsonKey(name: "other")
-  List<ImagesBark>? get other {
-    final value = _other;
-    if (value == null) return null;
-    if (_other is EqualUnmodifiableListView) return _other;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<ImagesBark>? _root;
-  @override
-  @JsonKey(name: "root")
-  List<ImagesBark>? get root {
-    final value = _root;
-    if (value == null) return null;
-    if (_root is EqualUnmodifiableListView) return _root;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<ImagesBark>? _stem;
-  @override
-  @JsonKey(name: "stem")
-  List<ImagesBark>? get stem {
-    final value = _stem;
-    if (value == null) return null;
-    if (_stem is EqualUnmodifiableListView) return _stem;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<ImagesBark>? _seed;
-  @override
-  @JsonKey(name: "seed")
-  List<ImagesBark>? get seed {
-    final value = _seed;
-    if (value == null) return null;
-    if (_seed is EqualUnmodifiableListView) return _seed;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<ImagesBark>? _tuber;
-  @override
-  @JsonKey(name: "tuber")
-  List<ImagesBark>? get tuber {
-    final value = _tuber;
-    if (value == null) return null;
-    if (_tuber is EqualUnmodifiableListView) return _tuber;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<ImagesBark>? _foliage;
-  @override
-  @JsonKey(name: "foliage")
-  List<ImagesBark>? get foliage {
-    final value = _foliage;
-    if (value == null) return null;
-    if (_foliage is EqualUnmodifiableListView) return _foliage;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  @override
-  String toString() {
-    return 'Images(bark: $bark, fruit: $fruit, flower: $flower, habit: $habit, leaf: $leaf, other: $other, root: $root, stem: $stem, seed: $seed, tuber: $tuber, foliage: $foliage)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ImagesImpl &&
-            const DeepCollectionEquality().equals(other._bark, _bark) &&
-            const DeepCollectionEquality().equals(other._fruit, _fruit) &&
-            const DeepCollectionEquality().equals(other._flower, _flower) &&
-            const DeepCollectionEquality().equals(other._habit, _habit) &&
-            const DeepCollectionEquality().equals(other._leaf, _leaf) &&
-            const DeepCollectionEquality().equals(other._other, this._other) &&
-            const DeepCollectionEquality().equals(other._root, _root) &&
-            const DeepCollectionEquality().equals(other._stem, _stem) &&
-            const DeepCollectionEquality().equals(other._seed, _seed) &&
-            const DeepCollectionEquality().equals(other._tuber, _tuber) &&
-            const DeepCollectionEquality().equals(other._foliage, _foliage));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_bark),
-      const DeepCollectionEquality().hash(_fruit),
-      const DeepCollectionEquality().hash(_flower),
-      const DeepCollectionEquality().hash(_habit),
-      const DeepCollectionEquality().hash(_leaf),
-      const DeepCollectionEquality().hash(_other),
-      const DeepCollectionEquality().hash(_root),
-      const DeepCollectionEquality().hash(_stem),
-      const DeepCollectionEquality().hash(_seed),
-      const DeepCollectionEquality().hash(_tuber),
-      const DeepCollectionEquality().hash(_foliage));
-
-  /// Create a copy of Images
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ImagesImplCopyWith<_$ImagesImpl> get copyWith =>
-      __$$ImagesImplCopyWithImpl<_$ImagesImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ImagesImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Images implements Images {
-  const factory _Images(
-          {@JsonKey(name: "bark") final List<ImagesBark>? bark,
-          @JsonKey(name: "fruit") final List<ImagesBark>? fruit,
-          @JsonKey(name: "flower") final List<ImagesBark>? flower,
-          @JsonKey(name: "habit") final List<ImagesBark>? habit,
-          @JsonKey(name: "leaf") final List<ImagesBark>? leaf,
-          @JsonKey(name: "other") final List<ImagesBark>? other,
-          @JsonKey(name: "root") final List<ImagesBark>? root,
-          @JsonKey(name: "stem") final List<ImagesBark>? stem,
-          @JsonKey(name: "seed") final List<ImagesBark>? seed,
-          @JsonKey(name: "tuber") final List<ImagesBark>? tuber,
-          @JsonKey(name: "foliage") final List<ImagesBark>? foliage}) =
-      _$ImagesImpl;
-
-  factory _Images.fromJson(Map<String, dynamic> json) = _$ImagesImpl.fromJson;
-
-  @override
-  @JsonKey(name: "bark")
-  List<ImagesBark>? get bark;
-  @override
-  @JsonKey(name: "fruit")
-  List<ImagesBark>? get fruit;
-  @override
-  @JsonKey(name: "flower")
-  List<ImagesBark>? get flower;
-  @override
-  @JsonKey(name: "habit")
-  List<ImagesBark>? get habit;
-  @override
-  @JsonKey(name: "leaf")
-  List<ImagesBark>? get leaf;
-  @override
-  @JsonKey(name: "other")
-  List<ImagesBark>? get other;
-  @override
-  @JsonKey(name: "root")
-  List<ImagesBark>? get root;
-  @override
-  @JsonKey(name: "stem")
-  List<ImagesBark>? get stem;
-  @override
-  @JsonKey(name: "seed")
-  List<ImagesBark>? get seed;
-  @override
-  @JsonKey(name: "tuber")
-  List<ImagesBark>? get tuber;
-  @override
-  @JsonKey(name: "foliage")
-  List<ImagesBark>? get foliage;
-
-  /// Create a copy of Images
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ImagesImplCopyWith<_$ImagesImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-ImagesBark _$ImagesBarkFromJson(Map<String, dynamic> json) {
-  return _ImagesBark.fromJson(json);
-}
-
-/// @nodoc
-mixin _$ImagesBark {
-  @JsonKey(name: "image_url")
-  String? get imageUrl => throw _privateConstructorUsedError;
-  @JsonKey(name: "image_copyright")
+mixin _$PlantImageItem {
+  @JsonKey(name: 'image_copyright')
   String? get imageCopyright => throw _privateConstructorUsedError;
+  @JsonKey(name: 'image_url')
+  String? get imageUrl => throw _privateConstructorUsedError;
+  @JsonKey(name: 'part')
+  NamedSlug? get part => throw _privateConstructorUsedError;
 
-  /// Serializes this ImagesBark to a JSON map.
+  /// Serializes this PlantImageItem to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of ImagesBark
+  /// Create a copy of PlantImageItem
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ImagesBarkCopyWith<ImagesBark> get copyWith =>
+  $PlantImageItemCopyWith<PlantImageItem> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ImagesBarkCopyWith<$Res> {
-  factory $ImagesBarkCopyWith(
-          ImagesBark value, $Res Function(ImagesBark) then) =
-      _$ImagesBarkCopyWithImpl<$Res, ImagesBark>;
+abstract class $PlantImageItemCopyWith<$Res> {
+  factory $PlantImageItemCopyWith(
+          PlantImageItem value, $Res Function(PlantImageItem) then) =
+      _$PlantImageItemCopyWithImpl<$Res, PlantImageItem>;
   @useResult
   $Res call(
-      {@JsonKey(name: "image_url") String? imageUrl,
-      @JsonKey(name: "image_copyright") String? imageCopyright});
+      {@JsonKey(name: 'image_copyright') String? imageCopyright,
+      @JsonKey(name: 'image_url') String? imageUrl,
+      @JsonKey(name: 'part') NamedSlug? part});
+
+  $NamedSlugCopyWith<$Res>? get part;
 }
 
 /// @nodoc
-class _$ImagesBarkCopyWithImpl<$Res, $Val extends ImagesBark>
-    implements $ImagesBarkCopyWith<$Res> {
-  _$ImagesBarkCopyWithImpl(this._value, this._then);
+class _$PlantImageItemCopyWithImpl<$Res, $Val extends PlantImageItem>
+    implements $PlantImageItemCopyWith<$Res> {
+  _$PlantImageItemCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ImagesBark
+  /// Create a copy of PlantImageItem
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? imageUrl = freezed,
     Object? imageCopyright = freezed,
+    Object? imageUrl = freezed,
+    Object? part = freezed,
   }) {
     return _then(_value.copyWith(
-      imageUrl: freezed == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
       imageCopyright: freezed == imageCopyright
           ? _value.imageCopyright
           : imageCopyright // ignore: cast_nullable_to_non_nullable
               as String?,
+      imageUrl: freezed == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      part: freezed == part
+          ? _value.part
+          : part // ignore: cast_nullable_to_non_nullable
+              as NamedSlug?,
     ) as $Val);
+  }
+
+  /// Create a copy of PlantImageItem
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $NamedSlugCopyWith<$Res>? get part {
+    if (_value.part == null) {
+      return null;
+    }
+
+    return $NamedSlugCopyWith<$Res>(_value.part!, (value) {
+      return _then(_value.copyWith(part: value) as $Val);
+    });
   }
 }
 
 /// @nodoc
-abstract class _$$ImagesBarkImplCopyWith<$Res>
-    implements $ImagesBarkCopyWith<$Res> {
-  factory _$$ImagesBarkImplCopyWith(
-          _$ImagesBarkImpl value, $Res Function(_$ImagesBarkImpl) then) =
-      __$$ImagesBarkImplCopyWithImpl<$Res>;
+abstract class _$$PlantImageItemImplCopyWith<$Res>
+    implements $PlantImageItemCopyWith<$Res> {
+  factory _$$PlantImageItemImplCopyWith(_$PlantImageItemImpl value,
+          $Res Function(_$PlantImageItemImpl) then) =
+      __$$PlantImageItemImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "image_url") String? imageUrl,
-      @JsonKey(name: "image_copyright") String? imageCopyright});
+      {@JsonKey(name: 'image_copyright') String? imageCopyright,
+      @JsonKey(name: 'image_url') String? imageUrl,
+      @JsonKey(name: 'part') NamedSlug? part});
+
+  @override
+  $NamedSlugCopyWith<$Res>? get part;
 }
 
 /// @nodoc
-class __$$ImagesBarkImplCopyWithImpl<$Res>
-    extends _$ImagesBarkCopyWithImpl<$Res, _$ImagesBarkImpl>
-    implements _$$ImagesBarkImplCopyWith<$Res> {
-  __$$ImagesBarkImplCopyWithImpl(
-      _$ImagesBarkImpl _value, $Res Function(_$ImagesBarkImpl) _then)
+class __$$PlantImageItemImplCopyWithImpl<$Res>
+    extends _$PlantImageItemCopyWithImpl<$Res, _$PlantImageItemImpl>
+    implements _$$PlantImageItemImplCopyWith<$Res> {
+  __$$PlantImageItemImplCopyWithImpl(
+      _$PlantImageItemImpl _value, $Res Function(_$PlantImageItemImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ImagesBark
+  /// Create a copy of PlantImageItem
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? imageUrl = freezed,
     Object? imageCopyright = freezed,
+    Object? imageUrl = freezed,
+    Object? part = freezed,
   }) {
-    return _then(_$ImagesBarkImpl(
-      imageUrl: freezed == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
+    return _then(_$PlantImageItemImpl(
       imageCopyright: freezed == imageCopyright
           ? _value.imageCopyright
           : imageCopyright // ignore: cast_nullable_to_non_nullable
               as String?,
+      imageUrl: freezed == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      part: freezed == part
+          ? _value.part
+          : part // ignore: cast_nullable_to_non_nullable
+              as NamedSlug?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ImagesBarkImpl implements _ImagesBark {
-  const _$ImagesBarkImpl(
-      {@JsonKey(name: "image_url") this.imageUrl,
-      @JsonKey(name: "image_copyright") this.imageCopyright});
+class _$PlantImageItemImpl implements _PlantImageItem {
+  const _$PlantImageItemImpl(
+      {@JsonKey(name: 'image_copyright') this.imageCopyright,
+      @JsonKey(name: 'image_url') this.imageUrl,
+      @JsonKey(name: 'part') this.part});
 
-  factory _$ImagesBarkImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ImagesBarkImplFromJson(json);
+  factory _$PlantImageItemImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PlantImageItemImplFromJson(json);
 
   @override
-  @JsonKey(name: "image_url")
+  @JsonKey(name: 'image_copyright')
+  final String? imageCopyright;
+  @override
+  @JsonKey(name: 'image_url')
   final String? imageUrl;
   @override
-  @JsonKey(name: "image_copyright")
-  final String? imageCopyright;
+  @JsonKey(name: 'part')
+  final NamedSlug? part;
 
   @override
   String toString() {
-    return 'ImagesBark(imageUrl: $imageUrl, imageCopyright: $imageCopyright)';
+    return 'PlantImageItem(imageCopyright: $imageCopyright, imageUrl: $imageUrl, part: $part)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ImagesBarkImpl &&
+            other is _$PlantImageItemImpl &&
+            (identical(other.imageCopyright, imageCopyright) ||
+                other.imageCopyright == imageCopyright) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
-            (identical(other.imageCopyright, imageCopyright) ||
-                other.imageCopyright == imageCopyright));
+            (identical(other.part, part) || other.part == part));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, imageUrl, imageCopyright);
+  int get hashCode => Object.hash(runtimeType, imageCopyright, imageUrl, part);
 
-  /// Create a copy of ImagesBark
+  /// Create a copy of PlantImageItem
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ImagesBarkImplCopyWith<_$ImagesBarkImpl> get copyWith =>
-      __$$ImagesBarkImplCopyWithImpl<_$ImagesBarkImpl>(this, _$identity);
+  _$$PlantImageItemImplCopyWith<_$PlantImageItemImpl> get copyWith =>
+      __$$PlantImageItemImplCopyWithImpl<_$PlantImageItemImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ImagesBarkImplToJson(
+    return _$$PlantImageItemImplToJson(
       this,
     );
   }
 }
 
-abstract class _ImagesBark implements ImagesBark {
-  const factory _ImagesBark(
-          {@JsonKey(name: "image_url") final String? imageUrl,
-          @JsonKey(name: "image_copyright") final String? imageCopyright}) =
-      _$ImagesBarkImpl;
+abstract class _PlantImageItem implements PlantImageItem {
+  const factory _PlantImageItem(
+      {@JsonKey(name: 'image_copyright') final String? imageCopyright,
+      @JsonKey(name: 'image_url') final String? imageUrl,
+      @JsonKey(name: 'part') final NamedSlug? part}) = _$PlantImageItemImpl;
 
-  factory _ImagesBark.fromJson(Map<String, dynamic> json) =
-      _$ImagesBarkImpl.fromJson;
+  factory _PlantImageItem.fromJson(Map<String, dynamic> json) =
+      _$PlantImageItemImpl.fromJson;
 
   @override
-  @JsonKey(name: "image_url")
+  @JsonKey(name: 'image_copyright')
+  String? get imageCopyright;
+  @override
+  @JsonKey(name: 'image_url')
   String? get imageUrl;
   @override
-  @JsonKey(name: "image_copyright")
-  String? get imageCopyright;
+  @JsonKey(name: 'part')
+  NamedSlug? get part;
 
-  /// Create a copy of ImagesBark
+  /// Create a copy of PlantImageItem
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ImagesBarkImplCopyWith<_$ImagesBarkImpl> get copyWith =>
+  _$$PlantImageItemImplCopyWith<_$PlantImageItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-Misc _$MiscFromJson(Map<String, dynamic> json) {
-  return _Misc.fromJson(json);
+ColorEntry _$ColorEntryFromJson(Map<String, dynamic> json) {
+  return _ColorEntry.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Misc {
-  @JsonKey(name: "rank")
-  String? get rank => throw _privateConstructorUsedError;
-  @JsonKey(name: "slug")
+mixin _$ColorEntry {
+  @JsonKey(name: 'name')
+  String? get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'slug')
   String? get slug => throw _privateConstructorUsedError;
-  @JsonKey(name: "year")
-  int? get year => throw _privateConstructorUsedError;
-  @JsonKey(name: "genus")
-  String? get genus => throw _privateConstructorUsedError;
-  @JsonKey(name: "author")
-  String? get author => throw _privateConstructorUsedError;
-  @JsonKey(name: "family")
-  String? get family => throw _privateConstructorUsedError;
-  @JsonKey(name: "flower")
-  Flower? get flower => throw _privateConstructorUsedError;
-  @JsonKey(name: "growth")
-  Growth? get growth => throw _privateConstructorUsedError;
-  @JsonKey(name: "status")
-  String? get status => throw _privateConstructorUsedError;
-  @JsonKey(name: "foliage")
-  Foliage? get foliage => throw _privateConstructorUsedError;
-  @JsonKey(name: "vegetable")
-  dynamic get vegetable => throw _privateConstructorUsedError;
-  @JsonKey(name: "common_name")
-  String? get commonName => throw _privateConstructorUsedError;
-  @JsonKey(name: "bibliography")
-  String? get bibliography => throw _privateConstructorUsedError;
-  @JsonKey(name: "observations")
-  String? get observations => throw _privateConstructorUsedError;
-  @JsonKey(name: "fruit_or_seed")
-  FruitOrSeed? get fruitOrSeed => throw _privateConstructorUsedError;
-  @JsonKey(name: "specifications")
-  Specifications? get specifications => throw _privateConstructorUsedError;
-  @JsonKey(name: "scientific_name")
-  String? get scientificName => throw _privateConstructorUsedError;
-  @JsonKey(name: "family_common_name")
-  dynamic get familyCommonName => throw _privateConstructorUsedError;
 
-  /// Serializes this Misc to a JSON map.
+  /// Serializes this ColorEntry to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of Misc
+  /// Create a copy of ColorEntry
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $MiscCopyWith<Misc> get copyWith => throw _privateConstructorUsedError;
+  $ColorEntryCopyWith<ColorEntry> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $MiscCopyWith<$Res> {
-  factory $MiscCopyWith(Misc value, $Res Function(Misc) then) =
-      _$MiscCopyWithImpl<$Res, Misc>;
+abstract class $ColorEntryCopyWith<$Res> {
+  factory $ColorEntryCopyWith(
+          ColorEntry value, $Res Function(ColorEntry) then) =
+      _$ColorEntryCopyWithImpl<$Res, ColorEntry>;
   @useResult
   $Res call(
-      {@JsonKey(name: "rank") String? rank,
-      @JsonKey(name: "slug") String? slug,
-      @JsonKey(name: "year") int? year,
-      @JsonKey(name: "genus") String? genus,
-      @JsonKey(name: "author") String? author,
-      @JsonKey(name: "family") String? family,
-      @JsonKey(name: "flower") Flower? flower,
-      @JsonKey(name: "growth") Growth? growth,
-      @JsonKey(name: "status") String? status,
-      @JsonKey(name: "foliage") Foliage? foliage,
-      @JsonKey(name: "vegetable") dynamic vegetable,
-      @JsonKey(name: "common_name") String? commonName,
-      @JsonKey(name: "bibliography") String? bibliography,
-      @JsonKey(name: "observations") String? observations,
-      @JsonKey(name: "fruit_or_seed") FruitOrSeed? fruitOrSeed,
-      @JsonKey(name: "specifications") Specifications? specifications,
-      @JsonKey(name: "scientific_name") String? scientificName,
-      @JsonKey(name: "family_common_name") dynamic familyCommonName});
-
-  $FlowerCopyWith<$Res>? get flower;
-  $GrowthCopyWith<$Res>? get growth;
-  $FoliageCopyWith<$Res>? get foliage;
-  $FruitOrSeedCopyWith<$Res>? get fruitOrSeed;
-  $SpecificationsCopyWith<$Res>? get specifications;
+      {@JsonKey(name: 'name') String? name,
+      @JsonKey(name: 'slug') String? slug});
 }
 
 /// @nodoc
-class _$MiscCopyWithImpl<$Res, $Val extends Misc>
-    implements $MiscCopyWith<$Res> {
-  _$MiscCopyWithImpl(this._value, this._then);
+class _$ColorEntryCopyWithImpl<$Res, $Val extends ColorEntry>
+    implements $ColorEntryCopyWith<$Res> {
+  _$ColorEntryCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Misc
+  /// Create a copy of ColorEntry
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rank = freezed,
+    Object? name = freezed,
     Object? slug = freezed,
-    Object? year = freezed,
-    Object? genus = freezed,
-    Object? author = freezed,
-    Object? family = freezed,
-    Object? flower = freezed,
-    Object? growth = freezed,
-    Object? status = freezed,
-    Object? foliage = freezed,
-    Object? vegetable = freezed,
-    Object? commonName = freezed,
-    Object? bibliography = freezed,
-    Object? observations = freezed,
-    Object? fruitOrSeed = freezed,
-    Object? specifications = freezed,
-    Object? scientificName = freezed,
-    Object? familyCommonName = freezed,
   }) {
     return _then(_value.copyWith(
-      rank: freezed == rank
-          ? _value.rank
-          : rank // ignore: cast_nullable_to_non_nullable
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
       slug: freezed == slug
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
               as String?,
-      year: freezed == year
-          ? _value.year
-          : year // ignore: cast_nullable_to_non_nullable
-              as int?,
-      genus: freezed == genus
-          ? _value.genus
-          : genus // ignore: cast_nullable_to_non_nullable
-              as String?,
-      author: freezed == author
-          ? _value.author
-          : author // ignore: cast_nullable_to_non_nullable
-              as String?,
-      family: freezed == family
-          ? _value.family
-          : family // ignore: cast_nullable_to_non_nullable
-              as String?,
-      flower: freezed == flower
-          ? _value.flower
-          : flower // ignore: cast_nullable_to_non_nullable
-              as Flower?,
-      growth: freezed == growth
-          ? _value.growth
-          : growth // ignore: cast_nullable_to_non_nullable
-              as Growth?,
-      status: freezed == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as String?,
-      foliage: freezed == foliage
-          ? _value.foliage
-          : foliage // ignore: cast_nullable_to_non_nullable
-              as Foliage?,
-      vegetable: freezed == vegetable
-          ? _value.vegetable
-          : vegetable // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      commonName: freezed == commonName
-          ? _value.commonName
-          : commonName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      bibliography: freezed == bibliography
-          ? _value.bibliography
-          : bibliography // ignore: cast_nullable_to_non_nullable
-              as String?,
-      observations: freezed == observations
-          ? _value.observations
-          : observations // ignore: cast_nullable_to_non_nullable
-              as String?,
-      fruitOrSeed: freezed == fruitOrSeed
-          ? _value.fruitOrSeed
-          : fruitOrSeed // ignore: cast_nullable_to_non_nullable
-              as FruitOrSeed?,
-      specifications: freezed == specifications
-          ? _value.specifications
-          : specifications // ignore: cast_nullable_to_non_nullable
-              as Specifications?,
-      scientificName: freezed == scientificName
-          ? _value.scientificName
-          : scientificName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      familyCommonName: freezed == familyCommonName
-          ? _value.familyCommonName
-          : familyCommonName // ignore: cast_nullable_to_non_nullable
-              as dynamic,
     ) as $Val);
-  }
-
-  /// Create a copy of Misc
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $FlowerCopyWith<$Res>? get flower {
-    if (_value.flower == null) {
-      return null;
-    }
-
-    return $FlowerCopyWith<$Res>(_value.flower!, (value) {
-      return _then(_value.copyWith(flower: value) as $Val);
-    });
-  }
-
-  /// Create a copy of Misc
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $GrowthCopyWith<$Res>? get growth {
-    if (_value.growth == null) {
-      return null;
-    }
-
-    return $GrowthCopyWith<$Res>(_value.growth!, (value) {
-      return _then(_value.copyWith(growth: value) as $Val);
-    });
-  }
-
-  /// Create a copy of Misc
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $FoliageCopyWith<$Res>? get foliage {
-    if (_value.foliage == null) {
-      return null;
-    }
-
-    return $FoliageCopyWith<$Res>(_value.foliage!, (value) {
-      return _then(_value.copyWith(foliage: value) as $Val);
-    });
-  }
-
-  /// Create a copy of Misc
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $FruitOrSeedCopyWith<$Res>? get fruitOrSeed {
-    if (_value.fruitOrSeed == null) {
-      return null;
-    }
-
-    return $FruitOrSeedCopyWith<$Res>(_value.fruitOrSeed!, (value) {
-      return _then(_value.copyWith(fruitOrSeed: value) as $Val);
-    });
-  }
-
-  /// Create a copy of Misc
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $SpecificationsCopyWith<$Res>? get specifications {
-    if (_value.specifications == null) {
-      return null;
-    }
-
-    return $SpecificationsCopyWith<$Res>(_value.specifications!, (value) {
-      return _then(_value.copyWith(specifications: value) as $Val);
-    });
   }
 }
 
 /// @nodoc
-abstract class _$$MiscImplCopyWith<$Res> implements $MiscCopyWith<$Res> {
-  factory _$$MiscImplCopyWith(
-          _$MiscImpl value, $Res Function(_$MiscImpl) then) =
-      __$$MiscImplCopyWithImpl<$Res>;
+abstract class _$$ColorEntryImplCopyWith<$Res>
+    implements $ColorEntryCopyWith<$Res> {
+  factory _$$ColorEntryImplCopyWith(
+          _$ColorEntryImpl value, $Res Function(_$ColorEntryImpl) then) =
+      __$$ColorEntryImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "rank") String? rank,
-      @JsonKey(name: "slug") String? slug,
-      @JsonKey(name: "year") int? year,
-      @JsonKey(name: "genus") String? genus,
-      @JsonKey(name: "author") String? author,
-      @JsonKey(name: "family") String? family,
-      @JsonKey(name: "flower") Flower? flower,
-      @JsonKey(name: "growth") Growth? growth,
-      @JsonKey(name: "status") String? status,
-      @JsonKey(name: "foliage") Foliage? foliage,
-      @JsonKey(name: "vegetable") dynamic vegetable,
-      @JsonKey(name: "common_name") String? commonName,
-      @JsonKey(name: "bibliography") String? bibliography,
-      @JsonKey(name: "observations") String? observations,
-      @JsonKey(name: "fruit_or_seed") FruitOrSeed? fruitOrSeed,
-      @JsonKey(name: "specifications") Specifications? specifications,
-      @JsonKey(name: "scientific_name") String? scientificName,
-      @JsonKey(name: "family_common_name") dynamic familyCommonName});
-
-  @override
-  $FlowerCopyWith<$Res>? get flower;
-  @override
-  $GrowthCopyWith<$Res>? get growth;
-  @override
-  $FoliageCopyWith<$Res>? get foliage;
-  @override
-  $FruitOrSeedCopyWith<$Res>? get fruitOrSeed;
-  @override
-  $SpecificationsCopyWith<$Res>? get specifications;
+      {@JsonKey(name: 'name') String? name,
+      @JsonKey(name: 'slug') String? slug});
 }
 
 /// @nodoc
-class __$$MiscImplCopyWithImpl<$Res>
-    extends _$MiscCopyWithImpl<$Res, _$MiscImpl>
-    implements _$$MiscImplCopyWith<$Res> {
-  __$$MiscImplCopyWithImpl(_$MiscImpl _value, $Res Function(_$MiscImpl) _then)
+class __$$ColorEntryImplCopyWithImpl<$Res>
+    extends _$ColorEntryCopyWithImpl<$Res, _$ColorEntryImpl>
+    implements _$$ColorEntryImplCopyWith<$Res> {
+  __$$ColorEntryImplCopyWithImpl(
+      _$ColorEntryImpl _value, $Res Function(_$ColorEntryImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of Misc
+  /// Create a copy of ColorEntry
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rank = freezed,
+    Object? name = freezed,
     Object? slug = freezed,
-    Object? year = freezed,
-    Object? genus = freezed,
-    Object? author = freezed,
-    Object? family = freezed,
-    Object? flower = freezed,
-    Object? growth = freezed,
-    Object? status = freezed,
-    Object? foliage = freezed,
-    Object? vegetable = freezed,
-    Object? commonName = freezed,
-    Object? bibliography = freezed,
-    Object? observations = freezed,
-    Object? fruitOrSeed = freezed,
-    Object? specifications = freezed,
-    Object? scientificName = freezed,
-    Object? familyCommonName = freezed,
   }) {
-    return _then(_$MiscImpl(
-      rank: freezed == rank
-          ? _value.rank
-          : rank // ignore: cast_nullable_to_non_nullable
+    return _then(_$ColorEntryImpl(
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
       slug: freezed == slug
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
               as String?,
-      year: freezed == year
-          ? _value.year
-          : year // ignore: cast_nullable_to_non_nullable
-              as int?,
-      genus: freezed == genus
-          ? _value.genus
-          : genus // ignore: cast_nullable_to_non_nullable
-              as String?,
-      author: freezed == author
-          ? _value.author
-          : author // ignore: cast_nullable_to_non_nullable
-              as String?,
-      family: freezed == family
-          ? _value.family
-          : family // ignore: cast_nullable_to_non_nullable
-              as String?,
-      flower: freezed == flower
-          ? _value.flower
-          : flower // ignore: cast_nullable_to_non_nullable
-              as Flower?,
-      growth: freezed == growth
-          ? _value.growth
-          : growth // ignore: cast_nullable_to_non_nullable
-              as Growth?,
-      status: freezed == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as String?,
-      foliage: freezed == foliage
-          ? _value.foliage
-          : foliage // ignore: cast_nullable_to_non_nullable
-              as Foliage?,
-      vegetable: freezed == vegetable
-          ? _value.vegetable
-          : vegetable // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      commonName: freezed == commonName
-          ? _value.commonName
-          : commonName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      bibliography: freezed == bibliography
-          ? _value.bibliography
-          : bibliography // ignore: cast_nullable_to_non_nullable
-              as String?,
-      observations: freezed == observations
-          ? _value.observations
-          : observations // ignore: cast_nullable_to_non_nullable
-              as String?,
-      fruitOrSeed: freezed == fruitOrSeed
-          ? _value.fruitOrSeed
-          : fruitOrSeed // ignore: cast_nullable_to_non_nullable
-              as FruitOrSeed?,
-      specifications: freezed == specifications
-          ? _value.specifications
-          : specifications // ignore: cast_nullable_to_non_nullable
-              as Specifications?,
-      scientificName: freezed == scientificName
-          ? _value.scientificName
-          : scientificName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      familyCommonName: freezed == familyCommonName
-          ? _value.familyCommonName
-          : familyCommonName // ignore: cast_nullable_to_non_nullable
-              as dynamic,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$MiscImpl implements _Misc {
-  const _$MiscImpl(
-      {@JsonKey(name: "rank") this.rank,
-      @JsonKey(name: "slug") this.slug,
-      @JsonKey(name: "year") this.year,
-      @JsonKey(name: "genus") this.genus,
-      @JsonKey(name: "author") this.author,
-      @JsonKey(name: "family") this.family,
-      @JsonKey(name: "flower") this.flower,
-      @JsonKey(name: "growth") this.growth,
-      @JsonKey(name: "status") this.status,
-      @JsonKey(name: "foliage") this.foliage,
-      @JsonKey(name: "vegetable") this.vegetable,
-      @JsonKey(name: "common_name") this.commonName,
-      @JsonKey(name: "bibliography") this.bibliography,
-      @JsonKey(name: "observations") this.observations,
-      @JsonKey(name: "fruit_or_seed") this.fruitOrSeed,
-      @JsonKey(name: "specifications") this.specifications,
-      @JsonKey(name: "scientific_name") this.scientificName,
-      @JsonKey(name: "family_common_name") this.familyCommonName});
+class _$ColorEntryImpl implements _ColorEntry {
+  const _$ColorEntryImpl(
+      {@JsonKey(name: 'name') this.name, @JsonKey(name: 'slug') this.slug});
 
-  factory _$MiscImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MiscImplFromJson(json);
+  factory _$ColorEntryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ColorEntryImplFromJson(json);
 
   @override
-  @JsonKey(name: "rank")
-  final String? rank;
+  @JsonKey(name: 'name')
+  final String? name;
   @override
-  @JsonKey(name: "slug")
+  @JsonKey(name: 'slug')
   final String? slug;
-  @override
-  @JsonKey(name: "year")
-  final int? year;
-  @override
-  @JsonKey(name: "genus")
-  final String? genus;
-  @override
-  @JsonKey(name: "author")
-  final String? author;
-  @override
-  @JsonKey(name: "family")
-  final String? family;
-  @override
-  @JsonKey(name: "flower")
-  final Flower? flower;
-  @override
-  @JsonKey(name: "growth")
-  final Growth? growth;
-  @override
-  @JsonKey(name: "status")
-  final String? status;
-  @override
-  @JsonKey(name: "foliage")
-  final Foliage? foliage;
-  @override
-  @JsonKey(name: "vegetable")
-  final dynamic vegetable;
-  @override
-  @JsonKey(name: "common_name")
-  final String? commonName;
-  @override
-  @JsonKey(name: "bibliography")
-  final String? bibliography;
-  @override
-  @JsonKey(name: "observations")
-  final String? observations;
-  @override
-  @JsonKey(name: "fruit_or_seed")
-  final FruitOrSeed? fruitOrSeed;
-  @override
-  @JsonKey(name: "specifications")
-  final Specifications? specifications;
-  @override
-  @JsonKey(name: "scientific_name")
-  final String? scientificName;
-  @override
-  @JsonKey(name: "family_common_name")
-  final dynamic familyCommonName;
 
   @override
   String toString() {
-    return 'Misc(rank: $rank, slug: $slug, year: $year, genus: $genus, author: $author, family: $family, flower: $flower, growth: $growth, status: $status, foliage: $foliage, vegetable: $vegetable, commonName: $commonName, bibliography: $bibliography, observations: $observations, fruitOrSeed: $fruitOrSeed, specifications: $specifications, scientificName: $scientificName, familyCommonName: $familyCommonName)';
+    return 'ColorEntry(name: $name, slug: $slug)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MiscImpl &&
-            (identical(other.rank, rank) || other.rank == rank) &&
-            (identical(other.slug, slug) || other.slug == slug) &&
-            (identical(other.year, year) || other.year == year) &&
-            (identical(other.genus, genus) || other.genus == genus) &&
-            (identical(other.author, author) || other.author == author) &&
-            (identical(other.family, family) || other.family == family) &&
-            (identical(other.flower, flower) || other.flower == flower) &&
-            (identical(other.growth, growth) || other.growth == growth) &&
-            (identical(other.status, status) || other.status == status) &&
-            (identical(other.foliage, foliage) || other.foliage == foliage) &&
-            const DeepCollectionEquality().equals(other.vegetable, vegetable) &&
-            (identical(other.commonName, commonName) ||
-                other.commonName == commonName) &&
-            (identical(other.bibliography, bibliography) ||
-                other.bibliography == bibliography) &&
-            (identical(other.observations, observations) ||
-                other.observations == observations) &&
-            (identical(other.fruitOrSeed, fruitOrSeed) ||
-                other.fruitOrSeed == fruitOrSeed) &&
-            (identical(other.specifications, specifications) ||
-                other.specifications == specifications) &&
-            (identical(other.scientificName, scientificName) ||
-                other.scientificName == scientificName) &&
-            const DeepCollectionEquality()
-                .equals(other.familyCommonName, familyCommonName));
+            other is _$ColorEntryImpl &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.slug, slug) || other.slug == slug));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      rank,
-      slug,
-      year,
-      genus,
-      author,
-      family,
-      flower,
-      growth,
-      status,
-      foliage,
-      const DeepCollectionEquality().hash(vegetable),
-      commonName,
-      bibliography,
-      observations,
-      fruitOrSeed,
-      specifications,
-      scientificName,
-      const DeepCollectionEquality().hash(familyCommonName));
+  int get hashCode => Object.hash(runtimeType, name, slug);
 
-  /// Create a copy of Misc
+  /// Create a copy of ColorEntry
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$MiscImplCopyWith<_$MiscImpl> get copyWith =>
-      __$$MiscImplCopyWithImpl<_$MiscImpl>(this, _$identity);
+  _$$ColorEntryImplCopyWith<_$ColorEntryImpl> get copyWith =>
+      __$$ColorEntryImplCopyWithImpl<_$ColorEntryImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$MiscImplToJson(
+    return _$$ColorEntryImplToJson(
       this,
     );
   }
 }
 
-abstract class _Misc implements Misc {
-  const factory _Misc(
-      {@JsonKey(name: "rank") final String? rank,
-      @JsonKey(name: "slug") final String? slug,
-      @JsonKey(name: "year") final int? year,
-      @JsonKey(name: "genus") final String? genus,
-      @JsonKey(name: "author") final String? author,
-      @JsonKey(name: "family") final String? family,
-      @JsonKey(name: "flower") final Flower? flower,
-      @JsonKey(name: "growth") final Growth? growth,
-      @JsonKey(name: "status") final String? status,
-      @JsonKey(name: "foliage") final Foliage? foliage,
-      @JsonKey(name: "vegetable") final dynamic vegetable,
-      @JsonKey(name: "common_name") final String? commonName,
-      @JsonKey(name: "bibliography") final String? bibliography,
-      @JsonKey(name: "observations") final String? observations,
-      @JsonKey(name: "fruit_or_seed") final FruitOrSeed? fruitOrSeed,
-      @JsonKey(name: "specifications") final Specifications? specifications,
-      @JsonKey(name: "scientific_name") final String? scientificName,
-      @JsonKey(name: "family_common_name")
-      final dynamic familyCommonName}) = _$MiscImpl;
+abstract class _ColorEntry implements ColorEntry {
+  const factory _ColorEntry(
+      {@JsonKey(name: 'name') final String? name,
+      @JsonKey(name: 'slug') final String? slug}) = _$ColorEntryImpl;
 
-  factory _Misc.fromJson(Map<String, dynamic> json) = _$MiscImpl.fromJson;
+  factory _ColorEntry.fromJson(Map<String, dynamic> json) =
+      _$ColorEntryImpl.fromJson;
 
   @override
-  @JsonKey(name: "rank")
-  String? get rank;
+  @JsonKey(name: 'name')
+  String? get name;
   @override
-  @JsonKey(name: "slug")
+  @JsonKey(name: 'slug')
   String? get slug;
-  @override
-  @JsonKey(name: "year")
-  int? get year;
-  @override
-  @JsonKey(name: "genus")
-  String? get genus;
-  @override
-  @JsonKey(name: "author")
-  String? get author;
-  @override
-  @JsonKey(name: "family")
-  String? get family;
-  @override
-  @JsonKey(name: "flower")
-  Flower? get flower;
-  @override
-  @JsonKey(name: "growth")
-  Growth? get growth;
-  @override
-  @JsonKey(name: "status")
-  String? get status;
-  @override
-  @JsonKey(name: "foliage")
-  Foliage? get foliage;
-  @override
-  @JsonKey(name: "vegetable")
-  dynamic get vegetable;
-  @override
-  @JsonKey(name: "common_name")
-  String? get commonName;
-  @override
-  @JsonKey(name: "bibliography")
-  String? get bibliography;
-  @override
-  @JsonKey(name: "observations")
-  String? get observations;
-  @override
-  @JsonKey(name: "fruit_or_seed")
-  FruitOrSeed? get fruitOrSeed;
-  @override
-  @JsonKey(name: "specifications")
-  Specifications? get specifications;
-  @override
-  @JsonKey(name: "scientific_name")
-  String? get scientificName;
-  @override
-  @JsonKey(name: "family_common_name")
-  dynamic get familyCommonName;
 
-  /// Create a copy of Misc
+  /// Create a copy of ColorEntry
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MiscImplCopyWith<_$MiscImpl> get copyWith =>
+  _$$ColorEntryImplCopyWith<_$ColorEntryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-Flower _$FlowerFromJson(Map<String, dynamic> json) {
-  return _Flower.fromJson(json);
+PartColorGroup _$PartColorGroupFromJson(Map<String, dynamic> json) {
+  return _PartColorGroup.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Flower {
-  @JsonKey(name: "color")
-  dynamic get color => throw _privateConstructorUsedError;
-  @JsonKey(name: "conspicuous")
-  dynamic get conspicuous => throw _privateConstructorUsedError;
+mixin _$PartColorGroup {
+  @JsonKey(name: 'colors')
+  List<ColorEntry>? get colors => throw _privateConstructorUsedError;
+  @JsonKey(name: 'part')
+  NamedSlug? get part => throw _privateConstructorUsedError;
+  @JsonKey(name: 'season')
+  List<String>? get season => throw _privateConstructorUsedError;
 
-  /// Serializes this Flower to a JSON map.
+  /// Serializes this PartColorGroup to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of Flower
+  /// Create a copy of PartColorGroup
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $FlowerCopyWith<Flower> get copyWith => throw _privateConstructorUsedError;
+  $PartColorGroupCopyWith<PartColorGroup> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FlowerCopyWith<$Res> {
-  factory $FlowerCopyWith(Flower value, $Res Function(Flower) then) =
-      _$FlowerCopyWithImpl<$Res, Flower>;
+abstract class $PartColorGroupCopyWith<$Res> {
+  factory $PartColorGroupCopyWith(
+          PartColorGroup value, $Res Function(PartColorGroup) then) =
+      _$PartColorGroupCopyWithImpl<$Res, PartColorGroup>;
   @useResult
   $Res call(
-      {@JsonKey(name: "color") dynamic color,
-      @JsonKey(name: "conspicuous") dynamic conspicuous});
+      {@JsonKey(name: 'colors') List<ColorEntry>? colors,
+      @JsonKey(name: 'part') NamedSlug? part,
+      @JsonKey(name: 'season') List<String>? season});
+
+  $NamedSlugCopyWith<$Res>? get part;
 }
 
 /// @nodoc
-class _$FlowerCopyWithImpl<$Res, $Val extends Flower>
-    implements $FlowerCopyWith<$Res> {
-  _$FlowerCopyWithImpl(this._value, this._then);
+class _$PartColorGroupCopyWithImpl<$Res, $Val extends PartColorGroup>
+    implements $PartColorGroupCopyWith<$Res> {
+  _$PartColorGroupCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Flower
+  /// Create a copy of PartColorGroup
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? color = freezed,
-    Object? conspicuous = freezed,
-  }) {
-    return _then(_value.copyWith(
-      color: freezed == color
-          ? _value.color
-          : color // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      conspicuous: freezed == conspicuous
-          ? _value.conspicuous
-          : conspicuous // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$FlowerImplCopyWith<$Res> implements $FlowerCopyWith<$Res> {
-  factory _$$FlowerImplCopyWith(
-          _$FlowerImpl value, $Res Function(_$FlowerImpl) then) =
-      __$$FlowerImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: "color") dynamic color,
-      @JsonKey(name: "conspicuous") dynamic conspicuous});
-}
-
-/// @nodoc
-class __$$FlowerImplCopyWithImpl<$Res>
-    extends _$FlowerCopyWithImpl<$Res, _$FlowerImpl>
-    implements _$$FlowerImplCopyWith<$Res> {
-  __$$FlowerImplCopyWithImpl(
-      _$FlowerImpl _value, $Res Function(_$FlowerImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Flower
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? color = freezed,
-    Object? conspicuous = freezed,
-  }) {
-    return _then(_$FlowerImpl(
-      color: freezed == color
-          ? _value.color
-          : color // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      conspicuous: freezed == conspicuous
-          ? _value.conspicuous
-          : conspicuous // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$FlowerImpl implements _Flower {
-  const _$FlowerImpl(
-      {@JsonKey(name: "color") this.color,
-      @JsonKey(name: "conspicuous") this.conspicuous});
-
-  factory _$FlowerImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FlowerImplFromJson(json);
-
-  @override
-  @JsonKey(name: "color")
-  final dynamic color;
-  @override
-  @JsonKey(name: "conspicuous")
-  final dynamic conspicuous;
-
-  @override
-  String toString() {
-    return 'Flower(color: $color, conspicuous: $conspicuous)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FlowerImpl &&
-            const DeepCollectionEquality().equals(other.color, color) &&
-            const DeepCollectionEquality()
-                .equals(other.conspicuous, conspicuous));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(color),
-      const DeepCollectionEquality().hash(conspicuous));
-
-  /// Create a copy of Flower
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FlowerImplCopyWith<_$FlowerImpl> get copyWith =>
-      __$$FlowerImplCopyWithImpl<_$FlowerImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$FlowerImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Flower implements Flower {
-  const factory _Flower(
-      {@JsonKey(name: "color") final dynamic color,
-      @JsonKey(name: "conspicuous") final dynamic conspicuous}) = _$FlowerImpl;
-
-  factory _Flower.fromJson(Map<String, dynamic> json) = _$FlowerImpl.fromJson;
-
-  @override
-  @JsonKey(name: "color")
-  dynamic get color;
-  @override
-  @JsonKey(name: "conspicuous")
-  dynamic get conspicuous;
-
-  /// Create a copy of Flower
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FlowerImplCopyWith<_$FlowerImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-Foliage _$FoliageFromJson(Map<String, dynamic> json) {
-  return _Foliage.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Foliage {
-  @JsonKey(name: "color")
-  dynamic get color => throw _privateConstructorUsedError;
-  @JsonKey(name: "texture")
-  dynamic get texture => throw _privateConstructorUsedError;
-  @JsonKey(name: "leaf_retention")
-  dynamic get leafRetention => throw _privateConstructorUsedError;
-
-  /// Serializes this Foliage to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of Foliage
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $FoliageCopyWith<Foliage> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $FoliageCopyWith<$Res> {
-  factory $FoliageCopyWith(Foliage value, $Res Function(Foliage) then) =
-      _$FoliageCopyWithImpl<$Res, Foliage>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: "color") dynamic color,
-      @JsonKey(name: "texture") dynamic texture,
-      @JsonKey(name: "leaf_retention") dynamic leafRetention});
-}
-
-/// @nodoc
-class _$FoliageCopyWithImpl<$Res, $Val extends Foliage>
-    implements $FoliageCopyWith<$Res> {
-  _$FoliageCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Foliage
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? color = freezed,
-    Object? texture = freezed,
-    Object? leafRetention = freezed,
-  }) {
-    return _then(_value.copyWith(
-      color: freezed == color
-          ? _value.color
-          : color // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      texture: freezed == texture
-          ? _value.texture
-          : texture // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      leafRetention: freezed == leafRetention
-          ? _value.leafRetention
-          : leafRetention // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$FoliageImplCopyWith<$Res> implements $FoliageCopyWith<$Res> {
-  factory _$$FoliageImplCopyWith(
-          _$FoliageImpl value, $Res Function(_$FoliageImpl) then) =
-      __$$FoliageImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: "color") dynamic color,
-      @JsonKey(name: "texture") dynamic texture,
-      @JsonKey(name: "leaf_retention") dynamic leafRetention});
-}
-
-/// @nodoc
-class __$$FoliageImplCopyWithImpl<$Res>
-    extends _$FoliageCopyWithImpl<$Res, _$FoliageImpl>
-    implements _$$FoliageImplCopyWith<$Res> {
-  __$$FoliageImplCopyWithImpl(
-      _$FoliageImpl _value, $Res Function(_$FoliageImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Foliage
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? color = freezed,
-    Object? texture = freezed,
-    Object? leafRetention = freezed,
-  }) {
-    return _then(_$FoliageImpl(
-      color: freezed == color
-          ? _value.color
-          : color // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      texture: freezed == texture
-          ? _value.texture
-          : texture // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      leafRetention: freezed == leafRetention
-          ? _value.leafRetention
-          : leafRetention // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$FoliageImpl implements _Foliage {
-  const _$FoliageImpl(
-      {@JsonKey(name: "color") this.color,
-      @JsonKey(name: "texture") this.texture,
-      @JsonKey(name: "leaf_retention") this.leafRetention});
-
-  factory _$FoliageImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FoliageImplFromJson(json);
-
-  @override
-  @JsonKey(name: "color")
-  final dynamic color;
-  @override
-  @JsonKey(name: "texture")
-  final dynamic texture;
-  @override
-  @JsonKey(name: "leaf_retention")
-  final dynamic leafRetention;
-
-  @override
-  String toString() {
-    return 'Foliage(color: $color, texture: $texture, leafRetention: $leafRetention)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FoliageImpl &&
-            const DeepCollectionEquality().equals(other.color, color) &&
-            const DeepCollectionEquality().equals(other.texture, texture) &&
-            const DeepCollectionEquality()
-                .equals(other.leafRetention, leafRetention));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(color),
-      const DeepCollectionEquality().hash(texture),
-      const DeepCollectionEquality().hash(leafRetention));
-
-  /// Create a copy of Foliage
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FoliageImplCopyWith<_$FoliageImpl> get copyWith =>
-      __$$FoliageImplCopyWithImpl<_$FoliageImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$FoliageImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Foliage implements Foliage {
-  const factory _Foliage(
-          {@JsonKey(name: "color") final dynamic color,
-          @JsonKey(name: "texture") final dynamic texture,
-          @JsonKey(name: "leaf_retention") final dynamic leafRetention}) =
-      _$FoliageImpl;
-
-  factory _Foliage.fromJson(Map<String, dynamic> json) = _$FoliageImpl.fromJson;
-
-  @override
-  @JsonKey(name: "color")
-  dynamic get color;
-  @override
-  @JsonKey(name: "texture")
-  dynamic get texture;
-  @override
-  @JsonKey(name: "leaf_retention")
-  dynamic get leafRetention;
-
-  /// Create a copy of Foliage
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FoliageImplCopyWith<_$FoliageImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-FruitOrSeed _$FruitOrSeedFromJson(Map<String, dynamic> json) {
-  return _FruitOrSeed.fromJson(json);
-}
-
-/// @nodoc
-mixin _$FruitOrSeed {
-  @JsonKey(name: "color")
-  dynamic get color => throw _privateConstructorUsedError;
-  @JsonKey(name: "shape")
-  dynamic get shape => throw _privateConstructorUsedError;
-  @JsonKey(name: "conspicuous")
-  dynamic get conspicuous => throw _privateConstructorUsedError;
-  @JsonKey(name: "seed_persistence")
-  dynamic get seedPersistence => throw _privateConstructorUsedError;
-
-  /// Serializes this FruitOrSeed to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of FruitOrSeed
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $FruitOrSeedCopyWith<FruitOrSeed> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $FruitOrSeedCopyWith<$Res> {
-  factory $FruitOrSeedCopyWith(
-          FruitOrSeed value, $Res Function(FruitOrSeed) then) =
-      _$FruitOrSeedCopyWithImpl<$Res, FruitOrSeed>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: "color") dynamic color,
-      @JsonKey(name: "shape") dynamic shape,
-      @JsonKey(name: "conspicuous") dynamic conspicuous,
-      @JsonKey(name: "seed_persistence") dynamic seedPersistence});
-}
-
-/// @nodoc
-class _$FruitOrSeedCopyWithImpl<$Res, $Val extends FruitOrSeed>
-    implements $FruitOrSeedCopyWith<$Res> {
-  _$FruitOrSeedCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of FruitOrSeed
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? color = freezed,
-    Object? shape = freezed,
-    Object? conspicuous = freezed,
-    Object? seedPersistence = freezed,
-  }) {
-    return _then(_value.copyWith(
-      color: freezed == color
-          ? _value.color
-          : color // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      shape: freezed == shape
-          ? _value.shape
-          : shape // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      conspicuous: freezed == conspicuous
-          ? _value.conspicuous
-          : conspicuous // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      seedPersistence: freezed == seedPersistence
-          ? _value.seedPersistence
-          : seedPersistence // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$FruitOrSeedImplCopyWith<$Res>
-    implements $FruitOrSeedCopyWith<$Res> {
-  factory _$$FruitOrSeedImplCopyWith(
-          _$FruitOrSeedImpl value, $Res Function(_$FruitOrSeedImpl) then) =
-      __$$FruitOrSeedImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: "color") dynamic color,
-      @JsonKey(name: "shape") dynamic shape,
-      @JsonKey(name: "conspicuous") dynamic conspicuous,
-      @JsonKey(name: "seed_persistence") dynamic seedPersistence});
-}
-
-/// @nodoc
-class __$$FruitOrSeedImplCopyWithImpl<$Res>
-    extends _$FruitOrSeedCopyWithImpl<$Res, _$FruitOrSeedImpl>
-    implements _$$FruitOrSeedImplCopyWith<$Res> {
-  __$$FruitOrSeedImplCopyWithImpl(
-      _$FruitOrSeedImpl _value, $Res Function(_$FruitOrSeedImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of FruitOrSeed
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? color = freezed,
-    Object? shape = freezed,
-    Object? conspicuous = freezed,
-    Object? seedPersistence = freezed,
-  }) {
-    return _then(_$FruitOrSeedImpl(
-      color: freezed == color
-          ? _value.color
-          : color // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      shape: freezed == shape
-          ? _value.shape
-          : shape // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      conspicuous: freezed == conspicuous
-          ? _value.conspicuous
-          : conspicuous // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      seedPersistence: freezed == seedPersistence
-          ? _value.seedPersistence
-          : seedPersistence // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$FruitOrSeedImpl implements _FruitOrSeed {
-  const _$FruitOrSeedImpl(
-      {@JsonKey(name: "color") this.color,
-      @JsonKey(name: "shape") this.shape,
-      @JsonKey(name: "conspicuous") this.conspicuous,
-      @JsonKey(name: "seed_persistence") this.seedPersistence});
-
-  factory _$FruitOrSeedImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FruitOrSeedImplFromJson(json);
-
-  @override
-  @JsonKey(name: "color")
-  final dynamic color;
-  @override
-  @JsonKey(name: "shape")
-  final dynamic shape;
-  @override
-  @JsonKey(name: "conspicuous")
-  final dynamic conspicuous;
-  @override
-  @JsonKey(name: "seed_persistence")
-  final dynamic seedPersistence;
-
-  @override
-  String toString() {
-    return 'FruitOrSeed(color: $color, shape: $shape, conspicuous: $conspicuous, seedPersistence: $seedPersistence)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FruitOrSeedImpl &&
-            const DeepCollectionEquality().equals(other.color, color) &&
-            const DeepCollectionEquality().equals(other.shape, shape) &&
-            const DeepCollectionEquality()
-                .equals(other.conspicuous, conspicuous) &&
-            const DeepCollectionEquality()
-                .equals(other.seedPersistence, seedPersistence));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(color),
-      const DeepCollectionEquality().hash(shape),
-      const DeepCollectionEquality().hash(conspicuous),
-      const DeepCollectionEquality().hash(seedPersistence));
-
-  /// Create a copy of FruitOrSeed
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FruitOrSeedImplCopyWith<_$FruitOrSeedImpl> get copyWith =>
-      __$$FruitOrSeedImplCopyWithImpl<_$FruitOrSeedImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$FruitOrSeedImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _FruitOrSeed implements FruitOrSeed {
-  const factory _FruitOrSeed(
-          {@JsonKey(name: "color") final dynamic color,
-          @JsonKey(name: "shape") final dynamic shape,
-          @JsonKey(name: "conspicuous") final dynamic conspicuous,
-          @JsonKey(name: "seed_persistence") final dynamic seedPersistence}) =
-      _$FruitOrSeedImpl;
-
-  factory _FruitOrSeed.fromJson(Map<String, dynamic> json) =
-      _$FruitOrSeedImpl.fromJson;
-
-  @override
-  @JsonKey(name: "color")
-  dynamic get color;
-  @override
-  @JsonKey(name: "shape")
-  dynamic get shape;
-  @override
-  @JsonKey(name: "conspicuous")
-  dynamic get conspicuous;
-  @override
-  @JsonKey(name: "seed_persistence")
-  dynamic get seedPersistence;
-
-  /// Create a copy of FruitOrSeed
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FruitOrSeedImplCopyWith<_$FruitOrSeedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-Growth _$GrowthFromJson(Map<String, dynamic> json) {
-  return _Growth.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Growth {
-  @JsonKey(name: "light")
-  dynamic get light => throw _privateConstructorUsedError;
-  @JsonKey(name: "sowing")
-  dynamic get sowing => throw _privateConstructorUsedError;
-  @JsonKey(name: "spread")
-  MinimumRootDepth? get spread => throw _privateConstructorUsedError;
-  @JsonKey(name: "ph_maximum")
-  dynamic get phMaximum => throw _privateConstructorUsedError;
-  @JsonKey(name: "ph_minimum")
-  dynamic get phMinimum => throw _privateConstructorUsedError;
-  @JsonKey(name: "description")
-  dynamic get description => throw _privateConstructorUsedError;
-  @JsonKey(name: "row_spacing")
-  MinimumRootDepth? get rowSpacing => throw _privateConstructorUsedError;
-  @JsonKey(name: "bloom_months")
-  dynamic get bloomMonths => throw _privateConstructorUsedError;
-  @JsonKey(name: "fruit_months")
-  dynamic get fruitMonths => throw _privateConstructorUsedError;
-  @JsonKey(name: "soil_texture")
-  dynamic get soilTexture => throw _privateConstructorUsedError;
-  @JsonKey(name: "growth_months")
-  dynamic get growthMonths => throw _privateConstructorUsedError;
-  @JsonKey(name: "soil_humidity")
-  dynamic get soilHumidity => throw _privateConstructorUsedError;
-  @JsonKey(name: "soil_salinity")
-  dynamic get soilSalinity => throw _privateConstructorUsedError;
-  @JsonKey(name: "days_to_harvest")
-  dynamic get daysToHarvest => throw _privateConstructorUsedError;
-  @JsonKey(name: "soil_nutriments")
-  dynamic get soilNutriments => throw _privateConstructorUsedError;
-  @JsonKey(name: "minimum_root_depth")
-  MinimumRootDepth? get minimumRootDepth => throw _privateConstructorUsedError;
-  @JsonKey(name: "maximum_temperature")
-  ImumTemperature? get maximumTemperature => throw _privateConstructorUsedError;
-  @JsonKey(name: "minimum_temperature")
-  ImumTemperature? get minimumTemperature => throw _privateConstructorUsedError;
-  @JsonKey(name: "atmospheric_humidity")
-  dynamic get atmosphericHumidity => throw _privateConstructorUsedError;
-  @JsonKey(name: "maximum_precipitation")
-  ImumPrecipitation? get maximumPrecipitation =>
-      throw _privateConstructorUsedError;
-  @JsonKey(name: "minimum_precipitation")
-  ImumPrecipitation? get minimumPrecipitation =>
-      throw _privateConstructorUsedError;
-
-  /// Serializes this Growth to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of Growth
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $GrowthCopyWith<Growth> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $GrowthCopyWith<$Res> {
-  factory $GrowthCopyWith(Growth value, $Res Function(Growth) then) =
-      _$GrowthCopyWithImpl<$Res, Growth>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: "light") dynamic light,
-      @JsonKey(name: "sowing") dynamic sowing,
-      @JsonKey(name: "spread") MinimumRootDepth? spread,
-      @JsonKey(name: "ph_maximum") dynamic phMaximum,
-      @JsonKey(name: "ph_minimum") dynamic phMinimum,
-      @JsonKey(name: "description") dynamic description,
-      @JsonKey(name: "row_spacing") MinimumRootDepth? rowSpacing,
-      @JsonKey(name: "bloom_months") dynamic bloomMonths,
-      @JsonKey(name: "fruit_months") dynamic fruitMonths,
-      @JsonKey(name: "soil_texture") dynamic soilTexture,
-      @JsonKey(name: "growth_months") dynamic growthMonths,
-      @JsonKey(name: "soil_humidity") dynamic soilHumidity,
-      @JsonKey(name: "soil_salinity") dynamic soilSalinity,
-      @JsonKey(name: "days_to_harvest") dynamic daysToHarvest,
-      @JsonKey(name: "soil_nutriments") dynamic soilNutriments,
-      @JsonKey(name: "minimum_root_depth") MinimumRootDepth? minimumRootDepth,
-      @JsonKey(name: "maximum_temperature") ImumTemperature? maximumTemperature,
-      @JsonKey(name: "minimum_temperature") ImumTemperature? minimumTemperature,
-      @JsonKey(name: "atmospheric_humidity") dynamic atmosphericHumidity,
-      @JsonKey(name: "maximum_precipitation")
-      ImumPrecipitation? maximumPrecipitation,
-      @JsonKey(name: "minimum_precipitation")
-      ImumPrecipitation? minimumPrecipitation});
-
-  $MinimumRootDepthCopyWith<$Res>? get spread;
-  $MinimumRootDepthCopyWith<$Res>? get rowSpacing;
-  $MinimumRootDepthCopyWith<$Res>? get minimumRootDepth;
-  $ImumTemperatureCopyWith<$Res>? get maximumTemperature;
-  $ImumTemperatureCopyWith<$Res>? get minimumTemperature;
-  $ImumPrecipitationCopyWith<$Res>? get maximumPrecipitation;
-  $ImumPrecipitationCopyWith<$Res>? get minimumPrecipitation;
-}
-
-/// @nodoc
-class _$GrowthCopyWithImpl<$Res, $Val extends Growth>
-    implements $GrowthCopyWith<$Res> {
-  _$GrowthCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Growth
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? light = freezed,
-    Object? sowing = freezed,
-    Object? spread = freezed,
-    Object? phMaximum = freezed,
-    Object? phMinimum = freezed,
-    Object? description = freezed,
-    Object? rowSpacing = freezed,
-    Object? bloomMonths = freezed,
-    Object? fruitMonths = freezed,
-    Object? soilTexture = freezed,
-    Object? growthMonths = freezed,
-    Object? soilHumidity = freezed,
-    Object? soilSalinity = freezed,
-    Object? daysToHarvest = freezed,
-    Object? soilNutriments = freezed,
-    Object? minimumRootDepth = freezed,
-    Object? maximumTemperature = freezed,
-    Object? minimumTemperature = freezed,
-    Object? atmosphericHumidity = freezed,
-    Object? maximumPrecipitation = freezed,
-    Object? minimumPrecipitation = freezed,
-  }) {
-    return _then(_value.copyWith(
-      light: freezed == light
-          ? _value.light
-          : light // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      sowing: freezed == sowing
-          ? _value.sowing
-          : sowing // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      spread: freezed == spread
-          ? _value.spread
-          : spread // ignore: cast_nullable_to_non_nullable
-              as MinimumRootDepth?,
-      phMaximum: freezed == phMaximum
-          ? _value.phMaximum
-          : phMaximum // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      phMinimum: freezed == phMinimum
-          ? _value.phMinimum
-          : phMinimum // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      rowSpacing: freezed == rowSpacing
-          ? _value.rowSpacing
-          : rowSpacing // ignore: cast_nullable_to_non_nullable
-              as MinimumRootDepth?,
-      bloomMonths: freezed == bloomMonths
-          ? _value.bloomMonths
-          : bloomMonths // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      fruitMonths: freezed == fruitMonths
-          ? _value.fruitMonths
-          : fruitMonths // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      soilTexture: freezed == soilTexture
-          ? _value.soilTexture
-          : soilTexture // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      growthMonths: freezed == growthMonths
-          ? _value.growthMonths
-          : growthMonths // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      soilHumidity: freezed == soilHumidity
-          ? _value.soilHumidity
-          : soilHumidity // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      soilSalinity: freezed == soilSalinity
-          ? _value.soilSalinity
-          : soilSalinity // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      daysToHarvest: freezed == daysToHarvest
-          ? _value.daysToHarvest
-          : daysToHarvest // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      soilNutriments: freezed == soilNutriments
-          ? _value.soilNutriments
-          : soilNutriments // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      minimumRootDepth: freezed == minimumRootDepth
-          ? _value.minimumRootDepth
-          : minimumRootDepth // ignore: cast_nullable_to_non_nullable
-              as MinimumRootDepth?,
-      maximumTemperature: freezed == maximumTemperature
-          ? _value.maximumTemperature
-          : maximumTemperature // ignore: cast_nullable_to_non_nullable
-              as ImumTemperature?,
-      minimumTemperature: freezed == minimumTemperature
-          ? _value.minimumTemperature
-          : minimumTemperature // ignore: cast_nullable_to_non_nullable
-              as ImumTemperature?,
-      atmosphericHumidity: freezed == atmosphericHumidity
-          ? _value.atmosphericHumidity
-          : atmosphericHumidity // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      maximumPrecipitation: freezed == maximumPrecipitation
-          ? _value.maximumPrecipitation
-          : maximumPrecipitation // ignore: cast_nullable_to_non_nullable
-              as ImumPrecipitation?,
-      minimumPrecipitation: freezed == minimumPrecipitation
-          ? _value.minimumPrecipitation
-          : minimumPrecipitation // ignore: cast_nullable_to_non_nullable
-              as ImumPrecipitation?,
-    ) as $Val);
-  }
-
-  /// Create a copy of Growth
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $MinimumRootDepthCopyWith<$Res>? get spread {
-    if (_value.spread == null) {
-      return null;
-    }
-
-    return $MinimumRootDepthCopyWith<$Res>(_value.spread!, (value) {
-      return _then(_value.copyWith(spread: value) as $Val);
-    });
-  }
-
-  /// Create a copy of Growth
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $MinimumRootDepthCopyWith<$Res>? get rowSpacing {
-    if (_value.rowSpacing == null) {
-      return null;
-    }
-
-    return $MinimumRootDepthCopyWith<$Res>(_value.rowSpacing!, (value) {
-      return _then(_value.copyWith(rowSpacing: value) as $Val);
-    });
-  }
-
-  /// Create a copy of Growth
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $MinimumRootDepthCopyWith<$Res>? get minimumRootDepth {
-    if (_value.minimumRootDepth == null) {
-      return null;
-    }
-
-    return $MinimumRootDepthCopyWith<$Res>(_value.minimumRootDepth!, (value) {
-      return _then(_value.copyWith(minimumRootDepth: value) as $Val);
-    });
-  }
-
-  /// Create a copy of Growth
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ImumTemperatureCopyWith<$Res>? get maximumTemperature {
-    if (_value.maximumTemperature == null) {
-      return null;
-    }
-
-    return $ImumTemperatureCopyWith<$Res>(_value.maximumTemperature!, (value) {
-      return _then(_value.copyWith(maximumTemperature: value) as $Val);
-    });
-  }
-
-  /// Create a copy of Growth
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ImumTemperatureCopyWith<$Res>? get minimumTemperature {
-    if (_value.minimumTemperature == null) {
-      return null;
-    }
-
-    return $ImumTemperatureCopyWith<$Res>(_value.minimumTemperature!, (value) {
-      return _then(_value.copyWith(minimumTemperature: value) as $Val);
-    });
-  }
-
-  /// Create a copy of Growth
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ImumPrecipitationCopyWith<$Res>? get maximumPrecipitation {
-    if (_value.maximumPrecipitation == null) {
-      return null;
-    }
-
-    return $ImumPrecipitationCopyWith<$Res>(_value.maximumPrecipitation!,
-        (value) {
-      return _then(_value.copyWith(maximumPrecipitation: value) as $Val);
-    });
-  }
-
-  /// Create a copy of Growth
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ImumPrecipitationCopyWith<$Res>? get minimumPrecipitation {
-    if (_value.minimumPrecipitation == null) {
-      return null;
-    }
-
-    return $ImumPrecipitationCopyWith<$Res>(_value.minimumPrecipitation!,
-        (value) {
-      return _then(_value.copyWith(minimumPrecipitation: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$GrowthImplCopyWith<$Res> implements $GrowthCopyWith<$Res> {
-  factory _$$GrowthImplCopyWith(
-          _$GrowthImpl value, $Res Function(_$GrowthImpl) then) =
-      __$$GrowthImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: "light") dynamic light,
-      @JsonKey(name: "sowing") dynamic sowing,
-      @JsonKey(name: "spread") MinimumRootDepth? spread,
-      @JsonKey(name: "ph_maximum") dynamic phMaximum,
-      @JsonKey(name: "ph_minimum") dynamic phMinimum,
-      @JsonKey(name: "description") dynamic description,
-      @JsonKey(name: "row_spacing") MinimumRootDepth? rowSpacing,
-      @JsonKey(name: "bloom_months") dynamic bloomMonths,
-      @JsonKey(name: "fruit_months") dynamic fruitMonths,
-      @JsonKey(name: "soil_texture") dynamic soilTexture,
-      @JsonKey(name: "growth_months") dynamic growthMonths,
-      @JsonKey(name: "soil_humidity") dynamic soilHumidity,
-      @JsonKey(name: "soil_salinity") dynamic soilSalinity,
-      @JsonKey(name: "days_to_harvest") dynamic daysToHarvest,
-      @JsonKey(name: "soil_nutriments") dynamic soilNutriments,
-      @JsonKey(name: "minimum_root_depth") MinimumRootDepth? minimumRootDepth,
-      @JsonKey(name: "maximum_temperature") ImumTemperature? maximumTemperature,
-      @JsonKey(name: "minimum_temperature") ImumTemperature? minimumTemperature,
-      @JsonKey(name: "atmospheric_humidity") dynamic atmosphericHumidity,
-      @JsonKey(name: "maximum_precipitation")
-      ImumPrecipitation? maximumPrecipitation,
-      @JsonKey(name: "minimum_precipitation")
-      ImumPrecipitation? minimumPrecipitation});
-
-  @override
-  $MinimumRootDepthCopyWith<$Res>? get spread;
-  @override
-  $MinimumRootDepthCopyWith<$Res>? get rowSpacing;
-  @override
-  $MinimumRootDepthCopyWith<$Res>? get minimumRootDepth;
-  @override
-  $ImumTemperatureCopyWith<$Res>? get maximumTemperature;
-  @override
-  $ImumTemperatureCopyWith<$Res>? get minimumTemperature;
-  @override
-  $ImumPrecipitationCopyWith<$Res>? get maximumPrecipitation;
-  @override
-  $ImumPrecipitationCopyWith<$Res>? get minimumPrecipitation;
-}
-
-/// @nodoc
-class __$$GrowthImplCopyWithImpl<$Res>
-    extends _$GrowthCopyWithImpl<$Res, _$GrowthImpl>
-    implements _$$GrowthImplCopyWith<$Res> {
-  __$$GrowthImplCopyWithImpl(
-      _$GrowthImpl _value, $Res Function(_$GrowthImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Growth
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? light = freezed,
-    Object? sowing = freezed,
-    Object? spread = freezed,
-    Object? phMaximum = freezed,
-    Object? phMinimum = freezed,
-    Object? description = freezed,
-    Object? rowSpacing = freezed,
-    Object? bloomMonths = freezed,
-    Object? fruitMonths = freezed,
-    Object? soilTexture = freezed,
-    Object? growthMonths = freezed,
-    Object? soilHumidity = freezed,
-    Object? soilSalinity = freezed,
-    Object? daysToHarvest = freezed,
-    Object? soilNutriments = freezed,
-    Object? minimumRootDepth = freezed,
-    Object? maximumTemperature = freezed,
-    Object? minimumTemperature = freezed,
-    Object? atmosphericHumidity = freezed,
-    Object? maximumPrecipitation = freezed,
-    Object? minimumPrecipitation = freezed,
-  }) {
-    return _then(_$GrowthImpl(
-      light: freezed == light
-          ? _value.light
-          : light // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      sowing: freezed == sowing
-          ? _value.sowing
-          : sowing // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      spread: freezed == spread
-          ? _value.spread
-          : spread // ignore: cast_nullable_to_non_nullable
-              as MinimumRootDepth?,
-      phMaximum: freezed == phMaximum
-          ? _value.phMaximum
-          : phMaximum // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      phMinimum: freezed == phMinimum
-          ? _value.phMinimum
-          : phMinimum // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      rowSpacing: freezed == rowSpacing
-          ? _value.rowSpacing
-          : rowSpacing // ignore: cast_nullable_to_non_nullable
-              as MinimumRootDepth?,
-      bloomMonths: freezed == bloomMonths
-          ? _value.bloomMonths
-          : bloomMonths // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      fruitMonths: freezed == fruitMonths
-          ? _value.fruitMonths
-          : fruitMonths // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      soilTexture: freezed == soilTexture
-          ? _value.soilTexture
-          : soilTexture // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      growthMonths: freezed == growthMonths
-          ? _value.growthMonths
-          : growthMonths // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      soilHumidity: freezed == soilHumidity
-          ? _value.soilHumidity
-          : soilHumidity // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      soilSalinity: freezed == soilSalinity
-          ? _value.soilSalinity
-          : soilSalinity // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      daysToHarvest: freezed == daysToHarvest
-          ? _value.daysToHarvest
-          : daysToHarvest // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      soilNutriments: freezed == soilNutriments
-          ? _value.soilNutriments
-          : soilNutriments // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      minimumRootDepth: freezed == minimumRootDepth
-          ? _value.minimumRootDepth
-          : minimumRootDepth // ignore: cast_nullable_to_non_nullable
-              as MinimumRootDepth?,
-      maximumTemperature: freezed == maximumTemperature
-          ? _value.maximumTemperature
-          : maximumTemperature // ignore: cast_nullable_to_non_nullable
-              as ImumTemperature?,
-      minimumTemperature: freezed == minimumTemperature
-          ? _value.minimumTemperature
-          : minimumTemperature // ignore: cast_nullable_to_non_nullable
-              as ImumTemperature?,
-      atmosphericHumidity: freezed == atmosphericHumidity
-          ? _value.atmosphericHumidity
-          : atmosphericHumidity // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      maximumPrecipitation: freezed == maximumPrecipitation
-          ? _value.maximumPrecipitation
-          : maximumPrecipitation // ignore: cast_nullable_to_non_nullable
-              as ImumPrecipitation?,
-      minimumPrecipitation: freezed == minimumPrecipitation
-          ? _value.minimumPrecipitation
-          : minimumPrecipitation // ignore: cast_nullable_to_non_nullable
-              as ImumPrecipitation?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$GrowthImpl implements _Growth {
-  const _$GrowthImpl(
-      {@JsonKey(name: "light") this.light,
-      @JsonKey(name: "sowing") this.sowing,
-      @JsonKey(name: "spread") this.spread,
-      @JsonKey(name: "ph_maximum") this.phMaximum,
-      @JsonKey(name: "ph_minimum") this.phMinimum,
-      @JsonKey(name: "description") this.description,
-      @JsonKey(name: "row_spacing") this.rowSpacing,
-      @JsonKey(name: "bloom_months") this.bloomMonths,
-      @JsonKey(name: "fruit_months") this.fruitMonths,
-      @JsonKey(name: "soil_texture") this.soilTexture,
-      @JsonKey(name: "growth_months") this.growthMonths,
-      @JsonKey(name: "soil_humidity") this.soilHumidity,
-      @JsonKey(name: "soil_salinity") this.soilSalinity,
-      @JsonKey(name: "days_to_harvest") this.daysToHarvest,
-      @JsonKey(name: "soil_nutriments") this.soilNutriments,
-      @JsonKey(name: "minimum_root_depth") this.minimumRootDepth,
-      @JsonKey(name: "maximum_temperature") this.maximumTemperature,
-      @JsonKey(name: "minimum_temperature") this.minimumTemperature,
-      @JsonKey(name: "atmospheric_humidity") this.atmosphericHumidity,
-      @JsonKey(name: "maximum_precipitation") this.maximumPrecipitation,
-      @JsonKey(name: "minimum_precipitation") this.minimumPrecipitation});
-
-  factory _$GrowthImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GrowthImplFromJson(json);
-
-  @override
-  @JsonKey(name: "light")
-  final dynamic light;
-  @override
-  @JsonKey(name: "sowing")
-  final dynamic sowing;
-  @override
-  @JsonKey(name: "spread")
-  final MinimumRootDepth? spread;
-  @override
-  @JsonKey(name: "ph_maximum")
-  final dynamic phMaximum;
-  @override
-  @JsonKey(name: "ph_minimum")
-  final dynamic phMinimum;
-  @override
-  @JsonKey(name: "description")
-  final dynamic description;
-  @override
-  @JsonKey(name: "row_spacing")
-  final MinimumRootDepth? rowSpacing;
-  @override
-  @JsonKey(name: "bloom_months")
-  final dynamic bloomMonths;
-  @override
-  @JsonKey(name: "fruit_months")
-  final dynamic fruitMonths;
-  @override
-  @JsonKey(name: "soil_texture")
-  final dynamic soilTexture;
-  @override
-  @JsonKey(name: "growth_months")
-  final dynamic growthMonths;
-  @override
-  @JsonKey(name: "soil_humidity")
-  final dynamic soilHumidity;
-  @override
-  @JsonKey(name: "soil_salinity")
-  final dynamic soilSalinity;
-  @override
-  @JsonKey(name: "days_to_harvest")
-  final dynamic daysToHarvest;
-  @override
-  @JsonKey(name: "soil_nutriments")
-  final dynamic soilNutriments;
-  @override
-  @JsonKey(name: "minimum_root_depth")
-  final MinimumRootDepth? minimumRootDepth;
-  @override
-  @JsonKey(name: "maximum_temperature")
-  final ImumTemperature? maximumTemperature;
-  @override
-  @JsonKey(name: "minimum_temperature")
-  final ImumTemperature? minimumTemperature;
-  @override
-  @JsonKey(name: "atmospheric_humidity")
-  final dynamic atmosphericHumidity;
-  @override
-  @JsonKey(name: "maximum_precipitation")
-  final ImumPrecipitation? maximumPrecipitation;
-  @override
-  @JsonKey(name: "minimum_precipitation")
-  final ImumPrecipitation? minimumPrecipitation;
-
-  @override
-  String toString() {
-    return 'Growth(light: $light, sowing: $sowing, spread: $spread, phMaximum: $phMaximum, phMinimum: $phMinimum, description: $description, rowSpacing: $rowSpacing, bloomMonths: $bloomMonths, fruitMonths: $fruitMonths, soilTexture: $soilTexture, growthMonths: $growthMonths, soilHumidity: $soilHumidity, soilSalinity: $soilSalinity, daysToHarvest: $daysToHarvest, soilNutriments: $soilNutriments, minimumRootDepth: $minimumRootDepth, maximumTemperature: $maximumTemperature, minimumTemperature: $minimumTemperature, atmosphericHumidity: $atmosphericHumidity, maximumPrecipitation: $maximumPrecipitation, minimumPrecipitation: $minimumPrecipitation)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GrowthImpl &&
-            const DeepCollectionEquality().equals(other.light, light) &&
-            const DeepCollectionEquality().equals(other.sowing, sowing) &&
-            (identical(other.spread, spread) || other.spread == spread) &&
-            const DeepCollectionEquality().equals(other.phMaximum, phMaximum) &&
-            const DeepCollectionEquality().equals(other.phMinimum, phMinimum) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
-            (identical(other.rowSpacing, rowSpacing) ||
-                other.rowSpacing == rowSpacing) &&
-            const DeepCollectionEquality()
-                .equals(other.bloomMonths, bloomMonths) &&
-            const DeepCollectionEquality()
-                .equals(other.fruitMonths, fruitMonths) &&
-            const DeepCollectionEquality()
-                .equals(other.soilTexture, soilTexture) &&
-            const DeepCollectionEquality()
-                .equals(other.growthMonths, growthMonths) &&
-            const DeepCollectionEquality()
-                .equals(other.soilHumidity, soilHumidity) &&
-            const DeepCollectionEquality()
-                .equals(other.soilSalinity, soilSalinity) &&
-            const DeepCollectionEquality()
-                .equals(other.daysToHarvest, daysToHarvest) &&
-            const DeepCollectionEquality()
-                .equals(other.soilNutriments, soilNutriments) &&
-            (identical(other.minimumRootDepth, minimumRootDepth) ||
-                other.minimumRootDepth == minimumRootDepth) &&
-            (identical(other.maximumTemperature, maximumTemperature) ||
-                other.maximumTemperature == maximumTemperature) &&
-            (identical(other.minimumTemperature, minimumTemperature) ||
-                other.minimumTemperature == minimumTemperature) &&
-            const DeepCollectionEquality()
-                .equals(other.atmosphericHumidity, atmosphericHumidity) &&
-            (identical(other.maximumPrecipitation, maximumPrecipitation) ||
-                other.maximumPrecipitation == maximumPrecipitation) &&
-            (identical(other.minimumPrecipitation, minimumPrecipitation) ||
-                other.minimumPrecipitation == minimumPrecipitation));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hashAll([
-        runtimeType,
-        const DeepCollectionEquality().hash(light),
-        const DeepCollectionEquality().hash(sowing),
-        spread,
-        const DeepCollectionEquality().hash(phMaximum),
-        const DeepCollectionEquality().hash(phMinimum),
-        const DeepCollectionEquality().hash(description),
-        rowSpacing,
-        const DeepCollectionEquality().hash(bloomMonths),
-        const DeepCollectionEquality().hash(fruitMonths),
-        const DeepCollectionEquality().hash(soilTexture),
-        const DeepCollectionEquality().hash(growthMonths),
-        const DeepCollectionEquality().hash(soilHumidity),
-        const DeepCollectionEquality().hash(soilSalinity),
-        const DeepCollectionEquality().hash(daysToHarvest),
-        const DeepCollectionEquality().hash(soilNutriments),
-        minimumRootDepth,
-        maximumTemperature,
-        minimumTemperature,
-        const DeepCollectionEquality().hash(atmosphericHumidity),
-        maximumPrecipitation,
-        minimumPrecipitation
-      ]);
-
-  /// Create a copy of Growth
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GrowthImplCopyWith<_$GrowthImpl> get copyWith =>
-      __$$GrowthImplCopyWithImpl<_$GrowthImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GrowthImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Growth implements Growth {
-  const factory _Growth(
-      {@JsonKey(name: "light") final dynamic light,
-      @JsonKey(name: "sowing") final dynamic sowing,
-      @JsonKey(name: "spread") final MinimumRootDepth? spread,
-      @JsonKey(name: "ph_maximum") final dynamic phMaximum,
-      @JsonKey(name: "ph_minimum") final dynamic phMinimum,
-      @JsonKey(name: "description") final dynamic description,
-      @JsonKey(name: "row_spacing") final MinimumRootDepth? rowSpacing,
-      @JsonKey(name: "bloom_months") final dynamic bloomMonths,
-      @JsonKey(name: "fruit_months") final dynamic fruitMonths,
-      @JsonKey(name: "soil_texture") final dynamic soilTexture,
-      @JsonKey(name: "growth_months") final dynamic growthMonths,
-      @JsonKey(name: "soil_humidity") final dynamic soilHumidity,
-      @JsonKey(name: "soil_salinity") final dynamic soilSalinity,
-      @JsonKey(name: "days_to_harvest") final dynamic daysToHarvest,
-      @JsonKey(name: "soil_nutriments") final dynamic soilNutriments,
-      @JsonKey(name: "minimum_root_depth")
-      final MinimumRootDepth? minimumRootDepth,
-      @JsonKey(name: "maximum_temperature")
-      final ImumTemperature? maximumTemperature,
-      @JsonKey(name: "minimum_temperature")
-      final ImumTemperature? minimumTemperature,
-      @JsonKey(name: "atmospheric_humidity") final dynamic atmosphericHumidity,
-      @JsonKey(name: "maximum_precipitation")
-      final ImumPrecipitation? maximumPrecipitation,
-      @JsonKey(name: "minimum_precipitation")
-      final ImumPrecipitation? minimumPrecipitation}) = _$GrowthImpl;
-
-  factory _Growth.fromJson(Map<String, dynamic> json) = _$GrowthImpl.fromJson;
-
-  @override
-  @JsonKey(name: "light")
-  dynamic get light;
-  @override
-  @JsonKey(name: "sowing")
-  dynamic get sowing;
-  @override
-  @JsonKey(name: "spread")
-  MinimumRootDepth? get spread;
-  @override
-  @JsonKey(name: "ph_maximum")
-  dynamic get phMaximum;
-  @override
-  @JsonKey(name: "ph_minimum")
-  dynamic get phMinimum;
-  @override
-  @JsonKey(name: "description")
-  dynamic get description;
-  @override
-  @JsonKey(name: "row_spacing")
-  MinimumRootDepth? get rowSpacing;
-  @override
-  @JsonKey(name: "bloom_months")
-  dynamic get bloomMonths;
-  @override
-  @JsonKey(name: "fruit_months")
-  dynamic get fruitMonths;
-  @override
-  @JsonKey(name: "soil_texture")
-  dynamic get soilTexture;
-  @override
-  @JsonKey(name: "growth_months")
-  dynamic get growthMonths;
-  @override
-  @JsonKey(name: "soil_humidity")
-  dynamic get soilHumidity;
-  @override
-  @JsonKey(name: "soil_salinity")
-  dynamic get soilSalinity;
-  @override
-  @JsonKey(name: "days_to_harvest")
-  dynamic get daysToHarvest;
-  @override
-  @JsonKey(name: "soil_nutriments")
-  dynamic get soilNutriments;
-  @override
-  @JsonKey(name: "minimum_root_depth")
-  MinimumRootDepth? get minimumRootDepth;
-  @override
-  @JsonKey(name: "maximum_temperature")
-  ImumTemperature? get maximumTemperature;
-  @override
-  @JsonKey(name: "minimum_temperature")
-  ImumTemperature? get minimumTemperature;
-  @override
-  @JsonKey(name: "atmospheric_humidity")
-  dynamic get atmosphericHumidity;
-  @override
-  @JsonKey(name: "maximum_precipitation")
-  ImumPrecipitation? get maximumPrecipitation;
-  @override
-  @JsonKey(name: "minimum_precipitation")
-  ImumPrecipitation? get minimumPrecipitation;
-
-  /// Create a copy of Growth
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GrowthImplCopyWith<_$GrowthImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-ImumPrecipitation _$ImumPrecipitationFromJson(Map<String, dynamic> json) {
-  return _ImumPrecipitation.fromJson(json);
-}
-
-/// @nodoc
-mixin _$ImumPrecipitation {
-  @JsonKey(name: "mm")
-  dynamic get mm => throw _privateConstructorUsedError;
-
-  /// Serializes this ImumPrecipitation to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of ImumPrecipitation
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $ImumPrecipitationCopyWith<ImumPrecipitation> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ImumPrecipitationCopyWith<$Res> {
-  factory $ImumPrecipitationCopyWith(
-          ImumPrecipitation value, $Res Function(ImumPrecipitation) then) =
-      _$ImumPrecipitationCopyWithImpl<$Res, ImumPrecipitation>;
-  @useResult
-  $Res call({@JsonKey(name: "mm") dynamic mm});
-}
-
-/// @nodoc
-class _$ImumPrecipitationCopyWithImpl<$Res, $Val extends ImumPrecipitation>
-    implements $ImumPrecipitationCopyWith<$Res> {
-  _$ImumPrecipitationCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ImumPrecipitation
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? mm = freezed,
-  }) {
-    return _then(_value.copyWith(
-      mm: freezed == mm
-          ? _value.mm
-          : mm // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$ImumPrecipitationImplCopyWith<$Res>
-    implements $ImumPrecipitationCopyWith<$Res> {
-  factory _$$ImumPrecipitationImplCopyWith(_$ImumPrecipitationImpl value,
-          $Res Function(_$ImumPrecipitationImpl) then) =
-      __$$ImumPrecipitationImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({@JsonKey(name: "mm") dynamic mm});
-}
-
-/// @nodoc
-class __$$ImumPrecipitationImplCopyWithImpl<$Res>
-    extends _$ImumPrecipitationCopyWithImpl<$Res, _$ImumPrecipitationImpl>
-    implements _$$ImumPrecipitationImplCopyWith<$Res> {
-  __$$ImumPrecipitationImplCopyWithImpl(_$ImumPrecipitationImpl _value,
-      $Res Function(_$ImumPrecipitationImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ImumPrecipitation
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? mm = freezed,
-  }) {
-    return _then(_$ImumPrecipitationImpl(
-      mm: freezed == mm
-          ? _value.mm
-          : mm // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$ImumPrecipitationImpl implements _ImumPrecipitation {
-  const _$ImumPrecipitationImpl({@JsonKey(name: "mm") this.mm});
-
-  factory _$ImumPrecipitationImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ImumPrecipitationImplFromJson(json);
-
-  @override
-  @JsonKey(name: "mm")
-  final dynamic mm;
-
-  @override
-  String toString() {
-    return 'ImumPrecipitation(mm: $mm)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ImumPrecipitationImpl &&
-            const DeepCollectionEquality().equals(other.mm, mm));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(mm));
-
-  /// Create a copy of ImumPrecipitation
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ImumPrecipitationImplCopyWith<_$ImumPrecipitationImpl> get copyWith =>
-      __$$ImumPrecipitationImplCopyWithImpl<_$ImumPrecipitationImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ImumPrecipitationImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _ImumPrecipitation implements ImumPrecipitation {
-  const factory _ImumPrecipitation({@JsonKey(name: "mm") final dynamic mm}) =
-      _$ImumPrecipitationImpl;
-
-  factory _ImumPrecipitation.fromJson(Map<String, dynamic> json) =
-      _$ImumPrecipitationImpl.fromJson;
-
-  @override
-  @JsonKey(name: "mm")
-  dynamic get mm;
-
-  /// Create a copy of ImumPrecipitation
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ImumPrecipitationImplCopyWith<_$ImumPrecipitationImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-ImumTemperature _$ImumTemperatureFromJson(Map<String, dynamic> json) {
-  return _ImumTemperature.fromJson(json);
-}
-
-/// @nodoc
-mixin _$ImumTemperature {
-  @JsonKey(name: "deg_c")
-  dynamic get degC => throw _privateConstructorUsedError;
-  @JsonKey(name: "deg_f")
-  dynamic get degF => throw _privateConstructorUsedError;
-
-  /// Serializes this ImumTemperature to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of ImumTemperature
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $ImumTemperatureCopyWith<ImumTemperature> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ImumTemperatureCopyWith<$Res> {
-  factory $ImumTemperatureCopyWith(
-          ImumTemperature value, $Res Function(ImumTemperature) then) =
-      _$ImumTemperatureCopyWithImpl<$Res, ImumTemperature>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: "deg_c") dynamic degC,
-      @JsonKey(name: "deg_f") dynamic degF});
-}
-
-/// @nodoc
-class _$ImumTemperatureCopyWithImpl<$Res, $Val extends ImumTemperature>
-    implements $ImumTemperatureCopyWith<$Res> {
-  _$ImumTemperatureCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ImumTemperature
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? degC = freezed,
-    Object? degF = freezed,
-  }) {
-    return _then(_value.copyWith(
-      degC: freezed == degC
-          ? _value.degC
-          : degC // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      degF: freezed == degF
-          ? _value.degF
-          : degF // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$ImumTemperatureImplCopyWith<$Res>
-    implements $ImumTemperatureCopyWith<$Res> {
-  factory _$$ImumTemperatureImplCopyWith(_$ImumTemperatureImpl value,
-          $Res Function(_$ImumTemperatureImpl) then) =
-      __$$ImumTemperatureImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: "deg_c") dynamic degC,
-      @JsonKey(name: "deg_f") dynamic degF});
-}
-
-/// @nodoc
-class __$$ImumTemperatureImplCopyWithImpl<$Res>
-    extends _$ImumTemperatureCopyWithImpl<$Res, _$ImumTemperatureImpl>
-    implements _$$ImumTemperatureImplCopyWith<$Res> {
-  __$$ImumTemperatureImplCopyWithImpl(
-      _$ImumTemperatureImpl _value, $Res Function(_$ImumTemperatureImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ImumTemperature
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? degC = freezed,
-    Object? degF = freezed,
-  }) {
-    return _then(_$ImumTemperatureImpl(
-      degC: freezed == degC
-          ? _value.degC
-          : degC // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      degF: freezed == degF
-          ? _value.degF
-          : degF // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$ImumTemperatureImpl implements _ImumTemperature {
-  const _$ImumTemperatureImpl(
-      {@JsonKey(name: "deg_c") this.degC, @JsonKey(name: "deg_f") this.degF});
-
-  factory _$ImumTemperatureImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ImumTemperatureImplFromJson(json);
-
-  @override
-  @JsonKey(name: "deg_c")
-  final dynamic degC;
-  @override
-  @JsonKey(name: "deg_f")
-  final dynamic degF;
-
-  @override
-  String toString() {
-    return 'ImumTemperature(degC: $degC, degF: $degF)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ImumTemperatureImpl &&
-            const DeepCollectionEquality().equals(other.degC, degC) &&
-            const DeepCollectionEquality().equals(other.degF, degF));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(degC),
-      const DeepCollectionEquality().hash(degF));
-
-  /// Create a copy of ImumTemperature
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ImumTemperatureImplCopyWith<_$ImumTemperatureImpl> get copyWith =>
-      __$$ImumTemperatureImplCopyWithImpl<_$ImumTemperatureImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ImumTemperatureImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _ImumTemperature implements ImumTemperature {
-  const factory _ImumTemperature(
-      {@JsonKey(name: "deg_c") final dynamic degC,
-      @JsonKey(name: "deg_f") final dynamic degF}) = _$ImumTemperatureImpl;
-
-  factory _ImumTemperature.fromJson(Map<String, dynamic> json) =
-      _$ImumTemperatureImpl.fromJson;
-
-  @override
-  @JsonKey(name: "deg_c")
-  dynamic get degC;
-  @override
-  @JsonKey(name: "deg_f")
-  dynamic get degF;
-
-  /// Create a copy of ImumTemperature
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ImumTemperatureImplCopyWith<_$ImumTemperatureImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-MinimumRootDepth _$MinimumRootDepthFromJson(Map<String, dynamic> json) {
-  return _MinimumRootDepth.fromJson(json);
-}
-
-/// @nodoc
-mixin _$MinimumRootDepth {
-  @JsonKey(name: "cm")
-  dynamic get cm => throw _privateConstructorUsedError;
-
-  /// Serializes this MinimumRootDepth to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of MinimumRootDepth
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $MinimumRootDepthCopyWith<MinimumRootDepth> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $MinimumRootDepthCopyWith<$Res> {
-  factory $MinimumRootDepthCopyWith(
-          MinimumRootDepth value, $Res Function(MinimumRootDepth) then) =
-      _$MinimumRootDepthCopyWithImpl<$Res, MinimumRootDepth>;
-  @useResult
-  $Res call({@JsonKey(name: "cm") dynamic cm});
-}
-
-/// @nodoc
-class _$MinimumRootDepthCopyWithImpl<$Res, $Val extends MinimumRootDepth>
-    implements $MinimumRootDepthCopyWith<$Res> {
-  _$MinimumRootDepthCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of MinimumRootDepth
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? cm = freezed,
-  }) {
-    return _then(_value.copyWith(
-      cm: freezed == cm
-          ? _value.cm
-          : cm // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$MinimumRootDepthImplCopyWith<$Res>
-    implements $MinimumRootDepthCopyWith<$Res> {
-  factory _$$MinimumRootDepthImplCopyWith(_$MinimumRootDepthImpl value,
-          $Res Function(_$MinimumRootDepthImpl) then) =
-      __$$MinimumRootDepthImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({@JsonKey(name: "cm") dynamic cm});
-}
-
-/// @nodoc
-class __$$MinimumRootDepthImplCopyWithImpl<$Res>
-    extends _$MinimumRootDepthCopyWithImpl<$Res, _$MinimumRootDepthImpl>
-    implements _$$MinimumRootDepthImplCopyWith<$Res> {
-  __$$MinimumRootDepthImplCopyWithImpl(_$MinimumRootDepthImpl _value,
-      $Res Function(_$MinimumRootDepthImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of MinimumRootDepth
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? cm = freezed,
-  }) {
-    return _then(_$MinimumRootDepthImpl(
-      cm: freezed == cm
-          ? _value.cm
-          : cm // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$MinimumRootDepthImpl implements _MinimumRootDepth {
-  const _$MinimumRootDepthImpl({@JsonKey(name: "cm") this.cm});
-
-  factory _$MinimumRootDepthImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MinimumRootDepthImplFromJson(json);
-
-  @override
-  @JsonKey(name: "cm")
-  final dynamic cm;
-
-  @override
-  String toString() {
-    return 'MinimumRootDepth(cm: $cm)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$MinimumRootDepthImpl &&
-            const DeepCollectionEquality().equals(other.cm, cm));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(cm));
-
-  /// Create a copy of MinimumRootDepth
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$MinimumRootDepthImplCopyWith<_$MinimumRootDepthImpl> get copyWith =>
-      __$$MinimumRootDepthImplCopyWithImpl<_$MinimumRootDepthImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$MinimumRootDepthImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _MinimumRootDepth implements MinimumRootDepth {
-  const factory _MinimumRootDepth({@JsonKey(name: "cm") final dynamic cm}) =
-      _$MinimumRootDepthImpl;
-
-  factory _MinimumRootDepth.fromJson(Map<String, dynamic> json) =
-      _$MinimumRootDepthImpl.fromJson;
-
-  @override
-  @JsonKey(name: "cm")
-  dynamic get cm;
-
-  /// Create a copy of MinimumRootDepth
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MinimumRootDepthImplCopyWith<_$MinimumRootDepthImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-Specifications _$SpecificationsFromJson(Map<String, dynamic> json) {
-  return _Specifications.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Specifications {
-  @JsonKey(name: "toxicity")
-  dynamic get toxicity => throw _privateConstructorUsedError;
-  @JsonKey(name: "growth_form")
-  dynamic get growthForm => throw _privateConstructorUsedError;
-  @JsonKey(name: "growth_rate")
-  dynamic get growthRate => throw _privateConstructorUsedError;
-  @JsonKey(name: "growth_habit")
-  dynamic get growthHabit => throw _privateConstructorUsedError;
-  @JsonKey(name: "ligneous_type")
-  dynamic get ligneousType => throw _privateConstructorUsedError;
-  @JsonKey(name: "average_height")
-  MinimumRootDepth? get averageHeight => throw _privateConstructorUsedError;
-  @JsonKey(name: "maximum_height")
-  MinimumRootDepth? get maximumHeight => throw _privateConstructorUsedError;
-  @JsonKey(name: "nitrogen_fixation")
-  dynamic get nitrogenFixation => throw _privateConstructorUsedError;
-  @JsonKey(name: "shape_and_orientation")
-  dynamic get shapeAndOrientation => throw _privateConstructorUsedError;
-
-  /// Serializes this Specifications to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of Specifications
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $SpecificationsCopyWith<Specifications> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SpecificationsCopyWith<$Res> {
-  factory $SpecificationsCopyWith(
-          Specifications value, $Res Function(Specifications) then) =
-      _$SpecificationsCopyWithImpl<$Res, Specifications>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: "toxicity") dynamic toxicity,
-      @JsonKey(name: "growth_form") dynamic growthForm,
-      @JsonKey(name: "growth_rate") dynamic growthRate,
-      @JsonKey(name: "growth_habit") dynamic growthHabit,
-      @JsonKey(name: "ligneous_type") dynamic ligneousType,
-      @JsonKey(name: "average_height") MinimumRootDepth? averageHeight,
-      @JsonKey(name: "maximum_height") MinimumRootDepth? maximumHeight,
-      @JsonKey(name: "nitrogen_fixation") dynamic nitrogenFixation,
-      @JsonKey(name: "shape_and_orientation") dynamic shapeAndOrientation});
-
-  $MinimumRootDepthCopyWith<$Res>? get averageHeight;
-  $MinimumRootDepthCopyWith<$Res>? get maximumHeight;
-}
-
-/// @nodoc
-class _$SpecificationsCopyWithImpl<$Res, $Val extends Specifications>
-    implements $SpecificationsCopyWith<$Res> {
-  _$SpecificationsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Specifications
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? toxicity = freezed,
-    Object? growthForm = freezed,
-    Object? growthRate = freezed,
-    Object? growthHabit = freezed,
-    Object? ligneousType = freezed,
-    Object? averageHeight = freezed,
-    Object? maximumHeight = freezed,
-    Object? nitrogenFixation = freezed,
-    Object? shapeAndOrientation = freezed,
-  }) {
-    return _then(_value.copyWith(
-      toxicity: freezed == toxicity
-          ? _value.toxicity
-          : toxicity // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      growthForm: freezed == growthForm
-          ? _value.growthForm
-          : growthForm // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      growthRate: freezed == growthRate
-          ? _value.growthRate
-          : growthRate // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      growthHabit: freezed == growthHabit
-          ? _value.growthHabit
-          : growthHabit // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      ligneousType: freezed == ligneousType
-          ? _value.ligneousType
-          : ligneousType // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      averageHeight: freezed == averageHeight
-          ? _value.averageHeight
-          : averageHeight // ignore: cast_nullable_to_non_nullable
-              as MinimumRootDepth?,
-      maximumHeight: freezed == maximumHeight
-          ? _value.maximumHeight
-          : maximumHeight // ignore: cast_nullable_to_non_nullable
-              as MinimumRootDepth?,
-      nitrogenFixation: freezed == nitrogenFixation
-          ? _value.nitrogenFixation
-          : nitrogenFixation // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      shapeAndOrientation: freezed == shapeAndOrientation
-          ? _value.shapeAndOrientation
-          : shapeAndOrientation // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-    ) as $Val);
-  }
-
-  /// Create a copy of Specifications
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $MinimumRootDepthCopyWith<$Res>? get averageHeight {
-    if (_value.averageHeight == null) {
-      return null;
-    }
-
-    return $MinimumRootDepthCopyWith<$Res>(_value.averageHeight!, (value) {
-      return _then(_value.copyWith(averageHeight: value) as $Val);
-    });
-  }
-
-  /// Create a copy of Specifications
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $MinimumRootDepthCopyWith<$Res>? get maximumHeight {
-    if (_value.maximumHeight == null) {
-      return null;
-    }
-
-    return $MinimumRootDepthCopyWith<$Res>(_value.maximumHeight!, (value) {
-      return _then(_value.copyWith(maximumHeight: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$SpecificationsImplCopyWith<$Res>
-    implements $SpecificationsCopyWith<$Res> {
-  factory _$$SpecificationsImplCopyWith(_$SpecificationsImpl value,
-          $Res Function(_$SpecificationsImpl) then) =
-      __$$SpecificationsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: "toxicity") dynamic toxicity,
-      @JsonKey(name: "growth_form") dynamic growthForm,
-      @JsonKey(name: "growth_rate") dynamic growthRate,
-      @JsonKey(name: "growth_habit") dynamic growthHabit,
-      @JsonKey(name: "ligneous_type") dynamic ligneousType,
-      @JsonKey(name: "average_height") MinimumRootDepth? averageHeight,
-      @JsonKey(name: "maximum_height") MinimumRootDepth? maximumHeight,
-      @JsonKey(name: "nitrogen_fixation") dynamic nitrogenFixation,
-      @JsonKey(name: "shape_and_orientation") dynamic shapeAndOrientation});
-
-  @override
-  $MinimumRootDepthCopyWith<$Res>? get averageHeight;
-  @override
-  $MinimumRootDepthCopyWith<$Res>? get maximumHeight;
-}
-
-/// @nodoc
-class __$$SpecificationsImplCopyWithImpl<$Res>
-    extends _$SpecificationsCopyWithImpl<$Res, _$SpecificationsImpl>
-    implements _$$SpecificationsImplCopyWith<$Res> {
-  __$$SpecificationsImplCopyWithImpl(
-      _$SpecificationsImpl _value, $Res Function(_$SpecificationsImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Specifications
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? toxicity = freezed,
-    Object? growthForm = freezed,
-    Object? growthRate = freezed,
-    Object? growthHabit = freezed,
-    Object? ligneousType = freezed,
-    Object? averageHeight = freezed,
-    Object? maximumHeight = freezed,
-    Object? nitrogenFixation = freezed,
-    Object? shapeAndOrientation = freezed,
-  }) {
-    return _then(_$SpecificationsImpl(
-      toxicity: freezed == toxicity
-          ? _value.toxicity
-          : toxicity // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      growthForm: freezed == growthForm
-          ? _value.growthForm
-          : growthForm // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      growthRate: freezed == growthRate
-          ? _value.growthRate
-          : growthRate // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      growthHabit: freezed == growthHabit
-          ? _value.growthHabit
-          : growthHabit // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      ligneousType: freezed == ligneousType
-          ? _value.ligneousType
-          : ligneousType // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      averageHeight: freezed == averageHeight
-          ? _value.averageHeight
-          : averageHeight // ignore: cast_nullable_to_non_nullable
-              as MinimumRootDepth?,
-      maximumHeight: freezed == maximumHeight
-          ? _value.maximumHeight
-          : maximumHeight // ignore: cast_nullable_to_non_nullable
-              as MinimumRootDepth?,
-      nitrogenFixation: freezed == nitrogenFixation
-          ? _value.nitrogenFixation
-          : nitrogenFixation // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      shapeAndOrientation: freezed == shapeAndOrientation
-          ? _value.shapeAndOrientation
-          : shapeAndOrientation // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$SpecificationsImpl implements _Specifications {
-  const _$SpecificationsImpl(
-      {@JsonKey(name: "toxicity") this.toxicity,
-      @JsonKey(name: "growth_form") this.growthForm,
-      @JsonKey(name: "growth_rate") this.growthRate,
-      @JsonKey(name: "growth_habit") this.growthHabit,
-      @JsonKey(name: "ligneous_type") this.ligneousType,
-      @JsonKey(name: "average_height") this.averageHeight,
-      @JsonKey(name: "maximum_height") this.maximumHeight,
-      @JsonKey(name: "nitrogen_fixation") this.nitrogenFixation,
-      @JsonKey(name: "shape_and_orientation") this.shapeAndOrientation});
-
-  factory _$SpecificationsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SpecificationsImplFromJson(json);
-
-  @override
-  @JsonKey(name: "toxicity")
-  final dynamic toxicity;
-  @override
-  @JsonKey(name: "growth_form")
-  final dynamic growthForm;
-  @override
-  @JsonKey(name: "growth_rate")
-  final dynamic growthRate;
-  @override
-  @JsonKey(name: "growth_habit")
-  final dynamic growthHabit;
-  @override
-  @JsonKey(name: "ligneous_type")
-  final dynamic ligneousType;
-  @override
-  @JsonKey(name: "average_height")
-  final MinimumRootDepth? averageHeight;
-  @override
-  @JsonKey(name: "maximum_height")
-  final MinimumRootDepth? maximumHeight;
-  @override
-  @JsonKey(name: "nitrogen_fixation")
-  final dynamic nitrogenFixation;
-  @override
-  @JsonKey(name: "shape_and_orientation")
-  final dynamic shapeAndOrientation;
-
-  @override
-  String toString() {
-    return 'Specifications(toxicity: $toxicity, growthForm: $growthForm, growthRate: $growthRate, growthHabit: $growthHabit, ligneousType: $ligneousType, averageHeight: $averageHeight, maximumHeight: $maximumHeight, nitrogenFixation: $nitrogenFixation, shapeAndOrientation: $shapeAndOrientation)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SpecificationsImpl &&
-            const DeepCollectionEquality().equals(other.toxicity, toxicity) &&
-            const DeepCollectionEquality()
-                .equals(other.growthForm, growthForm) &&
-            const DeepCollectionEquality()
-                .equals(other.growthRate, growthRate) &&
-            const DeepCollectionEquality()
-                .equals(other.growthHabit, growthHabit) &&
-            const DeepCollectionEquality()
-                .equals(other.ligneousType, ligneousType) &&
-            (identical(other.averageHeight, averageHeight) ||
-                other.averageHeight == averageHeight) &&
-            (identical(other.maximumHeight, maximumHeight) ||
-                other.maximumHeight == maximumHeight) &&
-            const DeepCollectionEquality()
-                .equals(other.nitrogenFixation, nitrogenFixation) &&
-            const DeepCollectionEquality()
-                .equals(other.shapeAndOrientation, shapeAndOrientation));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(toxicity),
-      const DeepCollectionEquality().hash(growthForm),
-      const DeepCollectionEquality().hash(growthRate),
-      const DeepCollectionEquality().hash(growthHabit),
-      const DeepCollectionEquality().hash(ligneousType),
-      averageHeight,
-      maximumHeight,
-      const DeepCollectionEquality().hash(nitrogenFixation),
-      const DeepCollectionEquality().hash(shapeAndOrientation));
-
-  /// Create a copy of Specifications
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SpecificationsImplCopyWith<_$SpecificationsImpl> get copyWith =>
-      __$$SpecificationsImplCopyWithImpl<_$SpecificationsImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SpecificationsImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Specifications implements Specifications {
-  const factory _Specifications(
-      {@JsonKey(name: "toxicity") final dynamic toxicity,
-      @JsonKey(name: "growth_form") final dynamic growthForm,
-      @JsonKey(name: "growth_rate") final dynamic growthRate,
-      @JsonKey(name: "growth_habit") final dynamic growthHabit,
-      @JsonKey(name: "ligneous_type") final dynamic ligneousType,
-      @JsonKey(name: "average_height") final MinimumRootDepth? averageHeight,
-      @JsonKey(name: "maximum_height") final MinimumRootDepth? maximumHeight,
-      @JsonKey(name: "nitrogen_fixation") final dynamic nitrogenFixation,
-      @JsonKey(name: "shape_and_orientation")
-      final dynamic shapeAndOrientation}) = _$SpecificationsImpl;
-
-  factory _Specifications.fromJson(Map<String, dynamic> json) =
-      _$SpecificationsImpl.fromJson;
-
-  @override
-  @JsonKey(name: "toxicity")
-  dynamic get toxicity;
-  @override
-  @JsonKey(name: "growth_form")
-  dynamic get growthForm;
-  @override
-  @JsonKey(name: "growth_rate")
-  dynamic get growthRate;
-  @override
-  @JsonKey(name: "growth_habit")
-  dynamic get growthHabit;
-  @override
-  @JsonKey(name: "ligneous_type")
-  dynamic get ligneousType;
-  @override
-  @JsonKey(name: "average_height")
-  MinimumRootDepth? get averageHeight;
-  @override
-  @JsonKey(name: "maximum_height")
-  MinimumRootDepth? get maximumHeight;
-  @override
-  @JsonKey(name: "nitrogen_fixation")
-  dynamic get nitrogenFixation;
-  @override
-  @JsonKey(name: "shape_and_orientation")
-  dynamic get shapeAndOrientation;
-
-  /// Create a copy of Specifications
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SpecificationsImplCopyWith<_$SpecificationsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-PartsColor _$PartsColorFromJson(Map<String, dynamic> json) {
-  return _PartsColor.fromJson(json);
-}
-
-/// @nodoc
-mixin _$PartsColor {
-  @JsonKey(name: "bark")
-  List<PartsColorBark>? get bark => throw _privateConstructorUsedError;
-  @JsonKey(name: "fruit")
-  List<PartsColorBark>? get fruit => throw _privateConstructorUsedError;
-  @JsonKey(name: "flower")
-  List<PartsColorBark>? get flower => throw _privateConstructorUsedError;
-  @JsonKey(name: "habit")
-  List<PartsColorBark>? get habit => throw _privateConstructorUsedError;
-  @JsonKey(name: "leaf")
-  List<PartsColorBark>? get leaf => throw _privateConstructorUsedError;
-  @JsonKey(name: "other")
-  List<PartsColorBark>? get other => throw _privateConstructorUsedError;
-  @JsonKey(name: "root")
-  List<PartsColorBark>? get root => throw _privateConstructorUsedError;
-  @JsonKey(name: "stem")
-  List<PartsColorBark>? get stem => throw _privateConstructorUsedError;
-  @JsonKey(name: "seed")
-  List<PartsColorBark>? get seed => throw _privateConstructorUsedError;
-  @JsonKey(name: "tuber")
-  List<PartsColorBark>? get tuber => throw _privateConstructorUsedError;
-  @JsonKey(name: "foliage")
-  List<PartsColorBark>? get foliage => throw _privateConstructorUsedError;
-
-  /// Serializes this PartsColor to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of PartsColor
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $PartsColorCopyWith<PartsColor> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PartsColorCopyWith<$Res> {
-  factory $PartsColorCopyWith(
-          PartsColor value, $Res Function(PartsColor) then) =
-      _$PartsColorCopyWithImpl<$Res, PartsColor>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: "bark") List<PartsColorBark>? bark,
-      @JsonKey(name: "fruit") List<PartsColorBark>? fruit,
-      @JsonKey(name: "flower") List<PartsColorBark>? flower,
-      @JsonKey(name: "habit") List<PartsColorBark>? habit,
-      @JsonKey(name: "leaf") List<PartsColorBark>? leaf,
-      @JsonKey(name: "other") List<PartsColorBark>? other,
-      @JsonKey(name: "root") List<PartsColorBark>? root,
-      @JsonKey(name: "stem") List<PartsColorBark>? stem,
-      @JsonKey(name: "seed") List<PartsColorBark>? seed,
-      @JsonKey(name: "tuber") List<PartsColorBark>? tuber,
-      @JsonKey(name: "foliage") List<PartsColorBark>? foliage});
-}
-
-/// @nodoc
-class _$PartsColorCopyWithImpl<$Res, $Val extends PartsColor>
-    implements $PartsColorCopyWith<$Res> {
-  _$PartsColorCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of PartsColor
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? bark = freezed,
-    Object? fruit = freezed,
-    Object? flower = freezed,
-    Object? habit = freezed,
-    Object? leaf = freezed,
-    Object? other = freezed,
-    Object? root = freezed,
-    Object? stem = freezed,
-    Object? seed = freezed,
-    Object? tuber = freezed,
-    Object? foliage = freezed,
-  }) {
-    return _then(_value.copyWith(
-      bark: freezed == bark
-          ? _value.bark
-          : bark // ignore: cast_nullable_to_non_nullable
-              as List<PartsColorBark>?,
-      fruit: freezed == fruit
-          ? _value.fruit
-          : fruit // ignore: cast_nullable_to_non_nullable
-              as List<PartsColorBark>?,
-      flower: freezed == flower
-          ? _value.flower
-          : flower // ignore: cast_nullable_to_non_nullable
-              as List<PartsColorBark>?,
-      habit: freezed == habit
-          ? _value.habit
-          : habit // ignore: cast_nullable_to_non_nullable
-              as List<PartsColorBark>?,
-      leaf: freezed == leaf
-          ? _value.leaf
-          : leaf // ignore: cast_nullable_to_non_nullable
-              as List<PartsColorBark>?,
-      other: freezed == other
-          ? _value.other
-          : other // ignore: cast_nullable_to_non_nullable
-              as List<PartsColorBark>?,
-      root: freezed == root
-          ? _value.root
-          : root // ignore: cast_nullable_to_non_nullable
-              as List<PartsColorBark>?,
-      stem: freezed == stem
-          ? _value.stem
-          : stem // ignore: cast_nullable_to_non_nullable
-              as List<PartsColorBark>?,
-      seed: freezed == seed
-          ? _value.seed
-          : seed // ignore: cast_nullable_to_non_nullable
-              as List<PartsColorBark>?,
-      tuber: freezed == tuber
-          ? _value.tuber
-          : tuber // ignore: cast_nullable_to_non_nullable
-              as List<PartsColorBark>?,
-      foliage: freezed == foliage
-          ? _value.foliage
-          : foliage // ignore: cast_nullable_to_non_nullable
-              as List<PartsColorBark>?,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$PartsColorImplCopyWith<$Res>
-    implements $PartsColorCopyWith<$Res> {
-  factory _$$PartsColorImplCopyWith(
-          _$PartsColorImpl value, $Res Function(_$PartsColorImpl) then) =
-      __$$PartsColorImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: "bark") List<PartsColorBark>? bark,
-      @JsonKey(name: "fruit") List<PartsColorBark>? fruit,
-      @JsonKey(name: "flower") List<PartsColorBark>? flower,
-      @JsonKey(name: "habit") List<PartsColorBark>? habit,
-      @JsonKey(name: "leaf") List<PartsColorBark>? leaf,
-      @JsonKey(name: "other") List<PartsColorBark>? other,
-      @JsonKey(name: "root") List<PartsColorBark>? root,
-      @JsonKey(name: "stem") List<PartsColorBark>? stem,
-      @JsonKey(name: "seed") List<PartsColorBark>? seed,
-      @JsonKey(name: "tuber") List<PartsColorBark>? tuber,
-      @JsonKey(name: "foliage") List<PartsColorBark>? foliage});
-}
-
-/// @nodoc
-class __$$PartsColorImplCopyWithImpl<$Res>
-    extends _$PartsColorCopyWithImpl<$Res, _$PartsColorImpl>
-    implements _$$PartsColorImplCopyWith<$Res> {
-  __$$PartsColorImplCopyWithImpl(
-      _$PartsColorImpl _value, $Res Function(_$PartsColorImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of PartsColor
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? bark = freezed,
-    Object? fruit = freezed,
-    Object? flower = freezed,
-    Object? habit = freezed,
-    Object? leaf = freezed,
-    Object? other = freezed,
-    Object? root = freezed,
-    Object? stem = freezed,
-    Object? seed = freezed,
-    Object? tuber = freezed,
-    Object? foliage = freezed,
-  }) {
-    return _then(_$PartsColorImpl(
-      bark: freezed == bark
-          ? _value._bark
-          : bark // ignore: cast_nullable_to_non_nullable
-              as List<PartsColorBark>?,
-      fruit: freezed == fruit
-          ? _value._fruit
-          : fruit // ignore: cast_nullable_to_non_nullable
-              as List<PartsColorBark>?,
-      flower: freezed == flower
-          ? _value._flower
-          : flower // ignore: cast_nullable_to_non_nullable
-              as List<PartsColorBark>?,
-      habit: freezed == habit
-          ? _value._habit
-          : habit // ignore: cast_nullable_to_non_nullable
-              as List<PartsColorBark>?,
-      leaf: freezed == leaf
-          ? _value._leaf
-          : leaf // ignore: cast_nullable_to_non_nullable
-              as List<PartsColorBark>?,
-      other: freezed == other
-          ? _value._other
-          : other // ignore: cast_nullable_to_non_nullable
-              as List<PartsColorBark>?,
-      root: freezed == root
-          ? _value._root
-          : root // ignore: cast_nullable_to_non_nullable
-              as List<PartsColorBark>?,
-      stem: freezed == stem
-          ? _value._stem
-          : stem // ignore: cast_nullable_to_non_nullable
-              as List<PartsColorBark>?,
-      seed: freezed == seed
-          ? _value._seed
-          : seed // ignore: cast_nullable_to_non_nullable
-              as List<PartsColorBark>?,
-      tuber: freezed == tuber
-          ? _value._tuber
-          : tuber // ignore: cast_nullable_to_non_nullable
-              as List<PartsColorBark>?,
-      foliage: freezed == foliage
-          ? _value._foliage
-          : foliage // ignore: cast_nullable_to_non_nullable
-              as List<PartsColorBark>?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$PartsColorImpl implements _PartsColor {
-  const _$PartsColorImpl(
-      {@JsonKey(name: "bark") final List<PartsColorBark>? bark,
-      @JsonKey(name: "fruit") final List<PartsColorBark>? fruit,
-      @JsonKey(name: "flower") final List<PartsColorBark>? flower,
-      @JsonKey(name: "habit") final List<PartsColorBark>? habit,
-      @JsonKey(name: "leaf") final List<PartsColorBark>? leaf,
-      @JsonKey(name: "other") final List<PartsColorBark>? other,
-      @JsonKey(name: "root") final List<PartsColorBark>? root,
-      @JsonKey(name: "stem") final List<PartsColorBark>? stem,
-      @JsonKey(name: "seed") final List<PartsColorBark>? seed,
-      @JsonKey(name: "tuber") final List<PartsColorBark>? tuber,
-      @JsonKey(name: "foliage") final List<PartsColorBark>? foliage})
-      : _bark = bark,
-        _fruit = fruit,
-        _flower = flower,
-        _habit = habit,
-        _leaf = leaf,
-        _other = other,
-        _root = root,
-        _stem = stem,
-        _seed = seed,
-        _tuber = tuber,
-        _foliage = foliage;
-
-  factory _$PartsColorImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PartsColorImplFromJson(json);
-
-  final List<PartsColorBark>? _bark;
-  @override
-  @JsonKey(name: "bark")
-  List<PartsColorBark>? get bark {
-    final value = _bark;
-    if (value == null) return null;
-    if (_bark is EqualUnmodifiableListView) return _bark;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<PartsColorBark>? _fruit;
-  @override
-  @JsonKey(name: "fruit")
-  List<PartsColorBark>? get fruit {
-    final value = _fruit;
-    if (value == null) return null;
-    if (_fruit is EqualUnmodifiableListView) return _fruit;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<PartsColorBark>? _flower;
-  @override
-  @JsonKey(name: "flower")
-  List<PartsColorBark>? get flower {
-    final value = _flower;
-    if (value == null) return null;
-    if (_flower is EqualUnmodifiableListView) return _flower;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<PartsColorBark>? _habit;
-  @override
-  @JsonKey(name: "habit")
-  List<PartsColorBark>? get habit {
-    final value = _habit;
-    if (value == null) return null;
-    if (_habit is EqualUnmodifiableListView) return _habit;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<PartsColorBark>? _leaf;
-  @override
-  @JsonKey(name: "leaf")
-  List<PartsColorBark>? get leaf {
-    final value = _leaf;
-    if (value == null) return null;
-    if (_leaf is EqualUnmodifiableListView) return _leaf;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<PartsColorBark>? _other;
-  @override
-  @JsonKey(name: "other")
-  List<PartsColorBark>? get other {
-    final value = _other;
-    if (value == null) return null;
-    if (_other is EqualUnmodifiableListView) return _other;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<PartsColorBark>? _root;
-  @override
-  @JsonKey(name: "root")
-  List<PartsColorBark>? get root {
-    final value = _root;
-    if (value == null) return null;
-    if (_root is EqualUnmodifiableListView) return _root;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<PartsColorBark>? _stem;
-  @override
-  @JsonKey(name: "stem")
-  List<PartsColorBark>? get stem {
-    final value = _stem;
-    if (value == null) return null;
-    if (_stem is EqualUnmodifiableListView) return _stem;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<PartsColorBark>? _seed;
-  @override
-  @JsonKey(name: "seed")
-  List<PartsColorBark>? get seed {
-    final value = _seed;
-    if (value == null) return null;
-    if (_seed is EqualUnmodifiableListView) return _seed;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<PartsColorBark>? _tuber;
-  @override
-  @JsonKey(name: "tuber")
-  List<PartsColorBark>? get tuber {
-    final value = _tuber;
-    if (value == null) return null;
-    if (_tuber is EqualUnmodifiableListView) return _tuber;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<PartsColorBark>? _foliage;
-  @override
-  @JsonKey(name: "foliage")
-  List<PartsColorBark>? get foliage {
-    final value = _foliage;
-    if (value == null) return null;
-    if (_foliage is EqualUnmodifiableListView) return _foliage;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  @override
-  String toString() {
-    return 'PartsColor(bark: $bark, fruit: $fruit, flower: $flower, habit: $habit, leaf: $leaf, other: $other, root: $root, stem: $stem, seed: $seed, tuber: $tuber, foliage: $foliage)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PartsColorImpl &&
-            const DeepCollectionEquality().equals(other._bark, _bark) &&
-            const DeepCollectionEquality().equals(other._fruit, _fruit) &&
-            const DeepCollectionEquality().equals(other._flower, _flower) &&
-            const DeepCollectionEquality().equals(other._habit, _habit) &&
-            const DeepCollectionEquality().equals(other._leaf, _leaf) &&
-            const DeepCollectionEquality().equals(other._other, this._other) &&
-            const DeepCollectionEquality().equals(other._root, _root) &&
-            const DeepCollectionEquality().equals(other._stem, _stem) &&
-            const DeepCollectionEquality().equals(other._seed, _seed) &&
-            const DeepCollectionEquality().equals(other._tuber, _tuber) &&
-            const DeepCollectionEquality().equals(other._foliage, _foliage));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_bark),
-      const DeepCollectionEquality().hash(_fruit),
-      const DeepCollectionEquality().hash(_flower),
-      const DeepCollectionEquality().hash(_habit),
-      const DeepCollectionEquality().hash(_leaf),
-      const DeepCollectionEquality().hash(_other),
-      const DeepCollectionEquality().hash(_root),
-      const DeepCollectionEquality().hash(_stem),
-      const DeepCollectionEquality().hash(_seed),
-      const DeepCollectionEquality().hash(_tuber),
-      const DeepCollectionEquality().hash(_foliage));
-
-  /// Create a copy of PartsColor
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PartsColorImplCopyWith<_$PartsColorImpl> get copyWith =>
-      __$$PartsColorImplCopyWithImpl<_$PartsColorImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PartsColorImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _PartsColor implements PartsColor {
-  const factory _PartsColor(
-          {@JsonKey(name: "bark") final List<PartsColorBark>? bark,
-          @JsonKey(name: "fruit") final List<PartsColorBark>? fruit,
-          @JsonKey(name: "flower") final List<PartsColorBark>? flower,
-          @JsonKey(name: "habit") final List<PartsColorBark>? habit,
-          @JsonKey(name: "leaf") final List<PartsColorBark>? leaf,
-          @JsonKey(name: "other") final List<PartsColorBark>? other,
-          @JsonKey(name: "root") final List<PartsColorBark>? root,
-          @JsonKey(name: "stem") final List<PartsColorBark>? stem,
-          @JsonKey(name: "seed") final List<PartsColorBark>? seed,
-          @JsonKey(name: "tuber") final List<PartsColorBark>? tuber,
-          @JsonKey(name: "foliage") final List<PartsColorBark>? foliage}) =
-      _$PartsColorImpl;
-
-  factory _PartsColor.fromJson(Map<String, dynamic> json) =
-      _$PartsColorImpl.fromJson;
-
-  @override
-  @JsonKey(name: "bark")
-  List<PartsColorBark>? get bark;
-  @override
-  @JsonKey(name: "fruit")
-  List<PartsColorBark>? get fruit;
-  @override
-  @JsonKey(name: "flower")
-  List<PartsColorBark>? get flower;
-  @override
-  @JsonKey(name: "habit")
-  List<PartsColorBark>? get habit;
-  @override
-  @JsonKey(name: "leaf")
-  List<PartsColorBark>? get leaf;
-  @override
-  @JsonKey(name: "other")
-  List<PartsColorBark>? get other;
-  @override
-  @JsonKey(name: "root")
-  List<PartsColorBark>? get root;
-  @override
-  @JsonKey(name: "stem")
-  List<PartsColorBark>? get stem;
-  @override
-  @JsonKey(name: "seed")
-  List<PartsColorBark>? get seed;
-  @override
-  @JsonKey(name: "tuber")
-  List<PartsColorBark>? get tuber;
-  @override
-  @JsonKey(name: "foliage")
-  List<PartsColorBark>? get foliage;
-
-  /// Create a copy of PartsColor
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PartsColorImplCopyWith<_$PartsColorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-PartsColorBark _$PartsColorBarkFromJson(Map<String, dynamic> json) {
-  return _PartsColorBark.fromJson(json);
-}
-
-/// @nodoc
-mixin _$PartsColorBark {
-  @JsonKey(name: "season")
-  Exposure? get season => throw _privateConstructorUsedError;
-  @JsonKey(name: "colors")
-  List<ZColor>? get colors => throw _privateConstructorUsedError;
-
-  /// Serializes this PartsColorBark to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of PartsColorBark
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $PartsColorBarkCopyWith<PartsColorBark> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PartsColorBarkCopyWith<$Res> {
-  factory $PartsColorBarkCopyWith(
-          PartsColorBark value, $Res Function(PartsColorBark) then) =
-      _$PartsColorBarkCopyWithImpl<$Res, PartsColorBark>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: "season") Exposure? season,
-      @JsonKey(name: "colors") List<ZColor>? colors});
-
-  $ExposureCopyWith<$Res>? get season;
-}
-
-/// @nodoc
-class _$PartsColorBarkCopyWithImpl<$Res, $Val extends PartsColorBark>
-    implements $PartsColorBarkCopyWith<$Res> {
-  _$PartsColorBarkCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of PartsColorBark
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? season = freezed,
     Object? colors = freezed,
+    Object? part = freezed,
+    Object? season = freezed,
   }) {
     return _then(_value.copyWith(
-      season: freezed == season
-          ? _value.season
-          : season // ignore: cast_nullable_to_non_nullable
-              as Exposure?,
       colors: freezed == colors
           ? _value.colors
           : colors // ignore: cast_nullable_to_non_nullable
-              as List<ZColor>?,
+              as List<ColorEntry>?,
+      part: freezed == part
+          ? _value.part
+          : part // ignore: cast_nullable_to_non_nullable
+              as NamedSlug?,
+      season: freezed == season
+          ? _value.season
+          : season // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ) as $Val);
   }
 
-  /// Create a copy of PartsColorBark
+  /// Create a copy of PartColorGroup
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ExposureCopyWith<$Res>? get season {
-    if (_value.season == null) {
+  $NamedSlugCopyWith<$Res>? get part {
+    if (_value.part == null) {
       return null;
     }
 
-    return $ExposureCopyWith<$Res>(_value.season!, (value) {
-      return _then(_value.copyWith(season: value) as $Val);
+    return $NamedSlugCopyWith<$Res>(_value.part!, (value) {
+      return _then(_value.copyWith(part: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$PartsColorBarkImplCopyWith<$Res>
-    implements $PartsColorBarkCopyWith<$Res> {
-  factory _$$PartsColorBarkImplCopyWith(_$PartsColorBarkImpl value,
-          $Res Function(_$PartsColorBarkImpl) then) =
-      __$$PartsColorBarkImplCopyWithImpl<$Res>;
+abstract class _$$PartColorGroupImplCopyWith<$Res>
+    implements $PartColorGroupCopyWith<$Res> {
+  factory _$$PartColorGroupImplCopyWith(_$PartColorGroupImpl value,
+          $Res Function(_$PartColorGroupImpl) then) =
+      __$$PartColorGroupImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "season") Exposure? season,
-      @JsonKey(name: "colors") List<ZColor>? colors});
+      {@JsonKey(name: 'colors') List<ColorEntry>? colors,
+      @JsonKey(name: 'part') NamedSlug? part,
+      @JsonKey(name: 'season') List<String>? season});
 
   @override
-  $ExposureCopyWith<$Res>? get season;
+  $NamedSlugCopyWith<$Res>? get part;
 }
 
 /// @nodoc
-class __$$PartsColorBarkImplCopyWithImpl<$Res>
-    extends _$PartsColorBarkCopyWithImpl<$Res, _$PartsColorBarkImpl>
-    implements _$$PartsColorBarkImplCopyWith<$Res> {
-  __$$PartsColorBarkImplCopyWithImpl(
-      _$PartsColorBarkImpl _value, $Res Function(_$PartsColorBarkImpl) _then)
+class __$$PartColorGroupImplCopyWithImpl<$Res>
+    extends _$PartColorGroupCopyWithImpl<$Res, _$PartColorGroupImpl>
+    implements _$$PartColorGroupImplCopyWith<$Res> {
+  __$$PartColorGroupImplCopyWithImpl(
+      _$PartColorGroupImpl _value, $Res Function(_$PartColorGroupImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of PartsColorBark
+  /// Create a copy of PartColorGroup
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? season = freezed,
     Object? colors = freezed,
+    Object? part = freezed,
+    Object? season = freezed,
   }) {
-    return _then(_$PartsColorBarkImpl(
-      season: freezed == season
-          ? _value.season
-          : season // ignore: cast_nullable_to_non_nullable
-              as Exposure?,
+    return _then(_$PartColorGroupImpl(
       colors: freezed == colors
           ? _value._colors
           : colors // ignore: cast_nullable_to_non_nullable
-              as List<ZColor>?,
+              as List<ColorEntry>?,
+      part: freezed == part
+          ? _value.part
+          : part // ignore: cast_nullable_to_non_nullable
+              as NamedSlug?,
+      season: freezed == season
+          ? _value._season
+          : season // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$PartsColorBarkImpl implements _PartsColorBark {
-  const _$PartsColorBarkImpl(
-      {@JsonKey(name: "season") this.season,
-      @JsonKey(name: "colors") final List<ZColor>? colors})
-      : _colors = colors;
+class _$PartColorGroupImpl implements _PartColorGroup {
+  const _$PartColorGroupImpl(
+      {@JsonKey(name: 'colors') final List<ColorEntry>? colors,
+      @JsonKey(name: 'part') this.part,
+      @JsonKey(name: 'season') final List<String>? season})
+      : _colors = colors,
+        _season = season;
 
-  factory _$PartsColorBarkImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PartsColorBarkImplFromJson(json);
+  factory _$PartColorGroupImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PartColorGroupImplFromJson(json);
 
+  final List<ColorEntry>? _colors;
   @override
-  @JsonKey(name: "season")
-  final Exposure? season;
-  final List<ZColor>? _colors;
-  @override
-  @JsonKey(name: "colors")
-  List<ZColor>? get colors {
+  @JsonKey(name: 'colors')
+  List<ColorEntry>? get colors {
     final value = _colors;
     if (value == null) return null;
     if (_colors is EqualUnmodifiableListView) return _colors;
@@ -6609,260 +2509,265 @@ class _$PartsColorBarkImpl implements _PartsColorBark {
   }
 
   @override
-  String toString() {
-    return 'PartsColorBark(season: $season, colors: $colors)';
-  }
-
+  @JsonKey(name: 'part')
+  final NamedSlug? part;
+  final List<String>? _season;
   @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PartsColorBarkImpl &&
-            (identical(other.season, season) || other.season == season) &&
-            const DeepCollectionEquality().equals(other._colors, _colors));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, season, const DeepCollectionEquality().hash(_colors));
-
-  /// Create a copy of PartsColorBark
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PartsColorBarkImplCopyWith<_$PartsColorBarkImpl> get copyWith =>
-      __$$PartsColorBarkImplCopyWithImpl<_$PartsColorBarkImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PartsColorBarkImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _PartsColorBark implements PartsColorBark {
-  const factory _PartsColorBark(
-          {@JsonKey(name: "season") final Exposure? season,
-          @JsonKey(name: "colors") final List<ZColor>? colors}) =
-      _$PartsColorBarkImpl;
-
-  factory _PartsColorBark.fromJson(Map<String, dynamic> json) =
-      _$PartsColorBarkImpl.fromJson;
-
-  @override
-  @JsonKey(name: "season")
-  Exposure? get season;
-  @override
-  @JsonKey(name: "colors")
-  List<ZColor>? get colors;
-
-  /// Create a copy of PartsColorBark
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PartsColorBarkImplCopyWith<_$PartsColorBarkImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-Pathogens _$PathogensFromJson(Map<String, dynamic> json) {
-  return _Pathogens.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Pathogens {
-  @JsonKey(name: "disease")
-  List<String>? get disease => throw _privateConstructorUsedError;
-  @JsonKey(name: "pest")
-  List<dynamic>? get pest => throw _privateConstructorUsedError;
-
-  /// Serializes this Pathogens to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of Pathogens
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $PathogensCopyWith<Pathogens> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PathogensCopyWith<$Res> {
-  factory $PathogensCopyWith(Pathogens value, $Res Function(Pathogens) then) =
-      _$PathogensCopyWithImpl<$Res, Pathogens>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: "disease") List<String>? disease,
-      @JsonKey(name: "pest") List<dynamic>? pest});
-}
-
-/// @nodoc
-class _$PathogensCopyWithImpl<$Res, $Val extends Pathogens>
-    implements $PathogensCopyWith<$Res> {
-  _$PathogensCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Pathogens
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? disease = freezed,
-    Object? pest = freezed,
-  }) {
-    return _then(_value.copyWith(
-      disease: freezed == disease
-          ? _value.disease
-          : disease // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      pest: freezed == pest
-          ? _value.pest
-          : pest // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$PathogensImplCopyWith<$Res>
-    implements $PathogensCopyWith<$Res> {
-  factory _$$PathogensImplCopyWith(
-          _$PathogensImpl value, $Res Function(_$PathogensImpl) then) =
-      __$$PathogensImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: "disease") List<String>? disease,
-      @JsonKey(name: "pest") List<dynamic>? pest});
-}
-
-/// @nodoc
-class __$$PathogensImplCopyWithImpl<$Res>
-    extends _$PathogensCopyWithImpl<$Res, _$PathogensImpl>
-    implements _$$PathogensImplCopyWith<$Res> {
-  __$$PathogensImplCopyWithImpl(
-      _$PathogensImpl _value, $Res Function(_$PathogensImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Pathogens
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? disease = freezed,
-    Object? pest = freezed,
-  }) {
-    return _then(_$PathogensImpl(
-      disease: freezed == disease
-          ? _value._disease
-          : disease // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      pest: freezed == pest
-          ? _value._pest
-          : pest // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$PathogensImpl implements _Pathogens {
-  const _$PathogensImpl(
-      {@JsonKey(name: "disease") final List<String>? disease,
-      @JsonKey(name: "pest") final List<dynamic>? pest})
-      : _disease = disease,
-        _pest = pest;
-
-  factory _$PathogensImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PathogensImplFromJson(json);
-
-  final List<String>? _disease;
-  @override
-  @JsonKey(name: "disease")
-  List<String>? get disease {
-    final value = _disease;
+  @JsonKey(name: 'season')
+  List<String>? get season {
+    final value = _season;
     if (value == null) return null;
-    if (_disease is EqualUnmodifiableListView) return _disease;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<dynamic>? _pest;
-  @override
-  @JsonKey(name: "pest")
-  List<dynamic>? get pest {
-    final value = _pest;
-    if (value == null) return null;
-    if (_pest is EqualUnmodifiableListView) return _pest;
+    if (_season is EqualUnmodifiableListView) return _season;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
   @override
   String toString() {
-    return 'Pathogens(disease: $disease, pest: $pest)';
+    return 'PartColorGroup(colors: $colors, part: $part, season: $season)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PathogensImpl &&
-            const DeepCollectionEquality().equals(other._disease, _disease) &&
-            const DeepCollectionEquality().equals(other._pest, _pest));
+            other is _$PartColorGroupImpl &&
+            const DeepCollectionEquality().equals(other._colors, _colors) &&
+            (identical(other.part, part) || other.part == part) &&
+            const DeepCollectionEquality().equals(other._season, _season));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(_disease),
-      const DeepCollectionEquality().hash(_pest));
+      const DeepCollectionEquality().hash(_colors),
+      part,
+      const DeepCollectionEquality().hash(_season));
 
-  /// Create a copy of Pathogens
+  /// Create a copy of PartColorGroup
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$PathogensImplCopyWith<_$PathogensImpl> get copyWith =>
-      __$$PathogensImplCopyWithImpl<_$PathogensImpl>(this, _$identity);
+  _$$PartColorGroupImplCopyWith<_$PartColorGroupImpl> get copyWith =>
+      __$$PartColorGroupImplCopyWithImpl<_$PartColorGroupImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PathogensImplToJson(
+    return _$$PartColorGroupImplToJson(
       this,
     );
   }
 }
 
-abstract class _Pathogens implements Pathogens {
-  const factory _Pathogens(
-      {@JsonKey(name: "disease") final List<String>? disease,
-      @JsonKey(name: "pest") final List<dynamic>? pest}) = _$PathogensImpl;
+abstract class _PartColorGroup implements PartColorGroup {
+  const factory _PartColorGroup(
+          {@JsonKey(name: 'colors') final List<ColorEntry>? colors,
+          @JsonKey(name: 'part') final NamedSlug? part,
+          @JsonKey(name: 'season') final List<String>? season}) =
+      _$PartColorGroupImpl;
 
-  factory _Pathogens.fromJson(Map<String, dynamic> json) =
-      _$PathogensImpl.fromJson;
+  factory _PartColorGroup.fromJson(Map<String, dynamic> json) =
+      _$PartColorGroupImpl.fromJson;
 
   @override
-  @JsonKey(name: "disease")
-  List<String>? get disease;
+  @JsonKey(name: 'colors')
+  List<ColorEntry>? get colors;
   @override
-  @JsonKey(name: "pest")
-  List<dynamic>? get pest;
+  @JsonKey(name: 'part')
+  NamedSlug? get part;
+  @override
+  @JsonKey(name: 'season')
+  List<String>? get season;
 
-  /// Create a copy of Pathogens
+  /// Create a copy of PartColorGroup
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PathogensImplCopyWith<_$PathogensImpl> get copyWith =>
+  _$$PartColorGroupImplCopyWith<_$PartColorGroupImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+PathogenItem _$PathogenItemFromJson(Map<String, dynamic> json) {
+  return _PathogenItem.fromJson(json);
+}
+
+/// @nodoc
+mixin _$PathogenItem {
+  @JsonKey(name: 'name')
+  String? get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'pathogen_type')
+  String? get pathogenType => throw _privateConstructorUsedError;
+
+  /// Serializes this PathogenItem to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of PathogenItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $PathogenItemCopyWith<PathogenItem> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PathogenItemCopyWith<$Res> {
+  factory $PathogenItemCopyWith(
+          PathogenItem value, $Res Function(PathogenItem) then) =
+      _$PathogenItemCopyWithImpl<$Res, PathogenItem>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'name') String? name,
+      @JsonKey(name: 'pathogen_type') String? pathogenType});
+}
+
+/// @nodoc
+class _$PathogenItemCopyWithImpl<$Res, $Val extends PathogenItem>
+    implements $PathogenItemCopyWith<$Res> {
+  _$PathogenItemCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of PathogenItem
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = freezed,
+    Object? pathogenType = freezed,
+  }) {
+    return _then(_value.copyWith(
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      pathogenType: freezed == pathogenType
+          ? _value.pathogenType
+          : pathogenType // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$PathogenItemImplCopyWith<$Res>
+    implements $PathogenItemCopyWith<$Res> {
+  factory _$$PathogenItemImplCopyWith(
+          _$PathogenItemImpl value, $Res Function(_$PathogenItemImpl) then) =
+      __$$PathogenItemImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'name') String? name,
+      @JsonKey(name: 'pathogen_type') String? pathogenType});
+}
+
+/// @nodoc
+class __$$PathogenItemImplCopyWithImpl<$Res>
+    extends _$PathogenItemCopyWithImpl<$Res, _$PathogenItemImpl>
+    implements _$$PathogenItemImplCopyWith<$Res> {
+  __$$PathogenItemImplCopyWithImpl(
+      _$PathogenItemImpl _value, $Res Function(_$PathogenItemImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PathogenItem
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = freezed,
+    Object? pathogenType = freezed,
+  }) {
+    return _then(_$PathogenItemImpl(
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      pathogenType: freezed == pathogenType
+          ? _value.pathogenType
+          : pathogenType // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PathogenItemImpl implements _PathogenItem {
+  const _$PathogenItemImpl(
+      {@JsonKey(name: 'name') this.name,
+      @JsonKey(name: 'pathogen_type') this.pathogenType});
+
+  factory _$PathogenItemImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PathogenItemImplFromJson(json);
+
+  @override
+  @JsonKey(name: 'name')
+  final String? name;
+  @override
+  @JsonKey(name: 'pathogen_type')
+  final String? pathogenType;
+
+  @override
+  String toString() {
+    return 'PathogenItem(name: $name, pathogenType: $pathogenType)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PathogenItemImpl &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.pathogenType, pathogenType) ||
+                other.pathogenType == pathogenType));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, name, pathogenType);
+
+  /// Create a copy of PathogenItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PathogenItemImplCopyWith<_$PathogenItemImpl> get copyWith =>
+      __$$PathogenItemImplCopyWithImpl<_$PathogenItemImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PathogenItemImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PathogenItem implements PathogenItem {
+  const factory _PathogenItem(
+          {@JsonKey(name: 'name') final String? name,
+          @JsonKey(name: 'pathogen_type') final String? pathogenType}) =
+      _$PathogenItemImpl;
+
+  factory _PathogenItem.fromJson(Map<String, dynamic> json) =
+      _$PathogenItemImpl.fromJson;
+
+  @override
+  @JsonKey(name: 'name')
+  String? get name;
+  @override
+  @JsonKey(name: 'pathogen_type')
+  String? get pathogenType;
+
+  /// Create a copy of PathogenItem
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PathogenItemImplCopyWith<_$PathogenItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -6872,14 +2777,16 @@ RegularEvent _$RegularEventFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RegularEvent {
-  @JsonKey(name: "frequency")
-  HeightCm? get frequency => throw _privateConstructorUsedError;
-  @JsonKey(name: "frequency_unit")
-  Exposure? get frequencyUnit => throw _privateConstructorUsedError;
-  @JsonKey(name: "name")
+  @JsonKey(name: 'interval_max')
+  int? get intervalMax => throw _privateConstructorUsedError;
+  @JsonKey(name: 'interval_min')
+  int? get intervalMin => throw _privateConstructorUsedError;
+  @JsonKey(name: 'interval_unit')
+  String? get intervalUnit => throw _privateConstructorUsedError;
+  @JsonKey(name: 'name')
   String? get name => throw _privateConstructorUsedError;
-  @JsonKey(name: "frequency_count")
-  int? get frequencyCount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'repetition_count')
+  int? get repetitionCount => throw _privateConstructorUsedError;
 
   /// Serializes this RegularEvent to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -6898,13 +2805,11 @@ abstract class $RegularEventCopyWith<$Res> {
       _$RegularEventCopyWithImpl<$Res, RegularEvent>;
   @useResult
   $Res call(
-      {@JsonKey(name: "frequency") HeightCm? frequency,
-      @JsonKey(name: "frequency_unit") Exposure? frequencyUnit,
-      @JsonKey(name: "name") String? name,
-      @JsonKey(name: "frequency_count") int? frequencyCount});
-
-  $HeightCmCopyWith<$Res>? get frequency;
-  $ExposureCopyWith<$Res>? get frequencyUnit;
+      {@JsonKey(name: 'interval_max') int? intervalMax,
+      @JsonKey(name: 'interval_min') int? intervalMin,
+      @JsonKey(name: 'interval_unit') String? intervalUnit,
+      @JsonKey(name: 'name') String? name,
+      @JsonKey(name: 'repetition_count') int? repetitionCount});
 }
 
 /// @nodoc
@@ -6922,57 +2827,34 @@ class _$RegularEventCopyWithImpl<$Res, $Val extends RegularEvent>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? frequency = freezed,
-    Object? frequencyUnit = freezed,
+    Object? intervalMax = freezed,
+    Object? intervalMin = freezed,
+    Object? intervalUnit = freezed,
     Object? name = freezed,
-    Object? frequencyCount = freezed,
+    Object? repetitionCount = freezed,
   }) {
     return _then(_value.copyWith(
-      frequency: freezed == frequency
-          ? _value.frequency
-          : frequency // ignore: cast_nullable_to_non_nullable
-              as HeightCm?,
-      frequencyUnit: freezed == frequencyUnit
-          ? _value.frequencyUnit
-          : frequencyUnit // ignore: cast_nullable_to_non_nullable
-              as Exposure?,
+      intervalMax: freezed == intervalMax
+          ? _value.intervalMax
+          : intervalMax // ignore: cast_nullable_to_non_nullable
+              as int?,
+      intervalMin: freezed == intervalMin
+          ? _value.intervalMin
+          : intervalMin // ignore: cast_nullable_to_non_nullable
+              as int?,
+      intervalUnit: freezed == intervalUnit
+          ? _value.intervalUnit
+          : intervalUnit // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      frequencyCount: freezed == frequencyCount
-          ? _value.frequencyCount
-          : frequencyCount // ignore: cast_nullable_to_non_nullable
+      repetitionCount: freezed == repetitionCount
+          ? _value.repetitionCount
+          : repetitionCount // ignore: cast_nullable_to_non_nullable
               as int?,
     ) as $Val);
-  }
-
-  /// Create a copy of RegularEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $HeightCmCopyWith<$Res>? get frequency {
-    if (_value.frequency == null) {
-      return null;
-    }
-
-    return $HeightCmCopyWith<$Res>(_value.frequency!, (value) {
-      return _then(_value.copyWith(frequency: value) as $Val);
-    });
-  }
-
-  /// Create a copy of RegularEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ExposureCopyWith<$Res>? get frequencyUnit {
-    if (_value.frequencyUnit == null) {
-      return null;
-    }
-
-    return $ExposureCopyWith<$Res>(_value.frequencyUnit!, (value) {
-      return _then(_value.copyWith(frequencyUnit: value) as $Val);
-    });
   }
 }
 
@@ -6985,15 +2867,11 @@ abstract class _$$RegularEventImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "frequency") HeightCm? frequency,
-      @JsonKey(name: "frequency_unit") Exposure? frequencyUnit,
-      @JsonKey(name: "name") String? name,
-      @JsonKey(name: "frequency_count") int? frequencyCount});
-
-  @override
-  $HeightCmCopyWith<$Res>? get frequency;
-  @override
-  $ExposureCopyWith<$Res>? get frequencyUnit;
+      {@JsonKey(name: 'interval_max') int? intervalMax,
+      @JsonKey(name: 'interval_min') int? intervalMin,
+      @JsonKey(name: 'interval_unit') String? intervalUnit,
+      @JsonKey(name: 'name') String? name,
+      @JsonKey(name: 'repetition_count') int? repetitionCount});
 }
 
 /// @nodoc
@@ -7009,27 +2887,32 @@ class __$$RegularEventImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? frequency = freezed,
-    Object? frequencyUnit = freezed,
+    Object? intervalMax = freezed,
+    Object? intervalMin = freezed,
+    Object? intervalUnit = freezed,
     Object? name = freezed,
-    Object? frequencyCount = freezed,
+    Object? repetitionCount = freezed,
   }) {
     return _then(_$RegularEventImpl(
-      frequency: freezed == frequency
-          ? _value.frequency
-          : frequency // ignore: cast_nullable_to_non_nullable
-              as HeightCm?,
-      frequencyUnit: freezed == frequencyUnit
-          ? _value.frequencyUnit
-          : frequencyUnit // ignore: cast_nullable_to_non_nullable
-              as Exposure?,
+      intervalMax: freezed == intervalMax
+          ? _value.intervalMax
+          : intervalMax // ignore: cast_nullable_to_non_nullable
+              as int?,
+      intervalMin: freezed == intervalMin
+          ? _value.intervalMin
+          : intervalMin // ignore: cast_nullable_to_non_nullable
+              as int?,
+      intervalUnit: freezed == intervalUnit
+          ? _value.intervalUnit
+          : intervalUnit // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      frequencyCount: freezed == frequencyCount
-          ? _value.frequencyCount
-          : frequencyCount // ignore: cast_nullable_to_non_nullable
+      repetitionCount: freezed == repetitionCount
+          ? _value.repetitionCount
+          : repetitionCount // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
   }
@@ -7039,30 +2922,34 @@ class __$$RegularEventImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$RegularEventImpl implements _RegularEvent {
   const _$RegularEventImpl(
-      {@JsonKey(name: "frequency") this.frequency,
-      @JsonKey(name: "frequency_unit") this.frequencyUnit,
-      @JsonKey(name: "name") this.name,
-      @JsonKey(name: "frequency_count") this.frequencyCount});
+      {@JsonKey(name: 'interval_max') this.intervalMax,
+      @JsonKey(name: 'interval_min') this.intervalMin,
+      @JsonKey(name: 'interval_unit') this.intervalUnit,
+      @JsonKey(name: 'name') this.name,
+      @JsonKey(name: 'repetition_count') this.repetitionCount});
 
   factory _$RegularEventImpl.fromJson(Map<String, dynamic> json) =>
       _$$RegularEventImplFromJson(json);
 
   @override
-  @JsonKey(name: "frequency")
-  final HeightCm? frequency;
+  @JsonKey(name: 'interval_max')
+  final int? intervalMax;
   @override
-  @JsonKey(name: "frequency_unit")
-  final Exposure? frequencyUnit;
+  @JsonKey(name: 'interval_min')
+  final int? intervalMin;
   @override
-  @JsonKey(name: "name")
+  @JsonKey(name: 'interval_unit')
+  final String? intervalUnit;
+  @override
+  @JsonKey(name: 'name')
   final String? name;
   @override
-  @JsonKey(name: "frequency_count")
-  final int? frequencyCount;
+  @JsonKey(name: 'repetition_count')
+  final int? repetitionCount;
 
   @override
   String toString() {
-    return 'RegularEvent(frequency: $frequency, frequencyUnit: $frequencyUnit, name: $name, frequencyCount: $frequencyCount)';
+    return 'RegularEvent(intervalMax: $intervalMax, intervalMin: $intervalMin, intervalUnit: $intervalUnit, name: $name, repetitionCount: $repetitionCount)';
   }
 
   @override
@@ -7070,19 +2957,21 @@ class _$RegularEventImpl implements _RegularEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RegularEventImpl &&
-            (identical(other.frequency, frequency) ||
-                other.frequency == frequency) &&
-            (identical(other.frequencyUnit, frequencyUnit) ||
-                other.frequencyUnit == frequencyUnit) &&
+            (identical(other.intervalMax, intervalMax) ||
+                other.intervalMax == intervalMax) &&
+            (identical(other.intervalMin, intervalMin) ||
+                other.intervalMin == intervalMin) &&
+            (identical(other.intervalUnit, intervalUnit) ||
+                other.intervalUnit == intervalUnit) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.frequencyCount, frequencyCount) ||
-                other.frequencyCount == frequencyCount));
+            (identical(other.repetitionCount, repetitionCount) ||
+                other.repetitionCount == repetitionCount));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, frequency, frequencyUnit, name, frequencyCount);
+  int get hashCode => Object.hash(runtimeType, intervalMax, intervalMin,
+      intervalUnit, name, repetitionCount);
 
   /// Create a copy of RegularEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -7102,27 +2991,31 @@ class _$RegularEventImpl implements _RegularEvent {
 
 abstract class _RegularEvent implements RegularEvent {
   const factory _RegularEvent(
-          {@JsonKey(name: "frequency") final HeightCm? frequency,
-          @JsonKey(name: "frequency_unit") final Exposure? frequencyUnit,
-          @JsonKey(name: "name") final String? name,
-          @JsonKey(name: "frequency_count") final int? frequencyCount}) =
+          {@JsonKey(name: 'interval_max') final int? intervalMax,
+          @JsonKey(name: 'interval_min') final int? intervalMin,
+          @JsonKey(name: 'interval_unit') final String? intervalUnit,
+          @JsonKey(name: 'name') final String? name,
+          @JsonKey(name: 'repetition_count') final int? repetitionCount}) =
       _$RegularEventImpl;
 
   factory _RegularEvent.fromJson(Map<String, dynamic> json) =
       _$RegularEventImpl.fromJson;
 
   @override
-  @JsonKey(name: "frequency")
-  HeightCm? get frequency;
+  @JsonKey(name: 'interval_max')
+  int? get intervalMax;
   @override
-  @JsonKey(name: "frequency_unit")
-  Exposure? get frequencyUnit;
+  @JsonKey(name: 'interval_min')
+  int? get intervalMin;
   @override
-  @JsonKey(name: "name")
+  @JsonKey(name: 'interval_unit')
+  String? get intervalUnit;
+  @override
+  @JsonKey(name: 'name')
   String? get name;
   @override
-  @JsonKey(name: "frequency_count")
-  int? get frequencyCount;
+  @JsonKey(name: 'repetition_count')
+  int? get repetitionCount;
 
   /// Create a copy of RegularEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -7132,167 +3025,265 @@ abstract class _RegularEvent implements RegularEvent {
       throw _privateConstructorUsedError;
 }
 
-ScientificClassification _$ScientificClassificationFromJson(
-    Map<String, dynamic> json) {
-  return _ScientificClassification.fromJson(json);
+PlantMisc _$PlantMiscFromJson(Map<String, dynamic> json) {
+  return _PlantMisc.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ScientificClassification {
-  @JsonKey(name: "orders")
-  List<String>? get orders => throw _privateConstructorUsedError;
-  @JsonKey(name: "family")
-  String? get family => throw _privateConstructorUsedError;
-  @JsonKey(name: "phylum")
-  String? get phylum => throw _privateConstructorUsedError;
-  @JsonKey(name: "classify")
-  String? get classify => throw _privateConstructorUsedError;
-  @JsonKey(name: "genus")
-  String? get genus => throw _privateConstructorUsedError;
-  @JsonKey(name: "species")
-  String? get species => throw _privateConstructorUsedError;
+mixin _$PlantMisc {
+  @JsonKey(name: 'rank')
+  String? get rank => throw _privateConstructorUsedError;
+  @JsonKey(name: 'year')
+  int? get year => throw _privateConstructorUsedError;
 
-  /// Serializes this ScientificClassification to a JSON map.
+  /// Serializes this PlantMisc to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of ScientificClassification
+  /// Create a copy of PlantMisc
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ScientificClassificationCopyWith<ScientificClassification> get copyWith =>
+  $PlantMiscCopyWith<PlantMisc> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ScientificClassificationCopyWith<$Res> {
-  factory $ScientificClassificationCopyWith(ScientificClassification value,
-          $Res Function(ScientificClassification) then) =
-      _$ScientificClassificationCopyWithImpl<$Res, ScientificClassification>;
+abstract class $PlantMiscCopyWith<$Res> {
+  factory $PlantMiscCopyWith(PlantMisc value, $Res Function(PlantMisc) then) =
+      _$PlantMiscCopyWithImpl<$Res, PlantMisc>;
   @useResult
   $Res call(
-      {@JsonKey(name: "orders") List<String>? orders,
-      @JsonKey(name: "family") String? family,
-      @JsonKey(name: "phylum") String? phylum,
-      @JsonKey(name: "classify") String? classify,
-      @JsonKey(name: "genus") String? genus,
-      @JsonKey(name: "species") String? species});
+      {@JsonKey(name: 'rank') String? rank, @JsonKey(name: 'year') int? year});
 }
 
 /// @nodoc
-class _$ScientificClassificationCopyWithImpl<$Res,
-        $Val extends ScientificClassification>
-    implements $ScientificClassificationCopyWith<$Res> {
-  _$ScientificClassificationCopyWithImpl(this._value, this._then);
+class _$PlantMiscCopyWithImpl<$Res, $Val extends PlantMisc>
+    implements $PlantMiscCopyWith<$Res> {
+  _$PlantMiscCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ScientificClassification
+  /// Create a copy of PlantMisc
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? orders = freezed,
-    Object? family = freezed,
-    Object? phylum = freezed,
-    Object? classify = freezed,
-    Object? genus = freezed,
-    Object? species = freezed,
+    Object? rank = freezed,
+    Object? year = freezed,
   }) {
     return _then(_value.copyWith(
-      orders: freezed == orders
-          ? _value.orders
-          : orders // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      family: freezed == family
-          ? _value.family
-          : family // ignore: cast_nullable_to_non_nullable
+      rank: freezed == rank
+          ? _value.rank
+          : rank // ignore: cast_nullable_to_non_nullable
               as String?,
-      phylum: freezed == phylum
-          ? _value.phylum
-          : phylum // ignore: cast_nullable_to_non_nullable
+      year: freezed == year
+          ? _value.year
+          : year // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$PlantMiscImplCopyWith<$Res>
+    implements $PlantMiscCopyWith<$Res> {
+  factory _$$PlantMiscImplCopyWith(
+          _$PlantMiscImpl value, $Res Function(_$PlantMiscImpl) then) =
+      __$$PlantMiscImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'rank') String? rank, @JsonKey(name: 'year') int? year});
+}
+
+/// @nodoc
+class __$$PlantMiscImplCopyWithImpl<$Res>
+    extends _$PlantMiscCopyWithImpl<$Res, _$PlantMiscImpl>
+    implements _$$PlantMiscImplCopyWith<$Res> {
+  __$$PlantMiscImplCopyWithImpl(
+      _$PlantMiscImpl _value, $Res Function(_$PlantMiscImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PlantMisc
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? rank = freezed,
+    Object? year = freezed,
+  }) {
+    return _then(_$PlantMiscImpl(
+      rank: freezed == rank
+          ? _value.rank
+          : rank // ignore: cast_nullable_to_non_nullable
               as String?,
-      classify: freezed == classify
-          ? _value.classify
-          : classify // ignore: cast_nullable_to_non_nullable
-              as String?,
-      genus: freezed == genus
-          ? _value.genus
-          : genus // ignore: cast_nullable_to_non_nullable
-              as String?,
-      species: freezed == species
-          ? _value.species
-          : species // ignore: cast_nullable_to_non_nullable
+      year: freezed == year
+          ? _value.year
+          : year // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PlantMiscImpl implements _PlantMisc {
+  const _$PlantMiscImpl(
+      {@JsonKey(name: 'rank') this.rank, @JsonKey(name: 'year') this.year});
+
+  factory _$PlantMiscImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PlantMiscImplFromJson(json);
+
+  @override
+  @JsonKey(name: 'rank')
+  final String? rank;
+  @override
+  @JsonKey(name: 'year')
+  final int? year;
+
+  @override
+  String toString() {
+    return 'PlantMisc(rank: $rank, year: $year)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PlantMiscImpl &&
+            (identical(other.rank, rank) || other.rank == rank) &&
+            (identical(other.year, year) || other.year == year));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, rank, year);
+
+  /// Create a copy of PlantMisc
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PlantMiscImplCopyWith<_$PlantMiscImpl> get copyWith =>
+      __$$PlantMiscImplCopyWithImpl<_$PlantMiscImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PlantMiscImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PlantMisc implements PlantMisc {
+  const factory _PlantMisc(
+      {@JsonKey(name: 'rank') final String? rank,
+      @JsonKey(name: 'year') final int? year}) = _$PlantMiscImpl;
+
+  factory _PlantMisc.fromJson(Map<String, dynamic> json) =
+      _$PlantMiscImpl.fromJson;
+
+  @override
+  @JsonKey(name: 'rank')
+  String? get rank;
+  @override
+  @JsonKey(name: 'year')
+  int? get year;
+
+  /// Create a copy of PlantMisc
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PlantMiscImplCopyWith<_$PlantMiscImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+SynonymItem _$SynonymItemFromJson(Map<String, dynamic> json) {
+  return _SynonymItem.fromJson(json);
+}
+
+/// @nodoc
+mixin _$SynonymItem {
+  @JsonKey(name: 'name')
+  String? get name => throw _privateConstructorUsedError;
+
+  /// Serializes this SynonymItem to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of SynonymItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $SynonymItemCopyWith<SynonymItem> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SynonymItemCopyWith<$Res> {
+  factory $SynonymItemCopyWith(
+          SynonymItem value, $Res Function(SynonymItem) then) =
+      _$SynonymItemCopyWithImpl<$Res, SynonymItem>;
+  @useResult
+  $Res call({@JsonKey(name: 'name') String? name});
+}
+
+/// @nodoc
+class _$SynonymItemCopyWithImpl<$Res, $Val extends SynonymItem>
+    implements $SynonymItemCopyWith<$Res> {
+  _$SynonymItemCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of SynonymItem
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = freezed,
+  }) {
+    return _then(_value.copyWith(
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$ScientificClassificationImplCopyWith<$Res>
-    implements $ScientificClassificationCopyWith<$Res> {
-  factory _$$ScientificClassificationImplCopyWith(
-          _$ScientificClassificationImpl value,
-          $Res Function(_$ScientificClassificationImpl) then) =
-      __$$ScientificClassificationImplCopyWithImpl<$Res>;
+abstract class _$$SynonymItemImplCopyWith<$Res>
+    implements $SynonymItemCopyWith<$Res> {
+  factory _$$SynonymItemImplCopyWith(
+          _$SynonymItemImpl value, $Res Function(_$SynonymItemImpl) then) =
+      __$$SynonymItemImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: "orders") List<String>? orders,
-      @JsonKey(name: "family") String? family,
-      @JsonKey(name: "phylum") String? phylum,
-      @JsonKey(name: "classify") String? classify,
-      @JsonKey(name: "genus") String? genus,
-      @JsonKey(name: "species") String? species});
+  $Res call({@JsonKey(name: 'name') String? name});
 }
 
 /// @nodoc
-class __$$ScientificClassificationImplCopyWithImpl<$Res>
-    extends _$ScientificClassificationCopyWithImpl<$Res,
-        _$ScientificClassificationImpl>
-    implements _$$ScientificClassificationImplCopyWith<$Res> {
-  __$$ScientificClassificationImplCopyWithImpl(
-      _$ScientificClassificationImpl _value,
-      $Res Function(_$ScientificClassificationImpl) _then)
+class __$$SynonymItemImplCopyWithImpl<$Res>
+    extends _$SynonymItemCopyWithImpl<$Res, _$SynonymItemImpl>
+    implements _$$SynonymItemImplCopyWith<$Res> {
+  __$$SynonymItemImplCopyWithImpl(
+      _$SynonymItemImpl _value, $Res Function(_$SynonymItemImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ScientificClassification
+  /// Create a copy of SynonymItem
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? orders = freezed,
-    Object? family = freezed,
-    Object? phylum = freezed,
-    Object? classify = freezed,
-    Object? genus = freezed,
-    Object? species = freezed,
+    Object? name = freezed,
   }) {
-    return _then(_$ScientificClassificationImpl(
-      orders: freezed == orders
-          ? _value._orders
-          : orders // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      family: freezed == family
-          ? _value.family
-          : family // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phylum: freezed == phylum
-          ? _value.phylum
-          : phylum // ignore: cast_nullable_to_non_nullable
-              as String?,
-      classify: freezed == classify
-          ? _value.classify
-          : classify // ignore: cast_nullable_to_non_nullable
-              as String?,
-      genus: freezed == genus
-          ? _value.genus
-          : genus // ignore: cast_nullable_to_non_nullable
-              as String?,
-      species: freezed == species
-          ? _value.species
-          : species // ignore: cast_nullable_to_non_nullable
+    return _then(_$SynonymItemImpl(
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -7300,131 +3291,218 @@ class __$$ScientificClassificationImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ScientificClassificationImpl implements _ScientificClassification {
-  const _$ScientificClassificationImpl(
-      {@JsonKey(name: "orders") final List<String>? orders,
-      @JsonKey(name: "family") this.family,
-      @JsonKey(name: "phylum") this.phylum,
-      @JsonKey(name: "classify") this.classify,
-      @JsonKey(name: "genus") this.genus,
-      @JsonKey(name: "species") this.species})
-      : _orders = orders;
+class _$SynonymItemImpl implements _SynonymItem {
+  const _$SynonymItemImpl({@JsonKey(name: 'name') this.name});
 
-  factory _$ScientificClassificationImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ScientificClassificationImplFromJson(json);
-
-  final List<String>? _orders;
-  @override
-  @JsonKey(name: "orders")
-  List<String>? get orders {
-    final value = _orders;
-    if (value == null) return null;
-    if (_orders is EqualUnmodifiableListView) return _orders;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
+  factory _$SynonymItemImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SynonymItemImplFromJson(json);
 
   @override
-  @JsonKey(name: "family")
-  final String? family;
-  @override
-  @JsonKey(name: "phylum")
-  final String? phylum;
-  @override
-  @JsonKey(name: "classify")
-  final String? classify;
-  @override
-  @JsonKey(name: "genus")
-  final String? genus;
-  @override
-  @JsonKey(name: "species")
-  final String? species;
+  @JsonKey(name: 'name')
+  final String? name;
 
   @override
   String toString() {
-    return 'ScientificClassification(orders: $orders, family: $family, phylum: $phylum, classify: $classify, genus: $genus, species: $species)';
+    return 'SynonymItem(name: $name)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ScientificClassificationImpl &&
-            const DeepCollectionEquality().equals(other._orders, _orders) &&
-            (identical(other.family, family) || other.family == family) &&
-            (identical(other.phylum, phylum) || other.phylum == phylum) &&
-            (identical(other.classify, classify) ||
-                other.classify == classify) &&
-            (identical(other.genus, genus) || other.genus == genus) &&
-            (identical(other.species, species) || other.species == species));
+            other is _$SynonymItemImpl &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_orders),
-      family,
-      phylum,
-      classify,
-      genus,
-      species);
+  int get hashCode => Object.hash(runtimeType, name);
 
-  /// Create a copy of ScientificClassification
+  /// Create a copy of SynonymItem
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ScientificClassificationImplCopyWith<_$ScientificClassificationImpl>
-      get copyWith => __$$ScientificClassificationImplCopyWithImpl<
-          _$ScientificClassificationImpl>(this, _$identity);
+  _$$SynonymItemImplCopyWith<_$SynonymItemImpl> get copyWith =>
+      __$$SynonymItemImplCopyWithImpl<_$SynonymItemImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ScientificClassificationImplToJson(
+    return _$$SynonymItemImplToJson(
       this,
     );
   }
 }
 
-abstract class _ScientificClassification implements ScientificClassification {
-  const factory _ScientificClassification(
-          {@JsonKey(name: "orders") final List<String>? orders,
-          @JsonKey(name: "family") final String? family,
-          @JsonKey(name: "phylum") final String? phylum,
-          @JsonKey(name: "classify") final String? classify,
-          @JsonKey(name: "genus") final String? genus,
-          @JsonKey(name: "species") final String? species}) =
-      _$ScientificClassificationImpl;
+abstract class _SynonymItem implements SynonymItem {
+  const factory _SynonymItem({@JsonKey(name: 'name') final String? name}) =
+      _$SynonymItemImpl;
 
-  factory _ScientificClassification.fromJson(Map<String, dynamic> json) =
-      _$ScientificClassificationImpl.fromJson;
+  factory _SynonymItem.fromJson(Map<String, dynamic> json) =
+      _$SynonymItemImpl.fromJson;
 
   @override
-  @JsonKey(name: "orders")
-  List<String>? get orders;
-  @override
-  @JsonKey(name: "family")
-  String? get family;
-  @override
-  @JsonKey(name: "phylum")
-  String? get phylum;
-  @override
-  @JsonKey(name: "classify")
-  String? get classify;
-  @override
-  @JsonKey(name: "genus")
-  String? get genus;
-  @override
-  @JsonKey(name: "species")
-  String? get species;
+  @JsonKey(name: 'name')
+  String? get name;
 
-  /// Create a copy of ScientificClassification
+  /// Create a copy of SynonymItem
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ScientificClassificationImplCopyWith<_$ScientificClassificationImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$SynonymItemImplCopyWith<_$SynonymItemImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+PlantTag _$PlantTagFromJson(Map<String, dynamic> json) {
+  return _PlantTag.fromJson(json);
+}
+
+/// @nodoc
+mixin _$PlantTag {
+  @JsonKey(name: 'name')
+  String? get name => throw _privateConstructorUsedError;
+
+  /// Serializes this PlantTag to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of PlantTag
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $PlantTagCopyWith<PlantTag> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PlantTagCopyWith<$Res> {
+  factory $PlantTagCopyWith(PlantTag value, $Res Function(PlantTag) then) =
+      _$PlantTagCopyWithImpl<$Res, PlantTag>;
+  @useResult
+  $Res call({@JsonKey(name: 'name') String? name});
+}
+
+/// @nodoc
+class _$PlantTagCopyWithImpl<$Res, $Val extends PlantTag>
+    implements $PlantTagCopyWith<$Res> {
+  _$PlantTagCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of PlantTag
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = freezed,
+  }) {
+    return _then(_value.copyWith(
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$PlantTagImplCopyWith<$Res>
+    implements $PlantTagCopyWith<$Res> {
+  factory _$$PlantTagImplCopyWith(
+          _$PlantTagImpl value, $Res Function(_$PlantTagImpl) then) =
+      __$$PlantTagImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({@JsonKey(name: 'name') String? name});
+}
+
+/// @nodoc
+class __$$PlantTagImplCopyWithImpl<$Res>
+    extends _$PlantTagCopyWithImpl<$Res, _$PlantTagImpl>
+    implements _$$PlantTagImplCopyWith<$Res> {
+  __$$PlantTagImplCopyWithImpl(
+      _$PlantTagImpl _value, $Res Function(_$PlantTagImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PlantTag
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = freezed,
+  }) {
+    return _then(_$PlantTagImpl(
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PlantTagImpl implements _PlantTag {
+  const _$PlantTagImpl({@JsonKey(name: 'name') this.name});
+
+  factory _$PlantTagImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PlantTagImplFromJson(json);
+
+  @override
+  @JsonKey(name: 'name')
+  final String? name;
+
+  @override
+  String toString() {
+    return 'PlantTag(name: $name)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PlantTagImpl &&
+            (identical(other.name, name) || other.name == name));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, name);
+
+  /// Create a copy of PlantTag
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PlantTagImplCopyWith<_$PlantTagImpl> get copyWith =>
+      __$$PlantTagImplCopyWithImpl<_$PlantTagImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PlantTagImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PlantTag implements PlantTag {
+  const factory _PlantTag({@JsonKey(name: 'name') final String? name}) =
+      _$PlantTagImpl;
+
+  factory _PlantTag.fromJson(Map<String, dynamic> json) =
+      _$PlantTagImpl.fromJson;
+
+  @override
+  @JsonKey(name: 'name')
+  String? get name;
+
+  /// Create a copy of PlantTag
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PlantTagImplCopyWith<_$PlantTagImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 Source _$SourceFromJson(Map<String, dynamic> json) {
@@ -7433,15 +3511,15 @@ Source _$SourceFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Source {
-  @JsonKey(name: "last_update")
+  @JsonKey(name: 'last_update')
   DateTime? get lastUpdate => throw _privateConstructorUsedError;
-  @JsonKey(name: "sid")
+  @JsonKey(name: 'sid')
   String? get sid => throw _privateConstructorUsedError;
-  @JsonKey(name: "name")
+  @JsonKey(name: 'name')
   String? get name => throw _privateConstructorUsedError;
-  @JsonKey(name: "source_url")
+  @JsonKey(name: 'source_url')
   String? get sourceUrl => throw _privateConstructorUsedError;
-  @JsonKey(name: "citation")
+  @JsonKey(name: 'citation')
   String? get citation => throw _privateConstructorUsedError;
 
   /// Serializes this Source to a JSON map.
@@ -7459,11 +3537,11 @@ abstract class $SourceCopyWith<$Res> {
       _$SourceCopyWithImpl<$Res, Source>;
   @useResult
   $Res call(
-      {@JsonKey(name: "last_update") DateTime? lastUpdate,
-      @JsonKey(name: "sid") String? sid,
-      @JsonKey(name: "name") String? name,
-      @JsonKey(name: "source_url") String? sourceUrl,
-      @JsonKey(name: "citation") String? citation});
+      {@JsonKey(name: 'last_update') DateTime? lastUpdate,
+      @JsonKey(name: 'sid') String? sid,
+      @JsonKey(name: 'name') String? name,
+      @JsonKey(name: 'source_url') String? sourceUrl,
+      @JsonKey(name: 'citation') String? citation});
 }
 
 /// @nodoc
@@ -7520,11 +3598,11 @@ abstract class _$$SourceImplCopyWith<$Res> implements $SourceCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "last_update") DateTime? lastUpdate,
-      @JsonKey(name: "sid") String? sid,
-      @JsonKey(name: "name") String? name,
-      @JsonKey(name: "source_url") String? sourceUrl,
-      @JsonKey(name: "citation") String? citation});
+      {@JsonKey(name: 'last_update') DateTime? lastUpdate,
+      @JsonKey(name: 'sid') String? sid,
+      @JsonKey(name: 'name') String? name,
+      @JsonKey(name: 'source_url') String? sourceUrl,
+      @JsonKey(name: 'citation') String? citation});
 }
 
 /// @nodoc
@@ -7575,29 +3653,29 @@ class __$$SourceImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SourceImpl implements _Source {
   const _$SourceImpl(
-      {@JsonKey(name: "last_update") this.lastUpdate,
-      @JsonKey(name: "sid") this.sid,
-      @JsonKey(name: "name") this.name,
-      @JsonKey(name: "source_url") this.sourceUrl,
-      @JsonKey(name: "citation") this.citation});
+      {@JsonKey(name: 'last_update') this.lastUpdate,
+      @JsonKey(name: 'sid') this.sid,
+      @JsonKey(name: 'name') this.name,
+      @JsonKey(name: 'source_url') this.sourceUrl,
+      @JsonKey(name: 'citation') this.citation});
 
   factory _$SourceImpl.fromJson(Map<String, dynamic> json) =>
       _$$SourceImplFromJson(json);
 
   @override
-  @JsonKey(name: "last_update")
+  @JsonKey(name: 'last_update')
   final DateTime? lastUpdate;
   @override
-  @JsonKey(name: "sid")
+  @JsonKey(name: 'sid')
   final String? sid;
   @override
-  @JsonKey(name: "name")
+  @JsonKey(name: 'name')
   final String? name;
   @override
-  @JsonKey(name: "source_url")
+  @JsonKey(name: 'source_url')
   final String? sourceUrl;
   @override
-  @JsonKey(name: "citation")
+  @JsonKey(name: 'citation')
   final String? citation;
 
   @override
@@ -7643,28 +3721,28 @@ class _$SourceImpl implements _Source {
 
 abstract class _Source implements Source {
   const factory _Source(
-      {@JsonKey(name: "last_update") final DateTime? lastUpdate,
-      @JsonKey(name: "sid") final String? sid,
-      @JsonKey(name: "name") final String? name,
-      @JsonKey(name: "source_url") final String? sourceUrl,
-      @JsonKey(name: "citation") final String? citation}) = _$SourceImpl;
+      {@JsonKey(name: 'last_update') final DateTime? lastUpdate,
+      @JsonKey(name: 'sid') final String? sid,
+      @JsonKey(name: 'name') final String? name,
+      @JsonKey(name: 'source_url') final String? sourceUrl,
+      @JsonKey(name: 'citation') final String? citation}) = _$SourceImpl;
 
   factory _Source.fromJson(Map<String, dynamic> json) = _$SourceImpl.fromJson;
 
   @override
-  @JsonKey(name: "last_update")
+  @JsonKey(name: 'last_update')
   DateTime? get lastUpdate;
   @override
-  @JsonKey(name: "sid")
+  @JsonKey(name: 'sid')
   String? get sid;
   @override
-  @JsonKey(name: "name")
+  @JsonKey(name: 'name')
   String? get name;
   @override
-  @JsonKey(name: "source_url")
+  @JsonKey(name: 'source_url')
   String? get sourceUrl;
   @override
-  @JsonKey(name: "citation")
+  @JsonKey(name: 'citation')
   String? get citation;
 
   /// Create a copy of Source

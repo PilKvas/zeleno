@@ -19,11 +19,10 @@ class RegistrationCubit extends Cubit<RegistrationState> {
           ),
         );
 
-  Future<void> registerUser(
-    String? email,
-    String username,
-    String password,
-  ) async {
+  Future<void> registerUser({
+    required String email,
+    required String password,
+  }) async {
     try {
       emit(
         state.copyWith(
@@ -35,7 +34,6 @@ class RegistrationCubit extends Cubit<RegistrationState> {
       await _authRepository.signUp(
         authModel: AuthModel(
           email: email,
-          username: username,
           password: password,
         ),
       );

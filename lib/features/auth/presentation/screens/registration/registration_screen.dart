@@ -150,12 +150,6 @@ class _RegistrationFormState extends State<_RegistrationForm> {
                     validator: Validator.email(l10n),
                   ),
                   ZTextField(
-                    controller: _nameController,
-                    fillColor: const Color.fromRGBO(248, 248, 252, 1),
-                    hintText: l10n.nameHint,
-                    validator: Validator.name(l10n),
-                  ),
-                  ZTextField(
                     controller: _passwordController,
                     fillColor: const Color.fromRGBO(248, 248, 252, 1),
                     isPassword: true,
@@ -203,12 +197,12 @@ class _RegistrationFormState extends State<_RegistrationForm> {
   }
 
   void _onRegisterPressed() {
+    final registrationCubit = context.read<RegistrationCubit>();
     if (_formKey.currentState?.validate() ?? false) {
-      context.read<RegistrationCubit>().registerUser(
-            _emailController.text,
-            _nameController.text,
-            _passwordController.text,
-          );
+      registrationCubit.registerUser(
+        email: _emailController.text,
+        password: _passwordController.text,
+      );
     }
   }
 }

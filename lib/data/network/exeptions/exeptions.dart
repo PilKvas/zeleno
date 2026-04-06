@@ -32,7 +32,7 @@ class Conflict extends DioException {
     required super.requestOptions,
     this.errorResponse,
   }) : super(
-          error: errorResponse?.detail,
+          error: errorResponse?.message,
           response: Response(
             requestOptions: requestOptions,
             data: errorResponse?.toJson(),
@@ -80,4 +80,19 @@ class UnknownError extends BaseException {
   UnknownError({
     required RequestOptions requestOptions,
   }) : super(requestOptions);
+}
+
+class UnprocessableError extends DioException {
+  final ErrorResponse? errorResponse;
+
+  UnprocessableError({
+    required super.requestOptions,
+    this.errorResponse,
+  }) : super(
+          error: errorResponse?.message,
+          response: Response(
+            requestOptions: requestOptions,
+            data: errorResponse?.toJson(),
+          ),
+        );
 }
