@@ -14,8 +14,8 @@ class HomeScreen extends StatelessWidget {
     return AutoTabsScaffold(
       routes: const [
         RoomRoute(),
-        PlantsSearchRoute(),
-        LoginRoute(),
+        PlantSearchStackRoute(),
+        ProfileStackRoute(),
       ],
       bottomNavigationBuilder: (context, tabsRouter) {
         final colorScheme = ZColorScheme.of(context);

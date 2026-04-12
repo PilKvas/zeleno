@@ -7,6 +7,8 @@ import 'package:zeleno_v2/data/network/connectivity_checker.dart';
 import 'package:zeleno_v2/data/network/interceptor.dart';
 import 'package:zeleno_v2/features/auth/data/persistence/storage/first_run/first_run_storage.dart';
 import 'package:zeleno_v2/features/auth/data/persistence/storage/first_run/i_first_run_storage.dart';
+import 'package:zeleno_v2/features/auth/data/persistence/storage/theme_storage/i_theme_mode_storage.dart';
+import 'package:zeleno_v2/features/auth/data/persistence/storage/theme_storage/theme_mode_storage.dart';
 import 'package:zeleno_v2/features/auth/data/persistence/storage/tokens_storage/i_tokens_storage.dart';
 import 'package:zeleno_v2/features/auth/data/persistence/storage/tokens_storage/tokens_storage.dart';
 import 'package:zeleno_v2/features/auth/data/repository/auth_repository.dart';
@@ -52,6 +54,9 @@ Future<void> initializeDependencies() async {
     )
     ..registerLazySingleton<IFirstRunStorage>(
       () => FirstRunStorage(sharedPreferences),
+    )
+    ..registerLazySingleton<IThemeModeStorage>(
+      () => ThemeModeStorage(sharedPreferences),
     );
 
   injection

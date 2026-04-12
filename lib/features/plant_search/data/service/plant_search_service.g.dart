@@ -20,10 +20,15 @@ class _PlantSearchService implements PlantSearchService {
   @override
   Future<PaginationWrapperDto<PlantSearchItemDto>> getPlants({
     required int page,
+    int? pageSize,
     String? name,
   }) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'page': page, r'search': name};
+    final queryParameters = <String, dynamic>{
+      r'page': page,
+      r'page_size': pageSize,
+      r'search': name,
+    };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
@@ -31,7 +36,7 @@ class _PlantSearchService implements PlantSearchService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/api/search/species',
+            '/api/species/',
             queryParameters: queryParameters,
             data: _data,
           )

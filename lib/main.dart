@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:zeleno_v2/app/di/di.dart';
+import 'package:zeleno_v2/app/theme/theme_cubit.dart';
+import 'package:zeleno_v2/features/auth/data/persistence/storage/theme_storage/i_theme_mode_storage.dart';
 import 'package:zeleno_v2/features/auth/domain/repository/i_auth_repository.dart';
 import 'package:zeleno_v2/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:zeleno_v2/features/navigation/router.dart';
@@ -44,23 +46,36 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => AuthCubit(authRepository: injection<IAuthRepository>()),
-      child: MaterialApp.router(
-      localizationsDelegates: const [
-        AppLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<ThemeCubit>(
+          create: (_) => ThemeCubit(injection<IThemeModeStorage>()),
+        ),
+        BlocProvider<AuthCubit>(
+          create: (_) =>
+              AuthCubit(authRepository: injection<IAuthRepository>()),
+        ),
       ],
-      supportedLocales: const [
-        Locale('ru'),
-        Locale('en'),
-      ],
-      theme: zelenoThemeLight.createThemeData(),
-      darkTheme: zelenoThemeDark.createThemeData(),
-      title: 'Flutter Demo',
-      routerConfig: _appRouter.config(),
+      child: BlocBuilder<ThemeCubit, ThemeMode>(
+        builder: (context, themeMode) {
+          return MaterialApp.router(
+            localizationsDelegates: const [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+            ],
+            supportedLocales: const [
+              Locale('ru'),
+              Locale('en'),
+            ],
+            theme: zelenoThemeLight.createThemeData(),
+            darkTheme: zelenoThemeDark.createThemeData(),
+            themeMode: themeMode,
+            title: 'Flutter Demo',
+            routerConfig: _appRouter.config(),
+          );
+        },
       ),
     );
   }

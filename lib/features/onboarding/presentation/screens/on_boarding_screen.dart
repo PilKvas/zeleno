@@ -110,7 +110,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         dotWidth: 20,
                         dotHeight: 10,
                         strokeWidth: 1.5,
-                        dotColor: colors.action.withOpacity(0.4),
+                        dotColor: colors.action.withValues(alpha: 0.4),
                         activeDotColor: colors.action,
                       ),
                     ),
@@ -122,10 +122,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             curve: Curves.decelerate,
                           );
                         } else {
-                          context.router.pushAndPopUntil(
-                            const LoginRoute(),
-                            predicate: (_) => false,
-                          );
+                          context.router.replace(const HomeRoute());
                         }
                       },
                       child: Text(
