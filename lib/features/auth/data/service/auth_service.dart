@@ -9,12 +9,12 @@ part 'auth_service.g.dart';
 abstract class AuthService {
   factory AuthService(Dio dio) = _AuthService;
 
-  @POST('/api/auth/signup')
+  @POST('/api/auth/register')
   Future<void> signUp({
     @Body() required AuthModel authModel,
   });
 
-  @POST('/api/auth/signin')
+  @POST('/api/auth/login')
   Future<TokenModel> signIn({
     @Body(nullToAbsent: true) required AuthModel authModel,
   });

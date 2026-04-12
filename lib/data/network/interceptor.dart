@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:zeleno_v2/data/network/connectivity_checker.dart';
-import 'package:zeleno_v2/data/network/error_response.dart';
+import 'package:zeleno_v2/data/network/error_response_parser.dart';
 import 'package:zeleno_v2/data/network/exeptions/exeptions.dart';
 import 'package:zeleno_v2/features/auth/data/persistence/storage/tokens_storage/i_tokens_storage.dart';
 import 'package:zeleno_v2/features/auth/domain/model/token_model.dart';
@@ -82,39 +82,44 @@ class MiddlewareInterceptor extends Interceptor {
     switch (err.response?.statusCode) {
       case 400:
         handler.reject(
-          BadRequest(requestOptions: err.requestOptions),
+          BadRequest(
+            requestOptions: err.requestOptions,
+            errorResponse: parseApiErrorBody(err.response?.data),
+          ),
         );
         return;
       case 401:
         await refreshToken(err.requestOptions, handler);
         return;
       case 403:
-        handler.reject(Forbidden(requestOptions: err.requestOptions));
+        handler.reject(
+          Forbidden(
+            requestOptions: err.requestOptions,
+            errorResponse: parseApiErrorBody(err.response?.data),
+          ),
+        );
         return;
       case 404:
-        handler.reject(NotFound(requestOptions: err.requestOptions));
+        handler.reject(
+          NotFound(
+            requestOptions: err.requestOptions,
+            errorResponse: parseApiErrorBody(err.response?.data),
+          ),
+        );
         return;
       case 409:
-        ErrorResponse? response;
-        if (err.response?.data is Map<String, dynamic>) {
-          final data = err.response!.data as Map<String, dynamic>;
-          try {
-            response = ErrorResponse.fromJson(data);
-          } catch (_) {
-            final detail = data['detail'] as String?;
-            response = detail != null
-                ? ErrorResponse(
-                    code: 'conflict',
-                    detail: detail,
-                    errors: const [],
-                  )
-                : null;
-          }
-        }
         handler.reject(
           Conflict(
             requestOptions: err.requestOptions,
-            errorResponse: response,
+            errorResponse: parseApiErrorBody(err.response?.data),
+          ),
+        );
+        return;
+      case 422:
+        handler.reject(
+          UnprocessableError(
+            requestOptions: err.requestOptions,
+            errorResponse: parseApiErrorBody(err.response?.data),
           ),
         );
         return;

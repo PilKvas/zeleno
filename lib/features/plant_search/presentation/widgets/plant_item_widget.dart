@@ -68,14 +68,14 @@ class PlantItemWidget extends StatelessWidget {
             children: [
               Flexible(
                 child: Text(
-                  item.mainCommonName ??
+                  item.latinName ??
                       "No name", // TODO(darbinyan): Вынести в локализацию
                   style: textTheme.title, // TODO(darbinyan): Вынести в тему,
                 ),
               ),
-              Flexible(
-                child: Text(item.latinName ?? 'null', style: textTheme.body),
-              ),
+              // Flexible(
+              //   child: Text(item.latinName ?? 'null', style: textTheme.body),
+              // ),
             ],
           ),
         )

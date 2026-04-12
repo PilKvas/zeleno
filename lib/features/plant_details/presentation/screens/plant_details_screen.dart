@@ -149,21 +149,16 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen>
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              state.plantDetails?.commonNames?['ru']
-                                          ?.isNotEmpty ==
-                                      true
-                                  ? state
-                                      .plantDetails!.commonNames!['ru']!.first
-                                  : state.plantDetails?.mainCommonName ??
-                                      context.l10n.unknownName,
+                              state.plantDetails?.resolveMainCommonName() ??
+                                  context.l10n.unknownName,
                               style: textTheme.title.copyWith(
                                   fontSize: 24, fontWeight: FontWeight.bold),
                             ),
                             const SizedBox(height: 8),
-                            if (state.plantDetails?.commonNames?['ru'] !=
-                                    null &&
-                                state.plantDetails!.commonNames!['ru']!
-                                    .isNotEmpty)
+                            if (state.plantDetails
+                                        ?.commonNamesForLang('ru')
+                                        .isNotEmpty ==
+                                    true)
                               SizedBox(
                                 height: 20,
                                 width: MediaQuery.of(context).size.width,
@@ -172,8 +167,8 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen>
                                   scrollDirection: Axis.horizontal,
                                   itemBuilder:
                                       (BuildContext context, int index) {
-                                    final name = state.plantDetails!
-                                        .commonNames!['ru']![index];
+                                    final String name = state.plantDetails!
+                                        .commonNamesForLang('ru')[index];
                                     return Text(name,
                                         style: textTheme.body
                                             .copyWith(color: Colors.grey));
@@ -182,8 +177,9 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen>
                                       ' • ',
                                       style: textTheme.body
                                           .copyWith(color: Colors.grey)),
-                                  itemCount: state
-                                      .plantDetails!.commonNames!['ru']!.length,
+                                  itemCount: state.plantDetails!
+                                      .commonNamesForLang('ru')
+                                      .length,
                                 ),
                               )
                             else
@@ -261,36 +257,33 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen>
                                     CharacteristicItemWidget(
                                       icon: Icons.height,
                                       text: context.l10n.plantHeightRange(
-                                        state.plantDetails?.heightCm?.fromValue
-                                                .toString() ??
+                                        state.plantDetails?.heightMinCm
+                                                ?.toString() ??
                                             "-",
-                                        state.plantDetails?.heightCm?.toValue
-                                                .toString() ??
+                                        state.plantDetails?.heightMaxCm
+                                                ?.toString() ??
                                             "∞",
                                       ),
                                     ),
                                     CharacteristicItemWidget(
                                       icon: Icons.width_normal,
                                       text: context.l10n.plantWidthRange(
-                                          state.plantDetails?.spreadCm
-                                                  ?.fromValue
-                                                  .toString() ??
+                                          state.plantDetails?.spreadMinCm
+                                                  ?.toString() ??
                                               '-',
-                                          state.plantDetails?.spreadCm?.toValue
-                                                  .toString() ??
+                                          state.plantDetails?.spreadMaxCm
+                                                  ?.toString() ??
                                               '-'),
                                     ),
                                     CharacteristicItemWidget(
                                       icon: Icons.access_time,
                                       text: context.l10n
                                           .plantYearsToMaxHeightRange(
-                                        state.plantDetails?.yearsToMaxHeight
-                                                ?.fromValue
-                                                .toString() ??
+                                        state.plantDetails?.yearsToMaxHeightMin
+                                                ?.toString() ??
                                             "-",
-                                        state.plantDetails?.yearsToMaxHeight
-                                                ?.toValue
-                                                .toString() ??
+                                        state.plantDetails?.yearsToMaxHeightMax
+                                                ?.toString() ??
                                             "-",
                                       ),
                                     ),
@@ -308,8 +301,8 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen>
                                   title: context
                                       .l10n.plantDetailScientificClassification,
                                   content: ScientificClassificationWidget(
-                                    classification: state
-                                        .plantDetails?.scientificClassification,
+                                    latinName: state.plantDetails?.latinName,
+                                    misc: state.plantDetails?.misc,
                                   ),
                                   isTable: true,
                                 ),
@@ -322,7 +315,8 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen>
                                   children: state.plantDetails?.tags != null &&
                                           state.plantDetails!.tags!.isNotEmpty
                                       ? state.plantDetails!.tags!
-                                          .map((tag) => TagWidget(text: tag))
+                                          .map((PlantTag tag) =>
+                                              TagWidget(text: tag.name ?? ''))
                                           .toList()
                                       : [
                                           TagWidget(
@@ -341,11 +335,9 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen>
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 PlantGrowthTipsWidget(
-                                    tips: state.plantDetails?.growthTips ??
-                                        const GrowthTips(
-                                            propagation: [],
-                                            suggestedPantingPlaces: [],
-                                            pruning: [])),
+                                  tips: state.plantDetails?.growthTips ??
+                                      const <GrowthTip>[],
+                                ),
                               ],
                             ),
                           ),
@@ -367,19 +359,7 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen>
                                 const SizedBox(height: 16),
                                 PlantImagesSectionWidget(
                                   images: state.plantDetails?.images ??
-                                      const Images(
-                                        bark: [],
-                                        fruit: [],
-                                        flower: [],
-                                        habit: [],
-                                        leaf: [],
-                                        other: [],
-                                        root: [],
-                                        stem: [],
-                                        seed: [],
-                                        tuber: [],
-                                        foliage: [],
-                                      ),
+                                      const <PlantImageItem>[],
                                 ),
                               ],
                             ),

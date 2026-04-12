@@ -36,17 +36,17 @@ final class ZColorScheme extends ThemeExtension<ZColorScheme> {
   /// Basic dark scheme.
   const ZColorScheme.dark({
     this.brightness = Brightness.dark,
-    this.brand = const Color(0xFF000000),
-    this.onBrand = const Color(0xFFFFFFFF),
-    this.background = const Color(0xFFFFFFFF),
-    this.onBackground = const Color(0xFF000000),
-    this.surface = const Color(0xFFFFFFFF),
-    this.onSurface = const Color(0xFF000000),
-    this.action = const Color(0xFF000000),
+    this.brand = const Color(0xFFE8E8E8),
+    this.onBrand = const Color(0xFF1E1E1E),
+    this.background = const Color(0xFF121212),
+    this.onBackground = const Color(0xFFF0F0F0),
+    this.surface = const Color(0xFF1E1E1E),
+    this.onSurface = const Color(0xFFF0F0F0),
+    this.action = const Color(0xFFBF7152),
     this.onAction = const Color(0xFFFFFFFF),
-    this.actionSecondary = const Color(0xFF60fc9c),
-    this.onActionSecondary = const Color(0xFF000000),
-    this.secondaryText = const Color(0xFF6F6F6F),
+    this.actionSecondary = const Color(0xFF9BC4A8),
+    this.onActionSecondary = const Color(0xFF121212),
+    this.secondaryText = const Color(0xFFB0B0B0),
   });
 
   const ZColorScheme({
