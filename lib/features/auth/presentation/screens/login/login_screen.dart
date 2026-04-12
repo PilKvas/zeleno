@@ -69,10 +69,7 @@ class _Content extends StatelessWidget {
   }
 
   void _onSuccess(BuildContext context) {
-    context.router.pushAndPopUntil(
-      const ProfileRoute(),
-      predicate: (_) => false,
-    );
+    context.router.replace(const ProfileRoute());
   }
 
   void _onError(BuildContext context, String message) {

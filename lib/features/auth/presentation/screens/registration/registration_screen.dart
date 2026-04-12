@@ -79,7 +79,7 @@ class _Content extends StatelessWidget {
     );
 
     if (context.mounted) {
-      context.router.navigate(const LoginRoute());
+      context.router.popForced();
     }
   }
 

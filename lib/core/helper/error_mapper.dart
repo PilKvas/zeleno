@@ -12,7 +12,13 @@ String mapErrorToMessage(Object error, AppLocalizations l10n) {
     return l10n.invalidCredentialsError;
   }
   if (error is BadRequest) {
-    return l10n.badRequestError;
+    return error.errorResponse?.message ?? l10n.badRequestError;
+  }
+  if (error is Forbidden) {
+    return error.errorResponse?.message ?? l10n.unknownError;
+  }
+  if (error is NotFound) {
+    return error.errorResponse?.message ?? l10n.unknownError;
   }
   if (error is NoInternetConnection) {
     return l10n.noInternetError;
@@ -34,8 +40,17 @@ String mapRegistrationErrorToMessage(Object error, AppLocalizations l10n) {
     }
     return error.errorResponse?.message ?? l10n.registrationError;
   }
+  if (error is UnprocessableError) {
+    return error.errorResponse?.message ?? l10n.registrationError;
+  }
   if (error is BadRequest) {
-    return l10n.badRequestRegistrationError;
+    return error.errorResponse?.message ?? l10n.badRequestRegistrationError;
+  }
+  if (error is Forbidden) {
+    return error.errorResponse?.message ?? l10n.unknownRegistrationError;
+  }
+  if (error is NotFound) {
+    return error.errorResponse?.message ?? l10n.unknownRegistrationError;
   }
   if (error is NoInternetConnection) {
     return l10n.noInternetError;

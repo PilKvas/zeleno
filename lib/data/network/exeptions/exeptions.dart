@@ -7,22 +7,49 @@ class BaseException extends DioException implements Exception {
   ) : super(requestOptions: requestOptions);
 }
 
-class BadRequest extends BaseException {
+class BadRequest extends DioException {
+  final ErrorResponse? errorResponse;
+
   BadRequest({
-    required RequestOptions requestOptions,
-  }) : super(requestOptions);
+    required super.requestOptions,
+    this.errorResponse,
+  }) : super(
+          error: errorResponse?.message,
+          response: Response(
+            requestOptions: requestOptions,
+            data: errorResponse?.toJson(),
+          ),
+        );
 }
 
-class Forbidden extends BaseException {
+class Forbidden extends DioException {
+  final ErrorResponse? errorResponse;
+
   Forbidden({
-    required RequestOptions requestOptions,
-  }) : super(requestOptions);
+    required super.requestOptions,
+    this.errorResponse,
+  }) : super(
+          error: errorResponse?.message,
+          response: Response(
+            requestOptions: requestOptions,
+            data: errorResponse?.toJson(),
+          ),
+        );
 }
 
-class NotFound extends BaseException {
+class NotFound extends DioException {
+  final ErrorResponse? errorResponse;
+
   NotFound({
-    required RequestOptions requestOptions,
-  }) : super(requestOptions);
+    required super.requestOptions,
+    this.errorResponse,
+  }) : super(
+          error: errorResponse?.message,
+          response: Response(
+            requestOptions: requestOptions,
+            data: errorResponse?.toJson(),
+          ),
+        );
 }
 
 class Conflict extends DioException {
