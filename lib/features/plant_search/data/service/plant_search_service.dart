@@ -9,9 +9,10 @@ part 'plant_search_service.g.dart';
 abstract class PlantSearchService {
   factory PlantSearchService(Dio dio) = _PlantSearchService;
 
-  @GET('/api/search/species')
+  @GET('/api/species/')
   Future<PaginationWrapperDto<PlantSearchItemDto>> getPlants({
     @Query('page') required int page,
+    @Query('page_size') int? pageSize,
     @Query('search') String? name,
   });
 }

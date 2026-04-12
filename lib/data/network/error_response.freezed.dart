@@ -20,12 +20,10 @@ ErrorResponse _$ErrorResponseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ErrorResponse {
-  @JsonKey(name: "code")
-  String get code => throw _privateConstructorUsedError;
-  @JsonKey(name: "detail")
-  String get detail => throw _privateConstructorUsedError;
-  @JsonKey(name: "errors")
-  List<dynamic> get errors => throw _privateConstructorUsedError;
+  @JsonKey(name: "error")
+  String get error => throw _privateConstructorUsedError;
+  @JsonKey(name: "message")
+  String get message => throw _privateConstructorUsedError;
 
   /// Serializes this ErrorResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,9 +42,8 @@ abstract class $ErrorResponseCopyWith<$Res> {
       _$ErrorResponseCopyWithImpl<$Res, ErrorResponse>;
   @useResult
   $Res call(
-      {@JsonKey(name: "code") String code,
-      @JsonKey(name: "detail") String detail,
-      @JsonKey(name: "errors") List<dynamic> errors});
+      {@JsonKey(name: "error") String error,
+      @JsonKey(name: "message") String message});
 }
 
 /// @nodoc
@@ -64,23 +61,18 @@ class _$ErrorResponseCopyWithImpl<$Res, $Val extends ErrorResponse>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = null,
-    Object? detail = null,
-    Object? errors = null,
+    Object? error = null,
+    Object? message = null,
   }) {
     return _then(_value.copyWith(
-      code: null == code
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
+      error: null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
               as String,
-      detail: null == detail
-          ? _value.detail
-          : detail // ignore: cast_nullable_to_non_nullable
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
               as String,
-      errors: null == errors
-          ? _value.errors
-          : errors // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
     ) as $Val);
   }
 }
@@ -94,9 +86,8 @@ abstract class _$$ErrorResponseImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "code") String code,
-      @JsonKey(name: "detail") String detail,
-      @JsonKey(name: "errors") List<dynamic> errors});
+      {@JsonKey(name: "error") String error,
+      @JsonKey(name: "message") String message});
 }
 
 /// @nodoc
@@ -112,23 +103,18 @@ class __$$ErrorResponseImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = null,
-    Object? detail = null,
-    Object? errors = null,
+    Object? error = null,
+    Object? message = null,
   }) {
     return _then(_$ErrorResponseImpl(
-      code: null == code
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
+      error: null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
               as String,
-      detail: null == detail
-          ? _value.detail
-          : detail // ignore: cast_nullable_to_non_nullable
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
               as String,
-      errors: null == errors
-          ? _value._errors
-          : errors // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
     ));
   }
 }
@@ -137,32 +123,22 @@ class __$$ErrorResponseImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ErrorResponseImpl implements _ErrorResponse {
   const _$ErrorResponseImpl(
-      {@JsonKey(name: "code") required this.code,
-      @JsonKey(name: "detail") required this.detail,
-      @JsonKey(name: "errors") required final List<dynamic> errors})
-      : _errors = errors;
+      {@JsonKey(name: "error") required this.error,
+      @JsonKey(name: "message") required this.message});
 
   factory _$ErrorResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$ErrorResponseImplFromJson(json);
 
   @override
-  @JsonKey(name: "code")
-  final String code;
+  @JsonKey(name: "error")
+  final String error;
   @override
-  @JsonKey(name: "detail")
-  final String detail;
-  final List<dynamic> _errors;
-  @override
-  @JsonKey(name: "errors")
-  List<dynamic> get errors {
-    if (_errors is EqualUnmodifiableListView) return _errors;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_errors);
-  }
+  @JsonKey(name: "message")
+  final String message;
 
   @override
   String toString() {
-    return 'ErrorResponse(code: $code, detail: $detail, errors: $errors)';
+    return 'ErrorResponse(error: $error, message: $message)';
   }
 
   @override
@@ -170,15 +146,13 @@ class _$ErrorResponseImpl implements _ErrorResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ErrorResponseImpl &&
-            (identical(other.code, code) || other.code == code) &&
-            (identical(other.detail, detail) || other.detail == detail) &&
-            const DeepCollectionEquality().equals(other._errors, _errors));
+            (identical(other.error, error) || other.error == error) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, code, detail, const DeepCollectionEquality().hash(_errors));
+  int get hashCode => Object.hash(runtimeType, error, message);
 
   /// Create a copy of ErrorResponse
   /// with the given fields replaced by the non-null parameter values.
@@ -198,23 +172,19 @@ class _$ErrorResponseImpl implements _ErrorResponse {
 
 abstract class _ErrorResponse implements ErrorResponse {
   const factory _ErrorResponse(
-          {@JsonKey(name: "code") required final String code,
-          @JsonKey(name: "detail") required final String detail,
-          @JsonKey(name: "errors") required final List<dynamic> errors}) =
+          {@JsonKey(name: "error") required final String error,
+          @JsonKey(name: "message") required final String message}) =
       _$ErrorResponseImpl;
 
   factory _ErrorResponse.fromJson(Map<String, dynamic> json) =
       _$ErrorResponseImpl.fromJson;
 
   @override
-  @JsonKey(name: "code")
-  String get code;
+  @JsonKey(name: "error")
+  String get error;
   @override
-  @JsonKey(name: "detail")
-  String get detail;
-  @override
-  @JsonKey(name: "errors")
-  List<dynamic> get errors;
+  @JsonKey(name: "message")
+  String get message;
 
   /// Create a copy of ErrorResponse
   /// with the given fields replaced by the non-null parameter values.

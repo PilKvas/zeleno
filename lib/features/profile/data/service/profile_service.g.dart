@@ -27,7 +27,7 @@ class _ProfileService implements ProfileService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/api/user/current',
+            '/api/auth/me',
             queryParameters: queryParameters,
             data: _data,
           )

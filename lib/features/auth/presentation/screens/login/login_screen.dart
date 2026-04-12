@@ -69,10 +69,7 @@ class _Content extends StatelessWidget {
   }
 
   void _onSuccess(BuildContext context) {
-    context.router.pushAndPopUntil(
-      const ProfileRoute(),
-      predicate: (_) => false,
-    );
+    context.router.replace(const ProfileRoute());
   }
 
   void _onError(BuildContext context, String message) {
@@ -94,13 +91,11 @@ class _LoginForm extends StatefulWidget {
 class _LoginFormState extends State<_LoginForm> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
-  final _nameController = TextEditingController();
   final _passwordController = TextEditingController();
 
   @override
   void dispose() {
     _emailController.dispose();
-    _nameController.dispose();
     _passwordController.dispose();
     super.dispose();
   }
@@ -131,10 +126,10 @@ class _LoginFormState extends State<_LoginForm> {
               ),
               const SizedBox(height: 40),
               ZTextField(
-                controller: _nameController,
+                controller: _emailController,
                 fillColor: const Color.fromRGBO(248, 248, 252, 1),
-                hintText: l10n.nameHint,
-                validator: Validator.name(l10n),
+                hintText: l10n.emailHint,
+                validator: Validator.email(l10n),
               ),
               const SizedBox(height: 14),
               ZTextField(
@@ -176,9 +171,8 @@ class _LoginFormState extends State<_LoginForm> {
   void _onLoginPressed() {
     if (_formKey.currentState?.validate() ?? false) {
       context.read<LoginCubit>().loginUser(
-            _emailController.text,
-            _nameController.text,
-            _passwordController.text,
+            email: _emailController.text,
+            password: _passwordController.text,
           );
     }
   }

@@ -2,12 +2,14 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zeleno_v2/app/di/di.dart';
+import 'package:zeleno_v2/app/theme/theme_cubit.dart';
 import 'package:zeleno_v2/features/auth/domain/model/auth_status.dart';
 import 'package:zeleno_v2/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:zeleno_v2/features/navigation/router.gr.dart';
 import 'package:zeleno_v2/features/profile/domain/model/user.dart';
 import 'package:zeleno_v2/features/profile/domain/repository/i_profile_repository.dart';
 import 'package:zeleno_v2/features/profile/presentation/cubit/profile_cubit.dart';
+import 'package:zeleno_v2/l10n/gen/app_localizations.dart';
 import 'package:zeleno_v2/uikit/button/button.dart';
 import 'package:zeleno_v2/uikit/loading_widget.dart' show ZLoading;
 import 'package:zeleno_v2/uikit/theme/color_theme.dart';
@@ -34,9 +36,12 @@ class _ProfileStackScreenState extends State<ProfileStackScreen> {
         break;
       case AuthStatus.unauthenticated:
       case AuthStatus.unknown:
-        if (currentName != LoginRoute.name) {
-          context.router
-              .pushAndPopUntil(const LoginRoute(), predicate: (_) => false);
+        final StackRouter profileRouter = context.router;
+        final bool isOnlyLogin =
+            profileRouter.current.name == LoginRoute.name &&
+                profileRouter.stack.length == 1;
+        if (!isOnlyLogin) {
+          profileRouter.replaceAll([const LoginRoute()]);
         }
         break;
     }
@@ -112,6 +117,8 @@ class ProfileScreen extends StatelessWidget implements AutoRouteWrapper {
                       onPressed: () => context.read<ProfileCubit>().loadUser(),
                       child: const Text('Повторить'),
                     ),
+                    const SizedBox(height: ZDimensions.normalMargin * 2),
+                    const _ProfileThemeToggle(),
                   ],
                 ),
               ),
@@ -157,6 +164,8 @@ class _ProfileContent extends StatelessWidget {
           style:
               typography.headline200.copyWith(color: colorScheme.onBackground),
         ),
+        const SizedBox(height: ZDimensions.basicMargin),
+        const _ProfileThemeToggle(),
         const SizedBox(height: ZDimensions.basicMargin * 2),
         Center(
           child: Container(
@@ -187,6 +196,7 @@ class _ProfileContent extends StatelessWidget {
           style: typography.body.copyWith(color: colorScheme.secondaryText),
           textAlign: TextAlign.center,
         ),
+        const SizedBox(height: ZDimensions.basicMargin * 2),
         const Spacer(),
         ZButton(
           type: ZButtonType.secondary,
@@ -195,6 +205,64 @@ class _ProfileContent extends StatelessWidget {
         ),
         const SizedBox(height: ZDimensions.basicMargin),
       ],
+    );
+  }
+}
+
+class _ProfileThemeToggle extends StatelessWidget {
+  const _ProfileThemeToggle();
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = ZColorScheme.of(context);
+    final typography = ZTypography.of(context);
+    return BlocBuilder<ThemeCubit, ThemeMode>(
+      builder: (context, themeMode) {
+        final Brightness platformBrightness =
+            MediaQuery.platformBrightnessOf(context);
+        final bool isDark = ThemeCubit.isDarkTheme(
+          themeMode: themeMode,
+          platformBrightness: platformBrightness,
+        );
+        return Material(
+          color: colorScheme.surface,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(ZDimensions.basicRadius.x),
+            side: BorderSide(color: colorScheme.actionSecondary),
+          ),
+          clipBehavior: Clip.antiAlias,
+          child: Padding(
+            padding: const EdgeInsets.only(
+              left: ZDimensions.basicMargin,
+              right: ZDimensions.smallMargin,
+              top: ZDimensions.smallMargin,
+              bottom: ZDimensions.smallMargin,
+            ),
+            child: Row(
+              children: [
+                Icon(
+                  Icons.dark_mode_outlined,
+                  color: colorScheme.secondaryText,
+                  size: 22,
+                ),
+                const SizedBox(width: ZDimensions.smallMargin),
+                Expanded(
+                  child: Text(
+                    AppLocalizations.of(context).debugScreenThemeDark,
+                    style: typography.body
+                        .copyWith(color: colorScheme.onBackground),
+                  ),
+                ),
+                Switch.adaptive(
+                  value: isDark,
+                  onChanged: (bool enabled) =>
+                      context.read<ThemeCubit>().setDarkEnabled(enabled),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

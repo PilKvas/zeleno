@@ -13,18 +13,26 @@ class RegularEventsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
+      children: <Widget>[
+        const Text(
           'Регулярные события',
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 8),
-        ...events.map((event) => Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: Text(
-                  '${event.name}: каждые ${event.frequency?.fromValue}-${event.frequency?.toValue} ${event.frequencyUnit?.label}'),
-            )),
+        ...events.map((RegularEvent event) {
+          final String name = event.name ?? '';
+          final int? min = event.intervalMin;
+          final int? max = event.intervalMax;
+          final String? unit = event.intervalUnit;
+          final String line = (min != null && max != null && unit != null)
+              ? '$name: каждые $min–$max $unit'
+              : name;
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: Text(line),
+          );
+        }),
       ],
     );
   }
-} 
+}

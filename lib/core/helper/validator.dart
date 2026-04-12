@@ -14,18 +14,6 @@ abstract final class Validator {
     };
   }
 
-  static FormFieldValidator<String> name(AppLocalizations l10n) {
-    return (value) {
-      if (value == null || value.isEmpty) {
-        return l10n.enterNameError;
-      }
-      if (value.length < 2) {
-        return l10n.nameTooShortError;
-      }
-      return null;
-    };
-  }
-
   static FormFieldValidator<String> email(AppLocalizations l10n) {
     return (value) {
       if (value == null || value.isEmpty) {

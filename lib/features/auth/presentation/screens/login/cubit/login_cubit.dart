@@ -17,11 +17,10 @@ class LoginCubit extends Cubit<LoginState> {
           status: Status.initial,
         ));
 
-  Future<void> loginUser(
-    String? email,
-    String username,
-    String password,
-  ) async {
+  Future<void> loginUser({
+    required String email,
+    required String password,
+  }) async {
     try {
       emit(
         state.copyWith(
@@ -31,7 +30,7 @@ class LoginCubit extends Cubit<LoginState> {
 
       await _authRepository.signIn(
         authModel: AuthModel(
-          username: username,
+          email: email,
           password: password,
         ),
       );

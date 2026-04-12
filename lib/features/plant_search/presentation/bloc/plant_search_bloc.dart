@@ -35,6 +35,7 @@ class PlantSearchBloc extends Bloc<PlantSearchEvent, PlantSearchState> {
         final plantList = await _plantsSearchUsecase.loadPlants(
           page: page,
           name: event.name ?? state.name,
+          pageSize: 20,
         );
 
         emit(

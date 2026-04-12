@@ -27,7 +27,7 @@ class _PlantDetailsService implements PlantDetailsService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/api/search/species/${slug}',
+            '/api/species/${slug}',
             queryParameters: queryParameters,
             data: _data,
           )

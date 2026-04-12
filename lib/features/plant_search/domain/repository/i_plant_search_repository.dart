@@ -5,5 +5,6 @@ abstract class IPlantSearchRepository {
   Future<PaginationWrapper<PlantSearchItem>> getPlants({
     required int page,
     String? name,
+    int? pageSize,
   });
 }

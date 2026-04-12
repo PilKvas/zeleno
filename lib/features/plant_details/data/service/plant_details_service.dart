@@ -8,7 +8,7 @@ part 'plant_details_service.g.dart';
 abstract class PlantDetailsService {
   factory PlantDetailsService(Dio dio) = _PlantDetailsService;
 
-  @GET('/api/search/species/{slug}')
+  @GET('/api/species/{slug}')
   Future<PlantDetailsModel> getPlant({
     @Path('slug') required String slug,
   });

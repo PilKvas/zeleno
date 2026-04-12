@@ -14,10 +14,12 @@ class PlantSearchRepository implements IPlantSearchRepository {
   Future<PaginationWrapper<PlantSearchItem>> getPlants({
     required int page,
     String? name,
+    int? pageSize,
   }) async {
     final response = await _plantSearchService.getPlants(
       page: page,
       name: name,
+      pageSize: pageSize,
     );
 
     return PaginationWrapper(
