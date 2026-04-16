@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:zeleno_v2/uikit/theme/color_theme.dart';
+import 'package:zeleno_v2/uikit/theme/typography.dart';
 
 class TagWidget extends StatelessWidget {
   final String text;
@@ -10,13 +12,25 @@ class TagWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ZColorScheme colors = ZColorScheme.of(context);
+    final ZTypography typography = ZTypography.of(context);
+    final Color chipFill = Color.alphaBlend(
+      colors.secondaryText.withValues(alpha: 0.14),
+      colors.surface,
+    );
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
-        color: Colors.grey.shade200,
+        color: chipFill,
         borderRadius: BorderRadius.circular(16),
       ),
-      child: Text(text, style: TextStyle(fontSize: 12)),
+      child: Text(
+        text,
+        style: typography.body.copyWith(
+          fontSize: 12,
+          color: colors.onSurface,
+        ),
+      ),
     );
   }
-} 
+}

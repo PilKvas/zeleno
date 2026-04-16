@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -74,6 +75,13 @@ class _MyAppState extends State<MyApp> {
             themeMode: themeMode,
             title: 'Flutter Demo',
             routerConfig: _appRouter.config(),
+            builder: (BuildContext context, Widget? child) {
+              final Brightness brightness = Theme.of(context).brightness;
+              return AnnotatedRegion<SystemUiOverlayStyle>(
+                value: ZTheme.statusBarStyleForBrightness(brightness),
+                child: child ?? const SizedBox.shrink(),
+              );
+            },
           );
         },
       ),

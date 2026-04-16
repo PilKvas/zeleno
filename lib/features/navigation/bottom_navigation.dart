@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(context) {
     return AutoTabsScaffold(
       routes: const [
-        RoomRoute(),
+        // RoomRoute(),
         PlantSearchStackRoute(),
         ProfileStackRoute(),
       ],
@@ -28,17 +28,21 @@ class HomeScreen extends StatelessWidget {
             currentIndex: tabsRouter.activeIndex,
             onTap: tabsRouter.setActiveIndex,
             items: [
+              // BottomNavigationBarItem(
+              //   icon: SvgPicture.asset(SvgIcons.plant),
+              //   activeIcon: SvgPicture.asset(
+              //     SvgIcons.plant,
+              //     colorFilter:
+              //         ColorFilter.mode(colorScheme.action, BlendMode.srcIn),
+              //   ),
+              //   label: '',
+              // ),
               BottomNavigationBarItem(
-                icon: SvgPicture.asset(SvgIcons.plant),
-                activeIcon: SvgPicture.asset(
-                  SvgIcons.plant,
+                icon: SvgPicture.asset(
+                  SvgIcons.search,
                   colorFilter:
-                      ColorFilter.mode(colorScheme.action, BlendMode.srcIn),
+                      ColorFilter.mode(colorScheme.onSurface, BlendMode.srcIn),
                 ),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset(SvgIcons.search),
                 activeIcon: SvgPicture.asset(
                   SvgIcons.searchFilled,
                   colorFilter:
@@ -47,7 +51,11 @@ class HomeScreen extends StatelessWidget {
                 label: '',
               ),
               BottomNavigationBarItem(
-                icon: SvgPicture.asset(SvgIcons.user),
+                icon: SvgPicture.asset(
+                  SvgIcons.user,
+                  colorFilter:
+                      ColorFilter.mode(colorScheme.onSurface, BlendMode.srcIn),
+                ),
                 activeIcon: SvgPicture.asset(
                   SvgIcons.user,
                   colorFilter:

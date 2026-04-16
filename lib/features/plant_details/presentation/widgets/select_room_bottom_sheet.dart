@@ -51,7 +51,7 @@ class _SelectRoomBottomSheetState extends State<SelectRoomBottomSheet> {
                   width: 40,
                   height: 5,
                   decoration: BoxDecoration(
-                    color: Colors.grey[300],
+                    color: colors.secondaryText.withValues(alpha: 0.35),
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
@@ -108,7 +108,8 @@ class _SelectRoomBottomSheetState extends State<SelectRoomBottomSheet> {
                           child: ListView.separated(
                             shrinkWrap: true,
                             itemCount: state.rooms.length,
-                            separatorBuilder: (context, index) => const Divider(),
+                            separatorBuilder: (context, index) =>
+                                const Divider(),
                             itemBuilder: (context, index) {
                               final room = state.rooms[index];
                               return _buildRoomItem(context, room);
@@ -149,7 +150,7 @@ class _SelectRoomBottomSheetState extends State<SelectRoomBottomSheet> {
               width: 40,
               height: 40,
               decoration: BoxDecoration(
-                color: colors.action.withOpacity(0.1),
+                color: colors.action.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Icon(
@@ -172,7 +173,7 @@ class _SelectRoomBottomSheetState extends State<SelectRoomBottomSheet> {
                     Text(
                       room.description!,
                       style: textTheme.body.copyWith(
-                        color: Colors.grey,
+                        color: colors.secondaryText,
                         fontSize: 14,
                       ),
                       maxLines: 1,
@@ -187,4 +188,4 @@ class _SelectRoomBottomSheetState extends State<SelectRoomBottomSheet> {
       ),
     );
   }
-} 
+}

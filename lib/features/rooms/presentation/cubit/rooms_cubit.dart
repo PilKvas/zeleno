@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:zeleno_v2/features/core/enums/status.dart';
 import 'package:zeleno_v2/features/rooms/domain/models/room_model.dart';
@@ -21,9 +21,9 @@ class RoomsCubit extends Cubit<RoomsState> {
   Future<void> loadRooms() async {
     try {
       emit(state.copyWith(status: Status.loading));
-      
+
       final rooms = await _roomRepository.getRoomsList();
-      
+
       emit(state.copyWith(
         status: Status.success,
         rooms: rooms,
@@ -46,11 +46,12 @@ class RoomsCubit extends Cubit<RoomsState> {
   }) async {
     try {
       emit(state.copyWith(status: Status.loading));
-      
+
       // Create a temporary ID and UUID since the server will assign the real ones
       final roomModel = RoomModel(
         id: 0, // Temporary ID
-        uuid: DateTime.now().millisecondsSinceEpoch.toString(), // Temporary UUID
+        uuid:
+            DateTime.now().millisecondsSinceEpoch.toString(), // Temporary UUID
         name: name,
         description: description,
         hemisphere: hemisphere,
@@ -58,10 +59,9 @@ class RoomsCubit extends Cubit<RoomsState> {
         humidity: humidity,
         windowSide: windowSide,
       );
-      
+
       await _roomRepository.createRoom(roomModel: roomModel);
       await loadRooms(); // Reload rooms after creating a new one
-      
     } catch (e) {
       emit(state.copyWith(
         status: Status.failure,
@@ -73,10 +73,9 @@ class RoomsCubit extends Cubit<RoomsState> {
   Future<void> deleteRoom(String uuid) async {
     try {
       emit(state.copyWith(status: Status.loading));
-      
+
       await _roomRepository.deleteRoom(uid: uuid);
       await loadRooms(); // Reload rooms after deletion
-      
     } catch (e) {
       emit(state.copyWith(
         status: Status.failure,
@@ -84,4 +83,4 @@ class RoomsCubit extends Cubit<RoomsState> {
       ));
     }
   }
-} 
+}

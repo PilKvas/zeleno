@@ -16,11 +16,19 @@ class ZStatusBarBrightness extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
         statusBarBrightness:
-        brightness == Brightness.dark ? Brightness.light : Brightness.dark,
-        statusBarIconBrightness: brightness,
+            brightness.isDart ? Brightness.dark : Brightness.light,
+        statusBarIconBrightness:
+            brightness.isLight ? Brightness.dark : Brightness.light,
       ),
       child: child,
     );
   }
+}
+
+extension on Brightness {
+  bool get isDart => this == Brightness.dark;
+
+  bool get isLight => this == Brightness.light;
 }

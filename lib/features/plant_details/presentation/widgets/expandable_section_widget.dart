@@ -35,7 +35,8 @@ class _ExpandableSectionWidgetState extends State<ExpandableSectionWidget> {
             children: [
               Text(
                 widget.title,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               Icon(
                 _isExpanded

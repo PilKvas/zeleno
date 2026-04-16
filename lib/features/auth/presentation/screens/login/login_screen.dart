@@ -127,14 +127,14 @@ class _LoginFormState extends State<_LoginForm> {
               const SizedBox(height: 40),
               ZTextField(
                 controller: _emailController,
-                fillColor: const Color.fromRGBO(248, 248, 252, 1),
+                fillColor: colors.surface,
                 hintText: l10n.emailHint,
                 validator: Validator.email(l10n),
               ),
               const SizedBox(height: 14),
               ZTextField(
                 controller: _passwordController,
-                fillColor: const Color.fromRGBO(248, 248, 252, 1),
+                fillColor: colors.surface,
                 isPassword: true,
                 hintText: l10n.passwordHint,
                 validator: Validator.password(l10n),
@@ -143,9 +143,9 @@ class _LoginFormState extends State<_LoginForm> {
               BlocBuilder<LoginCubit, LoginState>(
                 builder: (context, state) {
                   if (state.status.isLoading) {
-                    return const ZButton(
+                    return ZButton(
                       type: ZButtonType.primary,
-                      child: CircularProgressIndicator(color: Colors.white),
+                      child: CircularProgressIndicator(color: colors.onAction),
                     );
                   }
                   return ZButton(
@@ -183,6 +183,8 @@ class _DividerWithText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Color dividerColor =
+        ZColorScheme.of(context).secondaryText.withValues(alpha: 0.35);
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 50,
@@ -191,9 +193,9 @@ class _DividerWithText extends StatelessWidget {
       child: Row(
         spacing: 10,
         children: [
-          const Expanded(child: Divider(color: Colors.grey)),
+          Expanded(child: Divider(color: dividerColor)),
           Text(context.l10n.orSeparator),
-          const Expanded(child: Divider(color: Colors.grey)),
+          Expanded(child: Divider(color: dividerColor)),
         ],
       ),
     );
