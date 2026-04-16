@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'color_theme.dart';
 import 'dimensions.dart';
@@ -19,23 +20,35 @@ final class ZTheme {
   });
 
   ThemeData createThemeData() {
+    final Brightness themeBrightness = colorScheme.brightness;
     return ThemeData(
-      brightness: colorScheme.brightness,
-      // fontFamily: fontFamily,
-      // package: package,
+      brightness: themeBrightness,
       scaffoldBackgroundColor: colorScheme.background,
+      appBarTheme: AppBarTheme(
+        systemOverlayStyle: ZTheme.statusBarStyleForBrightness(themeBrightness),
+      ),
       colorScheme: ColorScheme(
-        brightness: colorScheme.brightness,
+        brightness: themeBrightness,
         primary: colorScheme.brand,
         onPrimary: colorScheme.onBrand,
         secondary: colorScheme.brand,
         onSecondary: colorScheme.onBrand,
-        error: colorScheme.brand,
-        onError: colorScheme.onBrand,
+        error: colorScheme.error,
+        onError: colorScheme.onError,
         surface: colorScheme.surface,
         onSurface: colorScheme.onSurface,
       ),
       extensions: [colorScheme, typography, dimensions],
+    );
+  }
+
+  static SystemUiOverlayStyle statusBarStyleForBrightness(
+      Brightness brightness) {
+    final bool isDark = brightness == Brightness.dark;
+    return SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarBrightness: isDark ? Brightness.dark : Brightness.light,
+      statusBarIconBrightness: isDark ? Brightness.dark : Brightness.light,
     );
   }
 }

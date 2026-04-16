@@ -145,20 +145,20 @@ class _RegistrationFormState extends State<_RegistrationForm> {
                 children: [
                   ZTextField(
                     controller: _emailController,
-                    fillColor: const Color.fromRGBO(248, 248, 252, 1),
+                    fillColor: colors.surface,
                     hintText: l10n.emailHint,
                     validator: Validator.email(l10n),
                   ),
                   ZTextField(
                     controller: _passwordController,
-                    fillColor: const Color.fromRGBO(248, 248, 252, 1),
+                    fillColor: colors.surface,
                     isPassword: true,
                     hintText: l10n.passwordHint,
                     validator: Validator.password(l10n),
                   ),
                   ZTextField(
                     controller: _confirmPasswordController,
-                    fillColor: const Color.fromRGBO(248, 248, 252, 1),
+                    fillColor: colors.surface,
                     isPassword: true,
                     hintText: l10n.confirmPasswordHint,
                     validator:
@@ -170,10 +170,10 @@ class _RegistrationFormState extends State<_RegistrationForm> {
               BlocBuilder<RegistrationCubit, RegistrationState>(
                 builder: (context, state) {
                   if (state.status.isLoading) {
-                    return const ZButton(
+                    return ZButton(
                       onPressed: null,
                       type: ZButtonType.primary,
-                      child: CircularProgressIndicator(color: Colors.white),
+                      child: CircularProgressIndicator(color: colors.onAction),
                     );
                   }
                   return ZButton(
@@ -212,6 +212,8 @@ class _DividerWithText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Color dividerColor =
+        ZColorScheme.of(context).secondaryText.withValues(alpha: 0.35);
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 50,
@@ -220,9 +222,9 @@ class _DividerWithText extends StatelessWidget {
       child: Row(
         spacing: 10,
         children: [
-          const Expanded(child: Divider(color: Colors.grey)),
+          Expanded(child: Divider(color: dividerColor)),
           Text(context.l10n.orSeparator),
-          const Expanded(child: Divider(color: Colors.grey)),
+          Expanded(child: Divider(color: dividerColor)),
         ],
       ),
     );

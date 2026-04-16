@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:zeleno_v2/features/core/enums/status.dart';
 import 'package:zeleno_v2/features/rooms/domain/models/garden_plants_response.dart';
@@ -21,9 +21,10 @@ class RoomPlantsCubit extends Cubit<RoomPlantsState> {
   Future<void> loadRoomPlants({int? roomId}) async {
     try {
       emit(state.copyWith(status: Status.loading));
-      
-      final plants = await _gardenPlantRepository.getGardenPlantsList(roomId: roomId);
-      
+
+      final plants =
+          await _gardenPlantRepository.getGardenPlantsList(roomId: roomId);
+
       emit(state.copyWith(
         status: Status.success,
         plants: plants,
@@ -35,4 +36,4 @@ class RoomPlantsCubit extends Cubit<RoomPlantsState> {
       ));
     }
   }
-} 
+}

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zeleno_v2/features/plant_search/domain/models/plant_search_item.dart';
 import 'package:zeleno_v2/resources/resources.dart';
-import 'package:zeleno_v2/uikit/theme/color_theme.dart';
 import 'package:zeleno_v2/uikit/theme/typography.dart';
 
 class PlantItemWidget extends StatelessWidget {
@@ -15,7 +14,6 @@ class PlantItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = ZTypography.of(context);
-    final colors = ZColorScheme.of(context);
     return Row(
       children: [
         Column(

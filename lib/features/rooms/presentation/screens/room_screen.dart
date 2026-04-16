@@ -109,14 +109,14 @@ class _RoomScreenState extends State<RoomScreen> {
               }
 
               return Scaffold(
-                backgroundColor: const Color.fromRGBO(248, 248, 252, 1),
+                backgroundColor: colors.background,
                 body: AnimatedSwitcher(
                   duration: const Duration(milliseconds: 300),
                   child: CustomScrollView(
                     key: ValueKey(state.status),
                     slivers: [
                       SliverAppBar(
-                        backgroundColor: const Color.fromRGBO(248, 248, 252, 1),
+                        backgroundColor: colors.background,
                         centerTitle: false,
                         title: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -147,7 +147,7 @@ class _RoomScreenState extends State<RoomScreen> {
                 ),
                 floatingActionButton: FloatingActionButton(
                   backgroundColor: colors.action,
-                  child: const Icon(Icons.add, color: Colors.white),
+                  child: Icon(Icons.add, color: colors.onAction),
                   onPressed: () => _showAddRoomBottomSheet(context),
                 ),
               );
@@ -236,7 +236,7 @@ class _RoomScreenState extends State<RoomScreen> {
         child: Text(
           text,
           style: textTheme.body.copyWith(
-            color: isSelected ? Colors.white : Colors.black,
+            color: isSelected ? colors.onAction : colors.onBackground,
             fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
           ),
         ),
@@ -285,8 +285,6 @@ class _RoomScreenState extends State<RoomScreen> {
   }
 
   Widget _buildRoomListItem(BuildContext context, RoomModel room) {
-    final colors = ZColorScheme.of(context);
-
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
       child: ListTile(
@@ -324,11 +322,11 @@ class _RoomScreenState extends State<RoomScreen> {
                 margin: const EdgeInsets.only(bottom: 16),
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: colors.surface,
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.05),
+                      color: colors.onSurface.withValues(alpha: 0.06),
                       blurRadius: 4,
                       offset: const Offset(0, 2),
                     ),
@@ -374,7 +372,7 @@ class _RoomScreenState extends State<RoomScreen> {
                       onPressed: () {
                         _showDeleteRoomDialog(context, room);
                       },
-                      icon: const Icon(Icons.delete_outline, color: Colors.red),
+                      icon: Icon(Icons.delete_outline, color: colors.error),
                     )
                   ],
                 ),
@@ -387,7 +385,7 @@ class _RoomScreenState extends State<RoomScreen> {
                       Icon(
                         Icons.accessibility,
                         size: 80,
-                        color: Colors.grey[400],
+                        color: colors.secondaryText,
                       ),
                       const SizedBox(height: 16),
                       Text(
@@ -432,7 +430,7 @@ class _RoomScreenState extends State<RoomScreen> {
           width: 40,
           height: 40,
           decoration: BoxDecoration(
-            color: colors.action.withOpacity(0.1),
+            color: colors.action.withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Icon(
@@ -449,35 +447,40 @@ class _RoomScreenState extends State<RoomScreen> {
         subtitle: Text(
           plant.latinName,
           style: textTheme.body.copyWith(
-            color: Colors.grey,
+            color: colors.secondaryText,
             fontSize: 14,
           ),
         ),
         trailing: IconButton(
-          icon: const Icon(Icons.delete_outline, color: Colors.red),
+          icon: Icon(Icons.delete_outline, color: colors.error),
           onPressed: () {
             showDialog(
               context: context,
-              builder: (context) => AlertDialog(
-                title: const Text('Удалить растение?'),
-                content: Text(
-                    'Вы уверены, что хотите удалить ${plant.customName ?? plant.latinName}?'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(context),
-                    child: const Text('Отмена'),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      gardenCubit.deletePlantFromGarden(plant.id.toString());
-                      roomPlantsCubit.loadRoomPlants(roomId: room?.id);
-                      Navigator.pop(context);
-                    },
-                    child: const Text('Удалить',
-                        style: TextStyle(color: Colors.red)),
-                  ),
-                ],
-              ),
+              builder: (dialogContext) {
+                final dialogColors = ZColorScheme.of(dialogContext);
+                return AlertDialog(
+                  title: const Text('Удалить растение?'),
+                  content: Text(
+                      'Вы уверены, что хотите удалить ${plant.customName ?? plant.latinName}?'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(dialogContext),
+                      child: const Text('Отмена'),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        gardenCubit.deletePlantFromGarden(plant.id.toString());
+                        roomPlantsCubit.loadRoomPlants(roomId: room?.id);
+                        Navigator.pop(dialogContext);
+                      },
+                      child: Text(
+                        'Удалить',
+                        style: TextStyle(color: dialogColors.error),
+                      ),
+                    ),
+                  ],
+                );
+              },
             );
           },
         ),
@@ -487,10 +490,11 @@ class _RoomScreenState extends State<RoomScreen> {
 
   void _showAddRoomBottomSheet(BuildContext context) {
     final roomsCubit = context.read<RoomsCubit>();
+    final sheetColors = ZColorScheme.of(context);
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Colors.white,
+      backgroundColor: sheetColors.surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
@@ -505,41 +509,46 @@ class _RoomScreenState extends State<RoomScreen> {
 
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Удаление комнаты'),
-        content: Text('Вы уверены, что хотите удалить комнату "${room.name}"?'),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: const Text('Отмена'),
-          ),
-          TextButton(
-            onPressed: () {
-              roomsCubit.deleteRoom(room.uuid);
-              setState(() {
-                _selectedRoom = null;
-              });
-              Navigator.of(context).pop();
-            },
-            style: TextButton.styleFrom(
-              foregroundColor: Colors.red,
+      builder: (dialogContext) {
+        final dialogColors = ZColorScheme.of(dialogContext);
+        return AlertDialog(
+          title: const Text('Удаление комнаты'),
+          content:
+              Text('Вы уверены, что хотите удалить комнату "${room.name}"?'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(dialogContext).pop();
+              },
+              child: const Text('Отмена'),
             ),
-            child: const Text('Удалить'),
-          ),
-        ],
-      ),
+            TextButton(
+              onPressed: () {
+                roomsCubit.deleteRoom(room.uuid);
+                setState(() {
+                  _selectedRoom = null;
+                });
+                Navigator.of(dialogContext).pop();
+              },
+              style: TextButton.styleFrom(
+                foregroundColor: dialogColors.error,
+              ),
+              child: const Text('Удалить'),
+            ),
+          ],
+        );
+      },
     );
   }
 }
 
 class _EmptyRoomsScreen extends StatelessWidget {
-  const _EmptyRoomsScreen({super.key});
+  const _EmptyRoomsScreen();
 
   @override
   Widget build(BuildContext context) {
     final textTheme = ZTypography.of(context);
+    final colors = ZColorScheme.of(context);
     return SliverToBoxAdapter(
       child: Center(
         child: Column(
@@ -548,7 +557,7 @@ class _EmptyRoomsScreen extends StatelessWidget {
             Icon(
               Icons.room_preferences_outlined,
               size: 80,
-              color: Colors.grey[400],
+              color: colors.secondaryText,
             ),
             const SizedBox(height: 16),
             Text(

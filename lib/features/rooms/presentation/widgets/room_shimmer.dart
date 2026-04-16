@@ -8,9 +8,13 @@ class RoomShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = ZColorScheme.of(context);
-    
+
+    final Color shimmerBase = Color.alphaBlend(
+      colors.secondaryText.withValues(alpha: 0.22),
+      colors.background,
+    );
     return Shimmer.fromColors(
-      baseColor: Colors.grey[300]!,
+      baseColor: shimmerBase,
       highlightColor: colors.surface,
       child: Column(
         children: [
@@ -26,7 +30,7 @@ class RoomShimmer extends StatelessWidget {
                   width: 100,
                   margin: const EdgeInsets.only(right: 10),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: colors.surface,
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
@@ -43,7 +47,7 @@ class RoomShimmer extends StatelessWidget {
                   height: 80,
                   margin: const EdgeInsets.only(bottom: 16),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: colors.surface,
                     borderRadius: BorderRadius.circular(16),
                   ),
                 ),
@@ -53,7 +57,7 @@ class RoomShimmer extends StatelessWidget {
                   height: 24,
                   margin: const EdgeInsets.only(bottom: 8),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: colors.surface,
                     borderRadius: BorderRadius.circular(4),
                   ),
                 ),
@@ -63,7 +67,7 @@ class RoomShimmer extends StatelessWidget {
                   height: 16,
                   margin: const EdgeInsets.only(bottom: 16),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: colors.surface,
                     borderRadius: BorderRadius.circular(4),
                   ),
                 ),
@@ -74,7 +78,7 @@ class RoomShimmer extends StatelessWidget {
                     height: 72,
                     margin: const EdgeInsets.only(bottom: 12),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: colors.surface,
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
@@ -86,4 +90,4 @@ class RoomShimmer extends StatelessWidget {
       ),
     );
   }
-} 
+}

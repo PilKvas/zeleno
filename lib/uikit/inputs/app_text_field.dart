@@ -101,9 +101,9 @@ class _ZTextFieldState extends State<ZTextField> {
 
   Widget? defineIcon() {
     if (_isObscured) {
-      return Icon(Icons.visibility);
+      return const Icon(Icons.visibility);
     } else {
-      return Icon(Icons.visibility_off);
+      return const Icon(Icons.visibility_off);
     }
   }
 
@@ -136,8 +136,8 @@ class _ZTextFieldState extends State<ZTextField> {
           color: colors.secondaryText,
         ),
         errorText: widget.errorText,
-        errorStyle: const TextStyle(
-          color: Colors.red,
+        errorStyle: TextStyle(
+          color: colors.error,
         ),
         filled: true,
         fillColor: widget.fillColor,

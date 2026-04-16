@@ -86,6 +86,7 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen>
                   ),
                 );
               } else {
+                final scheme = ZColorScheme.of(context);
                 return CustomScrollView(
                   slivers: [
                     SliverAppBar(
@@ -95,33 +96,35 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen>
                         },
                         child: Container(
                           margin: const EdgeInsets.only(left: 8),
-                          decoration: const BoxDecoration(
-                            color: Colors.white,
+                          decoration: BoxDecoration(
+                            color: scheme.surface,
                             shape: BoxShape.circle,
                           ),
-                          child: const Icon(
+                          child: Icon(
                             Icons.chevron_left,
-                            color: Colors.black,
+                            color: scheme.onSurface,
                           ),
                         ),
                       ),
                       actions: [
                         Container(
                           margin: const EdgeInsets.only(right: 8),
-                          decoration: const BoxDecoration(
-                            color: Colors.white,
+                          decoration: BoxDecoration(
+                            color: scheme.surface,
                             shape: BoxShape.circle,
                           ),
                           child: IconButton(
-                            icon: const Icon(Icons.favorite_border,
-                                color: Colors.black),
+                            icon: Icon(
+                              Icons.favorite_border,
+                              color: scheme.onSurface,
+                            ),
                             onPressed: () {},
                           ),
                         ),
                       ],
                       expandedHeight: 300,
                       pinned: true,
-                      backgroundColor: Colors.white,
+                      backgroundColor: scheme.surface,
                       flexibleSpace: FlexibleSpaceBar(
                         background: Image.network(
                           state.plantDetails?.imageUrl ?? '',
@@ -132,10 +135,10 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen>
                       bottom: PreferredSize(
                         preferredSize: const Size.fromHeight(0),
                         child: Container(
-                          decoration: const BoxDecoration(
-                            color: Colors.white,
-                            borderRadius:
-                                BorderRadius.vertical(top: Radius.circular(20)),
+                          decoration: BoxDecoration(
+                            color: scheme.surface,
+                            borderRadius: const BorderRadius.vertical(
+                                top: Radius.circular(20)),
                           ),
                           height: 20,
                         ),
@@ -143,7 +146,7 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen>
                     ),
                     SliverToBoxAdapter(
                       child: Container(
-                        color: Colors.white,
+                        color: scheme.surface,
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -156,9 +159,9 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen>
                             ),
                             const SizedBox(height: 8),
                             if (state.plantDetails
-                                        ?.commonNamesForLang('ru')
-                                        .isNotEmpty ==
-                                    true)
+                                    ?.commonNamesForLang('ru')
+                                    .isNotEmpty ==
+                                true)
                               SizedBox(
                                 height: 20,
                                 width: MediaQuery.of(context).size.width,
@@ -170,13 +173,13 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen>
                                     final String name = state.plantDetails!
                                         .commonNamesForLang('ru')[index];
                                     return Text(name,
-                                        style: textTheme.body
-                                            .copyWith(color: Colors.grey));
+                                        style: textTheme.body.copyWith(
+                                            color: scheme.secondaryText));
                                   },
                                   separatorBuilder: (context, index) => Text(
                                       ' • ',
-                                      style: textTheme.body
-                                          .copyWith(color: Colors.grey)),
+                                      style: textTheme.body.copyWith(
+                                          color: scheme.secondaryText)),
                                   itemCount: state.plantDetails!
                                       .commonNamesForLang('ru')
                                       .length,
@@ -191,7 +194,7 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen>
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: colors.action,
-                                foregroundColor: Colors.white,
+                                foregroundColor: colors.onAction,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8),
                                 ),
@@ -204,24 +207,28 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen>
                             const SizedBox(height: 16),
                             Container(
                               decoration: BoxDecoration(
-                                color: const Color(0xFFF8F8FC),
+                                color: Color.alphaBlend(
+                                  scheme.secondaryText.withValues(alpha: 0.08),
+                                  scheme.background,
+                                ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               padding: const EdgeInsets.symmetric(
                                   vertical: 4, horizontal: 4),
                               child: TabBar(
                                 controller: _tabController,
-                                labelColor: Colors.black,
-                                unselectedLabelColor: Colors.grey,
+                                labelColor: scheme.onBackground,
+                                unselectedLabelColor: scheme.secondaryText,
                                 indicatorSize: TabBarIndicatorSize.tab,
                                 dividerColor: Colors.transparent,
                                 indicatorColor: Colors.transparent,
                                 indicator: BoxDecoration(
-                                  color: Colors.white,
+                                  color: scheme.surface,
                                   borderRadius: BorderRadius.circular(8),
                                   boxShadow: [
                                     BoxShadow(
-                                      color: Colors.black.withOpacity(0.05),
+                                      color: scheme.onSurface
+                                          .withValues(alpha: 0.06),
                                       blurRadius: 4,
                                       offset: const Offset(0, 2),
                                     ),
@@ -382,9 +389,10 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen>
 
     _gardenCubit.loadRooms();
 
+    final sheetColors = ZColorScheme.of(context);
     showModalBottomSheet(
       context: context,
-      backgroundColor: Colors.white,
+      backgroundColor: sheetColors.surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),

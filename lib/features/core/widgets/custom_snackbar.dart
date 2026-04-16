@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zeleno_v2/uikit/theme/color_theme.dart';
 
 enum SnackBarType { error, success, info }
 
@@ -9,23 +10,26 @@ class CustomSnackBar {
     SnackBarType type = SnackBarType.info,
     Duration duration = const Duration(seconds: 3),
   }) {
+    final ZColorScheme colors = ZColorScheme.of(context);
+    final Color backgroundColor = _backgroundColorForType(type, colors);
+    final Color contentColor = _contentColorForType(type, colors);
     final snackBar = SnackBar(
       content: Row(
         children: [
           Icon(
             _getIconForType(type),
-            color: Colors.white,
+            color: contentColor,
           ),
           const SizedBox(width: 16),
           Expanded(
             child: Text(
               message,
-              style: const TextStyle(color: Colors.white),
+              style: TextStyle(color: contentColor),
             ),
           ),
         ],
       ),
-      backgroundColor: _getColorForType(type),
+      backgroundColor: backgroundColor,
       behavior: SnackBarBehavior.floating,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
@@ -34,7 +38,7 @@ class CustomSnackBar {
       duration: duration,
       action: SnackBarAction(
         label: 'Закрыть',
-        textColor: Colors.white,
+        textColor: contentColor,
         onPressed: () {
           ScaffoldMessenger.of(context).hideCurrentSnackBar();
         },
@@ -55,14 +59,28 @@ class CustomSnackBar {
     }
   }
 
-  static Color _getColorForType(SnackBarType type) {
+  static Color _backgroundColorForType(
+    SnackBarType type,
+    ZColorScheme colors,
+  ) {
     switch (type) {
       case SnackBarType.error:
-        return Colors.redAccent;
+        return colors.error;
       case SnackBarType.success:
-        return Colors.green;
+        return colors.actionSecondary;
       case SnackBarType.info:
-        return Colors.blue;
+        return colors.action;
+    }
+  }
+
+  static Color _contentColorForType(SnackBarType type, ZColorScheme colors) {
+    switch (type) {
+      case SnackBarType.error:
+        return colors.onError;
+      case SnackBarType.success:
+        return colors.onActionSecondary;
+      case SnackBarType.info:
+        return colors.onAction;
     }
   }
 }

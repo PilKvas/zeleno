@@ -63,7 +63,7 @@ class _AddRoomBottomSheetState extends State<AddRoomBottomSheet> {
                   width: 40,
                   height: 5,
                   decoration: BoxDecoration(
-                    color: Colors.grey[300],
+                    color: colors.secondaryText.withValues(alpha: 0.35),
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
@@ -75,7 +75,7 @@ class _AddRoomBottomSheetState extends State<AddRoomBottomSheet> {
               // Name field
               ZTextField(
                 controller: _nameController,
-                fillColor: const Color.fromRGBO(248, 248, 252, 1),
+                fillColor: colors.surface,
                 hintText: 'Название комнаты *',
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -91,7 +91,7 @@ class _AddRoomBottomSheetState extends State<AddRoomBottomSheet> {
                 controller: _descriptionController,
                 hintText: "Описание",
                 maxLines: 3,
-                fillColor: const Color.fromRGBO(248, 248, 252, 1),
+                fillColor: colors.surface,
               ),
               const SizedBox(height: 16),
 
@@ -104,7 +104,7 @@ class _AddRoomBottomSheetState extends State<AddRoomBottomSheet> {
                   ),
                 ),
                 decoration: InputDecoration(
-                  fillColor: const Color.fromRGBO(248, 248, 252, 1),
+                  fillColor: colors.surface,
                   isDense: true,
                   filled: true,
                   border: OutlineInputBorder(
@@ -112,7 +112,7 @@ class _AddRoomBottomSheetState extends State<AddRoomBottomSheet> {
                     borderSide: BorderSide.none,
                   ),
                 ),
-                value: _selectedHemisphere,
+                initialValue: _selectedHemisphere,
                 items: _hemispheres.map((hemisphere) {
                   return DropdownMenuItem(
                     value: hemisphere,
@@ -136,7 +136,7 @@ class _AddRoomBottomSheetState extends State<AddRoomBottomSheet> {
                   ),
                 ),
                 decoration: InputDecoration(
-                  fillColor: const Color.fromRGBO(248, 248, 252, 1),
+                  fillColor: colors.surface,
                   isDense: true,
                   filled: true,
                   border: OutlineInputBorder(
@@ -144,7 +144,7 @@ class _AddRoomBottomSheetState extends State<AddRoomBottomSheet> {
                     borderSide: BorderSide.none,
                   ),
                 ),
-                value: _selectedWindowSide,
+                initialValue: _selectedWindowSide,
                 items: _windowSides.map((side) {
                   return DropdownMenuItem(
                     value: side,
@@ -166,7 +166,7 @@ class _AddRoomBottomSheetState extends State<AddRoomBottomSheet> {
                 min: 0,
                 max: 40,
                 divisions: 100,
-                inactiveColor: const Color.fromRGBO(248, 248, 252, 1),
+                inactiveColor: colors.surface,
                 activeColor: colors.action,
                 label: _temperature?.toString() ?? "",
                 onChanged: (double value) {
@@ -184,7 +184,7 @@ class _AddRoomBottomSheetState extends State<AddRoomBottomSheet> {
                 min: 0,
                 max: 100,
                 divisions: 100,
-                inactiveColor: const Color.fromRGBO(248, 248, 252, 1),
+                inactiveColor: colors.surface,
                 activeColor: colors.action,
                 label: _humidity?.toString() ?? "",
                 onChanged: (double value) {

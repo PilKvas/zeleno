@@ -22,7 +22,7 @@ final class ZColorScheme extends ThemeExtension<ZColorScheme> {
     this.brightness = Brightness.light,
     this.brand = const Color(0xFF000000),
     this.onBrand = const Color(0xFFFFFFFF),
-    this.background = const Color(0xFFFFFFFF),
+    this.background = const Color(0xFFF8F8FC),
     this.onBackground = const Color(0xFF000000),
     this.surface = const Color(0xFFFFFFFF),
     this.onSurface = const Color(0xFF000000),
@@ -31,6 +31,8 @@ final class ZColorScheme extends ThemeExtension<ZColorScheme> {
     this.actionSecondary = const Color(0xFF8EAD9A),
     this.onActionSecondary = const Color(0xFFFFFFFF),
     this.secondaryText = const Color(0xFF6F6F6F),
+    this.error = const Color(0xFFB3261E),
+    this.onError = const Color(0xFFFFFFFF),
   });
 
   /// Basic dark scheme.
@@ -47,6 +49,8 @@ final class ZColorScheme extends ThemeExtension<ZColorScheme> {
     this.actionSecondary = const Color(0xFF9BC4A8),
     this.onActionSecondary = const Color(0xFF121212),
     this.secondaryText = const Color(0xFFB0B0B0),
+    this.error = const Color(0xFFFFB4AB),
+    this.onError = const Color(0xFF601410),
   });
 
   const ZColorScheme({
@@ -62,6 +66,8 @@ final class ZColorScheme extends ThemeExtension<ZColorScheme> {
     required this.actionSecondary,
     required this.onActionSecondary,
     required this.secondaryText,
+    required this.error,
+    required this.onError,
   });
 
   final Brightness brightness;
@@ -83,6 +89,10 @@ final class ZColorScheme extends ThemeExtension<ZColorScheme> {
 
   final Color secondaryText;
 
+  final Color error;
+
+  final Color onError;
+
   @override
   ThemeExtension<ZColorScheme> copyWith({
     Brightness? brightness,
@@ -97,6 +107,8 @@ final class ZColorScheme extends ThemeExtension<ZColorScheme> {
     Color? actionSecondary,
     Color? onActionSecondary,
     Color? secondaryText,
+    Color? error,
+    Color? onError,
   }) {
     return ZColorScheme(
       brightness: brightness ?? this.brightness,
@@ -111,6 +123,8 @@ final class ZColorScheme extends ThemeExtension<ZColorScheme> {
       actionSecondary: actionSecondary ?? this.actionSecondary,
       onActionSecondary: onActionSecondary ?? this.onActionSecondary,
       secondaryText: secondaryText ?? this.secondaryText,
+      error: error ?? this.error,
+      onError: onError ?? this.onError,
     );
   }
 
@@ -135,6 +149,8 @@ final class ZColorScheme extends ThemeExtension<ZColorScheme> {
         actionSecondary: Color.lerp(actionSecondary, other.actionSecondary, t),
         onActionSecondary:
             Color.lerp(onActionSecondary, other.onActionSecondary, t),
-        secondaryText: Color.lerp(secondaryText, other.secondaryText, t));
+        secondaryText: Color.lerp(secondaryText, other.secondaryText, t),
+        error: Color.lerp(error, other.error, t),
+        onError: Color.lerp(onError, other.onError, t));
   }
 }

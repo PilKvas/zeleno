@@ -71,7 +71,11 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
   }
 
   Widget _buildShimmerItem(BuildContext context) {
-    final color = ZColorScheme.of(context);
+    final ZColorScheme colors = ZColorScheme.of(context);
+    final Color shimmerBase = Color.alphaBlend(
+      colors.secondaryText.withValues(alpha: 0.22),
+      colors.background,
+    );
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Container(
@@ -82,8 +86,8 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Shimmer.fromColors(
-              baseColor: Colors.grey,
-              highlightColor: color.surface,
+              baseColor: shimmerBase,
+              highlightColor: colors.surface,
               child: ClipRRect(
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(10),
@@ -92,8 +96,8 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
                 child: Container(
                   height: 171,
                   width: 136,
-                  decoration: const BoxDecoration(
-                    color: Colors.grey,
+                  decoration: BoxDecoration(
+                    color: shimmerBase,
                   ),
                 ),
               ),
@@ -104,13 +108,13 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Shimmer.fromColors(
-                    baseColor: Colors.grey,
-                    highlightColor: color.surface,
+                    baseColor: shimmerBase,
+                    highlightColor: colors.surface,
                     child: Container(
                       width: double.infinity,
                       height: 20,
                       decoration: BoxDecoration(
-                        color: color.onBrand,
+                        color: colors.onBrand,
                         borderRadius: BorderRadius.circular(4),
                       ),
                     ),
@@ -118,13 +122,13 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
                   const SizedBox(height: 8),
                   // Shimmer for subtitle
                   Shimmer.fromColors(
-                    baseColor: Colors.grey,
-                    highlightColor: color.surface,
+                    baseColor: shimmerBase,
+                    highlightColor: colors.surface,
                     child: Container(
                       width: 150,
                       height: 16,
                       decoration: BoxDecoration(
-                        color: color.action,
+                        color: colors.action,
                         borderRadius: BorderRadius.circular(4),
                       ),
                     ),
@@ -153,7 +157,7 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final color = ZColorScheme.of(context);
+    final ZColorScheme colors = ZColorScheme.of(context);
     return SafeArea(
       child: Scaffold(
         body: BlocProvider<PlantSearchBloc>(
@@ -182,13 +186,13 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
                               bottom: PreferredSize(
                                 preferredSize: const Size.fromHeight(4.0),
                                 child: Container(
-                                  color: color.action,
+                                  color: colors.action,
                                   height: 1,
                                 ),
                               ),
                               flexibleSpace: FlexibleSpaceBar(
                                 background: Container(
-                                  color: color.background,
+                                  color: colors.background,
                                 ),
                               ),
                               title: Row(
@@ -197,8 +201,7 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
                                     child: AppSearchField(
                                       onChanged: (text) => onSearch(text, bloc),
                                       hintText: 'Поиск',
-                                      fillColor: const Color.fromRGBO(
-                                          248, 248, 252, 1),
+                                      fillColor: colors.surface,
                                     ),
                                   ),
                                   Padding(
@@ -224,10 +227,8 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
                                             Icons.filter_list,
                                             color:
                                                 state.filters.hasActiveFilters
-                                                    ? Theme.of(context)
-                                                        .colorScheme
-                                                        .primary
-                                                    : null,
+                                                    ? colors.action
+                                                    : colors.onBackground,
                                           ),
                                         );
                                       },
