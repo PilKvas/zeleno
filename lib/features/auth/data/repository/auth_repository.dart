@@ -3,6 +3,9 @@ import 'dart:async';
 import 'package:zeleno_v2/features/auth/data/persistence/storage/tokens_storage/i_tokens_storage.dart';
 import 'package:zeleno_v2/features/auth/data/service/auth_service.dart';
 import 'package:zeleno_v2/features/auth/domain/model/auth_model.dart';
+import 'package:zeleno_v2/features/auth/domain/model/password_reset_confirm_model.dart';
+import 'package:zeleno_v2/features/auth/domain/model/password_reset_request_model.dart';
+import 'package:zeleno_v2/features/auth/domain/model/password_reset_verify_model.dart';
 import 'package:zeleno_v2/features/auth/domain/model/auth_status.dart';
 import 'package:zeleno_v2/features/auth/domain/model/token_model.dart';
 import 'package:zeleno_v2/features/auth/domain/repository/i_auth_repository.dart';
@@ -32,6 +35,37 @@ class AuthRepository implements IAuthRepository {
     _tokensStorage.saveTokens(response);
     _controller.add(AuthStatus.authenticated);
     return response;
+  }
+
+  @override
+  Future<void> requestPasswordReset({required String email}) {
+    return _authService.requestPasswordReset(
+      payload: PasswordResetRequestModel(email: email),
+    );
+  }
+
+  @override
+  Future<String> verifyPasswordResetOtp({
+    required String email,
+    required String otp,
+  }) async {
+    final response = await _authService.verifyPasswordResetOtp(
+      payload: PasswordResetVerifyModel(email: email, otp: otp),
+    );
+    return response.token;
+  }
+
+  @override
+  Future<void> confirmPasswordReset({
+    required String token,
+    required String newPassword,
+  }) {
+    return _authService.confirmPasswordReset(
+      payload: PasswordResetConfirmModel(
+        token: token,
+        newPassword: newPassword,
+      ),
+    );
   }
 
   @override

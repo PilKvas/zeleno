@@ -467,7 +467,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get filtersSheetHeightRange => 'Диапазон роста (см)';
 
   @override
-  String filtersSheetHeightCm(String value) => '$value см';
+  String filtersSheetHeightCm(String value) {
+    return '$value см';
+  }
 
   @override
   String get filtersSheetApply => 'Применить';

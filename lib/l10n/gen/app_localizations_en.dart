@@ -467,7 +467,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get filtersSheetHeightRange => 'Height range (cm)';
 
   @override
-  String filtersSheetHeightCm(String value) => '$value cm';
+  String filtersSheetHeightCm(String value) {
+    return '$value cm';
+  }
 
   @override
   String get filtersSheetApply => 'Apply';

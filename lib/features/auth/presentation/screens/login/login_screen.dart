@@ -139,6 +139,12 @@ class _LoginFormState extends State<_LoginForm> {
                 hintText: l10n.passwordHint,
                 validator: Validator.password(l10n),
               ),
+              const SizedBox(height: 10),
+              _ForgotPasswordLink(
+                textTheme: textTheme,
+                colors: colors,
+                l10n: l10n,
+              ),
               const SizedBox(height: 44),
               BlocBuilder<LoginCubit, LoginState>(
                 builder: (context, state) {
@@ -175,6 +181,35 @@ class _LoginFormState extends State<_LoginForm> {
             password: _passwordController.text,
           );
     }
+  }
+}
+
+class _ForgotPasswordLink extends StatelessWidget {
+  const _ForgotPasswordLink({
+    required this.textTheme,
+    required this.colors,
+    required this.l10n,
+  });
+
+  final ZTypography textTheme;
+  final ZColorScheme colors;
+  final AppLocalizations l10n;
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.centerRight,
+      child: GestureDetector(
+        onTap: () => context.router.push(const PasswordResetRequestRoute()),
+        child: Text(
+          l10n.forgotPasswordAction,
+          style: textTheme.body.copyWith(
+            color: colors.actionSecondary,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+    );
   }
 }
 

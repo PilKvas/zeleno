@@ -13,6 +13,20 @@ abstract class IAuthRepository {
     required AuthModel authModel,
   });
 
+  Future<void> requestPasswordReset({
+    required String email,
+  });
+
+  Future<String> verifyPasswordResetOtp({
+    required String email,
+    required String otp,
+  });
+
+  Future<void> confirmPasswordReset({
+    required String token,
+    required String newPassword,
+  });
+
   Future<void> signOut();
 
   Future<bool> hasValidTokens();

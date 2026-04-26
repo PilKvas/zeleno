@@ -1,0 +1,7 @@
+targets:
+  $default:
+    builders:
+      retrofit_generator:
+        options:
+          # Ensure no conflicts with other generators
+          format_output: false

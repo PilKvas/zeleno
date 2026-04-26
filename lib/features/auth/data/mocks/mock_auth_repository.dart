@@ -29,6 +29,28 @@ class MockAuthRepository implements IAuthRepository {
   }
 
   @override
+  Future<void> requestPasswordReset({required String email}) async {
+    await Future.delayed(const Duration(milliseconds: 500));
+  }
+
+  @override
+  Future<String> verifyPasswordResetOtp({
+    required String email,
+    required String otp,
+  }) async {
+    await Future.delayed(const Duration(milliseconds: 500));
+    return 'mock-reset-token';
+  }
+
+  @override
+  Future<void> confirmPasswordReset({
+    required String token,
+    required String newPassword,
+  }) async {
+    await Future.delayed(const Duration(milliseconds: 500));
+  }
+
+  @override
   Future<void> signOut() async {}
 
   @override
