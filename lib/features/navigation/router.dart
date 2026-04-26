@@ -50,6 +50,15 @@ class AppRouter extends RootStackRouter {
                   page: RegistrationRoute.page,
                 ),
                 AutoRoute(
+                  page: PasswordResetRequestRoute.page,
+                ),
+                AutoRoute(
+                  page: PasswordResetVerifyRoute.page,
+                ),
+                AutoRoute(
+                  page: PasswordResetConfirmRoute.page,
+                ),
+                AutoRoute(
                   page: ProfileRoute.page,
                   type: _noTransition,
                 ),
