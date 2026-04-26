@@ -15,11 +15,15 @@ class PlantSearchRepository implements IPlantSearchRepository {
     required int page,
     String? name,
     int? pageSize,
+    String? soilMoisture,
+    String? soilPh,
   }) async {
     final response = await _plantSearchService.getPlants(
       page: page,
       name: name,
       pageSize: pageSize,
+      soilMoisture: soilMoisture,
+      soilPh: soilPh,
     );
 
     return PaginationWrapper(

@@ -372,6 +372,47 @@ class AppLocalizationsEn extends AppLocalizations {
   String get loginAction => 'Войдите!';
 
   @override
+  String get forgotPasswordAction => 'Забыли пароль?';
+
+  @override
+  String get forgotPasswordTitle => 'Восстановление пароля';
+
+  @override
+  String get forgotPasswordEmailDescription =>
+      'Введите email, мы отправим код подтверждения.';
+
+  @override
+  String get forgotPasswordCodeTitle => 'Введите код';
+
+  @override
+  String forgotPasswordCodeDescription(String email) {
+    return 'Введите одноразовый код из письма, отправленного на $email.';
+  }
+
+  @override
+  String get forgotPasswordOtpHint => 'Код из письма';
+
+  @override
+  String get forgotPasswordOtpEmptyError => 'Введите код из письма';
+
+  @override
+  String get forgotPasswordOtpLengthError => 'Код должен содержать 6 цифр';
+
+  @override
+  String get forgotPasswordNewPasswordTitle => 'Новый пароль';
+
+  @override
+  String get forgotPasswordNewPasswordDescription =>
+      'Укажите новый пароль для вашего аккаунта.';
+
+  @override
+  String get forgotPasswordConfirmAction => 'Сохранить пароль';
+
+  @override
+  String get forgotPasswordSuccess =>
+      'Пароль успешно изменен. Войдите с новым паролем.';
+
+  @override
   String get loginError => 'Ошибка входа';
 
   @override
@@ -406,4 +447,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get unknownRegistrationError => 'Произошла ошибка при регистрации';
+
+  @override
+  String get filtersSheetTitle => 'Filters';
+
+  @override
+  String get filtersSheetReset => 'Reset';
+
+  @override
+  String get filtersSheetLoadError => 'Failed to load filter values';
+
+  @override
+  String get filtersSheetMoisture => 'Moisture:';
+
+  @override
+  String get filtersSheetPh => 'Acidity:';
+
+  @override
+  String get filtersSheetHeightRange => 'Height range (cm)';
+
+  @override
+  String filtersSheetHeightCm(String value) => '$value cm';
+
+  @override
+  String get filtersSheetApply => 'Apply';
 }

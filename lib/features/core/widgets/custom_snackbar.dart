@@ -8,7 +8,7 @@ class CustomSnackBar {
     required BuildContext context,
     required String message,
     SnackBarType type = SnackBarType.info,
-    Duration duration = const Duration(seconds: 3),
+    Duration duration = const Duration(seconds: 5),
   }) {
     final ZColorScheme colors = ZColorScheme.of(context);
     final Color backgroundColor = _backgroundColorForType(type, colors);

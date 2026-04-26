@@ -214,6 +214,25 @@
   "registerButton": "Зарегистрироваться",
   "alreadyHaveAccountQuestion": "Уже есть аккаунт?",
   "loginAction": "Войдите!",
+  "forgotPasswordAction": "Забыли пароль?",
+  "forgotPasswordTitle": "Восстановление пароля",
+  "forgotPasswordEmailDescription": "Введите email, мы отправим код подтверждения.",
+  "forgotPasswordCodeTitle": "Введите код",
+  "forgotPasswordCodeDescription": "Введите одноразовый код из письма, отправленного на {email}.",
+  "@forgotPasswordCodeDescription": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "forgotPasswordOtpHint": "Код из письма",
+  "forgotPasswordOtpEmptyError": "Введите код из письма",
+  "forgotPasswordOtpLengthError": "Код должен содержать 6 цифр",
+  "forgotPasswordNewPasswordTitle": "Новый пароль",
+  "forgotPasswordNewPasswordDescription": "Укажите новый пароль для вашего аккаунта.",
+  "forgotPasswordConfirmAction": "Сохранить пароль",
+  "forgotPasswordSuccess": "Пароль успешно изменен. Войдите с новым паролем.",
   "loginError": "Ошибка входа",
   "invalidCredentialsError": "Неверное имя пользователя или пароль",
   "badRequestError": "Некорректные данные для входа",
@@ -224,5 +243,25 @@
   "usernameAlreadyExists": "Пользователь с таким именем уже существует",
   "emailAlreadyExists": "Пользователь с таким email уже существует",
   "badRequestRegistrationError": "Некорректные данные для регистрации",
-  "unknownRegistrationError": "Произошла ошибка при регистрации"
+  "unknownRegistrationError": "Произошла ошибка при регистрации",
+
+  "@segmentPlantFilters": {
+    "---------": "---------",
+    "description": "Plant filters sheet"
+  },
+  "filtersSheetTitle": "Фильтры",
+  "filtersSheetReset": "Сбросить",
+  "filtersSheetLoadError": "Не удалось загрузить значения фильтров",
+  "filtersSheetMoisture": "Влажность:",
+  "filtersSheetPh": "Кислотность:",
+  "filtersSheetHeightRange": "Диапазон роста (см)",
+  "filtersSheetHeightCm": "{value} см",
+  "@filtersSheetHeightCm": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "filtersSheetApply": "Применить"
 }

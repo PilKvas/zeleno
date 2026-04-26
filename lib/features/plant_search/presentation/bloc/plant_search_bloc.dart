@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:zeleno_v2/features/core/enums/status.dart';
-import 'package:zeleno_v2/features/plant_search/domain/models/plant_search_filters.dart';
+import 'package:zeleno_v2/features/plant_filters/domain/models/plant_search_filters.dart';
 import 'package:zeleno_v2/features/plant_search/domain/models/plant_search_item.dart';
 import 'package:zeleno_v2/features/plant_search/domain/usecases/plants_search_usecase.dart';
 
@@ -32,37 +32,30 @@ class PlantSearchBloc extends Bloc<PlantSearchEvent, PlantSearchState> {
 
         if (event.refresh) page = 1;
 
+        final String? nextName = event.name ?? state.name;
+        final PlantSearchFilters nextFilters = event.filters ??
+            state.filters.copyWith(searchQuery: nextName);
+
         final plantList = await _plantsSearchUsecase.loadPlants(
           page: page,
-          name: event.name ?? state.name,
+          name: nextName,
           pageSize: 20,
+          soilMoisture: nextFilters.soilMoisture,
+          soilPh: nextFilters.soilPh,
         );
 
         emit(
           state.copyWith(
               status: Status.success,
               items: event.refresh ? plantList : [...state.items, ...plantList],
-              name: event.name ?? state.name,
+              name: nextName,
+              filters: nextFilters,
               hasReachedEnd:
                   plantList.length < 20 // TODO(darbinyan): Вынести в константы,
               ),
         );
       },
       transformer: droppable(),
-    );
-
-    on<_ApplyFilters>(
-      (event, emit) {
-        emit(state.copyWith(filters: event.filters));
-        add(const PlantSearchEvent.loadPlantList(refresh: true));
-      },
-    );
-
-    on<_ClearFilters>(
-      (event, emit) {
-        emit(state.copyWith(filters: const PlantSearchFilters()));
-        add(const PlantSearchEvent.loadPlantList(refresh: true));
-      },
     );
   }
 }

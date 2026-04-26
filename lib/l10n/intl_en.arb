@@ -1,1 +1,18 @@
-{}
+{
+  "@@locale": "en",
+  "filtersSheetTitle": "Filters",
+  "filtersSheetReset": "Reset",
+  "filtersSheetLoadError": "Failed to load filter values",
+  "filtersSheetMoisture": "Moisture:",
+  "filtersSheetPh": "Acidity:",
+  "filtersSheetHeightRange": "Height range (cm)",
+  "filtersSheetHeightCm": "{value} cm",
+  "@filtersSheetHeightCm": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "filtersSheetApply": "Apply"
+}

@@ -4,6 +4,7 @@ import 'package:zeleno_v2/data/network/error_response_parser.dart';
 import 'package:zeleno_v2/data/network/exeptions/exeptions.dart';
 import 'package:zeleno_v2/features/auth/data/persistence/storage/tokens_storage/i_tokens_storage.dart';
 import 'package:zeleno_v2/features/auth/domain/model/token_model.dart';
+import 'package:zeleno_v2/features/auth/domain/repository/i_auth_repository.dart';
 import 'package:zeleno_v2/features/auth/domain/repository/i_refresh_repository.dart';
 
 class MiddlewareInterceptor extends Interceptor {
@@ -11,12 +12,14 @@ class MiddlewareInterceptor extends Interceptor {
     required this.dio,
     required this.tokensStorage,
     required this.refreshRepository,
+    required this.authRepository,
     required this.connectivityChecker,
   });
 
   final Dio dio;
   final ITokensStorage tokensStorage;
   final IRefreshRepository refreshRepository;
+  final IAuthRepository authRepository;
   final IConnectivityChecker connectivityChecker;
 
   Future<TokenModel?>? _refreshFuture;
@@ -25,7 +28,7 @@ class MiddlewareInterceptor extends Interceptor {
     RequestOptions options,
     ErrorInterceptorHandler handler,
   ) async {
-    await tokensStorage.clear();
+    await authRepository.signOut();
     handler.reject(Unauthorized(requestOptions: options));
   }
 

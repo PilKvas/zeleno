@@ -372,6 +372,47 @@ class AppLocalizationsRu extends AppLocalizations {
   String get loginAction => 'Войдите!';
 
   @override
+  String get forgotPasswordAction => 'Забыли пароль?';
+
+  @override
+  String get forgotPasswordTitle => 'Восстановление пароля';
+
+  @override
+  String get forgotPasswordEmailDescription =>
+      'Введите email, мы отправим код подтверждения.';
+
+  @override
+  String get forgotPasswordCodeTitle => 'Введите код';
+
+  @override
+  String forgotPasswordCodeDescription(String email) {
+    return 'Введите одноразовый код из письма, отправленного на $email.';
+  }
+
+  @override
+  String get forgotPasswordOtpHint => 'Код из письма';
+
+  @override
+  String get forgotPasswordOtpEmptyError => 'Введите код из письма';
+
+  @override
+  String get forgotPasswordOtpLengthError => 'Код должен содержать 6 цифр';
+
+  @override
+  String get forgotPasswordNewPasswordTitle => 'Новый пароль';
+
+  @override
+  String get forgotPasswordNewPasswordDescription =>
+      'Укажите новый пароль для вашего аккаунта.';
+
+  @override
+  String get forgotPasswordConfirmAction => 'Сохранить пароль';
+
+  @override
+  String get forgotPasswordSuccess =>
+      'Пароль успешно изменен. Войдите с новым паролем.';
+
+  @override
   String get loginError => 'Ошибка входа';
 
   @override
@@ -406,4 +447,28 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get unknownRegistrationError => 'Произошла ошибка при регистрации';
+
+  @override
+  String get filtersSheetTitle => 'Фильтры';
+
+  @override
+  String get filtersSheetReset => 'Сбросить';
+
+  @override
+  String get filtersSheetLoadError => 'Не удалось загрузить значения фильтров';
+
+  @override
+  String get filtersSheetMoisture => 'Влажность:';
+
+  @override
+  String get filtersSheetPh => 'Кислотность:';
+
+  @override
+  String get filtersSheetHeightRange => 'Диапазон роста (см)';
+
+  @override
+  String filtersSheetHeightCm(String value) => '$value см';
+
+  @override
+  String get filtersSheetApply => 'Применить';
 }

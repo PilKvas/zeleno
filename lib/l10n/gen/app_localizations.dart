@@ -746,6 +746,78 @@ abstract class AppLocalizations {
   /// **'Войдите!'**
   String get loginAction;
 
+  /// No description provided for @forgotPasswordAction.
+  ///
+  /// In ru, this message translates to:
+  /// **'Забыли пароль?'**
+  String get forgotPasswordAction;
+
+  /// No description provided for @forgotPasswordTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Восстановление пароля'**
+  String get forgotPasswordTitle;
+
+  /// No description provided for @forgotPasswordEmailDescription.
+  ///
+  /// In ru, this message translates to:
+  /// **'Введите email, мы отправим код подтверждения.'**
+  String get forgotPasswordEmailDescription;
+
+  /// No description provided for @forgotPasswordCodeTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Введите код'**
+  String get forgotPasswordCodeTitle;
+
+  /// No description provided for @forgotPasswordCodeDescription.
+  ///
+  /// In ru, this message translates to:
+  /// **'Введите одноразовый код из письма, отправленного на {email}.'**
+  String forgotPasswordCodeDescription(String email);
+
+  /// No description provided for @forgotPasswordOtpHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Код из письма'**
+  String get forgotPasswordOtpHint;
+
+  /// No description provided for @forgotPasswordOtpEmptyError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Введите код из письма'**
+  String get forgotPasswordOtpEmptyError;
+
+  /// No description provided for @forgotPasswordOtpLengthError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Код должен содержать 6 цифр'**
+  String get forgotPasswordOtpLengthError;
+
+  /// No description provided for @forgotPasswordNewPasswordTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Новый пароль'**
+  String get forgotPasswordNewPasswordTitle;
+
+  /// No description provided for @forgotPasswordNewPasswordDescription.
+  ///
+  /// In ru, this message translates to:
+  /// **'Укажите новый пароль для вашего аккаунта.'**
+  String get forgotPasswordNewPasswordDescription;
+
+  /// No description provided for @forgotPasswordConfirmAction.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранить пароль'**
+  String get forgotPasswordConfirmAction;
+
+  /// No description provided for @forgotPasswordSuccess.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пароль успешно изменен. Войдите с новым паролем.'**
+  String get forgotPasswordSuccess;
+
   /// No description provided for @loginError.
   ///
   /// In ru, this message translates to:
@@ -811,6 +883,54 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'Произошла ошибка при регистрации'**
   String get unknownRegistrationError;
+
+  /// No description provided for @filtersSheetTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Фильтры'**
+  String get filtersSheetTitle;
+
+  /// No description provided for @filtersSheetReset.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сбросить'**
+  String get filtersSheetReset;
+
+  /// No description provided for @filtersSheetLoadError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Не удалось загрузить значения фильтров'**
+  String get filtersSheetLoadError;
+
+  /// No description provided for @filtersSheetMoisture.
+  ///
+  /// In ru, this message translates to:
+  /// **'Влажность:'**
+  String get filtersSheetMoisture;
+
+  /// No description provided for @filtersSheetPh.
+  ///
+  /// In ru, this message translates to:
+  /// **'Кислотность:'**
+  String get filtersSheetPh;
+
+  /// No description provided for @filtersSheetHeightRange.
+  ///
+  /// In ru, this message translates to:
+  /// **'Диапазон роста (см)'**
+  String get filtersSheetHeightRange;
+
+  /// No description provided for @filtersSheetHeightCm.
+  ///
+  /// In ru, this message translates to:
+  /// **'{value} см'**
+  String filtersSheetHeightCm(String value);
+
+  /// No description provided for @filtersSheetApply.
+  ///
+  /// In ru, this message translates to:
+  /// **'Применить'**
+  String get filtersSheetApply;
 }
 
 class _AppLocalizationsDelegate

@@ -20,6 +20,10 @@ import 'package:zeleno_v2/features/auth/domain/repository/i_refresh_repository.d
 import 'package:zeleno_v2/features/plant_details/data/repository/plant_details_repository.dart';
 import 'package:zeleno_v2/features/plant_details/data/service/plant_details_service.dart';
 import 'package:zeleno_v2/features/plant_details/domain/reposiotory/i_plant_details_repository.dart';
+import 'package:zeleno_v2/features/plant_filters/data/repository/plant_filters_repository.dart';
+import 'package:zeleno_v2/features/plant_filters/data/service/plant_filters_service.dart';
+import 'package:zeleno_v2/features/plant_filters/domain/repository/i_plant_filters_repository.dart';
+import 'package:zeleno_v2/features/plant_filters/domain/usecases/plant_filters_usecase.dart';
 import 'package:zeleno_v2/features/plant_search/data/repository/plant_search_repository.dart';
 import 'package:zeleno_v2/features/plant_search/data/service/plant_search_service.dart';
 import 'package:zeleno_v2/features/plant_search/domain/repository/i_plant_search_repository.dart';
@@ -69,6 +73,9 @@ Future<void> initializeDependencies() async {
     ..registerLazySingleton<PlantSearchService>(
       () => PlantSearchService(dio),
     )
+    ..registerLazySingleton<PlantFiltersService>(
+      () => PlantFiltersService(dio),
+    )
     ..registerLazySingleton<PlantDetailsService>(
       () => PlantDetailsService(dio),
     )
@@ -88,6 +95,9 @@ Future<void> initializeDependencies() async {
     )
     ..registerLazySingleton<IPlantSearchRepository>(
       () => PlantSearchRepository(plantSearchService: injection()),
+    )
+    ..registerLazySingleton<IPlantFiltersRepository>(
+      () => PlantFiltersRepository(plantFiltersService: injection()),
     )
     ..registerLazySingleton<IAuthRepository>(
       () => AuthRepository(
@@ -118,11 +128,16 @@ Future<void> initializeDependencies() async {
     () => PlantsSearchUsecase(iPlantRepository: injection()),
   );
 
+  injection.registerLazySingleton<PlantFiltersUsecase>(
+    () => PlantFiltersUsecase(plantFiltersRepository: injection()),
+  );
+
   dio.interceptors.add(
     MiddlewareInterceptor(
       dio: dio,
       tokensStorage: injection<ITokensStorage>(),
       refreshRepository: injection<IRefreshRepository>(),
+      authRepository: injection<IAuthRepository>(),
       connectivityChecker: injection<IConnectivityChecker>(),
     ),
   );

@@ -8,7 +8,7 @@ part 'refresh_service.g.dart';
 abstract class RefreshService {
   factory RefreshService(Dio dio) = _RefreshService;
 
-  @POST('/api/auth/refresh')
+  @POST('/api/users/refresh')
   Future<TokenModel> refreshToken({
     @Body(nullToAbsent: true) required TokenModel tokenModel,
   });

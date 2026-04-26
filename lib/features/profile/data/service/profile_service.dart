@@ -8,6 +8,6 @@ part 'profile_service.g.dart';
 abstract class ProfileService {
   factory ProfileService(Dio dio) = _ProfileService;
 
-  @GET('/api/auth/me')
+  @GET('/api/users/current')
   Future<UserDto> getCurrentUser();
 }
