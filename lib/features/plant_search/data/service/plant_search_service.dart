@@ -14,5 +14,7 @@ abstract class PlantSearchService {
     @Query('page') required int page,
     @Query('page_size') int? pageSize,
     @Query('search') String? name,
+    @Query('soil_moisture') String? soilMoisture,
+    @Query('soil_ph') String? soilPh,
   });
 }

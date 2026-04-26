@@ -19,6 +19,8 @@ mixin _$PlantSearchFilters {
   String? get searchQuery => throw _privateConstructorUsedError;
   double? get heightFrom => throw _privateConstructorUsedError;
   double? get heightTo => throw _privateConstructorUsedError;
+  String? get soilPh => throw _privateConstructorUsedError;
+  String? get soilMoisture => throw _privateConstructorUsedError;
 
   /// Create a copy of PlantSearchFilters
   /// with the given fields replaced by the non-null parameter values.
@@ -33,7 +35,12 @@ abstract class $PlantSearchFiltersCopyWith<$Res> {
           PlantSearchFilters value, $Res Function(PlantSearchFilters) then) =
       _$PlantSearchFiltersCopyWithImpl<$Res, PlantSearchFilters>;
   @useResult
-  $Res call({String? searchQuery, double? heightFrom, double? heightTo});
+  $Res call(
+      {String? searchQuery,
+      double? heightFrom,
+      double? heightTo,
+      String? soilPh,
+      String? soilMoisture});
 }
 
 /// @nodoc
@@ -54,6 +61,8 @@ class _$PlantSearchFiltersCopyWithImpl<$Res, $Val extends PlantSearchFilters>
     Object? searchQuery = freezed,
     Object? heightFrom = freezed,
     Object? heightTo = freezed,
+    Object? soilPh = freezed,
+    Object? soilMoisture = freezed,
   }) {
     return _then(_value.copyWith(
       searchQuery: freezed == searchQuery
@@ -68,6 +77,14 @@ class _$PlantSearchFiltersCopyWithImpl<$Res, $Val extends PlantSearchFilters>
           ? _value.heightTo
           : heightTo // ignore: cast_nullable_to_non_nullable
               as double?,
+      soilPh: freezed == soilPh
+          ? _value.soilPh
+          : soilPh // ignore: cast_nullable_to_non_nullable
+              as String?,
+      soilMoisture: freezed == soilMoisture
+          ? _value.soilMoisture
+          : soilMoisture // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -80,7 +97,12 @@ abstract class _$$PlantSearchFiltersImplCopyWith<$Res>
       __$$PlantSearchFiltersImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? searchQuery, double? heightFrom, double? heightTo});
+  $Res call(
+      {String? searchQuery,
+      double? heightFrom,
+      double? heightTo,
+      String? soilPh,
+      String? soilMoisture});
 }
 
 /// @nodoc
@@ -99,6 +121,8 @@ class __$$PlantSearchFiltersImplCopyWithImpl<$Res>
     Object? searchQuery = freezed,
     Object? heightFrom = freezed,
     Object? heightTo = freezed,
+    Object? soilPh = freezed,
+    Object? soilMoisture = freezed,
   }) {
     return _then(_$PlantSearchFiltersImpl(
       searchQuery: freezed == searchQuery
@@ -113,6 +137,14 @@ class __$$PlantSearchFiltersImplCopyWithImpl<$Res>
           ? _value.heightTo
           : heightTo // ignore: cast_nullable_to_non_nullable
               as double?,
+      soilPh: freezed == soilPh
+          ? _value.soilPh
+          : soilPh // ignore: cast_nullable_to_non_nullable
+              as String?,
+      soilMoisture: freezed == soilMoisture
+          ? _value.soilMoisture
+          : soilMoisture // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -121,7 +153,11 @@ class __$$PlantSearchFiltersImplCopyWithImpl<$Res>
 
 class _$PlantSearchFiltersImpl extends _PlantSearchFilters {
   const _$PlantSearchFiltersImpl(
-      {this.searchQuery, this.heightFrom, this.heightTo})
+      {this.searchQuery,
+      this.heightFrom,
+      this.heightTo,
+      this.soilPh,
+      this.soilMoisture})
       : super._();
 
   @override
@@ -130,10 +166,14 @@ class _$PlantSearchFiltersImpl extends _PlantSearchFilters {
   final double? heightFrom;
   @override
   final double? heightTo;
+  @override
+  final String? soilPh;
+  @override
+  final String? soilMoisture;
 
   @override
   String toString() {
-    return 'PlantSearchFilters(searchQuery: $searchQuery, heightFrom: $heightFrom, heightTo: $heightTo)';
+    return 'PlantSearchFilters(searchQuery: $searchQuery, heightFrom: $heightFrom, heightTo: $heightTo, soilPh: $soilPh, soilMoisture: $soilMoisture)';
   }
 
   @override
@@ -146,12 +186,15 @@ class _$PlantSearchFiltersImpl extends _PlantSearchFilters {
             (identical(other.heightFrom, heightFrom) ||
                 other.heightFrom == heightFrom) &&
             (identical(other.heightTo, heightTo) ||
-                other.heightTo == heightTo));
+                other.heightTo == heightTo) &&
+            (identical(other.soilPh, soilPh) || other.soilPh == soilPh) &&
+            (identical(other.soilMoisture, soilMoisture) ||
+                other.soilMoisture == soilMoisture));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, searchQuery, heightFrom, heightTo);
+  int get hashCode => Object.hash(
+      runtimeType, searchQuery, heightFrom, heightTo, soilPh, soilMoisture);
 
   /// Create a copy of PlantSearchFilters
   /// with the given fields replaced by the non-null parameter values.
@@ -167,7 +210,9 @@ abstract class _PlantSearchFilters extends PlantSearchFilters {
   const factory _PlantSearchFilters(
       {final String? searchQuery,
       final double? heightFrom,
-      final double? heightTo}) = _$PlantSearchFiltersImpl;
+      final double? heightTo,
+      final String? soilPh,
+      final String? soilMoisture}) = _$PlantSearchFiltersImpl;
   const _PlantSearchFilters._() : super._();
 
   @override
@@ -176,6 +221,10 @@ abstract class _PlantSearchFilters extends PlantSearchFilters {
   double? get heightFrom;
   @override
   double? get heightTo;
+  @override
+  String? get soilPh;
+  @override
+  String? get soilMoisture;
 
   /// Create a copy of PlantSearchFilters
   /// with the given fields replaced by the non-null parameter values.

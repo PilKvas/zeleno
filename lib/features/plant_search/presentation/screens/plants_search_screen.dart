@@ -6,9 +6,10 @@ import 'package:zeleno_v2/app/di/di.dart';
 import 'package:zeleno_v2/core/helper/debouncer.dart';
 import 'package:zeleno_v2/features/core/enums/status.dart';
 import 'package:zeleno_v2/features/navigation/router.gr.dart';
+import 'package:zeleno_v2/features/plant_filters/presentation/cubit/plant_filters_cubit.dart';
+import 'package:zeleno_v2/features/plant_filters/presentation/widgets/plant_filters_sheet.dart';
 import 'package:zeleno_v2/features/plant_search/presentation/bloc/plant_search_bloc.dart';
 import 'package:zeleno_v2/features/plant_search/presentation/widgets/plant_item_widget.dart';
-import 'package:zeleno_v2/features/plant_search/presentation/widgets/plant_search_filters_sheet.dart';
 import 'package:zeleno_v2/uikit/inputs/app_search_field.dart';
 import 'package:zeleno_v2/uikit/loading_widget.dart';
 import 'package:zeleno_v2/uikit/theme/color_theme.dart';
@@ -160,154 +161,164 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
     final ZColorScheme colors = ZColorScheme.of(context);
     return SafeArea(
       child: Scaffold(
-        body: BlocProvider<PlantSearchBloc>(
-          create: (context) => PlantSearchBloc(
-            injection(),
-          )..add(
-              const PlantSearchEvent.loadPlantList(),
-            ),
-          child: Builder(
-            builder: (context) {
-              final bloc = context.readPlantSearchBloc;
-              return NotificationListener<ScrollNotification>(
-                onNotification: (scrollInfo) => onPagination(scrollInfo, bloc),
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: RefreshIndicator(
-                        onRefresh: () => onRefresh(bloc),
-                        child: CustomScrollView(
-                          shrinkWrap: true,
-                          slivers: [
-                            SliverAppBar(
-                              floating: true,
-                              pinned: false,
-                              snap: true,
-                              bottom: PreferredSize(
-                                preferredSize: const Size.fromHeight(4.0),
-                                child: Container(
-                                  color: colors.action,
-                                  height: 1,
-                                ),
-                              ),
-                              flexibleSpace: FlexibleSpaceBar(
-                                background: Container(
-                                  color: colors.background,
-                                ),
-                              ),
-                              title: Row(
-                                children: [
-                                  Expanded(
-                                    child: AppSearchField(
-                                      onChanged: (text) => onSearch(text, bloc),
-                                      hintText: 'Поиск',
-                                      fillColor: colors.surface,
-                                    ),
+        body: BlocProvider<PlantFiltersCubit>(
+          create: (context) => PlantFiltersCubit(
+            plantFiltersUsecase: injection(),
+          ),
+          child: BlocProvider<PlantSearchBloc>(
+            create: (context) => PlantSearchBloc(
+              injection(),
+            )..add(
+                const PlantSearchEvent.loadPlantList(),
+              ),
+            child: Builder(
+              builder: (context) {
+                final PlantSearchBloc bloc = context.readPlantSearchBloc;
+                final PlantFiltersCubit filtersCubit =
+                    context.read<PlantFiltersCubit>();
+                return NotificationListener<ScrollNotification>(
+                  onNotification: (scrollInfo) =>
+                      onPagination(scrollInfo, bloc),
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: RefreshIndicator(
+                          onRefresh: () => onRefresh(bloc),
+                          child: CustomScrollView(
+                            shrinkWrap: true,
+                            slivers: [
+                              SliverAppBar(
+                                floating: true,
+                                pinned: false,
+                                snap: true,
+                                bottom: PreferredSize(
+                                  preferredSize: const Size.fromHeight(4.0),
+                                  child: Container(
+                                    color: colors.action,
+                                    height: 1,
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 10),
-                                    child: BlocBuilder<PlantSearchBloc,
-                                        PlantSearchState>(
-                                      builder: (context, state) {
-                                        return IconButton(
-                                          onPressed: () {
-                                            showModalBottomSheet(
-                                              context: context,
-                                              isScrollControlled: true,
-                                              builder: (context) =>
-                                                  BlocProvider.value(
-                                                value: bloc,
-                                                child: PlantSearchFiltersSheet(
-                                                  bloc: bloc,
+                                ),
+                                flexibleSpace: FlexibleSpaceBar(
+                                  background: Container(
+                                    color: colors.background,
+                                  ),
+                                ),
+                                title: Row(
+                                  children: [
+                                    Expanded(
+                                      child: AppSearchField(
+                                        onChanged: (text) =>
+                                            onSearch(text, bloc),
+                                        hintText: 'Поиск',
+                                        fillColor: colors.surface,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 10),
+                                      child: BlocBuilder<PlantSearchBloc,
+                                          PlantSearchState>(
+                                        builder: (context, state) {
+                                          return IconButton(
+                                            onPressed: () {
+                                              showModalBottomSheet(
+                                                context: context,
+                                                isScrollControlled: true,
+                                                builder: (context) =>
+                                                    BlocProvider.value(
+                                                  value: bloc,
+                                                  child: BlocProvider.value(
+                                                    value: filtersCubit,
+                                                    child: const PlantFiltersSheet(),
+                                                  ),
                                                 ),
-                                              ),
-                                            );
+                                              );
+                                            },
+                                            icon: Icon(
+                                              Icons.filter_list,
+                                              color:
+                                                  state.filters.hasActiveFilters
+                                                      ? colors.action
+                                                      : colors.onBackground,
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              BlocBuilder<PlantSearchBloc, PlantSearchState>(
+                                builder: (context, state) {
+                                  if (state.status.isLoading &&
+                                      !state.isPaginating) {
+                                    return _buildShimmerList();
+                                  }
+
+                                  if (state.items.isEmpty) {
+                                    return const SliverFillRemaining(
+                                      child: Center(
+                                        child: Text(
+                                          'no items',
+                                        ),
+                                      ),
+                                    );
+                                  }
+                                  return SliverPadding(
+                                    padding: const EdgeInsets.only(
+                                      top: 5,
+                                      left: 8,
+                                      right: 8,
+                                    ),
+                                    sliver: SliverList.separated(
+                                      itemBuilder: (context, index) {
+                                        return GestureDetector(
+                                          onTap: () {
+                                            onItemTap(state.items[index].slug);
                                           },
-                                          icon: Icon(
-                                            Icons.filter_list,
-                                            color:
-                                                state.filters.hasActiveFilters
-                                                    ? colors.action
-                                                    : colors.onBackground,
+                                          child: PlantItemWidget(
+                                            item: state.items[index],
                                           ),
                                         );
                                       },
+                                      separatorBuilder: (context, index) {
+                                        return const SizedBox(
+                                          height: 20,
+                                        );
+                                      },
+                                      itemCount: state.items.length,
                                     ),
-                                  )
-                                ],
+                                  );
+                                },
                               ),
-                            ),
-                            BlocBuilder<PlantSearchBloc, PlantSearchState>(
-                              builder: (context, state) {
-                                if (state.status.isLoading &&
-                                    !state.isPaginating) {
-                                  return _buildShimmerList();
-                                }
-
-                                if (state.items.isEmpty) {
-                                  return const SliverFillRemaining(
-                                    child: Center(
-                                      child: Text(
-                                        'no items',
-                                      ),
-                                    ),
-                                  );
-                                }
-                                return SliverPadding(
-                                  padding: const EdgeInsets.only(
-                                    top: 5,
-                                    left: 8,
-                                    right: 8,
-                                  ),
-                                  sliver: SliverList.separated(
-                                    itemBuilder: (context, index) {
-                                      return GestureDetector(
-                                        onTap: () {
-                                          onItemTap(state.items[index].slug);
-                                        },
-                                        child: PlantItemWidget(
-                                          item: state.items[index],
+                              BlocBuilder<PlantSearchBloc, PlantSearchState>(
+                                builder: (context, state) {
+                                  if (state.status.isLoading &&
+                                      state.isPaginating) {
+                                    return const SliverPadding(
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 20),
+                                      sliver: SliverToBoxAdapter(
+                                        child: SizedBox(
+                                          height: 50,
+                                          width: 50,
+                                          child: ZLoading(),
                                         ),
-                                      );
-                                    },
-                                    separatorBuilder: (context, index) {
-                                      return const SizedBox(
-                                        height: 20,
-                                      );
-                                    },
-                                    itemCount: state.items.length,
-                                  ),
-                                );
-                              },
-                            ),
-                            BlocBuilder<PlantSearchBloc, PlantSearchState>(
-                              builder: (context, state) {
-                                if (state.status.isLoading &&
-                                    state.isPaginating) {
-                                  return const SliverPadding(
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 20),
-                                    sliver: SliverToBoxAdapter(
-                                      child: SizedBox(
-                                        height: 50,
-                                        width: 50,
-                                        child: ZLoading(),
                                       ),
-                                    ),
-                                  );
-                                }
+                                    );
+                                  }
 
-                                return const SliverToBoxAdapter();
-                              },
-                            ),
-                          ],
+                                  return const SliverToBoxAdapter();
+                                },
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    )
-                  ],
-                ),
-              );
-            },
+                      )
+                    ],
+                  ),
+                );
+              },
+            ),
           ),
         ),
       ),

@@ -6,5 +6,7 @@ abstract class IPlantSearchRepository {
     required int page,
     String? name,
     int? pageSize,
+    String? soilMoisture,
+    String? soilPh,
   });
 }

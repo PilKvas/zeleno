@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'plant_search_service.dart';
+part of 'plant_filters_service.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'plant_search_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations,unused_element_parameter
 
-class _PlantSearchService implements PlantSearchService {
-  _PlantSearchService(this._dio, {this.baseUrl, this.errorLogger});
+class _PlantFiltersService implements PlantFiltersService {
+  _PlantFiltersService(this._dio, {this.baseUrl, this.errorLogger});
 
   final Dio _dio;
 
@@ -18,41 +18,62 @@ class _PlantSearchService implements PlantSearchService {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<PaginationWrapperDto<PlantSearchItemDto>> getPlants({
-    required int page,
-    int? pageSize,
-    String? name,
-    String? soilMoisture,
-    String? soilPh,
-  }) async {
+  Future<List<PlantFilterItemDto>> getPlantsSoilPh() async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'page': page,
-      r'page_size': pageSize,
-      r'search': name,
-      r'soil_moisture': soilMoisture,
-      r'soil_ph': soilPh,
-    };
-    queryParameters.removeWhere((k, v) => v == null);
+    final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<PaginationWrapperDto<PlantSearchItemDto>>(
+    final _options = _setStreamType<List<PlantFilterItemDto>>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/api/species/',
+            '/api/species/choices/soil-ph/',
             queryParameters: queryParameters,
             data: _data,
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late PaginationWrapperDto<PlantSearchItemDto> _value;
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<PlantFilterItemDto> _value;
     try {
-      _value = PaginationWrapperDto<PlantSearchItemDto>.fromJson(
-        _result.data!,
-        (json) => PlantSearchItemDto.fromJson(json as Map<String, dynamic>),
-      );
+      _value = _result.data!
+          .map(
+            (dynamic i) =>
+                PlantFilterItemDto.fromJson(i as Map<String, dynamic>),
+          )
+          .toList();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<List<PlantFilterItemDto>> getPlantsSoilMoisture() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<List<PlantFilterItemDto>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/species/choices/soil-moisture/',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<PlantFilterItemDto> _value;
+    try {
+      _value = _result.data!
+          .map(
+            (dynamic i) =>
+                PlantFilterItemDto.fromJson(i as Map<String, dynamic>),
+          )
+          .toList();
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
