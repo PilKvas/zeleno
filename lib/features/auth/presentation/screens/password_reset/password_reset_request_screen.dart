@@ -47,13 +47,14 @@ class _Content extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(title: Text(context.l10n.forgotPasswordTitle)),
-        body: const SafeArea(
+        body: SafeArea(
           child: Stack(
             children: [
-              Positioned.fill(child: AuthBackground()),
+              const Positioned.fill(child: AuthBackground()),
               SingleChildScrollView(
-                padding: EdgeInsets.fromLTRB(16, 170, 16, 24),
-                child: _RequestForm(),
+                padding: EdgeInsets.fromLTRB(
+                    16, MediaQuery.sizeOf(context).height * 0.22, 16, 24),
+                child: const _RequestForm(),
               ),
             ],
           ),

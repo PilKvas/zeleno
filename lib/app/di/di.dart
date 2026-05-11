@@ -41,9 +41,10 @@ import 'package:zeleno_v2/features/rooms/domain/repository/i_room_repository.dar
 final injection = GetIt.instance;
 
 Future<void> initializeDependencies() async {
-  final dio = Dio(
-    BaseOptions(baseUrl: Url.dev.value),
-  );
+  final dio = Dio(BaseOptions(baseUrl: Url.dev.value));
+  // Separate instance without interceptors — used only for token refresh
+  // to avoid deadlock when the refresh endpoint itself returns 401.
+  final bareDio = Dio(BaseOptions(baseUrl: Url.dev.value));
 
   final sharedPreferences = await SharedPreferences.getInstance();
 
@@ -68,7 +69,7 @@ Future<void> initializeDependencies() async {
       () => AuthService(dio),
     )
     ..registerLazySingleton<RefreshService>(
-      () => RefreshService(dio),
+      () => RefreshService(bareDio),
     )
     ..registerLazySingleton<PlantSearchService>(
       () => PlantSearchService(dio),

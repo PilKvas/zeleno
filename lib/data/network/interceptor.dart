@@ -32,7 +32,7 @@ class MiddlewareInterceptor extends Interceptor {
     handler.reject(Unauthorized(requestOptions: options));
   }
 
-  Future<void> refreshToken(
+  Future<void> _refreshToken(
     RequestOptions options,
     ErrorInterceptorHandler handler,
   ) async {
@@ -72,7 +72,12 @@ class MiddlewareInterceptor extends Interceptor {
       );
       await tokensStorage.saveTokens(tokens);
       return tokens;
-    } catch (_) {
+    } catch (e, st) {
+      assert(() {
+        // ignore: avoid_print
+        print('[MiddlewareInterceptor] token refresh failed: $e\n$st');
+        return true;
+      }());
       return null;
     }
   }
@@ -92,7 +97,7 @@ class MiddlewareInterceptor extends Interceptor {
         );
         return;
       case 401:
-        await refreshToken(err.requestOptions, handler);
+        await _refreshToken(err.requestOptions, handler);
         return;
       case 403:
         handler.reject(

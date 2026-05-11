@@ -58,7 +58,7 @@ class _Content extends StatelessWidget {
             children: [
               const Positioned.fill(child: AuthBackground()),
               SingleChildScrollView(
-                padding: const EdgeInsets.fromLTRB(16, 170, 16, 24),
+                padding: EdgeInsets.fromLTRB(16, MediaQuery.sizeOf(context).height * 0.22, 16, 24),
                 child: _VerifyForm(email: email),
               ),
             ],

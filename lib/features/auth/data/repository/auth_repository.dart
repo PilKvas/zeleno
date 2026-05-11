@@ -32,7 +32,7 @@ class AuthRepository implements IAuthRepository {
   @override
   Future<TokenModel> signIn({required AuthModel authModel}) async {
     final response = await _authService.signIn(authModel: authModel);
-    _tokensStorage.saveTokens(response);
+    await _tokensStorage.saveTokens(response);
     _controller.add(AuthStatus.authenticated);
     return response;
   }

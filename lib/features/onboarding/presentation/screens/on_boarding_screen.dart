@@ -17,41 +17,34 @@ class OnBoardingScreen extends StatefulWidget {
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   late final PageController _pageController;
-  double? currentPage = 0;
+  double _currentPage = 0;
 
   @override
   void initState() {
     super.initState();
-    _pageController = PageController();
-
-    _pageController.addListener(
-      () {
-        setState(
-          () {
-            currentPage = _pageController.page;
-          },
-        );
-      },
-    );
+    _pageController = PageController()
+      ..addListener(() {
+        setState(() => _currentPage = _pageController.page ?? 0);
+      });
   }
 
   @override
   void dispose() {
-    super.dispose();
-
     _pageController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     final colors = ZColorScheme.of(context);
-    final locale = context.l10n;
+    final l10n = context.l10n;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          locale.title,
+          l10n.title,
           style: const TextStyle(
-            fontFamily: "Monserrat",
+            fontFamily: 'Monserrat',
             fontSize: 16,
             fontWeight: FontWeight.bold,
           ),
@@ -66,25 +59,19 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 controller: _pageController,
                 children: [
                   _PageViewItem(
-                    imageCouple: (
-                      ZImages.woollyPlantMom11,
-                      ZImages.woollyPlant412
-                    ),
-                    title: locale.firstPageTitle,
-                    subTitle: locale.firstPageSubTitle,
+                    imageCouple: (ZImages.woollyPlantMom11, ZImages.woollyPlant412),
+                    title: l10n.firstPageTitle,
+                    subTitle: l10n.firstPageSubTitle,
                   ),
                   _PageViewItem(
-                    imageCouple: (
-                      ZImages.woollyPlant421,
-                      ZImages.woollyTakingCareOfPlants22
-                    ),
-                    title: locale.secondPageTitle,
-                    subTitle: locale.secondPageSubTitle,
+                    imageCouple: (ZImages.woollyPlant421, ZImages.woollyTakingCareOfPlants22),
+                    title: l10n.secondPageTitle,
+                    subTitle: l10n.secondPageSubTitle,
                   ),
                   _PageViewItem(
                     imageCouple: (ZImages.woollyTakingCareOfPlants31, ''),
-                    title: locale.thirdPageTitle,
-                    subTitle: locale.thirdPageSubTitle,
+                    title: l10n.thirdPageTitle,
+                    subTitle: l10n.thirdPageSubTitle,
                   ),
                 ],
               ),
@@ -98,11 +85,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     SmoothPageIndicator(
                       controller: _pageController,
                       count: 3,
-                      onDotClicked: (index) {
-                        _pageController.animateToPage(index,
-                            duration: const Duration(milliseconds: 200),
-                            curve: Curves.decelerate);
-                      },
+                      onDotClicked: (index) => _pageController.animateToPage(
+                        index,
+                        duration: const Duration(milliseconds: 200),
+                        curve: Curves.decelerate,
+                      ),
                       effect: ExpandingDotsEffect(
                         expansionFactor: 2,
                         spacing: 8.0,
@@ -116,7 +103,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        if (currentPage != 2) {
+                        if (_currentPage != 2) {
                           _pageController.nextPage(
                             duration: const Duration(milliseconds: 100),
                             curve: Curves.decelerate,
@@ -125,14 +112,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           context.router.replace(const HomeRoute());
                         }
                       },
-                      child: Text(
-                        currentPage == 2 ? locale.start : locale.next,
-                      ),
-                    )
+                      child: Text(_currentPage == 2 ? l10n.start : l10n.next),
+                    ),
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -141,59 +126,57 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 }
 
 class _PageViewItem extends StatelessWidget {
-  final (String, String) imageCouple;
-  final String title;
-  final String subTitle;
-
   const _PageViewItem({
     required this.imageCouple,
     required this.title,
     required this.subTitle,
   });
 
+  final (String, String) imageCouple;
+  final String title;
+  final String subTitle;
+
   @override
   Widget build(BuildContext context) {
-    final textTheme = ZTypography.of(context);
+    final typography = ZTypography.of(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Flexible(
-              child: Image.asset(
-                imageCouple.$1,
-                fit: BoxFit.fill,
-                height: 375,
+        Expanded(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Flexible(
+                child: Image.asset(
+                  imageCouple.$1,
+                  fit: BoxFit.contain,
+                  alignment: Alignment.bottomLeft,
+                ),
               ),
-            ),
-            if (imageCouple.$2.isNotEmpty)
-              Image.asset(
-                imageCouple.$2,
-                fit: BoxFit.fill,
-                height: 375,
-              ),
-          ],
+              if (imageCouple.$2.isNotEmpty)
+                Flexible(
+                  child: Image.asset(
+                    imageCouple.$2,
+                    fit: BoxFit.contain,
+                    alignment: Alignment.bottomRight,
+                  ),
+                ),
+            ],
+          ),
         ),
         Padding(
-          padding: const EdgeInsets.fromLTRB(24, 51, 20, 0),
+          padding: const EdgeInsets.fromLTRB(24, 20, 24, 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 title,
-                style: textTheme.title.copyWith(
-                  fontSize: 32,
-                  height: 1,
-                ),
+                style: typography.title.copyWith(fontSize: 32, height: 1),
               ),
-              const SizedBox(
-                height: 16,
-              ),
-              Text(
-                subTitle,
-                style: textTheme.body.copyWith(fontSize: 16),
-              ),
+              const SizedBox(height: 16),
+              Text(subTitle, style: typography.body),
             ],
           ),
         ),
