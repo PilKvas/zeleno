@@ -43,7 +43,7 @@ mixin _$PlantDetailsModel {
   @JsonKey(name: 'growth_tips')
   List<GrowthTip>? get growthTips => throw _privateConstructorUsedError;
   @JsonKey(name: 'habit')
-  List<NamedSlug>? get habit => throw _privateConstructorUsedError;
+  List<String>? get habit => throw _privateConstructorUsedError;
   @JsonKey(name: 'hardiness_zone')
   String? get hardinessZone => throw _privateConstructorUsedError;
   @JsonKey(name: 'harvest')
@@ -66,8 +66,6 @@ mixin _$PlantDetailsModel {
   DateTime? get modified => throw _privateConstructorUsedError;
   @JsonKey(name: 'parts_color')
   List<PartColorGroup>? get partsColor => throw _privateConstructorUsedError;
-  @JsonKey(name: 'pathogens')
-  List<PathogenItem>? get pathogens => throw _privateConstructorUsedError;
   @JsonKey(name: 'planting')
   List<String>? get planting => throw _privateConstructorUsedError;
   @JsonKey(name: 'position_side')
@@ -85,7 +83,7 @@ mixin _$PlantDetailsModel {
   @JsonKey(name: 'soil_ph')
   List<String>? get soilPh => throw _privateConstructorUsedError;
   @JsonKey(name: 'soil_types')
-  List<NamedSlug>? get soilTypes => throw _privateConstructorUsedError;
+  List<String>? get soilTypes => throw _privateConstructorUsedError;
   @JsonKey(name: 'sources')
   List<Source>? get sources => throw _privateConstructorUsedError;
   @JsonKey(name: 'spread_max_cm')
@@ -93,9 +91,9 @@ mixin _$PlantDetailsModel {
   @JsonKey(name: 'spread_min_cm')
   int? get spreadMinCm => throw _privateConstructorUsedError;
   @JsonKey(name: 'synonyms')
-  List<SynonymItem>? get synonyms => throw _privateConstructorUsedError;
+  List<String>? get synonyms => throw _privateConstructorUsedError;
   @JsonKey(name: 'tags')
-  List<PlantTag>? get tags => throw _privateConstructorUsedError;
+  List<String>? get tags => throw _privateConstructorUsedError;
   @JsonKey(name: 'toxicity')
   List<String>? get toxicity => throw _privateConstructorUsedError;
   @JsonKey(name: 'years_to_max_height_max')
@@ -131,7 +129,7 @@ abstract class $PlantDetailsModelCopyWith<$Res> {
       @JsonKey(name: 'fragrance') List<String>? fragrance,
       @JsonKey(name: 'genus_description') String? genusDescription,
       @JsonKey(name: 'growth_tips') List<GrowthTip>? growthTips,
-      @JsonKey(name: 'habit') List<NamedSlug>? habit,
+      @JsonKey(name: 'habit') List<String>? habit,
       @JsonKey(name: 'hardiness_zone') String? hardinessZone,
       @JsonKey(name: 'harvest') List<String>? harvest,
       @JsonKey(name: 'height_max_cm') int? heightMaxCm,
@@ -143,7 +141,6 @@ abstract class $PlantDetailsModelCopyWith<$Res> {
       @JsonKey(name: 'misc') PlantMisc? misc,
       @JsonKey(name: 'modified') DateTime? modified,
       @JsonKey(name: 'parts_color') List<PartColorGroup>? partsColor,
-      @JsonKey(name: 'pathogens') List<PathogenItem>? pathogens,
       @JsonKey(name: 'planting') List<String>? planting,
       @JsonKey(name: 'position_side') List<String>? positionSide,
       @JsonKey(name: 'position_sunlight') List<String>? positionSunlight,
@@ -152,12 +149,12 @@ abstract class $PlantDetailsModelCopyWith<$Res> {
       @JsonKey(name: 'slug') String? slug,
       @JsonKey(name: 'soil_moisture') List<String>? soilMoisture,
       @JsonKey(name: 'soil_ph') List<String>? soilPh,
-      @JsonKey(name: 'soil_types') List<NamedSlug>? soilTypes,
+      @JsonKey(name: 'soil_types') List<String>? soilTypes,
       @JsonKey(name: 'sources') List<Source>? sources,
       @JsonKey(name: 'spread_max_cm') int? spreadMaxCm,
       @JsonKey(name: 'spread_min_cm') int? spreadMinCm,
-      @JsonKey(name: 'synonyms') List<SynonymItem>? synonyms,
-      @JsonKey(name: 'tags') List<PlantTag>? tags,
+      @JsonKey(name: 'synonyms') List<String>? synonyms,
+      @JsonKey(name: 'tags') List<String>? tags,
       @JsonKey(name: 'toxicity') List<String>? toxicity,
       @JsonKey(name: 'years_to_max_height_max') int? yearsToMaxHeightMax,
       @JsonKey(name: 'years_to_max_height_min') int? yearsToMaxHeightMin});
@@ -203,7 +200,6 @@ class _$PlantDetailsModelCopyWithImpl<$Res, $Val extends PlantDetailsModel>
     Object? misc = freezed,
     Object? modified = freezed,
     Object? partsColor = freezed,
-    Object? pathogens = freezed,
     Object? planting = freezed,
     Object? positionSide = freezed,
     Object? positionSunlight = freezed,
@@ -270,7 +266,7 @@ class _$PlantDetailsModelCopyWithImpl<$Res, $Val extends PlantDetailsModel>
       habit: freezed == habit
           ? _value.habit
           : habit // ignore: cast_nullable_to_non_nullable
-              as List<NamedSlug>?,
+              as List<String>?,
       hardinessZone: freezed == hardinessZone
           ? _value.hardinessZone
           : hardinessZone // ignore: cast_nullable_to_non_nullable
@@ -315,10 +311,6 @@ class _$PlantDetailsModelCopyWithImpl<$Res, $Val extends PlantDetailsModel>
           ? _value.partsColor
           : partsColor // ignore: cast_nullable_to_non_nullable
               as List<PartColorGroup>?,
-      pathogens: freezed == pathogens
-          ? _value.pathogens
-          : pathogens // ignore: cast_nullable_to_non_nullable
-              as List<PathogenItem>?,
       planting: freezed == planting
           ? _value.planting
           : planting // ignore: cast_nullable_to_non_nullable
@@ -354,7 +346,7 @@ class _$PlantDetailsModelCopyWithImpl<$Res, $Val extends PlantDetailsModel>
       soilTypes: freezed == soilTypes
           ? _value.soilTypes
           : soilTypes // ignore: cast_nullable_to_non_nullable
-              as List<NamedSlug>?,
+              as List<String>?,
       sources: freezed == sources
           ? _value.sources
           : sources // ignore: cast_nullable_to_non_nullable
@@ -370,11 +362,11 @@ class _$PlantDetailsModelCopyWithImpl<$Res, $Val extends PlantDetailsModel>
       synonyms: freezed == synonyms
           ? _value.synonyms
           : synonyms // ignore: cast_nullable_to_non_nullable
-              as List<SynonymItem>?,
+              as List<String>?,
       tags: freezed == tags
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
-              as List<PlantTag>?,
+              as List<String>?,
       toxicity: freezed == toxicity
           ? _value.toxicity
           : toxicity // ignore: cast_nullable_to_non_nullable
@@ -425,7 +417,7 @@ abstract class _$$PlantDetailsModelImplCopyWith<$Res>
       @JsonKey(name: 'fragrance') List<String>? fragrance,
       @JsonKey(name: 'genus_description') String? genusDescription,
       @JsonKey(name: 'growth_tips') List<GrowthTip>? growthTips,
-      @JsonKey(name: 'habit') List<NamedSlug>? habit,
+      @JsonKey(name: 'habit') List<String>? habit,
       @JsonKey(name: 'hardiness_zone') String? hardinessZone,
       @JsonKey(name: 'harvest') List<String>? harvest,
       @JsonKey(name: 'height_max_cm') int? heightMaxCm,
@@ -437,7 +429,6 @@ abstract class _$$PlantDetailsModelImplCopyWith<$Res>
       @JsonKey(name: 'misc') PlantMisc? misc,
       @JsonKey(name: 'modified') DateTime? modified,
       @JsonKey(name: 'parts_color') List<PartColorGroup>? partsColor,
-      @JsonKey(name: 'pathogens') List<PathogenItem>? pathogens,
       @JsonKey(name: 'planting') List<String>? planting,
       @JsonKey(name: 'position_side') List<String>? positionSide,
       @JsonKey(name: 'position_sunlight') List<String>? positionSunlight,
@@ -446,12 +437,12 @@ abstract class _$$PlantDetailsModelImplCopyWith<$Res>
       @JsonKey(name: 'slug') String? slug,
       @JsonKey(name: 'soil_moisture') List<String>? soilMoisture,
       @JsonKey(name: 'soil_ph') List<String>? soilPh,
-      @JsonKey(name: 'soil_types') List<NamedSlug>? soilTypes,
+      @JsonKey(name: 'soil_types') List<String>? soilTypes,
       @JsonKey(name: 'sources') List<Source>? sources,
       @JsonKey(name: 'spread_max_cm') int? spreadMaxCm,
       @JsonKey(name: 'spread_min_cm') int? spreadMinCm,
-      @JsonKey(name: 'synonyms') List<SynonymItem>? synonyms,
-      @JsonKey(name: 'tags') List<PlantTag>? tags,
+      @JsonKey(name: 'synonyms') List<String>? synonyms,
+      @JsonKey(name: 'tags') List<String>? tags,
       @JsonKey(name: 'toxicity') List<String>? toxicity,
       @JsonKey(name: 'years_to_max_height_max') int? yearsToMaxHeightMax,
       @JsonKey(name: 'years_to_max_height_min') int? yearsToMaxHeightMin});
@@ -496,7 +487,6 @@ class __$$PlantDetailsModelImplCopyWithImpl<$Res>
     Object? misc = freezed,
     Object? modified = freezed,
     Object? partsColor = freezed,
-    Object? pathogens = freezed,
     Object? planting = freezed,
     Object? positionSide = freezed,
     Object? positionSunlight = freezed,
@@ -563,7 +553,7 @@ class __$$PlantDetailsModelImplCopyWithImpl<$Res>
       habit: freezed == habit
           ? _value._habit
           : habit // ignore: cast_nullable_to_non_nullable
-              as List<NamedSlug>?,
+              as List<String>?,
       hardinessZone: freezed == hardinessZone
           ? _value.hardinessZone
           : hardinessZone // ignore: cast_nullable_to_non_nullable
@@ -608,10 +598,6 @@ class __$$PlantDetailsModelImplCopyWithImpl<$Res>
           ? _value._partsColor
           : partsColor // ignore: cast_nullable_to_non_nullable
               as List<PartColorGroup>?,
-      pathogens: freezed == pathogens
-          ? _value._pathogens
-          : pathogens // ignore: cast_nullable_to_non_nullable
-              as List<PathogenItem>?,
       planting: freezed == planting
           ? _value._planting
           : planting // ignore: cast_nullable_to_non_nullable
@@ -647,7 +633,7 @@ class __$$PlantDetailsModelImplCopyWithImpl<$Res>
       soilTypes: freezed == soilTypes
           ? _value._soilTypes
           : soilTypes // ignore: cast_nullable_to_non_nullable
-              as List<NamedSlug>?,
+              as List<String>?,
       sources: freezed == sources
           ? _value._sources
           : sources // ignore: cast_nullable_to_non_nullable
@@ -663,11 +649,11 @@ class __$$PlantDetailsModelImplCopyWithImpl<$Res>
       synonyms: freezed == synonyms
           ? _value._synonyms
           : synonyms // ignore: cast_nullable_to_non_nullable
-              as List<SynonymItem>?,
+              as List<String>?,
       tags: freezed == tags
           ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
-              as List<PlantTag>?,
+              as List<String>?,
       toxicity: freezed == toxicity
           ? _value._toxicity
           : toxicity // ignore: cast_nullable_to_non_nullable
@@ -699,7 +685,7 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
       @JsonKey(name: 'fragrance') final List<String>? fragrance,
       @JsonKey(name: 'genus_description') this.genusDescription,
       @JsonKey(name: 'growth_tips') final List<GrowthTip>? growthTips,
-      @JsonKey(name: 'habit') final List<NamedSlug>? habit,
+      @JsonKey(name: 'habit') final List<String>? habit,
       @JsonKey(name: 'hardiness_zone') this.hardinessZone,
       @JsonKey(name: 'harvest') final List<String>? harvest,
       @JsonKey(name: 'height_max_cm') this.heightMaxCm,
@@ -711,7 +697,6 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
       @JsonKey(name: 'misc') this.misc,
       @JsonKey(name: 'modified') this.modified,
       @JsonKey(name: 'parts_color') final List<PartColorGroup>? partsColor,
-      @JsonKey(name: 'pathogens') final List<PathogenItem>? pathogens,
       @JsonKey(name: 'planting') final List<String>? planting,
       @JsonKey(name: 'position_side') final List<String>? positionSide,
       @JsonKey(name: 'position_sunlight') final List<String>? positionSunlight,
@@ -720,12 +705,12 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
       @JsonKey(name: 'slug') this.slug,
       @JsonKey(name: 'soil_moisture') final List<String>? soilMoisture,
       @JsonKey(name: 'soil_ph') final List<String>? soilPh,
-      @JsonKey(name: 'soil_types') final List<NamedSlug>? soilTypes,
+      @JsonKey(name: 'soil_types') final List<String>? soilTypes,
       @JsonKey(name: 'sources') final List<Source>? sources,
       @JsonKey(name: 'spread_max_cm') this.spreadMaxCm,
       @JsonKey(name: 'spread_min_cm') this.spreadMinCm,
-      @JsonKey(name: 'synonyms') final List<SynonymItem>? synonyms,
-      @JsonKey(name: 'tags') final List<PlantTag>? tags,
+      @JsonKey(name: 'synonyms') final List<String>? synonyms,
+      @JsonKey(name: 'tags') final List<String>? tags,
       @JsonKey(name: 'toxicity') final List<String>? toxicity,
       @JsonKey(name: 'years_to_max_height_max') this.yearsToMaxHeightMax,
       @JsonKey(name: 'years_to_max_height_min') this.yearsToMaxHeightMin})
@@ -740,7 +725,6 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
         _harvest = harvest,
         _images = images,
         _partsColor = partsColor,
-        _pathogens = pathogens,
         _planting = planting,
         _positionSide = positionSide,
         _positionSunlight = positionSunlight,
@@ -845,10 +829,10 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<NamedSlug>? _habit;
+  final List<String>? _habit;
   @override
   @JsonKey(name: 'habit')
-  List<NamedSlug>? get habit {
+  List<String>? get habit {
     final value = _habit;
     if (value == null) return null;
     if (_habit is EqualUnmodifiableListView) return _habit;
@@ -909,17 +893,6 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
     final value = _partsColor;
     if (value == null) return null;
     if (_partsColor is EqualUnmodifiableListView) return _partsColor;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<PathogenItem>? _pathogens;
-  @override
-  @JsonKey(name: 'pathogens')
-  List<PathogenItem>? get pathogens {
-    final value = _pathogens;
-    if (value == null) return null;
-    if (_pathogens is EqualUnmodifiableListView) return _pathogens;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -997,10 +970,10 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<NamedSlug>? _soilTypes;
+  final List<String>? _soilTypes;
   @override
   @JsonKey(name: 'soil_types')
-  List<NamedSlug>? get soilTypes {
+  List<String>? get soilTypes {
     final value = _soilTypes;
     if (value == null) return null;
     if (_soilTypes is EqualUnmodifiableListView) return _soilTypes;
@@ -1025,10 +998,10 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
   @override
   @JsonKey(name: 'spread_min_cm')
   final int? spreadMinCm;
-  final List<SynonymItem>? _synonyms;
+  final List<String>? _synonyms;
   @override
   @JsonKey(name: 'synonyms')
-  List<SynonymItem>? get synonyms {
+  List<String>? get synonyms {
     final value = _synonyms;
     if (value == null) return null;
     if (_synonyms is EqualUnmodifiableListView) return _synonyms;
@@ -1036,10 +1009,10 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<PlantTag>? _tags;
+  final List<String>? _tags;
   @override
   @JsonKey(name: 'tags')
-  List<PlantTag>? get tags {
+  List<String>? get tags {
     final value = _tags;
     if (value == null) return null;
     if (_tags is EqualUnmodifiableListView) return _tags;
@@ -1067,7 +1040,7 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
 
   @override
   String toString() {
-    return 'PlantDetailsModel(id: $id, commonNames: $commonNames, created: $created, cultivation: $cultivation, duration: $duration, edibleParts: $edibleParts, exposure: $exposure, foliage: $foliage, fragrance: $fragrance, genusDescription: $genusDescription, growthTips: $growthTips, habit: $habit, hardinessZone: $hardinessZone, harvest: $harvest, heightMaxCm: $heightMaxCm, heightMinCm: $heightMinCm, imageUrl: $imageUrl, images: $images, isEdible: $isEdible, latinName: $latinName, misc: $misc, modified: $modified, partsColor: $partsColor, pathogens: $pathogens, planting: $planting, positionSide: $positionSide, positionSunlight: $positionSunlight, rating: $rating, regularEvents: $regularEvents, slug: $slug, soilMoisture: $soilMoisture, soilPh: $soilPh, soilTypes: $soilTypes, sources: $sources, spreadMaxCm: $spreadMaxCm, spreadMinCm: $spreadMinCm, synonyms: $synonyms, tags: $tags, toxicity: $toxicity, yearsToMaxHeightMax: $yearsToMaxHeightMax, yearsToMaxHeightMin: $yearsToMaxHeightMin)';
+    return 'PlantDetailsModel(id: $id, commonNames: $commonNames, created: $created, cultivation: $cultivation, duration: $duration, edibleParts: $edibleParts, exposure: $exposure, foliage: $foliage, fragrance: $fragrance, genusDescription: $genusDescription, growthTips: $growthTips, habit: $habit, hardinessZone: $hardinessZone, harvest: $harvest, heightMaxCm: $heightMaxCm, heightMinCm: $heightMinCm, imageUrl: $imageUrl, images: $images, isEdible: $isEdible, latinName: $latinName, misc: $misc, modified: $modified, partsColor: $partsColor, planting: $planting, positionSide: $positionSide, positionSunlight: $positionSunlight, rating: $rating, regularEvents: $regularEvents, slug: $slug, soilMoisture: $soilMoisture, soilPh: $soilPh, soilTypes: $soilTypes, sources: $sources, spreadMaxCm: $spreadMaxCm, spreadMinCm: $spreadMinCm, synonyms: $synonyms, tags: $tags, toxicity: $toxicity, yearsToMaxHeightMax: $yearsToMaxHeightMax, yearsToMaxHeightMin: $yearsToMaxHeightMin)';
   }
 
   @override
@@ -1112,8 +1085,6 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
                 other.modified == modified) &&
             const DeepCollectionEquality()
                 .equals(other._partsColor, _partsColor) &&
-            const DeepCollectionEquality()
-                .equals(other._pathogens, _pathogens) &&
             const DeepCollectionEquality().equals(other._planting, _planting) &&
             const DeepCollectionEquality()
                 .equals(other._positionSide, _positionSide) &&
@@ -1169,7 +1140,6 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
         misc,
         modified,
         const DeepCollectionEquality().hash(_partsColor),
-        const DeepCollectionEquality().hash(_pathogens),
         const DeepCollectionEquality().hash(_planting),
         const DeepCollectionEquality().hash(_positionSide),
         const DeepCollectionEquality().hash(_positionSunlight),
@@ -1219,7 +1189,7 @@ abstract class _PlantDetailsModel implements PlantDetailsModel {
       @JsonKey(name: 'fragrance') final List<String>? fragrance,
       @JsonKey(name: 'genus_description') final String? genusDescription,
       @JsonKey(name: 'growth_tips') final List<GrowthTip>? growthTips,
-      @JsonKey(name: 'habit') final List<NamedSlug>? habit,
+      @JsonKey(name: 'habit') final List<String>? habit,
       @JsonKey(name: 'hardiness_zone') final String? hardinessZone,
       @JsonKey(name: 'harvest') final List<String>? harvest,
       @JsonKey(name: 'height_max_cm') final int? heightMaxCm,
@@ -1231,7 +1201,6 @@ abstract class _PlantDetailsModel implements PlantDetailsModel {
       @JsonKey(name: 'misc') final PlantMisc? misc,
       @JsonKey(name: 'modified') final DateTime? modified,
       @JsonKey(name: 'parts_color') final List<PartColorGroup>? partsColor,
-      @JsonKey(name: 'pathogens') final List<PathogenItem>? pathogens,
       @JsonKey(name: 'planting') final List<String>? planting,
       @JsonKey(name: 'position_side') final List<String>? positionSide,
       @JsonKey(name: 'position_sunlight') final List<String>? positionSunlight,
@@ -1240,12 +1209,12 @@ abstract class _PlantDetailsModel implements PlantDetailsModel {
       @JsonKey(name: 'slug') final String? slug,
       @JsonKey(name: 'soil_moisture') final List<String>? soilMoisture,
       @JsonKey(name: 'soil_ph') final List<String>? soilPh,
-      @JsonKey(name: 'soil_types') final List<NamedSlug>? soilTypes,
+      @JsonKey(name: 'soil_types') final List<String>? soilTypes,
       @JsonKey(name: 'sources') final List<Source>? sources,
       @JsonKey(name: 'spread_max_cm') final int? spreadMaxCm,
       @JsonKey(name: 'spread_min_cm') final int? spreadMinCm,
-      @JsonKey(name: 'synonyms') final List<SynonymItem>? synonyms,
-      @JsonKey(name: 'tags') final List<PlantTag>? tags,
+      @JsonKey(name: 'synonyms') final List<String>? synonyms,
+      @JsonKey(name: 'tags') final List<String>? tags,
       @JsonKey(name: 'toxicity') final List<String>? toxicity,
       @JsonKey(name: 'years_to_max_height_max') final int? yearsToMaxHeightMax,
       @JsonKey(name: 'years_to_max_height_min')
@@ -1289,7 +1258,7 @@ abstract class _PlantDetailsModel implements PlantDetailsModel {
   List<GrowthTip>? get growthTips;
   @override
   @JsonKey(name: 'habit')
-  List<NamedSlug>? get habit;
+  List<String>? get habit;
   @override
   @JsonKey(name: 'hardiness_zone')
   String? get hardinessZone;
@@ -1324,9 +1293,6 @@ abstract class _PlantDetailsModel implements PlantDetailsModel {
   @JsonKey(name: 'parts_color')
   List<PartColorGroup>? get partsColor;
   @override
-  @JsonKey(name: 'pathogens')
-  List<PathogenItem>? get pathogens;
-  @override
   @JsonKey(name: 'planting')
   List<String>? get planting;
   @override
@@ -1352,7 +1318,7 @@ abstract class _PlantDetailsModel implements PlantDetailsModel {
   List<String>? get soilPh;
   @override
   @JsonKey(name: 'soil_types')
-  List<NamedSlug>? get soilTypes;
+  List<String>? get soilTypes;
   @override
   @JsonKey(name: 'sources')
   List<Source>? get sources;
@@ -1364,10 +1330,10 @@ abstract class _PlantDetailsModel implements PlantDetailsModel {
   int? get spreadMinCm;
   @override
   @JsonKey(name: 'synonyms')
-  List<SynonymItem>? get synonyms;
+  List<String>? get synonyms;
   @override
   @JsonKey(name: 'tags')
-  List<PlantTag>? get tags;
+  List<String>? get tags;
   @override
   @JsonKey(name: 'toxicity')
   List<String>? get toxicity;

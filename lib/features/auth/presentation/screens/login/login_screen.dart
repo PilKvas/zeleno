@@ -125,14 +125,15 @@ class _LoginFormState extends State<_LoginForm> {
             validator: Validator.password(l10n),
           ),
           const SizedBox(height: 10),
-          _ForgotPasswordLink(typography: typography, colors: colors, l10n: l10n),
+          _ForgotPasswordLink(
+              typography: typography, colors: colors, l10n: l10n),
           const SizedBox(height: 44),
           BlocBuilder<LoginCubit, LoginState>(
             builder: (context, state) {
-              return ZButton.primary(
+              return ZButton.gradient1(
                 onPressed: state.status.isLoading ? null : _onLoginPressed,
                 child: state.status.isLoading
-                    ? CircularProgressIndicator(color: colors.onAction)
+                    ? CircularProgressIndicator(color: colors.secondaryBg)
                     : Text(l10n.loginButton),
               );
             },

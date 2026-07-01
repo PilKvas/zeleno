@@ -33,8 +33,8 @@ class PlantSearchBloc extends Bloc<PlantSearchEvent, PlantSearchState> {
         if (event.refresh) page = 1;
 
         final String? nextName = event.name ?? state.name;
-        final PlantSearchFilters nextFilters = event.filters ??
-            state.filters.copyWith(searchQuery: nextName);
+        final PlantSearchFilters nextFilters =
+            event.filters ?? state.filters.copyWith(searchQuery: nextName);
 
         final plantList = await _plantsSearchUsecase.loadPlants(
           page: page,

@@ -21,11 +21,21 @@ final class ZTheme {
 
   ThemeData createThemeData() {
     final Brightness themeBrightness = colorScheme.brightness;
+    final TextStyle textFieldStyle = typography.body.copyWith(
+      color: colorScheme.secondaryTextFieldColor,
+    );
     return ThemeData(
       brightness: themeBrightness,
       scaffoldBackgroundColor: colorScheme.background,
+      inputDecorationTheme: InputDecorationTheme(
+        hintStyle: textFieldStyle,
+        labelStyle: textFieldStyle,
+        floatingLabelStyle: textFieldStyle,
+        helperStyle: textFieldStyle,
+      ),
       appBarTheme: AppBarTheme(
         systemOverlayStyle: ZTheme.statusBarStyleForBrightness(themeBrightness),
+        backgroundColor: colorScheme.mainBg,
       ),
       colorScheme: ColorScheme(
         brightness: themeBrightness,

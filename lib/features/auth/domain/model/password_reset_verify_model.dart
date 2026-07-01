@@ -12,4 +12,7 @@ class PasswordResetVerifyModel with _$PasswordResetVerifyModel {
 
   factory PasswordResetVerifyModel.fromJson(Map<String, dynamic> json) =>
       _$PasswordResetVerifyModelFromJson(json);
+
+  @override
+  Map<String, dynamic> toJson() => toJson();
 }

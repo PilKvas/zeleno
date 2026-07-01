@@ -14,9 +14,7 @@ class ScientificClassificationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (latinName == null &&
-        misc?.rank == null &&
-        misc?.year == null) {
+    if (latinName == null && misc?.rank == null && misc?.year == null) {
       return const SizedBox.shrink();
     }
     return Table(
@@ -25,12 +23,9 @@ class ScientificClassificationWidget extends StatelessWidget {
         1: FlexColumnWidth(2),
       },
       children: <TableRow>[
-        if (latinName != null)
-          _buildTableRow('Латинское название', latinName!),
-        if (misc?.rank != null)
-          _buildTableRow('Ранг', misc!.rank ?? ''),
-        if (misc?.year != null)
-          _buildTableRow('Год', misc!.year.toString()),
+        if (latinName != null) _buildTableRow('Латинское название', latinName!),
+        if (misc?.rank != null) _buildTableRow('Ранг', misc!.rank ?? ''),
+        if (misc?.year != null) _buildTableRow('Год', misc!.year.toString()),
       ],
     );
   }

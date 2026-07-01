@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:zeleno_v2/uikit/theme/color_theme.dart';
+import 'package:zeleno_v2/uikit/theme/typography.dart';
 
 // TODO(darbinyan): in progress
 
@@ -50,6 +51,9 @@ class AppSearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = ZColorScheme.of(context);
+    final TextStyle fieldTextStyle = ZTypography.of(context).body.copyWith(
+          color: colors.secondaryTextFieldColor,
+        );
     return GestureDetector(
       onTap: onTap,
       behavior: HitTestBehavior.opaque,
@@ -58,7 +62,7 @@ class AppSearchField extends StatelessWidget {
         child: SizedBox(
           height: 42,
           child: TextFormField(
-            // style: style ?? textStyles.labelLarge,
+            style: style ?? fieldTextStyle,
             validator: validator,
             obscureText: obscureText ?? false,
             textAlign: TextAlign.start,
@@ -68,9 +72,7 @@ class AppSearchField extends StatelessWidget {
             focusNode: focusNode,
             inputFormatters: inputFormatters,
             decoration: InputDecoration(
-              hintStyle: TextStyle(
-                color: colors.secondaryText,
-              ),
+              hintStyle: fieldTextStyle,
               hintText: hintText,
               filled: fillColor != null,
               fillColor: fillColor,

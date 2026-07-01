@@ -104,12 +104,12 @@ class _RequestFormState extends State<_RequestForm> {
           const SizedBox(height: 24),
           BlocBuilder<PasswordResetRequestCubit, PasswordResetRequestState>(
             builder: (context, state) {
-              return ZButton.primary(
+              return ZButton.gradient1(
                 onPressed: state.status.isLoading
                     ? null
                     : () => _onContinuePressed(context),
                 child: state.status.isLoading
-                    ? CircularProgressIndicator(color: colors.onAction)
+                    ? CircularProgressIndicator(color: colors.secondaryBg)
                     : Text(context.l10n.next),
               );
             },

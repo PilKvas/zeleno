@@ -131,7 +131,7 @@ abstract class AppLocalizations {
   /// No description provided for @toTheGardenButtonTitle.
   ///
   /// In ru, this message translates to:
-  /// **'В сад'**
+  /// **'Добавить в мой сад'**
   String get toTheGardenButtonTitle;
 
   /// No description provided for @plantDetailMenuSpecifications.
@@ -931,6 +931,420 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'Применить'**
   String get filtersSheetApply;
+
+  /// No description provided for @addGardenPlantTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добавление растения'**
+  String get addGardenPlantTitle;
+
+  /// No description provided for @addGardenPlantHeadline.
+  ///
+  /// In ru, this message translates to:
+  /// **'Хотите изменить название растения или добавить главное фото?'**
+  String get addGardenPlantHeadline;
+
+  /// No description provided for @addGardenPlantRoomLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Комната: {roomName}'**
+  String addGardenPlantRoomLabel(String roomName);
+
+  /// No description provided for @addGardenPlantNameHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Имя растения'**
+  String get addGardenPlantNameHint;
+
+  /// No description provided for @addGardenPlantNameRequired.
+  ///
+  /// In ru, this message translates to:
+  /// **'Укажите имя растения'**
+  String get addGardenPlantNameRequired;
+
+  /// No description provided for @addGardenPlantNameTooLong.
+  ///
+  /// In ru, this message translates to:
+  /// **'Имя не должно превышать 255 символов'**
+  String get addGardenPlantNameTooLong;
+
+  /// No description provided for @addGardenPlantPhotoLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Фотография'**
+  String get addGardenPlantPhotoLabel;
+
+  /// No description provided for @addGardenPlantPickPhoto.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выбрать фото'**
+  String get addGardenPlantPickPhoto;
+
+  /// No description provided for @addGardenPlantRemovePhoto.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удалить'**
+  String get addGardenPlantRemovePhoto;
+
+  /// No description provided for @addGardenPlantSubmit.
+  ///
+  /// In ru, this message translates to:
+  /// **'Дальше'**
+  String get addGardenPlantSubmit;
+
+  /// No description provided for @addGardenPlantSave.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранить'**
+  String get addGardenPlantSave;
+
+  /// No description provided for @addGardenPlantSuccessTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Растение успешно добавлено'**
+  String get addGardenPlantSuccessTitle;
+
+  /// No description provided for @addGardenPlantSuccessDescription.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вы можете найти и изменить информацию о нем в вашем саду'**
+  String get addGardenPlantSuccessDescription;
+
+  /// No description provided for @addGardenPlantImageUploadFailed.
+  ///
+  /// In ru, this message translates to:
+  /// **'Растение сохранено, но не удалось загрузить фото'**
+  String get addGardenPlantImageUploadFailed;
+
+  /// No description provided for @addGardenPlantGoToGarden.
+  ///
+  /// In ru, this message translates to:
+  /// **'В мой сад'**
+  String get addGardenPlantGoToGarden;
+
+  /// No description provided for @addGardenPlantClose.
+  ///
+  /// In ru, this message translates to:
+  /// **'Закрыть'**
+  String get addGardenPlantClose;
+
+  /// No description provided for @gardenPlantsListTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Мой сад'**
+  String get gardenPlantsListTitle;
+
+  /// No description provided for @gardenPlantsListAllRooms.
+  ///
+  /// In ru, this message translates to:
+  /// **'Все'**
+  String get gardenPlantsListAllRooms;
+
+  /// No description provided for @gardenPlantsListEmpty.
+  ///
+  /// In ru, this message translates to:
+  /// **'У вас пока нет растений в саду'**
+  String get gardenPlantsListEmpty;
+
+  /// No description provided for @gardenPlantsListLoadError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Не удалось загрузить растения'**
+  String get gardenPlantsListLoadError;
+
+  /// No description provided for @plantRoomsSelectionTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Заполните информацию о расположении растения'**
+  String get plantRoomsSelectionTitle;
+
+  /// No description provided for @plantRoomsLoadError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Не удалось загрузить комнаты'**
+  String get plantRoomsLoadError;
+
+  /// No description provided for @plantRoomsUnauthorizedTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вы не авторизованы'**
+  String get plantRoomsUnauthorizedTitle;
+
+  /// No description provided for @plantRoomsUnauthorizedDescription.
+  ///
+  /// In ru, this message translates to:
+  /// **'Чтобы просматривать и добавлять комнаты, войдите в аккаунт.'**
+  String get plantRoomsUnauthorizedDescription;
+
+  /// No description provided for @plantRoomsGoToProfile.
+  ///
+  /// In ru, this message translates to:
+  /// **'Перейти в профиль'**
+  String get plantRoomsGoToProfile;
+
+  /// No description provided for @plantRoomsManagementTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Мои комнаты'**
+  String get plantRoomsManagementTitle;
+
+  /// No description provided for @plantRoomsAddTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добавить комнату'**
+  String get plantRoomsAddTitle;
+
+  /// No description provided for @plantRoomsEditTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Редактировать комнату'**
+  String get plantRoomsEditTitle;
+
+  /// No description provided for @plantRoomsNameHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Название'**
+  String get plantRoomsNameHint;
+
+  /// No description provided for @plantRoomsNameRequired.
+  ///
+  /// In ru, this message translates to:
+  /// **'Введите название комнаты'**
+  String get plantRoomsNameRequired;
+
+  /// No description provided for @plantRoomsTemperatureHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Температура (°C)'**
+  String get plantRoomsTemperatureHint;
+
+  /// No description provided for @plantRoomsHumidityHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Влажность (%)'**
+  String get plantRoomsHumidityHint;
+
+  /// No description provided for @plantRoomsIlluminanceHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Освещенность (lux)'**
+  String get plantRoomsIlluminanceHint;
+
+  /// No description provided for @plantRoomsWindowDirectionHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Направление окна'**
+  String get plantRoomsWindowDirectionHint;
+
+  /// No description provided for @plantRoomsWindowNorth.
+  ///
+  /// In ru, this message translates to:
+  /// **'Север'**
+  String get plantRoomsWindowNorth;
+
+  /// No description provided for @plantRoomsWindowSouth.
+  ///
+  /// In ru, this message translates to:
+  /// **'Юг'**
+  String get plantRoomsWindowSouth;
+
+  /// No description provided for @plantRoomsWindowEast.
+  ///
+  /// In ru, this message translates to:
+  /// **'Восток'**
+  String get plantRoomsWindowEast;
+
+  /// No description provided for @plantRoomsWindowWest.
+  ///
+  /// In ru, this message translates to:
+  /// **'Запад'**
+  String get plantRoomsWindowWest;
+
+  /// No description provided for @plantRoomsSave.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранить'**
+  String get plantRoomsSave;
+
+  /// No description provided for @plantRoomsDeleteTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удалить комнату?'**
+  String get plantRoomsDeleteTitle;
+
+  /// No description provided for @plantRoomsDeleteMessage.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удалить комнату «{roomName}»? Растения останутся в саду.'**
+  String plantRoomsDeleteMessage(String roomName);
+
+  /// No description provided for @plantRoomsDeleteCancel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Отмена'**
+  String get plantRoomsDeleteCancel;
+
+  /// No description provided for @plantRoomsDeleteConfirm.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удалить'**
+  String get plantRoomsDeleteConfirm;
+
+  /// No description provided for @gardenPlantLoadError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Не удалось загрузить растение'**
+  String get gardenPlantLoadError;
+
+  /// No description provided for @gardenPlantEditTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Редактировать растение'**
+  String get gardenPlantEditTitle;
+
+  /// No description provided for @gardenPlantNameHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Название'**
+  String get gardenPlantNameHint;
+
+  /// No description provided for @gardenPlantNameRequired.
+  ///
+  /// In ru, this message translates to:
+  /// **'Введите название растения'**
+  String get gardenPlantNameRequired;
+
+  /// No description provided for @gardenPlantRoomHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Комната'**
+  String get gardenPlantRoomHint;
+
+  /// No description provided for @gardenPlantNoRoom.
+  ///
+  /// In ru, this message translates to:
+  /// **'Без комнаты'**
+  String get gardenPlantNoRoom;
+
+  /// No description provided for @gardenPlantRoomLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Комната'**
+  String get gardenPlantRoomLabel;
+
+  /// No description provided for @gardenPlantSizeLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Размер'**
+  String get gardenPlantSizeLabel;
+
+  /// No description provided for @gardenPlantSunlightLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Освещение'**
+  String get gardenPlantSunlightLabel;
+
+  /// No description provided for @gardenPlantPotSizeLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Размер горшка'**
+  String get gardenPlantPotSizeLabel;
+
+  /// No description provided for @gardenPlantLastWateringLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Последний полив'**
+  String get gardenPlantLastWateringLabel;
+
+  /// No description provided for @gardenPlantLastRepottingLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Последняя пересадка'**
+  String get gardenPlantLastRepottingLabel;
+
+  /// No description provided for @gardenPlantDeletePhoto.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удалить фото'**
+  String get gardenPlantDeletePhoto;
+
+  /// No description provided for @gardenPlantDelete.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удалить растение'**
+  String get gardenPlantDelete;
+
+  /// No description provided for @gardenPlantDeleteTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удалить растение?'**
+  String get gardenPlantDeleteTitle;
+
+  /// No description provided for @gardenPlantDeleteMessage.
+  ///
+  /// In ru, this message translates to:
+  /// **'Растение будет удалено из вашего сада.'**
+  String get gardenPlantDeleteMessage;
+
+  /// No description provided for @gardenPlantCareRepotting.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пересадка'**
+  String get gardenPlantCareRepotting;
+
+  /// No description provided for @gardenPlantCareWatering.
+  ///
+  /// In ru, this message translates to:
+  /// **'Полив'**
+  String get gardenPlantCareWatering;
+
+  /// No description provided for @gardenPlantCareFertilizing.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удобрение'**
+  String get gardenPlantCareFertilizing;
+
+  /// No description provided for @gardenPlantCareNoData.
+  ///
+  /// In ru, this message translates to:
+  /// **'Нет данных'**
+  String get gardenPlantCareNoData;
+
+  /// No description provided for @gardenPlantOpenAllTags.
+  ///
+  /// In ru, this message translates to:
+  /// **'Открыть все'**
+  String get gardenPlantOpenAllTags;
+
+  /// No description provided for @gardenPlantAge.
+  ///
+  /// In ru, this message translates to:
+  /// **'{years} лет'**
+  String gardenPlantAge(String years);
+
+  /// No description provided for @gardenPlantSpreadMeters.
+  ///
+  /// In ru, this message translates to:
+  /// **'{value} м'**
+  String gardenPlantSpreadMeters(String value);
+
+  /// No description provided for @gardenPlantHeightMeters.
+  ///
+  /// In ru, this message translates to:
+  /// **'{value} м'**
+  String gardenPlantHeightMeters(String value);
+
+  /// No description provided for @gardenPlantCareInterval.
+  ///
+  /// In ru, this message translates to:
+  /// **'каждые {min}–{max} {unit}'**
+  String gardenPlantCareInterval(String min, String max, String unit);
+
+  /// No description provided for @retry.
+  ///
+  /// In ru, this message translates to:
+  /// **'Повторить'**
+  String get retry;
 }
 
 class _AppLocalizationsDelegate

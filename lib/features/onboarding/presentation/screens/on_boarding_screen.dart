@@ -59,12 +59,18 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 controller: _pageController,
                 children: [
                   _PageViewItem(
-                    imageCouple: (ZImages.woollyPlantMom11, ZImages.woollyPlant412),
+                    imageCouple: (
+                      ZImages.woollyPlantMom11,
+                      ZImages.woollyPlant412
+                    ),
                     title: l10n.firstPageTitle,
                     subTitle: l10n.firstPageSubTitle,
                   ),
                   _PageViewItem(
-                    imageCouple: (ZImages.woollyPlant421, ZImages.woollyTakingCareOfPlants22),
+                    imageCouple: (
+                      ZImages.woollyPlant421,
+                      ZImages.woollyTakingCareOfPlants22
+                    ),
                     title: l10n.secondPageTitle,
                     subTitle: l10n.secondPageSubTitle,
                   ),

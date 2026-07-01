@@ -12,4 +12,7 @@ class PasswordResetConfirmModel with _$PasswordResetConfirmModel {
 
   factory PasswordResetConfirmModel.fromJson(Map<String, dynamic> json) =>
       _$PasswordResetConfirmModelFromJson(json);
+
+  @override
+  Map<String, dynamic> toJson() => toJson();
 }

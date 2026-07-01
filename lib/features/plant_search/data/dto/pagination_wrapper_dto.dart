@@ -11,6 +11,7 @@ class PaginationWrapperDto<T> with _$PaginationWrapperDto<T> {
     @Default([]) List<T> items,
   }) = _PaginationWrapperDto;
 
-  factory PaginationWrapperDto.fromJson(Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
+  factory PaginationWrapperDto.fromJson(
+          Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
       _$PaginationWrapperDtoFromJson(json, fromJsonT);
 }

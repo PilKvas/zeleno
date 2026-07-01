@@ -24,7 +24,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get startWithTutorialButtonTitle => 'Выращивать по туториалу';
 
   @override
-  String get toTheGardenButtonTitle => 'В сад';
+  String get toTheGardenButtonTitle => 'Добавить в мой сад';
 
   @override
   String get plantDetailMenuSpecifications => 'Характеристики';
@@ -473,4 +473,229 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get filtersSheetApply => 'Apply';
+
+  @override
+  String get addGardenPlantTitle => 'Add plant';
+
+  @override
+  String get addGardenPlantHeadline =>
+      'Would you like to change the plant name or add a main photo?';
+
+  @override
+  String addGardenPlantRoomLabel(String roomName) {
+    return 'Room: $roomName';
+  }
+
+  @override
+  String get addGardenPlantNameHint => 'Plant name';
+
+  @override
+  String get addGardenPlantNameRequired => 'Enter a plant name';
+
+  @override
+  String get addGardenPlantNameTooLong =>
+      'Name must be 255 characters or fewer';
+
+  @override
+  String get addGardenPlantPhotoLabel => 'Photo';
+
+  @override
+  String get addGardenPlantPickPhoto => 'Choose photo';
+
+  @override
+  String get addGardenPlantRemovePhoto => 'Remove';
+
+  @override
+  String get addGardenPlantSubmit => 'Next';
+
+  @override
+  String get addGardenPlantSave => 'Save';
+
+  @override
+  String get addGardenPlantSuccessTitle => 'Plant added successfully';
+
+  @override
+  String get addGardenPlantSuccessDescription =>
+      'You can find and edit it in your garden';
+
+  @override
+  String get addGardenPlantImageUploadFailed =>
+      'Plant saved, but the photo could not be uploaded';
+
+  @override
+  String get addGardenPlantGoToGarden => 'My garden';
+
+  @override
+  String get addGardenPlantClose => 'Close';
+
+  @override
+  String get gardenPlantsListTitle => 'My garden';
+
+  @override
+  String get gardenPlantsListAllRooms => 'All';
+
+  @override
+  String get gardenPlantsListEmpty => 'You have no plants in your garden yet';
+
+  @override
+  String get gardenPlantsListLoadError => 'Failed to load plants';
+
+  @override
+  String get plantRoomsSelectionTitle => 'Choose where to place the plant';
+
+  @override
+  String get plantRoomsLoadError => 'Failed to load rooms';
+
+  @override
+  String get plantRoomsUnauthorizedTitle => 'You are not signed in';
+
+  @override
+  String get plantRoomsUnauthorizedDescription =>
+      'Sign in to view and add rooms.';
+
+  @override
+  String get plantRoomsGoToProfile => 'Go to profile';
+
+  @override
+  String get plantRoomsManagementTitle => 'My rooms';
+
+  @override
+  String get plantRoomsAddTitle => 'Add room';
+
+  @override
+  String get plantRoomsEditTitle => 'Edit room';
+
+  @override
+  String get plantRoomsNameHint => 'Name';
+
+  @override
+  String get plantRoomsNameRequired => 'Enter a room name';
+
+  @override
+  String get plantRoomsTemperatureHint => 'Temperature (°C)';
+
+  @override
+  String get plantRoomsHumidityHint => 'Humidity (%)';
+
+  @override
+  String get plantRoomsIlluminanceHint => 'Illuminance (lux)';
+
+  @override
+  String get plantRoomsWindowDirectionHint => 'Window direction';
+
+  @override
+  String get plantRoomsWindowNorth => 'North';
+
+  @override
+  String get plantRoomsWindowSouth => 'South';
+
+  @override
+  String get plantRoomsWindowEast => 'East';
+
+  @override
+  String get plantRoomsWindowWest => 'West';
+
+  @override
+  String get plantRoomsSave => 'Save';
+
+  @override
+  String get plantRoomsDeleteTitle => 'Delete room?';
+
+  @override
+  String plantRoomsDeleteMessage(String roomName) {
+    return 'Delete room \"$roomName\"? Plants in this room will remain in the garden.';
+  }
+
+  @override
+  String get plantRoomsDeleteCancel => 'Cancel';
+
+  @override
+  String get plantRoomsDeleteConfirm => 'Delete';
+
+  @override
+  String get gardenPlantLoadError => 'Failed to load plant';
+
+  @override
+  String get gardenPlantEditTitle => 'Edit plant';
+
+  @override
+  String get gardenPlantNameHint => 'Name';
+
+  @override
+  String get gardenPlantNameRequired => 'Enter a plant name';
+
+  @override
+  String get gardenPlantRoomHint => 'Room';
+
+  @override
+  String get gardenPlantNoRoom => 'No room';
+
+  @override
+  String get gardenPlantRoomLabel => 'Room';
+
+  @override
+  String get gardenPlantSizeLabel => 'Size';
+
+  @override
+  String get gardenPlantSunlightLabel => 'Sunlight';
+
+  @override
+  String get gardenPlantPotSizeLabel => 'Pot size';
+
+  @override
+  String get gardenPlantLastWateringLabel => 'Last watering';
+
+  @override
+  String get gardenPlantLastRepottingLabel => 'Last repotting';
+
+  @override
+  String get gardenPlantDeletePhoto => 'Delete photo';
+
+  @override
+  String get gardenPlantDelete => 'Delete plant';
+
+  @override
+  String get gardenPlantDeleteTitle => 'Delete plant?';
+
+  @override
+  String get gardenPlantDeleteMessage =>
+      'This plant will be removed from your garden.';
+
+  @override
+  String get gardenPlantCareRepotting => 'Repotting';
+
+  @override
+  String get gardenPlantCareWatering => 'Watering';
+
+  @override
+  String get gardenPlantCareFertilizing => 'Fertilizing';
+
+  @override
+  String get gardenPlantCareNoData => 'No data';
+
+  @override
+  String get gardenPlantOpenAllTags => 'Show all';
+
+  @override
+  String gardenPlantAge(String years) {
+    return '$years years';
+  }
+
+  @override
+  String gardenPlantSpreadMeters(String value) {
+    return '$value m';
+  }
+
+  @override
+  String gardenPlantHeightMeters(String value) {
+    return '$value m';
+  }
+
+  @override
+  String gardenPlantCareInterval(String min, String max, String unit) {
+    return 'every $min–$max $unit';
+  }
+
+  @override
+  String get retry => 'Retry';
 }

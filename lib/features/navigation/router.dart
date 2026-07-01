@@ -25,7 +25,22 @@ class AppRouter extends RootStackRouter {
           page: HomeRoute.page,
           children: [
             AutoRoute(
-              page: RoomRoute.page,
+              page: GardenStackRoute.page,
+              children: [
+                AutoRoute(
+                  initial: true,
+                  page: GardenPlantsListRoute.page,
+                ),
+                AutoRoute(
+                  page: PlantRoomsManagementRoute.page,
+                ),
+                AutoRoute(
+                  page: GardenPlantDetailRoute.page,
+                ),
+                AutoRoute(
+                  page: AddGardenPlantRoute.page,
+                ),
+              ],
             ),
             AutoRoute(
               page: PlantSearchStackRoute.page,
@@ -36,6 +51,15 @@ class AppRouter extends RootStackRouter {
                 ),
                 AutoRoute(
                   page: PlantDetailsRoute.page,
+                ),
+                AutoRoute(
+                  page: PlantRoomsSelectionRoute.page,
+                ),
+                AutoRoute(
+                  page: AddGardenPlantRoute.page,
+                ),
+                AutoRoute(
+                  page: AddGardenPlantSuccessRoute.page,
                 ),
               ],
             ),

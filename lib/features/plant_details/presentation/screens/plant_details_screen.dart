@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zeleno_v2/app/di/di.dart';
 import 'package:zeleno_v2/features/core/enums/status.dart';
+import 'package:zeleno_v2/features/navigation/router.gr.dart';
 import 'package:zeleno_v2/features/plant_details/domain/models/plant_details_model.dart';
-import 'package:zeleno_v2/features/plant_details/presentation/cubit/garden_cubit.dart';
 import 'package:zeleno_v2/features/plant_details/presentation/screens/cubit/plant_details_cubit.dart';
 import 'package:zeleno_v2/features/plant_details/presentation/widgets/characteristic_item_widget.dart';
 import 'package:zeleno_v2/features/plant_details/presentation/widgets/expandable_section_widget.dart';
@@ -12,10 +12,7 @@ import 'package:zeleno_v2/features/plant_details/presentation/widgets/plant_grow
 import 'package:zeleno_v2/features/plant_details/presentation/widgets/plant_images_section_widget.dart';
 import 'package:zeleno_v2/features/plant_details/presentation/widgets/regular_events_widget.dart';
 import 'package:zeleno_v2/features/plant_details/presentation/widgets/scientific_classification_widget.dart';
-import 'package:zeleno_v2/features/plant_details/presentation/widgets/select_room_bottom_sheet.dart';
 import 'package:zeleno_v2/features/plant_details/presentation/widgets/tag_widget.dart';
-import 'package:zeleno_v2/features/rooms/domain/repository/i_garden_repository.dart';
-import 'package:zeleno_v2/features/rooms/domain/repository/i_room_repository.dart';
 import 'package:zeleno_v2/l10n/app_localization_x.dart';
 import 'package:zeleno_v2/uikit/loading_widget.dart';
 import 'package:zeleno_v2/uikit/theme/color_theme.dart';
@@ -37,22 +34,16 @@ class PlantDetailsScreen extends StatefulWidget {
 class _PlantDetailsScreenState extends State<PlantDetailsScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
-  late GardenCubit _gardenCubit;
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 3, vsync: this);
-    _gardenCubit = GardenCubit(
-      gardenPlantRepository: injection<IGardenPlantRepository>(),
-      roomRepository: injection<IRoomRepository>(),
-    );
   }
 
   @override
   void dispose() {
     _tabController.dispose();
-    _gardenCubit.close();
     super.dispose();
   }
 
@@ -66,9 +57,6 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen>
           create: (context) => PlantDetailsCubit(
             plantDetailsRepository: injection(),
           )..getPlant(widget.slug),
-        ),
-        BlocProvider.value(
-          value: _gardenCubit,
         ),
       ],
       child: Scaffold(
@@ -189,9 +177,19 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen>
                               const SizedBox.shrink(),
                             const SizedBox(height: 16),
                             ElevatedButton(
-                              onPressed: () {
-                                _handleAddToGarden(context, state);
-                              },
+                              onPressed: state.plantDetails?.id == null
+                                  ? null
+                                  : () {
+                                      context.router.push(
+                                        PlantRoomsSelectionRoute(
+                                          speciesId: state.plantDetails!.id!,
+                                          speciesSlug: widget.slug,
+                                          defaultPlantName: state.plantDetails
+                                                  ?.resolveMainCommonName() ??
+                                              '',
+                                        ),
+                                      );
+                                    },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: colors.action,
                                 foregroundColor: colors.onAction,
@@ -322,8 +320,8 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen>
                                   children: state.plantDetails?.tags != null &&
                                           state.plantDetails!.tags!.isNotEmpty
                                       ? state.plantDetails!.tags!
-                                          .map((PlantTag tag) =>
-                                              TagWidget(text: tag.name ?? ''))
+                                          .map((String tag) =>
+                                              TagWidget(text: tag))
                                           .toList()
                                       : [
                                           TagWidget(
@@ -381,36 +379,6 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen>
           ),
         ),
       ),
-    );
-  }
-
-  void _handleAddToGarden(BuildContext context, PlantDetailsState state) {
-    if (state.plantDetails == null) return;
-
-    _gardenCubit.loadRooms();
-
-    final sheetColors = ZColorScheme.of(context);
-    showModalBottomSheet(
-      context: context,
-      backgroundColor: sheetColors.surface,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (context) {
-        return BlocListener<GardenCubit, GardenState>(
-          bloc: _gardenCubit,
-          listener: (context, gardenState) {
-            if (gardenState.status.isSuccess && gardenState.rooms.isEmpty) {
-              Navigator.pop(context);
-              _gardenCubit.navigateToRoomsTab(context.router);
-            }
-          },
-          child: SelectRoomBottomSheet(
-            gardenCubit: _gardenCubit,
-            specieId: state.plantDetails!.id ?? 0,
-          ),
-        );
-      },
     );
   }
 }

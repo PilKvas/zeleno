@@ -27,13 +27,15 @@ class ZDimensions extends ThemeExtension<ZDimensions> {
 // Margins
   /// Отступ 16px
   static const double basicMargin = 16;
+
   /// Отступ 12px
   static const double normalMargin = 12;
+
   /// Отступ 8px
   static const double smallMargin = 8;
+
   /// Отступ 4px
   static const double tinyMargin = 8;
-
 
   @override
   ThemeExtension<ZDimensions> copyWith({
@@ -48,9 +50,9 @@ class ZDimensions extends ThemeExtension<ZDimensions> {
 
   @override
   ThemeExtension<ZDimensions> lerp(
-      covariant ZDimensions? other,
-      double t,
-      ) {
+    covariant ZDimensions? other,
+    double t,
+  ) {
     if (other == null) return this;
 
     return ZDimensions(
