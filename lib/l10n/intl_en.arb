@@ -14,5 +14,122 @@
       }
     }
   },
-  "filtersSheetApply": "Apply"
+  "filtersSheetApply": "Apply",
+  "addGardenPlantTitle": "Add plant",
+  "addGardenPlantHeadline": "Would you like to change the plant name or add a main photo?",
+  "addGardenPlantRoomLabel": "Room: {roomName}",
+  "@addGardenPlantRoomLabel": {
+    "placeholders": {
+      "roomName": {
+        "type": "String"
+      }
+    }
+  },
+  "addGardenPlantNameHint": "Plant name",
+  "addGardenPlantNameRequired": "Enter a plant name",
+  "addGardenPlantNameTooLong": "Name must be 255 characters or fewer",
+  "addGardenPlantPhotoLabel": "Photo",
+  "addGardenPlantPickPhoto": "Choose photo",
+  "addGardenPlantRemovePhoto": "Remove",
+  "addGardenPlantSubmit": "Next",
+  "addGardenPlantSave": "Save",
+  "addGardenPlantSuccessTitle": "Plant added successfully",
+  "addGardenPlantSuccessDescription": "You can find and edit it in your garden",
+  "addGardenPlantImageUploadFailed": "Plant saved, but the photo could not be uploaded",
+  "addGardenPlantGoToGarden": "My garden",
+  "addGardenPlantClose": "Close",
+  "gardenPlantsListTitle": "My garden",
+  "gardenPlantsListAllRooms": "All",
+  "gardenPlantsListEmpty": "You have no plants in your garden yet",
+  "gardenPlantsListLoadError": "Failed to load plants",
+  "plantRoomsSelectionTitle": "Choose where to place the plant",
+  "plantRoomsLoadError": "Failed to load rooms",
+  "plantRoomsUnauthorizedTitle": "You are not signed in",
+  "plantRoomsUnauthorizedDescription": "Sign in to view and add rooms.",
+  "plantRoomsGoToProfile": "Go to profile",
+  "plantRoomsManagementTitle": "My rooms",
+  "plantRoomsAddTitle": "Add room",
+  "plantRoomsEditTitle": "Edit room",
+  "plantRoomsNameHint": "Name",
+  "plantRoomsNameRequired": "Enter a room name",
+  "plantRoomsTemperatureHint": "Temperature (°C)",
+  "plantRoomsHumidityHint": "Humidity (%)",
+  "plantRoomsIlluminanceHint": "Illuminance (lux)",
+  "plantRoomsWindowDirectionHint": "Window direction",
+  "plantRoomsWindowNorth": "North",
+  "plantRoomsWindowSouth": "South",
+  "plantRoomsWindowEast": "East",
+  "plantRoomsWindowWest": "West",
+  "plantRoomsSave": "Save",
+  "plantRoomsDeleteTitle": "Delete room?",
+  "plantRoomsDeleteMessage": "Delete room \"{roomName}\"? Plants in this room will remain in the garden.",
+  "@plantRoomsDeleteMessage": {
+    "placeholders": {
+      "roomName": {
+        "type": "String"
+      }
+    }
+  },
+  "plantRoomsDeleteCancel": "Cancel",
+  "plantRoomsDeleteConfirm": "Delete",
+  "gardenPlantLoadError": "Failed to load plant",
+  "gardenPlantEditTitle": "Edit plant",
+  "gardenPlantNameHint": "Name",
+  "gardenPlantNameRequired": "Enter a plant name",
+  "gardenPlantRoomHint": "Room",
+  "gardenPlantNoRoom": "No room",
+  "gardenPlantRoomLabel": "Room",
+  "gardenPlantSizeLabel": "Size",
+  "gardenPlantSunlightLabel": "Sunlight",
+  "gardenPlantPotSizeLabel": "Pot size",
+  "gardenPlantLastWateringLabel": "Last watering",
+  "gardenPlantLastRepottingLabel": "Last repotting",
+  "gardenPlantDeletePhoto": "Delete photo",
+  "gardenPlantDelete": "Delete plant",
+  "gardenPlantDeleteTitle": "Delete plant?",
+  "gardenPlantDeleteMessage": "This plant will be removed from your garden.",
+  "gardenPlantCareRepotting": "Repotting",
+  "gardenPlantCareWatering": "Watering",
+  "gardenPlantCareFertilizing": "Fertilizing",
+  "gardenPlantCareNoData": "No data",
+  "gardenPlantOpenAllTags": "Show all",
+  "gardenPlantAge": "{years} years",
+  "@gardenPlantAge": {
+    "placeholders": {
+      "years": {
+        "type": "String"
+      }
+    }
+  },
+  "gardenPlantSpreadMeters": "{value} m",
+  "@gardenPlantSpreadMeters": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "gardenPlantHeightMeters": "{value} m",
+  "@gardenPlantHeightMeters": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "gardenPlantCareInterval": "every {min}–{max} {unit}",
+  "@gardenPlantCareInterval": {
+    "placeholders": {
+      "min": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      },
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "retry": "Retry"
 }

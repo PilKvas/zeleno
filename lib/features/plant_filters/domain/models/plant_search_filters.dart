@@ -15,8 +15,7 @@ class PlantSearchFilters with _$PlantSearchFilters {
   const PlantSearchFilters._();
 
   bool get hasActiveFilters {
-    final bool hasSearchQuery =
-        searchQuery != null && searchQuery!.isNotEmpty;
+    final bool hasSearchQuery = searchQuery != null && searchQuery!.isNotEmpty;
     final bool hasHeight = heightFrom != null || heightTo != null;
     final bool hasSoil = soilPh != null || soilMoisture != null;
     return hasSearchQuery || hasHeight || hasSoil;

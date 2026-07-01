@@ -147,10 +147,10 @@ class _RegistrationFormState extends State<_RegistrationForm> {
           const SizedBox(height: 30),
           BlocBuilder<RegistrationCubit, RegistrationState>(
             builder: (context, state) {
-              return ZButton.primary(
+              return ZButton.gradient1(
                 onPressed: state.status.isLoading ? null : _onRegisterPressed,
                 child: state.status.isLoading
-                    ? CircularProgressIndicator(color: colors.onAction)
+                    ? CircularProgressIndicator(color: colors.secondaryBg)
                     : Text(l10n.registerButton),
               );
             },

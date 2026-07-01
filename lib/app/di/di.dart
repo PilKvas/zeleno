@@ -24,6 +24,14 @@ import 'package:zeleno_v2/features/plant_filters/data/repository/plant_filters_r
 import 'package:zeleno_v2/features/plant_filters/data/service/plant_filters_service.dart';
 import 'package:zeleno_v2/features/plant_filters/domain/repository/i_plant_filters_repository.dart';
 import 'package:zeleno_v2/features/plant_filters/domain/usecases/plant_filters_usecase.dart';
+import 'package:zeleno_v2/features/garden_plants/data/repository/garden_plants_repository.dart';
+import 'package:zeleno_v2/features/garden_plants/data/service/garden_plants_service.dart';
+import 'package:zeleno_v2/features/garden_plants/domain/repository/i_garden_plants_repository.dart';
+import 'package:zeleno_v2/features/garden_plants/presentation/screens/list/cubit/garden_plants_list_cubit.dart';
+import 'package:zeleno_v2/features/plant_rooms/presentation/cubit/plant_rooms_cubit.dart';
+import 'package:zeleno_v2/features/plant_rooms/data/repository/plant_rooms_repository.dart';
+import 'package:zeleno_v2/features/plant_rooms/data/service/plant_rooms_service.dart';
+import 'package:zeleno_v2/features/plant_rooms/domain/repository/i_plant_rooms_repository.dart';
 import 'package:zeleno_v2/features/plant_search/data/repository/plant_search_repository.dart';
 import 'package:zeleno_v2/features/plant_search/data/service/plant_search_service.dart';
 import 'package:zeleno_v2/features/plant_search/domain/repository/i_plant_search_repository.dart';
@@ -31,12 +39,6 @@ import 'package:zeleno_v2/features/plant_search/domain/usecases/plants_search_us
 import 'package:zeleno_v2/features/profile/data/repository/profile_repository.dart';
 import 'package:zeleno_v2/features/profile/data/service/profile_service.dart';
 import 'package:zeleno_v2/features/profile/domain/repository/i_profile_repository.dart';
-import 'package:zeleno_v2/features/rooms/data/repository/garden_plants_repository.dart';
-import 'package:zeleno_v2/features/rooms/data/repository/room_repository.dart';
-import 'package:zeleno_v2/features/rooms/data/service/garden_service.dart';
-import 'package:zeleno_v2/features/rooms/data/service/room_service.dart';
-import 'package:zeleno_v2/features/rooms/domain/repository/i_garden_repository.dart';
-import 'package:zeleno_v2/features/rooms/domain/repository/i_room_repository.dart';
 
 final injection = GetIt.instance;
 
@@ -80,11 +82,11 @@ Future<void> initializeDependencies() async {
     ..registerLazySingleton<PlantDetailsService>(
       () => PlantDetailsService(dio),
     )
-    ..registerLazySingleton<RoomService>(
-      () => RoomService(dio),
+    ..registerLazySingleton<PlantRoomsService>(
+      () => PlantRoomsService(dio),
     )
-    ..registerLazySingleton<GardenService>(
-      () => GardenService(dio),
+    ..registerLazySingleton<GardenPlantsService>(
+      () => GardenPlantsService(dio),
     )
     ..registerLazySingleton<ProfileService>(
       () => ProfileService(dio),
@@ -111,14 +113,14 @@ Future<void> initializeDependencies() async {
         plantDetailsService: injection(),
       ),
     )
-    ..registerLazySingleton<IRoomRepository>(
-      () => RoomRepository(
-        roomService: injection(),
+    ..registerLazySingleton<IPlantRoomsRepository>(
+      () => PlantRoomsRepository(
+        plantRoomsService: injection(),
       ),
     )
-    ..registerLazySingleton<IGardenPlantRepository>(
+    ..registerLazySingleton<IGardenPlantsRepository>(
       () => GardenPlantsRepository(
-        gardenService: injection(),
+        gardenPlantsService: injection(),
       ),
     )
     ..registerLazySingleton<IProfileRepository>(() => ProfileRepository(
@@ -131,6 +133,14 @@ Future<void> initializeDependencies() async {
 
   injection.registerLazySingleton<PlantFiltersUsecase>(
     () => PlantFiltersUsecase(plantFiltersRepository: injection()),
+  );
+
+  injection.registerLazySingleton<GardenPlantsListCubit>(
+    () => GardenPlantsListCubit(gardenPlantsRepository: injection()),
+  );
+
+  injection.registerLazySingleton<PlantRoomsCubit>(
+    () => PlantRoomsCubit(plantRoomsRepository: injection()),
   );
 
   dio.interceptors.add(

@@ -28,12 +28,8 @@ class ZTabSelector extends StatelessWidget {
     final colors = ZColorScheme.of(context);
     final typography = ZTypography.of(context);
 
-    final activeColor = colors.brightness == Brightness.dark
-        ? const Color(0xFFB95E3A)
-        : colors.action;
-    final labelColor = colors.brightness == Brightness.dark
-        ? const Color(0xFFF1F1F1)
-        : colors.onSurface;
+    final Color activeColor = colors.action;
+    final Color labelColor = colors.onSurface;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,

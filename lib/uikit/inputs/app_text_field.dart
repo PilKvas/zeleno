@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:zeleno_v2/core/helper/debouncer.dart';
 import 'package:zeleno_v2/uikit/theme/color_theme.dart';
+import 'package:zeleno_v2/uikit/theme/typography.dart';
 
 class ZTextField extends StatefulWidget {
   final EdgeInsetsGeometry? contentPadding;
@@ -110,7 +111,11 @@ class _ZTextFieldState extends State<ZTextField> {
   @override
   Widget build(BuildContext context) {
     final colors = ZColorScheme.of(context);
+    final TextStyle fieldTextStyle = ZTypography.of(context).body.copyWith(
+          color: colors.secondaryTextFieldColor,
+        );
     return TextFormField(
+      style: fieldTextStyle,
       keyboardType: widget.keyboardType,
       inputFormatters: widget.inputFormatters,
       obscureText: _isObscured,
@@ -132,9 +137,7 @@ class _ZTextFieldState extends State<ZTextField> {
       },
       decoration: InputDecoration(
         isDense: true,
-        hintStyle: TextStyle(
-          color: colors.secondaryText,
-        ),
+        hintStyle: fieldTextStyle,
         errorText: widget.errorText,
         errorStyle: TextStyle(
           color: colors.error,

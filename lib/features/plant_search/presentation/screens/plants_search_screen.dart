@@ -228,7 +228,8 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
                                                   value: bloc,
                                                   child: BlocProvider.value(
                                                     value: filtersCubit,
-                                                    child: const PlantFiltersSheet(),
+                                                    child:
+                                                        const PlantFiltersSheet(),
                                                   ),
                                                 ),
                                               );

@@ -12,7 +12,7 @@ class PlantSearchItemDto with _$PlantSearchItemDto {
     required String slug,
     String? latinName,
     String? mainCommonName,
-    String? imageUrl,
+    @JsonKey(name: 'image') String? imageUrl,
   }) = _PlantSearchItemDto;
 
   const PlantSearchItemDto._();

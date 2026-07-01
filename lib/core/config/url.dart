@@ -1,4 +1,4 @@
-// TODO(init-project): Add server urls.
+
 
 /// Server url.
 enum Url {

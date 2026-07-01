@@ -23,6 +23,7 @@ mixin _$PlantSearchItemDto {
   String get slug => throw _privateConstructorUsedError;
   String? get latinName => throw _privateConstructorUsedError;
   String? get mainCommonName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'image')
   String? get imageUrl => throw _privateConstructorUsedError;
 
   /// Serializes this PlantSearchItemDto to a JSON map.
@@ -45,7 +46,7 @@ abstract class $PlantSearchItemDtoCopyWith<$Res> {
       {String slug,
       String? latinName,
       String? mainCommonName,
-      String? imageUrl});
+      @JsonKey(name: 'image') String? imageUrl});
 }
 
 /// @nodoc
@@ -101,7 +102,7 @@ abstract class _$$PlantSearchItemDtoImplCopyWith<$Res>
       {String slug,
       String? latinName,
       String? mainCommonName,
-      String? imageUrl});
+      @JsonKey(name: 'image') String? imageUrl});
 }
 
 /// @nodoc
@@ -148,7 +149,10 @@ class __$$PlantSearchItemDtoImplCopyWithImpl<$Res>
 @JsonSerializable(fieldRename: FieldRename.snake, includeIfNull: false)
 class _$PlantSearchItemDtoImpl extends _PlantSearchItemDto {
   const _$PlantSearchItemDtoImpl(
-      {required this.slug, this.latinName, this.mainCommonName, this.imageUrl})
+      {required this.slug,
+      this.latinName,
+      this.mainCommonName,
+      @JsonKey(name: 'image') this.imageUrl})
       : super._();
 
   factory _$PlantSearchItemDtoImpl.fromJson(Map<String, dynamic> json) =>
@@ -161,6 +165,7 @@ class _$PlantSearchItemDtoImpl extends _PlantSearchItemDto {
   @override
   final String? mainCommonName;
   @override
+  @JsonKey(name: 'image')
   final String? imageUrl;
 
   @override
@@ -206,10 +211,11 @@ class _$PlantSearchItemDtoImpl extends _PlantSearchItemDto {
 
 abstract class _PlantSearchItemDto extends PlantSearchItemDto {
   const factory _PlantSearchItemDto(
-      {required final String slug,
-      final String? latinName,
-      final String? mainCommonName,
-      final String? imageUrl}) = _$PlantSearchItemDtoImpl;
+          {required final String slug,
+          final String? latinName,
+          final String? mainCommonName,
+          @JsonKey(name: 'image') final String? imageUrl}) =
+      _$PlantSearchItemDtoImpl;
   const _PlantSearchItemDto._() : super._();
 
   factory _PlantSearchItemDto.fromJson(Map<String, dynamic> json) =
@@ -222,6 +228,7 @@ abstract class _PlantSearchItemDto extends PlantSearchItemDto {
   @override
   String? get mainCommonName;
   @override
+  @JsonKey(name: 'image')
   String? get imageUrl;
 
   /// Create a copy of PlantSearchItemDto

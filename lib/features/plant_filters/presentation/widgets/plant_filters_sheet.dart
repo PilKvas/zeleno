@@ -170,7 +170,7 @@ class _PlantFiltersSheetState extends State<PlantFiltersSheet> {
                     }),
                   ),
                   const SizedBox(height: 16),
-                  ZButton.primary(
+                  ZButton.gradient1(
                     onPressed: filtersState.status == FiltersStatus.loading
                         ? null
                         : () => _apply(filtersState),

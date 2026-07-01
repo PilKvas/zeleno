@@ -12,7 +12,7 @@ _$PlantSearchItemDtoImpl _$$PlantSearchItemDtoImplFromJson(
       slug: json['slug'] as String,
       latinName: json['latin_name'] as String?,
       mainCommonName: json['main_common_name'] as String?,
-      imageUrl: json['image_url'] as String?,
+      imageUrl: json['image'] as String?,
     );
 
 Map<String, dynamic> _$$PlantSearchItemDtoImplToJson(
@@ -21,5 +21,5 @@ Map<String, dynamic> _$$PlantSearchItemDtoImplToJson(
       'slug': instance.slug,
       if (instance.latinName case final value?) 'latin_name': value,
       if (instance.mainCommonName case final value?) 'main_common_name': value,
-      if (instance.imageUrl case final value?) 'image_url': value,
+      if (instance.imageUrl case final value?) 'image': value,
     };

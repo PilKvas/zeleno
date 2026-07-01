@@ -75,6 +75,7 @@ class _ZOtpCodeFieldState extends State<ZOtpCodeField> {
               fontSize: 22,
               fontWeight: FontWeight.bold,
               height: 1.0,
+              color: colors.secondaryTextFieldColor,
             ),
             inputFormatters: [
               FilteringTextInputFormatter.digitsOnly,

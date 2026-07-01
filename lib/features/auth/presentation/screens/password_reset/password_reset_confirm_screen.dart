@@ -62,13 +62,15 @@ class _Content extends StatelessWidget {
         }
       },
       child: Scaffold(
-        appBar: AppBar(title: Text(context.l10n.forgotPasswordNewPasswordTitle)),
+        appBar:
+            AppBar(title: Text(context.l10n.forgotPasswordNewPasswordTitle)),
         body: SafeArea(
           child: Stack(
             children: [
               const Positioned.fill(child: AuthBackground()),
               SingleChildScrollView(
-                padding: EdgeInsets.fromLTRB(16, MediaQuery.sizeOf(context).height * 0.22, 16, 24),
+                padding: EdgeInsets.fromLTRB(
+                    16, MediaQuery.sizeOf(context).height * 0.22, 16, 24),
                 child: _ConfirmForm(token: token),
               ),
             ],
@@ -91,7 +93,8 @@ class _ConfirmForm extends StatefulWidget {
 class _ConfirmFormState extends State<_ConfirmForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
 
   @override
   void dispose() {
@@ -127,17 +130,18 @@ class _ConfirmFormState extends State<_ConfirmForm> {
             fillColor: colors.surface,
             isPassword: true,
             hintText: context.l10n.confirmPasswordHint,
-            validator: Validator.confirmPassword(context.l10n, _passwordController),
+            validator:
+                Validator.confirmPassword(context.l10n, _passwordController),
           ),
           const SizedBox(height: 24),
           BlocBuilder<PasswordResetConfirmCubit, PasswordResetConfirmState>(
             builder: (context, state) {
-              return ZButton.primary(
+              return ZButton.gradient1(
                 onPressed: state.status.isLoading
                     ? null
                     : () => _onContinuePressed(context),
                 child: state.status.isLoading
-                    ? CircularProgressIndicator(color: colors.onAction)
+                    ? CircularProgressIndicator(color: colors.secondaryBg)
                     : Text(context.l10n.forgotPasswordConfirmAction),
               );
             },

@@ -35,9 +35,8 @@ _$PlantDetailsModelImpl _$$PlantDetailsModelImplFromJson(
       growthTips: (json['growth_tips'] as List<dynamic>?)
           ?.map((e) => GrowthTip.fromJson(e as Map<String, dynamic>))
           .toList(),
-      habit: (json['habit'] as List<dynamic>?)
-          ?.map((e) => NamedSlug.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      habit:
+          (json['habit'] as List<dynamic>?)?.map((e) => e as String).toList(),
       hardinessZone: json['hardiness_zone'] as String?,
       harvest:
           (json['harvest'] as List<dynamic>?)?.map((e) => e as String).toList(),
@@ -57,9 +56,6 @@ _$PlantDetailsModelImpl _$$PlantDetailsModelImplFromJson(
           : DateTime.parse(json['modified'] as String),
       partsColor: (json['parts_color'] as List<dynamic>?)
           ?.map((e) => PartColorGroup.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      pathogens: (json['pathogens'] as List<dynamic>?)
-          ?.map((e) => PathogenItem.fromJson(e as Map<String, dynamic>))
           .toList(),
       planting: (json['planting'] as List<dynamic>?)
           ?.map((e) => e as String)
@@ -81,7 +77,7 @@ _$PlantDetailsModelImpl _$$PlantDetailsModelImplFromJson(
       soilPh:
           (json['soil_ph'] as List<dynamic>?)?.map((e) => e as String).toList(),
       soilTypes: (json['soil_types'] as List<dynamic>?)
-          ?.map((e) => NamedSlug.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => e as String)
           .toList(),
       sources: (json['sources'] as List<dynamic>?)
           ?.map((e) => Source.fromJson(e as Map<String, dynamic>))
@@ -89,11 +85,9 @@ _$PlantDetailsModelImpl _$$PlantDetailsModelImplFromJson(
       spreadMaxCm: (json['spread_max_cm'] as num?)?.toInt(),
       spreadMinCm: (json['spread_min_cm'] as num?)?.toInt(),
       synonyms: (json['synonyms'] as List<dynamic>?)
-          ?.map((e) => SynonymItem.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => e as String)
           .toList(),
-      tags: (json['tags'] as List<dynamic>?)
-          ?.map((e) => PlantTag.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
       toxicity: (json['toxicity'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
@@ -127,7 +121,6 @@ Map<String, dynamic> _$$PlantDetailsModelImplToJson(
       'misc': instance.misc,
       'modified': instance.modified?.toIso8601String(),
       'parts_color': instance.partsColor,
-      'pathogens': instance.pathogens,
       'planting': instance.planting,
       'position_side': instance.positionSide,
       'position_sunlight': instance.positionSunlight,

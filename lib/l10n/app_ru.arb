@@ -17,7 +17,7 @@
     "description": "Plant details"
   },
   "startWithTutorialButtonTitle": "Выращивать по туториалу",
-  "toTheGardenButtonTitle": "В сад",
+  "toTheGardenButtonTitle": "Добавить в мой сад",
   "plantDetailMenuSpecifications": "Характеристики",
   "plantDetailMenuCare": "Уход",
   "plantDetailMenuGrowth": "Развитие",
@@ -263,5 +263,127 @@
       }
     }
   },
-  "filtersSheetApply": "Применить"
+  "filtersSheetApply": "Применить",
+
+  "@segmentGardenPlants": {
+    "---------": "---------",
+    "description": "Garden plants"
+  },
+  "addGardenPlantTitle": "Добавление растения",
+  "addGardenPlantHeadline": "Хотите изменить название растения или добавить главное фото?",
+  "addGardenPlantRoomLabel": "Комната: {roomName}",
+  "@addGardenPlantRoomLabel": {
+    "placeholders": {
+      "roomName": {
+        "type": "String"
+      }
+    }
+  },
+  "addGardenPlantNameHint": "Имя растения",
+  "addGardenPlantNameRequired": "Укажите имя растения",
+  "addGardenPlantNameTooLong": "Имя не должно превышать 255 символов",
+  "addGardenPlantPhotoLabel": "Фотография",
+  "addGardenPlantPickPhoto": "Выбрать фото",
+  "addGardenPlantRemovePhoto": "Удалить",
+  "addGardenPlantSubmit": "Дальше",
+  "addGardenPlantSave": "Сохранить",
+  "addGardenPlantSuccessTitle": "Растение успешно добавлено",
+  "addGardenPlantSuccessDescription": "Вы можете найти и изменить информацию о нем в вашем саду",
+  "addGardenPlantImageUploadFailed": "Растение сохранено, но не удалось загрузить фото",
+  "addGardenPlantGoToGarden": "В мой сад",
+  "addGardenPlantClose": "Закрыть",
+  "gardenPlantsListTitle": "Мой сад",
+  "gardenPlantsListAllRooms": "Все",
+  "gardenPlantsListEmpty": "У вас пока нет растений в саду",
+  "gardenPlantsListLoadError": "Не удалось загрузить растения",
+  "plantRoomsSelectionTitle": "Заполните информацию о расположении растения",
+  "plantRoomsLoadError": "Не удалось загрузить комнаты",
+  "plantRoomsUnauthorizedTitle": "Вы не авторизованы",
+  "plantRoomsUnauthorizedDescription": "Чтобы просматривать и добавлять комнаты, войдите в аккаунт.",
+  "plantRoomsGoToProfile": "Перейти в профиль",
+  "plantRoomsManagementTitle": "Мои комнаты",
+  "plantRoomsAddTitle": "Добавить комнату",
+  "plantRoomsEditTitle": "Редактировать комнату",
+  "plantRoomsNameHint": "Название",
+  "plantRoomsNameRequired": "Введите название комнаты",
+  "plantRoomsTemperatureHint": "Температура (°C)",
+  "plantRoomsHumidityHint": "Влажность (%)",
+  "plantRoomsIlluminanceHint": "Освещенность (lux)",
+  "plantRoomsWindowDirectionHint": "Направление окна",
+  "plantRoomsWindowNorth": "Север",
+  "plantRoomsWindowSouth": "Юг",
+  "plantRoomsWindowEast": "Восток",
+  "plantRoomsWindowWest": "Запад",
+  "plantRoomsSave": "Сохранить",
+  "plantRoomsDeleteTitle": "Удалить комнату?",
+  "plantRoomsDeleteMessage": "Удалить комнату «{roomName}»? Растения останутся в саду.",
+  "@plantRoomsDeleteMessage": {
+    "placeholders": {
+      "roomName": {
+        "type": "String"
+      }
+    }
+  },
+  "plantRoomsDeleteCancel": "Отмена",
+  "plantRoomsDeleteConfirm": "Удалить",
+  "gardenPlantLoadError": "Не удалось загрузить растение",
+  "gardenPlantEditTitle": "Редактировать растение",
+  "gardenPlantNameHint": "Название",
+  "gardenPlantNameRequired": "Введите название растения",
+  "gardenPlantRoomHint": "Комната",
+  "gardenPlantNoRoom": "Без комнаты",
+  "gardenPlantRoomLabel": "Комната",
+  "gardenPlantSizeLabel": "Размер",
+  "gardenPlantSunlightLabel": "Освещение",
+  "gardenPlantPotSizeLabel": "Размер горшка",
+  "gardenPlantLastWateringLabel": "Последний полив",
+  "gardenPlantLastRepottingLabel": "Последняя пересадка",
+  "gardenPlantDeletePhoto": "Удалить фото",
+  "gardenPlantDelete": "Удалить растение",
+  "gardenPlantDeleteTitle": "Удалить растение?",
+  "gardenPlantDeleteMessage": "Растение будет удалено из вашего сада.",
+  "gardenPlantCareRepotting": "Пересадка",
+  "gardenPlantCareWatering": "Полив",
+  "gardenPlantCareFertilizing": "Удобрение",
+  "gardenPlantCareNoData": "Нет данных",
+  "gardenPlantOpenAllTags": "Открыть все",
+  "gardenPlantAge": "{years} лет",
+  "@gardenPlantAge": {
+    "placeholders": {
+      "years": {
+        "type": "String"
+      }
+    }
+  },
+  "gardenPlantSpreadMeters": "{value} м",
+  "@gardenPlantSpreadMeters": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "gardenPlantHeightMeters": "{value} м",
+  "@gardenPlantHeightMeters": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "gardenPlantCareInterval": "каждые {min}–{max} {unit}",
+  "@gardenPlantCareInterval": {
+    "placeholders": {
+      "min": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      },
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "retry": "Повторить"
 }

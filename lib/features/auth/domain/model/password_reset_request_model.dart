@@ -11,4 +11,7 @@ class PasswordResetRequestModel with _$PasswordResetRequestModel {
 
   factory PasswordResetRequestModel.fromJson(Map<String, dynamic> json) =>
       _$PasswordResetRequestModelFromJson(json);
+
+  @override
+  Map<String, dynamic> toJson() => toJson();
 }
