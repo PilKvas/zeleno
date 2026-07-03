@@ -1,22 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zeleno_v2/app/di/di.dart';
-import 'package:zeleno_v2/features/core/enums/status.dart';
-import 'package:zeleno_v2/features/navigation/router.gr.dart';
-import 'package:zeleno_v2/features/plant_details/domain/models/plant_details_model.dart';
-import 'package:zeleno_v2/features/plant_details/presentation/screens/cubit/plant_details_cubit.dart';
-import 'package:zeleno_v2/features/plant_details/presentation/widgets/characteristic_item_widget.dart';
-import 'package:zeleno_v2/features/plant_details/presentation/widgets/expandable_section_widget.dart';
-import 'package:zeleno_v2/features/plant_details/presentation/widgets/plant_growth_tips_widget.dart';
-import 'package:zeleno_v2/features/plant_details/presentation/widgets/plant_images_section_widget.dart';
-import 'package:zeleno_v2/features/plant_details/presentation/widgets/regular_events_widget.dart';
-import 'package:zeleno_v2/features/plant_details/presentation/widgets/scientific_classification_widget.dart';
-import 'package:zeleno_v2/features/plant_details/presentation/widgets/tag_widget.dart';
-import 'package:zeleno_v2/l10n/app_localization_x.dart';
-import 'package:zeleno_v2/uikit/loading_widget.dart';
-import 'package:zeleno_v2/uikit/theme/color_theme.dart';
-import 'package:zeleno_v2/uikit/theme/typography.dart';
+import 'package:zeleno_v2/app/di/export.dart';
+import 'package:zeleno_v2/features/core/enums/export.dart';
+import 'package:zeleno_v2/features/navigation/export.dart';
+import 'package:zeleno_v2/features/plant_details/domain/models/export.dart';
+import 'package:zeleno_v2/features/plant_details/presentation/screens/cubit/export.dart';
+import 'package:zeleno_v2/features/plant_details/presentation/widgets/export.dart';
+import 'package:zeleno_v2/l10n/export.dart';
+import 'package:zeleno_v2/uikit/export.dart';
 
 @RoutePage()
 class PlantDetailsScreen extends StatefulWidget {

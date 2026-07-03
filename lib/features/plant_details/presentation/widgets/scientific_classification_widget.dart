@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zeleno_v2/features/plant_details/domain/models/plant_details_model.dart';
+import 'package:zeleno_v2/features/plant_details/domain/models/export.dart';
 
 /// New API exposes [latinName] and [misc] (rank, year) instead of full taxonomy.
 class ScientificClassificationWidget extends StatelessWidget {

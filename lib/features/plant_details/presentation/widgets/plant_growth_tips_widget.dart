@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:zeleno_v2/features/plant_details/domain/models/plant_details_model.dart';
-import 'package:zeleno_v2/uikit/theme/typography.dart';
+import 'package:zeleno_v2/features/plant_details/domain/models/export.dart';
+import 'package:zeleno_v2/uikit/theme/export.dart';
 
 class PlantGrowthTipsWidget extends StatelessWidget {
   final List<GrowthTip> tips;

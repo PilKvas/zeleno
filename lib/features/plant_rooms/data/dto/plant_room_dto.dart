@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:zeleno_v2/features/plant_rooms/domain/models/plant_room_model.dart';
+import 'package:zeleno_v2/features/plant_rooms/domain/models/export.dart';
 
 part 'plant_room_dto.freezed.dart';
 part 'plant_room_dto.g.dart';

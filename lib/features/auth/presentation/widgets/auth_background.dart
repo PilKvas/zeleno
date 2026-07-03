@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zeleno_v2/resources/resources.dart';
+import 'package:zeleno_v2/resources/export.dart';
 
 class AuthBackground extends StatelessWidget {
   const AuthBackground({super.key});

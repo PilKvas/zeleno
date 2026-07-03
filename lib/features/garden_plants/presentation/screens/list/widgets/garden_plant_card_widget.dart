@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:zeleno_v2/features/garden_plants/domain/models/garden_plant_model.dart';
-import 'package:zeleno_v2/uikit/theme/color_theme.dart';
-import 'package:zeleno_v2/uikit/theme/typography.dart';
+import 'package:zeleno_v2/features/garden_plants/domain/models/export.dart';
+import 'package:zeleno_v2/uikit/theme/export.dart';
 
 class GardenPlantCardWidget extends StatelessWidget {
   const GardenPlantCardWidget({

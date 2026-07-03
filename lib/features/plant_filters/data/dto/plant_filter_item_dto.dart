@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import '../../domain/models/plant_filter_item.dart';
+import 'package:zeleno_v2/features/plant_filters/domain/models/export.dart';
 
 part 'plant_filter_item_dto.freezed.dart';
 part 'plant_filter_item_dto.g.dart';

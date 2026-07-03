@@ -1,4 +1,4 @@
-import 'package:zeleno_v2/features/auth/domain/model/token_model.dart';
+import 'package:zeleno_v2/features/auth/domain/model/export.dart';
 
 abstract class IRefreshRepository {
   Future<TokenModel> refreshTokens({

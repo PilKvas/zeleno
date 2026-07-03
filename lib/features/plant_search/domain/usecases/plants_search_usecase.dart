@@ -1,5 +1,5 @@
-import 'package:zeleno_v2/features/plant_search/domain/models/plant_search_item.dart';
-import 'package:zeleno_v2/features/plant_search/domain/repository/i_plant_search_repository.dart';
+import 'package:zeleno_v2/features/plant_search/domain/models/export.dart';
+import 'package:zeleno_v2/features/plant_search/domain/repository/export.dart';
 
 class PlantsSearchUsecase {
   final IPlantSearchRepository _iPlantRepository;

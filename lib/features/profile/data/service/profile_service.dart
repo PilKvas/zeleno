@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:zeleno_v2/features/profile/data/dto/user_dto.dart';
+import 'package:zeleno_v2/features/profile/data/dto/export.dart';
 
 part 'profile_service.g.dart';
 

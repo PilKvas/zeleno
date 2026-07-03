@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zeleno_v2/uikit/theme/color_theme.dart';
+import 'package:zeleno_v2/uikit/theme/export.dart';
 
 enum SnackBarType { error, success, info }
 

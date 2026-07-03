@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zeleno_v2/features/auth/data/persistence/storage/theme_storage/i_theme_mode_storage.dart';
+import 'package:zeleno_v2/features/auth/data/persistence/storage/theme_storage/export.dart';
 
 class ThemeCubit extends Cubit<ThemeMode> {
   ThemeCubit(this._themeModeStorage) : super(ThemeMode.light);

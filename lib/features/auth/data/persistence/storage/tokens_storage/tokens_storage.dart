@@ -1,6 +1,6 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:zeleno_v2/features/auth/data/persistence/storage/tokens_storage/i_tokens_storage.dart';
-import 'package:zeleno_v2/features/auth/domain/model/token_model.dart';
+import 'package:zeleno_v2/features/auth/domain/model/export.dart';
 
 /// {@template tokens_storage.class}
 /// Implementation [ITokensStorage]

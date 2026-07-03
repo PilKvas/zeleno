@@ -1,6 +1,6 @@
-import 'package:zeleno_v2/features/profile/data/service/profile_service.dart';
-import 'package:zeleno_v2/features/profile/domain/model/user.dart';
-import 'package:zeleno_v2/features/profile/domain/repository/i_profile_repository.dart';
+import 'package:zeleno_v2/features/profile/data/service/export.dart';
+import 'package:zeleno_v2/features/profile/domain/model/export.dart';
+import 'package:zeleno_v2/features/profile/domain/repository/export.dart';
 
 class ProfileRepository implements IProfileRepository {
   final ProfileService _profileService;

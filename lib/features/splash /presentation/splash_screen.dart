@@ -2,11 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:zeleno_v2/app/di/di.dart';
-import 'package:zeleno_v2/features/auth/data/persistence/storage/first_run/i_first_run_storage.dart';
-import 'package:zeleno_v2/features/navigation/router.gr.dart';
-
-import 'bloc/splash_bloc.dart';
+import 'package:zeleno_v2/app/di/export.dart';
+import 'package:zeleno_v2/features/auth/data/persistence/storage/first_run/export.dart';
+import 'package:zeleno_v2/features/navigation/export.dart';
+import 'package:zeleno_v2/features/splash /presentation/bloc/export.dart';
 
 @RoutePage()
 class SplashScreen extends StatelessWidget implements AutoRouteWrapper {

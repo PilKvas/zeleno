@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:zeleno_v2/l10n/app_localization_x.dart';
-import 'package:zeleno_v2/uikit/button/button.dart';
-import 'package:zeleno_v2/uikit/theme/color_theme.dart';
-import 'package:zeleno_v2/uikit/theme/typography.dart';
+import 'package:zeleno_v2/l10n/export.dart';
+import 'package:zeleno_v2/uikit/button/export.dart';
+import 'package:zeleno_v2/uikit/theme/export.dart';
 
 class PlantRoomsUnauthorizedBanner extends StatelessWidget {
   const PlantRoomsUnauthorizedBanner({

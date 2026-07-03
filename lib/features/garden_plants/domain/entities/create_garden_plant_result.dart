@@ -1,4 +1,4 @@
-import 'package:zeleno_v2/features/garden_plants/domain/models/garden_plant_model.dart';
+import 'package:zeleno_v2/features/garden_plants/domain/models/export.dart';
 
 class CreateGardenPlantResult {
   const CreateGardenPlantResult({

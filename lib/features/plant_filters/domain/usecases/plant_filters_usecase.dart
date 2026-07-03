@@ -1,5 +1,5 @@
-import 'package:zeleno_v2/features/plant_filters/domain/models/plant_filter_item.dart';
-import 'package:zeleno_v2/features/plant_filters/domain/repository/i_plant_filters_repository.dart';
+import 'package:zeleno_v2/features/plant_filters/domain/models/export.dart';
+import 'package:zeleno_v2/features/plant_filters/domain/repository/export.dart';
 
 final class PlantFiltersUsecase {
   PlantFiltersUsecase({

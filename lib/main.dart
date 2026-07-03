@@ -3,17 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:zeleno_v2/app/di/di.dart';
-import 'package:zeleno_v2/app/theme/theme_cubit.dart';
-import 'package:zeleno_v2/features/auth/data/persistence/storage/theme_storage/i_theme_mode_storage.dart';
-import 'package:zeleno_v2/features/auth/domain/repository/i_auth_repository.dart';
-import 'package:zeleno_v2/features/auth/presentation/cubit/auth_cubit.dart';
-import 'package:zeleno_v2/features/navigation/router.dart';
+import 'package:zeleno_v2/app/di/export.dart';
+import 'package:zeleno_v2/app/theme/export.dart';
+import 'package:zeleno_v2/features/auth/data/persistence/storage/theme_storage/export.dart';
+import 'package:zeleno_v2/features/auth/domain/repository/export.dart';
+import 'package:zeleno_v2/features/auth/presentation/cubit/export.dart';
+import 'package:zeleno_v2/features/navigation/export.dart';
 import 'package:zeleno_v2/l10n/gen/app_localizations.dart';
-import 'package:zeleno_v2/uikit/theme/color_theme.dart';
-import 'package:zeleno_v2/uikit/theme/dimensions.dart';
-import 'package:zeleno_v2/uikit/theme/theme.dart';
-import 'package:zeleno_v2/uikit/theme/typography.dart';
+import 'package:zeleno_v2/uikit/theme/export.dart';
 
 void main() async {
   final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();

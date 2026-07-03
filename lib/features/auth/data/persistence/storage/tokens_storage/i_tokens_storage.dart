@@ -1,4 +1,4 @@
-import 'package:zeleno_v2/features/auth/domain/model/token_model.dart';
+import 'package:zeleno_v2/features/auth/domain/model/export.dart';
 
 /// Storage for tokens
 abstract interface class ITokensStorage {

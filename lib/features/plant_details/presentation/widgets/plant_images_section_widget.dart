@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zeleno_v2/features/plant_details/domain/models/plant_details_model.dart';
+import 'package:zeleno_v2/features/plant_details/domain/models/export.dart';
 
 class PlantImagesSectionWidget extends StatelessWidget {
   final List<PlantImageItem> images;

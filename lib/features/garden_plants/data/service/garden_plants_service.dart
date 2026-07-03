@@ -1,8 +1,7 @@
 import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:zeleno_v2/features/garden_plants/domain/models/garden_plant_model.dart';
+import 'package:zeleno_v2/features/garden_plants/domain/models/export.dart';
 
 part 'garden_plants_service.g.dart';
 
