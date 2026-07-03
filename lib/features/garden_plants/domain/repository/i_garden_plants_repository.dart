@@ -1,9 +1,6 @@
 import 'dart:typed_data';
-
-import 'package:zeleno_v2/features/garden_plants/domain/entities/create_garden_plant_params.dart';
-import 'package:zeleno_v2/features/garden_plants/domain/entities/create_garden_plant_result.dart';
-import 'package:zeleno_v2/features/garden_plants/domain/entities/update_garden_plant_params.dart';
-import 'package:zeleno_v2/features/garden_plants/domain/models/garden_plant_model.dart';
+import 'package:zeleno_v2/features/garden_plants/domain/entities/export.dart';
+import 'package:zeleno_v2/features/garden_plants/domain/models/export.dart';
 
 abstract interface class IGardenPlantsRepository {
   Future<CreateGardenPlantResult> createGardenPlant({

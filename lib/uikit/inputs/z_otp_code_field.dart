@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:zeleno_v2/uikit/theme/color_theme.dart';
-import 'package:zeleno_v2/uikit/theme/typography.dart';
+import 'package:zeleno_v2/uikit/theme/export.dart';
 
 class ZOtpCodeField extends StatefulWidget {
   const ZOtpCodeField({

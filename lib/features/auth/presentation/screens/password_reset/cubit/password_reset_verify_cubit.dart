@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:zeleno_v2/features/auth/domain/repository/i_auth_repository.dart';
-import 'package:zeleno_v2/features/core/enums/status.dart';
+import 'package:zeleno_v2/features/auth/domain/repository/export.dart';
+import 'package:zeleno_v2/features/core/enums/export.dart';
 
 part 'password_reset_verify_cubit.freezed.dart';
 part 'password_reset_verify_state.dart';

@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import '../../../auth/data/persistence/storage/first_run/i_first_run_storage.dart';
+import 'package:zeleno_v2/features/auth/data/persistence/storage/first_run/export.dart';
 
 part 'splash_bloc.freezed.dart';
 part 'splash_event.dart';

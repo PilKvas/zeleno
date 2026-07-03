@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:zeleno_v2/features/plant_search/data/dto/pagination_wrapper_dto.dart';
-import 'package:zeleno_v2/features/plant_search/data/dto/plant_search_item_dto.dart';
+import 'package:zeleno_v2/features/plant_search/data/dto/export.dart';
 
 part 'plant_search_service.g.dart';
 

@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:zeleno_v2/features/plant_filters/data/dto/plant_filter_item_dto.dart';
+import 'package:zeleno_v2/features/plant_filters/data/dto/export.dart';
 
 part 'plant_filters_service.g.dart';
 

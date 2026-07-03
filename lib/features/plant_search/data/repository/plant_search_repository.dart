@@ -1,7 +1,6 @@
-import 'package:zeleno_v2/features/plant_search/data/service/plant_search_service.dart';
-import 'package:zeleno_v2/features/plant_search/domain/models/pagination_wrapper.dart';
-import 'package:zeleno_v2/features/plant_search/domain/models/plant_search_item.dart';
-import 'package:zeleno_v2/features/plant_search/domain/repository/i_plant_search_repository.dart';
+import 'package:zeleno_v2/features/plant_search/data/service/export.dart';
+import 'package:zeleno_v2/features/plant_search/domain/models/export.dart';
+import 'package:zeleno_v2/features/plant_search/domain/repository/export.dart';
 
 class PlantSearchRepository implements IPlantSearchRepository {
   final PlantSearchService _plantSearchService;

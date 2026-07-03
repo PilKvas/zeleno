@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:zeleno_v2/uikit/button/pressable.dart';
-import 'package:zeleno_v2/uikit/theme/color_theme.dart';
-import 'package:zeleno_v2/uikit/theme/typography.dart';
+import 'package:zeleno_v2/uikit/button/export.dart';
+import 'package:zeleno_v2/uikit/theme/export.dart';
 
 class GardenRoomChipWidget extends StatelessWidget {
   const GardenRoomChipWidget({

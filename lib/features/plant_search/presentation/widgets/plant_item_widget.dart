@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:zeleno_v2/features/plant_search/domain/models/plant_search_item.dart';
-import 'package:zeleno_v2/resources/resources.dart';
-import 'package:zeleno_v2/uikit/theme/typography.dart';
+import 'package:zeleno_v2/features/plant_search/domain/models/export.dart';
+import 'package:zeleno_v2/resources/export.dart';
+import 'package:zeleno_v2/uikit/theme/export.dart';
 
 class PlantItemWidget extends StatelessWidget {
   final PlantSearchItem item;

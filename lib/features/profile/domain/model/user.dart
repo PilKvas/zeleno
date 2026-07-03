@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:zeleno_v2/features/profile/data/dto/user_dto.dart';
+import 'package:zeleno_v2/features/profile/data/dto/export.dart';
 
 class User extends Equatable {
   final String email;

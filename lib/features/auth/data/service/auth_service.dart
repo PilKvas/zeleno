@@ -1,11 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:zeleno_v2/features/auth/domain/model/auth_model.dart';
-import 'package:zeleno_v2/features/auth/domain/model/password_reset_confirm_model.dart';
-import 'package:zeleno_v2/features/auth/domain/model/password_reset_request_model.dart';
-import 'package:zeleno_v2/features/auth/domain/model/password_reset_token_model.dart';
-import 'package:zeleno_v2/features/auth/domain/model/password_reset_verify_model.dart';
-import 'package:zeleno_v2/features/auth/domain/model/token_model.dart';
+import 'package:zeleno_v2/features/auth/domain/model/export.dart';
 
 part 'auth_service.g.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:zeleno_v2/features/profile/domain/model/user.dart';
-import 'package:zeleno_v2/features/profile/domain/repository/i_profile_repository.dart';
+import 'package:zeleno_v2/features/profile/domain/model/export.dart';
+import 'package:zeleno_v2/features/profile/domain/repository/export.dart';
 
 part 'profile_cubit.freezed.dart';
 part 'profile_state.dart';

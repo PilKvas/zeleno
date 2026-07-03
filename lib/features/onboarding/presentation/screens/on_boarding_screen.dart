@@ -1,11 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:zeleno_v2/features/navigation/router.gr.dart';
-import 'package:zeleno_v2/l10n/app_localization_x.dart';
-import 'package:zeleno_v2/resources/resources.dart';
-import 'package:zeleno_v2/uikit/theme/color_theme.dart';
-import 'package:zeleno_v2/uikit/theme/typography.dart';
+import 'package:zeleno_v2/features/navigation/export.dart';
+import 'package:zeleno_v2/l10n/export.dart';
+import 'package:zeleno_v2/resources/export.dart';
+import 'package:zeleno_v2/uikit/theme/export.dart';
 
 @RoutePage()
 class OnBoardingScreen extends StatefulWidget {

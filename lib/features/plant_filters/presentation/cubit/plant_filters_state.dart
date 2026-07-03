@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:zeleno_v2/features/plant_filters/domain/models/plant_filter_item.dart';
+import 'package:zeleno_v2/features/plant_filters/domain/models/export.dart';
 
 part 'plant_filters_state.freezed.dart';
 

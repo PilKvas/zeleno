@@ -1,6 +1,4 @@
-import 'package:zeleno_v2/features/auth/domain/model/auth_model.dart';
-import 'package:zeleno_v2/features/auth/domain/model/auth_status.dart';
-import 'package:zeleno_v2/features/auth/domain/model/token_model.dart';
+import 'package:zeleno_v2/features/auth/domain/model/export.dart';
 
 abstract class IAuthRepository {
   Stream<AuthStatus> get statusStream;

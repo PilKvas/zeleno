@@ -1,9 +1,8 @@
 import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:zeleno_v2/uikit/button/pressable.dart';
-import 'package:zeleno_v2/uikit/theme/color_theme.dart';
+import 'package:zeleno_v2/uikit/button/export.dart';
+import 'package:zeleno_v2/uikit/theme/export.dart';
 
 class PlantPhotoPickerWidget extends StatelessWidget {
   const PlantPhotoPickerWidget({

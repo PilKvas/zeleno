@@ -1,4 +1,4 @@
-import 'package:zeleno_v2/data/network/exeptions/exeptions.dart';
+import 'package:zeleno_v2/data/network/exeptions/export.dart';
 import 'package:zeleno_v2/l10n/gen/app_localizations.dart';
 
 String mapErrorToMessage(Object error, AppLocalizations l10n) {
