@@ -1,7 +1,7 @@
-import 'dart:typed_data';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:zeleno_v2/app/di/export.dart';
 import 'package:zeleno_v2/core/helper/export.dart';
 import 'package:zeleno_v2/features/core/enums/export.dart';
@@ -11,7 +11,7 @@ import 'package:zeleno_v2/features/garden_plants/presentation/screens/detail/cub
 import 'package:zeleno_v2/features/garden_plants/presentation/screens/detail/widgets/export.dart';
 import 'package:zeleno_v2/features/navigation/export.dart';
 import 'package:zeleno_v2/features/plant_details/domain/models/export.dart';
-import 'package:zeleno_v2/features/plant_details/domain/reposiotory/export.dart';
+import 'package:zeleno_v2/features/plant_details/domain/repository/export.dart';
 import 'package:zeleno_v2/features/plant_details/presentation/widgets/export.dart';
 import 'package:zeleno_v2/l10n/export.dart';
 import 'package:zeleno_v2/uikit/export.dart';
@@ -19,14 +19,23 @@ import 'package:zeleno_v2/uikit/export.dart';
 const double _kHeroImageHeight = 360;
 const int _kVisibleTagsCount = 3;
 
+/// Единый детальный экран растения.
+///
+/// [plantId] — экземпляр из «Моего сада»; [speciesSlug] — вид из каталога
+/// (открытие из поиска: вместо настроек показывается кнопка «В сад»).
 @RoutePage()
 class GardenPlantDetailScreen extends StatelessWidget {
   const GardenPlantDetailScreen({
     super.key,
-    required this.plantId,
-  });
+    this.plantId,
+    this.speciesSlug,
+  }) : assert(
+          plantId != null || speciesSlug != null,
+          'Нужен plantId (сад) или speciesSlug (каталог)',
+        );
 
-  final int plantId;
+  final int? plantId;
+  final String? speciesSlug;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +44,7 @@ class GardenPlantDetailScreen extends StatelessWidget {
         gardenPlantsRepository: injection<IGardenPlantsRepository>(),
         plantDetailsRepository: injection<IPlantDetailsRepository>(),
         plantId: plantId,
+        speciesSlug: speciesSlug,
       )..loadPlant(),
       child: const _GardenPlantDetailView(),
     );
@@ -54,14 +64,11 @@ class _GardenPlantDetailView extends StatelessWidget {
     final bool? wasUpdated = await context.router.push<bool>(
       AddGardenPlantRoute(
         plantId: plant.id,
-        speciesId: plant.speciesId ?? 0,
-        speciesSlug: plant.speciesSlug ?? '',
-        roomId: plant.roomId ?? 0,
         defaultPlantName: plant.customName,
       ),
     );
     if (wasUpdated == true && context.mounted) {
-      await detailCubit.loadPlant();
+      await detailCubit.reloadAfterEdit();
     }
   }
 
@@ -77,7 +84,9 @@ class _GardenPlantDetailView extends StatelessWidget {
         context.router.maybePop(true);
       },
       builder: (BuildContext context, GardenPlantDetailState state) {
-        if (state.status.isLoading && state.plant == null) {
+        final bool hasContent =
+            state.plant != null || state.speciesDetails != null;
+        if (state.status.isLoading && !hasContent) {
           return const Scaffold(
             body: Center(
               child: SizedBox(
@@ -88,7 +97,7 @@ class _GardenPlantDetailView extends StatelessWidget {
             ),
           );
         }
-        if (state.status.isFailure && state.plant == null) {
+        if (state.status.isFailure && !hasContent) {
           return _ErrorScaffold(state: state);
         }
         return _GardenPlantDetailContent(
@@ -162,13 +171,15 @@ class _GardenPlantDetailContent extends StatelessWidget {
   Widget build(BuildContext context) {
     final ZColorScheme colorScheme = ZColorScheme.of(context);
     final ZTypography typography = ZTypography.of(context);
-    final GardenPlantModel plant = state.plant!;
+    final GardenPlantModel? plant = state.plant;
     final PlantDetailsModel? species = state.speciesDetails;
-    final String? imageUrl = state.pendingPhotoBytes != null
-        ? null
-        : (state.removeExistingPhoto ? null : plant.imageUrl);
+    final bool isSpeciesMode = plant == null;
+    final String languageCode = Localizations.localeOf(context).languageCode;
+    final String title = plant?.customName ??
+        species?.resolveMainCommonName(lang: languageCode) ??
+        context.l10n.unknownName;
     final List<String> commonNames =
-        species?.commonNamesForLang('ru') ?? <String>[];
+        species?.commonNamesForLang(languageCode) ?? <String>[];
     final List<String> tags = species?.tags ?? <String>[];
     final List<String> visibleTags = tags.length > _kVisibleTagsCount
         ? tags.sublist(0, _kVisibleTagsCount)
@@ -178,55 +189,44 @@ class _GardenPlantDetailContent extends StatelessWidget {
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
-            leading: GestureDetector(
-              onTap: () => context.router.maybePop(state.wasUpdated),
-              child: Container(
-                margin: const EdgeInsets.only(left: 8),
-                decoration: BoxDecoration(
-                  color: colorScheme.surface,
-                  shape: BoxShape.circle,
-                ),
-                child: Icon(
+            leading: Container(
+              margin: const EdgeInsets.only(left: 8),
+              decoration: BoxDecoration(
+                color: colorScheme.surface,
+                shape: BoxShape.circle,
+              ),
+              child: IconButton(
+                onPressed: () => context.router.maybePop(state.wasUpdated),
+                icon: Icon(
                   Icons.chevron_left,
                   color: colorScheme.onSurface,
                 ),
               ),
             ),
             actions: <Widget>[
-              Container(
-                margin: const EdgeInsets.only(right: 8),
-                decoration: BoxDecoration(
-                  color: colorScheme.surface,
-                  shape: BoxShape.circle,
-                ),
-                child: IconButton(
-                  icon: Icon(
-                    Icons.settings_outlined,
-                    color: colorScheme.brand,
+              if (!isSpeciesMode)
+                Container(
+                  margin: const EdgeInsets.only(right: 8),
+                  decoration: BoxDecoration(
+                    color: colorScheme.surface,
+                    shape: BoxShape.circle,
                   ),
-                  onPressed: state.isSaving ? null : onOpenEdit,
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.settings_outlined,
+                      color: colorScheme.brand,
+                    ),
+                    onPressed: state.isSaving ? null : onOpenEdit,
+                  ),
                 ),
-              ),
             ],
             expandedHeight: _kHeroImageHeight,
             pinned: true,
             backgroundColor: colorScheme.surface,
             flexibleSpace: FlexibleSpaceBar(
-              background: Stack(
-                fit: StackFit.expand,
-                children: <Widget>[
-                  _PlantImage(
-                    imageUrl: imageUrl,
-                    pendingBytes: state.pendingPhotoBytes,
-                    colorScheme: colorScheme,
-                  ),
-                  const Positioned(
-                    left: 0,
-                    right: 0,
-                    bottom: 28,
-                    child: _PageDotsIndicator(activeIndex: 0, count: 1),
-                  ),
-                ],
+              background: _PlantImage(
+                imageUrl: plant?.imageUrl ?? species?.imageUrl,
+                colorScheme: colorScheme,
               ),
             ),
             bottom: PreferredSize(
@@ -250,7 +250,7 @@ class _GardenPlantDetailContent extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    plant.customName,
+                    title,
                     style: typography.largeTitle.copyWith(
                       color: colorScheme.onBackground,
                     ),
@@ -284,6 +284,21 @@ class _GardenPlantDetailContent extends StatelessWidget {
                       ),
                     ),
                   ],
+                  if (isSpeciesMode) ...<Widget>[
+                    const SizedBox(height: 16),
+                    ZButton.gradient1(
+                      onPressed: species?.id == null
+                          ? null
+                          : () => context.router.push(
+                                PlantRoomsSelectionRoute(
+                                  speciesId: species!.id!,
+                                  speciesSlug: state.speciesSlug ?? '',
+                                  defaultPlantName: title,
+                                ),
+                              ),
+                      child: Text(context.l10n.toTheGardenButtonTitle),
+                    ),
+                  ],
                   const SizedBox(height: 20),
                   _CareCardsRow(
                     plant: plant,
@@ -300,7 +315,7 @@ class _GardenPlantDetailContent extends StatelessWidget {
                       species!.genusDescription!.isNotEmpty)
                     const SizedBox(height: 16),
                   GardenPlantStatsGradientCard(
-                    ageText: _formatAge(context, plant.createdAt),
+                    ageText: _formatAge(context, plant?.createdAt),
                     spreadText: _formatSpreadMeters(context, species),
                     heightText: _formatHeightMeters(context, species),
                   ),
@@ -309,7 +324,7 @@ class _GardenPlantDetailContent extends StatelessWidget {
                     title: context.l10n.plantDetailScientificClassification,
                     content: ScientificClassificationWidget(
                       latinName:
-                          species?.latinName ?? plant.speciesLatinName,
+                          species?.latinName ?? plant?.speciesLatinName,
                       misc: species?.misc,
                     ),
                     isTable: true,
@@ -428,7 +443,7 @@ class _CareCardsRow extends StatelessWidget {
     required this.species,
   });
 
-  final GardenPlantModel plant;
+  final GardenPlantModel? plant;
   final PlantDetailsModel? species;
 
   @override
@@ -442,13 +457,23 @@ class _CareCardsRow extends StatelessWidget {
           GardenPlantCareCardWidget(
             icon: Icons.yard_outlined,
             title: context.l10n.gardenPlantCareRepotting,
-            subtitle: plant.lastRepotting ?? noData,
+            subtitle: _careSubtitle(
+                  context,
+                  exactDate: plant?.lastRepottingExactDate,
+                  rawValue: plant?.lastRepotting,
+                ) ??
+                noData,
           ),
           const SizedBox(width: 8),
           GardenPlantCareCardWidget(
             icon: Icons.water_drop_outlined,
             title: context.l10n.gardenPlantCareWatering,
-            subtitle: plant.lastWatering ?? noData,
+            subtitle: _careSubtitle(
+                  context,
+                  exactDate: plant?.lastWateringExactDate,
+                  rawValue: plant?.lastWatering,
+                ) ??
+                noData,
           ),
           const SizedBox(width: 8),
           GardenPlantCareCardWidget(
@@ -461,11 +486,29 @@ class _CareCardsRow extends StatelessWidget {
     );
   }
 
+  /// Точная дата приоритетнее машинного значения периода.
+  String? _careSubtitle(
+    BuildContext context, {
+    required String? exactDate,
+    required String? rawValue,
+  }) {
+    final DateTime? date = exactDate == null
+        ? null
+        : DateTime.tryParse(exactDate);
+    if (date != null) {
+      final String locale = Localizations.localeOf(context).toString();
+      return DateFormat.yMMMd(locale).format(date);
+    }
+    return rawValue;
+  }
+
   String? _fertilizerSubtitle(BuildContext context) {
     final List<RegularEvent>? events = species?.regularEvents;
     if (events == null || events.isEmpty) {
       return null;
     }
+    // Событие удобрения ищем по названию; показывать вместо него первое
+    // попавшееся событие нельзя — заголовок карточки станет враньём.
     RegularEvent? fertilizerEvent;
     for (final RegularEvent event in events) {
       final String name = event.name?.toLowerCase() ?? '';
@@ -474,7 +517,9 @@ class _CareCardsRow extends StatelessWidget {
         break;
       }
     }
-    fertilizerEvent ??= events.first;
+    if (fertilizerEvent == null) {
+      return null;
+    }
     final int? min = fertilizerEvent.intervalMin;
     final int? max = fertilizerEvent.intervalMax;
     final String? unit = fertilizerEvent.intervalUnit;
@@ -489,57 +534,17 @@ class _CareCardsRow extends StatelessWidget {
   }
 }
 
-class _PageDotsIndicator extends StatelessWidget {
-  const _PageDotsIndicator({
-    required this.activeIndex,
-    required this.count,
-  });
-
-  final int activeIndex;
-  final int count;
-
-  @override
-  Widget build(BuildContext context) {
-    final ZColorScheme colors = ZColorScheme.of(context);
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: List<Widget>.generate(count, (int index) {
-        final bool isActive = index == activeIndex;
-        return Container(
-          width: isActive ? 8 : 6,
-          height: isActive ? 8 : 6,
-          margin: const EdgeInsets.symmetric(horizontal: 3),
-          decoration: BoxDecoration(
-            color: isActive
-                ? colors.background
-                : colors.background.withValues(alpha: 0.5),
-            shape: BoxShape.circle,
-          ),
-        );
-      }),
-    );
-  }
-}
-
 class _PlantImage extends StatelessWidget {
   const _PlantImage({
     required this.imageUrl,
-    required this.pendingBytes,
     required this.colorScheme,
   });
 
   final String? imageUrl;
-  final Uint8List? pendingBytes;
   final ZColorScheme colorScheme;
 
   @override
   Widget build(BuildContext context) {
-    if (pendingBytes != null) {
-      return Image.memory(
-        pendingBytes!,
-        fit: BoxFit.cover,
-      );
-    }
     if (imageUrl != null) {
       return Image.network(
         imageUrl!,

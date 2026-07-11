@@ -15,20 +15,17 @@ import 'package:zeleno_v2/uikit/export.dart';
 class AddGardenPlantScreen extends StatelessWidget {
   const AddGardenPlantScreen({
     super.key,
-    required this.speciesId,
-    required this.speciesSlug,
-    required this.roomId,
     required this.defaultPlantName,
     this.plantId,
-    this.roomName = '',
+    this.speciesId = 0,
+    this.roomId = 0,
   });
 
-  /// `null` — режим создания нового экземпляра; иначе — редактирование.
+  /// `null` — режим создания нового экземпляра; иначе — редактирование
+  /// (в этом режиме [speciesId] и [roomId] не нужны: кубит загрузит их сам).
   final int? plantId;
   final int speciesId;
-  final String speciesSlug;
   final int roomId;
-  final String roomName;
   final String defaultPlantName;
 
   bool get _isEditMode => plantId != null;
@@ -51,9 +48,7 @@ class AddGardenPlantScreen extends StatelessWidget {
         );
       },
       child: _AddGardenPlantView(
-        speciesSlug: speciesSlug,
         defaultPlantName: defaultPlantName,
-        roomName: roomName,
         isEditMode: _isEditMode,
       ),
     );
@@ -62,15 +57,11 @@ class AddGardenPlantScreen extends StatelessWidget {
 
 class _AddGardenPlantView extends StatefulWidget {
   const _AddGardenPlantView({
-    required this.speciesSlug,
     required this.defaultPlantName,
-    required this.roomName,
     required this.isEditMode,
   });
 
-  final String speciesSlug;
   final String defaultPlantName;
-  final String roomName;
   final bool isEditMode;
 
   @override
@@ -79,7 +70,6 @@ class _AddGardenPlantView extends StatefulWidget {
 
 class _AddGardenPlantViewState extends State<_AddGardenPlantView> {
   late final TextEditingController _nameController;
-  bool _nameControllerInitialized = false;
 
   @override
   void initState() {
@@ -93,57 +83,61 @@ class _AddGardenPlantViewState extends State<_AddGardenPlantView> {
     super.dispose();
   }
 
-  void _syncNameController(String name) {
-    if (_nameControllerInitialized) {
-      return;
-    }
-    _nameController.text = name;
-    _nameControllerInitialized = true;
-  }
-
   String? _validationMessage(
     BuildContext context,
-    String? validationKey,
+    AddGardenPlantValidationError? validationError,
   ) {
-    if (validationKey == 'empty_name') {
-      return context.l10n.addGardenPlantNameRequired;
-    }
-    if (validationKey == 'name_too_long') {
-      return context.l10n.addGardenPlantNameTooLong;
-    }
-    return null;
+    return switch (validationError) {
+      AddGardenPlantValidationError.emptyName =>
+        context.l10n.addGardenPlantNameRequired,
+      AddGardenPlantValidationError.nameTooLong =>
+        context.l10n.addGardenPlantNameTooLong,
+      null => null,
+    };
   }
 
   @override
   Widget build(BuildContext context) {
     final ZColorScheme colorScheme = ZColorScheme.of(context);
     final ZTypography typography = ZTypography.of(context);
-    return BlocListener<AddGardenPlantCubit, AddGardenPlantState>(
-      listenWhen: (
-        AddGardenPlantState previous,
-        AddGardenPlantState current,
-      ) {
-        if (current.plantId != null) {
-          return !previous.wasUpdated && current.wasUpdated;
-        }
-        return previous.status != current.status && current.status.isSuccess;
-      },
-      listener: (BuildContext context, AddGardenPlantState state) {
-        if (state.plantId != null) {
-          context.router.maybePop(true);
-          return;
-        }
-        final String customName =
-            state.createdPlant?.customName ?? state.customName;
-        context.router.push(
-          AddGardenPlantSuccessRoute(
-            speciesSlug: widget.speciesSlug,
-            customName: customName,
-            roomName: widget.roomName,
-            imageUploadFailed: state.imageUploadFailed,
-          ),
-        );
-      },
+    return MultiBlocListener(
+      listeners: <BlocListener<dynamic, dynamic>>[
+        // Имя, загруженное для редактирования, попадает в контроллер
+        // ровно один раз — когда растение пришло с сервера.
+        BlocListener<AddGardenPlantCubit, AddGardenPlantState>(
+          listenWhen: (
+            AddGardenPlantState previous,
+            AddGardenPlantState current,
+          ) =>
+              previous.editingPlant == null && current.editingPlant != null,
+          listener: (BuildContext context, AddGardenPlantState state) {
+            _nameController.text = state.customName;
+          },
+        ),
+        BlocListener<AddGardenPlantCubit, AddGardenPlantState>(
+          listenWhen: (
+            AddGardenPlantState previous,
+            AddGardenPlantState current,
+          ) {
+            if (current.plantId != null) {
+              return !previous.wasUpdated && current.wasUpdated;
+            }
+            return previous.status != current.status &&
+                current.status.isSuccess;
+          },
+          listener: (BuildContext context, AddGardenPlantState state) {
+            if (state.plantId != null) {
+              context.router.maybePop(true);
+              return;
+            }
+            context.router.push(
+              AddGardenPlantSuccessRoute(
+                imageUploadFailed: state.imageUploadFailed,
+              ),
+            );
+          },
+        ),
+      ],
       child: Scaffold(
         backgroundColor: colorScheme.background,
         appBar: AppBar(
@@ -199,11 +193,8 @@ class _AddGardenPlantViewState extends State<_AddGardenPlantView> {
                   ),
                 );
               }
-              if (widget.isEditMode) {
-                _syncNameController(state.customName);
-              }
               final String? validationText =
-                  _validationMessage(context, state.validationMessage);
+                  _validationMessage(context, state.validationError);
               final String? errorText = state.error == null
                   ? null
                   : mapErrorToMessage(state.error!, context.l10n);
@@ -246,6 +237,11 @@ class _AddGardenPlantViewState extends State<_AddGardenPlantView> {
                             existingImageUrl: state.existingImageUrl,
                             removeExistingPhoto: state.removeExistingPhoto,
                             onPhotoPicked: (bytes, fileName) {
+                              // Колбэк приходит после async gap выбора фото —
+                              // контекст к этому моменту может быть демонтирован.
+                              if (!context.mounted) {
+                                return;
+                              }
                               context.read<AddGardenPlantCubit>().updatePhoto(
                                     bytes: bytes,
                                     fileName: fileName,

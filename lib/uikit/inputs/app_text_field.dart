@@ -63,7 +63,6 @@ class _ZTextFieldState extends State<ZTextField> {
   late final TextEditingController _textController;
   final _debouncer = Debouncer(milliseconds: 500);
   final FocusNode _focusNode = FocusNode();
-  bool _isFocused = false;
   late bool _isObscured;
 
   @override
@@ -74,17 +73,17 @@ class _ZTextFieldState extends State<ZTextField> {
         TextEditingController(
           text: widget.initialValue,
         );
-    _focusNode.addListener(
-      () {
-        if (context.mounted) {
-          setState(
-            () {
-              _isFocused = _focusNode.hasFocus;
-            },
-          );
-        }
-      },
-    );
+  }
+
+  @override
+  void dispose() {
+    _debouncer.dispose();
+    _focusNode.dispose();
+    // Внешний controller принадлежит вызывающему коду — его не трогаем.
+    if (widget.controller == null) {
+      _textController.dispose();
+    }
+    super.dispose();
   }
 
   void clearInput() {

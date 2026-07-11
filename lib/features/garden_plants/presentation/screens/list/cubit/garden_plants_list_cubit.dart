@@ -15,6 +15,17 @@ class GardenPlantsListCubit extends Cubit<GardenPlantsListState> {
 
   final IGardenPlantsRepository _repository;
 
+  /// Номер последнего запроса: ответ устаревшего запроса не должен
+  /// перетирать состояние более нового.
+  int _requestId = 0;
+
+  /// Кубит живёт как синглтон — при логауте состояние нужно очищать,
+  /// чтобы не показать растения прошлого аккаунта.
+  void reset() {
+    _requestId++;
+    emit(const GardenPlantsListState(status: Status.initial));
+  }
+
   Future<void> loadPlants() async {
     emit(
       state.copyWith(
@@ -23,19 +34,13 @@ class GardenPlantsListCubit extends Cubit<GardenPlantsListState> {
         isRefreshing: false,
       ),
     );
-    await _fetchPlants(state.selectedRoomId);
+    await _fetchPlants();
   }
 
-  Future<void> selectRoom(int? roomId) async {
-    emit(
-      state.copyWith(
-        status: Status.loading,
-        error: null,
-        selectedRoomId: roomId,
-        isRefreshing: false,
-      ),
-    );
-    await _fetchPlants(roomId);
+  /// Фильтрация по комнате идёт в памяти по уже загруженному списку
+  /// (см. [GardenPlantsListState.visiblePlants]) — без запроса в сеть.
+  void selectRoom(int? roomId) {
+    emit(state.copyWith(selectedRoomId: roomId, error: null));
   }
 
   Future<void> refreshPlants() async {
@@ -47,23 +52,29 @@ class GardenPlantsListCubit extends Cubit<GardenPlantsListState> {
         status: hasPlants ? Status.success : Status.loading,
       ),
     );
-    await _fetchPlants(state.selectedRoomId);
+    await _fetchPlants();
   }
 
-  Future<void> _fetchPlants(int? roomId) async {
+  Future<void> _fetchPlants() async {
+    final int requestId = ++_requestId;
     try {
       final List<GardenPlantModel> plants =
-          await _repository.getGardenPlants(roomId: roomId);
+          await _repository.getGardenPlants();
+      if (isClosed || requestId != _requestId) {
+        return;
+      }
       emit(
         state.copyWith(
           status: Status.success,
           plants: plants,
           error: null,
-          selectedRoomId: roomId,
           isRefreshing: false,
         ),
       );
     } catch (error) {
+      if (isClosed || requestId != _requestId) {
+        return;
+      }
       emit(
         state.copyWith(
           status: state.plants.isEmpty ? Status.failure : Status.success,

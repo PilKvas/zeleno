@@ -27,7 +27,8 @@ mixin _$AddGardenPlantState {
   String? get existingImageUrl => throw _privateConstructorUsedError;
   bool get removeExistingPhoto => throw _privateConstructorUsedError;
   Object? get error => throw _privateConstructorUsedError;
-  String? get validationMessage => throw _privateConstructorUsedError;
+  AddGardenPlantValidationError? get validationError =>
+      throw _privateConstructorUsedError;
   GardenPlantModel? get createdPlant => throw _privateConstructorUsedError;
   bool get imageUploadFailed => throw _privateConstructorUsedError;
   bool get wasUpdated => throw _privateConstructorUsedError;
@@ -57,7 +58,7 @@ abstract class $AddGardenPlantStateCopyWith<$Res> {
       String? existingImageUrl,
       bool removeExistingPhoto,
       Object? error,
-      String? validationMessage,
+      AddGardenPlantValidationError? validationError,
       GardenPlantModel? createdPlant,
       bool imageUploadFailed,
       bool wasUpdated});
@@ -92,7 +93,7 @@ class _$AddGardenPlantStateCopyWithImpl<$Res, $Val extends AddGardenPlantState>
     Object? existingImageUrl = freezed,
     Object? removeExistingPhoto = null,
     Object? error = freezed,
-    Object? validationMessage = freezed,
+    Object? validationError = freezed,
     Object? createdPlant = freezed,
     Object? imageUploadFailed = null,
     Object? wasUpdated = null,
@@ -139,10 +140,10 @@ class _$AddGardenPlantStateCopyWithImpl<$Res, $Val extends AddGardenPlantState>
           : removeExistingPhoto // ignore: cast_nullable_to_non_nullable
               as bool,
       error: freezed == error ? _value.error : error,
-      validationMessage: freezed == validationMessage
-          ? _value.validationMessage
-          : validationMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
+      validationError: freezed == validationError
+          ? _value.validationError
+          : validationError // ignore: cast_nullable_to_non_nullable
+              as AddGardenPlantValidationError?,
       createdPlant: freezed == createdPlant
           ? _value.createdPlant
           : createdPlant // ignore: cast_nullable_to_non_nullable
@@ -207,7 +208,7 @@ abstract class _$$AddGardenPlantStateImplCopyWith<$Res>
       String? existingImageUrl,
       bool removeExistingPhoto,
       Object? error,
-      String? validationMessage,
+      AddGardenPlantValidationError? validationError,
       GardenPlantModel? createdPlant,
       bool imageUploadFailed,
       bool wasUpdated});
@@ -242,7 +243,7 @@ class __$$AddGardenPlantStateImplCopyWithImpl<$Res>
     Object? existingImageUrl = freezed,
     Object? removeExistingPhoto = null,
     Object? error = freezed,
-    Object? validationMessage = freezed,
+    Object? validationError = freezed,
     Object? createdPlant = freezed,
     Object? imageUploadFailed = null,
     Object? wasUpdated = null,
@@ -289,10 +290,10 @@ class __$$AddGardenPlantStateImplCopyWithImpl<$Res>
           : removeExistingPhoto // ignore: cast_nullable_to_non_nullable
               as bool,
       error: freezed == error ? _value.error : error,
-      validationMessage: freezed == validationMessage
-          ? _value.validationMessage
-          : validationMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
+      validationError: freezed == validationError
+          ? _value.validationError
+          : validationError // ignore: cast_nullable_to_non_nullable
+              as AddGardenPlantValidationError?,
       createdPlant: freezed == createdPlant
           ? _value.createdPlant
           : createdPlant // ignore: cast_nullable_to_non_nullable
@@ -324,7 +325,7 @@ class _$AddGardenPlantStateImpl implements _AddGardenPlantState {
       this.existingImageUrl,
       this.removeExistingPhoto = false,
       this.error,
-      this.validationMessage,
+      this.validationError,
       this.createdPlant,
       this.imageUploadFailed = false,
       this.wasUpdated = false});
@@ -354,7 +355,7 @@ class _$AddGardenPlantStateImpl implements _AddGardenPlantState {
   @override
   final Object? error;
   @override
-  final String? validationMessage;
+  final AddGardenPlantValidationError? validationError;
   @override
   final GardenPlantModel? createdPlant;
   @override
@@ -366,7 +367,7 @@ class _$AddGardenPlantStateImpl implements _AddGardenPlantState {
 
   @override
   String toString() {
-    return 'AddGardenPlantState(status: $status, speciesId: $speciesId, roomId: $roomId, plantId: $plantId, editingPlant: $editingPlant, customName: $customName, photoBytes: $photoBytes, photoFileName: $photoFileName, existingImageUrl: $existingImageUrl, removeExistingPhoto: $removeExistingPhoto, error: $error, validationMessage: $validationMessage, createdPlant: $createdPlant, imageUploadFailed: $imageUploadFailed, wasUpdated: $wasUpdated)';
+    return 'AddGardenPlantState(status: $status, speciesId: $speciesId, roomId: $roomId, plantId: $plantId, editingPlant: $editingPlant, customName: $customName, photoBytes: $photoBytes, photoFileName: $photoFileName, existingImageUrl: $existingImageUrl, removeExistingPhoto: $removeExistingPhoto, error: $error, validationError: $validationError, createdPlant: $createdPlant, imageUploadFailed: $imageUploadFailed, wasUpdated: $wasUpdated)';
   }
 
   @override
@@ -392,8 +393,8 @@ class _$AddGardenPlantStateImpl implements _AddGardenPlantState {
             (identical(other.removeExistingPhoto, removeExistingPhoto) ||
                 other.removeExistingPhoto == removeExistingPhoto) &&
             const DeepCollectionEquality().equals(other.error, error) &&
-            (identical(other.validationMessage, validationMessage) ||
-                other.validationMessage == validationMessage) &&
+            (identical(other.validationError, validationError) ||
+                other.validationError == validationError) &&
             (identical(other.createdPlant, createdPlant) ||
                 other.createdPlant == createdPlant) &&
             (identical(other.imageUploadFailed, imageUploadFailed) ||
@@ -416,7 +417,7 @@ class _$AddGardenPlantStateImpl implements _AddGardenPlantState {
       existingImageUrl,
       removeExistingPhoto,
       const DeepCollectionEquality().hash(error),
-      validationMessage,
+      validationError,
       createdPlant,
       imageUploadFailed,
       wasUpdated);
@@ -444,7 +445,7 @@ abstract class _AddGardenPlantState implements AddGardenPlantState {
       final String? existingImageUrl,
       final bool removeExistingPhoto,
       final Object? error,
-      final String? validationMessage,
+      final AddGardenPlantValidationError? validationError,
       final GardenPlantModel? createdPlant,
       final bool imageUploadFailed,
       final bool wasUpdated}) = _$AddGardenPlantStateImpl;
@@ -472,7 +473,7 @@ abstract class _AddGardenPlantState implements AddGardenPlantState {
   @override
   Object? get error;
   @override
-  String? get validationMessage;
+  AddGardenPlantValidationError? get validationError;
   @override
   GardenPlantModel? get createdPlant;
   @override

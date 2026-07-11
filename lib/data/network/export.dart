@@ -4,5 +4,5 @@
 export 'connectivity_checker.dart';
 export 'error_response.dart';
 export 'error_response_parser.dart';
-export 'exeptions/export.dart';
+export 'exceptions/export.dart';
 export 'interceptor.dart';

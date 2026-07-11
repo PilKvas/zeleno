@@ -7,9 +7,13 @@ class PlantRoomsUnauthorizedBanner extends StatelessWidget {
   const PlantRoomsUnauthorizedBanner({
     super.key,
     required this.onGoToProfile,
+    this.description,
   });
 
   final VoidCallback onGoToProfile;
+
+  /// Текст под заголовком; по умолчанию — про комнаты.
+  final String? description;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +51,7 @@ class PlantRoomsUnauthorizedBanner extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              context.l10n.plantRoomsUnauthorizedDescription,
+              description ?? context.l10n.plantRoomsUnauthorizedDescription,
               style: typography.body.copyWith(color: colorScheme.secondaryText),
             ),
             const SizedBox(height: 16),

@@ -17,14 +17,12 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$GardenPlantDetailState {
   Status get status => throw _privateConstructorUsedError;
-  int get plantId => throw _privateConstructorUsedError;
+  int? get plantId => throw _privateConstructorUsedError;
+  String? get speciesSlug => throw _privateConstructorUsedError;
   GardenPlantModel? get plant => throw _privateConstructorUsedError;
   PlantDetailsModel? get speciesDetails => throw _privateConstructorUsedError;
   Object? get error => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
-  Uint8List? get pendingPhotoBytes => throw _privateConstructorUsedError;
-  String? get pendingPhotoFileName => throw _privateConstructorUsedError;
-  bool get removeExistingPhoto => throw _privateConstructorUsedError;
   bool get wasUpdated => throw _privateConstructorUsedError;
   bool get wasDeleted => throw _privateConstructorUsedError;
 
@@ -43,14 +41,12 @@ abstract class $GardenPlantDetailStateCopyWith<$Res> {
   @useResult
   $Res call(
       {Status status,
-      int plantId,
+      int? plantId,
+      String? speciesSlug,
       GardenPlantModel? plant,
       PlantDetailsModel? speciesDetails,
       Object? error,
       bool isSaving,
-      Uint8List? pendingPhotoBytes,
-      String? pendingPhotoFileName,
-      bool removeExistingPhoto,
       bool wasUpdated,
       bool wasDeleted});
 
@@ -75,14 +71,12 @@ class _$GardenPlantDetailStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? status = null,
-    Object? plantId = null,
+    Object? plantId = freezed,
+    Object? speciesSlug = freezed,
     Object? plant = freezed,
     Object? speciesDetails = freezed,
     Object? error = freezed,
     Object? isSaving = null,
-    Object? pendingPhotoBytes = freezed,
-    Object? pendingPhotoFileName = freezed,
-    Object? removeExistingPhoto = null,
     Object? wasUpdated = null,
     Object? wasDeleted = null,
   }) {
@@ -91,10 +85,14 @@ class _$GardenPlantDetailStateCopyWithImpl<$Res,
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Status,
-      plantId: null == plantId
+      plantId: freezed == plantId
           ? _value.plantId
           : plantId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
+      speciesSlug: freezed == speciesSlug
+          ? _value.speciesSlug
+          : speciesSlug // ignore: cast_nullable_to_non_nullable
+              as String?,
       plant: freezed == plant
           ? _value.plant
           : plant // ignore: cast_nullable_to_non_nullable
@@ -107,18 +105,6 @@ class _$GardenPlantDetailStateCopyWithImpl<$Res,
       isSaving: null == isSaving
           ? _value.isSaving
           : isSaving // ignore: cast_nullable_to_non_nullable
-              as bool,
-      pendingPhotoBytes: freezed == pendingPhotoBytes
-          ? _value.pendingPhotoBytes
-          : pendingPhotoBytes // ignore: cast_nullable_to_non_nullable
-              as Uint8List?,
-      pendingPhotoFileName: freezed == pendingPhotoFileName
-          ? _value.pendingPhotoFileName
-          : pendingPhotoFileName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      removeExistingPhoto: null == removeExistingPhoto
-          ? _value.removeExistingPhoto
-          : removeExistingPhoto // ignore: cast_nullable_to_non_nullable
               as bool,
       wasUpdated: null == wasUpdated
           ? _value.wasUpdated
@@ -171,14 +157,12 @@ abstract class _$$GardenPlantDetailStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {Status status,
-      int plantId,
+      int? plantId,
+      String? speciesSlug,
       GardenPlantModel? plant,
       PlantDetailsModel? speciesDetails,
       Object? error,
       bool isSaving,
-      Uint8List? pendingPhotoBytes,
-      String? pendingPhotoFileName,
-      bool removeExistingPhoto,
       bool wasUpdated,
       bool wasDeleted});
 
@@ -204,14 +188,12 @@ class __$$GardenPlantDetailStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = null,
-    Object? plantId = null,
+    Object? plantId = freezed,
+    Object? speciesSlug = freezed,
     Object? plant = freezed,
     Object? speciesDetails = freezed,
     Object? error = freezed,
     Object? isSaving = null,
-    Object? pendingPhotoBytes = freezed,
-    Object? pendingPhotoFileName = freezed,
-    Object? removeExistingPhoto = null,
     Object? wasUpdated = null,
     Object? wasDeleted = null,
   }) {
@@ -220,10 +202,14 @@ class __$$GardenPlantDetailStateImplCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Status,
-      plantId: null == plantId
+      plantId: freezed == plantId
           ? _value.plantId
           : plantId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
+      speciesSlug: freezed == speciesSlug
+          ? _value.speciesSlug
+          : speciesSlug // ignore: cast_nullable_to_non_nullable
+              as String?,
       plant: freezed == plant
           ? _value.plant
           : plant // ignore: cast_nullable_to_non_nullable
@@ -236,18 +222,6 @@ class __$$GardenPlantDetailStateImplCopyWithImpl<$Res>
       isSaving: null == isSaving
           ? _value.isSaving
           : isSaving // ignore: cast_nullable_to_non_nullable
-              as bool,
-      pendingPhotoBytes: freezed == pendingPhotoBytes
-          ? _value.pendingPhotoBytes
-          : pendingPhotoBytes // ignore: cast_nullable_to_non_nullable
-              as Uint8List?,
-      pendingPhotoFileName: freezed == pendingPhotoFileName
-          ? _value.pendingPhotoFileName
-          : pendingPhotoFileName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      removeExistingPhoto: null == removeExistingPhoto
-          ? _value.removeExistingPhoto
-          : removeExistingPhoto // ignore: cast_nullable_to_non_nullable
               as bool,
       wasUpdated: null == wasUpdated
           ? _value.wasUpdated
@@ -266,21 +240,21 @@ class __$$GardenPlantDetailStateImplCopyWithImpl<$Res>
 class _$GardenPlantDetailStateImpl implements _GardenPlantDetailState {
   const _$GardenPlantDetailStateImpl(
       {required this.status,
-      required this.plantId,
+      this.plantId,
+      this.speciesSlug,
       this.plant,
       this.speciesDetails,
       this.error,
       this.isSaving = false,
-      this.pendingPhotoBytes,
-      this.pendingPhotoFileName,
-      this.removeExistingPhoto = false,
       this.wasUpdated = false,
       this.wasDeleted = false});
 
   @override
   final Status status;
   @override
-  final int plantId;
+  final int? plantId;
+  @override
+  final String? speciesSlug;
   @override
   final GardenPlantModel? plant;
   @override
@@ -291,13 +265,6 @@ class _$GardenPlantDetailStateImpl implements _GardenPlantDetailState {
   @JsonKey()
   final bool isSaving;
   @override
-  final Uint8List? pendingPhotoBytes;
-  @override
-  final String? pendingPhotoFileName;
-  @override
-  @JsonKey()
-  final bool removeExistingPhoto;
-  @override
   @JsonKey()
   final bool wasUpdated;
   @override
@@ -306,7 +273,7 @@ class _$GardenPlantDetailStateImpl implements _GardenPlantDetailState {
 
   @override
   String toString() {
-    return 'GardenPlantDetailState(status: $status, plantId: $plantId, plant: $plant, speciesDetails: $speciesDetails, error: $error, isSaving: $isSaving, pendingPhotoBytes: $pendingPhotoBytes, pendingPhotoFileName: $pendingPhotoFileName, removeExistingPhoto: $removeExistingPhoto, wasUpdated: $wasUpdated, wasDeleted: $wasDeleted)';
+    return 'GardenPlantDetailState(status: $status, plantId: $plantId, speciesSlug: $speciesSlug, plant: $plant, speciesDetails: $speciesDetails, error: $error, isSaving: $isSaving, wasUpdated: $wasUpdated, wasDeleted: $wasDeleted)';
   }
 
   @override
@@ -316,18 +283,14 @@ class _$GardenPlantDetailStateImpl implements _GardenPlantDetailState {
             other is _$GardenPlantDetailStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.plantId, plantId) || other.plantId == plantId) &&
+            (identical(other.speciesSlug, speciesSlug) ||
+                other.speciesSlug == speciesSlug) &&
             (identical(other.plant, plant) || other.plant == plant) &&
             (identical(other.speciesDetails, speciesDetails) ||
                 other.speciesDetails == speciesDetails) &&
             const DeepCollectionEquality().equals(other.error, error) &&
             (identical(other.isSaving, isSaving) ||
                 other.isSaving == isSaving) &&
-            const DeepCollectionEquality()
-                .equals(other.pendingPhotoBytes, pendingPhotoBytes) &&
-            (identical(other.pendingPhotoFileName, pendingPhotoFileName) ||
-                other.pendingPhotoFileName == pendingPhotoFileName) &&
-            (identical(other.removeExistingPhoto, removeExistingPhoto) ||
-                other.removeExistingPhoto == removeExistingPhoto) &&
             (identical(other.wasUpdated, wasUpdated) ||
                 other.wasUpdated == wasUpdated) &&
             (identical(other.wasDeleted, wasDeleted) ||
@@ -339,13 +302,11 @@ class _$GardenPlantDetailStateImpl implements _GardenPlantDetailState {
       runtimeType,
       status,
       plantId,
+      speciesSlug,
       plant,
       speciesDetails,
       const DeepCollectionEquality().hash(error),
       isSaving,
-      const DeepCollectionEquality().hash(pendingPhotoBytes),
-      pendingPhotoFileName,
-      removeExistingPhoto,
       wasUpdated,
       wasDeleted);
 
@@ -362,21 +323,21 @@ class _$GardenPlantDetailStateImpl implements _GardenPlantDetailState {
 abstract class _GardenPlantDetailState implements GardenPlantDetailState {
   const factory _GardenPlantDetailState(
       {required final Status status,
-      required final int plantId,
+      final int? plantId,
+      final String? speciesSlug,
       final GardenPlantModel? plant,
       final PlantDetailsModel? speciesDetails,
       final Object? error,
       final bool isSaving,
-      final Uint8List? pendingPhotoBytes,
-      final String? pendingPhotoFileName,
-      final bool removeExistingPhoto,
       final bool wasUpdated,
       final bool wasDeleted}) = _$GardenPlantDetailStateImpl;
 
   @override
   Status get status;
   @override
-  int get plantId;
+  int? get plantId;
+  @override
+  String? get speciesSlug;
   @override
   GardenPlantModel? get plant;
   @override
@@ -385,12 +346,6 @@ abstract class _GardenPlantDetailState implements GardenPlantDetailState {
   Object? get error;
   @override
   bool get isSaving;
-  @override
-  Uint8List? get pendingPhotoBytes;
-  @override
-  String? get pendingPhotoFileName;
-  @override
-  bool get removeExistingPhoto;
   @override
   bool get wasUpdated;
   @override

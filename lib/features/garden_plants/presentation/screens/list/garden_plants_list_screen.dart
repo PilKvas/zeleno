@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:zeleno_v2/app/di/export.dart';
 import 'package:zeleno_v2/core/helper/export.dart';
+import 'package:zeleno_v2/features/auth/domain/model/export.dart';
 import 'package:zeleno_v2/features/auth/presentation/cubit/export.dart';
 import 'package:zeleno_v2/features/core/enums/export.dart';
 import 'package:zeleno_v2/features/garden_plants/domain/models/export.dart';
@@ -15,6 +16,16 @@ import 'package:zeleno_v2/features/plant_rooms/presentation/cubit/export.dart';
 import 'package:zeleno_v2/l10n/export.dart';
 import 'package:zeleno_v2/resources/export.dart';
 import 'package:zeleno_v2/uikit/export.dart';
+
+/// Обновляет растения и комнаты текущего пользователя.
+Future<void> _refreshGardenData(BuildContext context) {
+  final AuthStatus authStatus = context.read<AuthCubit>().state.authStatus;
+  return Future.wait(<Future<void>>[
+    if (authStatus == AuthStatus.authenticated)
+      context.read<GardenPlantsListCubit>().refreshPlants(),
+    context.read<PlantRoomsCubit>().loadRoomsIfAuthorized(authStatus),
+  ]);
+}
 
 @RoutePage()
 class GardenStackScreen extends StatefulWidget {
@@ -29,32 +40,38 @@ class _GardenStackScreenState extends State<GardenStackScreen>
   late final GardenPlantsListCubit _gardenPlantsListCubit =
       injection<GardenPlantsListCubit>();
   late final PlantRoomsCubit _plantRoomsCubit = injection<PlantRoomsCubit>();
-  bool _didInitialRefresh = false;
 
-  void _refreshGardenData(BuildContext context) {
-    _gardenPlantsListCubit.refreshPlants();
-    _plantRoomsCubit.loadRoomsIfAuthorized(
-      context.read<AuthCubit>().state.authStatus,
-    );
+  void _refreshTabData() {
+    final AuthStatus authStatus = context.read<AuthCubit>().state.authStatus;
+    if (authStatus == AuthStatus.authenticated) {
+      _gardenPlantsListCubit.refreshPlants();
+    }
+    _plantRoomsCubit.loadRoomsIfAuthorized(authStatus);
   }
 
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    if (!_didInitialRefresh) {
-      _didInitialRefresh = true;
-      _refreshGardenData(context);
+  /// Грузим данные только если их ещё нет: заход на таб не должен
+  /// перезапрашивать список (и перерисовывать фотографии) каждый раз.
+  /// Актуальность поддерживают точечные триггеры: pull-to-refresh,
+  /// возврат с экранов редактирования и добавление растения.
+  void _loadTabDataIfNeeded() {
+    final AuthStatus authStatus = context.read<AuthCubit>().state.authStatus;
+    if (authStatus == AuthStatus.authenticated &&
+        _gardenPlantsListCubit.state.status.isInitial) {
+      _gardenPlantsListCubit.loadPlants();
+    }
+    if (_plantRoomsCubit.state.status.isInitial) {
+      _plantRoomsCubit.loadRoomsIfAuthorized(authStatus);
     }
   }
 
   @override
   void didInitTabRoute(TabPageRoute? previousRoute) {
-    _refreshGardenData(context);
+    _loadTabDataIfNeeded();
   }
 
   @override
   void didChangeTabRoute(TabPageRoute previousRoute) {
-    _refreshGardenData(context);
+    _loadTabDataIfNeeded();
   }
 
   @override
@@ -68,21 +85,49 @@ class _GardenStackScreenState extends State<GardenStackScreen>
           value: _plantRoomsCubit,
         ),
       ],
-      child: BlocListener<AuthCubit, AuthState>(
+      child: BlocConsumer<AuthCubit, AuthState>(
         listenWhen: (AuthState previous, AuthState current) =>
             previous.authStatus != current.authStatus,
         listener: (BuildContext context, AuthState state) {
-          _plantRoomsCubit.loadRoomsIfAuthorized(state.authStatus);
+          if (state.authStatus == AuthStatus.authenticated) {
+            _refreshTabData();
+          } else {
+            // Кубиты — синглтоны: без сброса данные прошлого аккаунта
+            // доживут до следующего входа.
+            _gardenPlantsListCubit.reset();
+            _plantRoomsCubit.reset();
+          }
         },
-        child: const AutoRouter(),
+        buildWhen: (AuthState previous, AuthState current) =>
+            (previous.authStatus == AuthStatus.authenticated) !=
+            (current.authStatus == AuthStatus.authenticated),
+        builder: (BuildContext context, AuthState state) {
+          if (state.authStatus != AuthStatus.authenticated) {
+            return const GardenUnauthorizedView();
+          }
+          return const AutoRouter();
+        },
       ),
     );
   }
 }
 
 @RoutePage()
-class GardenPlantsListScreen extends StatelessWidget {
+class GardenPlantsListScreen extends StatefulWidget {
   const GardenPlantsListScreen({super.key});
+
+  @override
+  State<GardenPlantsListScreen> createState() => _GardenPlantsListScreenState();
+}
+
+class _GardenPlantsListScreenState extends State<GardenPlantsListScreen>
+    with AutoRouteAwareStateMixin<GardenPlantsListScreen> {
+  // Возврат с детального экрана или управления комнатами: обновляем всё,
+  // не полагаясь на pop-результат — системный «назад» его не возвращает.
+  @override
+  void didPopNext() {
+    _refreshGardenData(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -243,16 +288,8 @@ class _GardenPlantsListBody extends StatelessWidget {
       );
     }
     return RefreshIndicator(
-      // TOOD(darbinyan): Вынести в отдельную функцию
-      onRefresh: () async {
-        await Future.wait(<Future<void>>[
-          context.read<GardenPlantsListCubit>().refreshPlants(),
-          context.read<PlantRoomsCubit>().loadRoomsIfAuthorized(
-                context.read<AuthCubit>().state.authStatus,
-              ),
-        ]);
-      },
-      child: state.plants.isEmpty
+      onRefresh: () => _refreshGardenData(context),
+      child: state.visiblePlants.isEmpty
           ? ListView(
               physics: const AlwaysScrollableScrollPhysics(),
               children: <Widget>[
@@ -272,28 +309,16 @@ class _GardenPlantsListBody extends StatelessWidget {
           : ListView.separated(
               physics: const AlwaysScrollableScrollPhysics(),
               padding: const EdgeInsets.symmetric(horizontal: 18),
-              itemCount: state.plants.length,
+              itemCount: state.visiblePlants.length,
               separatorBuilder: (BuildContext context, int index) =>
                   const SizedBox(height: 18),
               itemBuilder: (BuildContext context, int index) {
-                final GardenPlantModel plant = state.plants[index];
+                final GardenPlantModel plant = state.visiblePlants[index];
                 return GardenPlantCardWidget(
                   plant: plant,
-
-                  // TOOD(darbinyan): Вынести в отдельную функцию
-                  onTap: () async {
-                    final Object? result = await context.router.push(
-                      GardenPlantDetailRoute(plantId: plant.id),
-                    );
-                    if (!context.mounted) {
-                      return;
-                    }
-                    if (result == true) {
-                      await context
-                          .read<GardenPlantsListCubit>()
-                          .refreshPlants();
-                    }
-                  },
+                  onTap: () => context.router.push(
+                    GardenPlantDetailRoute(plantId: plant.id),
+                  ),
                 );
               },
             ),

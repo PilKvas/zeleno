@@ -1,27 +1,35 @@
-import 'dart:typed_data';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:zeleno_v2/features/core/enums/export.dart';
-import 'package:zeleno_v2/features/garden_plants/domain/entities/export.dart';
 import 'package:zeleno_v2/features/garden_plants/domain/models/export.dart';
 import 'package:zeleno_v2/features/garden_plants/domain/repository/export.dart';
 import 'package:zeleno_v2/features/plant_details/domain/models/export.dart';
-import 'package:zeleno_v2/features/plant_details/domain/reposiotory/export.dart';
+import 'package:zeleno_v2/features/plant_details/domain/repository/export.dart';
 
 part 'garden_plant_detail_cubit.freezed.dart';
 part 'garden_plant_detail_state.dart';
 
+/// Единый детальный экран растения работает в двух режимах:
+/// - «экземпляр из сада» — задан [GardenPlantDetailState.plantId];
+/// - «вид из каталога» — задан только [GardenPlantDetailState.speciesSlug]
+///   (открытие из поиска, садового растения ещё нет).
 class GardenPlantDetailCubit extends Cubit<GardenPlantDetailState> {
   GardenPlantDetailCubit({
     required IGardenPlantsRepository gardenPlantsRepository,
     required IPlantDetailsRepository plantDetailsRepository,
-    required int plantId,
-  })  : _repository = gardenPlantsRepository,
+    int? plantId,
+    String? speciesSlug,
+  })  : assert(
+          plantId != null || speciesSlug != null,
+          'Нужен plantId (сад) или speciesSlug (каталог)',
+        ),
+        _repository = gardenPlantsRepository,
         _plantDetailsRepository = plantDetailsRepository,
         super(
           GardenPlantDetailState(
             status: Status.initial,
             plantId: plantId,
+            speciesSlug: speciesSlug,
           ),
         );
 
@@ -29,6 +37,11 @@ class GardenPlantDetailCubit extends Cubit<GardenPlantDetailState> {
   final IPlantDetailsRepository _plantDetailsRepository;
 
   Future<void> loadPlant() async {
+    final int? plantId = state.plantId;
+    if (plantId == null) {
+      await _loadSpeciesOnly();
+      return;
+    }
     emit(
       state.copyWith(
         status: Status.loading,
@@ -38,16 +51,21 @@ class GardenPlantDetailCubit extends Cubit<GardenPlantDetailState> {
     );
     try {
       final GardenPlantModel plant = await _repository.getGardenPlant(
-        plantId: state.plantId,
+        plantId: plantId,
       );
       PlantDetailsModel? speciesDetails;
       final String? speciesSlug = plant.speciesSlug;
       if (speciesSlug != null && speciesSlug.isNotEmpty) {
+        // Справочные данные вида — вторичны: их отсутствие
+        // не должно ломать карточку садового растения.
         try {
           speciesDetails = await _plantDetailsRepository.getPlant(speciesSlug);
         } catch (_) {
           speciesDetails = null;
         }
+      }
+      if (isClosed) {
+        return;
       }
       emit(
         state.copyWith(
@@ -58,6 +76,9 @@ class GardenPlantDetailCubit extends Cubit<GardenPlantDetailState> {
         ),
       );
     } catch (error) {
+      if (isClosed) {
+        return;
+      }
       emit(
         state.copyWith(
           status: Status.failure,
@@ -67,91 +88,49 @@ class GardenPlantDetailCubit extends Cubit<GardenPlantDetailState> {
     }
   }
 
-  Future<bool> saveChanges({
-    required String customName,
-    int? roomId,
-  }) async {
-    final GardenPlantModel? currentPlant = state.plant;
-    if (currentPlant == null || state.isSaving) {
-      return false;
+  Future<void> _loadSpeciesOnly() async {
+    final String? speciesSlug = state.speciesSlug;
+    if (speciesSlug == null || speciesSlug.isEmpty) {
+      return;
     }
-    emit(state.copyWith(isSaving: true, error: null));
+    emit(
+      state.copyWith(
+        status: Status.loading,
+        error: null,
+        speciesDetails: null,
+      ),
+    );
     try {
-      GardenPlantModel plant = await _repository.updateGardenPlant(
-        params: UpdateGardenPlantParams(
-          plantId: currentPlant.id,
-          customName: customName,
-          roomId: roomId,
-          sunlightExposure: currentPlant.sunlightExposure,
-          plantSize: currentPlant.plantSize,
-          potSizeMm: currentPlant.potSizeMm,
-          lastWatering: currentPlant.lastWatering,
-          lastWateringExactDate: currentPlant.lastWateringExactDate,
-          lastRepotting: currentPlant.lastRepotting,
-          lastRepottingExactDate: currentPlant.lastRepottingExactDate,
-        ),
-      );
-      final Uint8List? photoBytes = state.pendingPhotoBytes;
-      final String? photoFileName = state.pendingPhotoFileName;
-      if (photoBytes != null && photoFileName != null) {
-        plant = await _repository.uploadGardenPlantImage(
-          plantId: plant.id,
-          bytes: photoBytes,
-          fileName: photoFileName,
-        );
+      final PlantDetailsModel speciesDetails =
+          await _plantDetailsRepository.getPlant(speciesSlug);
+      if (isClosed) {
+        return;
       }
       emit(
         state.copyWith(
           status: Status.success,
-          plant: plant,
-          isSaving: false,
-          pendingPhotoBytes: null,
-          pendingPhotoFileName: null,
-          wasUpdated: true,
+          speciesDetails: speciesDetails,
+          error: null,
         ),
       );
-      return true;
     } catch (error) {
+      if (isClosed) {
+        return;
+      }
       emit(
         state.copyWith(
-          isSaving: false,
+          status: Status.failure,
           error: error,
         ),
       );
-      return false;
     }
   }
 
-  void setPendingPhoto({
-    required Uint8List bytes,
-    required String fileName,
-  }) {
-    emit(
-      state.copyWith(
-        pendingPhotoBytes: bytes,
-        pendingPhotoFileName: fileName,
-        removeExistingPhoto: false,
-      ),
-    );
-  }
-
-  void clearPendingPhoto() {
-    emit(
-      state.copyWith(
-        pendingPhotoBytes: null,
-        pendingPhotoFileName: null,
-      ),
-    );
-  }
-
-  void markRemoveExistingPhoto() {
-    emit(
-      state.copyWith(
-        removeExistingPhoto: true,
-        pendingPhotoBytes: null,
-        pendingPhotoFileName: null,
-      ),
-    );
+  /// Растение изменили на другом экране — перечитываем и помечаем,
+  /// что при возврате назад список должен обновиться.
+  Future<void> reloadAfterEdit() async {
+    emit(state.copyWith(wasUpdated: true));
+    await loadPlant();
   }
 
   Future<bool> deletePhoto() async {
@@ -165,19 +144,22 @@ class GardenPlantDetailCubit extends Cubit<GardenPlantDetailState> {
       final GardenPlantModel plant = await _repository.getGardenPlant(
         plantId: currentPlant.id,
       );
+      if (isClosed) {
+        return true;
+      }
       emit(
         state.copyWith(
           status: Status.success,
           plant: plant,
           isSaving: false,
-          pendingPhotoBytes: null,
-          pendingPhotoFileName: null,
-          removeExistingPhoto: false,
           wasUpdated: true,
         ),
       );
       return true;
     } catch (error) {
+      if (isClosed) {
+        return false;
+      }
       emit(
         state.copyWith(
           isSaving: false,
@@ -196,6 +178,9 @@ class GardenPlantDetailCubit extends Cubit<GardenPlantDetailState> {
     emit(state.copyWith(isSaving: true, error: null));
     try {
       await _repository.deleteGardenPlant(plantId: currentPlant.id);
+      if (isClosed) {
+        return true;
+      }
       emit(
         state.copyWith(
           isSaving: false,
@@ -204,6 +189,9 @@ class GardenPlantDetailCubit extends Cubit<GardenPlantDetailState> {
       );
       return true;
     } catch (error) {
+      if (isClosed) {
+        return false;
+      }
       emit(
         state.copyWith(
           isSaving: false,

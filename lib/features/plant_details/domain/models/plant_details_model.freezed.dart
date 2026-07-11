@@ -52,8 +52,10 @@ mixin _$PlantDetailsModel {
   int? get heightMaxCm => throw _privateConstructorUsedError;
   @JsonKey(name: 'height_min_cm')
   int? get heightMinCm => throw _privateConstructorUsedError;
+  @JsonKey(name: 'image')
+  String? get hostedImageUrl => throw _privateConstructorUsedError;
   @JsonKey(name: 'image_url')
-  String? get imageUrl => throw _privateConstructorUsedError;
+  String? get externalImageUrl => throw _privateConstructorUsedError;
   @JsonKey(name: 'images')
   List<PlantImageItem>? get images => throw _privateConstructorUsedError;
   @JsonKey(name: 'is_edible')
@@ -134,7 +136,8 @@ abstract class $PlantDetailsModelCopyWith<$Res> {
       @JsonKey(name: 'harvest') List<String>? harvest,
       @JsonKey(name: 'height_max_cm') int? heightMaxCm,
       @JsonKey(name: 'height_min_cm') int? heightMinCm,
-      @JsonKey(name: 'image_url') String? imageUrl,
+      @JsonKey(name: 'image') String? hostedImageUrl,
+      @JsonKey(name: 'image_url') String? externalImageUrl,
       @JsonKey(name: 'images') List<PlantImageItem>? images,
       @JsonKey(name: 'is_edible') bool? isEdible,
       @JsonKey(name: 'latin_name') String? latinName,
@@ -193,7 +196,8 @@ class _$PlantDetailsModelCopyWithImpl<$Res, $Val extends PlantDetailsModel>
     Object? harvest = freezed,
     Object? heightMaxCm = freezed,
     Object? heightMinCm = freezed,
-    Object? imageUrl = freezed,
+    Object? hostedImageUrl = freezed,
+    Object? externalImageUrl = freezed,
     Object? images = freezed,
     Object? isEdible = freezed,
     Object? latinName = freezed,
@@ -283,9 +287,13 @@ class _$PlantDetailsModelCopyWithImpl<$Res, $Val extends PlantDetailsModel>
           ? _value.heightMinCm
           : heightMinCm // ignore: cast_nullable_to_non_nullable
               as int?,
-      imageUrl: freezed == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
+      hostedImageUrl: freezed == hostedImageUrl
+          ? _value.hostedImageUrl
+          : hostedImageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      externalImageUrl: freezed == externalImageUrl
+          ? _value.externalImageUrl
+          : externalImageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
       images: freezed == images
           ? _value.images
@@ -422,7 +430,8 @@ abstract class _$$PlantDetailsModelImplCopyWith<$Res>
       @JsonKey(name: 'harvest') List<String>? harvest,
       @JsonKey(name: 'height_max_cm') int? heightMaxCm,
       @JsonKey(name: 'height_min_cm') int? heightMinCm,
-      @JsonKey(name: 'image_url') String? imageUrl,
+      @JsonKey(name: 'image') String? hostedImageUrl,
+      @JsonKey(name: 'image_url') String? externalImageUrl,
       @JsonKey(name: 'images') List<PlantImageItem>? images,
       @JsonKey(name: 'is_edible') bool? isEdible,
       @JsonKey(name: 'latin_name') String? latinName,
@@ -480,7 +489,8 @@ class __$$PlantDetailsModelImplCopyWithImpl<$Res>
     Object? harvest = freezed,
     Object? heightMaxCm = freezed,
     Object? heightMinCm = freezed,
-    Object? imageUrl = freezed,
+    Object? hostedImageUrl = freezed,
+    Object? externalImageUrl = freezed,
     Object? images = freezed,
     Object? isEdible = freezed,
     Object? latinName = freezed,
@@ -570,9 +580,13 @@ class __$$PlantDetailsModelImplCopyWithImpl<$Res>
           ? _value.heightMinCm
           : heightMinCm // ignore: cast_nullable_to_non_nullable
               as int?,
-      imageUrl: freezed == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
+      hostedImageUrl: freezed == hostedImageUrl
+          ? _value.hostedImageUrl
+          : hostedImageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      externalImageUrl: freezed == externalImageUrl
+          ? _value.externalImageUrl
+          : externalImageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
       images: freezed == images
           ? _value._images
@@ -690,7 +704,8 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
       @JsonKey(name: 'harvest') final List<String>? harvest,
       @JsonKey(name: 'height_max_cm') this.heightMaxCm,
       @JsonKey(name: 'height_min_cm') this.heightMinCm,
-      @JsonKey(name: 'image_url') this.imageUrl,
+      @JsonKey(name: 'image') this.hostedImageUrl,
+      @JsonKey(name: 'image_url') this.externalImageUrl,
       @JsonKey(name: 'images') final List<PlantImageItem>? images,
       @JsonKey(name: 'is_edible') this.isEdible,
       @JsonKey(name: 'latin_name') this.latinName,
@@ -861,8 +876,11 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
   @JsonKey(name: 'height_min_cm')
   final int? heightMinCm;
   @override
+  @JsonKey(name: 'image')
+  final String? hostedImageUrl;
+  @override
   @JsonKey(name: 'image_url')
-  final String? imageUrl;
+  final String? externalImageUrl;
   final List<PlantImageItem>? _images;
   @override
   @JsonKey(name: 'images')
@@ -1040,7 +1058,7 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
 
   @override
   String toString() {
-    return 'PlantDetailsModel(id: $id, commonNames: $commonNames, created: $created, cultivation: $cultivation, duration: $duration, edibleParts: $edibleParts, exposure: $exposure, foliage: $foliage, fragrance: $fragrance, genusDescription: $genusDescription, growthTips: $growthTips, habit: $habit, hardinessZone: $hardinessZone, harvest: $harvest, heightMaxCm: $heightMaxCm, heightMinCm: $heightMinCm, imageUrl: $imageUrl, images: $images, isEdible: $isEdible, latinName: $latinName, misc: $misc, modified: $modified, partsColor: $partsColor, planting: $planting, positionSide: $positionSide, positionSunlight: $positionSunlight, rating: $rating, regularEvents: $regularEvents, slug: $slug, soilMoisture: $soilMoisture, soilPh: $soilPh, soilTypes: $soilTypes, sources: $sources, spreadMaxCm: $spreadMaxCm, spreadMinCm: $spreadMinCm, synonyms: $synonyms, tags: $tags, toxicity: $toxicity, yearsToMaxHeightMax: $yearsToMaxHeightMax, yearsToMaxHeightMin: $yearsToMaxHeightMin)';
+    return 'PlantDetailsModel(id: $id, commonNames: $commonNames, created: $created, cultivation: $cultivation, duration: $duration, edibleParts: $edibleParts, exposure: $exposure, foliage: $foliage, fragrance: $fragrance, genusDescription: $genusDescription, growthTips: $growthTips, habit: $habit, hardinessZone: $hardinessZone, harvest: $harvest, heightMaxCm: $heightMaxCm, heightMinCm: $heightMinCm, hostedImageUrl: $hostedImageUrl, externalImageUrl: $externalImageUrl, images: $images, isEdible: $isEdible, latinName: $latinName, misc: $misc, modified: $modified, partsColor: $partsColor, planting: $planting, positionSide: $positionSide, positionSunlight: $positionSunlight, rating: $rating, regularEvents: $regularEvents, slug: $slug, soilMoisture: $soilMoisture, soilPh: $soilPh, soilTypes: $soilTypes, sources: $sources, spreadMaxCm: $spreadMaxCm, spreadMinCm: $spreadMinCm, synonyms: $synonyms, tags: $tags, toxicity: $toxicity, yearsToMaxHeightMax: $yearsToMaxHeightMax, yearsToMaxHeightMin: $yearsToMaxHeightMin)';
   }
 
   @override
@@ -1073,8 +1091,10 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
                 other.heightMaxCm == heightMaxCm) &&
             (identical(other.heightMinCm, heightMinCm) ||
                 other.heightMinCm == heightMinCm) &&
-            (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl) &&
+            (identical(other.hostedImageUrl, hostedImageUrl) ||
+                other.hostedImageUrl == hostedImageUrl) &&
+            (identical(other.externalImageUrl, externalImageUrl) ||
+                other.externalImageUrl == externalImageUrl) &&
             const DeepCollectionEquality().equals(other._images, _images) &&
             (identical(other.isEdible, isEdible) ||
                 other.isEdible == isEdible) &&
@@ -1133,7 +1153,8 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
         const DeepCollectionEquality().hash(_harvest),
         heightMaxCm,
         heightMinCm,
-        imageUrl,
+        hostedImageUrl,
+        externalImageUrl,
         const DeepCollectionEquality().hash(_images),
         isEdible,
         latinName,
@@ -1194,7 +1215,8 @@ abstract class _PlantDetailsModel implements PlantDetailsModel {
       @JsonKey(name: 'harvest') final List<String>? harvest,
       @JsonKey(name: 'height_max_cm') final int? heightMaxCm,
       @JsonKey(name: 'height_min_cm') final int? heightMinCm,
-      @JsonKey(name: 'image_url') final String? imageUrl,
+      @JsonKey(name: 'image') final String? hostedImageUrl,
+      @JsonKey(name: 'image_url') final String? externalImageUrl,
       @JsonKey(name: 'images') final List<PlantImageItem>? images,
       @JsonKey(name: 'is_edible') final bool? isEdible,
       @JsonKey(name: 'latin_name') final String? latinName,
@@ -1272,8 +1294,11 @@ abstract class _PlantDetailsModel implements PlantDetailsModel {
   @JsonKey(name: 'height_min_cm')
   int? get heightMinCm;
   @override
+  @JsonKey(name: 'image')
+  String? get hostedImageUrl;
+  @override
   @JsonKey(name: 'image_url')
-  String? get imageUrl;
+  String? get externalImageUrl;
   @override
   @JsonKey(name: 'images')
   List<PlantImageItem>? get images;
@@ -1918,8 +1943,10 @@ PlantImageItem _$PlantImageItemFromJson(Map<String, dynamic> json) {
 mixin _$PlantImageItem {
   @JsonKey(name: 'image_copyright')
   String? get imageCopyright => throw _privateConstructorUsedError;
+  @JsonKey(name: 'image')
+  String? get hostedImageUrl => throw _privateConstructorUsedError;
   @JsonKey(name: 'image_url')
-  String? get imageUrl => throw _privateConstructorUsedError;
+  String? get externalImageUrl => throw _privateConstructorUsedError;
   @JsonKey(name: 'part')
   NamedSlug? get part => throw _privateConstructorUsedError;
 
@@ -1941,7 +1968,8 @@ abstract class $PlantImageItemCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'image_copyright') String? imageCopyright,
-      @JsonKey(name: 'image_url') String? imageUrl,
+      @JsonKey(name: 'image') String? hostedImageUrl,
+      @JsonKey(name: 'image_url') String? externalImageUrl,
       @JsonKey(name: 'part') NamedSlug? part});
 
   $NamedSlugCopyWith<$Res>? get part;
@@ -1963,7 +1991,8 @@ class _$PlantImageItemCopyWithImpl<$Res, $Val extends PlantImageItem>
   @override
   $Res call({
     Object? imageCopyright = freezed,
-    Object? imageUrl = freezed,
+    Object? hostedImageUrl = freezed,
+    Object? externalImageUrl = freezed,
     Object? part = freezed,
   }) {
     return _then(_value.copyWith(
@@ -1971,9 +2000,13 @@ class _$PlantImageItemCopyWithImpl<$Res, $Val extends PlantImageItem>
           ? _value.imageCopyright
           : imageCopyright // ignore: cast_nullable_to_non_nullable
               as String?,
-      imageUrl: freezed == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
+      hostedImageUrl: freezed == hostedImageUrl
+          ? _value.hostedImageUrl
+          : hostedImageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      externalImageUrl: freezed == externalImageUrl
+          ? _value.externalImageUrl
+          : externalImageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
       part: freezed == part
           ? _value.part
@@ -2007,7 +2040,8 @@ abstract class _$$PlantImageItemImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'image_copyright') String? imageCopyright,
-      @JsonKey(name: 'image_url') String? imageUrl,
+      @JsonKey(name: 'image') String? hostedImageUrl,
+      @JsonKey(name: 'image_url') String? externalImageUrl,
       @JsonKey(name: 'part') NamedSlug? part});
 
   @override
@@ -2028,7 +2062,8 @@ class __$$PlantImageItemImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? imageCopyright = freezed,
-    Object? imageUrl = freezed,
+    Object? hostedImageUrl = freezed,
+    Object? externalImageUrl = freezed,
     Object? part = freezed,
   }) {
     return _then(_$PlantImageItemImpl(
@@ -2036,9 +2071,13 @@ class __$$PlantImageItemImplCopyWithImpl<$Res>
           ? _value.imageCopyright
           : imageCopyright // ignore: cast_nullable_to_non_nullable
               as String?,
-      imageUrl: freezed == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
+      hostedImageUrl: freezed == hostedImageUrl
+          ? _value.hostedImageUrl
+          : hostedImageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      externalImageUrl: freezed == externalImageUrl
+          ? _value.externalImageUrl
+          : externalImageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
       part: freezed == part
           ? _value.part
@@ -2053,7 +2092,8 @@ class __$$PlantImageItemImplCopyWithImpl<$Res>
 class _$PlantImageItemImpl implements _PlantImageItem {
   const _$PlantImageItemImpl(
       {@JsonKey(name: 'image_copyright') this.imageCopyright,
-      @JsonKey(name: 'image_url') this.imageUrl,
+      @JsonKey(name: 'image') this.hostedImageUrl,
+      @JsonKey(name: 'image_url') this.externalImageUrl,
       @JsonKey(name: 'part') this.part});
 
   factory _$PlantImageItemImpl.fromJson(Map<String, dynamic> json) =>
@@ -2063,15 +2103,18 @@ class _$PlantImageItemImpl implements _PlantImageItem {
   @JsonKey(name: 'image_copyright')
   final String? imageCopyright;
   @override
+  @JsonKey(name: 'image')
+  final String? hostedImageUrl;
+  @override
   @JsonKey(name: 'image_url')
-  final String? imageUrl;
+  final String? externalImageUrl;
   @override
   @JsonKey(name: 'part')
   final NamedSlug? part;
 
   @override
   String toString() {
-    return 'PlantImageItem(imageCopyright: $imageCopyright, imageUrl: $imageUrl, part: $part)';
+    return 'PlantImageItem(imageCopyright: $imageCopyright, hostedImageUrl: $hostedImageUrl, externalImageUrl: $externalImageUrl, part: $part)';
   }
 
   @override
@@ -2081,14 +2124,17 @@ class _$PlantImageItemImpl implements _PlantImageItem {
             other is _$PlantImageItemImpl &&
             (identical(other.imageCopyright, imageCopyright) ||
                 other.imageCopyright == imageCopyright) &&
-            (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl) &&
+            (identical(other.hostedImageUrl, hostedImageUrl) ||
+                other.hostedImageUrl == hostedImageUrl) &&
+            (identical(other.externalImageUrl, externalImageUrl) ||
+                other.externalImageUrl == externalImageUrl) &&
             (identical(other.part, part) || other.part == part));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, imageCopyright, imageUrl, part);
+  int get hashCode => Object.hash(
+      runtimeType, imageCopyright, hostedImageUrl, externalImageUrl, part);
 
   /// Create a copy of PlantImageItem
   /// with the given fields replaced by the non-null parameter values.
@@ -2110,7 +2156,8 @@ class _$PlantImageItemImpl implements _PlantImageItem {
 abstract class _PlantImageItem implements PlantImageItem {
   const factory _PlantImageItem(
       {@JsonKey(name: 'image_copyright') final String? imageCopyright,
-      @JsonKey(name: 'image_url') final String? imageUrl,
+      @JsonKey(name: 'image') final String? hostedImageUrl,
+      @JsonKey(name: 'image_url') final String? externalImageUrl,
       @JsonKey(name: 'part') final NamedSlug? part}) = _$PlantImageItemImpl;
 
   factory _PlantImageItem.fromJson(Map<String, dynamic> json) =
@@ -2120,8 +2167,11 @@ abstract class _PlantImageItem implements PlantImageItem {
   @JsonKey(name: 'image_copyright')
   String? get imageCopyright;
   @override
+  @JsonKey(name: 'image')
+  String? get hostedImageUrl;
+  @override
   @JsonKey(name: 'image_url')
-  String? get imageUrl;
+  String? get externalImageUrl;
   @override
   @JsonKey(name: 'part')
   NamedSlug? get part;

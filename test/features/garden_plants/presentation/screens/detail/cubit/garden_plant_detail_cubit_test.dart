@@ -2,12 +2,11 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:zeleno_v2/features/core/enums/status.dart';
-import 'package:zeleno_v2/features/garden_plants/domain/entities/update_garden_plant_params.dart';
 import 'package:zeleno_v2/features/garden_plants/domain/models/garden_plant_model.dart';
 import 'package:zeleno_v2/features/garden_plants/domain/repository/i_garden_plants_repository.dart';
 import 'package:zeleno_v2/features/garden_plants/presentation/screens/detail/cubit/garden_plant_detail_cubit.dart';
 import 'package:zeleno_v2/features/plant_details/domain/models/plant_details_model.dart';
-import 'package:zeleno_v2/features/plant_details/domain/reposiotory/i_plant_details_repository.dart';
+import 'package:zeleno_v2/features/plant_details/domain/repository/i_plant_details_repository.dart';
 
 class MockGardenPlantsRepository extends Mock
     implements IGardenPlantsRepository {}
@@ -39,9 +38,6 @@ void main() {
   setUp(() {
     mockRepository = MockGardenPlantsRepository();
     mockDetailsRepository = MockPlantDetailsRepository();
-    registerFallbackValue(
-      const UpdateGardenPlantParams(plantId: 1, customName: 'Ficus'),
-    );
   });
 
   GardenPlantDetailCubit buildCubit() {
@@ -117,12 +113,62 @@ void main() {
   );
 
   blocTest<GardenPlantDetailCubit, GardenPlantDetailState>(
-    'saveChanges updates the plant and marks wasUpdated',
+    'loadPlant in species mode loads only species details by slug',
     setUp: () {
-      when(() => mockRepository.updateGardenPlant(params: any(named: 'params')))
-          .thenAnswer(
-        (_) async => plant.copyWith(customName: 'Renamed'),
+      when(() => mockDetailsRepository.getPlant('ficus-elastica'))
+          .thenAnswer((_) async => MockPlantDetailsModel());
+    },
+    build: () => GardenPlantDetailCubit(
+      gardenPlantsRepository: mockRepository,
+      plantDetailsRepository: mockDetailsRepository,
+      speciesSlug: 'ficus-elastica',
+    ),
+    act: (GardenPlantDetailCubit cubit) => cubit.loadPlant(),
+    expect: () => <Matcher>[
+      isA<GardenPlantDetailState>()
+          .having((GardenPlantDetailState s) => s.status, 'status', Status.loading),
+      isA<GardenPlantDetailState>()
+          .having((GardenPlantDetailState s) => s.status, 'status', Status.success)
+          .having((GardenPlantDetailState s) => s.plant, 'plant', isNull)
+          .having(
+            (GardenPlantDetailState s) => s.speciesDetails,
+            'details',
+            isA<PlantDetailsModel>(),
+          ),
+    ],
+    verify: (_) {
+      verifyNever(
+        () => mockRepository.getGardenPlant(plantId: any(named: 'plantId')),
       );
+    },
+  );
+
+  blocTest<GardenPlantDetailCubit, GardenPlantDetailState>(
+    'loadPlant in species mode emits failure when species load fails',
+    setUp: () {
+      when(() => mockDetailsRepository.getPlant('ficus-elastica'))
+          .thenThrow(Exception('network'));
+    },
+    build: () => GardenPlantDetailCubit(
+      gardenPlantsRepository: mockRepository,
+      plantDetailsRepository: mockDetailsRepository,
+      speciesSlug: 'ficus-elastica',
+    ),
+    act: (GardenPlantDetailCubit cubit) => cubit.loadPlant(),
+    expect: () => <Matcher>[
+      isA<GardenPlantDetailState>()
+          .having((GardenPlantDetailState s) => s.status, 'status', Status.loading),
+      isA<GardenPlantDetailState>()
+          .having((GardenPlantDetailState s) => s.status, 'status', Status.failure)
+          .having((GardenPlantDetailState s) => s.error, 'error', isA<Exception>()),
+    ],
+  );
+
+  blocTest<GardenPlantDetailCubit, GardenPlantDetailState>(
+    'reloadAfterEdit reloads the plant and marks wasUpdated',
+    setUp: () {
+      when(() => mockRepository.getGardenPlant(plantId: 1))
+          .thenAnswer((_) async => plant.copyWith(customName: 'Renamed'));
     },
     seed: () => const GardenPlantDetailState(
       status: Status.success,
@@ -130,13 +176,14 @@ void main() {
       plant: plant,
     ),
     build: buildCubit,
-    act: (GardenPlantDetailCubit cubit) =>
-        cubit.saveChanges(customName: 'Renamed', roomId: 3),
+    act: (GardenPlantDetailCubit cubit) => cubit.reloadAfterEdit(),
     expect: () => <Matcher>[
       isA<GardenPlantDetailState>()
-          .having((GardenPlantDetailState s) => s.isSaving, 'isSaving', isTrue),
+          .having((GardenPlantDetailState s) => s.wasUpdated, 'wasUpdated', isTrue),
       isA<GardenPlantDetailState>()
-          .having((GardenPlantDetailState s) => s.isSaving, 'isSaving', isFalse)
+          .having((GardenPlantDetailState s) => s.status, 'status', Status.loading),
+      isA<GardenPlantDetailState>()
+          .having((GardenPlantDetailState s) => s.status, 'status', Status.success)
           .having((GardenPlantDetailState s) => s.wasUpdated, 'wasUpdated', isTrue)
           .having(
             (GardenPlantDetailState s) => s.plant?.customName,
@@ -145,9 +192,7 @@ void main() {
           ),
     ],
     verify: (_) {
-      verify(
-        () => mockRepository.updateGardenPlant(params: any(named: 'params')),
-      ).called(1);
+      verify(() => mockRepository.getGardenPlant(plantId: 1)).called(1);
     },
   );
 

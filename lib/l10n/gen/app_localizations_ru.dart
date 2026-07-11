@@ -1,5 +1,4 @@
 // ignore: unused_import
-
 import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
@@ -528,6 +527,19 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get addGardenPlantClose => 'Закрыть';
+
+  @override
+  String get homeTabGarden => 'Мой сад';
+
+  @override
+  String get homeTabSearch => 'Поиск';
+
+  @override
+  String get homeTabProfile => 'Профиль';
+
+  @override
+  String get gardenUnauthorizedDescription =>
+      'Чтобы видеть свои растения, войдите в аккаунт.';
 
   @override
   String get gardenPlantsListTitle => 'Мой сад';

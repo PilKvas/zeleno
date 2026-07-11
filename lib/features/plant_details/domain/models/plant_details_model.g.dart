@@ -42,7 +42,8 @@ _$PlantDetailsModelImpl _$$PlantDetailsModelImplFromJson(
           (json['harvest'] as List<dynamic>?)?.map((e) => e as String).toList(),
       heightMaxCm: (json['height_max_cm'] as num?)?.toInt(),
       heightMinCm: (json['height_min_cm'] as num?)?.toInt(),
-      imageUrl: json['image_url'] as String?,
+      hostedImageUrl: json['image'] as String?,
+      externalImageUrl: json['image_url'] as String?,
       images: (json['images'] as List<dynamic>?)
           ?.map((e) => PlantImageItem.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -114,7 +115,8 @@ Map<String, dynamic> _$$PlantDetailsModelImplToJson(
       'harvest': instance.harvest,
       'height_max_cm': instance.heightMaxCm,
       'height_min_cm': instance.heightMinCm,
-      'image_url': instance.imageUrl,
+      'image': instance.hostedImageUrl,
+      'image_url': instance.externalImageUrl,
       'images': instance.images,
       'is_edible': instance.isEdible,
       'latin_name': instance.latinName,
@@ -183,7 +185,8 @@ Map<String, dynamic> _$$GrowthTipImplToJson(_$GrowthTipImpl instance) =>
 _$PlantImageItemImpl _$$PlantImageItemImplFromJson(Map<String, dynamic> json) =>
     _$PlantImageItemImpl(
       imageCopyright: json['image_copyright'] as String?,
-      imageUrl: json['image_url'] as String?,
+      hostedImageUrl: json['image'] as String?,
+      externalImageUrl: json['image_url'] as String?,
       part: json['part'] == null
           ? null
           : NamedSlug.fromJson(json['part'] as Map<String, dynamic>),
@@ -193,7 +196,8 @@ Map<String, dynamic> _$$PlantImageItemImplToJson(
         _$PlantImageItemImpl instance) =>
     <String, dynamic>{
       'image_copyright': instance.imageCopyright,
-      'image_url': instance.imageUrl,
+      'image': instance.hostedImageUrl,
+      'image_url': instance.externalImageUrl,
       'part': instance.part,
     };
 

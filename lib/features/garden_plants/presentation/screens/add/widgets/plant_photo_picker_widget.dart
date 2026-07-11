@@ -1,5 +1,5 @@
-import 'dart:typed_data';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:zeleno_v2/uikit/button/export.dart';
 import 'package:zeleno_v2/uikit/theme/export.dart';
@@ -31,7 +31,19 @@ class PlantPhotoPickerWidget extends StatelessWidget {
 
   Future<void> _pickPhoto() async {
     final ImagePicker picker = ImagePicker();
-    final XFile? file = await picker.pickImage(source: ImageSource.gallery);
+    final XFile? file;
+    try {
+      file = await picker.pickImage(
+        source: ImageSource.gallery,
+        maxWidth: 1920,
+        maxHeight: 1920,
+        imageQuality: 85,
+      );
+    } on PlatformException {
+      // Пикер уже открыт (двойной тап) или нет доступа к галерее —
+      // трактуем как отмену выбора.
+      return;
+    }
     if (file == null) {
       return;
     }

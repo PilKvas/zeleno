@@ -16,7 +16,7 @@ import 'package:zeleno_v2/features/garden_plants/domain/repository/export.dart';
 import 'package:zeleno_v2/features/garden_plants/presentation/screens/list/cubit/export.dart';
 import 'package:zeleno_v2/features/plant_details/data/repository/export.dart';
 import 'package:zeleno_v2/features/plant_details/data/service/export.dart';
-import 'package:zeleno_v2/features/plant_details/domain/reposiotory/export.dart';
+import 'package:zeleno_v2/features/plant_details/domain/repository/export.dart';
 import 'package:zeleno_v2/features/plant_filters/data/repository/export.dart';
 import 'package:zeleno_v2/features/plant_filters/data/service/export.dart';
 import 'package:zeleno_v2/features/plant_filters/domain/repository/export.dart';
@@ -43,7 +43,9 @@ Future<void> initializeDependencies() async {
 
   final sharedPreferences = await SharedPreferences.getInstance();
 
-  const secureStorage = FlutterSecureStorage();
+  const secureStorage = FlutterSecureStorage(
+    aOptions: AndroidOptions(encryptedSharedPreferences: true),
+  );
 
   injection
     ..registerLazySingleton<IConnectivityChecker>(

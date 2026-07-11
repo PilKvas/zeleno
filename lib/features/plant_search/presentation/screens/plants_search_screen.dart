@@ -35,6 +35,13 @@ class PlantsSearchScreen extends StatefulWidget {
 class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
   final Debouncer _debouncer = Debouncer(milliseconds: 500);
 
+  @override
+  void dispose() {
+    // Иначе отложенный колбэк добавит событие в уже закрытый bloc.
+    _debouncer.dispose();
+    super.dispose();
+  }
+
   Future<void> onRefresh(PlantSearchBloc bloc) async {
     return bloc.add(
       const PlantSearchEvent.loadPlantList(
@@ -44,7 +51,7 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
   }
 
   Future<void> onItemTap(String slug) async {
-    context.router.push(PlantDetailsRoute(slug: slug));
+    context.router.push(GardenPlantDetailRoute(speciesSlug: slug));
   }
 
   bool onPagination(ScrollNotification scrollInfo, PlantSearchBloc bloc) {

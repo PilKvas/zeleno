@@ -50,7 +50,7 @@ class AppRouter extends RootStackRouter {
                   page: PlantsSearchRoute.page,
                 ),
                 AutoRoute(
-                  page: PlantDetailsRoute.page,
+                  page: GardenPlantDetailRoute.page,
                 ),
                 AutoRoute(
                   page: PlantRoomsSelectionRoute.page,

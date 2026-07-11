@@ -22,7 +22,8 @@ class PlantDetailsModel with _$PlantDetailsModel {
     @JsonKey(name: 'harvest') List<String>? harvest,
     @JsonKey(name: 'height_max_cm') int? heightMaxCm,
     @JsonKey(name: 'height_min_cm') int? heightMinCm,
-    @JsonKey(name: 'image_url') String? imageUrl,
+    @JsonKey(name: 'image') String? hostedImageUrl,
+    @JsonKey(name: 'image_url') String? externalImageUrl,
     @JsonKey(name: 'images') List<PlantImageItem>? images,
     @JsonKey(name: 'is_edible') bool? isEdible,
     @JsonKey(name: 'latin_name') String? latinName,
@@ -90,12 +91,29 @@ class GrowthTip with _$GrowthTip {
 class PlantImageItem with _$PlantImageItem {
   const factory PlantImageItem({
     @JsonKey(name: 'image_copyright') String? imageCopyright,
-    @JsonKey(name: 'image_url') String? imageUrl,
+    @JsonKey(name: 'image') String? hostedImageUrl,
+    @JsonKey(name: 'image_url') String? externalImageUrl,
     @JsonKey(name: 'part') NamedSlug? part,
   }) = _PlantImageItem;
 
   factory PlantImageItem.fromJson(Map<String, dynamic> json) =>
       _$PlantImageItemFromJson(json);
+}
+
+extension PlantImageItemX on PlantImageItem {
+  /// Приоритет — файл на нашем сервере (`image`): внешняя ссылка
+  /// (`image_url`, plantnet.org) из приложения часто недоступна.
+  String? get imageUrl => _preferHosted(hostedImageUrl, externalImageUrl);
+}
+
+String? _preferHosted(String? hosted, String? external) {
+  if (hosted != null && hosted.isNotEmpty) {
+    return hosted;
+  }
+  if (external != null && external.isNotEmpty) {
+    return external;
+  }
+  return null;
 }
 
 @freezed
@@ -191,6 +209,11 @@ class Source with _$Source {
 }
 
 extension PlantDetailsModelX on PlantDetailsModel {
+  /// Основное фото вида. Приоритет — файл на нашем сервере (`image`):
+  /// внешняя ссылка (`image_url`, plantnet.org) из приложения часто
+  /// недоступна, из-за чего фото в деталке не загружалось.
+  String? get imageUrl => _preferHosted(hostedImageUrl, externalImageUrl);
+
   String? resolveMainCommonName({String lang = 'ru'}) {
     final List<CommonNameEntry> entries = commonNames ?? <CommonNameEntry>[];
     CommonNameEntry? pickMain(String code) {

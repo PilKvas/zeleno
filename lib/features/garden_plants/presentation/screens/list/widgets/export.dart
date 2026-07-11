@@ -3,3 +3,4 @@
 
 export 'garden_plant_card_widget.dart';
 export 'garden_room_chip_widget.dart';
+export 'garden_unauthorized_view.dart';

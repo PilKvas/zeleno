@@ -56,7 +56,6 @@ void main() {
         supportedLocales: AppLocalizations.supportedLocales,
         home: const AddGardenPlantScreen(
           speciesId: 42,
-          speciesSlug: 'ficus-elastica',
           roomId: 3,
           defaultPlantName: '',
         ),

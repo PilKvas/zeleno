@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:zeleno_v2/features/garden_plants/domain/models/export.dart';
@@ -33,11 +32,13 @@ abstract class GardenPlantsService {
     @Path('plant_id') required int plantId,
   });
 
+  // retrofit_generator не поддерживает одиночный MultipartFile-парт,
+  // поэтому файл передаётся списком из одного элемента.
   @POST('/api/garden/plants/{plant_id}/image')
   @MultiPart()
   Future<GardenPlantModel> uploadGardenPlantImage({
     @Path('plant_id') required int plantId,
-    @Part(name: 'image') required File image,
+    @Part(name: 'image') required List<MultipartFile> image,
   });
 
   @DELETE('/api/garden/plants/{plant_id}/image')
