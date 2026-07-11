@@ -14,7 +14,7 @@ class AddGardenPlantState with _$AddGardenPlantState {
     String? existingImageUrl,
     @Default(false) bool removeExistingPhoto,
     Object? error,
-    String? validationMessage,
+    AddGardenPlantValidationError? validationError,
     GardenPlantModel? createdPlant,
     @Default(false) bool imageUploadFailed,
     @Default(false) bool wasUpdated,

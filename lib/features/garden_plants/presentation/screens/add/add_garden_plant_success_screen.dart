@@ -16,15 +16,9 @@ import 'package:zeleno_v2/uikit/theme/export.dart';
 class AddGardenPlantSuccessScreen extends StatelessWidget {
   const AddGardenPlantSuccessScreen({
     super.key,
-    required this.speciesSlug,
-    required this.customName,
-    required this.roomName,
     this.imageUploadFailed = false,
   });
 
-  final String speciesSlug;
-  final String customName;
-  final String roomName;
   final bool imageUploadFailed;
 
   Future<void> _goToGarden(BuildContext context) async {
@@ -32,16 +26,22 @@ class AddGardenPlantSuccessScreen extends StatelessWidget {
         injection<GardenPlantsListCubit>();
     final PlantRoomsCubit plantRoomsCubit = injection<PlantRoomsCubit>();
     final AuthStatus authStatus = context.read<AuthCubit>().state.authStatus;
+    // TabsRouter берём до pop'а: popUntil снимает и этот экран,
+    // после чего его context уже нельзя использовать для lookup'ов.
+    final TabsRouter tabsRouter = AutoTabsRouter.of(context);
     context.router.popUntilRouteWithName(PlantsSearchRoute.name);
-    AutoTabsRouter.of(context).setActiveIndex(0);
+    tabsRouter.setActiveTab(HomeTab.garden);
+    gardenPlantsListCubit.selectRoom(null);
+    // Заход на таб больше не перезапрашивает список — после добавления
+    // растения обновляем его отсюда, чтобы новое растение появилось сразу.
     await Future.wait(<Future<void>>[
-      gardenPlantsListCubit.selectRoom(null),
+      gardenPlantsListCubit.refreshPlants(),
       plantRoomsCubit.loadRoomsIfAuthorized(authStatus),
     ]);
   }
 
   void _closeToPlantDetails(BuildContext context) {
-    context.router.popUntilRouteWithName(PlantDetailsRoute.name);
+    context.router.popUntilRouteWithName(GardenPlantDetailRoute.name);
   }
 
   @override
@@ -70,7 +70,7 @@ class AddGardenPlantSuccessScreen extends StatelessWidget {
                 style: typography.headline200.copyWith(
                   fontSize: 22,
                   height: 1.3,
-                  color: const Color(0xFF1D1717),
+                  color: colorScheme.onBackground,
                 ),
               ),
               const SizedBox(height: 12),

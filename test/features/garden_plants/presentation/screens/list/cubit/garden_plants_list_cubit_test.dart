@@ -12,11 +12,19 @@ class MockGardenPlantsRepository extends Mock
 void main() {
   late MockGardenPlantsRepository mockRepository;
 
+  const GardenPlantModel ficusInRoom3 = GardenPlantModel(
+    id: 1,
+    customName: 'My ficus',
+    roomId: 3,
+  );
+  const GardenPlantModel cactusInRoom5 = GardenPlantModel(
+    id: 2,
+    customName: 'My cactus',
+    roomId: 5,
+  );
   const List<GardenPlantModel> plants = <GardenPlantModel>[
-    GardenPlantModel(
-      id: 1,
-      customName: 'My ficus',
-    ),
+    ficusInRoom3,
+    cactusInRoom5,
   ];
 
   setUp(() {
@@ -27,7 +35,7 @@ void main() {
     'emits success with plants list',
     setUp: () {
       when(
-        () => mockRepository.getGardenPlants(roomId: null),
+        () => mockRepository.getGardenPlants(),
       ).thenAnswer((_) async => plants);
     },
     build: () => GardenPlantsListCubit(gardenPlantsRepository: mockRepository),
@@ -42,66 +50,45 @@ void main() {
   );
 
   blocTest<GardenPlantsListCubit, GardenPlantsListState>(
-    'loads plants for selected room',
-    setUp: () {
-      when(
-        () => mockRepository.getGardenPlants(roomId: 3),
-      ).thenAnswer((_) async => plants);
-    },
+    'selectRoom filters loaded plants in memory without repository call',
     build: () => GardenPlantsListCubit(gardenPlantsRepository: mockRepository),
+    seed: () => const GardenPlantsListState(
+      status: Status.success,
+      plants: plants,
+    ),
     act: (GardenPlantsListCubit cubit) => cubit.selectRoom(3),
     expect: () => <GardenPlantsListState>[
-      const GardenPlantsListState(
-        status: Status.loading,
-        selectedRoomId: 3,
-      ),
       const GardenPlantsListState(
         status: Status.success,
         plants: plants,
         selectedRoomId: 3,
       ),
     ],
+    verify: (GardenPlantsListCubit cubit) {
+      expect(cubit.state.visiblePlants, <GardenPlantModel>[ficusInRoom3]);
+      verifyNever(() => mockRepository.getGardenPlants());
+    },
   );
 
   blocTest<GardenPlantsListCubit, GardenPlantsListState>(
     'clears room filter when selecting all rooms',
-    setUp: () {
-      when(
-        () => mockRepository.getGardenPlants(roomId: 3),
-      ).thenAnswer((_) async => plants);
-      when(
-        () => mockRepository.getGardenPlants(roomId: null),
-      ).thenAnswer((_) async => plants);
-    },
     build: () => GardenPlantsListCubit(gardenPlantsRepository: mockRepository),
-    act: (GardenPlantsListCubit cubit) async {
-      await cubit.selectRoom(3);
-      await cubit.selectRoom(null);
-    },
+    seed: () => const GardenPlantsListState(
+      status: Status.success,
+      plants: plants,
+      selectedRoomId: 3,
+    ),
+    act: (GardenPlantsListCubit cubit) => cubit.selectRoom(null),
     expect: () => <GardenPlantsListState>[
-      const GardenPlantsListState(
-        status: Status.loading,
-        selectedRoomId: 3,
-      ),
-      const GardenPlantsListState(
-        status: Status.success,
-        plants: plants,
-        selectedRoomId: 3,
-      ),
-      const GardenPlantsListState(
-        status: Status.loading,
-        plants: plants,
-        selectedRoomId: null,
-      ),
       const GardenPlantsListState(
         status: Status.success,
         plants: plants,
         selectedRoomId: null,
       ),
     ],
-    verify: (_) {
-      verify(() => mockRepository.getGardenPlants(roomId: 3)).called(1);
-      verify(() => mockRepository.getGardenPlants(roomId: null)).called(1);
+    verify: (GardenPlantsListCubit cubit) {
+      expect(cubit.state.visiblePlants, plants);
+      verifyNever(() => mockRepository.getGardenPlants());
     },
   );
 
@@ -109,7 +96,7 @@ void main() {
     'emits failure when load fails',
     setUp: () {
       when(
-        () => mockRepository.getGardenPlants(roomId: null),
+        () => mockRepository.getGardenPlants(),
       ).thenThrow(Exception('network'));
     },
     build: () => GardenPlantsListCubit(gardenPlantsRepository: mockRepository),

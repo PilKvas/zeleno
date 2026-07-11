@@ -18,33 +18,64 @@ class ProfileStackScreen extends StatefulWidget {
   State<ProfileStackScreen> createState() => _ProfileStackScreenState();
 }
 
-class _ProfileStackScreenState extends State<ProfileStackScreen> {
+class _ProfileStackScreenState extends State<ProfileStackScreen>
+    with AutoRouteAwareStateMixin<ProfileStackScreen> {
+  // context.router здесь — КОРНЕВОЙ роутер (ближайший StackRouterScope
+  // над таб-страницей), поэтому вложенный стек профиля достаём по ключу.
+  final GlobalKey<AutoRouterState> _routerKey = GlobalKey<AutoRouterState>();
+
+  /// Экраны, на которых сброс до логина не нужен: пользователь и так
+  /// в процессе авторизации/восстановления доступа.
+  static const Set<String> _authFlowRoutes = <String>{
+    LoginRoute.name,
+    RegistrationRoute.name,
+    PasswordResetRequestRoute.name,
+    PasswordResetVerifyRoute.name,
+    PasswordResetConfirmRoute.name,
+  };
+
   void _syncRouteToAuth(AuthStatus status) {
     if (!mounted) return;
-    final currentName = context.router.current.name;
+    final StackRouter? profileRouter = _routerKey.currentState?.controller;
+    if (profileRouter == null) return;
     switch (status) {
       case AuthStatus.authenticated:
-        if (currentName != ProfileRoute.name) {
-          context.router.replace(const ProfileRoute());
+        if (profileRouter.current.name != ProfileRoute.name) {
+          profileRouter.replaceAll([const ProfileRoute()]);
         }
         break;
       case AuthStatus.unauthenticated:
       case AuthStatus.unknown:
-        final StackRouter profileRouter = context.router;
         final bool isOnlyLogin =
             profileRouter.current.name == LoginRoute.name &&
                 profileRouter.stack.length == 1;
-        if (!isOnlyLogin) {
-          profileRouter.replaceAll([const LoginRoute()]);
+        if (isOnlyLogin) {
+          break;
         }
+        // Регистрация/сброс пароля не сбрасываем; дубликаты Login — да.
+        final String currentRouteName = profileRouter.current.name;
+        if (_authFlowRoutes.contains(currentRouteName) &&
+            currentRouteName != LoginRoute.name) {
+          break;
+        }
+        // Сбрасываем весь стек: профиль не должен оставаться под логином,
+        // иначе с логина можно вернуться назад к данным разлогиненного
+        // пользователя.
+        profileRouter.replaceAll([const LoginRoute()]);
         break;
     }
+  }
+
+  @override
+  void didChangeTabRoute(TabPageRoute previousRoute) {
+    _syncRouteToAuth(context.read<AuthCubit>().state.authStatus);
   }
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
       _syncRouteToAuth(context.read<AuthCubit>().state.authStatus);
     });
   }
@@ -52,8 +83,10 @@ class _ProfileStackScreenState extends State<ProfileStackScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocListener<AuthCubit, AuthState>(
+      listenWhen: (AuthState previous, AuthState current) =>
+          previous.authStatus != current.authStatus,
       listener: (context, state) => _syncRouteToAuth(state.authStatus),
-      child: const AutoRouter(),
+      child: AutoRouter(key: _routerKey),
     );
   }
 }

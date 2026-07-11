@@ -15,7 +15,7 @@ abstract interface class IGardenPlantsRepository {
 
   Future<void> deleteGardenPlantImage({required int plantId});
 
-  Future<List<GardenPlantModel>> getGardenPlants({int? roomId});
+  Future<List<GardenPlantModel>> getGardenPlants();
 
   Future<GardenPlantModel> getGardenPlant({required int plantId});
 

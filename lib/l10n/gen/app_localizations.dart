@@ -1,8 +1,10 @@
 import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
+
 import 'app_localizations_en.dart';
 import 'app_localizations_ru.dart';
 
@@ -1025,6 +1027,30 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'Закрыть'**
   String get addGardenPlantClose;
+
+  /// No description provided for @homeTabGarden.
+  ///
+  /// In ru, this message translates to:
+  /// **'Мой сад'**
+  String get homeTabGarden;
+
+  /// No description provided for @homeTabSearch.
+  ///
+  /// In ru, this message translates to:
+  /// **'Поиск'**
+  String get homeTabSearch;
+
+  /// No description provided for @homeTabProfile.
+  ///
+  /// In ru, this message translates to:
+  /// **'Профиль'**
+  String get homeTabProfile;
+
+  /// No description provided for @gardenUnauthorizedDescription.
+  ///
+  /// In ru, this message translates to:
+  /// **'Чтобы видеть свои растения, войдите в аккаунт.'**
+  String get gardenUnauthorizedDescription;
 
   /// No description provided for @gardenPlantsListTitle.
   ///

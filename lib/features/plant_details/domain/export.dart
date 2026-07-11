@@ -2,4 +2,4 @@
 // Run `make exports` to regenerate.
 
 export 'models/export.dart';
-export 'reposiotory/export.dart';
+export 'repository/export.dart';

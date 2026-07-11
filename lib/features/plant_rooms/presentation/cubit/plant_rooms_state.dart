@@ -5,22 +5,25 @@ class PlantRoomsState {
   const PlantRoomsState({
     required this.status,
     required this.rooms,
-    this.errorMessage,
+    this.error,
   });
 
   final Status status;
   final List<PlantRoomModel> rooms;
-  final String? errorMessage;
+
+  /// Исходная ошибка; в UI локализуется через `mapErrorToMessage`,
+  /// чтобы не показывать пользователю технические детали исключения.
+  final Object? error;
 
   PlantRoomsState copyWith({
     Status? status,
     List<PlantRoomModel>? rooms,
-    String? errorMessage,
+    Object? error,
   }) {
     return PlantRoomsState(
       status: status ?? this.status,
       rooms: rooms ?? this.rooms,
-      errorMessage: errorMessage,
+      error: error,
     );
   }
 }

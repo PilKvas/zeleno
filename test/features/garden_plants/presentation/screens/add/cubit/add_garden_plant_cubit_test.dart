@@ -74,7 +74,7 @@ void main() {
         speciesId: 42,
         roomId: 3,
         customName: '   ',
-        validationMessage: 'empty_name',
+        validationError: AddGardenPlantValidationError.emptyName,
       ),
     ],
   );

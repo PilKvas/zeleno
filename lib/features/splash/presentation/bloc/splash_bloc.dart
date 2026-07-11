@@ -9,7 +9,7 @@ part 'splash_state.dart';
 class SplashBloc extends Bloc<SplashEvent, SplashState> {
   final IFirstRunStorage _firstRunStorage;
 
-  SplashBloc({required firstRunStorage})
+  SplashBloc({required IFirstRunStorage firstRunStorage})
       : _firstRunStorage = firstRunStorage,
         super(const SplashState.initial()) {
     on<SplashEvent>(_onStartApp);

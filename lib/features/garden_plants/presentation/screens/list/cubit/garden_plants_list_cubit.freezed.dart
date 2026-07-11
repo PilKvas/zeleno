@@ -148,14 +148,15 @@ class __$$GardenPlantsListStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GardenPlantsListStateImpl implements _GardenPlantsListState {
+class _$GardenPlantsListStateImpl extends _GardenPlantsListState {
   const _$GardenPlantsListStateImpl(
       {required this.status,
       final List<GardenPlantModel> plants = const <GardenPlantModel>[],
       this.error,
       this.selectedRoomId,
       this.isRefreshing = false})
-      : _plants = plants;
+      : _plants = plants,
+        super._();
 
   @override
   final Status status;
@@ -214,13 +215,14 @@ class _$GardenPlantsListStateImpl implements _GardenPlantsListState {
           _$GardenPlantsListStateImpl>(this, _$identity);
 }
 
-abstract class _GardenPlantsListState implements GardenPlantsListState {
+abstract class _GardenPlantsListState extends GardenPlantsListState {
   const factory _GardenPlantsListState(
       {required final Status status,
       final List<GardenPlantModel> plants,
       final Object? error,
       final int? selectedRoomId,
       final bool isRefreshing}) = _$GardenPlantsListStateImpl;
+  const _GardenPlantsListState._() : super._();
 
   @override
   Status get status;

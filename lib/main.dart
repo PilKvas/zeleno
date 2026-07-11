@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,6 +30,12 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final _appRouter = AppRouter();
+
+  // AutoRouteObserver обязателен для did*TabRoute/didPopNext
+  // в AutoRouteAwareStateMixin.
+  late final RouterConfig<UrlState> _routerConfig = _appRouter.config(
+    navigatorObservers: () => <NavigatorObserver>[AutoRouteObserver()],
+  );
 
   final ZTheme zelenoThemeLight = ZTheme(
     colorScheme: const ZColorScheme.light(),
@@ -65,7 +72,7 @@ class _MyAppState extends State<MyApp> {
         darkTheme: lightThemeData,
         themeMode: ThemeMode.light,
         title: 'Flutter Demo',
-        routerConfig: _appRouter.config(),
+        routerConfig: _routerConfig,
         builder: (BuildContext context, Widget? child) {
           return AnnotatedRegion<SystemUiOverlayStyle>(
             value: ZTheme.statusBarStyleForBrightness(Brightness.light),

@@ -158,21 +158,13 @@ class _GardenPlantsService implements GardenPlantsService {
   @override
   Future<GardenPlantModel> uploadGardenPlantImage({
     required int plantId,
-    required File image,
+    required List<MultipartFile> image,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = FormData();
-    _data.files.add(
-      MapEntry(
-        'image',
-        MultipartFile.fromFileSync(
-          image.path,
-          filename: image.path.split(Platform.pathSeparator).last,
-        ),
-      ),
-    );
+    _data.files.addAll(image.map((i) => MapEntry('image', i)));
     final _options = _setStreamType<GardenPlantModel>(
       Options(
         method: 'POST',

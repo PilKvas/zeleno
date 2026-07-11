@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:zeleno_v2/data/network/export.dart';
 import 'package:zeleno_v2/features/core/enums/export.dart';
 import 'package:zeleno_v2/features/garden_plants/domain/entities/export.dart';
 import 'package:zeleno_v2/features/garden_plants/domain/models/export.dart';
@@ -8,6 +9,8 @@ import 'package:zeleno_v2/features/garden_plants/domain/repository/export.dart';
 
 part 'add_garden_plant_cubit.freezed.dart';
 part 'add_garden_plant_state.dart';
+
+enum AddGardenPlantValidationError { emptyName, nameTooLong }
 
 class AddGardenPlantCubit extends Cubit<AddGardenPlantState> {
   AddGardenPlantCubit.create({
@@ -51,6 +54,9 @@ class AddGardenPlantCubit extends Cubit<AddGardenPlantState> {
     try {
       final GardenPlantModel plant =
           await _repository.getGardenPlant(plantId: plantId);
+      if (isClosed) {
+        return;
+      }
       emit(
         state.copyWith(
           status: Status.success,
@@ -63,6 +69,9 @@ class AddGardenPlantCubit extends Cubit<AddGardenPlantState> {
         ),
       );
     } catch (error) {
+      if (isClosed) {
+        return;
+      }
       emit(
         state.copyWith(
           status: Status.failure,
@@ -76,7 +85,7 @@ class AddGardenPlantCubit extends Cubit<AddGardenPlantState> {
     emit(
       state.copyWith(
         customName: value,
-        validationMessage: null,
+        validationError: null,
         error: null,
       ),
     );
@@ -119,11 +128,15 @@ class AddGardenPlantCubit extends Cubit<AddGardenPlantState> {
     if (state.status.isLoading) {
       return;
     }
+    // Растение уже создано — повторный сабмит породил бы дубль.
+    if (state.plantId == null && state.createdPlant != null) {
+      return;
+    }
     final String trimmedName = state.customName.trim();
     if (trimmedName.isEmpty) {
       emit(
         state.copyWith(
-          validationMessage: 'empty_name',
+          validationError: AddGardenPlantValidationError.emptyName,
         ),
       );
       return;
@@ -131,7 +144,7 @@ class AddGardenPlantCubit extends Cubit<AddGardenPlantState> {
     if (trimmedName.length > 255) {
       emit(
         state.copyWith(
-          validationMessage: 'name_too_long',
+          validationError: AddGardenPlantValidationError.nameTooLong,
         ),
       );
       return;
@@ -148,7 +161,7 @@ class AddGardenPlantCubit extends Cubit<AddGardenPlantState> {
       state.copyWith(
         status: Status.loading,
         error: null,
-        validationMessage: null,
+        validationError: null,
       ),
     );
     try {
@@ -161,6 +174,9 @@ class AddGardenPlantCubit extends Cubit<AddGardenPlantState> {
           photoFileName: state.photoFileName,
         ),
       );
+      if (isClosed) {
+        return;
+      }
       emit(
         state.copyWith(
           status: Status.success,
@@ -169,6 +185,9 @@ class AddGardenPlantCubit extends Cubit<AddGardenPlantState> {
         ),
       );
     } catch (error) {
+      if (isClosed) {
+        return;
+      }
       emit(
         state.copyWith(
           status: Status.failure,
@@ -187,7 +206,7 @@ class AddGardenPlantCubit extends Cubit<AddGardenPlantState> {
       state.copyWith(
         status: Status.loading,
         error: null,
-        validationMessage: null,
+        validationError: null,
       ),
     );
     try {
@@ -219,8 +238,16 @@ class AddGardenPlantCubit extends Cubit<AddGardenPlantState> {
           imageUploadFailed = true;
         }
       } else if (state.removeExistingPhoto && currentPlant.imageUrl != null) {
-        await _repository.deleteGardenPlantImage(plantId: plant.id);
+        try {
+          await _repository.deleteGardenPlantImage(plantId: plant.id);
+        } on NotFound {
+          // Фото уже удалено предыдущей (частично успешной) попыткой —
+          // повторный DELETE не должен блокировать сохранение.
+        }
         plant = await _repository.getGardenPlant(plantId: plant.id);
+      }
+      if (isClosed) {
+        return;
       }
       emit(
         state.copyWith(
@@ -236,6 +263,9 @@ class AddGardenPlantCubit extends Cubit<AddGardenPlantState> {
         ),
       );
     } catch (error) {
+      if (isClosed) {
+        return;
+      }
       emit(
         state.copyWith(
           status: Status.failure,

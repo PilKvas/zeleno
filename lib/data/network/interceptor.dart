@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:zeleno_v2/data/network/connectivity_checker.dart';
 import 'package:zeleno_v2/data/network/error_response_parser.dart';
-import 'package:zeleno_v2/data/network/exeptions/export.dart';
+import 'package:zeleno_v2/data/network/exceptions/export.dart';
 import 'package:zeleno_v2/features/auth/data/persistence/storage/tokens_storage/export.dart';
 import 'package:zeleno_v2/features/auth/domain/model/export.dart';
 import 'package:zeleno_v2/features/auth/domain/repository/export.dart';

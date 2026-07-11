@@ -1,5 +1,5 @@
-import 'dart:io';
 import 'dart:typed_data';
+import 'package:dio/dio.dart';
 import 'package:zeleno_v2/features/garden_plants/data/dto/export.dart';
 import 'package:zeleno_v2/features/garden_plants/data/service/export.dart';
 import 'package:zeleno_v2/features/garden_plants/domain/entities/export.dart';
@@ -38,12 +38,17 @@ final class GardenPlantsRepository implements IGardenPlantsRepository {
       );
       return CreateGardenPlantResult(plant: plantWithImage);
     } catch (_) {
-      final GardenPlantModel refreshedPlant =
-          await getGardenPlant(plantId: plant.id);
-      final String? imageUrl = refreshedPlant.imageUrl;
-      if (imageUrl != null && imageUrl.isNotEmpty) {
-        return CreateGardenPlantResult(plant: refreshedPlant);
-      }
+      // Растение уже создано — наружу кидать нельзя, иначе повторный
+      // сабмит создаст дубль. Пробуем уточнить статус фото, но любая
+      // ошибка здесь тоже означает лишь «фото не подтвердилось».
+      try {
+        final GardenPlantModel refreshedPlant =
+            await getGardenPlant(plantId: plant.id);
+        final String? imageUrl = refreshedPlant.imageUrl;
+        if (imageUrl != null && imageUrl.isNotEmpty) {
+          return CreateGardenPlantResult(plant: refreshedPlant);
+        }
+      } catch (_) {}
       return CreateGardenPlantResult(plant: plant, imageUploadFailed: true);
     }
   }
@@ -54,35 +59,23 @@ final class GardenPlantsRepository implements IGardenPlantsRepository {
     required Uint8List bytes,
     required String fileName,
   }) async {
-    final File tempFile = File(
-      '${Directory.systemTemp.path}/garden_plant_${plantId}_$fileName',
+    return _gardenPlantsService.uploadGardenPlantImage(
+      plantId: plantId,
+      image: <MultipartFile>[
+        MultipartFile.fromBytes(
+          bytes,
+          filename: fileName,
+          // Без явного contentType парт уходит как application/octet-stream,
+          // что сервер может отклонить при валидации MIME.
+          contentType: _imageMediaType(fileName),
+        ),
+      ],
     );
-    await tempFile.writeAsBytes(bytes);
-    try {
-      return await _gardenPlantsService.uploadGardenPlantImage(
-        plantId: plantId,
-        image: tempFile,
-      );
-    } finally {
-      if (await tempFile.exists()) {
-        await tempFile.delete();
-      }
-    }
   }
 
   @override
-  Future<List<GardenPlantModel>> getGardenPlants({int? roomId}) async {
-    final List<GardenPlantModel> plants =
-        await _gardenPlantsService.getGardenPlants();
-    if (roomId == null) {
-      return plants;
-    }
-    final List<GardenPlantModel> plantsWithRoom = await Future.wait(
-      plants.map(_loadPlantRoomDetails),
-    );
-    return plantsWithRoom
-        .where((GardenPlantModel plant) => plant.roomId == roomId)
-        .toList();
+  Future<List<GardenPlantModel>> getGardenPlants() {
+    return _gardenPlantsService.getGardenPlants();
   }
 
   @override
@@ -120,17 +113,14 @@ final class GardenPlantsRepository implements IGardenPlantsRepository {
     return _gardenPlantsService.deleteGardenPlantImage(plantId: plantId);
   }
 
-  Future<GardenPlantModel> _loadPlantRoomDetails(GardenPlantModel plant) async {
-    if (plant.roomId != null) {
-      return plant;
-    }
-    final GardenPlantModel details = await getGardenPlant(plantId: plant.id);
-    return plant.copyWith(
-      roomId: details.roomId,
-      speciesId: details.speciesId,
-      speciesSlug: details.speciesSlug,
-      speciesLatinName: details.speciesLatinName,
-      imageUrl: details.imageUrl ?? plant.imageUrl,
-    );
+  static DioMediaType _imageMediaType(String fileName) {
+    final String extension = fileName.split('.').last.toLowerCase();
+    return switch (extension) {
+      'png' => DioMediaType('image', 'png'),
+      'webp' => DioMediaType('image', 'webp'),
+      'heic' => DioMediaType('image', 'heic'),
+      'gif' => DioMediaType('image', 'gif'),
+      _ => DioMediaType('image', 'jpeg'),
+    };
   }
 }

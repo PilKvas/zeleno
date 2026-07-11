@@ -114,7 +114,15 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             curve: Curves.decelerate,
                           );
                         } else {
-                          context.router.replace(const HomeRoute());
+                          // После онбординга пользователь всегда гость —
+                          // стартуем с «Поиска».
+                          context.router.replace(
+                            const HomeRoute(
+                              children: <PageRouteInfo>[
+                                PlantSearchStackRoute(),
+                              ],
+                            ),
+                          );
                         }
                       },
                       child: Text(_currentPage == 2 ? l10n.start : l10n.next),

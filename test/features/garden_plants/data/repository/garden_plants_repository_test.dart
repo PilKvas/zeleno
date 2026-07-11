@@ -1,6 +1,6 @@
-import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:zeleno_v2/features/garden_plants/data/repository/garden_plants_repository.dart';
@@ -32,7 +32,7 @@ void main() {
 
   setUpAll(() {
     registerFallbackValue(<String, dynamic>{});
-    registerFallbackValue(File(''));
+    registerFallbackValue(<MultipartFile>[]);
   });
 
   setUp(() {
@@ -168,5 +168,57 @@ void main() {
 
     expect(result.plant, plantWithImage);
     expect(result.imageUploadFailed, isFalse);
+  });
+
+  test(
+      'does not throw when both upload and status refresh fail — '
+      'plant is already created', () async {
+    when(
+      () => mockService.createGardenPlant(body: any(named: 'body')),
+    ).thenAnswer((_) async => createdPlant);
+    when(
+      () => mockService.uploadGardenPlantImage(
+        plantId: any(named: 'plantId'),
+        image: any(named: 'image'),
+      ),
+    ).thenThrow(Exception('upload failed'));
+    when(
+      () => mockService.getGardenPlant(plantId: 1),
+    ).thenThrow(Exception('network down'));
+
+    final CreateGardenPlantResult result = await repository.createGardenPlant(
+      params: CreateGardenPlantParams(
+        speciesId: 42,
+        customName: 'My ficus',
+        roomId: 3,
+        photoBytes: Uint8List.fromList(<int>[1, 2, 3]),
+        photoFileName: 'photo.jpg',
+      ),
+    );
+
+    expect(result.plant, createdPlant);
+    expect(result.imageUploadFailed, isTrue);
+  });
+
+  test('list fetch returns plants from the service as-is', () async {
+    const GardenPlantModel inRoom = GardenPlantModel(
+      id: 1,
+      customName: 'My ficus',
+      roomId: 3,
+    );
+    const GardenPlantModel withoutRoom = GardenPlantModel(
+      id: 3,
+      customName: 'My palm',
+    );
+    when(() => mockService.getGardenPlants()).thenAnswer(
+      (_) async => <GardenPlantModel>[inRoom, withoutRoom],
+    );
+
+    final List<GardenPlantModel> plants = await repository.getGardenPlants();
+
+    expect(plants, <GardenPlantModel>[inRoom, withoutRoom]);
+    verifyNever(
+      () => mockService.getGardenPlant(plantId: any(named: 'plantId')),
+    );
   });
 }

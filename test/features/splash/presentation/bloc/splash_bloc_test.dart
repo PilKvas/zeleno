@@ -2,7 +2,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:zeleno_v2/features/auth/data/persistence/storage/first_run/i_first_run_storage.dart';
-import 'package:zeleno_v2/features/splash /presentation/bloc/splash_bloc.dart';
+import 'package:zeleno_v2/features/splash/presentation/bloc/splash_bloc.dart';
 
 class MockFirstRunStorage extends Mock implements IFirstRunStorage {}
 

@@ -1,6 +1,6 @@
 import 'package:zeleno_v2/features/plant_details/data/service/export.dart';
 import 'package:zeleno_v2/features/plant_details/domain/models/export.dart';
-import 'package:zeleno_v2/features/plant_details/domain/reposiotory/export.dart';
+import 'package:zeleno_v2/features/plant_details/domain/repository/export.dart';
 
 class PlantDetailsRepository implements IPlantDetailsRepository {
   final PlantDetailsService _plantDetailsService;
