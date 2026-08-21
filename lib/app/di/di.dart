@@ -32,6 +32,10 @@ import 'package:zeleno_v2/features/plant_search/domain/usecases/export.dart';
 import 'package:zeleno_v2/features/profile/data/repository/export.dart';
 import 'package:zeleno_v2/features/profile/data/service/export.dart';
 import 'package:zeleno_v2/features/profile/domain/repository/export.dart';
+import 'package:zeleno_v2/features/push_notifications/application/export.dart';
+import 'package:zeleno_v2/features/push_notifications/data/repository/export.dart';
+import 'package:zeleno_v2/features/push_notifications/data/service/export.dart';
+import 'package:zeleno_v2/features/push_notifications/domain/repository/export.dart';
 
 final injection = GetIt.instance;
 
@@ -85,6 +89,9 @@ Future<void> initializeDependencies() async {
     )
     ..registerLazySingleton<ProfileService>(
       () => ProfileService(dio),
+    )
+    ..registerLazySingleton<PushTokenService>(
+      () => PushTokenService(dio),
     );
 
   injection
@@ -120,7 +127,16 @@ Future<void> initializeDependencies() async {
     )
     ..registerLazySingleton<IProfileRepository>(() => ProfileRepository(
           profileService: injection(),
-        ));
+        ))
+    ..registerLazySingleton<IPushTokenRepository>(
+      () => PushTokenRepository(pushTokenService: injection()),
+    )
+    ..registerLazySingleton<PushTokenManager>(
+      () => PushTokenManager(
+        pushTokenRepository: injection(),
+        authRepository: injection(),
+      ),
+    );
 
   injection.registerLazySingleton<PlantsSearchUsecase>(
     () => PlantsSearchUsecase(iPlantRepository: injection()),

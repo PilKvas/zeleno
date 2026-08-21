@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "116683786427",
+    "project_id": "plants-be299",
+    "storage_bucket": "plants-be299.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:116683786427:android:d82a52470e6d49fff8019e",
+        "android_client_info": {
+          "package_name": "app.zeleno"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfEuhjMWzcM2y3-CtgHyc1VakFiCt5cF0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

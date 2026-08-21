@@ -5,6 +5,7 @@ export 'app/export.dart';
 export 'core/export.dart';
 export 'data/export.dart';
 export 'features/export.dart';
+export 'firebase_options.dart';
 export 'l10n/export.dart';
 export 'resources/export.dart';
 export 'uikit/export.dart';

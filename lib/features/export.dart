@@ -11,4 +11,5 @@ export 'plant_filters/export.dart';
 export 'plant_rooms/export.dart';
 export 'plant_search/export.dart';
 export 'profile/export.dart';
+export 'push_notifications/export.dart';
 export 'splash/export.dart';

@@ -8,6 +8,7 @@ import 'package:zeleno_v2/features/navigation/export.dart';
 import 'package:zeleno_v2/features/profile/domain/model/export.dart';
 import 'package:zeleno_v2/features/profile/domain/repository/export.dart';
 import 'package:zeleno_v2/features/profile/presentation/cubit/export.dart';
+import 'package:zeleno_v2/features/push_notifications/presentation/widgets/export.dart';
 import 'package:zeleno_v2/uikit/export.dart';
 
 @RoutePage()
@@ -219,6 +220,7 @@ class _ProfileContent extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: ZDimensions.basicMargin * 2),
+        const PushPermissionTile(),
         const Spacer(),
         ZButton.ghost(
           onPressed: onLogout,
