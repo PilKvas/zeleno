@@ -13,6 +13,7 @@ import 'package:zeleno_v2/features/garden_plants/presentation/screens/list/widge
 import 'package:zeleno_v2/features/navigation/export.dart';
 import 'package:zeleno_v2/features/plant_rooms/domain/models/export.dart';
 import 'package:zeleno_v2/features/plant_rooms/presentation/cubit/export.dart';
+import 'package:zeleno_v2/features/push_notifications/application/export.dart';
 import 'package:zeleno_v2/l10n/export.dart';
 import 'package:zeleno_v2/resources/export.dart';
 import 'package:zeleno_v2/uikit/export.dart';
@@ -122,6 +123,11 @@ class GardenPlantsListScreen extends StatefulWidget {
 
 class _GardenPlantsListScreenState extends State<GardenPlantsListScreen>
     with AutoRouteAwareStateMixin<GardenPlantsListScreen> {
+  /// Диалог разрешения за сессию экрана запрашиваем один раз: сам менеджер
+  /// покажет его только при notDetermined, но лишний поход в ОС на каждую
+  /// перерисовку списка не нужен.
+  bool _permissionRequested = false;
+
   // Возврат с детального экрана или управления комнатами: обновляем всё,
   // не полагаясь на pop-результат — системный «назад» его не возвращает.
   @override
@@ -130,8 +136,39 @@ class _GardenPlantsListScreenState extends State<GardenPlantsListScreen>
   }
 
   @override
+  void initState() {
+    super.initState();
+    // Список мог загрузиться до открытия экрана (заход на таб повторно).
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      _requestPermissionIfHasPlants(
+        context.read<GardenPlantsListCubit>().state,
+      );
+    });
+  }
+
+  /// Спрашиваем разрешение там, где ценность уведомлений очевидна: у
+  /// пользователя уже есть растения, о которых есть что напоминать.
+  /// Это же покрывает тех, кто завёл сад до появления пушей в приложении —
+  /// экран добавления растения они больше не увидят.
+  void _requestPermissionIfHasPlants(GardenPlantsListState state) {
+    if (_permissionRequested || state.plants.isEmpty) {
+      return;
+    }
+    _permissionRequested = true;
+    injection<PushTokenManager>().requestPermissionAndSync();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const _GardenPlantsListView();
+    return BlocListener<GardenPlantsListCubit, GardenPlantsListState>(
+      listenWhen: (GardenPlantsListState previous,
+              GardenPlantsListState current) =>
+          previous.plants.isEmpty != current.plants.isEmpty,
+      listener: (BuildContext context, GardenPlantsListState state) =>
+          _requestPermissionIfHasPlants(state),
+      child: const _GardenPlantsListView(),
+    );
   }
 }
 

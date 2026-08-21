@@ -1,4 +1,4 @@
-package com.example.zeleno_v2
+package app.zeleno
 
 import io.flutter.embedding.android.FlutterActivity
 

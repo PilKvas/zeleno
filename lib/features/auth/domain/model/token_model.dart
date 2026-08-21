@@ -12,4 +12,7 @@ class TokenModel with _$TokenModel {
 
   factory TokenModel.fromJson(Map<String, dynamic> json) =>
       _$TokenModelFromJson(json);
+
+  @override
+  Map<String, dynamic> toJson() => toJson();
 }

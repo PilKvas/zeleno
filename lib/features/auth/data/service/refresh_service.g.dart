@@ -22,7 +22,9 @@ class _RefreshService implements RefreshService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = tokenModel;
+    final _data = <String, dynamic>{};
+    _data.addAll(tokenModel.toJson());
+    _data.removeWhere((k, v) => v == null);
     final _options = _setStreamType<TokenModel>(
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(

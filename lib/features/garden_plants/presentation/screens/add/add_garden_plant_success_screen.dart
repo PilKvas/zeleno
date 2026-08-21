@@ -7,19 +7,35 @@ import 'package:zeleno_v2/features/auth/presentation/cubit/export.dart';
 import 'package:zeleno_v2/features/garden_plants/presentation/screens/list/cubit/export.dart';
 import 'package:zeleno_v2/features/navigation/export.dart';
 import 'package:zeleno_v2/features/plant_rooms/presentation/cubit/export.dart';
+import 'package:zeleno_v2/features/push_notifications/application/export.dart';
 import 'package:zeleno_v2/l10n/export.dart';
 import 'package:zeleno_v2/resources/export.dart';
 import 'package:zeleno_v2/uikit/button/export.dart';
 import 'package:zeleno_v2/uikit/theme/export.dart';
 
 @RoutePage()
-class AddGardenPlantSuccessScreen extends StatelessWidget {
+class AddGardenPlantSuccessScreen extends StatefulWidget {
   const AddGardenPlantSuccessScreen({
     super.key,
     this.imageUploadFailed = false,
   });
 
   final bool imageUploadFailed;
+
+  @override
+  State<AddGardenPlantSuccessScreen> createState() =>
+      _AddGardenPlantSuccessScreenState();
+}
+
+class _AddGardenPlantSuccessScreenState
+    extends State<AddGardenPlantSuccessScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // Растение только что добавлено — ценность уведомлений очевидна:
+    // лучший момент для одноразового системного диалога разрешения.
+    injection<PushTokenManager>().requestPermissionAndSync();
+  }
 
   Future<void> _goToGarden(BuildContext context) async {
     final GardenPlantsListCubit gardenPlantsListCubit =
@@ -84,7 +100,7 @@ class AddGardenPlantSuccessScreen extends StatelessWidget {
                   color: colorScheme.onBackground,
                 ),
               ),
-              if (imageUploadFailed) ...<Widget>[
+              if (widget.imageUploadFailed) ...<Widget>[
                 const SizedBox(height: 12),
                 Text(
                   context.l10n.addGardenPlantImageUploadFailed,
