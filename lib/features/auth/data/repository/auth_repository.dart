@@ -13,8 +13,8 @@ class AuthRepository implements IAuthRepository {
   AuthRepository({
     required ITokensStorage tokenStorage,
     required AuthService authService,
-  })  : _authService = authService,
-        _tokensStorage = tokenStorage;
+  }) : _authService = authService,
+       _tokensStorage = tokenStorage;
 
   @override
   Stream<AuthStatus> get statusStream async* {

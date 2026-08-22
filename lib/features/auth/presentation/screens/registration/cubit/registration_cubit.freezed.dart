@@ -12,7 +12,8 @@ part of 'registration_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$RegistrationState {
@@ -29,8 +30,9 @@ mixin _$RegistrationState {
 /// @nodoc
 abstract class $RegistrationStateCopyWith<$Res> {
   factory $RegistrationStateCopyWith(
-          RegistrationState value, $Res Function(RegistrationState) then) =
-      _$RegistrationStateCopyWithImpl<$Res, RegistrationState>;
+    RegistrationState value,
+    $Res Function(RegistrationState) then,
+  ) = _$RegistrationStateCopyWithImpl<$Res, RegistrationState>;
   @useResult
   $Res call({Status status, Object? error});
 }
@@ -49,26 +51,27 @@ class _$RegistrationStateCopyWithImpl<$Res, $Val extends RegistrationState>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? status = null,
-    Object? error = freezed,
-  }) {
-    return _then(_value.copyWith(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as Status,
-      error: freezed == error ? _value.error : error,
-    ) as $Val);
+  $Res call({Object? status = null, Object? error = freezed}) {
+    return _then(
+      _value.copyWith(
+            status: null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                      as Status,
+            error: freezed == error ? _value.error : error,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$RegistrationStateImplCopyWith<$Res>
     implements $RegistrationStateCopyWith<$Res> {
-  factory _$$RegistrationStateImplCopyWith(_$RegistrationStateImpl value,
-          $Res Function(_$RegistrationStateImpl) then) =
-      __$$RegistrationStateImplCopyWithImpl<$Res>;
+  factory _$$RegistrationStateImplCopyWith(
+    _$RegistrationStateImpl value,
+    $Res Function(_$RegistrationStateImpl) then,
+  ) = __$$RegistrationStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Status status, Object? error});
@@ -78,25 +81,25 @@ abstract class _$$RegistrationStateImplCopyWith<$Res>
 class __$$RegistrationStateImplCopyWithImpl<$Res>
     extends _$RegistrationStateCopyWithImpl<$Res, _$RegistrationStateImpl>
     implements _$$RegistrationStateImplCopyWith<$Res> {
-  __$$RegistrationStateImplCopyWithImpl(_$RegistrationStateImpl _value,
-      $Res Function(_$RegistrationStateImpl) _then)
-      : super(_value, _then);
+  __$$RegistrationStateImplCopyWithImpl(
+    _$RegistrationStateImpl _value,
+    $Res Function(_$RegistrationStateImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RegistrationState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? status = null,
-    Object? error = freezed,
-  }) {
-    return _then(_$RegistrationStateImpl(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as Status,
-      error: freezed == error ? _value.error : error,
-    ));
+  $Res call({Object? status = null, Object? error = freezed}) {
+    return _then(
+      _$RegistrationStateImpl(
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as Status,
+        error: freezed == error ? _value.error : error,
+      ),
+    );
   }
 }
 
@@ -126,7 +129,10 @@ class _$RegistrationStateImpl implements _RegistrationState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, status, const DeepCollectionEquality().hash(error));
+    runtimeType,
+    status,
+    const DeepCollectionEquality().hash(error),
+  );
 
   /// Create a copy of RegistrationState
   /// with the given fields replaced by the non-null parameter values.
@@ -135,13 +141,16 @@ class _$RegistrationStateImpl implements _RegistrationState {
   @pragma('vm:prefer-inline')
   _$$RegistrationStateImplCopyWith<_$RegistrationStateImpl> get copyWith =>
       __$$RegistrationStateImplCopyWithImpl<_$RegistrationStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _RegistrationState implements RegistrationState {
-  const factory _RegistrationState(
-      {required final Status status,
-      final Object? error}) = _$RegistrationStateImpl;
+  const factory _RegistrationState({
+    required final Status status,
+    final Object? error,
+  }) = _$RegistrationStateImpl;
 
   @override
   Status get status;

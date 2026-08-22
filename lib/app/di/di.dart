@@ -52,12 +52,8 @@ Future<void> initializeDependencies() async {
   );
 
   injection
-    ..registerLazySingleton<IConnectivityChecker>(
-      ConnectivityChecker.new,
-    )
-    ..registerLazySingleton<ITokensStorage>(
-      () => TokensStorage(secureStorage),
-    )
+    ..registerLazySingleton<IConnectivityChecker>(ConnectivityChecker.new)
+    ..registerLazySingleton<ITokensStorage>(() => TokensStorage(secureStorage))
     ..registerLazySingleton<IFirstRunStorage>(
       () => FirstRunStorage(sharedPreferences),
     )
@@ -66,33 +62,15 @@ Future<void> initializeDependencies() async {
     );
 
   injection
-    ..registerLazySingleton<AuthService>(
-      () => AuthService(dio),
-    )
-    ..registerLazySingleton<RefreshService>(
-      () => RefreshService(bareDio),
-    )
-    ..registerLazySingleton<PlantSearchService>(
-      () => PlantSearchService(dio),
-    )
-    ..registerLazySingleton<PlantFiltersService>(
-      () => PlantFiltersService(dio),
-    )
-    ..registerLazySingleton<PlantDetailsService>(
-      () => PlantDetailsService(dio),
-    )
-    ..registerLazySingleton<PlantRoomsService>(
-      () => PlantRoomsService(dio),
-    )
-    ..registerLazySingleton<GardenPlantsService>(
-      () => GardenPlantsService(dio),
-    )
-    ..registerLazySingleton<ProfileService>(
-      () => ProfileService(dio),
-    )
-    ..registerLazySingleton<PushTokenService>(
-      () => PushTokenService(dio),
-    );
+    ..registerLazySingleton<AuthService>(() => AuthService(dio))
+    ..registerLazySingleton<RefreshService>(() => RefreshService(bareDio))
+    ..registerLazySingleton<PlantSearchService>(() => PlantSearchService(dio))
+    ..registerLazySingleton<PlantFiltersService>(() => PlantFiltersService(dio))
+    ..registerLazySingleton<PlantDetailsService>(() => PlantDetailsService(dio))
+    ..registerLazySingleton<PlantRoomsService>(() => PlantRoomsService(dio))
+    ..registerLazySingleton<GardenPlantsService>(() => GardenPlantsService(dio))
+    ..registerLazySingleton<ProfileService>(() => ProfileService(dio))
+    ..registerLazySingleton<PushTokenService>(() => PushTokenService(dio));
 
   injection
     ..registerLazySingleton<IRefreshRepository>(
@@ -105,29 +83,20 @@ Future<void> initializeDependencies() async {
       () => PlantFiltersRepository(plantFiltersService: injection()),
     )
     ..registerLazySingleton<IAuthRepository>(
-      () => AuthRepository(
-        tokenStorage: injection(),
-        authService: injection(),
-      ),
+      () => AuthRepository(tokenStorage: injection(), authService: injection()),
     )
     ..registerLazySingleton<IPlantDetailsRepository>(
-      () => PlantDetailsRepository(
-        plantDetailsService: injection(),
-      ),
+      () => PlantDetailsRepository(plantDetailsService: injection()),
     )
     ..registerLazySingleton<IPlantRoomsRepository>(
-      () => PlantRoomsRepository(
-        plantRoomsService: injection(),
-      ),
+      () => PlantRoomsRepository(plantRoomsService: injection()),
     )
     ..registerLazySingleton<IGardenPlantsRepository>(
-      () => GardenPlantsRepository(
-        gardenPlantsService: injection(),
-      ),
+      () => GardenPlantsRepository(gardenPlantsService: injection()),
     )
-    ..registerLazySingleton<IProfileRepository>(() => ProfileRepository(
-          profileService: injection(),
-        ))
+    ..registerLazySingleton<IProfileRepository>(
+      () => ProfileRepository(profileService: injection()),
+    )
     ..registerLazySingleton<IPushTokenRepository>(
       () => PushTokenRepository(pushTokenService: injection()),
     )

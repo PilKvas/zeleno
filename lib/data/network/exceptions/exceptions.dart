@@ -2,124 +2,105 @@ import 'package:dio/dio.dart';
 import 'package:zeleno_v2/data/network/error_response.dart';
 
 class BaseException extends DioException implements Exception {
-  BaseException(
-    RequestOptions requestOptions,
-  ) : super(requestOptions: requestOptions);
+  BaseException(RequestOptions requestOptions)
+    : super(requestOptions: requestOptions);
 }
 
 class BadRequest extends DioException {
   final ErrorResponse? errorResponse;
 
-  BadRequest({
-    required super.requestOptions,
-    this.errorResponse,
-  }) : super(
-          error: errorResponse?.message,
-          response: Response(
-            requestOptions: requestOptions,
-            data: errorResponse?.toJson(),
-          ),
-        );
+  BadRequest({required super.requestOptions, this.errorResponse})
+    : super(
+        error: errorResponse?.message,
+        response: Response(
+          requestOptions: requestOptions,
+          data: errorResponse?.toJson(),
+        ),
+      );
 }
 
 class Forbidden extends DioException {
   final ErrorResponse? errorResponse;
 
-  Forbidden({
-    required super.requestOptions,
-    this.errorResponse,
-  }) : super(
-          error: errorResponse?.message,
-          response: Response(
-            requestOptions: requestOptions,
-            data: errorResponse?.toJson(),
-          ),
-        );
+  Forbidden({required super.requestOptions, this.errorResponse})
+    : super(
+        error: errorResponse?.message,
+        response: Response(
+          requestOptions: requestOptions,
+          data: errorResponse?.toJson(),
+        ),
+      );
 }
 
 class NotFound extends DioException {
   final ErrorResponse? errorResponse;
 
-  NotFound({
-    required super.requestOptions,
-    this.errorResponse,
-  }) : super(
-          error: errorResponse?.message,
-          response: Response(
-            requestOptions: requestOptions,
-            data: errorResponse?.toJson(),
-          ),
-        );
+  NotFound({required super.requestOptions, this.errorResponse})
+    : super(
+        error: errorResponse?.message,
+        response: Response(
+          requestOptions: requestOptions,
+          data: errorResponse?.toJson(),
+        ),
+      );
 }
 
 class Conflict extends DioException {
   final ErrorResponse? errorResponse;
 
-  Conflict({
-    required super.requestOptions,
-    this.errorResponse,
-  }) : super(
-          error: errorResponse?.message,
-          response: Response(
-            requestOptions: requestOptions,
-            data: errorResponse?.toJson(),
-          ),
-        );
+  Conflict({required super.requestOptions, this.errorResponse})
+    : super(
+        error: errorResponse?.message,
+        response: Response(
+          requestOptions: requestOptions,
+          data: errorResponse?.toJson(),
+        ),
+      );
 }
 
 class Unauthorized extends BaseException {
-  Unauthorized({
-    required RequestOptions requestOptions,
-  }) : super(requestOptions);
+  Unauthorized({required RequestOptions requestOptions})
+    : super(requestOptions);
 }
 
 class ServerUnavailable extends BaseException {
-  ServerUnavailable({
-    required RequestOptions requestOptions,
-  }) : super(requestOptions);
+  ServerUnavailable({required RequestOptions requestOptions})
+    : super(requestOptions);
 }
 
 class ServiceTemporarilyUnavailable extends BaseException {
-  ServiceTemporarilyUnavailable({
-    required RequestOptions requestOptions,
-  }) : super(requestOptions);
+  ServiceTemporarilyUnavailable({required RequestOptions requestOptions})
+    : super(requestOptions);
 }
 
 class NoInternetConnection extends BaseException {
-  NoInternetConnection({
-    required RequestOptions requestOptions,
-  }) : super(requestOptions);
+  NoInternetConnection({required RequestOptions requestOptions})
+    : super(requestOptions);
 }
 
 class Duplicate extends BaseException {
-  Duplicate({
-    required RequestOptions requestOptions,
-  }) : super(requestOptions);
+  Duplicate({required RequestOptions requestOptions}) : super(requestOptions);
 }
 
 class TimeoutError extends BaseException {
-  TimeoutError({
-    required RequestOptions requestOptions,
-  }) : super(requestOptions);
+  TimeoutError({required RequestOptions requestOptions})
+    : super(requestOptions);
 }
 
 class UnknownError extends BaseException {
-  UnknownError({
-    required RequestOptions requestOptions,
-  }) : super(requestOptions);
+  UnknownError({required RequestOptions requestOptions})
+    : super(requestOptions);
 }
 
 class UnprocessableError extends DioException {
   final ErrorResponse? errorResponse;
 
-  UnprocessableError({
-    required super.requestOptions,
-    this.errorResponse,
-  }) : super(
-          error: errorResponse?.message,
-          response: Response(
-            requestOptions: requestOptions,
-            data: errorResponse?.toJson(),
-          ),
-        );
+  UnprocessableError({required super.requestOptions, this.errorResponse})
+    : super(
+        error: errorResponse?.message,
+        response: Response(
+          requestOptions: requestOptions,
+          data: errorResponse?.toJson(),
+        ),
+      );
 }

@@ -12,7 +12,8 @@ part of 'login_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$LoginState {
@@ -29,8 +30,9 @@ mixin _$LoginState {
 /// @nodoc
 abstract class $LoginStateCopyWith<$Res> {
   factory $LoginStateCopyWith(
-          LoginState value, $Res Function(LoginState) then) =
-      _$LoginStateCopyWithImpl<$Res, LoginState>;
+    LoginState value,
+    $Res Function(LoginState) then,
+  ) = _$LoginStateCopyWithImpl<$Res, LoginState>;
   @useResult
   $Res call({Status status, Object? error});
 }
@@ -49,17 +51,17 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? status = null,
-    Object? error = freezed,
-  }) {
-    return _then(_value.copyWith(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as Status,
-      error: freezed == error ? _value.error : error,
-    ) as $Val);
+  $Res call({Object? status = null, Object? error = freezed}) {
+    return _then(
+      _value.copyWith(
+            status: null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                      as Status,
+            error: freezed == error ? _value.error : error,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -67,8 +69,9 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
 abstract class _$$LoginStateImplCopyWith<$Res>
     implements $LoginStateCopyWith<$Res> {
   factory _$$LoginStateImplCopyWith(
-          _$LoginStateImpl value, $Res Function(_$LoginStateImpl) then) =
-      __$$LoginStateImplCopyWithImpl<$Res>;
+    _$LoginStateImpl value,
+    $Res Function(_$LoginStateImpl) then,
+  ) = __$$LoginStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Status status, Object? error});
@@ -79,24 +82,24 @@ class __$$LoginStateImplCopyWithImpl<$Res>
     extends _$LoginStateCopyWithImpl<$Res, _$LoginStateImpl>
     implements _$$LoginStateImplCopyWith<$Res> {
   __$$LoginStateImplCopyWithImpl(
-      _$LoginStateImpl _value, $Res Function(_$LoginStateImpl) _then)
-      : super(_value, _then);
+    _$LoginStateImpl _value,
+    $Res Function(_$LoginStateImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? status = null,
-    Object? error = freezed,
-  }) {
-    return _then(_$LoginStateImpl(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as Status,
-      error: freezed == error ? _value.error : error,
-    ));
+  $Res call({Object? status = null, Object? error = freezed}) {
+    return _then(
+      _$LoginStateImpl(
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as Status,
+        error: freezed == error ? _value.error : error,
+      ),
+    );
   }
 }
 
@@ -126,7 +129,10 @@ class _$LoginStateImpl implements _LoginState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, status, const DeepCollectionEquality().hash(error));
+    runtimeType,
+    status,
+    const DeepCollectionEquality().hash(error),
+  );
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -138,8 +144,10 @@ class _$LoginStateImpl implements _LoginState {
 }
 
 abstract class _LoginState implements LoginState {
-  const factory _LoginState(
-      {required final Status status, final Object? error}) = _$LoginStateImpl;
+  const factory _LoginState({
+    required final Status status,
+    final Object? error,
+  }) = _$LoginStateImpl;
 
   @override
   Status get status;

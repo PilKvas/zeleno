@@ -12,7 +12,8 @@ part of 'garden_plants_list_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$GardenPlantsListState {
@@ -31,21 +32,25 @@ mixin _$GardenPlantsListState {
 
 /// @nodoc
 abstract class $GardenPlantsListStateCopyWith<$Res> {
-  factory $GardenPlantsListStateCopyWith(GardenPlantsListState value,
-          $Res Function(GardenPlantsListState) then) =
-      _$GardenPlantsListStateCopyWithImpl<$Res, GardenPlantsListState>;
+  factory $GardenPlantsListStateCopyWith(
+    GardenPlantsListState value,
+    $Res Function(GardenPlantsListState) then,
+  ) = _$GardenPlantsListStateCopyWithImpl<$Res, GardenPlantsListState>;
   @useResult
-  $Res call(
-      {Status status,
-      List<GardenPlantModel> plants,
-      Object? error,
-      int? selectedRoomId,
-      bool isRefreshing});
+  $Res call({
+    Status status,
+    List<GardenPlantModel> plants,
+    Object? error,
+    int? selectedRoomId,
+    bool isRefreshing,
+  });
 }
 
 /// @nodoc
-class _$GardenPlantsListStateCopyWithImpl<$Res,
-        $Val extends GardenPlantsListState>
+class _$GardenPlantsListStateCopyWithImpl<
+  $Res,
+  $Val extends GardenPlantsListState
+>
     implements $GardenPlantsListStateCopyWith<$Res> {
   _$GardenPlantsListStateCopyWithImpl(this._value, this._then);
 
@@ -65,25 +70,28 @@ class _$GardenPlantsListStateCopyWithImpl<$Res,
     Object? selectedRoomId = freezed,
     Object? isRefreshing = null,
   }) {
-    return _then(_value.copyWith(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as Status,
-      plants: null == plants
-          ? _value.plants
-          : plants // ignore: cast_nullable_to_non_nullable
-              as List<GardenPlantModel>,
-      error: freezed == error ? _value.error : error,
-      selectedRoomId: freezed == selectedRoomId
-          ? _value.selectedRoomId
-          : selectedRoomId // ignore: cast_nullable_to_non_nullable
-              as int?,
-      isRefreshing: null == isRefreshing
-          ? _value.isRefreshing
-          : isRefreshing // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            status: null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                      as Status,
+            plants: null == plants
+                ? _value.plants
+                : plants // ignore: cast_nullable_to_non_nullable
+                      as List<GardenPlantModel>,
+            error: freezed == error ? _value.error : error,
+            selectedRoomId: freezed == selectedRoomId
+                ? _value.selectedRoomId
+                : selectedRoomId // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            isRefreshing: null == isRefreshing
+                ? _value.isRefreshing
+                : isRefreshing // ignore: cast_nullable_to_non_nullable
+                      as bool,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -91,27 +99,29 @@ class _$GardenPlantsListStateCopyWithImpl<$Res,
 abstract class _$$GardenPlantsListStateImplCopyWith<$Res>
     implements $GardenPlantsListStateCopyWith<$Res> {
   factory _$$GardenPlantsListStateImplCopyWith(
-          _$GardenPlantsListStateImpl value,
-          $Res Function(_$GardenPlantsListStateImpl) then) =
-      __$$GardenPlantsListStateImplCopyWithImpl<$Res>;
+    _$GardenPlantsListStateImpl value,
+    $Res Function(_$GardenPlantsListStateImpl) then,
+  ) = __$$GardenPlantsListStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {Status status,
-      List<GardenPlantModel> plants,
-      Object? error,
-      int? selectedRoomId,
-      bool isRefreshing});
+  $Res call({
+    Status status,
+    List<GardenPlantModel> plants,
+    Object? error,
+    int? selectedRoomId,
+    bool isRefreshing,
+  });
 }
 
 /// @nodoc
 class __$$GardenPlantsListStateImplCopyWithImpl<$Res>
-    extends _$GardenPlantsListStateCopyWithImpl<$Res,
-        _$GardenPlantsListStateImpl>
+    extends
+        _$GardenPlantsListStateCopyWithImpl<$Res, _$GardenPlantsListStateImpl>
     implements _$$GardenPlantsListStateImplCopyWith<$Res> {
-  __$$GardenPlantsListStateImplCopyWithImpl(_$GardenPlantsListStateImpl _value,
-      $Res Function(_$GardenPlantsListStateImpl) _then)
-      : super(_value, _then);
+  __$$GardenPlantsListStateImplCopyWithImpl(
+    _$GardenPlantsListStateImpl _value,
+    $Res Function(_$GardenPlantsListStateImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of GardenPlantsListState
   /// with the given fields replaced by the non-null parameter values.
@@ -124,39 +134,41 @@ class __$$GardenPlantsListStateImplCopyWithImpl<$Res>
     Object? selectedRoomId = freezed,
     Object? isRefreshing = null,
   }) {
-    return _then(_$GardenPlantsListStateImpl(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as Status,
-      plants: null == plants
-          ? _value._plants
-          : plants // ignore: cast_nullable_to_non_nullable
-              as List<GardenPlantModel>,
-      error: freezed == error ? _value.error : error,
-      selectedRoomId: freezed == selectedRoomId
-          ? _value.selectedRoomId
-          : selectedRoomId // ignore: cast_nullable_to_non_nullable
-              as int?,
-      isRefreshing: null == isRefreshing
-          ? _value.isRefreshing
-          : isRefreshing // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
+    return _then(
+      _$GardenPlantsListStateImpl(
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as Status,
+        plants: null == plants
+            ? _value._plants
+            : plants // ignore: cast_nullable_to_non_nullable
+                  as List<GardenPlantModel>,
+        error: freezed == error ? _value.error : error,
+        selectedRoomId: freezed == selectedRoomId
+            ? _value.selectedRoomId
+            : selectedRoomId // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        isRefreshing: null == isRefreshing
+            ? _value.isRefreshing
+            : isRefreshing // ignore: cast_nullable_to_non_nullable
+                  as bool,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$GardenPlantsListStateImpl extends _GardenPlantsListState {
-  const _$GardenPlantsListStateImpl(
-      {required this.status,
-      final List<GardenPlantModel> plants = const <GardenPlantModel>[],
-      this.error,
-      this.selectedRoomId,
-      this.isRefreshing = false})
-      : _plants = plants,
-        super._();
+  const _$GardenPlantsListStateImpl({
+    required this.status,
+    final List<GardenPlantModel> plants = const <GardenPlantModel>[],
+    this.error,
+    this.selectedRoomId,
+    this.isRefreshing = false,
+  }) : _plants = plants,
+       super._();
 
   @override
   final Status status;
@@ -198,12 +210,13 @@ class _$GardenPlantsListStateImpl extends _GardenPlantsListState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      status,
-      const DeepCollectionEquality().hash(_plants),
-      const DeepCollectionEquality().hash(error),
-      selectedRoomId,
-      isRefreshing);
+    runtimeType,
+    status,
+    const DeepCollectionEquality().hash(_plants),
+    const DeepCollectionEquality().hash(error),
+    selectedRoomId,
+    isRefreshing,
+  );
 
   /// Create a copy of GardenPlantsListState
   /// with the given fields replaced by the non-null parameter values.
@@ -211,17 +224,21 @@ class _$GardenPlantsListStateImpl extends _GardenPlantsListState {
   @override
   @pragma('vm:prefer-inline')
   _$$GardenPlantsListStateImplCopyWith<_$GardenPlantsListStateImpl>
-      get copyWith => __$$GardenPlantsListStateImplCopyWithImpl<
-          _$GardenPlantsListStateImpl>(this, _$identity);
+  get copyWith =>
+      __$$GardenPlantsListStateImplCopyWithImpl<_$GardenPlantsListStateImpl>(
+        this,
+        _$identity,
+      );
 }
 
 abstract class _GardenPlantsListState extends GardenPlantsListState {
-  const factory _GardenPlantsListState(
-      {required final Status status,
-      final List<GardenPlantModel> plants,
-      final Object? error,
-      final int? selectedRoomId,
-      final bool isRefreshing}) = _$GardenPlantsListStateImpl;
+  const factory _GardenPlantsListState({
+    required final Status status,
+    final List<GardenPlantModel> plants,
+    final Object? error,
+    final int? selectedRoomId,
+    final bool isRefreshing,
+  }) = _$GardenPlantsListStateImpl;
   const _GardenPlantsListState._() : super._();
 
   @override
@@ -240,5 +257,5 @@ abstract class _GardenPlantsListState extends GardenPlantsListState {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GardenPlantsListStateImplCopyWith<_$GardenPlantsListStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

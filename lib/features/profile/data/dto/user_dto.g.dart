@@ -34,10 +34,7 @@ Map<String, dynamic> _$$UserDtoImplToJson(_$UserDtoImpl instance) =>
       'hemisphere': _$HemisphereEnumMap[instance.hemisphere],
     };
 
-const _$GenderEnumMap = {
-  Gender.male: 'male',
-  Gender.female: 'female',
-};
+const _$GenderEnumMap = {Gender.male: 'male', Gender.female: 'female'};
 
 const _$HemisphereEnumMap = {
   Hemisphere.north: 'north',

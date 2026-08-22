@@ -82,9 +82,7 @@ class _GardenStackScreenState extends State<GardenStackScreen>
         BlocProvider<GardenPlantsListCubit>.value(
           value: _gardenPlantsListCubit,
         ),
-        BlocProvider<PlantRoomsCubit>.value(
-          value: _plantRoomsCubit,
-        ),
+        BlocProvider<PlantRoomsCubit>.value(value: _plantRoomsCubit),
       ],
       child: BlocConsumer<AuthCubit, AuthState>(
         listenWhen: (AuthState previous, AuthState current) =>
@@ -162,9 +160,9 @@ class _GardenPlantsListScreenState extends State<GardenPlantsListScreen>
   @override
   Widget build(BuildContext context) {
     return BlocListener<GardenPlantsListCubit, GardenPlantsListState>(
-      listenWhen: (GardenPlantsListState previous,
-              GardenPlantsListState current) =>
-          previous.plants.isEmpty != current.plants.isEmpty,
+      listenWhen:
+          (GardenPlantsListState previous, GardenPlantsListState current) =>
+              previous.plants.isEmpty != current.plants.isEmpty,
       listener: (BuildContext context, GardenPlantsListState state) =>
           _requestPermissionIfHasPlants(state),
       child: const _GardenPlantsListView(),
@@ -289,11 +287,7 @@ class _GardenPlantsListBody extends StatelessWidget {
   Widget build(BuildContext context) {
     if (state.status.isLoading && state.plants.isEmpty) {
       return const Center(
-        child: SizedBox(
-          height: 72,
-          width: 72,
-          child: ZLoading(),
-        ),
+        child: SizedBox(height: 72, width: 72, child: ZLoading()),
       );
     }
     if (state.status.isFailure && state.plants.isEmpty) {

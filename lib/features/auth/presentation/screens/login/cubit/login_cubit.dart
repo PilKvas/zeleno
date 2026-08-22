@@ -10,43 +10,24 @@ part 'login_state.dart';
 class LoginCubit extends Cubit<LoginState> {
   final IAuthRepository _authRepository;
 
-  LoginCubit({
-    required IAuthRepository authRepository,
-  })  : _authRepository = authRepository,
-        super(const LoginState(
-          status: Status.initial,
-        ));
+  LoginCubit({required IAuthRepository authRepository})
+    : _authRepository = authRepository,
+      super(const LoginState(status: Status.initial));
 
   Future<void> loginUser({
     required String email,
     required String password,
   }) async {
     try {
-      emit(
-        state.copyWith(
-          status: Status.loading,
-        ),
-      );
+      emit(state.copyWith(status: Status.loading));
 
       await _authRepository.signIn(
-        authModel: AuthModel(
-          email: email,
-          password: password,
-        ),
+        authModel: AuthModel(email: email, password: password),
       );
 
-      emit(
-        state.copyWith(
-          status: Status.success,
-        ),
-      );
+      emit(state.copyWith(status: Status.success));
     } catch (e) {
-      emit(
-        state.copyWith(
-          error: e,
-          status: Status.failure,
-        ),
-      );
+      emit(state.copyWith(error: e, status: Status.failure));
     }
   }
 }

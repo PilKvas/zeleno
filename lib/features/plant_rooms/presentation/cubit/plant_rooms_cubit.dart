@@ -7,15 +7,14 @@ import 'package:zeleno_v2/features/plant_rooms/domain/repository/export.dart';
 import 'package:zeleno_v2/features/plant_rooms/presentation/cubit/plant_rooms_state.dart';
 
 class PlantRoomsCubit extends Cubit<PlantRoomsState> {
-  PlantRoomsCubit({
-    required IPlantRoomsRepository plantRoomsRepository,
-  })  : _repository = plantRoomsRepository,
-        super(
-          const PlantRoomsState(
-            status: Status.initial,
-            rooms: <PlantRoomModel>[],
-          ),
-        );
+  PlantRoomsCubit({required IPlantRoomsRepository plantRoomsRepository})
+    : _repository = plantRoomsRepository,
+      super(
+        const PlantRoomsState(
+          status: Status.initial,
+          rooms: <PlantRoomModel>[],
+        ),
+      );
 
   final IPlantRoomsRepository _repository;
 
@@ -23,10 +22,7 @@ class PlantRoomsCubit extends Cubit<PlantRoomsState> {
   /// чтобы не показать комнаты прошлого аккаунта.
   void reset() {
     emit(
-      const PlantRoomsState(
-        status: Status.initial,
-        rooms: <PlantRoomModel>[],
-      ),
+      const PlantRoomsState(status: Status.initial, rooms: <PlantRoomModel>[]),
     );
   }
 
@@ -44,23 +40,12 @@ class PlantRoomsCubit extends Cubit<PlantRoomsState> {
       if (isClosed) {
         return;
       }
-      emit(
-        state.copyWith(
-          status: Status.success,
-          rooms: rooms,
-          error: null,
-        ),
-      );
+      emit(state.copyWith(status: Status.success, rooms: rooms, error: null));
     } catch (error) {
       if (isClosed) {
         return;
       }
-      emit(
-        state.copyWith(
-          status: Status.failure,
-          error: error,
-        ),
-      );
+      emit(state.copyWith(status: Status.failure, error: error));
     }
   }
 
@@ -72,9 +57,7 @@ class PlantRoomsCubit extends Cubit<PlantRoomsState> {
     }
   }
 
-  Future<void> createRoom({
-    required String name,
-  }) async {
+  Future<void> createRoom({required String name}) async {
     try {
       emit(state.copyWith(status: Status.loading, error: null));
       final CreateGardenRoomParams params = CreateGardenRoomParams(name: name);
@@ -84,12 +67,7 @@ class PlantRoomsCubit extends Cubit<PlantRoomsState> {
       if (isClosed) {
         return;
       }
-      emit(
-        state.copyWith(
-          status: Status.failure,
-          error: error,
-        ),
-      );
+      emit(state.copyWith(status: Status.failure, error: error));
     }
   }
 
@@ -117,12 +95,7 @@ class PlantRoomsCubit extends Cubit<PlantRoomsState> {
       if (isClosed) {
         return;
       }
-      emit(
-        state.copyWith(
-          status: Status.failure,
-          error: error,
-        ),
-      );
+      emit(state.copyWith(status: Status.failure, error: error));
     }
   }
 
@@ -135,12 +108,7 @@ class PlantRoomsCubit extends Cubit<PlantRoomsState> {
       if (isClosed) {
         return;
       }
-      emit(
-        state.copyWith(
-          status: Status.failure,
-          error: error,
-        ),
-      );
+      emit(state.copyWith(status: Status.failure, error: error));
     }
   }
 }

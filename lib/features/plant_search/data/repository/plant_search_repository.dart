@@ -6,9 +6,8 @@ import 'package:zeleno_v2/features/plant_search/domain/repository/export.dart';
 class PlantSearchRepository implements IPlantSearchRepository {
   final PlantSearchService _plantSearchService;
 
-  PlantSearchRepository({
-    required PlantSearchService plantSearchService,
-  }) : _plantSearchService = plantSearchService;
+  PlantSearchRepository({required PlantSearchService plantSearchService})
+    : _plantSearchService = plantSearchService;
 
   @override
   Future<PaginationWrapper<PlantSearchItem>> getPlants({
@@ -28,14 +27,10 @@ class PlantSearchRepository implements IPlantSearchRepository {
 
     return PaginationWrapper(
       count: response.count,
-      items: response.items
-          .map(
-            (plant) => plant.toModel(dto: plant),
-          )
-          .toList(),
+      items: response.items.map((plant) => plant.toModel(dto: plant)).toList(),
     );
   }
 
-//
+  //
   List<String>? _orNull(List<String> values) => values.isEmpty ? null : values;
 }

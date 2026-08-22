@@ -12,7 +12,8 @@ part of 'plant_search_item_dto.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 PlantSearchItemDto _$PlantSearchItemDtoFromJson(Map<String, dynamic> json) {
   return _PlantSearchItemDto.fromJson(json);
@@ -39,14 +40,16 @@ mixin _$PlantSearchItemDto {
 /// @nodoc
 abstract class $PlantSearchItemDtoCopyWith<$Res> {
   factory $PlantSearchItemDtoCopyWith(
-          PlantSearchItemDto value, $Res Function(PlantSearchItemDto) then) =
-      _$PlantSearchItemDtoCopyWithImpl<$Res, PlantSearchItemDto>;
+    PlantSearchItemDto value,
+    $Res Function(PlantSearchItemDto) then,
+  ) = _$PlantSearchItemDtoCopyWithImpl<$Res, PlantSearchItemDto>;
   @useResult
-  $Res call(
-      {String slug,
-      String? latinName,
-      String? mainCommonName,
-      @JsonKey(name: 'image') String? imageUrl});
+  $Res call({
+    String slug,
+    String? latinName,
+    String? mainCommonName,
+    @JsonKey(name: 'image') String? imageUrl,
+  });
 }
 
 /// @nodoc
@@ -69,49 +72,55 @@ class _$PlantSearchItemDtoCopyWithImpl<$Res, $Val extends PlantSearchItemDto>
     Object? mainCommonName = freezed,
     Object? imageUrl = freezed,
   }) {
-    return _then(_value.copyWith(
-      slug: null == slug
-          ? _value.slug
-          : slug // ignore: cast_nullable_to_non_nullable
-              as String,
-      latinName: freezed == latinName
-          ? _value.latinName
-          : latinName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      mainCommonName: freezed == mainCommonName
-          ? _value.mainCommonName
-          : mainCommonName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      imageUrl: freezed == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            slug: null == slug
+                ? _value.slug
+                : slug // ignore: cast_nullable_to_non_nullable
+                      as String,
+            latinName: freezed == latinName
+                ? _value.latinName
+                : latinName // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            mainCommonName: freezed == mainCommonName
+                ? _value.mainCommonName
+                : mainCommonName // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            imageUrl: freezed == imageUrl
+                ? _value.imageUrl
+                : imageUrl // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$PlantSearchItemDtoImplCopyWith<$Res>
     implements $PlantSearchItemDtoCopyWith<$Res> {
-  factory _$$PlantSearchItemDtoImplCopyWith(_$PlantSearchItemDtoImpl value,
-          $Res Function(_$PlantSearchItemDtoImpl) then) =
-      __$$PlantSearchItemDtoImplCopyWithImpl<$Res>;
+  factory _$$PlantSearchItemDtoImplCopyWith(
+    _$PlantSearchItemDtoImpl value,
+    $Res Function(_$PlantSearchItemDtoImpl) then,
+  ) = __$$PlantSearchItemDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String slug,
-      String? latinName,
-      String? mainCommonName,
-      @JsonKey(name: 'image') String? imageUrl});
+  $Res call({
+    String slug,
+    String? latinName,
+    String? mainCommonName,
+    @JsonKey(name: 'image') String? imageUrl,
+  });
 }
 
 /// @nodoc
 class __$$PlantSearchItemDtoImplCopyWithImpl<$Res>
     extends _$PlantSearchItemDtoCopyWithImpl<$Res, _$PlantSearchItemDtoImpl>
     implements _$$PlantSearchItemDtoImplCopyWith<$Res> {
-  __$$PlantSearchItemDtoImplCopyWithImpl(_$PlantSearchItemDtoImpl _value,
-      $Res Function(_$PlantSearchItemDtoImpl) _then)
-      : super(_value, _then);
+  __$$PlantSearchItemDtoImplCopyWithImpl(
+    _$PlantSearchItemDtoImpl _value,
+    $Res Function(_$PlantSearchItemDtoImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of PlantSearchItemDto
   /// with the given fields replaced by the non-null parameter values.
@@ -123,24 +132,26 @@ class __$$PlantSearchItemDtoImplCopyWithImpl<$Res>
     Object? mainCommonName = freezed,
     Object? imageUrl = freezed,
   }) {
-    return _then(_$PlantSearchItemDtoImpl(
-      slug: null == slug
-          ? _value.slug
-          : slug // ignore: cast_nullable_to_non_nullable
-              as String,
-      latinName: freezed == latinName
-          ? _value.latinName
-          : latinName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      mainCommonName: freezed == mainCommonName
-          ? _value.mainCommonName
-          : mainCommonName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      imageUrl: freezed == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    return _then(
+      _$PlantSearchItemDtoImpl(
+        slug: null == slug
+            ? _value.slug
+            : slug // ignore: cast_nullable_to_non_nullable
+                  as String,
+        latinName: freezed == latinName
+            ? _value.latinName
+            : latinName // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        mainCommonName: freezed == mainCommonName
+            ? _value.mainCommonName
+            : mainCommonName // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        imageUrl: freezed == imageUrl
+            ? _value.imageUrl
+            : imageUrl // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
@@ -148,12 +159,12 @@ class __$$PlantSearchItemDtoImplCopyWithImpl<$Res>
 
 @JsonSerializable(fieldRename: FieldRename.snake, includeIfNull: false)
 class _$PlantSearchItemDtoImpl extends _PlantSearchItemDto {
-  const _$PlantSearchItemDtoImpl(
-      {required this.slug,
-      this.latinName,
-      this.mainCommonName,
-      @JsonKey(name: 'image') this.imageUrl})
-      : super._();
+  const _$PlantSearchItemDtoImpl({
+    required this.slug,
+    this.latinName,
+    this.mainCommonName,
+    @JsonKey(name: 'image') this.imageUrl,
+  }) : super._();
 
   factory _$PlantSearchItemDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlantSearchItemDtoImplFromJson(json);
@@ -199,23 +210,23 @@ class _$PlantSearchItemDtoImpl extends _PlantSearchItemDto {
   @pragma('vm:prefer-inline')
   _$$PlantSearchItemDtoImplCopyWith<_$PlantSearchItemDtoImpl> get copyWith =>
       __$$PlantSearchItemDtoImplCopyWithImpl<_$PlantSearchItemDtoImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PlantSearchItemDtoImplToJson(
-      this,
-    );
+    return _$$PlantSearchItemDtoImplToJson(this);
   }
 }
 
 abstract class _PlantSearchItemDto extends PlantSearchItemDto {
-  const factory _PlantSearchItemDto(
-          {required final String slug,
-          final String? latinName,
-          final String? mainCommonName,
-          @JsonKey(name: 'image') final String? imageUrl}) =
-      _$PlantSearchItemDtoImpl;
+  const factory _PlantSearchItemDto({
+    required final String slug,
+    final String? latinName,
+    final String? mainCommonName,
+    @JsonKey(name: 'image') final String? imageUrl,
+  }) = _$PlantSearchItemDtoImpl;
   const _PlantSearchItemDto._() : super._();
 
   factory _PlantSearchItemDto.fromJson(Map<String, dynamic> json) =

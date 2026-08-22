@@ -35,8 +35,10 @@ class _ExpandableSectionWidgetState extends State<ExpandableSectionWidget> {
             children: [
               Text(
                 widget.title,
-                style:
-                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               Icon(
                 _isExpanded
@@ -53,10 +55,7 @@ class _ExpandableSectionWidgetState extends State<ExpandableSectionWidget> {
           transitionBuilder: (Widget child, Animation<double> animation) {
             return SizeTransition(
               sizeFactor: animation,
-              child: FadeTransition(
-                opacity: animation,
-                child: child,
-              ),
+              child: FadeTransition(opacity: animation, child: child),
             );
           },
           child: _isExpanded

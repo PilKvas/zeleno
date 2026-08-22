@@ -12,49 +12,45 @@ part of 'splash_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$SplashEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() startApp,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? startApp,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? startApp,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_StartApp value) startApp,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_StartApp value)? startApp,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_StartApp value)? startApp,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SplashEventCopyWith<$Res> {
   factory $SplashEventCopyWith(
-          SplashEvent value, $Res Function(SplashEvent) then) =
-      _$SplashEventCopyWithImpl<$Res, SplashEvent>;
+    SplashEvent value,
+    $Res Function(SplashEvent) then,
+  ) = _$SplashEventCopyWithImpl<$Res, SplashEvent>;
 }
 
 /// @nodoc
@@ -74,8 +70,9 @@ class _$SplashEventCopyWithImpl<$Res, $Val extends SplashEvent>
 /// @nodoc
 abstract class _$$StartAppImplCopyWith<$Res> {
   factory _$$StartAppImplCopyWith(
-          _$StartAppImpl value, $Res Function(_$StartAppImpl) then) =
-      __$$StartAppImplCopyWithImpl<$Res>;
+    _$StartAppImpl value,
+    $Res Function(_$StartAppImpl) then,
+  ) = __$$StartAppImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -83,8 +80,9 @@ class __$$StartAppImplCopyWithImpl<$Res>
     extends _$SplashEventCopyWithImpl<$Res, _$StartAppImpl>
     implements _$$StartAppImplCopyWith<$Res> {
   __$$StartAppImplCopyWithImpl(
-      _$StartAppImpl _value, $Res Function(_$StartAppImpl) _then)
-      : super(_value, _then);
+    _$StartAppImpl _value,
+    $Res Function(_$StartAppImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SplashEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -177,52 +175,47 @@ mixin _$SplashState {
     required TResult Function() initial,
     required TResult Function() firstTimeInApp,
     required TResult Function() readyToHome,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? firstTimeInApp,
     TResult? Function()? readyToHome,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? firstTimeInApp,
     TResult Function()? readyToHome,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_FirstTimeInApp value) firstTimeInApp,
     required TResult Function(_ReadyToHome value) readyToHome,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_FirstTimeInApp value)? firstTimeInApp,
     TResult? Function(_ReadyToHome value)? readyToHome,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_FirstTimeInApp value)? firstTimeInApp,
     TResult Function(_ReadyToHome value)? readyToHome,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SplashStateCopyWith<$Res> {
   factory $SplashStateCopyWith(
-          SplashState value, $Res Function(SplashState) then) =
-      _$SplashStateCopyWithImpl<$Res, SplashState>;
+    SplashState value,
+    $Res Function(SplashState) then,
+  ) = _$SplashStateCopyWithImpl<$Res, SplashState>;
 }
 
 /// @nodoc
@@ -242,8 +235,9 @@ class _$SplashStateCopyWithImpl<$Res, $Val extends SplashState>
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+    _$InitialImpl value,
+    $Res Function(_$InitialImpl) then,
+  ) = __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -251,8 +245,9 @@ class __$$InitialImplCopyWithImpl<$Res>
     extends _$SplashStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
+    _$InitialImpl _value,
+    $Res Function(_$InitialImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SplashState
   /// with the given fields replaced by the non-null parameter values.
@@ -352,9 +347,10 @@ abstract class _Initial implements SplashState {
 
 /// @nodoc
 abstract class _$$FirstTimeInAppImplCopyWith<$Res> {
-  factory _$$FirstTimeInAppImplCopyWith(_$FirstTimeInAppImpl value,
-          $Res Function(_$FirstTimeInAppImpl) then) =
-      __$$FirstTimeInAppImplCopyWithImpl<$Res>;
+  factory _$$FirstTimeInAppImplCopyWith(
+    _$FirstTimeInAppImpl value,
+    $Res Function(_$FirstTimeInAppImpl) then,
+  ) = __$$FirstTimeInAppImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -362,8 +358,9 @@ class __$$FirstTimeInAppImplCopyWithImpl<$Res>
     extends _$SplashStateCopyWithImpl<$Res, _$FirstTimeInAppImpl>
     implements _$$FirstTimeInAppImplCopyWith<$Res> {
   __$$FirstTimeInAppImplCopyWithImpl(
-      _$FirstTimeInAppImpl _value, $Res Function(_$FirstTimeInAppImpl) _then)
-      : super(_value, _then);
+    _$FirstTimeInAppImpl _value,
+    $Res Function(_$FirstTimeInAppImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SplashState
   /// with the given fields replaced by the non-null parameter values.
@@ -464,8 +461,9 @@ abstract class _FirstTimeInApp implements SplashState {
 /// @nodoc
 abstract class _$$ReadyToHomeImplCopyWith<$Res> {
   factory _$$ReadyToHomeImplCopyWith(
-          _$ReadyToHomeImpl value, $Res Function(_$ReadyToHomeImpl) then) =
-      __$$ReadyToHomeImplCopyWithImpl<$Res>;
+    _$ReadyToHomeImpl value,
+    $Res Function(_$ReadyToHomeImpl) then,
+  ) = __$$ReadyToHomeImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -473,8 +471,9 @@ class __$$ReadyToHomeImplCopyWithImpl<$Res>
     extends _$SplashStateCopyWithImpl<$Res, _$ReadyToHomeImpl>
     implements _$$ReadyToHomeImplCopyWith<$Res> {
   __$$ReadyToHomeImplCopyWithImpl(
-      _$ReadyToHomeImpl _value, $Res Function(_$ReadyToHomeImpl) _then)
-      : super(_value, _then);
+    _$ReadyToHomeImpl _value,
+    $Res Function(_$ReadyToHomeImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SplashState
   /// with the given fields replaced by the non-null parameter values.

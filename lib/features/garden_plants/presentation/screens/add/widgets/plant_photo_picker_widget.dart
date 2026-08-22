@@ -90,12 +90,12 @@ class PlantPhotoPickerWidget extends StatelessWidget {
                   height: _photoHeight,
                   width: double.infinity,
                   fit: BoxFit.cover,
-                  errorBuilder: (
-                    BuildContext context,
-                    Object error,
-                    StackTrace? stackTrace,
-                  ) =>
-                      _PhotoErrorPlaceholder(colorScheme: colorScheme),
+                  errorBuilder:
+                      (
+                        BuildContext context,
+                        Object error,
+                        StackTrace? stackTrace,
+                      ) => _PhotoErrorPlaceholder(colorScheme: colorScheme),
                 ),
         ),
         Positioned(
@@ -110,11 +110,7 @@ class PlantPhotoPickerWidget extends StatelessWidget {
                 color: colorScheme.error,
                 shape: BoxShape.circle,
               ),
-              child: Icon(
-                Icons.close,
-                color: colorScheme.onError,
-                size: 20,
-              ),
+              child: Icon(Icons.close, color: colorScheme.onError, size: 20),
             ),
           ),
         ),

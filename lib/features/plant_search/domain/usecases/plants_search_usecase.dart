@@ -6,7 +6,7 @@ class PlantsSearchUsecase {
   final IPlantSearchRepository _iPlantRepository;
 
   PlantsSearchUsecase({required IPlantSearchRepository iPlantRepository})
-      : _iPlantRepository = iPlantRepository;
+    : _iPlantRepository = iPlantRepository;
 
   Future<List<PlantSearchItem>> loadPlants({
     required int page,

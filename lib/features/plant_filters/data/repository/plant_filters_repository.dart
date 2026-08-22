@@ -6,9 +6,8 @@ import 'package:zeleno_v2/features/plant_filters/domain/repository/export.dart';
 final class PlantFiltersRepository implements IPlantFiltersRepository {
   final PlantFiltersService _plantFiltersService;
 
-  PlantFiltersRepository({
-    required PlantFiltersService plantFiltersService,
-  }) : _plantFiltersService = plantFiltersService;
+  PlantFiltersRepository({required PlantFiltersService plantFiltersService})
+    : _plantFiltersService = plantFiltersService;
 
   @override
   Future<List<PlantFilterItem>> getPlantSoilMoisture() async {

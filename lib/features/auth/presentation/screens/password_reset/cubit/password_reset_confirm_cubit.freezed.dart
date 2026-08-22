@@ -12,7 +12,8 @@ part of 'password_reset_confirm_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$PasswordResetConfirmState {
@@ -28,16 +29,19 @@ mixin _$PasswordResetConfirmState {
 
 /// @nodoc
 abstract class $PasswordResetConfirmStateCopyWith<$Res> {
-  factory $PasswordResetConfirmStateCopyWith(PasswordResetConfirmState value,
-          $Res Function(PasswordResetConfirmState) then) =
-      _$PasswordResetConfirmStateCopyWithImpl<$Res, PasswordResetConfirmState>;
+  factory $PasswordResetConfirmStateCopyWith(
+    PasswordResetConfirmState value,
+    $Res Function(PasswordResetConfirmState) then,
+  ) = _$PasswordResetConfirmStateCopyWithImpl<$Res, PasswordResetConfirmState>;
   @useResult
   $Res call({Status status, Object? error});
 }
 
 /// @nodoc
-class _$PasswordResetConfirmStateCopyWithImpl<$Res,
-        $Val extends PasswordResetConfirmState>
+class _$PasswordResetConfirmStateCopyWithImpl<
+  $Res,
+  $Val extends PasswordResetConfirmState
+>
     implements $PasswordResetConfirmStateCopyWith<$Res> {
   _$PasswordResetConfirmStateCopyWithImpl(this._value, this._then);
 
@@ -50,17 +54,17 @@ class _$PasswordResetConfirmStateCopyWithImpl<$Res,
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? status = null,
-    Object? error = freezed,
-  }) {
-    return _then(_value.copyWith(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as Status,
-      error: freezed == error ? _value.error : error,
-    ) as $Val);
+  $Res call({Object? status = null, Object? error = freezed}) {
+    return _then(
+      _value.copyWith(
+            status: null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                      as Status,
+            error: freezed == error ? _value.error : error,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -68,9 +72,9 @@ class _$PasswordResetConfirmStateCopyWithImpl<$Res,
 abstract class _$$PasswordResetConfirmStateImplCopyWith<$Res>
     implements $PasswordResetConfirmStateCopyWith<$Res> {
   factory _$$PasswordResetConfirmStateImplCopyWith(
-          _$PasswordResetConfirmStateImpl value,
-          $Res Function(_$PasswordResetConfirmStateImpl) then) =
-      __$$PasswordResetConfirmStateImplCopyWithImpl<$Res>;
+    _$PasswordResetConfirmStateImpl value,
+    $Res Function(_$PasswordResetConfirmStateImpl) then,
+  ) = __$$PasswordResetConfirmStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Status status, Object? error});
@@ -78,29 +82,31 @@ abstract class _$$PasswordResetConfirmStateImplCopyWith<$Res>
 
 /// @nodoc
 class __$$PasswordResetConfirmStateImplCopyWithImpl<$Res>
-    extends _$PasswordResetConfirmStateCopyWithImpl<$Res,
-        _$PasswordResetConfirmStateImpl>
+    extends
+        _$PasswordResetConfirmStateCopyWithImpl<
+          $Res,
+          _$PasswordResetConfirmStateImpl
+        >
     implements _$$PasswordResetConfirmStateImplCopyWith<$Res> {
   __$$PasswordResetConfirmStateImplCopyWithImpl(
-      _$PasswordResetConfirmStateImpl _value,
-      $Res Function(_$PasswordResetConfirmStateImpl) _then)
-      : super(_value, _then);
+    _$PasswordResetConfirmStateImpl _value,
+    $Res Function(_$PasswordResetConfirmStateImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of PasswordResetConfirmState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? status = null,
-    Object? error = freezed,
-  }) {
-    return _then(_$PasswordResetConfirmStateImpl(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as Status,
-      error: freezed == error ? _value.error : error,
-    ));
+  $Res call({Object? status = null, Object? error = freezed}) {
+    return _then(
+      _$PasswordResetConfirmStateImpl(
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as Status,
+        error: freezed == error ? _value.error : error,
+      ),
+    );
   }
 }
 
@@ -130,7 +136,10 @@ class _$PasswordResetConfirmStateImpl implements _PasswordResetConfirmState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, status, const DeepCollectionEquality().hash(error));
+    runtimeType,
+    status,
+    const DeepCollectionEquality().hash(error),
+  );
 
   /// Create a copy of PasswordResetConfirmState
   /// with the given fields replaced by the non-null parameter values.
@@ -138,14 +147,17 @@ class _$PasswordResetConfirmStateImpl implements _PasswordResetConfirmState {
   @override
   @pragma('vm:prefer-inline')
   _$$PasswordResetConfirmStateImplCopyWith<_$PasswordResetConfirmStateImpl>
-      get copyWith => __$$PasswordResetConfirmStateImplCopyWithImpl<
-          _$PasswordResetConfirmStateImpl>(this, _$identity);
+  get copyWith =>
+      __$$PasswordResetConfirmStateImplCopyWithImpl<
+        _$PasswordResetConfirmStateImpl
+      >(this, _$identity);
 }
 
 abstract class _PasswordResetConfirmState implements PasswordResetConfirmState {
-  const factory _PasswordResetConfirmState(
-      {required final Status status,
-      final Object? error}) = _$PasswordResetConfirmStateImpl;
+  const factory _PasswordResetConfirmState({
+    required final Status status,
+    final Object? error,
+  }) = _$PasswordResetConfirmStateImpl;
 
   @override
   Status get status;
@@ -157,5 +169,5 @@ abstract class _PasswordResetConfirmState implements PasswordResetConfirmState {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PasswordResetConfirmStateImplCopyWith<_$PasswordResetConfirmStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

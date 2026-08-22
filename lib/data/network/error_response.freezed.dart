@@ -12,7 +12,8 @@ part of 'error_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 ErrorResponse _$ErrorResponseFromJson(Map<String, dynamic> json) {
   return _ErrorResponse.fromJson(json);
@@ -38,12 +39,14 @@ mixin _$ErrorResponse {
 /// @nodoc
 abstract class $ErrorResponseCopyWith<$Res> {
   factory $ErrorResponseCopyWith(
-          ErrorResponse value, $Res Function(ErrorResponse) then) =
-      _$ErrorResponseCopyWithImpl<$Res, ErrorResponse>;
+    ErrorResponse value,
+    $Res Function(ErrorResponse) then,
+  ) = _$ErrorResponseCopyWithImpl<$Res, ErrorResponse>;
   @useResult
-  $Res call(
-      {@JsonKey(name: "error") String error,
-      @JsonKey(name: "message") String message});
+  $Res call({
+    @JsonKey(name: "error") String error,
+    @JsonKey(name: "message") String message,
+  });
 }
 
 /// @nodoc
@@ -60,20 +63,20 @@ class _$ErrorResponseCopyWithImpl<$Res, $Val extends ErrorResponse>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? error = null,
-    Object? message = null,
-  }) {
-    return _then(_value.copyWith(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  $Res call({Object? error = null, Object? message = null}) {
+    return _then(
+      _value.copyWith(
+            error: null == error
+                ? _value.error
+                : error // ignore: cast_nullable_to_non_nullable
+                      as String,
+            message: null == message
+                ? _value.message
+                : message // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -81,13 +84,15 @@ class _$ErrorResponseCopyWithImpl<$Res, $Val extends ErrorResponse>
 abstract class _$$ErrorResponseImplCopyWith<$Res>
     implements $ErrorResponseCopyWith<$Res> {
   factory _$$ErrorResponseImplCopyWith(
-          _$ErrorResponseImpl value, $Res Function(_$ErrorResponseImpl) then) =
-      __$$ErrorResponseImplCopyWithImpl<$Res>;
+    _$ErrorResponseImpl value,
+    $Res Function(_$ErrorResponseImpl) then,
+  ) = __$$ErrorResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: "error") String error,
-      @JsonKey(name: "message") String message});
+  $Res call({
+    @JsonKey(name: "error") String error,
+    @JsonKey(name: "message") String message,
+  });
 }
 
 /// @nodoc
@@ -95,36 +100,37 @@ class __$$ErrorResponseImplCopyWithImpl<$Res>
     extends _$ErrorResponseCopyWithImpl<$Res, _$ErrorResponseImpl>
     implements _$$ErrorResponseImplCopyWith<$Res> {
   __$$ErrorResponseImplCopyWithImpl(
-      _$ErrorResponseImpl _value, $Res Function(_$ErrorResponseImpl) _then)
-      : super(_value, _then);
+    _$ErrorResponseImpl _value,
+    $Res Function(_$ErrorResponseImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of ErrorResponse
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? error = null,
-    Object? message = null,
-  }) {
-    return _then(_$ErrorResponseImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? error = null, Object? message = null}) {
+    return _then(
+      _$ErrorResponseImpl(
+        error: null == error
+            ? _value.error
+            : error // ignore: cast_nullable_to_non_nullable
+                  as String,
+        message: null == message
+            ? _value.message
+            : message // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$ErrorResponseImpl implements _ErrorResponse {
-  const _$ErrorResponseImpl(
-      {@JsonKey(name: "error") required this.error,
-      @JsonKey(name: "message") required this.message});
+  const _$ErrorResponseImpl({
+    @JsonKey(name: "error") required this.error,
+    @JsonKey(name: "message") required this.message,
+  });
 
   factory _$ErrorResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$ErrorResponseImplFromJson(json);
@@ -164,17 +170,15 @@ class _$ErrorResponseImpl implements _ErrorResponse {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ErrorResponseImplToJson(
-      this,
-    );
+    return _$$ErrorResponseImplToJson(this);
   }
 }
 
 abstract class _ErrorResponse implements ErrorResponse {
-  const factory _ErrorResponse(
-          {@JsonKey(name: "error") required final String error,
-          @JsonKey(name: "message") required final String message}) =
-      _$ErrorResponseImpl;
+  const factory _ErrorResponse({
+    @JsonKey(name: "error") required final String error,
+    @JsonKey(name: "message") required final String message,
+  }) = _$ErrorResponseImpl;
 
   factory _ErrorResponse.fromJson(Map<String, dynamic> json) =
       _$ErrorResponseImpl.fromJson;

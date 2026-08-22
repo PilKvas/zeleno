@@ -16,46 +16,40 @@ class PlantSearchBloc extends Bloc<PlantSearchEvent, PlantSearchState> {
 
   final PlantsSearchUsecase _plantsSearchUsecase;
 
-  PlantSearchBloc(this._plantsSearchUsecase)
-      : super(
-          const PlantSearchState(),
-        ) {
-    on<_LoadPlantList>(
-      (event, emit) async {
-        if (state.hasReachedEnd && !event.refresh) return;
+  PlantSearchBloc(this._plantsSearchUsecase) : super(const PlantSearchState()) {
+    on<_LoadPlantList>((event, emit) async {
+      if (state.hasReachedEnd && !event.refresh) return;
 
-        var page = (state.items.length ~/ _pageSize) + 1;
-        emit(
-          state.copyWith(
-            status: Status.loading,
-            isPaginating: page != 1 && !event.refresh,
-          ),
-        );
+      var page = (state.items.length ~/ _pageSize) + 1;
+      emit(
+        state.copyWith(
+          status: Status.loading,
+          isPaginating: page != 1 && !event.refresh,
+        ),
+      );
 
-        if (event.refresh) page = 1;
+      if (event.refresh) page = 1;
 
-        final String? nextName = event.name ?? state.name;
-        final PlantSearchFilters nextFilters =
-            event.filters ?? state.filters.copyWith(searchQuery: nextName);
+      final String? nextName = event.name ?? state.name;
+      final PlantSearchFilters nextFilters =
+          event.filters ?? state.filters.copyWith(searchQuery: nextName);
 
-        final plantList = await _plantsSearchUsecase.loadPlants(
-          page: page,
-          pageSize: _pageSize,
+      final plantList = await _plantsSearchUsecase.loadPlants(
+        page: page,
+        pageSize: _pageSize,
+        filters: nextFilters,
+      );
+
+      emit(
+        state.copyWith(
+          status: Status.success,
+          items: event.refresh ? plantList : [...state.items, ...plantList],
+          name: nextName,
           filters: nextFilters,
-        );
-
-        emit(
-          state.copyWith(
-            status: Status.success,
-            items: event.refresh ? plantList : [...state.items, ...plantList],
-            name: nextName,
-            filters: nextFilters,
-            hasReachedEnd: plantList.length < _pageSize,
-          ),
-        );
-      },
-      transformer: droppable(),
-    );
+          hasReachedEnd: plantList.length < _pageSize,
+        ),
+      );
+    }, transformer: droppable());
   }
 }
 

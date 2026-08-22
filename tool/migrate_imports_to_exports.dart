@@ -68,13 +68,16 @@ String _migrateContent(
     if (match != null) {
       section = 1;
       final uri = match.namedGroup('uri')!;
-      final migratedUri = _migrateUri(
+      final migratedUri =
+          _migrateUri(
             uri: uri,
             importerLibPath: importerLibPath,
             fileToBarrels: fileToBarrels,
           ) ??
           uri;
-      final suffix = migratedUri == uri ? (match.namedGroup('suffix') ?? '') : '';
+      final suffix = migratedUri == uri
+          ? (match.namedGroup('suffix') ?? '')
+          : '';
 
       imports.add(
         _ImportLine(
@@ -146,7 +149,8 @@ List<_ImportLine> _optimizeImports(List<_ImportLine> imports) {
   for (final item in withoutRedundant) {
     if (item.uri.startsWith('package:$packageName/')) {
       projectImports.add(item);
-    } else if (item.uri.startsWith('package:') || item.uri.startsWith('dart:')) {
+    } else if (item.uri.startsWith('package:') ||
+        item.uri.startsWith('dart:')) {
       packageImports.add(item);
     } else {
       otherImports.add(item);
@@ -228,7 +232,8 @@ String? _migrateUri({
 
   if (barrel == null) return null;
 
-  final packageUri = 'package:$packageName/${barrel.substring('$libRoot/'.length)}';
+  final packageUri =
+      'package:$packageName/${barrel.substring('$libRoot/'.length)}';
   if (uri == packageUri) return null;
 
   return packageUri;
@@ -262,10 +267,11 @@ String? _barrelForImport({
 Map<String, Set<String>> _buildFileToBarrelsIndex() {
   final result = <String, Set<String>>{};
 
-  for (final exportFile in Directory(libRoot)
-      .listSync(recursive: true)
-      .whereType<File>()
-      .where((f) => _fileName(f) == exportFileName)) {
+  for (final exportFile
+      in Directory(libRoot)
+          .listSync(recursive: true)
+          .whereType<File>()
+          .where((f) => _fileName(f) == exportFileName)) {
     final barrelPath = _normalizePath(exportFile.path);
     final exportedFiles = _collectExportedFiles(barrelPath, <String>{});
 
@@ -277,13 +283,19 @@ Map<String, Set<String>> _buildFileToBarrelsIndex() {
   return result;
 }
 
-Set<String> _collectExportedFiles(String barrelPath, Set<String> visitedBarrels) {
+Set<String> _collectExportedFiles(
+  String barrelPath,
+  Set<String> visitedBarrels,
+) {
   if (!visitedBarrels.add(barrelPath)) return {};
 
   final dir = _parentPath(barrelPath);
   final result = <String>{};
   final content = File(barrelPath).readAsStringSync();
-  final exportRegex = RegExp(r'''^export\s+['"]([^'"]+)['"]''', multiLine: true);
+  final exportRegex = RegExp(
+    r'''^export\s+['"]([^'"]+)['"]''',
+    multiLine: true,
+  );
 
   for (final match in exportRegex.allMatches(content)) {
     final target = match.group(1)!;

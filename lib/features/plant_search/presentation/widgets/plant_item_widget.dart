@@ -13,10 +13,7 @@ const double _kTextGap = 12;
 class PlantItemWidget extends StatelessWidget {
   final PlantSearchItem item;
 
-  const PlantItemWidget({
-    required this.item,
-    super.key,
-  });
+  const PlantItemWidget({required this.item, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -125,9 +122,7 @@ class _PlantImageFallback extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Image.asset(ZImages.dryTree, width: 50, height: 50),
-    );
+    return Center(child: Image.asset(ZImages.dryTree, width: 50, height: 50));
   }
 }
 

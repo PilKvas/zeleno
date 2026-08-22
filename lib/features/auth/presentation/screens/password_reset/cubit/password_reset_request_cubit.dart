@@ -7,10 +7,9 @@ part 'password_reset_request_cubit.freezed.dart';
 part 'password_reset_request_state.dart';
 
 class PasswordResetRequestCubit extends Cubit<PasswordResetRequestState> {
-  PasswordResetRequestCubit({
-    required IAuthRepository authRepository,
-  })  : _authRepository = authRepository,
-        super(const PasswordResetRequestState(status: Status.initial));
+  PasswordResetRequestCubit({required IAuthRepository authRepository})
+    : _authRepository = authRepository,
+      super(const PasswordResetRequestState(status: Status.initial));
 
   final IAuthRepository _authRepository;
 

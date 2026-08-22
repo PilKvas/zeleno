@@ -54,16 +54,16 @@ class AddGardenPlantRoute extends _i17.PageRouteInfo<AddGardenPlantRouteArgs> {
     int roomId = 0,
     List<_i17.PageRouteInfo>? children,
   }) : super(
-          AddGardenPlantRoute.name,
-          args: AddGardenPlantRouteArgs(
-            key: key,
-            defaultPlantName: defaultPlantName,
-            plantId: plantId,
-            speciesId: speciesId,
-            roomId: roomId,
-          ),
-          initialChildren: children,
-        );
+         AddGardenPlantRoute.name,
+         args: AddGardenPlantRouteArgs(
+           key: key,
+           defaultPlantName: defaultPlantName,
+           plantId: plantId,
+           speciesId: speciesId,
+           roomId: roomId,
+         ),
+         initialChildren: children,
+       );
 
   static const String name = 'AddGardenPlantRoute';
 
@@ -116,13 +116,13 @@ class AddGardenPlantSuccessRoute
     bool imageUploadFailed = false,
     List<_i17.PageRouteInfo>? children,
   }) : super(
-          AddGardenPlantSuccessRoute.name,
-          args: AddGardenPlantSuccessRouteArgs(
-            key: key,
-            imageUploadFailed: imageUploadFailed,
-          ),
-          initialChildren: children,
-        );
+         AddGardenPlantSuccessRoute.name,
+         args: AddGardenPlantSuccessRouteArgs(
+           key: key,
+           imageUploadFailed: imageUploadFailed,
+         ),
+         initialChildren: children,
+       );
 
   static const String name = 'AddGardenPlantSuccessRoute';
 
@@ -166,14 +166,14 @@ class GardenPlantDetailRoute
     String? speciesSlug,
     List<_i17.PageRouteInfo>? children,
   }) : super(
-          GardenPlantDetailRoute.name,
-          args: GardenPlantDetailRouteArgs(
-            key: key,
-            plantId: plantId,
-            speciesSlug: speciesSlug,
-          ),
-          initialChildren: children,
-        );
+         GardenPlantDetailRoute.name,
+         args: GardenPlantDetailRouteArgs(
+           key: key,
+           plantId: plantId,
+           speciesSlug: speciesSlug,
+         ),
+         initialChildren: children,
+       );
 
   static const String name = 'GardenPlantDetailRoute';
 
@@ -211,7 +211,7 @@ class GardenPlantDetailRouteArgs {
 /// [_i4.GardenPlantsListScreen]
 class GardenPlantsListRoute extends _i17.PageRouteInfo<void> {
   const GardenPlantsListRoute({List<_i17.PageRouteInfo>? children})
-      : super(GardenPlantsListRoute.name, initialChildren: children);
+    : super(GardenPlantsListRoute.name, initialChildren: children);
 
   static const String name = 'GardenPlantsListRoute';
 
@@ -227,7 +227,7 @@ class GardenPlantsListRoute extends _i17.PageRouteInfo<void> {
 /// [_i4.GardenStackScreen]
 class GardenStackRoute extends _i17.PageRouteInfo<void> {
   const GardenStackRoute({List<_i17.PageRouteInfo>? children})
-      : super(GardenStackRoute.name, initialChildren: children);
+    : super(GardenStackRoute.name, initialChildren: children);
 
   static const String name = 'GardenStackRoute';
 
@@ -243,7 +243,7 @@ class GardenStackRoute extends _i17.PageRouteInfo<void> {
 /// [_i5.HomeScreen]
 class HomeRoute extends _i17.PageRouteInfo<void> {
   const HomeRoute({List<_i17.PageRouteInfo>? children})
-      : super(HomeRoute.name, initialChildren: children);
+    : super(HomeRoute.name, initialChildren: children);
 
   static const String name = 'HomeRoute';
 
@@ -259,7 +259,7 @@ class HomeRoute extends _i17.PageRouteInfo<void> {
 /// [_i6.LoginScreen]
 class LoginRoute extends _i17.PageRouteInfo<void> {
   const LoginRoute({List<_i17.PageRouteInfo>? children})
-      : super(LoginRoute.name, initialChildren: children);
+    : super(LoginRoute.name, initialChildren: children);
 
   static const String name = 'LoginRoute';
 
@@ -275,7 +275,7 @@ class LoginRoute extends _i17.PageRouteInfo<void> {
 /// [_i7.OnBoardingScreen]
 class OnBoardingRoute extends _i17.PageRouteInfo<void> {
   const OnBoardingRoute({List<_i17.PageRouteInfo>? children})
-      : super(OnBoardingRoute.name, initialChildren: children);
+    : super(OnBoardingRoute.name, initialChildren: children);
 
   static const String name = 'OnBoardingRoute';
 
@@ -296,10 +296,10 @@ class PasswordResetConfirmRoute
     required String token,
     List<_i17.PageRouteInfo>? children,
   }) : super(
-          PasswordResetConfirmRoute.name,
-          args: PasswordResetConfirmRouteArgs(key: key, token: token),
-          initialChildren: children,
-        );
+         PasswordResetConfirmRoute.name,
+         args: PasswordResetConfirmRouteArgs(key: key, token: token),
+         initialChildren: children,
+       );
 
   static const String name = 'PasswordResetConfirmRoute';
 
@@ -329,7 +329,7 @@ class PasswordResetConfirmRouteArgs {
 /// [_i9.PasswordResetRequestScreen]
 class PasswordResetRequestRoute extends _i17.PageRouteInfo<void> {
   const PasswordResetRequestRoute({List<_i17.PageRouteInfo>? children})
-      : super(PasswordResetRequestRoute.name, initialChildren: children);
+    : super(PasswordResetRequestRoute.name, initialChildren: children);
 
   static const String name = 'PasswordResetRequestRoute';
 
@@ -350,10 +350,10 @@ class PasswordResetVerifyRoute
     required String email,
     List<_i17.PageRouteInfo>? children,
   }) : super(
-          PasswordResetVerifyRoute.name,
-          args: PasswordResetVerifyRouteArgs(key: key, email: email),
-          initialChildren: children,
-        );
+         PasswordResetVerifyRoute.name,
+         args: PasswordResetVerifyRouteArgs(key: key, email: email),
+         initialChildren: children,
+       );
 
   static const String name = 'PasswordResetVerifyRoute';
 
@@ -383,7 +383,7 @@ class PasswordResetVerifyRouteArgs {
 /// [_i11.PlantRoomsManagementScreen]
 class PlantRoomsManagementRoute extends _i17.PageRouteInfo<void> {
   const PlantRoomsManagementRoute({List<_i17.PageRouteInfo>? children})
-      : super(PlantRoomsManagementRoute.name, initialChildren: children);
+    : super(PlantRoomsManagementRoute.name, initialChildren: children);
 
   static const String name = 'PlantRoomsManagementRoute';
 
@@ -406,15 +406,15 @@ class PlantRoomsSelectionRoute
     String defaultPlantName = '',
     List<_i17.PageRouteInfo>? children,
   }) : super(
-          PlantRoomsSelectionRoute.name,
-          args: PlantRoomsSelectionRouteArgs(
-            key: key,
-            speciesId: speciesId,
-            speciesSlug: speciesSlug,
-            defaultPlantName: defaultPlantName,
-          ),
-          initialChildren: children,
-        );
+         PlantRoomsSelectionRoute.name,
+         args: PlantRoomsSelectionRouteArgs(
+           key: key,
+           speciesId: speciesId,
+           speciesSlug: speciesSlug,
+           defaultPlantName: defaultPlantName,
+         ),
+         initialChildren: children,
+       );
 
   static const String name = 'PlantRoomsSelectionRoute';
 
@@ -458,7 +458,7 @@ class PlantRoomsSelectionRouteArgs {
 /// [_i13.PlantSearchStackScreen]
 class PlantSearchStackRoute extends _i17.PageRouteInfo<void> {
   const PlantSearchStackRoute({List<_i17.PageRouteInfo>? children})
-      : super(PlantSearchStackRoute.name, initialChildren: children);
+    : super(PlantSearchStackRoute.name, initialChildren: children);
 
   static const String name = 'PlantSearchStackRoute';
 
@@ -474,7 +474,7 @@ class PlantSearchStackRoute extends _i17.PageRouteInfo<void> {
 /// [_i13.PlantsSearchScreen]
 class PlantsSearchRoute extends _i17.PageRouteInfo<void> {
   const PlantsSearchRoute({List<_i17.PageRouteInfo>? children})
-      : super(PlantsSearchRoute.name, initialChildren: children);
+    : super(PlantsSearchRoute.name, initialChildren: children);
 
   static const String name = 'PlantsSearchRoute';
 
@@ -490,7 +490,7 @@ class PlantsSearchRoute extends _i17.PageRouteInfo<void> {
 /// [_i14.ProfileScreen]
 class ProfileRoute extends _i17.PageRouteInfo<void> {
   const ProfileRoute({List<_i17.PageRouteInfo>? children})
-      : super(ProfileRoute.name, initialChildren: children);
+    : super(ProfileRoute.name, initialChildren: children);
 
   static const String name = 'ProfileRoute';
 
@@ -506,7 +506,7 @@ class ProfileRoute extends _i17.PageRouteInfo<void> {
 /// [_i14.ProfileStackScreen]
 class ProfileStackRoute extends _i17.PageRouteInfo<void> {
   const ProfileStackRoute({List<_i17.PageRouteInfo>? children})
-      : super(ProfileStackRoute.name, initialChildren: children);
+    : super(ProfileStackRoute.name, initialChildren: children);
 
   static const String name = 'ProfileStackRoute';
 
@@ -522,7 +522,7 @@ class ProfileStackRoute extends _i17.PageRouteInfo<void> {
 /// [_i15.RegistrationScreen]
 class RegistrationRoute extends _i17.PageRouteInfo<void> {
   const RegistrationRoute({List<_i17.PageRouteInfo>? children})
-      : super(RegistrationRoute.name, initialChildren: children);
+    : super(RegistrationRoute.name, initialChildren: children);
 
   static const String name = 'RegistrationRoute';
 
@@ -538,7 +538,7 @@ class RegistrationRoute extends _i17.PageRouteInfo<void> {
 /// [_i16.SplashScreen]
 class SplashRoute extends _i17.PageRouteInfo<void> {
   const SplashRoute({List<_i17.PageRouteInfo>? children})
-      : super(SplashRoute.name, initialChildren: children);
+    : super(SplashRoute.name, initialChildren: children);
 
   static const String name = 'SplashRoute';
 

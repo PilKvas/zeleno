@@ -1,9 +1,4 @@
-enum Status {
-  initial,
-  loading,
-  success,
-  failure,
-}
+enum Status { initial, loading, success, failure }
 
 extension StatusExtension on Status {
   bool get isInitial => this == Status.initial;

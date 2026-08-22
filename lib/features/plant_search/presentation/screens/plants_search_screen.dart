@@ -25,9 +25,7 @@ class PlantSearchStackScreen extends StatelessWidget {
 
 @RoutePage()
 class PlantsSearchScreen extends StatefulWidget implements AutoRouteWrapper {
-  const PlantsSearchScreen({
-    super.key,
-  });
+  const PlantsSearchScreen({super.key});
 
   @override
   Widget wrappedRoute(BuildContext context) {
@@ -37,8 +35,9 @@ class PlantsSearchScreen extends StatefulWidget implements AutoRouteWrapper {
           create: (_) => PlantFiltersCubit(plantFiltersUsecase: injection()),
         ),
         BlocProvider(
-          create: (_) => PlantSearchBloc(injection())
-            ..add(const PlantSearchEvent.loadPlantList()),
+          create: (_) =>
+              PlantSearchBloc(injection())
+                ..add(const PlantSearchEvent.loadPlantList()),
         ),
       ],
       child: this,
@@ -60,11 +59,7 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
   }
 
   Future<void> onRefresh(PlantSearchBloc bloc) async {
-    bloc.add(
-      const PlantSearchEvent.loadPlantList(
-        refresh: true,
-      ),
-    );
+    bloc.add(const PlantSearchEvent.loadPlantList(refresh: true));
     // Иначе индикатор обновления схлопывается мгновенно, до прихода данных.
     await bloc.stream.firstWhere((state) => !state.status.isLoading);
   }
@@ -75,24 +70,15 @@ class _PlantsSearchScreenState extends State<PlantsSearchScreen> {
 
   bool onPagination(ScrollNotification scrollInfo, PlantSearchBloc bloc) {
     if (scrollInfo.metrics.pixels >= scrollInfo.metrics.maxScrollExtent) {
-      bloc.add(
-        const PlantSearchEvent.loadPlantList(),
-      );
+      bloc.add(const PlantSearchEvent.loadPlantList());
     }
     return false;
   }
 
   void onSearch(String text, PlantSearchBloc bloc) {
-    _debouncer.run(
-      () {
-        bloc.add(
-          PlantSearchEvent.loadPlantList(
-            refresh: true,
-            name: text,
-          ),
-        );
-      },
-    );
+    _debouncer.run(() {
+      bloc.add(PlantSearchEvent.loadPlantList(refresh: true, name: text));
+    });
   }
 
   @override
@@ -170,15 +156,10 @@ class _SearchAppBar extends StatelessWidget {
       snap: true,
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(4.0),
-        child: Container(
-          color: colors.action,
-          height: 1,
-        ),
+        child: Container(color: colors.action, height: 1),
       ),
       flexibleSpace: FlexibleSpaceBar(
-        background: Container(
-          color: colors.background,
-        ),
+        background: Container(color: colors.background),
       ),
       title: Row(
         children: [
@@ -222,10 +203,7 @@ class _PlantList extends StatelessWidget {
   final List<PlantSearchItem> items;
   final void Function(String slug) onItemTap;
 
-  const _PlantList({
-    required this.items,
-    required this.onItemTap,
-  });
+  const _PlantList({required this.items, required this.onItemTap});
 
   @override
   Widget build(BuildContext context) {
@@ -265,11 +243,7 @@ class _PaginationLoader extends StatelessWidget {
         return const SliverPadding(
           padding: EdgeInsets.symmetric(horizontal: 20),
           sliver: SliverToBoxAdapter(
-            child: SizedBox(
-              height: 50,
-              width: 50,
-              child: ZLoading(),
-            ),
+            child: SizedBox(height: 50, width: 50, child: ZLoading()),
           ),
         );
       },

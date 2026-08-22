@@ -124,7 +124,10 @@ class _LoginFormState extends State<_LoginForm> {
           ),
           const SizedBox(height: 10),
           _ForgotPasswordLink(
-              typography: typography, colors: colors, l10n: l10n),
+            typography: typography,
+            colors: colors,
+            l10n: l10n,
+          ),
           const SizedBox(height: 44),
           BlocBuilder<LoginCubit, LoginState>(
             builder: (context, state) {
@@ -146,9 +149,9 @@ class _LoginFormState extends State<_LoginForm> {
   void _onLoginPressed() {
     if (_formKey.currentState?.validate() ?? false) {
       context.read<LoginCubit>().loginUser(
-            email: _emailController.text,
-            password: _passwordController.text,
-          );
+        email: _emailController.text,
+        password: _passwordController.text,
+      );
     }
   }
 }
@@ -187,8 +190,9 @@ class _DividerWithText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dividerColor =
-        ZColorScheme.of(context).secondaryText.withValues(alpha: 0.35);
+    final dividerColor = ZColorScheme.of(
+      context,
+    ).secondaryText.withValues(alpha: 0.35);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
       child: Row(

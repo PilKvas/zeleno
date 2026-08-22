@@ -7,13 +7,14 @@ import 'package:zeleno_v2/features/push_notifications/domain/model/export.dart';
 /// `null` — статус ещё не прочитан у ОС (первый кадр).
 class PushPermissionCubit extends Cubit<PushPermissionStatus?> {
   PushPermissionCubit({required PushTokenManager pushTokenManager})
-      : _pushTokenManager = pushTokenManager,
-        super(null);
+    : _pushTokenManager = pushTokenManager,
+      super(null);
 
   final PushTokenManager _pushTokenManager;
 
   Future<void> refresh() async {
-    final PushPermissionStatus status = await _pushTokenManager.permissionStatus();
+    final PushPermissionStatus status = await _pushTokenManager
+        .permissionStatus();
     if (!isClosed) {
       emit(status);
     }
@@ -28,8 +29,8 @@ class PushPermissionCubit extends Cubit<PushPermissionStatus?> {
   Future<void> toggle() async {
     final PushPermissionStatus? status = state;
     if (status != null && status.isNotDetermined) {
-      final PushPermissionStatus updated =
-          await _pushTokenManager.requestPermissionAndSync();
+      final PushPermissionStatus updated = await _pushTokenManager
+          .requestPermissionAndSync();
       if (!isClosed) {
         emit(updated);
       }

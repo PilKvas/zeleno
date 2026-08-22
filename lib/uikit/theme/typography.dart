@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-const TextStyle _baseStyle = TextStyle(
-  fontFamily: 'Nunito',
-);
+const TextStyle _baseStyle = TextStyle(fontFamily: 'Nunito');
 
 @immutable
 final class ZTypography extends ThemeExtension<ZTypography> {
@@ -25,51 +23,36 @@ final class ZTypography extends ThemeExtension<ZTypography> {
   });
 
   ZTypography.based()
-      : headline100 = _baseStyle.copyWith(
-          fontSize: 34,
-          fontWeight: FontWeight.w700,
-        ),
-        headline200 = _baseStyle.copyWith(
-          fontSize: 24,
-          fontWeight: FontWeight.w700,
-        ),
-        headline300 = _baseStyle.copyWith(
-          fontSize: 20,
-          fontWeight: FontWeight.w700,
-        ),
-        headline400 = _baseStyle.copyWith(
-          fontSize: 17,
-          fontWeight: FontWeight.w600,
-          letterSpacing: -0.3,
-        ),
-        screenTitle = _baseStyle.copyWith(
-          fontSize: 28,
-          fontWeight: FontWeight.w700,
-        ),
-        display = _baseStyle.copyWith(
-          fontSize: 16,
-          fontWeight: FontWeight.w400,
-        ),
-        action = _baseStyle.copyWith(
-          fontSize: 16,
-          fontWeight: FontWeight.w700,
-        ),
-        title = _baseStyle.copyWith(
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
-        ),
-        largeTitle = _baseStyle.copyWith(
-          fontSize: 26,
-          fontWeight: FontWeight.w700,
-        ),
-        body = _baseStyle.copyWith(
-          fontSize: 14,
-          fontWeight: FontWeight.w400,
-        ),
-        caption = _baseStyle.copyWith(
-          fontSize: 12,
-          fontWeight: FontWeight.w400,
-        );
+    : headline100 = _baseStyle.copyWith(
+        fontSize: 34,
+        fontWeight: FontWeight.w700,
+      ),
+      headline200 = _baseStyle.copyWith(
+        fontSize: 24,
+        fontWeight: FontWeight.w700,
+      ),
+      headline300 = _baseStyle.copyWith(
+        fontSize: 20,
+        fontWeight: FontWeight.w700,
+      ),
+      headline400 = _baseStyle.copyWith(
+        fontSize: 17,
+        fontWeight: FontWeight.w600,
+        letterSpacing: -0.3,
+      ),
+      screenTitle = _baseStyle.copyWith(
+        fontSize: 28,
+        fontWeight: FontWeight.w700,
+      ),
+      display = _baseStyle.copyWith(fontSize: 16, fontWeight: FontWeight.w400),
+      action = _baseStyle.copyWith(fontSize: 16, fontWeight: FontWeight.w700),
+      title = _baseStyle.copyWith(fontSize: 16, fontWeight: FontWeight.w500),
+      largeTitle = _baseStyle.copyWith(
+        fontSize: 26,
+        fontWeight: FontWeight.w700,
+      ),
+      body = _baseStyle.copyWith(fontSize: 14, fontWeight: FontWeight.w400),
+      caption = _baseStyle.copyWith(fontSize: 12, fontWeight: FontWeight.w400);
 
   final TextStyle headline100;
   final TextStyle headline200;

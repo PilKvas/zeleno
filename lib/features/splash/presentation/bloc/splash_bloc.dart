@@ -10,15 +10,12 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
   final IFirstRunStorage _firstRunStorage;
 
   SplashBloc({required IFirstRunStorage firstRunStorage})
-      : _firstRunStorage = firstRunStorage,
-        super(const SplashState.initial()) {
+    : _firstRunStorage = firstRunStorage,
+      super(const SplashState.initial()) {
     on<SplashEvent>(_onStartApp);
   }
 
-  Future<void> _onStartApp(
-    SplashEvent event,
-    Emitter<SplashState> emit,
-  ) async {
+  Future<void> _onStartApp(SplashEvent event, Emitter<SplashState> emit) async {
     final isFirstTimeInApp = _firstRunStorage.getIsFirstRun();
     if (isFirstTimeInApp) {
       await _firstRunStorage.setIsFirstRun(value: false);

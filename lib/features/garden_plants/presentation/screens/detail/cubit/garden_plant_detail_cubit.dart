@@ -19,19 +19,19 @@ class GardenPlantDetailCubit extends Cubit<GardenPlantDetailState> {
     required IPlantDetailsRepository plantDetailsRepository,
     int? plantId,
     String? speciesSlug,
-  })  : assert(
-          plantId != null || speciesSlug != null,
-          'Нужен plantId (сад) или speciesSlug (каталог)',
-        ),
-        _repository = gardenPlantsRepository,
-        _plantDetailsRepository = plantDetailsRepository,
-        super(
-          GardenPlantDetailState(
-            status: Status.initial,
-            plantId: plantId,
-            speciesSlug: speciesSlug,
-          ),
-        );
+  }) : assert(
+         plantId != null || speciesSlug != null,
+         'Нужен plantId (сад) или speciesSlug (каталог)',
+       ),
+       _repository = gardenPlantsRepository,
+       _plantDetailsRepository = plantDetailsRepository,
+       super(
+         GardenPlantDetailState(
+           status: Status.initial,
+           plantId: plantId,
+           speciesSlug: speciesSlug,
+         ),
+       );
 
   final IGardenPlantsRepository _repository;
   final IPlantDetailsRepository _plantDetailsRepository;
@@ -43,11 +43,7 @@ class GardenPlantDetailCubit extends Cubit<GardenPlantDetailState> {
       return;
     }
     emit(
-      state.copyWith(
-        status: Status.loading,
-        error: null,
-        speciesDetails: null,
-      ),
+      state.copyWith(status: Status.loading, error: null, speciesDetails: null),
     );
     try {
       final GardenPlantModel plant = await _repository.getGardenPlant(
@@ -79,12 +75,7 @@ class GardenPlantDetailCubit extends Cubit<GardenPlantDetailState> {
       if (isClosed) {
         return;
       }
-      emit(
-        state.copyWith(
-          status: Status.failure,
-          error: error,
-        ),
-      );
+      emit(state.copyWith(status: Status.failure, error: error));
     }
   }
 
@@ -94,15 +85,11 @@ class GardenPlantDetailCubit extends Cubit<GardenPlantDetailState> {
       return;
     }
     emit(
-      state.copyWith(
-        status: Status.loading,
-        error: null,
-        speciesDetails: null,
-      ),
+      state.copyWith(status: Status.loading, error: null, speciesDetails: null),
     );
     try {
-      final PlantDetailsModel speciesDetails =
-          await _plantDetailsRepository.getPlant(speciesSlug);
+      final PlantDetailsModel speciesDetails = await _plantDetailsRepository
+          .getPlant(speciesSlug);
       if (isClosed) {
         return;
       }
@@ -117,12 +104,7 @@ class GardenPlantDetailCubit extends Cubit<GardenPlantDetailState> {
       if (isClosed) {
         return;
       }
-      emit(
-        state.copyWith(
-          status: Status.failure,
-          error: error,
-        ),
-      );
+      emit(state.copyWith(status: Status.failure, error: error));
     }
   }
 
@@ -160,12 +142,7 @@ class GardenPlantDetailCubit extends Cubit<GardenPlantDetailState> {
       if (isClosed) {
         return false;
       }
-      emit(
-        state.copyWith(
-          isSaving: false,
-          error: error,
-        ),
-      );
+      emit(state.copyWith(isSaving: false, error: error));
       return false;
     }
   }
@@ -181,23 +158,13 @@ class GardenPlantDetailCubit extends Cubit<GardenPlantDetailState> {
       if (isClosed) {
         return true;
       }
-      emit(
-        state.copyWith(
-          isSaving: false,
-          wasDeleted: true,
-        ),
-      );
+      emit(state.copyWith(isSaving: false, wasDeleted: true));
       return true;
     } catch (error) {
       if (isClosed) {
         return false;
       }
-      emit(
-        state.copyWith(
-          isSaving: false,
-          error: error,
-        ),
-      );
+      emit(state.copyWith(isSaving: false, error: error));
       return false;
     }
   }

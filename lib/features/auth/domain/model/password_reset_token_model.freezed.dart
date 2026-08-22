@@ -12,10 +12,12 @@ part of 'password_reset_token_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 PasswordResetTokenModel _$PasswordResetTokenModelFromJson(
-    Map<String, dynamic> json) {
+  Map<String, dynamic> json,
+) {
   return _PasswordResetTokenModel.fromJson(json);
 }
 
@@ -35,16 +37,19 @@ mixin _$PasswordResetTokenModel {
 
 /// @nodoc
 abstract class $PasswordResetTokenModelCopyWith<$Res> {
-  factory $PasswordResetTokenModelCopyWith(PasswordResetTokenModel value,
-          $Res Function(PasswordResetTokenModel) then) =
-      _$PasswordResetTokenModelCopyWithImpl<$Res, PasswordResetTokenModel>;
+  factory $PasswordResetTokenModelCopyWith(
+    PasswordResetTokenModel value,
+    $Res Function(PasswordResetTokenModel) then,
+  ) = _$PasswordResetTokenModelCopyWithImpl<$Res, PasswordResetTokenModel>;
   @useResult
   $Res call({String token});
 }
 
 /// @nodoc
-class _$PasswordResetTokenModelCopyWithImpl<$Res,
-        $Val extends PasswordResetTokenModel>
+class _$PasswordResetTokenModelCopyWithImpl<
+  $Res,
+  $Val extends PasswordResetTokenModel
+>
     implements $PasswordResetTokenModelCopyWith<$Res> {
   _$PasswordResetTokenModelCopyWithImpl(this._value, this._then);
 
@@ -57,15 +62,16 @@ class _$PasswordResetTokenModelCopyWithImpl<$Res,
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? token = null,
-  }) {
-    return _then(_value.copyWith(
-      token: null == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  $Res call({Object? token = null}) {
+    return _then(
+      _value.copyWith(
+            token: null == token
+                ? _value.token
+                : token // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -73,9 +79,9 @@ class _$PasswordResetTokenModelCopyWithImpl<$Res,
 abstract class _$$PasswordResetTokenModelImplCopyWith<$Res>
     implements $PasswordResetTokenModelCopyWith<$Res> {
   factory _$$PasswordResetTokenModelImplCopyWith(
-          _$PasswordResetTokenModelImpl value,
-          $Res Function(_$PasswordResetTokenModelImpl) then) =
-      __$$PasswordResetTokenModelImplCopyWithImpl<$Res>;
+    _$PasswordResetTokenModelImpl value,
+    $Res Function(_$PasswordResetTokenModelImpl) then,
+  ) = __$$PasswordResetTokenModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String token});
@@ -83,27 +89,30 @@ abstract class _$$PasswordResetTokenModelImplCopyWith<$Res>
 
 /// @nodoc
 class __$$PasswordResetTokenModelImplCopyWithImpl<$Res>
-    extends _$PasswordResetTokenModelCopyWithImpl<$Res,
-        _$PasswordResetTokenModelImpl>
+    extends
+        _$PasswordResetTokenModelCopyWithImpl<
+          $Res,
+          _$PasswordResetTokenModelImpl
+        >
     implements _$$PasswordResetTokenModelImplCopyWith<$Res> {
   __$$PasswordResetTokenModelImplCopyWithImpl(
-      _$PasswordResetTokenModelImpl _value,
-      $Res Function(_$PasswordResetTokenModelImpl) _then)
-      : super(_value, _then);
+    _$PasswordResetTokenModelImpl _value,
+    $Res Function(_$PasswordResetTokenModelImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of PasswordResetTokenModel
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? token = null,
-  }) {
-    return _then(_$PasswordResetTokenModelImpl(
-      token: null == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? token = null}) {
+    return _then(
+      _$PasswordResetTokenModelImpl(
+        token: null == token
+            ? _value.token
+            : token // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -141,14 +150,14 @@ class _$PasswordResetTokenModelImpl implements _PasswordResetTokenModel {
   @override
   @pragma('vm:prefer-inline')
   _$$PasswordResetTokenModelImplCopyWith<_$PasswordResetTokenModelImpl>
-      get copyWith => __$$PasswordResetTokenModelImplCopyWithImpl<
-          _$PasswordResetTokenModelImpl>(this, _$identity);
+  get copyWith =>
+      __$$PasswordResetTokenModelImplCopyWithImpl<
+        _$PasswordResetTokenModelImpl
+      >(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PasswordResetTokenModelImplToJson(
-      this,
-    );
+    return _$$PasswordResetTokenModelImplToJson(this);
   }
 }
 
@@ -167,5 +176,5 @@ abstract class _PasswordResetTokenModel implements PasswordResetTokenModel {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PasswordResetTokenModelImplCopyWith<_$PasswordResetTokenModelImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

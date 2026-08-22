@@ -19,8 +19,8 @@ class PushTokenManager {
   PushTokenManager({
     required IPushTokenRepository pushTokenRepository,
     required IAuthRepository authRepository,
-  })  : _pushTokenRepository = pushTokenRepository,
-        _authRepository = authRepository;
+  }) : _pushTokenRepository = pushTokenRepository,
+       _authRepository = authRepository;
 
   final IPushTokenRepository _pushTokenRepository;
   final IAuthRepository _authRepository;
@@ -42,25 +42,23 @@ class PushTokenManager {
 
     // statusStream отдаёт текущий статус первым событием, поэтому одна
     // подписка покрывает и «запуск уже залогиненным», и свежий логин.
-    _authSubscription = _authRepository.statusStream.listen(
-      (AuthStatus status) {
-        if (status == AuthStatus.authenticated) {
-          unawaited(syncToken());
-        }
-      },
-    );
+    _authSubscription = _authRepository.statusStream.listen((
+      AuthStatus status,
+    ) {
+      if (status == AuthStatus.authenticated) {
+        unawaited(syncToken());
+      }
+    });
 
     // FCM может перевыпустить токен в любой момент без участия
     // пользователя — без этой подписки бэкенд останется с мёртвым
     // адресом до следующего логина.
-    _tokenRefreshSubscription = FirebaseMessaging.instance.onTokenRefresh.listen(
-      (String token) async {
-        if (await _authRepository.hasValidTokens()) {
-          await _registerToken(token);
-        }
-      },
-      onError: (Object error) => _log('onTokenRefresh failed: $error'),
-    );
+    _tokenRefreshSubscription = FirebaseMessaging.instance.onTokenRefresh
+        .listen((String token) async {
+          if (await _authRepository.hasValidTokens()) {
+            await _registerToken(token);
+          }
+        }, onError: (Object error) => _log('onTokenRefresh failed: $error'));
   }
 
   /// Текущее состояние системного разрешения. Спрашиваем ОС каждый раз:
@@ -71,8 +69,8 @@ class PushTokenManager {
       return PushPermissionStatus.denied;
     }
     try {
-      final NotificationSettings settings =
-          await FirebaseMessaging.instance.getNotificationSettings();
+      final NotificationSettings settings = await FirebaseMessaging.instance
+          .getNotificationSettings();
       return _mapAuthorizationStatus(settings.authorizationStatus);
     } catch (error) {
       _log('getNotificationSettings failed: $error');
@@ -96,8 +94,8 @@ class PushTokenManager {
     PushPermissionStatus status = await permissionStatus();
     if (status.isNotDetermined) {
       try {
-        final NotificationSettings settings =
-            await FirebaseMessaging.instance.requestPermission();
+        final NotificationSettings settings = await FirebaseMessaging.instance
+            .requestPermission();
         status = _mapAuthorizationStatus(settings.authorizationStatus);
       } catch (error) {
         _log('requestPermission failed: $error');

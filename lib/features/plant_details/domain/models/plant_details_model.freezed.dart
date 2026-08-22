@@ -12,7 +12,8 @@ part of 'plant_details_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 PlantDetailsModel _$PlantDetailsModelFromJson(Map<String, dynamic> json) {
   return _PlantDetailsModel.fromJson(json);
@@ -116,51 +117,53 @@ mixin _$PlantDetailsModel {
 /// @nodoc
 abstract class $PlantDetailsModelCopyWith<$Res> {
   factory $PlantDetailsModelCopyWith(
-          PlantDetailsModel value, $Res Function(PlantDetailsModel) then) =
-      _$PlantDetailsModelCopyWithImpl<$Res, PlantDetailsModel>;
+    PlantDetailsModel value,
+    $Res Function(PlantDetailsModel) then,
+  ) = _$PlantDetailsModelCopyWithImpl<$Res, PlantDetailsModel>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'id') int? id,
-      @JsonKey(name: 'common_names') List<CommonNameEntry>? commonNames,
-      @JsonKey(name: 'created') DateTime? created,
-      @JsonKey(name: 'cultivation') String? cultivation,
-      @JsonKey(name: 'duration') List<String>? duration,
-      @JsonKey(name: 'edible_parts') List<NamedSlug>? edibleParts,
-      @JsonKey(name: 'exposure') List<String>? exposure,
-      @JsonKey(name: 'foliage') List<String>? foliage,
-      @JsonKey(name: 'fragrance') List<String>? fragrance,
-      @JsonKey(name: 'genus_description') String? genusDescription,
-      @JsonKey(name: 'growth_tips') List<GrowthTip>? growthTips,
-      @JsonKey(name: 'habit') List<String>? habit,
-      @JsonKey(name: 'hardiness_zone') String? hardinessZone,
-      @JsonKey(name: 'harvest') List<String>? harvest,
-      @JsonKey(name: 'height_max_cm') int? heightMaxCm,
-      @JsonKey(name: 'height_min_cm') int? heightMinCm,
-      @JsonKey(name: 'image') String? hostedImageUrl,
-      @JsonKey(name: 'image_url') String? externalImageUrl,
-      @JsonKey(name: 'images') List<PlantImageItem>? images,
-      @JsonKey(name: 'is_edible') bool? isEdible,
-      @JsonKey(name: 'latin_name') String? latinName,
-      @JsonKey(name: 'misc') PlantMisc? misc,
-      @JsonKey(name: 'modified') DateTime? modified,
-      @JsonKey(name: 'parts_color') List<PartColorGroup>? partsColor,
-      @JsonKey(name: 'planting') List<String>? planting,
-      @JsonKey(name: 'position_side') List<String>? positionSide,
-      @JsonKey(name: 'position_sunlight') List<String>? positionSunlight,
-      @JsonKey(name: 'rating') int? rating,
-      @JsonKey(name: 'regular_events') List<RegularEvent>? regularEvents,
-      @JsonKey(name: 'slug') String? slug,
-      @JsonKey(name: 'soil_moisture') List<String>? soilMoisture,
-      @JsonKey(name: 'soil_ph') List<String>? soilPh,
-      @JsonKey(name: 'soil_types') List<String>? soilTypes,
-      @JsonKey(name: 'sources') List<Source>? sources,
-      @JsonKey(name: 'spread_max_cm') int? spreadMaxCm,
-      @JsonKey(name: 'spread_min_cm') int? spreadMinCm,
-      @JsonKey(name: 'synonyms') List<String>? synonyms,
-      @JsonKey(name: 'tags') List<String>? tags,
-      @JsonKey(name: 'toxicity') List<String>? toxicity,
-      @JsonKey(name: 'years_to_max_height_max') int? yearsToMaxHeightMax,
-      @JsonKey(name: 'years_to_max_height_min') int? yearsToMaxHeightMin});
+  $Res call({
+    @JsonKey(name: 'id') int? id,
+    @JsonKey(name: 'common_names') List<CommonNameEntry>? commonNames,
+    @JsonKey(name: 'created') DateTime? created,
+    @JsonKey(name: 'cultivation') String? cultivation,
+    @JsonKey(name: 'duration') List<String>? duration,
+    @JsonKey(name: 'edible_parts') List<NamedSlug>? edibleParts,
+    @JsonKey(name: 'exposure') List<String>? exposure,
+    @JsonKey(name: 'foliage') List<String>? foliage,
+    @JsonKey(name: 'fragrance') List<String>? fragrance,
+    @JsonKey(name: 'genus_description') String? genusDescription,
+    @JsonKey(name: 'growth_tips') List<GrowthTip>? growthTips,
+    @JsonKey(name: 'habit') List<String>? habit,
+    @JsonKey(name: 'hardiness_zone') String? hardinessZone,
+    @JsonKey(name: 'harvest') List<String>? harvest,
+    @JsonKey(name: 'height_max_cm') int? heightMaxCm,
+    @JsonKey(name: 'height_min_cm') int? heightMinCm,
+    @JsonKey(name: 'image') String? hostedImageUrl,
+    @JsonKey(name: 'image_url') String? externalImageUrl,
+    @JsonKey(name: 'images') List<PlantImageItem>? images,
+    @JsonKey(name: 'is_edible') bool? isEdible,
+    @JsonKey(name: 'latin_name') String? latinName,
+    @JsonKey(name: 'misc') PlantMisc? misc,
+    @JsonKey(name: 'modified') DateTime? modified,
+    @JsonKey(name: 'parts_color') List<PartColorGroup>? partsColor,
+    @JsonKey(name: 'planting') List<String>? planting,
+    @JsonKey(name: 'position_side') List<String>? positionSide,
+    @JsonKey(name: 'position_sunlight') List<String>? positionSunlight,
+    @JsonKey(name: 'rating') int? rating,
+    @JsonKey(name: 'regular_events') List<RegularEvent>? regularEvents,
+    @JsonKey(name: 'slug') String? slug,
+    @JsonKey(name: 'soil_moisture') List<String>? soilMoisture,
+    @JsonKey(name: 'soil_ph') List<String>? soilPh,
+    @JsonKey(name: 'soil_types') List<String>? soilTypes,
+    @JsonKey(name: 'sources') List<Source>? sources,
+    @JsonKey(name: 'spread_max_cm') int? spreadMaxCm,
+    @JsonKey(name: 'spread_min_cm') int? spreadMinCm,
+    @JsonKey(name: 'synonyms') List<String>? synonyms,
+    @JsonKey(name: 'tags') List<String>? tags,
+    @JsonKey(name: 'toxicity') List<String>? toxicity,
+    @JsonKey(name: 'years_to_max_height_max') int? yearsToMaxHeightMax,
+    @JsonKey(name: 'years_to_max_height_min') int? yearsToMaxHeightMin,
+  });
 
   $PlantMiscCopyWith<$Res>? get misc;
 }
@@ -222,172 +225,175 @@ class _$PlantDetailsModelCopyWithImpl<$Res, $Val extends PlantDetailsModel>
     Object? yearsToMaxHeightMax = freezed,
     Object? yearsToMaxHeightMin = freezed,
   }) {
-    return _then(_value.copyWith(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      commonNames: freezed == commonNames
-          ? _value.commonNames
-          : commonNames // ignore: cast_nullable_to_non_nullable
-              as List<CommonNameEntry>?,
-      created: freezed == created
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      cultivation: freezed == cultivation
-          ? _value.cultivation
-          : cultivation // ignore: cast_nullable_to_non_nullable
-              as String?,
-      duration: freezed == duration
-          ? _value.duration
-          : duration // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      edibleParts: freezed == edibleParts
-          ? _value.edibleParts
-          : edibleParts // ignore: cast_nullable_to_non_nullable
-              as List<NamedSlug>?,
-      exposure: freezed == exposure
-          ? _value.exposure
-          : exposure // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      foliage: freezed == foliage
-          ? _value.foliage
-          : foliage // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      fragrance: freezed == fragrance
-          ? _value.fragrance
-          : fragrance // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      genusDescription: freezed == genusDescription
-          ? _value.genusDescription
-          : genusDescription // ignore: cast_nullable_to_non_nullable
-              as String?,
-      growthTips: freezed == growthTips
-          ? _value.growthTips
-          : growthTips // ignore: cast_nullable_to_non_nullable
-              as List<GrowthTip>?,
-      habit: freezed == habit
-          ? _value.habit
-          : habit // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      hardinessZone: freezed == hardinessZone
-          ? _value.hardinessZone
-          : hardinessZone // ignore: cast_nullable_to_non_nullable
-              as String?,
-      harvest: freezed == harvest
-          ? _value.harvest
-          : harvest // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      heightMaxCm: freezed == heightMaxCm
-          ? _value.heightMaxCm
-          : heightMaxCm // ignore: cast_nullable_to_non_nullable
-              as int?,
-      heightMinCm: freezed == heightMinCm
-          ? _value.heightMinCm
-          : heightMinCm // ignore: cast_nullable_to_non_nullable
-              as int?,
-      hostedImageUrl: freezed == hostedImageUrl
-          ? _value.hostedImageUrl
-          : hostedImageUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      externalImageUrl: freezed == externalImageUrl
-          ? _value.externalImageUrl
-          : externalImageUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      images: freezed == images
-          ? _value.images
-          : images // ignore: cast_nullable_to_non_nullable
-              as List<PlantImageItem>?,
-      isEdible: freezed == isEdible
-          ? _value.isEdible
-          : isEdible // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      latinName: freezed == latinName
-          ? _value.latinName
-          : latinName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      misc: freezed == misc
-          ? _value.misc
-          : misc // ignore: cast_nullable_to_non_nullable
-              as PlantMisc?,
-      modified: freezed == modified
-          ? _value.modified
-          : modified // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      partsColor: freezed == partsColor
-          ? _value.partsColor
-          : partsColor // ignore: cast_nullable_to_non_nullable
-              as List<PartColorGroup>?,
-      planting: freezed == planting
-          ? _value.planting
-          : planting // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      positionSide: freezed == positionSide
-          ? _value.positionSide
-          : positionSide // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      positionSunlight: freezed == positionSunlight
-          ? _value.positionSunlight
-          : positionSunlight // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      rating: freezed == rating
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as int?,
-      regularEvents: freezed == regularEvents
-          ? _value.regularEvents
-          : regularEvents // ignore: cast_nullable_to_non_nullable
-              as List<RegularEvent>?,
-      slug: freezed == slug
-          ? _value.slug
-          : slug // ignore: cast_nullable_to_non_nullable
-              as String?,
-      soilMoisture: freezed == soilMoisture
-          ? _value.soilMoisture
-          : soilMoisture // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      soilPh: freezed == soilPh
-          ? _value.soilPh
-          : soilPh // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      soilTypes: freezed == soilTypes
-          ? _value.soilTypes
-          : soilTypes // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      sources: freezed == sources
-          ? _value.sources
-          : sources // ignore: cast_nullable_to_non_nullable
-              as List<Source>?,
-      spreadMaxCm: freezed == spreadMaxCm
-          ? _value.spreadMaxCm
-          : spreadMaxCm // ignore: cast_nullable_to_non_nullable
-              as int?,
-      spreadMinCm: freezed == spreadMinCm
-          ? _value.spreadMinCm
-          : spreadMinCm // ignore: cast_nullable_to_non_nullable
-              as int?,
-      synonyms: freezed == synonyms
-          ? _value.synonyms
-          : synonyms // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      tags: freezed == tags
-          ? _value.tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      toxicity: freezed == toxicity
-          ? _value.toxicity
-          : toxicity // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      yearsToMaxHeightMax: freezed == yearsToMaxHeightMax
-          ? _value.yearsToMaxHeightMax
-          : yearsToMaxHeightMax // ignore: cast_nullable_to_non_nullable
-              as int?,
-      yearsToMaxHeightMin: freezed == yearsToMaxHeightMin
-          ? _value.yearsToMaxHeightMin
-          : yearsToMaxHeightMin // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id: freezed == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            commonNames: freezed == commonNames
+                ? _value.commonNames
+                : commonNames // ignore: cast_nullable_to_non_nullable
+                      as List<CommonNameEntry>?,
+            created: freezed == created
+                ? _value.created
+                : created // ignore: cast_nullable_to_non_nullable
+                      as DateTime?,
+            cultivation: freezed == cultivation
+                ? _value.cultivation
+                : cultivation // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            duration: freezed == duration
+                ? _value.duration
+                : duration // ignore: cast_nullable_to_non_nullable
+                      as List<String>?,
+            edibleParts: freezed == edibleParts
+                ? _value.edibleParts
+                : edibleParts // ignore: cast_nullable_to_non_nullable
+                      as List<NamedSlug>?,
+            exposure: freezed == exposure
+                ? _value.exposure
+                : exposure // ignore: cast_nullable_to_non_nullable
+                      as List<String>?,
+            foliage: freezed == foliage
+                ? _value.foliage
+                : foliage // ignore: cast_nullable_to_non_nullable
+                      as List<String>?,
+            fragrance: freezed == fragrance
+                ? _value.fragrance
+                : fragrance // ignore: cast_nullable_to_non_nullable
+                      as List<String>?,
+            genusDescription: freezed == genusDescription
+                ? _value.genusDescription
+                : genusDescription // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            growthTips: freezed == growthTips
+                ? _value.growthTips
+                : growthTips // ignore: cast_nullable_to_non_nullable
+                      as List<GrowthTip>?,
+            habit: freezed == habit
+                ? _value.habit
+                : habit // ignore: cast_nullable_to_non_nullable
+                      as List<String>?,
+            hardinessZone: freezed == hardinessZone
+                ? _value.hardinessZone
+                : hardinessZone // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            harvest: freezed == harvest
+                ? _value.harvest
+                : harvest // ignore: cast_nullable_to_non_nullable
+                      as List<String>?,
+            heightMaxCm: freezed == heightMaxCm
+                ? _value.heightMaxCm
+                : heightMaxCm // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            heightMinCm: freezed == heightMinCm
+                ? _value.heightMinCm
+                : heightMinCm // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            hostedImageUrl: freezed == hostedImageUrl
+                ? _value.hostedImageUrl
+                : hostedImageUrl // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            externalImageUrl: freezed == externalImageUrl
+                ? _value.externalImageUrl
+                : externalImageUrl // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            images: freezed == images
+                ? _value.images
+                : images // ignore: cast_nullable_to_non_nullable
+                      as List<PlantImageItem>?,
+            isEdible: freezed == isEdible
+                ? _value.isEdible
+                : isEdible // ignore: cast_nullable_to_non_nullable
+                      as bool?,
+            latinName: freezed == latinName
+                ? _value.latinName
+                : latinName // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            misc: freezed == misc
+                ? _value.misc
+                : misc // ignore: cast_nullable_to_non_nullable
+                      as PlantMisc?,
+            modified: freezed == modified
+                ? _value.modified
+                : modified // ignore: cast_nullable_to_non_nullable
+                      as DateTime?,
+            partsColor: freezed == partsColor
+                ? _value.partsColor
+                : partsColor // ignore: cast_nullable_to_non_nullable
+                      as List<PartColorGroup>?,
+            planting: freezed == planting
+                ? _value.planting
+                : planting // ignore: cast_nullable_to_non_nullable
+                      as List<String>?,
+            positionSide: freezed == positionSide
+                ? _value.positionSide
+                : positionSide // ignore: cast_nullable_to_non_nullable
+                      as List<String>?,
+            positionSunlight: freezed == positionSunlight
+                ? _value.positionSunlight
+                : positionSunlight // ignore: cast_nullable_to_non_nullable
+                      as List<String>?,
+            rating: freezed == rating
+                ? _value.rating
+                : rating // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            regularEvents: freezed == regularEvents
+                ? _value.regularEvents
+                : regularEvents // ignore: cast_nullable_to_non_nullable
+                      as List<RegularEvent>?,
+            slug: freezed == slug
+                ? _value.slug
+                : slug // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            soilMoisture: freezed == soilMoisture
+                ? _value.soilMoisture
+                : soilMoisture // ignore: cast_nullable_to_non_nullable
+                      as List<String>?,
+            soilPh: freezed == soilPh
+                ? _value.soilPh
+                : soilPh // ignore: cast_nullable_to_non_nullable
+                      as List<String>?,
+            soilTypes: freezed == soilTypes
+                ? _value.soilTypes
+                : soilTypes // ignore: cast_nullable_to_non_nullable
+                      as List<String>?,
+            sources: freezed == sources
+                ? _value.sources
+                : sources // ignore: cast_nullable_to_non_nullable
+                      as List<Source>?,
+            spreadMaxCm: freezed == spreadMaxCm
+                ? _value.spreadMaxCm
+                : spreadMaxCm // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            spreadMinCm: freezed == spreadMinCm
+                ? _value.spreadMinCm
+                : spreadMinCm // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            synonyms: freezed == synonyms
+                ? _value.synonyms
+                : synonyms // ignore: cast_nullable_to_non_nullable
+                      as List<String>?,
+            tags: freezed == tags
+                ? _value.tags
+                : tags // ignore: cast_nullable_to_non_nullable
+                      as List<String>?,
+            toxicity: freezed == toxicity
+                ? _value.toxicity
+                : toxicity // ignore: cast_nullable_to_non_nullable
+                      as List<String>?,
+            yearsToMaxHeightMax: freezed == yearsToMaxHeightMax
+                ? _value.yearsToMaxHeightMax
+                : yearsToMaxHeightMax // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            yearsToMaxHeightMin: freezed == yearsToMaxHeightMin
+                ? _value.yearsToMaxHeightMin
+                : yearsToMaxHeightMin // ignore: cast_nullable_to_non_nullable
+                      as int?,
+          )
+          as $Val,
+    );
   }
 
   /// Create a copy of PlantDetailsModel
@@ -408,53 +414,55 @@ class _$PlantDetailsModelCopyWithImpl<$Res, $Val extends PlantDetailsModel>
 /// @nodoc
 abstract class _$$PlantDetailsModelImplCopyWith<$Res>
     implements $PlantDetailsModelCopyWith<$Res> {
-  factory _$$PlantDetailsModelImplCopyWith(_$PlantDetailsModelImpl value,
-          $Res Function(_$PlantDetailsModelImpl) then) =
-      __$$PlantDetailsModelImplCopyWithImpl<$Res>;
+  factory _$$PlantDetailsModelImplCopyWith(
+    _$PlantDetailsModelImpl value,
+    $Res Function(_$PlantDetailsModelImpl) then,
+  ) = __$$PlantDetailsModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'id') int? id,
-      @JsonKey(name: 'common_names') List<CommonNameEntry>? commonNames,
-      @JsonKey(name: 'created') DateTime? created,
-      @JsonKey(name: 'cultivation') String? cultivation,
-      @JsonKey(name: 'duration') List<String>? duration,
-      @JsonKey(name: 'edible_parts') List<NamedSlug>? edibleParts,
-      @JsonKey(name: 'exposure') List<String>? exposure,
-      @JsonKey(name: 'foliage') List<String>? foliage,
-      @JsonKey(name: 'fragrance') List<String>? fragrance,
-      @JsonKey(name: 'genus_description') String? genusDescription,
-      @JsonKey(name: 'growth_tips') List<GrowthTip>? growthTips,
-      @JsonKey(name: 'habit') List<String>? habit,
-      @JsonKey(name: 'hardiness_zone') String? hardinessZone,
-      @JsonKey(name: 'harvest') List<String>? harvest,
-      @JsonKey(name: 'height_max_cm') int? heightMaxCm,
-      @JsonKey(name: 'height_min_cm') int? heightMinCm,
-      @JsonKey(name: 'image') String? hostedImageUrl,
-      @JsonKey(name: 'image_url') String? externalImageUrl,
-      @JsonKey(name: 'images') List<PlantImageItem>? images,
-      @JsonKey(name: 'is_edible') bool? isEdible,
-      @JsonKey(name: 'latin_name') String? latinName,
-      @JsonKey(name: 'misc') PlantMisc? misc,
-      @JsonKey(name: 'modified') DateTime? modified,
-      @JsonKey(name: 'parts_color') List<PartColorGroup>? partsColor,
-      @JsonKey(name: 'planting') List<String>? planting,
-      @JsonKey(name: 'position_side') List<String>? positionSide,
-      @JsonKey(name: 'position_sunlight') List<String>? positionSunlight,
-      @JsonKey(name: 'rating') int? rating,
-      @JsonKey(name: 'regular_events') List<RegularEvent>? regularEvents,
-      @JsonKey(name: 'slug') String? slug,
-      @JsonKey(name: 'soil_moisture') List<String>? soilMoisture,
-      @JsonKey(name: 'soil_ph') List<String>? soilPh,
-      @JsonKey(name: 'soil_types') List<String>? soilTypes,
-      @JsonKey(name: 'sources') List<Source>? sources,
-      @JsonKey(name: 'spread_max_cm') int? spreadMaxCm,
-      @JsonKey(name: 'spread_min_cm') int? spreadMinCm,
-      @JsonKey(name: 'synonyms') List<String>? synonyms,
-      @JsonKey(name: 'tags') List<String>? tags,
-      @JsonKey(name: 'toxicity') List<String>? toxicity,
-      @JsonKey(name: 'years_to_max_height_max') int? yearsToMaxHeightMax,
-      @JsonKey(name: 'years_to_max_height_min') int? yearsToMaxHeightMin});
+  $Res call({
+    @JsonKey(name: 'id') int? id,
+    @JsonKey(name: 'common_names') List<CommonNameEntry>? commonNames,
+    @JsonKey(name: 'created') DateTime? created,
+    @JsonKey(name: 'cultivation') String? cultivation,
+    @JsonKey(name: 'duration') List<String>? duration,
+    @JsonKey(name: 'edible_parts') List<NamedSlug>? edibleParts,
+    @JsonKey(name: 'exposure') List<String>? exposure,
+    @JsonKey(name: 'foliage') List<String>? foliage,
+    @JsonKey(name: 'fragrance') List<String>? fragrance,
+    @JsonKey(name: 'genus_description') String? genusDescription,
+    @JsonKey(name: 'growth_tips') List<GrowthTip>? growthTips,
+    @JsonKey(name: 'habit') List<String>? habit,
+    @JsonKey(name: 'hardiness_zone') String? hardinessZone,
+    @JsonKey(name: 'harvest') List<String>? harvest,
+    @JsonKey(name: 'height_max_cm') int? heightMaxCm,
+    @JsonKey(name: 'height_min_cm') int? heightMinCm,
+    @JsonKey(name: 'image') String? hostedImageUrl,
+    @JsonKey(name: 'image_url') String? externalImageUrl,
+    @JsonKey(name: 'images') List<PlantImageItem>? images,
+    @JsonKey(name: 'is_edible') bool? isEdible,
+    @JsonKey(name: 'latin_name') String? latinName,
+    @JsonKey(name: 'misc') PlantMisc? misc,
+    @JsonKey(name: 'modified') DateTime? modified,
+    @JsonKey(name: 'parts_color') List<PartColorGroup>? partsColor,
+    @JsonKey(name: 'planting') List<String>? planting,
+    @JsonKey(name: 'position_side') List<String>? positionSide,
+    @JsonKey(name: 'position_sunlight') List<String>? positionSunlight,
+    @JsonKey(name: 'rating') int? rating,
+    @JsonKey(name: 'regular_events') List<RegularEvent>? regularEvents,
+    @JsonKey(name: 'slug') String? slug,
+    @JsonKey(name: 'soil_moisture') List<String>? soilMoisture,
+    @JsonKey(name: 'soil_ph') List<String>? soilPh,
+    @JsonKey(name: 'soil_types') List<String>? soilTypes,
+    @JsonKey(name: 'sources') List<Source>? sources,
+    @JsonKey(name: 'spread_max_cm') int? spreadMaxCm,
+    @JsonKey(name: 'spread_min_cm') int? spreadMinCm,
+    @JsonKey(name: 'synonyms') List<String>? synonyms,
+    @JsonKey(name: 'tags') List<String>? tags,
+    @JsonKey(name: 'toxicity') List<String>? toxicity,
+    @JsonKey(name: 'years_to_max_height_max') int? yearsToMaxHeightMax,
+    @JsonKey(name: 'years_to_max_height_min') int? yearsToMaxHeightMin,
+  });
 
   @override
   $PlantMiscCopyWith<$Res>? get misc;
@@ -464,9 +472,10 @@ abstract class _$$PlantDetailsModelImplCopyWith<$Res>
 class __$$PlantDetailsModelImplCopyWithImpl<$Res>
     extends _$PlantDetailsModelCopyWithImpl<$Res, _$PlantDetailsModelImpl>
     implements _$$PlantDetailsModelImplCopyWith<$Res> {
-  __$$PlantDetailsModelImplCopyWithImpl(_$PlantDetailsModelImpl _value,
-      $Res Function(_$PlantDetailsModelImpl) _then)
-      : super(_value, _then);
+  __$$PlantDetailsModelImplCopyWithImpl(
+    _$PlantDetailsModelImpl _value,
+    $Res Function(_$PlantDetailsModelImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of PlantDetailsModel
   /// with the given fields replaced by the non-null parameter values.
@@ -515,242 +524,244 @@ class __$$PlantDetailsModelImplCopyWithImpl<$Res>
     Object? yearsToMaxHeightMax = freezed,
     Object? yearsToMaxHeightMin = freezed,
   }) {
-    return _then(_$PlantDetailsModelImpl(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      commonNames: freezed == commonNames
-          ? _value._commonNames
-          : commonNames // ignore: cast_nullable_to_non_nullable
-              as List<CommonNameEntry>?,
-      created: freezed == created
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      cultivation: freezed == cultivation
-          ? _value.cultivation
-          : cultivation // ignore: cast_nullable_to_non_nullable
-              as String?,
-      duration: freezed == duration
-          ? _value._duration
-          : duration // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      edibleParts: freezed == edibleParts
-          ? _value._edibleParts
-          : edibleParts // ignore: cast_nullable_to_non_nullable
-              as List<NamedSlug>?,
-      exposure: freezed == exposure
-          ? _value._exposure
-          : exposure // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      foliage: freezed == foliage
-          ? _value._foliage
-          : foliage // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      fragrance: freezed == fragrance
-          ? _value._fragrance
-          : fragrance // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      genusDescription: freezed == genusDescription
-          ? _value.genusDescription
-          : genusDescription // ignore: cast_nullable_to_non_nullable
-              as String?,
-      growthTips: freezed == growthTips
-          ? _value._growthTips
-          : growthTips // ignore: cast_nullable_to_non_nullable
-              as List<GrowthTip>?,
-      habit: freezed == habit
-          ? _value._habit
-          : habit // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      hardinessZone: freezed == hardinessZone
-          ? _value.hardinessZone
-          : hardinessZone // ignore: cast_nullable_to_non_nullable
-              as String?,
-      harvest: freezed == harvest
-          ? _value._harvest
-          : harvest // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      heightMaxCm: freezed == heightMaxCm
-          ? _value.heightMaxCm
-          : heightMaxCm // ignore: cast_nullable_to_non_nullable
-              as int?,
-      heightMinCm: freezed == heightMinCm
-          ? _value.heightMinCm
-          : heightMinCm // ignore: cast_nullable_to_non_nullable
-              as int?,
-      hostedImageUrl: freezed == hostedImageUrl
-          ? _value.hostedImageUrl
-          : hostedImageUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      externalImageUrl: freezed == externalImageUrl
-          ? _value.externalImageUrl
-          : externalImageUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      images: freezed == images
-          ? _value._images
-          : images // ignore: cast_nullable_to_non_nullable
-              as List<PlantImageItem>?,
-      isEdible: freezed == isEdible
-          ? _value.isEdible
-          : isEdible // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      latinName: freezed == latinName
-          ? _value.latinName
-          : latinName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      misc: freezed == misc
-          ? _value.misc
-          : misc // ignore: cast_nullable_to_non_nullable
-              as PlantMisc?,
-      modified: freezed == modified
-          ? _value.modified
-          : modified // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      partsColor: freezed == partsColor
-          ? _value._partsColor
-          : partsColor // ignore: cast_nullable_to_non_nullable
-              as List<PartColorGroup>?,
-      planting: freezed == planting
-          ? _value._planting
-          : planting // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      positionSide: freezed == positionSide
-          ? _value._positionSide
-          : positionSide // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      positionSunlight: freezed == positionSunlight
-          ? _value._positionSunlight
-          : positionSunlight // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      rating: freezed == rating
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as int?,
-      regularEvents: freezed == regularEvents
-          ? _value._regularEvents
-          : regularEvents // ignore: cast_nullable_to_non_nullable
-              as List<RegularEvent>?,
-      slug: freezed == slug
-          ? _value.slug
-          : slug // ignore: cast_nullable_to_non_nullable
-              as String?,
-      soilMoisture: freezed == soilMoisture
-          ? _value._soilMoisture
-          : soilMoisture // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      soilPh: freezed == soilPh
-          ? _value._soilPh
-          : soilPh // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      soilTypes: freezed == soilTypes
-          ? _value._soilTypes
-          : soilTypes // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      sources: freezed == sources
-          ? _value._sources
-          : sources // ignore: cast_nullable_to_non_nullable
-              as List<Source>?,
-      spreadMaxCm: freezed == spreadMaxCm
-          ? _value.spreadMaxCm
-          : spreadMaxCm // ignore: cast_nullable_to_non_nullable
-              as int?,
-      spreadMinCm: freezed == spreadMinCm
-          ? _value.spreadMinCm
-          : spreadMinCm // ignore: cast_nullable_to_non_nullable
-              as int?,
-      synonyms: freezed == synonyms
-          ? _value._synonyms
-          : synonyms // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      tags: freezed == tags
-          ? _value._tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      toxicity: freezed == toxicity
-          ? _value._toxicity
-          : toxicity // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      yearsToMaxHeightMax: freezed == yearsToMaxHeightMax
-          ? _value.yearsToMaxHeightMax
-          : yearsToMaxHeightMax // ignore: cast_nullable_to_non_nullable
-              as int?,
-      yearsToMaxHeightMin: freezed == yearsToMaxHeightMin
-          ? _value.yearsToMaxHeightMin
-          : yearsToMaxHeightMin // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ));
+    return _then(
+      _$PlantDetailsModelImpl(
+        id: freezed == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        commonNames: freezed == commonNames
+            ? _value._commonNames
+            : commonNames // ignore: cast_nullable_to_non_nullable
+                  as List<CommonNameEntry>?,
+        created: freezed == created
+            ? _value.created
+            : created // ignore: cast_nullable_to_non_nullable
+                  as DateTime?,
+        cultivation: freezed == cultivation
+            ? _value.cultivation
+            : cultivation // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        duration: freezed == duration
+            ? _value._duration
+            : duration // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
+        edibleParts: freezed == edibleParts
+            ? _value._edibleParts
+            : edibleParts // ignore: cast_nullable_to_non_nullable
+                  as List<NamedSlug>?,
+        exposure: freezed == exposure
+            ? _value._exposure
+            : exposure // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
+        foliage: freezed == foliage
+            ? _value._foliage
+            : foliage // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
+        fragrance: freezed == fragrance
+            ? _value._fragrance
+            : fragrance // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
+        genusDescription: freezed == genusDescription
+            ? _value.genusDescription
+            : genusDescription // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        growthTips: freezed == growthTips
+            ? _value._growthTips
+            : growthTips // ignore: cast_nullable_to_non_nullable
+                  as List<GrowthTip>?,
+        habit: freezed == habit
+            ? _value._habit
+            : habit // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
+        hardinessZone: freezed == hardinessZone
+            ? _value.hardinessZone
+            : hardinessZone // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        harvest: freezed == harvest
+            ? _value._harvest
+            : harvest // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
+        heightMaxCm: freezed == heightMaxCm
+            ? _value.heightMaxCm
+            : heightMaxCm // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        heightMinCm: freezed == heightMinCm
+            ? _value.heightMinCm
+            : heightMinCm // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        hostedImageUrl: freezed == hostedImageUrl
+            ? _value.hostedImageUrl
+            : hostedImageUrl // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        externalImageUrl: freezed == externalImageUrl
+            ? _value.externalImageUrl
+            : externalImageUrl // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        images: freezed == images
+            ? _value._images
+            : images // ignore: cast_nullable_to_non_nullable
+                  as List<PlantImageItem>?,
+        isEdible: freezed == isEdible
+            ? _value.isEdible
+            : isEdible // ignore: cast_nullable_to_non_nullable
+                  as bool?,
+        latinName: freezed == latinName
+            ? _value.latinName
+            : latinName // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        misc: freezed == misc
+            ? _value.misc
+            : misc // ignore: cast_nullable_to_non_nullable
+                  as PlantMisc?,
+        modified: freezed == modified
+            ? _value.modified
+            : modified // ignore: cast_nullable_to_non_nullable
+                  as DateTime?,
+        partsColor: freezed == partsColor
+            ? _value._partsColor
+            : partsColor // ignore: cast_nullable_to_non_nullable
+                  as List<PartColorGroup>?,
+        planting: freezed == planting
+            ? _value._planting
+            : planting // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
+        positionSide: freezed == positionSide
+            ? _value._positionSide
+            : positionSide // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
+        positionSunlight: freezed == positionSunlight
+            ? _value._positionSunlight
+            : positionSunlight // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
+        rating: freezed == rating
+            ? _value.rating
+            : rating // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        regularEvents: freezed == regularEvents
+            ? _value._regularEvents
+            : regularEvents // ignore: cast_nullable_to_non_nullable
+                  as List<RegularEvent>?,
+        slug: freezed == slug
+            ? _value.slug
+            : slug // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        soilMoisture: freezed == soilMoisture
+            ? _value._soilMoisture
+            : soilMoisture // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
+        soilPh: freezed == soilPh
+            ? _value._soilPh
+            : soilPh // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
+        soilTypes: freezed == soilTypes
+            ? _value._soilTypes
+            : soilTypes // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
+        sources: freezed == sources
+            ? _value._sources
+            : sources // ignore: cast_nullable_to_non_nullable
+                  as List<Source>?,
+        spreadMaxCm: freezed == spreadMaxCm
+            ? _value.spreadMaxCm
+            : spreadMaxCm // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        spreadMinCm: freezed == spreadMinCm
+            ? _value.spreadMinCm
+            : spreadMinCm // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        synonyms: freezed == synonyms
+            ? _value._synonyms
+            : synonyms // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
+        tags: freezed == tags
+            ? _value._tags
+            : tags // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
+        toxicity: freezed == toxicity
+            ? _value._toxicity
+            : toxicity // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
+        yearsToMaxHeightMax: freezed == yearsToMaxHeightMax
+            ? _value.yearsToMaxHeightMax
+            : yearsToMaxHeightMax // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        yearsToMaxHeightMin: freezed == yearsToMaxHeightMin
+            ? _value.yearsToMaxHeightMin
+            : yearsToMaxHeightMin // ignore: cast_nullable_to_non_nullable
+                  as int?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$PlantDetailsModelImpl implements _PlantDetailsModel {
-  const _$PlantDetailsModelImpl(
-      {@JsonKey(name: 'id') this.id,
-      @JsonKey(name: 'common_names') final List<CommonNameEntry>? commonNames,
-      @JsonKey(name: 'created') this.created,
-      @JsonKey(name: 'cultivation') this.cultivation,
-      @JsonKey(name: 'duration') final List<String>? duration,
-      @JsonKey(name: 'edible_parts') final List<NamedSlug>? edibleParts,
-      @JsonKey(name: 'exposure') final List<String>? exposure,
-      @JsonKey(name: 'foliage') final List<String>? foliage,
-      @JsonKey(name: 'fragrance') final List<String>? fragrance,
-      @JsonKey(name: 'genus_description') this.genusDescription,
-      @JsonKey(name: 'growth_tips') final List<GrowthTip>? growthTips,
-      @JsonKey(name: 'habit') final List<String>? habit,
-      @JsonKey(name: 'hardiness_zone') this.hardinessZone,
-      @JsonKey(name: 'harvest') final List<String>? harvest,
-      @JsonKey(name: 'height_max_cm') this.heightMaxCm,
-      @JsonKey(name: 'height_min_cm') this.heightMinCm,
-      @JsonKey(name: 'image') this.hostedImageUrl,
-      @JsonKey(name: 'image_url') this.externalImageUrl,
-      @JsonKey(name: 'images') final List<PlantImageItem>? images,
-      @JsonKey(name: 'is_edible') this.isEdible,
-      @JsonKey(name: 'latin_name') this.latinName,
-      @JsonKey(name: 'misc') this.misc,
-      @JsonKey(name: 'modified') this.modified,
-      @JsonKey(name: 'parts_color') final List<PartColorGroup>? partsColor,
-      @JsonKey(name: 'planting') final List<String>? planting,
-      @JsonKey(name: 'position_side') final List<String>? positionSide,
-      @JsonKey(name: 'position_sunlight') final List<String>? positionSunlight,
-      @JsonKey(name: 'rating') this.rating,
-      @JsonKey(name: 'regular_events') final List<RegularEvent>? regularEvents,
-      @JsonKey(name: 'slug') this.slug,
-      @JsonKey(name: 'soil_moisture') final List<String>? soilMoisture,
-      @JsonKey(name: 'soil_ph') final List<String>? soilPh,
-      @JsonKey(name: 'soil_types') final List<String>? soilTypes,
-      @JsonKey(name: 'sources') final List<Source>? sources,
-      @JsonKey(name: 'spread_max_cm') this.spreadMaxCm,
-      @JsonKey(name: 'spread_min_cm') this.spreadMinCm,
-      @JsonKey(name: 'synonyms') final List<String>? synonyms,
-      @JsonKey(name: 'tags') final List<String>? tags,
-      @JsonKey(name: 'toxicity') final List<String>? toxicity,
-      @JsonKey(name: 'years_to_max_height_max') this.yearsToMaxHeightMax,
-      @JsonKey(name: 'years_to_max_height_min') this.yearsToMaxHeightMin})
-      : _commonNames = commonNames,
-        _duration = duration,
-        _edibleParts = edibleParts,
-        _exposure = exposure,
-        _foliage = foliage,
-        _fragrance = fragrance,
-        _growthTips = growthTips,
-        _habit = habit,
-        _harvest = harvest,
-        _images = images,
-        _partsColor = partsColor,
-        _planting = planting,
-        _positionSide = positionSide,
-        _positionSunlight = positionSunlight,
-        _regularEvents = regularEvents,
-        _soilMoisture = soilMoisture,
-        _soilPh = soilPh,
-        _soilTypes = soilTypes,
-        _sources = sources,
-        _synonyms = synonyms,
-        _tags = tags,
-        _toxicity = toxicity;
+  const _$PlantDetailsModelImpl({
+    @JsonKey(name: 'id') this.id,
+    @JsonKey(name: 'common_names') final List<CommonNameEntry>? commonNames,
+    @JsonKey(name: 'created') this.created,
+    @JsonKey(name: 'cultivation') this.cultivation,
+    @JsonKey(name: 'duration') final List<String>? duration,
+    @JsonKey(name: 'edible_parts') final List<NamedSlug>? edibleParts,
+    @JsonKey(name: 'exposure') final List<String>? exposure,
+    @JsonKey(name: 'foliage') final List<String>? foliage,
+    @JsonKey(name: 'fragrance') final List<String>? fragrance,
+    @JsonKey(name: 'genus_description') this.genusDescription,
+    @JsonKey(name: 'growth_tips') final List<GrowthTip>? growthTips,
+    @JsonKey(name: 'habit') final List<String>? habit,
+    @JsonKey(name: 'hardiness_zone') this.hardinessZone,
+    @JsonKey(name: 'harvest') final List<String>? harvest,
+    @JsonKey(name: 'height_max_cm') this.heightMaxCm,
+    @JsonKey(name: 'height_min_cm') this.heightMinCm,
+    @JsonKey(name: 'image') this.hostedImageUrl,
+    @JsonKey(name: 'image_url') this.externalImageUrl,
+    @JsonKey(name: 'images') final List<PlantImageItem>? images,
+    @JsonKey(name: 'is_edible') this.isEdible,
+    @JsonKey(name: 'latin_name') this.latinName,
+    @JsonKey(name: 'misc') this.misc,
+    @JsonKey(name: 'modified') this.modified,
+    @JsonKey(name: 'parts_color') final List<PartColorGroup>? partsColor,
+    @JsonKey(name: 'planting') final List<String>? planting,
+    @JsonKey(name: 'position_side') final List<String>? positionSide,
+    @JsonKey(name: 'position_sunlight') final List<String>? positionSunlight,
+    @JsonKey(name: 'rating') this.rating,
+    @JsonKey(name: 'regular_events') final List<RegularEvent>? regularEvents,
+    @JsonKey(name: 'slug') this.slug,
+    @JsonKey(name: 'soil_moisture') final List<String>? soilMoisture,
+    @JsonKey(name: 'soil_ph') final List<String>? soilPh,
+    @JsonKey(name: 'soil_types') final List<String>? soilTypes,
+    @JsonKey(name: 'sources') final List<Source>? sources,
+    @JsonKey(name: 'spread_max_cm') this.spreadMaxCm,
+    @JsonKey(name: 'spread_min_cm') this.spreadMinCm,
+    @JsonKey(name: 'synonyms') final List<String>? synonyms,
+    @JsonKey(name: 'tags') final List<String>? tags,
+    @JsonKey(name: 'toxicity') final List<String>? toxicity,
+    @JsonKey(name: 'years_to_max_height_max') this.yearsToMaxHeightMax,
+    @JsonKey(name: 'years_to_max_height_min') this.yearsToMaxHeightMin,
+  }) : _commonNames = commonNames,
+       _duration = duration,
+       _edibleParts = edibleParts,
+       _exposure = exposure,
+       _foliage = foliage,
+       _fragrance = fragrance,
+       _growthTips = growthTips,
+       _habit = habit,
+       _harvest = harvest,
+       _images = images,
+       _partsColor = partsColor,
+       _planting = planting,
+       _positionSide = positionSide,
+       _positionSunlight = positionSunlight,
+       _regularEvents = regularEvents,
+       _soilMoisture = soilMoisture,
+       _soilPh = soilPh,
+       _soilTypes = soilTypes,
+       _sources = sources,
+       _synonyms = synonyms,
+       _tags = tags,
+       _toxicity = toxicity;
 
   factory _$PlantDetailsModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlantDetailsModelImplFromJson(json);
@@ -1067,22 +1078,30 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
         (other.runtimeType == runtimeType &&
             other is _$PlantDetailsModelImpl &&
             (identical(other.id, id) || other.id == id) &&
-            const DeepCollectionEquality()
-                .equals(other._commonNames, _commonNames) &&
+            const DeepCollectionEquality().equals(
+              other._commonNames,
+              _commonNames,
+            ) &&
             (identical(other.created, created) || other.created == created) &&
             (identical(other.cultivation, cultivation) ||
                 other.cultivation == cultivation) &&
             const DeepCollectionEquality().equals(other._duration, _duration) &&
-            const DeepCollectionEquality()
-                .equals(other._edibleParts, _edibleParts) &&
+            const DeepCollectionEquality().equals(
+              other._edibleParts,
+              _edibleParts,
+            ) &&
             const DeepCollectionEquality().equals(other._exposure, _exposure) &&
             const DeepCollectionEquality().equals(other._foliage, _foliage) &&
-            const DeepCollectionEquality()
-                .equals(other._fragrance, _fragrance) &&
+            const DeepCollectionEquality().equals(
+              other._fragrance,
+              _fragrance,
+            ) &&
             (identical(other.genusDescription, genusDescription) ||
                 other.genusDescription == genusDescription) &&
-            const DeepCollectionEquality()
-                .equals(other._growthTips, _growthTips) &&
+            const DeepCollectionEquality().equals(
+              other._growthTips,
+              _growthTips,
+            ) &&
             const DeepCollectionEquality().equals(other._habit, _habit) &&
             (identical(other.hardinessZone, hardinessZone) ||
                 other.hardinessZone == hardinessZone) &&
@@ -1103,22 +1122,34 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
             (identical(other.misc, misc) || other.misc == misc) &&
             (identical(other.modified, modified) ||
                 other.modified == modified) &&
-            const DeepCollectionEquality()
-                .equals(other._partsColor, _partsColor) &&
+            const DeepCollectionEquality().equals(
+              other._partsColor,
+              _partsColor,
+            ) &&
             const DeepCollectionEquality().equals(other._planting, _planting) &&
-            const DeepCollectionEquality()
-                .equals(other._positionSide, _positionSide) &&
-            const DeepCollectionEquality()
-                .equals(other._positionSunlight, _positionSunlight) &&
+            const DeepCollectionEquality().equals(
+              other._positionSide,
+              _positionSide,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._positionSunlight,
+              _positionSunlight,
+            ) &&
             (identical(other.rating, rating) || other.rating == rating) &&
-            const DeepCollectionEquality()
-                .equals(other._regularEvents, _regularEvents) &&
+            const DeepCollectionEquality().equals(
+              other._regularEvents,
+              _regularEvents,
+            ) &&
             (identical(other.slug, slug) || other.slug == slug) &&
-            const DeepCollectionEquality()
-                .equals(other._soilMoisture, _soilMoisture) &&
+            const DeepCollectionEquality().equals(
+              other._soilMoisture,
+              _soilMoisture,
+            ) &&
             const DeepCollectionEquality().equals(other._soilPh, _soilPh) &&
-            const DeepCollectionEquality()
-                .equals(other._soilTypes, _soilTypes) &&
+            const DeepCollectionEquality().equals(
+              other._soilTypes,
+              _soilTypes,
+            ) &&
             const DeepCollectionEquality().equals(other._sources, _sources) &&
             (identical(other.spreadMaxCm, spreadMaxCm) ||
                 other.spreadMaxCm == spreadMaxCm) &&
@@ -1136,49 +1167,49 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
-        runtimeType,
-        id,
-        const DeepCollectionEquality().hash(_commonNames),
-        created,
-        cultivation,
-        const DeepCollectionEquality().hash(_duration),
-        const DeepCollectionEquality().hash(_edibleParts),
-        const DeepCollectionEquality().hash(_exposure),
-        const DeepCollectionEquality().hash(_foliage),
-        const DeepCollectionEquality().hash(_fragrance),
-        genusDescription,
-        const DeepCollectionEquality().hash(_growthTips),
-        const DeepCollectionEquality().hash(_habit),
-        hardinessZone,
-        const DeepCollectionEquality().hash(_harvest),
-        heightMaxCm,
-        heightMinCm,
-        hostedImageUrl,
-        externalImageUrl,
-        const DeepCollectionEquality().hash(_images),
-        isEdible,
-        latinName,
-        misc,
-        modified,
-        const DeepCollectionEquality().hash(_partsColor),
-        const DeepCollectionEquality().hash(_planting),
-        const DeepCollectionEquality().hash(_positionSide),
-        const DeepCollectionEquality().hash(_positionSunlight),
-        rating,
-        const DeepCollectionEquality().hash(_regularEvents),
-        slug,
-        const DeepCollectionEquality().hash(_soilMoisture),
-        const DeepCollectionEquality().hash(_soilPh),
-        const DeepCollectionEquality().hash(_soilTypes),
-        const DeepCollectionEquality().hash(_sources),
-        spreadMaxCm,
-        spreadMinCm,
-        const DeepCollectionEquality().hash(_synonyms),
-        const DeepCollectionEquality().hash(_tags),
-        const DeepCollectionEquality().hash(_toxicity),
-        yearsToMaxHeightMax,
-        yearsToMaxHeightMin
-      ]);
+    runtimeType,
+    id,
+    const DeepCollectionEquality().hash(_commonNames),
+    created,
+    cultivation,
+    const DeepCollectionEquality().hash(_duration),
+    const DeepCollectionEquality().hash(_edibleParts),
+    const DeepCollectionEquality().hash(_exposure),
+    const DeepCollectionEquality().hash(_foliage),
+    const DeepCollectionEquality().hash(_fragrance),
+    genusDescription,
+    const DeepCollectionEquality().hash(_growthTips),
+    const DeepCollectionEquality().hash(_habit),
+    hardinessZone,
+    const DeepCollectionEquality().hash(_harvest),
+    heightMaxCm,
+    heightMinCm,
+    hostedImageUrl,
+    externalImageUrl,
+    const DeepCollectionEquality().hash(_images),
+    isEdible,
+    latinName,
+    misc,
+    modified,
+    const DeepCollectionEquality().hash(_partsColor),
+    const DeepCollectionEquality().hash(_planting),
+    const DeepCollectionEquality().hash(_positionSide),
+    const DeepCollectionEquality().hash(_positionSunlight),
+    rating,
+    const DeepCollectionEquality().hash(_regularEvents),
+    slug,
+    const DeepCollectionEquality().hash(_soilMoisture),
+    const DeepCollectionEquality().hash(_soilPh),
+    const DeepCollectionEquality().hash(_soilTypes),
+    const DeepCollectionEquality().hash(_sources),
+    spreadMaxCm,
+    spreadMinCm,
+    const DeepCollectionEquality().hash(_synonyms),
+    const DeepCollectionEquality().hash(_tags),
+    const DeepCollectionEquality().hash(_toxicity),
+    yearsToMaxHeightMax,
+    yearsToMaxHeightMin,
+  ]);
 
   /// Create a copy of PlantDetailsModel
   /// with the given fields replaced by the non-null parameter values.
@@ -1187,60 +1218,60 @@ class _$PlantDetailsModelImpl implements _PlantDetailsModel {
   @pragma('vm:prefer-inline')
   _$$PlantDetailsModelImplCopyWith<_$PlantDetailsModelImpl> get copyWith =>
       __$$PlantDetailsModelImplCopyWithImpl<_$PlantDetailsModelImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PlantDetailsModelImplToJson(
-      this,
-    );
+    return _$$PlantDetailsModelImplToJson(this);
   }
 }
 
 abstract class _PlantDetailsModel implements PlantDetailsModel {
-  const factory _PlantDetailsModel(
-      {@JsonKey(name: 'id') final int? id,
-      @JsonKey(name: 'common_names') final List<CommonNameEntry>? commonNames,
-      @JsonKey(name: 'created') final DateTime? created,
-      @JsonKey(name: 'cultivation') final String? cultivation,
-      @JsonKey(name: 'duration') final List<String>? duration,
-      @JsonKey(name: 'edible_parts') final List<NamedSlug>? edibleParts,
-      @JsonKey(name: 'exposure') final List<String>? exposure,
-      @JsonKey(name: 'foliage') final List<String>? foliage,
-      @JsonKey(name: 'fragrance') final List<String>? fragrance,
-      @JsonKey(name: 'genus_description') final String? genusDescription,
-      @JsonKey(name: 'growth_tips') final List<GrowthTip>? growthTips,
-      @JsonKey(name: 'habit') final List<String>? habit,
-      @JsonKey(name: 'hardiness_zone') final String? hardinessZone,
-      @JsonKey(name: 'harvest') final List<String>? harvest,
-      @JsonKey(name: 'height_max_cm') final int? heightMaxCm,
-      @JsonKey(name: 'height_min_cm') final int? heightMinCm,
-      @JsonKey(name: 'image') final String? hostedImageUrl,
-      @JsonKey(name: 'image_url') final String? externalImageUrl,
-      @JsonKey(name: 'images') final List<PlantImageItem>? images,
-      @JsonKey(name: 'is_edible') final bool? isEdible,
-      @JsonKey(name: 'latin_name') final String? latinName,
-      @JsonKey(name: 'misc') final PlantMisc? misc,
-      @JsonKey(name: 'modified') final DateTime? modified,
-      @JsonKey(name: 'parts_color') final List<PartColorGroup>? partsColor,
-      @JsonKey(name: 'planting') final List<String>? planting,
-      @JsonKey(name: 'position_side') final List<String>? positionSide,
-      @JsonKey(name: 'position_sunlight') final List<String>? positionSunlight,
-      @JsonKey(name: 'rating') final int? rating,
-      @JsonKey(name: 'regular_events') final List<RegularEvent>? regularEvents,
-      @JsonKey(name: 'slug') final String? slug,
-      @JsonKey(name: 'soil_moisture') final List<String>? soilMoisture,
-      @JsonKey(name: 'soil_ph') final List<String>? soilPh,
-      @JsonKey(name: 'soil_types') final List<String>? soilTypes,
-      @JsonKey(name: 'sources') final List<Source>? sources,
-      @JsonKey(name: 'spread_max_cm') final int? spreadMaxCm,
-      @JsonKey(name: 'spread_min_cm') final int? spreadMinCm,
-      @JsonKey(name: 'synonyms') final List<String>? synonyms,
-      @JsonKey(name: 'tags') final List<String>? tags,
-      @JsonKey(name: 'toxicity') final List<String>? toxicity,
-      @JsonKey(name: 'years_to_max_height_max') final int? yearsToMaxHeightMax,
-      @JsonKey(name: 'years_to_max_height_min')
-      final int? yearsToMaxHeightMin}) = _$PlantDetailsModelImpl;
+  const factory _PlantDetailsModel({
+    @JsonKey(name: 'id') final int? id,
+    @JsonKey(name: 'common_names') final List<CommonNameEntry>? commonNames,
+    @JsonKey(name: 'created') final DateTime? created,
+    @JsonKey(name: 'cultivation') final String? cultivation,
+    @JsonKey(name: 'duration') final List<String>? duration,
+    @JsonKey(name: 'edible_parts') final List<NamedSlug>? edibleParts,
+    @JsonKey(name: 'exposure') final List<String>? exposure,
+    @JsonKey(name: 'foliage') final List<String>? foliage,
+    @JsonKey(name: 'fragrance') final List<String>? fragrance,
+    @JsonKey(name: 'genus_description') final String? genusDescription,
+    @JsonKey(name: 'growth_tips') final List<GrowthTip>? growthTips,
+    @JsonKey(name: 'habit') final List<String>? habit,
+    @JsonKey(name: 'hardiness_zone') final String? hardinessZone,
+    @JsonKey(name: 'harvest') final List<String>? harvest,
+    @JsonKey(name: 'height_max_cm') final int? heightMaxCm,
+    @JsonKey(name: 'height_min_cm') final int? heightMinCm,
+    @JsonKey(name: 'image') final String? hostedImageUrl,
+    @JsonKey(name: 'image_url') final String? externalImageUrl,
+    @JsonKey(name: 'images') final List<PlantImageItem>? images,
+    @JsonKey(name: 'is_edible') final bool? isEdible,
+    @JsonKey(name: 'latin_name') final String? latinName,
+    @JsonKey(name: 'misc') final PlantMisc? misc,
+    @JsonKey(name: 'modified') final DateTime? modified,
+    @JsonKey(name: 'parts_color') final List<PartColorGroup>? partsColor,
+    @JsonKey(name: 'planting') final List<String>? planting,
+    @JsonKey(name: 'position_side') final List<String>? positionSide,
+    @JsonKey(name: 'position_sunlight') final List<String>? positionSunlight,
+    @JsonKey(name: 'rating') final int? rating,
+    @JsonKey(name: 'regular_events') final List<RegularEvent>? regularEvents,
+    @JsonKey(name: 'slug') final String? slug,
+    @JsonKey(name: 'soil_moisture') final List<String>? soilMoisture,
+    @JsonKey(name: 'soil_ph') final List<String>? soilPh,
+    @JsonKey(name: 'soil_types') final List<String>? soilTypes,
+    @JsonKey(name: 'sources') final List<Source>? sources,
+    @JsonKey(name: 'spread_max_cm') final int? spreadMaxCm,
+    @JsonKey(name: 'spread_min_cm') final int? spreadMinCm,
+    @JsonKey(name: 'synonyms') final List<String>? synonyms,
+    @JsonKey(name: 'tags') final List<String>? tags,
+    @JsonKey(name: 'toxicity') final List<String>? toxicity,
+    @JsonKey(name: 'years_to_max_height_max') final int? yearsToMaxHeightMax,
+    @JsonKey(name: 'years_to_max_height_min') final int? yearsToMaxHeightMin,
+  }) = _$PlantDetailsModelImpl;
 
   factory _PlantDetailsModel.fromJson(Map<String, dynamic> json) =
       _$PlantDetailsModelImpl.fromJson;
@@ -1403,13 +1434,15 @@ mixin _$CommonNameEntry {
 /// @nodoc
 abstract class $CommonNameEntryCopyWith<$Res> {
   factory $CommonNameEntryCopyWith(
-          CommonNameEntry value, $Res Function(CommonNameEntry) then) =
-      _$CommonNameEntryCopyWithImpl<$Res, CommonNameEntry>;
+    CommonNameEntry value,
+    $Res Function(CommonNameEntry) then,
+  ) = _$CommonNameEntryCopyWithImpl<$Res, CommonNameEntry>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'is_main') bool? isMain,
-      @JsonKey(name: 'lang') String? lang,
-      @JsonKey(name: 'name') String? name});
+  $Res call({
+    @JsonKey(name: 'is_main') bool? isMain,
+    @JsonKey(name: 'lang') String? lang,
+    @JsonKey(name: 'name') String? name,
+  });
 }
 
 /// @nodoc
@@ -1431,35 +1464,40 @@ class _$CommonNameEntryCopyWithImpl<$Res, $Val extends CommonNameEntry>
     Object? lang = freezed,
     Object? name = freezed,
   }) {
-    return _then(_value.copyWith(
-      isMain: freezed == isMain
-          ? _value.isMain
-          : isMain // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      lang: freezed == lang
-          ? _value.lang
-          : lang // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isMain: freezed == isMain
+                ? _value.isMain
+                : isMain // ignore: cast_nullable_to_non_nullable
+                      as bool?,
+            lang: freezed == lang
+                ? _value.lang
+                : lang // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            name: freezed == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$CommonNameEntryImplCopyWith<$Res>
     implements $CommonNameEntryCopyWith<$Res> {
-  factory _$$CommonNameEntryImplCopyWith(_$CommonNameEntryImpl value,
-          $Res Function(_$CommonNameEntryImpl) then) =
-      __$$CommonNameEntryImplCopyWithImpl<$Res>;
+  factory _$$CommonNameEntryImplCopyWith(
+    _$CommonNameEntryImpl value,
+    $Res Function(_$CommonNameEntryImpl) then,
+  ) = __$$CommonNameEntryImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'is_main') bool? isMain,
-      @JsonKey(name: 'lang') String? lang,
-      @JsonKey(name: 'name') String? name});
+  $Res call({
+    @JsonKey(name: 'is_main') bool? isMain,
+    @JsonKey(name: 'lang') String? lang,
+    @JsonKey(name: 'name') String? name,
+  });
 }
 
 /// @nodoc
@@ -1467,8 +1505,9 @@ class __$$CommonNameEntryImplCopyWithImpl<$Res>
     extends _$CommonNameEntryCopyWithImpl<$Res, _$CommonNameEntryImpl>
     implements _$$CommonNameEntryImplCopyWith<$Res> {
   __$$CommonNameEntryImplCopyWithImpl(
-      _$CommonNameEntryImpl _value, $Res Function(_$CommonNameEntryImpl) _then)
-      : super(_value, _then);
+    _$CommonNameEntryImpl _value,
+    $Res Function(_$CommonNameEntryImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of CommonNameEntry
   /// with the given fields replaced by the non-null parameter values.
@@ -1479,30 +1518,33 @@ class __$$CommonNameEntryImplCopyWithImpl<$Res>
     Object? lang = freezed,
     Object? name = freezed,
   }) {
-    return _then(_$CommonNameEntryImpl(
-      isMain: freezed == isMain
-          ? _value.isMain
-          : isMain // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      lang: freezed == lang
-          ? _value.lang
-          : lang // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    return _then(
+      _$CommonNameEntryImpl(
+        isMain: freezed == isMain
+            ? _value.isMain
+            : isMain // ignore: cast_nullable_to_non_nullable
+                  as bool?,
+        lang: freezed == lang
+            ? _value.lang
+            : lang // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        name: freezed == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$CommonNameEntryImpl implements _CommonNameEntry {
-  const _$CommonNameEntryImpl(
-      {@JsonKey(name: 'is_main') this.isMain,
-      @JsonKey(name: 'lang') this.lang,
-      @JsonKey(name: 'name') this.name});
+  const _$CommonNameEntryImpl({
+    @JsonKey(name: 'is_main') this.isMain,
+    @JsonKey(name: 'lang') this.lang,
+    @JsonKey(name: 'name') this.name,
+  });
 
   factory _$CommonNameEntryImpl.fromJson(Map<String, dynamic> json) =>
       _$$CommonNameEntryImplFromJson(json);
@@ -1543,21 +1585,22 @@ class _$CommonNameEntryImpl implements _CommonNameEntry {
   @pragma('vm:prefer-inline')
   _$$CommonNameEntryImplCopyWith<_$CommonNameEntryImpl> get copyWith =>
       __$$CommonNameEntryImplCopyWithImpl<_$CommonNameEntryImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CommonNameEntryImplToJson(
-      this,
-    );
+    return _$$CommonNameEntryImplToJson(this);
   }
 }
 
 abstract class _CommonNameEntry implements CommonNameEntry {
-  const factory _CommonNameEntry(
-      {@JsonKey(name: 'is_main') final bool? isMain,
-      @JsonKey(name: 'lang') final String? lang,
-      @JsonKey(name: 'name') final String? name}) = _$CommonNameEntryImpl;
+  const factory _CommonNameEntry({
+    @JsonKey(name: 'is_main') final bool? isMain,
+    @JsonKey(name: 'lang') final String? lang,
+    @JsonKey(name: 'name') final String? name,
+  }) = _$CommonNameEntryImpl;
 
   factory _CommonNameEntry.fromJson(Map<String, dynamic> json) =
       _$CommonNameEntryImpl.fromJson;
@@ -1606,9 +1649,10 @@ abstract class $NamedSlugCopyWith<$Res> {
   factory $NamedSlugCopyWith(NamedSlug value, $Res Function(NamedSlug) then) =
       _$NamedSlugCopyWithImpl<$Res, NamedSlug>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'name') String? name,
-      @JsonKey(name: 'slug') String? slug});
+  $Res call({
+    @JsonKey(name: 'name') String? name,
+    @JsonKey(name: 'slug') String? slug,
+  });
 }
 
 /// @nodoc
@@ -1625,20 +1669,20 @@ class _$NamedSlugCopyWithImpl<$Res, $Val extends NamedSlug>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = freezed,
-    Object? slug = freezed,
-  }) {
-    return _then(_value.copyWith(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      slug: freezed == slug
-          ? _value.slug
-          : slug // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  $Res call({Object? name = freezed, Object? slug = freezed}) {
+    return _then(
+      _value.copyWith(
+            name: freezed == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            slug: freezed == slug
+                ? _value.slug
+                : slug // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -1646,13 +1690,15 @@ class _$NamedSlugCopyWithImpl<$Res, $Val extends NamedSlug>
 abstract class _$$NamedSlugImplCopyWith<$Res>
     implements $NamedSlugCopyWith<$Res> {
   factory _$$NamedSlugImplCopyWith(
-          _$NamedSlugImpl value, $Res Function(_$NamedSlugImpl) then) =
-      __$$NamedSlugImplCopyWithImpl<$Res>;
+    _$NamedSlugImpl value,
+    $Res Function(_$NamedSlugImpl) then,
+  ) = __$$NamedSlugImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'name') String? name,
-      @JsonKey(name: 'slug') String? slug});
+  $Res call({
+    @JsonKey(name: 'name') String? name,
+    @JsonKey(name: 'slug') String? slug,
+  });
 }
 
 /// @nodoc
@@ -1660,35 +1706,37 @@ class __$$NamedSlugImplCopyWithImpl<$Res>
     extends _$NamedSlugCopyWithImpl<$Res, _$NamedSlugImpl>
     implements _$$NamedSlugImplCopyWith<$Res> {
   __$$NamedSlugImplCopyWithImpl(
-      _$NamedSlugImpl _value, $Res Function(_$NamedSlugImpl) _then)
-      : super(_value, _then);
+    _$NamedSlugImpl _value,
+    $Res Function(_$NamedSlugImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of NamedSlug
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = freezed,
-    Object? slug = freezed,
-  }) {
-    return _then(_$NamedSlugImpl(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      slug: freezed == slug
-          ? _value.slug
-          : slug // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+  $Res call({Object? name = freezed, Object? slug = freezed}) {
+    return _then(
+      _$NamedSlugImpl(
+        name: freezed == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        slug: freezed == slug
+            ? _value.slug
+            : slug // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$NamedSlugImpl implements _NamedSlug {
-  const _$NamedSlugImpl(
-      {@JsonKey(name: 'name') this.name, @JsonKey(name: 'slug') this.slug});
+  const _$NamedSlugImpl({
+    @JsonKey(name: 'name') this.name,
+    @JsonKey(name: 'slug') this.slug,
+  });
 
   factory _$NamedSlugImpl.fromJson(Map<String, dynamic> json) =>
       _$$NamedSlugImplFromJson(json);
@@ -1728,16 +1776,15 @@ class _$NamedSlugImpl implements _NamedSlug {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$NamedSlugImplToJson(
-      this,
-    );
+    return _$$NamedSlugImplToJson(this);
   }
 }
 
 abstract class _NamedSlug implements NamedSlug {
-  const factory _NamedSlug(
-      {@JsonKey(name: 'name') final String? name,
-      @JsonKey(name: 'slug') final String? slug}) = _$NamedSlugImpl;
+  const factory _NamedSlug({
+    @JsonKey(name: 'name') final String? name,
+    @JsonKey(name: 'slug') final String? slug,
+  }) = _$NamedSlugImpl;
 
   factory _NamedSlug.fromJson(Map<String, dynamic> json) =
       _$NamedSlugImpl.fromJson;
@@ -1783,9 +1830,10 @@ abstract class $GrowthTipCopyWith<$Res> {
   factory $GrowthTipCopyWith(GrowthTip value, $Res Function(GrowthTip) then) =
       _$GrowthTipCopyWithImpl<$Res, GrowthTip>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'name') String? name,
-      @JsonKey(name: 'tip_type') String? tipType});
+  $Res call({
+    @JsonKey(name: 'name') String? name,
+    @JsonKey(name: 'tip_type') String? tipType,
+  });
 }
 
 /// @nodoc
@@ -1802,20 +1850,20 @@ class _$GrowthTipCopyWithImpl<$Res, $Val extends GrowthTip>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = freezed,
-    Object? tipType = freezed,
-  }) {
-    return _then(_value.copyWith(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      tipType: freezed == tipType
-          ? _value.tipType
-          : tipType // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  $Res call({Object? name = freezed, Object? tipType = freezed}) {
+    return _then(
+      _value.copyWith(
+            name: freezed == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            tipType: freezed == tipType
+                ? _value.tipType
+                : tipType // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -1823,13 +1871,15 @@ class _$GrowthTipCopyWithImpl<$Res, $Val extends GrowthTip>
 abstract class _$$GrowthTipImplCopyWith<$Res>
     implements $GrowthTipCopyWith<$Res> {
   factory _$$GrowthTipImplCopyWith(
-          _$GrowthTipImpl value, $Res Function(_$GrowthTipImpl) then) =
-      __$$GrowthTipImplCopyWithImpl<$Res>;
+    _$GrowthTipImpl value,
+    $Res Function(_$GrowthTipImpl) then,
+  ) = __$$GrowthTipImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'name') String? name,
-      @JsonKey(name: 'tip_type') String? tipType});
+  $Res call({
+    @JsonKey(name: 'name') String? name,
+    @JsonKey(name: 'tip_type') String? tipType,
+  });
 }
 
 /// @nodoc
@@ -1837,36 +1887,37 @@ class __$$GrowthTipImplCopyWithImpl<$Res>
     extends _$GrowthTipCopyWithImpl<$Res, _$GrowthTipImpl>
     implements _$$GrowthTipImplCopyWith<$Res> {
   __$$GrowthTipImplCopyWithImpl(
-      _$GrowthTipImpl _value, $Res Function(_$GrowthTipImpl) _then)
-      : super(_value, _then);
+    _$GrowthTipImpl _value,
+    $Res Function(_$GrowthTipImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of GrowthTip
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = freezed,
-    Object? tipType = freezed,
-  }) {
-    return _then(_$GrowthTipImpl(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      tipType: freezed == tipType
-          ? _value.tipType
-          : tipType // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+  $Res call({Object? name = freezed, Object? tipType = freezed}) {
+    return _then(
+      _$GrowthTipImpl(
+        name: freezed == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        tipType: freezed == tipType
+            ? _value.tipType
+            : tipType // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$GrowthTipImpl implements _GrowthTip {
-  const _$GrowthTipImpl(
-      {@JsonKey(name: 'name') this.name,
-      @JsonKey(name: 'tip_type') this.tipType});
+  const _$GrowthTipImpl({
+    @JsonKey(name: 'name') this.name,
+    @JsonKey(name: 'tip_type') this.tipType,
+  });
 
   factory _$GrowthTipImpl.fromJson(Map<String, dynamic> json) =>
       _$$GrowthTipImplFromJson(json);
@@ -1906,16 +1957,15 @@ class _$GrowthTipImpl implements _GrowthTip {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GrowthTipImplToJson(
-      this,
-    );
+    return _$$GrowthTipImplToJson(this);
   }
 }
 
 abstract class _GrowthTip implements GrowthTip {
-  const factory _GrowthTip(
-      {@JsonKey(name: 'name') final String? name,
-      @JsonKey(name: 'tip_type') final String? tipType}) = _$GrowthTipImpl;
+  const factory _GrowthTip({
+    @JsonKey(name: 'name') final String? name,
+    @JsonKey(name: 'tip_type') final String? tipType,
+  }) = _$GrowthTipImpl;
 
   factory _GrowthTip.fromJson(Map<String, dynamic> json) =
       _$GrowthTipImpl.fromJson;
@@ -1963,14 +2013,16 @@ mixin _$PlantImageItem {
 /// @nodoc
 abstract class $PlantImageItemCopyWith<$Res> {
   factory $PlantImageItemCopyWith(
-          PlantImageItem value, $Res Function(PlantImageItem) then) =
-      _$PlantImageItemCopyWithImpl<$Res, PlantImageItem>;
+    PlantImageItem value,
+    $Res Function(PlantImageItem) then,
+  ) = _$PlantImageItemCopyWithImpl<$Res, PlantImageItem>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'image_copyright') String? imageCopyright,
-      @JsonKey(name: 'image') String? hostedImageUrl,
-      @JsonKey(name: 'image_url') String? externalImageUrl,
-      @JsonKey(name: 'part') NamedSlug? part});
+  $Res call({
+    @JsonKey(name: 'image_copyright') String? imageCopyright,
+    @JsonKey(name: 'image') String? hostedImageUrl,
+    @JsonKey(name: 'image_url') String? externalImageUrl,
+    @JsonKey(name: 'part') NamedSlug? part,
+  });
 
   $NamedSlugCopyWith<$Res>? get part;
 }
@@ -1995,24 +2047,27 @@ class _$PlantImageItemCopyWithImpl<$Res, $Val extends PlantImageItem>
     Object? externalImageUrl = freezed,
     Object? part = freezed,
   }) {
-    return _then(_value.copyWith(
-      imageCopyright: freezed == imageCopyright
-          ? _value.imageCopyright
-          : imageCopyright // ignore: cast_nullable_to_non_nullable
-              as String?,
-      hostedImageUrl: freezed == hostedImageUrl
-          ? _value.hostedImageUrl
-          : hostedImageUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      externalImageUrl: freezed == externalImageUrl
-          ? _value.externalImageUrl
-          : externalImageUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      part: freezed == part
-          ? _value.part
-          : part // ignore: cast_nullable_to_non_nullable
-              as NamedSlug?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            imageCopyright: freezed == imageCopyright
+                ? _value.imageCopyright
+                : imageCopyright // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            hostedImageUrl: freezed == hostedImageUrl
+                ? _value.hostedImageUrl
+                : hostedImageUrl // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            externalImageUrl: freezed == externalImageUrl
+                ? _value.externalImageUrl
+                : externalImageUrl // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            part: freezed == part
+                ? _value.part
+                : part // ignore: cast_nullable_to_non_nullable
+                      as NamedSlug?,
+          )
+          as $Val,
+    );
   }
 
   /// Create a copy of PlantImageItem
@@ -2033,16 +2088,18 @@ class _$PlantImageItemCopyWithImpl<$Res, $Val extends PlantImageItem>
 /// @nodoc
 abstract class _$$PlantImageItemImplCopyWith<$Res>
     implements $PlantImageItemCopyWith<$Res> {
-  factory _$$PlantImageItemImplCopyWith(_$PlantImageItemImpl value,
-          $Res Function(_$PlantImageItemImpl) then) =
-      __$$PlantImageItemImplCopyWithImpl<$Res>;
+  factory _$$PlantImageItemImplCopyWith(
+    _$PlantImageItemImpl value,
+    $Res Function(_$PlantImageItemImpl) then,
+  ) = __$$PlantImageItemImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'image_copyright') String? imageCopyright,
-      @JsonKey(name: 'image') String? hostedImageUrl,
-      @JsonKey(name: 'image_url') String? externalImageUrl,
-      @JsonKey(name: 'part') NamedSlug? part});
+  $Res call({
+    @JsonKey(name: 'image_copyright') String? imageCopyright,
+    @JsonKey(name: 'image') String? hostedImageUrl,
+    @JsonKey(name: 'image_url') String? externalImageUrl,
+    @JsonKey(name: 'part') NamedSlug? part,
+  });
 
   @override
   $NamedSlugCopyWith<$Res>? get part;
@@ -2053,8 +2110,9 @@ class __$$PlantImageItemImplCopyWithImpl<$Res>
     extends _$PlantImageItemCopyWithImpl<$Res, _$PlantImageItemImpl>
     implements _$$PlantImageItemImplCopyWith<$Res> {
   __$$PlantImageItemImplCopyWithImpl(
-      _$PlantImageItemImpl _value, $Res Function(_$PlantImageItemImpl) _then)
-      : super(_value, _then);
+    _$PlantImageItemImpl _value,
+    $Res Function(_$PlantImageItemImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of PlantImageItem
   /// with the given fields replaced by the non-null parameter values.
@@ -2066,35 +2124,38 @@ class __$$PlantImageItemImplCopyWithImpl<$Res>
     Object? externalImageUrl = freezed,
     Object? part = freezed,
   }) {
-    return _then(_$PlantImageItemImpl(
-      imageCopyright: freezed == imageCopyright
-          ? _value.imageCopyright
-          : imageCopyright // ignore: cast_nullable_to_non_nullable
-              as String?,
-      hostedImageUrl: freezed == hostedImageUrl
-          ? _value.hostedImageUrl
-          : hostedImageUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      externalImageUrl: freezed == externalImageUrl
-          ? _value.externalImageUrl
-          : externalImageUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      part: freezed == part
-          ? _value.part
-          : part // ignore: cast_nullable_to_non_nullable
-              as NamedSlug?,
-    ));
+    return _then(
+      _$PlantImageItemImpl(
+        imageCopyright: freezed == imageCopyright
+            ? _value.imageCopyright
+            : imageCopyright // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        hostedImageUrl: freezed == hostedImageUrl
+            ? _value.hostedImageUrl
+            : hostedImageUrl // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        externalImageUrl: freezed == externalImageUrl
+            ? _value.externalImageUrl
+            : externalImageUrl // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        part: freezed == part
+            ? _value.part
+            : part // ignore: cast_nullable_to_non_nullable
+                  as NamedSlug?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$PlantImageItemImpl implements _PlantImageItem {
-  const _$PlantImageItemImpl(
-      {@JsonKey(name: 'image_copyright') this.imageCopyright,
-      @JsonKey(name: 'image') this.hostedImageUrl,
-      @JsonKey(name: 'image_url') this.externalImageUrl,
-      @JsonKey(name: 'part') this.part});
+  const _$PlantImageItemImpl({
+    @JsonKey(name: 'image_copyright') this.imageCopyright,
+    @JsonKey(name: 'image') this.hostedImageUrl,
+    @JsonKey(name: 'image_url') this.externalImageUrl,
+    @JsonKey(name: 'part') this.part,
+  });
 
   factory _$PlantImageItemImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlantImageItemImplFromJson(json);
@@ -2134,7 +2195,12 @@ class _$PlantImageItemImpl implements _PlantImageItem {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, imageCopyright, hostedImageUrl, externalImageUrl, part);
+    runtimeType,
+    imageCopyright,
+    hostedImageUrl,
+    externalImageUrl,
+    part,
+  );
 
   /// Create a copy of PlantImageItem
   /// with the given fields replaced by the non-null parameter values.
@@ -2143,22 +2209,23 @@ class _$PlantImageItemImpl implements _PlantImageItem {
   @pragma('vm:prefer-inline')
   _$$PlantImageItemImplCopyWith<_$PlantImageItemImpl> get copyWith =>
       __$$PlantImageItemImplCopyWithImpl<_$PlantImageItemImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PlantImageItemImplToJson(
-      this,
-    );
+    return _$$PlantImageItemImplToJson(this);
   }
 }
 
 abstract class _PlantImageItem implements PlantImageItem {
-  const factory _PlantImageItem(
-      {@JsonKey(name: 'image_copyright') final String? imageCopyright,
-      @JsonKey(name: 'image') final String? hostedImageUrl,
-      @JsonKey(name: 'image_url') final String? externalImageUrl,
-      @JsonKey(name: 'part') final NamedSlug? part}) = _$PlantImageItemImpl;
+  const factory _PlantImageItem({
+    @JsonKey(name: 'image_copyright') final String? imageCopyright,
+    @JsonKey(name: 'image') final String? hostedImageUrl,
+    @JsonKey(name: 'image_url') final String? externalImageUrl,
+    @JsonKey(name: 'part') final NamedSlug? part,
+  }) = _$PlantImageItemImpl;
 
   factory _PlantImageItem.fromJson(Map<String, dynamic> json) =
       _$PlantImageItemImpl.fromJson;
@@ -2208,12 +2275,14 @@ mixin _$ColorEntry {
 /// @nodoc
 abstract class $ColorEntryCopyWith<$Res> {
   factory $ColorEntryCopyWith(
-          ColorEntry value, $Res Function(ColorEntry) then) =
-      _$ColorEntryCopyWithImpl<$Res, ColorEntry>;
+    ColorEntry value,
+    $Res Function(ColorEntry) then,
+  ) = _$ColorEntryCopyWithImpl<$Res, ColorEntry>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'name') String? name,
-      @JsonKey(name: 'slug') String? slug});
+  $Res call({
+    @JsonKey(name: 'name') String? name,
+    @JsonKey(name: 'slug') String? slug,
+  });
 }
 
 /// @nodoc
@@ -2230,20 +2299,20 @@ class _$ColorEntryCopyWithImpl<$Res, $Val extends ColorEntry>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = freezed,
-    Object? slug = freezed,
-  }) {
-    return _then(_value.copyWith(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      slug: freezed == slug
-          ? _value.slug
-          : slug // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  $Res call({Object? name = freezed, Object? slug = freezed}) {
+    return _then(
+      _value.copyWith(
+            name: freezed == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            slug: freezed == slug
+                ? _value.slug
+                : slug // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -2251,13 +2320,15 @@ class _$ColorEntryCopyWithImpl<$Res, $Val extends ColorEntry>
 abstract class _$$ColorEntryImplCopyWith<$Res>
     implements $ColorEntryCopyWith<$Res> {
   factory _$$ColorEntryImplCopyWith(
-          _$ColorEntryImpl value, $Res Function(_$ColorEntryImpl) then) =
-      __$$ColorEntryImplCopyWithImpl<$Res>;
+    _$ColorEntryImpl value,
+    $Res Function(_$ColorEntryImpl) then,
+  ) = __$$ColorEntryImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'name') String? name,
-      @JsonKey(name: 'slug') String? slug});
+  $Res call({
+    @JsonKey(name: 'name') String? name,
+    @JsonKey(name: 'slug') String? slug,
+  });
 }
 
 /// @nodoc
@@ -2265,35 +2336,37 @@ class __$$ColorEntryImplCopyWithImpl<$Res>
     extends _$ColorEntryCopyWithImpl<$Res, _$ColorEntryImpl>
     implements _$$ColorEntryImplCopyWith<$Res> {
   __$$ColorEntryImplCopyWithImpl(
-      _$ColorEntryImpl _value, $Res Function(_$ColorEntryImpl) _then)
-      : super(_value, _then);
+    _$ColorEntryImpl _value,
+    $Res Function(_$ColorEntryImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of ColorEntry
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = freezed,
-    Object? slug = freezed,
-  }) {
-    return _then(_$ColorEntryImpl(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      slug: freezed == slug
-          ? _value.slug
-          : slug // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+  $Res call({Object? name = freezed, Object? slug = freezed}) {
+    return _then(
+      _$ColorEntryImpl(
+        name: freezed == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        slug: freezed == slug
+            ? _value.slug
+            : slug // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$ColorEntryImpl implements _ColorEntry {
-  const _$ColorEntryImpl(
-      {@JsonKey(name: 'name') this.name, @JsonKey(name: 'slug') this.slug});
+  const _$ColorEntryImpl({
+    @JsonKey(name: 'name') this.name,
+    @JsonKey(name: 'slug') this.slug,
+  });
 
   factory _$ColorEntryImpl.fromJson(Map<String, dynamic> json) =>
       _$$ColorEntryImplFromJson(json);
@@ -2333,16 +2406,15 @@ class _$ColorEntryImpl implements _ColorEntry {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ColorEntryImplToJson(
-      this,
-    );
+    return _$$ColorEntryImplToJson(this);
   }
 }
 
 abstract class _ColorEntry implements ColorEntry {
-  const factory _ColorEntry(
-      {@JsonKey(name: 'name') final String? name,
-      @JsonKey(name: 'slug') final String? slug}) = _$ColorEntryImpl;
+  const factory _ColorEntry({
+    @JsonKey(name: 'name') final String? name,
+    @JsonKey(name: 'slug') final String? slug,
+  }) = _$ColorEntryImpl;
 
   factory _ColorEntry.fromJson(Map<String, dynamic> json) =
       _$ColorEntryImpl.fromJson;
@@ -2388,13 +2460,15 @@ mixin _$PartColorGroup {
 /// @nodoc
 abstract class $PartColorGroupCopyWith<$Res> {
   factory $PartColorGroupCopyWith(
-          PartColorGroup value, $Res Function(PartColorGroup) then) =
-      _$PartColorGroupCopyWithImpl<$Res, PartColorGroup>;
+    PartColorGroup value,
+    $Res Function(PartColorGroup) then,
+  ) = _$PartColorGroupCopyWithImpl<$Res, PartColorGroup>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'colors') List<ColorEntry>? colors,
-      @JsonKey(name: 'part') NamedSlug? part,
-      @JsonKey(name: 'season') List<String>? season});
+  $Res call({
+    @JsonKey(name: 'colors') List<ColorEntry>? colors,
+    @JsonKey(name: 'part') NamedSlug? part,
+    @JsonKey(name: 'season') List<String>? season,
+  });
 
   $NamedSlugCopyWith<$Res>? get part;
 }
@@ -2418,20 +2492,23 @@ class _$PartColorGroupCopyWithImpl<$Res, $Val extends PartColorGroup>
     Object? part = freezed,
     Object? season = freezed,
   }) {
-    return _then(_value.copyWith(
-      colors: freezed == colors
-          ? _value.colors
-          : colors // ignore: cast_nullable_to_non_nullable
-              as List<ColorEntry>?,
-      part: freezed == part
-          ? _value.part
-          : part // ignore: cast_nullable_to_non_nullable
-              as NamedSlug?,
-      season: freezed == season
-          ? _value.season
-          : season // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            colors: freezed == colors
+                ? _value.colors
+                : colors // ignore: cast_nullable_to_non_nullable
+                      as List<ColorEntry>?,
+            part: freezed == part
+                ? _value.part
+                : part // ignore: cast_nullable_to_non_nullable
+                      as NamedSlug?,
+            season: freezed == season
+                ? _value.season
+                : season // ignore: cast_nullable_to_non_nullable
+                      as List<String>?,
+          )
+          as $Val,
+    );
   }
 
   /// Create a copy of PartColorGroup
@@ -2452,15 +2529,17 @@ class _$PartColorGroupCopyWithImpl<$Res, $Val extends PartColorGroup>
 /// @nodoc
 abstract class _$$PartColorGroupImplCopyWith<$Res>
     implements $PartColorGroupCopyWith<$Res> {
-  factory _$$PartColorGroupImplCopyWith(_$PartColorGroupImpl value,
-          $Res Function(_$PartColorGroupImpl) then) =
-      __$$PartColorGroupImplCopyWithImpl<$Res>;
+  factory _$$PartColorGroupImplCopyWith(
+    _$PartColorGroupImpl value,
+    $Res Function(_$PartColorGroupImpl) then,
+  ) = __$$PartColorGroupImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'colors') List<ColorEntry>? colors,
-      @JsonKey(name: 'part') NamedSlug? part,
-      @JsonKey(name: 'season') List<String>? season});
+  $Res call({
+    @JsonKey(name: 'colors') List<ColorEntry>? colors,
+    @JsonKey(name: 'part') NamedSlug? part,
+    @JsonKey(name: 'season') List<String>? season,
+  });
 
   @override
   $NamedSlugCopyWith<$Res>? get part;
@@ -2471,8 +2550,9 @@ class __$$PartColorGroupImplCopyWithImpl<$Res>
     extends _$PartColorGroupCopyWithImpl<$Res, _$PartColorGroupImpl>
     implements _$$PartColorGroupImplCopyWith<$Res> {
   __$$PartColorGroupImplCopyWithImpl(
-      _$PartColorGroupImpl _value, $Res Function(_$PartColorGroupImpl) _then)
-      : super(_value, _then);
+    _$PartColorGroupImpl _value,
+    $Res Function(_$PartColorGroupImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of PartColorGroup
   /// with the given fields replaced by the non-null parameter values.
@@ -2483,32 +2563,34 @@ class __$$PartColorGroupImplCopyWithImpl<$Res>
     Object? part = freezed,
     Object? season = freezed,
   }) {
-    return _then(_$PartColorGroupImpl(
-      colors: freezed == colors
-          ? _value._colors
-          : colors // ignore: cast_nullable_to_non_nullable
-              as List<ColorEntry>?,
-      part: freezed == part
-          ? _value.part
-          : part // ignore: cast_nullable_to_non_nullable
-              as NamedSlug?,
-      season: freezed == season
-          ? _value._season
-          : season // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-    ));
+    return _then(
+      _$PartColorGroupImpl(
+        colors: freezed == colors
+            ? _value._colors
+            : colors // ignore: cast_nullable_to_non_nullable
+                  as List<ColorEntry>?,
+        part: freezed == part
+            ? _value.part
+            : part // ignore: cast_nullable_to_non_nullable
+                  as NamedSlug?,
+        season: freezed == season
+            ? _value._season
+            : season // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$PartColorGroupImpl implements _PartColorGroup {
-  const _$PartColorGroupImpl(
-      {@JsonKey(name: 'colors') final List<ColorEntry>? colors,
-      @JsonKey(name: 'part') this.part,
-      @JsonKey(name: 'season') final List<String>? season})
-      : _colors = colors,
-        _season = season;
+  const _$PartColorGroupImpl({
+    @JsonKey(name: 'colors') final List<ColorEntry>? colors,
+    @JsonKey(name: 'part') this.part,
+    @JsonKey(name: 'season') final List<String>? season,
+  }) : _colors = colors,
+       _season = season;
 
   factory _$PartColorGroupImpl.fromJson(Map<String, dynamic> json) =>
       _$$PartColorGroupImplFromJson(json);
@@ -2556,10 +2638,11 @@ class _$PartColorGroupImpl implements _PartColorGroup {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_colors),
-      part,
-      const DeepCollectionEquality().hash(_season));
+    runtimeType,
+    const DeepCollectionEquality().hash(_colors),
+    part,
+    const DeepCollectionEquality().hash(_season),
+  );
 
   /// Create a copy of PartColorGroup
   /// with the given fields replaced by the non-null parameter values.
@@ -2568,22 +2651,22 @@ class _$PartColorGroupImpl implements _PartColorGroup {
   @pragma('vm:prefer-inline')
   _$$PartColorGroupImplCopyWith<_$PartColorGroupImpl> get copyWith =>
       __$$PartColorGroupImplCopyWithImpl<_$PartColorGroupImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PartColorGroupImplToJson(
-      this,
-    );
+    return _$$PartColorGroupImplToJson(this);
   }
 }
 
 abstract class _PartColorGroup implements PartColorGroup {
-  const factory _PartColorGroup(
-          {@JsonKey(name: 'colors') final List<ColorEntry>? colors,
-          @JsonKey(name: 'part') final NamedSlug? part,
-          @JsonKey(name: 'season') final List<String>? season}) =
-      _$PartColorGroupImpl;
+  const factory _PartColorGroup({
+    @JsonKey(name: 'colors') final List<ColorEntry>? colors,
+    @JsonKey(name: 'part') final NamedSlug? part,
+    @JsonKey(name: 'season') final List<String>? season,
+  }) = _$PartColorGroupImpl;
 
   factory _PartColorGroup.fromJson(Map<String, dynamic> json) =
       _$PartColorGroupImpl.fromJson;
@@ -2630,12 +2713,14 @@ mixin _$PathogenItem {
 /// @nodoc
 abstract class $PathogenItemCopyWith<$Res> {
   factory $PathogenItemCopyWith(
-          PathogenItem value, $Res Function(PathogenItem) then) =
-      _$PathogenItemCopyWithImpl<$Res, PathogenItem>;
+    PathogenItem value,
+    $Res Function(PathogenItem) then,
+  ) = _$PathogenItemCopyWithImpl<$Res, PathogenItem>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'name') String? name,
-      @JsonKey(name: 'pathogen_type') String? pathogenType});
+  $Res call({
+    @JsonKey(name: 'name') String? name,
+    @JsonKey(name: 'pathogen_type') String? pathogenType,
+  });
 }
 
 /// @nodoc
@@ -2652,20 +2737,20 @@ class _$PathogenItemCopyWithImpl<$Res, $Val extends PathogenItem>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = freezed,
-    Object? pathogenType = freezed,
-  }) {
-    return _then(_value.copyWith(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      pathogenType: freezed == pathogenType
-          ? _value.pathogenType
-          : pathogenType // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  $Res call({Object? name = freezed, Object? pathogenType = freezed}) {
+    return _then(
+      _value.copyWith(
+            name: freezed == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            pathogenType: freezed == pathogenType
+                ? _value.pathogenType
+                : pathogenType // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -2673,13 +2758,15 @@ class _$PathogenItemCopyWithImpl<$Res, $Val extends PathogenItem>
 abstract class _$$PathogenItemImplCopyWith<$Res>
     implements $PathogenItemCopyWith<$Res> {
   factory _$$PathogenItemImplCopyWith(
-          _$PathogenItemImpl value, $Res Function(_$PathogenItemImpl) then) =
-      __$$PathogenItemImplCopyWithImpl<$Res>;
+    _$PathogenItemImpl value,
+    $Res Function(_$PathogenItemImpl) then,
+  ) = __$$PathogenItemImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'name') String? name,
-      @JsonKey(name: 'pathogen_type') String? pathogenType});
+  $Res call({
+    @JsonKey(name: 'name') String? name,
+    @JsonKey(name: 'pathogen_type') String? pathogenType,
+  });
 }
 
 /// @nodoc
@@ -2687,36 +2774,37 @@ class __$$PathogenItemImplCopyWithImpl<$Res>
     extends _$PathogenItemCopyWithImpl<$Res, _$PathogenItemImpl>
     implements _$$PathogenItemImplCopyWith<$Res> {
   __$$PathogenItemImplCopyWithImpl(
-      _$PathogenItemImpl _value, $Res Function(_$PathogenItemImpl) _then)
-      : super(_value, _then);
+    _$PathogenItemImpl _value,
+    $Res Function(_$PathogenItemImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of PathogenItem
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = freezed,
-    Object? pathogenType = freezed,
-  }) {
-    return _then(_$PathogenItemImpl(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      pathogenType: freezed == pathogenType
-          ? _value.pathogenType
-          : pathogenType // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+  $Res call({Object? name = freezed, Object? pathogenType = freezed}) {
+    return _then(
+      _$PathogenItemImpl(
+        name: freezed == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        pathogenType: freezed == pathogenType
+            ? _value.pathogenType
+            : pathogenType // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$PathogenItemImpl implements _PathogenItem {
-  const _$PathogenItemImpl(
-      {@JsonKey(name: 'name') this.name,
-      @JsonKey(name: 'pathogen_type') this.pathogenType});
+  const _$PathogenItemImpl({
+    @JsonKey(name: 'name') this.name,
+    @JsonKey(name: 'pathogen_type') this.pathogenType,
+  });
 
   factory _$PathogenItemImpl.fromJson(Map<String, dynamic> json) =>
       _$$PathogenItemImplFromJson(json);
@@ -2757,17 +2845,15 @@ class _$PathogenItemImpl implements _PathogenItem {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PathogenItemImplToJson(
-      this,
-    );
+    return _$$PathogenItemImplToJson(this);
   }
 }
 
 abstract class _PathogenItem implements PathogenItem {
-  const factory _PathogenItem(
-          {@JsonKey(name: 'name') final String? name,
-          @JsonKey(name: 'pathogen_type') final String? pathogenType}) =
-      _$PathogenItemImpl;
+  const factory _PathogenItem({
+    @JsonKey(name: 'name') final String? name,
+    @JsonKey(name: 'pathogen_type') final String? pathogenType,
+  }) = _$PathogenItemImpl;
 
   factory _PathogenItem.fromJson(Map<String, dynamic> json) =
       _$PathogenItemImpl.fromJson;
@@ -2817,15 +2903,17 @@ mixin _$RegularEvent {
 /// @nodoc
 abstract class $RegularEventCopyWith<$Res> {
   factory $RegularEventCopyWith(
-          RegularEvent value, $Res Function(RegularEvent) then) =
-      _$RegularEventCopyWithImpl<$Res, RegularEvent>;
+    RegularEvent value,
+    $Res Function(RegularEvent) then,
+  ) = _$RegularEventCopyWithImpl<$Res, RegularEvent>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'interval_max') int? intervalMax,
-      @JsonKey(name: 'interval_min') int? intervalMin,
-      @JsonKey(name: 'interval_unit') String? intervalUnit,
-      @JsonKey(name: 'name') String? name,
-      @JsonKey(name: 'repetition_count') int? repetitionCount});
+  $Res call({
+    @JsonKey(name: 'interval_max') int? intervalMax,
+    @JsonKey(name: 'interval_min') int? intervalMin,
+    @JsonKey(name: 'interval_unit') String? intervalUnit,
+    @JsonKey(name: 'name') String? name,
+    @JsonKey(name: 'repetition_count') int? repetitionCount,
+  });
 }
 
 /// @nodoc
@@ -2849,28 +2937,31 @@ class _$RegularEventCopyWithImpl<$Res, $Val extends RegularEvent>
     Object? name = freezed,
     Object? repetitionCount = freezed,
   }) {
-    return _then(_value.copyWith(
-      intervalMax: freezed == intervalMax
-          ? _value.intervalMax
-          : intervalMax // ignore: cast_nullable_to_non_nullable
-              as int?,
-      intervalMin: freezed == intervalMin
-          ? _value.intervalMin
-          : intervalMin // ignore: cast_nullable_to_non_nullable
-              as int?,
-      intervalUnit: freezed == intervalUnit
-          ? _value.intervalUnit
-          : intervalUnit // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      repetitionCount: freezed == repetitionCount
-          ? _value.repetitionCount
-          : repetitionCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            intervalMax: freezed == intervalMax
+                ? _value.intervalMax
+                : intervalMax // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            intervalMin: freezed == intervalMin
+                ? _value.intervalMin
+                : intervalMin // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            intervalUnit: freezed == intervalUnit
+                ? _value.intervalUnit
+                : intervalUnit // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            name: freezed == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            repetitionCount: freezed == repetitionCount
+                ? _value.repetitionCount
+                : repetitionCount // ignore: cast_nullable_to_non_nullable
+                      as int?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -2878,16 +2969,18 @@ class _$RegularEventCopyWithImpl<$Res, $Val extends RegularEvent>
 abstract class _$$RegularEventImplCopyWith<$Res>
     implements $RegularEventCopyWith<$Res> {
   factory _$$RegularEventImplCopyWith(
-          _$RegularEventImpl value, $Res Function(_$RegularEventImpl) then) =
-      __$$RegularEventImplCopyWithImpl<$Res>;
+    _$RegularEventImpl value,
+    $Res Function(_$RegularEventImpl) then,
+  ) = __$$RegularEventImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'interval_max') int? intervalMax,
-      @JsonKey(name: 'interval_min') int? intervalMin,
-      @JsonKey(name: 'interval_unit') String? intervalUnit,
-      @JsonKey(name: 'name') String? name,
-      @JsonKey(name: 'repetition_count') int? repetitionCount});
+  $Res call({
+    @JsonKey(name: 'interval_max') int? intervalMax,
+    @JsonKey(name: 'interval_min') int? intervalMin,
+    @JsonKey(name: 'interval_unit') String? intervalUnit,
+    @JsonKey(name: 'name') String? name,
+    @JsonKey(name: 'repetition_count') int? repetitionCount,
+  });
 }
 
 /// @nodoc
@@ -2895,8 +2988,9 @@ class __$$RegularEventImplCopyWithImpl<$Res>
     extends _$RegularEventCopyWithImpl<$Res, _$RegularEventImpl>
     implements _$$RegularEventImplCopyWith<$Res> {
   __$$RegularEventImplCopyWithImpl(
-      _$RegularEventImpl _value, $Res Function(_$RegularEventImpl) _then)
-      : super(_value, _then);
+    _$RegularEventImpl _value,
+    $Res Function(_$RegularEventImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RegularEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -2909,40 +3003,43 @@ class __$$RegularEventImplCopyWithImpl<$Res>
     Object? name = freezed,
     Object? repetitionCount = freezed,
   }) {
-    return _then(_$RegularEventImpl(
-      intervalMax: freezed == intervalMax
-          ? _value.intervalMax
-          : intervalMax // ignore: cast_nullable_to_non_nullable
-              as int?,
-      intervalMin: freezed == intervalMin
-          ? _value.intervalMin
-          : intervalMin // ignore: cast_nullable_to_non_nullable
-              as int?,
-      intervalUnit: freezed == intervalUnit
-          ? _value.intervalUnit
-          : intervalUnit // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      repetitionCount: freezed == repetitionCount
-          ? _value.repetitionCount
-          : repetitionCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ));
+    return _then(
+      _$RegularEventImpl(
+        intervalMax: freezed == intervalMax
+            ? _value.intervalMax
+            : intervalMax // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        intervalMin: freezed == intervalMin
+            ? _value.intervalMin
+            : intervalMin // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        intervalUnit: freezed == intervalUnit
+            ? _value.intervalUnit
+            : intervalUnit // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        name: freezed == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        repetitionCount: freezed == repetitionCount
+            ? _value.repetitionCount
+            : repetitionCount // ignore: cast_nullable_to_non_nullable
+                  as int?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$RegularEventImpl implements _RegularEvent {
-  const _$RegularEventImpl(
-      {@JsonKey(name: 'interval_max') this.intervalMax,
-      @JsonKey(name: 'interval_min') this.intervalMin,
-      @JsonKey(name: 'interval_unit') this.intervalUnit,
-      @JsonKey(name: 'name') this.name,
-      @JsonKey(name: 'repetition_count') this.repetitionCount});
+  const _$RegularEventImpl({
+    @JsonKey(name: 'interval_max') this.intervalMax,
+    @JsonKey(name: 'interval_min') this.intervalMin,
+    @JsonKey(name: 'interval_unit') this.intervalUnit,
+    @JsonKey(name: 'name') this.name,
+    @JsonKey(name: 'repetition_count') this.repetitionCount,
+  });
 
   factory _$RegularEventImpl.fromJson(Map<String, dynamic> json) =>
       _$$RegularEventImplFromJson(json);
@@ -2986,8 +3083,14 @@ class _$RegularEventImpl implements _RegularEvent {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, intervalMax, intervalMin,
-      intervalUnit, name, repetitionCount);
+  int get hashCode => Object.hash(
+    runtimeType,
+    intervalMax,
+    intervalMin,
+    intervalUnit,
+    name,
+    repetitionCount,
+  );
 
   /// Create a copy of RegularEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -2999,20 +3102,18 @@ class _$RegularEventImpl implements _RegularEvent {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$RegularEventImplToJson(
-      this,
-    );
+    return _$$RegularEventImplToJson(this);
   }
 }
 
 abstract class _RegularEvent implements RegularEvent {
-  const factory _RegularEvent(
-          {@JsonKey(name: 'interval_max') final int? intervalMax,
-          @JsonKey(name: 'interval_min') final int? intervalMin,
-          @JsonKey(name: 'interval_unit') final String? intervalUnit,
-          @JsonKey(name: 'name') final String? name,
-          @JsonKey(name: 'repetition_count') final int? repetitionCount}) =
-      _$RegularEventImpl;
+  const factory _RegularEvent({
+    @JsonKey(name: 'interval_max') final int? intervalMax,
+    @JsonKey(name: 'interval_min') final int? intervalMin,
+    @JsonKey(name: 'interval_unit') final String? intervalUnit,
+    @JsonKey(name: 'name') final String? name,
+    @JsonKey(name: 'repetition_count') final int? repetitionCount,
+  }) = _$RegularEventImpl;
 
   factory _RegularEvent.fromJson(Map<String, dynamic> json) =
       _$RegularEventImpl.fromJson;
@@ -3067,8 +3168,10 @@ abstract class $PlantMiscCopyWith<$Res> {
   factory $PlantMiscCopyWith(PlantMisc value, $Res Function(PlantMisc) then) =
       _$PlantMiscCopyWithImpl<$Res, PlantMisc>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'rank') String? rank, @JsonKey(name: 'year') int? year});
+  $Res call({
+    @JsonKey(name: 'rank') String? rank,
+    @JsonKey(name: 'year') int? year,
+  });
 }
 
 /// @nodoc
@@ -3085,20 +3188,20 @@ class _$PlantMiscCopyWithImpl<$Res, $Val extends PlantMisc>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? rank = freezed,
-    Object? year = freezed,
-  }) {
-    return _then(_value.copyWith(
-      rank: freezed == rank
-          ? _value.rank
-          : rank // ignore: cast_nullable_to_non_nullable
-              as String?,
-      year: freezed == year
-          ? _value.year
-          : year // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
+  $Res call({Object? rank = freezed, Object? year = freezed}) {
+    return _then(
+      _value.copyWith(
+            rank: freezed == rank
+                ? _value.rank
+                : rank // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            year: freezed == year
+                ? _value.year
+                : year // ignore: cast_nullable_to_non_nullable
+                      as int?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -3106,12 +3209,15 @@ class _$PlantMiscCopyWithImpl<$Res, $Val extends PlantMisc>
 abstract class _$$PlantMiscImplCopyWith<$Res>
     implements $PlantMiscCopyWith<$Res> {
   factory _$$PlantMiscImplCopyWith(
-          _$PlantMiscImpl value, $Res Function(_$PlantMiscImpl) then) =
-      __$$PlantMiscImplCopyWithImpl<$Res>;
+    _$PlantMiscImpl value,
+    $Res Function(_$PlantMiscImpl) then,
+  ) = __$$PlantMiscImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'rank') String? rank, @JsonKey(name: 'year') int? year});
+  $Res call({
+    @JsonKey(name: 'rank') String? rank,
+    @JsonKey(name: 'year') int? year,
+  });
 }
 
 /// @nodoc
@@ -3119,35 +3225,37 @@ class __$$PlantMiscImplCopyWithImpl<$Res>
     extends _$PlantMiscCopyWithImpl<$Res, _$PlantMiscImpl>
     implements _$$PlantMiscImplCopyWith<$Res> {
   __$$PlantMiscImplCopyWithImpl(
-      _$PlantMiscImpl _value, $Res Function(_$PlantMiscImpl) _then)
-      : super(_value, _then);
+    _$PlantMiscImpl _value,
+    $Res Function(_$PlantMiscImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of PlantMisc
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? rank = freezed,
-    Object? year = freezed,
-  }) {
-    return _then(_$PlantMiscImpl(
-      rank: freezed == rank
-          ? _value.rank
-          : rank // ignore: cast_nullable_to_non_nullable
-              as String?,
-      year: freezed == year
-          ? _value.year
-          : year // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ));
+  $Res call({Object? rank = freezed, Object? year = freezed}) {
+    return _then(
+      _$PlantMiscImpl(
+        rank: freezed == rank
+            ? _value.rank
+            : rank // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        year: freezed == year
+            ? _value.year
+            : year // ignore: cast_nullable_to_non_nullable
+                  as int?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$PlantMiscImpl implements _PlantMisc {
-  const _$PlantMiscImpl(
-      {@JsonKey(name: 'rank') this.rank, @JsonKey(name: 'year') this.year});
+  const _$PlantMiscImpl({
+    @JsonKey(name: 'rank') this.rank,
+    @JsonKey(name: 'year') this.year,
+  });
 
   factory _$PlantMiscImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlantMiscImplFromJson(json);
@@ -3187,16 +3295,15 @@ class _$PlantMiscImpl implements _PlantMisc {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PlantMiscImplToJson(
-      this,
-    );
+    return _$$PlantMiscImplToJson(this);
   }
 }
 
 abstract class _PlantMisc implements PlantMisc {
-  const factory _PlantMisc(
-      {@JsonKey(name: 'rank') final String? rank,
-      @JsonKey(name: 'year') final int? year}) = _$PlantMiscImpl;
+  const factory _PlantMisc({
+    @JsonKey(name: 'rank') final String? rank,
+    @JsonKey(name: 'year') final int? year,
+  }) = _$PlantMiscImpl;
 
   factory _PlantMisc.fromJson(Map<String, dynamic> json) =
       _$PlantMiscImpl.fromJson;
@@ -3238,8 +3345,9 @@ mixin _$SynonymItem {
 /// @nodoc
 abstract class $SynonymItemCopyWith<$Res> {
   factory $SynonymItemCopyWith(
-          SynonymItem value, $Res Function(SynonymItem) then) =
-      _$SynonymItemCopyWithImpl<$Res, SynonymItem>;
+    SynonymItem value,
+    $Res Function(SynonymItem) then,
+  ) = _$SynonymItemCopyWithImpl<$Res, SynonymItem>;
   @useResult
   $Res call({@JsonKey(name: 'name') String? name});
 }
@@ -3258,15 +3366,16 @@ class _$SynonymItemCopyWithImpl<$Res, $Val extends SynonymItem>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = freezed,
-  }) {
-    return _then(_value.copyWith(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  $Res call({Object? name = freezed}) {
+    return _then(
+      _value.copyWith(
+            name: freezed == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -3274,8 +3383,9 @@ class _$SynonymItemCopyWithImpl<$Res, $Val extends SynonymItem>
 abstract class _$$SynonymItemImplCopyWith<$Res>
     implements $SynonymItemCopyWith<$Res> {
   factory _$$SynonymItemImplCopyWith(
-          _$SynonymItemImpl value, $Res Function(_$SynonymItemImpl) then) =
-      __$$SynonymItemImplCopyWithImpl<$Res>;
+    _$SynonymItemImpl value,
+    $Res Function(_$SynonymItemImpl) then,
+  ) = __$$SynonymItemImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@JsonKey(name: 'name') String? name});
@@ -3286,22 +3396,23 @@ class __$$SynonymItemImplCopyWithImpl<$Res>
     extends _$SynonymItemCopyWithImpl<$Res, _$SynonymItemImpl>
     implements _$$SynonymItemImplCopyWith<$Res> {
   __$$SynonymItemImplCopyWithImpl(
-      _$SynonymItemImpl _value, $Res Function(_$SynonymItemImpl) _then)
-      : super(_value, _then);
+    _$SynonymItemImpl _value,
+    $Res Function(_$SynonymItemImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SynonymItem
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = freezed,
-  }) {
-    return _then(_$SynonymItemImpl(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+  $Res call({Object? name = freezed}) {
+    return _then(
+      _$SynonymItemImpl(
+        name: freezed == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
@@ -3344,9 +3455,7 @@ class _$SynonymItemImpl implements _SynonymItem {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SynonymItemImplToJson(
-      this,
-    );
+    return _$$SynonymItemImplToJson(this);
   }
 }
 
@@ -3410,15 +3519,16 @@ class _$PlantTagCopyWithImpl<$Res, $Val extends PlantTag>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = freezed,
-  }) {
-    return _then(_value.copyWith(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  $Res call({Object? name = freezed}) {
+    return _then(
+      _value.copyWith(
+            name: freezed == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -3426,8 +3536,9 @@ class _$PlantTagCopyWithImpl<$Res, $Val extends PlantTag>
 abstract class _$$PlantTagImplCopyWith<$Res>
     implements $PlantTagCopyWith<$Res> {
   factory _$$PlantTagImplCopyWith(
-          _$PlantTagImpl value, $Res Function(_$PlantTagImpl) then) =
-      __$$PlantTagImplCopyWithImpl<$Res>;
+    _$PlantTagImpl value,
+    $Res Function(_$PlantTagImpl) then,
+  ) = __$$PlantTagImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@JsonKey(name: 'name') String? name});
@@ -3438,22 +3549,23 @@ class __$$PlantTagImplCopyWithImpl<$Res>
     extends _$PlantTagCopyWithImpl<$Res, _$PlantTagImpl>
     implements _$$PlantTagImplCopyWith<$Res> {
   __$$PlantTagImplCopyWithImpl(
-      _$PlantTagImpl _value, $Res Function(_$PlantTagImpl) _then)
-      : super(_value, _then);
+    _$PlantTagImpl _value,
+    $Res Function(_$PlantTagImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of PlantTag
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = freezed,
-  }) {
-    return _then(_$PlantTagImpl(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+  $Res call({Object? name = freezed}) {
+    return _then(
+      _$PlantTagImpl(
+        name: freezed == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
@@ -3496,9 +3608,7 @@ class _$PlantTagImpl implements _PlantTag {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PlantTagImplToJson(
-      this,
-    );
+    return _$$PlantTagImplToJson(this);
   }
 }
 
@@ -3552,12 +3662,13 @@ abstract class $SourceCopyWith<$Res> {
   factory $SourceCopyWith(Source value, $Res Function(Source) then) =
       _$SourceCopyWithImpl<$Res, Source>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'last_update') DateTime? lastUpdate,
-      @JsonKey(name: 'sid') String? sid,
-      @JsonKey(name: 'name') String? name,
-      @JsonKey(name: 'source_url') String? sourceUrl,
-      @JsonKey(name: 'citation') String? citation});
+  $Res call({
+    @JsonKey(name: 'last_update') DateTime? lastUpdate,
+    @JsonKey(name: 'sid') String? sid,
+    @JsonKey(name: 'name') String? name,
+    @JsonKey(name: 'source_url') String? sourceUrl,
+    @JsonKey(name: 'citation') String? citation,
+  });
 }
 
 /// @nodoc
@@ -3581,44 +3692,49 @@ class _$SourceCopyWithImpl<$Res, $Val extends Source>
     Object? sourceUrl = freezed,
     Object? citation = freezed,
   }) {
-    return _then(_value.copyWith(
-      lastUpdate: freezed == lastUpdate
-          ? _value.lastUpdate
-          : lastUpdate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      sid: freezed == sid
-          ? _value.sid
-          : sid // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      sourceUrl: freezed == sourceUrl
-          ? _value.sourceUrl
-          : sourceUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      citation: freezed == citation
-          ? _value.citation
-          : citation // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            lastUpdate: freezed == lastUpdate
+                ? _value.lastUpdate
+                : lastUpdate // ignore: cast_nullable_to_non_nullable
+                      as DateTime?,
+            sid: freezed == sid
+                ? _value.sid
+                : sid // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            name: freezed == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            sourceUrl: freezed == sourceUrl
+                ? _value.sourceUrl
+                : sourceUrl // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            citation: freezed == citation
+                ? _value.citation
+                : citation // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$SourceImplCopyWith<$Res> implements $SourceCopyWith<$Res> {
   factory _$$SourceImplCopyWith(
-          _$SourceImpl value, $Res Function(_$SourceImpl) then) =
-      __$$SourceImplCopyWithImpl<$Res>;
+    _$SourceImpl value,
+    $Res Function(_$SourceImpl) then,
+  ) = __$$SourceImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'last_update') DateTime? lastUpdate,
-      @JsonKey(name: 'sid') String? sid,
-      @JsonKey(name: 'name') String? name,
-      @JsonKey(name: 'source_url') String? sourceUrl,
-      @JsonKey(name: 'citation') String? citation});
+  $Res call({
+    @JsonKey(name: 'last_update') DateTime? lastUpdate,
+    @JsonKey(name: 'sid') String? sid,
+    @JsonKey(name: 'name') String? name,
+    @JsonKey(name: 'source_url') String? sourceUrl,
+    @JsonKey(name: 'citation') String? citation,
+  });
 }
 
 /// @nodoc
@@ -3626,8 +3742,9 @@ class __$$SourceImplCopyWithImpl<$Res>
     extends _$SourceCopyWithImpl<$Res, _$SourceImpl>
     implements _$$SourceImplCopyWith<$Res> {
   __$$SourceImplCopyWithImpl(
-      _$SourceImpl _value, $Res Function(_$SourceImpl) _then)
-      : super(_value, _then);
+    _$SourceImpl _value,
+    $Res Function(_$SourceImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of Source
   /// with the given fields replaced by the non-null parameter values.
@@ -3640,40 +3757,43 @@ class __$$SourceImplCopyWithImpl<$Res>
     Object? sourceUrl = freezed,
     Object? citation = freezed,
   }) {
-    return _then(_$SourceImpl(
-      lastUpdate: freezed == lastUpdate
-          ? _value.lastUpdate
-          : lastUpdate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      sid: freezed == sid
-          ? _value.sid
-          : sid // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      sourceUrl: freezed == sourceUrl
-          ? _value.sourceUrl
-          : sourceUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      citation: freezed == citation
-          ? _value.citation
-          : citation // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    return _then(
+      _$SourceImpl(
+        lastUpdate: freezed == lastUpdate
+            ? _value.lastUpdate
+            : lastUpdate // ignore: cast_nullable_to_non_nullable
+                  as DateTime?,
+        sid: freezed == sid
+            ? _value.sid
+            : sid // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        name: freezed == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        sourceUrl: freezed == sourceUrl
+            ? _value.sourceUrl
+            : sourceUrl // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        citation: freezed == citation
+            ? _value.citation
+            : citation // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$SourceImpl implements _Source {
-  const _$SourceImpl(
-      {@JsonKey(name: 'last_update') this.lastUpdate,
-      @JsonKey(name: 'sid') this.sid,
-      @JsonKey(name: 'name') this.name,
-      @JsonKey(name: 'source_url') this.sourceUrl,
-      @JsonKey(name: 'citation') this.citation});
+  const _$SourceImpl({
+    @JsonKey(name: 'last_update') this.lastUpdate,
+    @JsonKey(name: 'sid') this.sid,
+    @JsonKey(name: 'name') this.name,
+    @JsonKey(name: 'source_url') this.sourceUrl,
+    @JsonKey(name: 'citation') this.citation,
+  });
 
   factory _$SourceImpl.fromJson(Map<String, dynamic> json) =>
       _$$SourceImplFromJson(json);
@@ -3729,19 +3849,18 @@ class _$SourceImpl implements _Source {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SourceImplToJson(
-      this,
-    );
+    return _$$SourceImplToJson(this);
   }
 }
 
 abstract class _Source implements Source {
-  const factory _Source(
-      {@JsonKey(name: 'last_update') final DateTime? lastUpdate,
-      @JsonKey(name: 'sid') final String? sid,
-      @JsonKey(name: 'name') final String? name,
-      @JsonKey(name: 'source_url') final String? sourceUrl,
-      @JsonKey(name: 'citation') final String? citation}) = _$SourceImpl;
+  const factory _Source({
+    @JsonKey(name: 'last_update') final DateTime? lastUpdate,
+    @JsonKey(name: 'sid') final String? sid,
+    @JsonKey(name: 'name') final String? name,
+    @JsonKey(name: 'source_url') final String? sourceUrl,
+    @JsonKey(name: 'citation') final String? citation,
+  }) = _$SourceImpl;
 
   factory _Source.fromJson(Map<String, dynamic> json) = _$SourceImpl.fromJson;
 

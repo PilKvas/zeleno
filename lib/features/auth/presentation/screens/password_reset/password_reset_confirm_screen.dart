@@ -15,19 +15,15 @@ import 'package:zeleno_v2/uikit/theme/export.dart';
 
 @RoutePage()
 class PasswordResetConfirmScreen extends StatelessWidget {
-  const PasswordResetConfirmScreen({
-    super.key,
-    required this.token,
-  });
+  const PasswordResetConfirmScreen({super.key, required this.token});
 
   final String token;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => PasswordResetConfirmCubit(
-        authRepository: injection(),
-      ),
+      create: (context) =>
+          PasswordResetConfirmCubit(authRepository: injection()),
       child: _Content(token: token),
     );
   }
@@ -60,15 +56,20 @@ class _Content extends StatelessWidget {
         }
       },
       child: Scaffold(
-        appBar:
-            AppBar(title: Text(context.l10n.forgotPasswordNewPasswordTitle)),
+        appBar: AppBar(
+          title: Text(context.l10n.forgotPasswordNewPasswordTitle),
+        ),
         body: SafeArea(
           child: Stack(
             children: [
               const Positioned.fill(child: AuthBackground()),
               SingleChildScrollView(
                 padding: EdgeInsets.fromLTRB(
-                    16, MediaQuery.sizeOf(context).height * 0.22, 16, 24),
+                  16,
+                  MediaQuery.sizeOf(context).height * 0.22,
+                  16,
+                  24,
+                ),
                 child: _ConfirmForm(token: token),
               ),
             ],
@@ -128,8 +129,10 @@ class _ConfirmFormState extends State<_ConfirmForm> {
             fillColor: colors.surface,
             isPassword: true,
             hintText: context.l10n.confirmPasswordHint,
-            validator:
-                Validator.confirmPassword(context.l10n, _passwordController),
+            validator: Validator.confirmPassword(
+              context.l10n,
+              _passwordController,
+            ),
           ),
           const SizedBox(height: 24),
           BlocBuilder<PasswordResetConfirmCubit, PasswordResetConfirmState>(
@@ -152,8 +155,8 @@ class _ConfirmFormState extends State<_ConfirmForm> {
   void _onContinuePressed(BuildContext context) {
     if (!(_formKey.currentState?.validate() ?? false)) return;
     context.read<PasswordResetConfirmCubit>().confirmPasswordReset(
-          token: widget.token,
-          newPassword: _passwordController.text.trim(),
-        );
+      token: widget.token,
+      newPassword: _passwordController.text.trim(),
+    );
   }
 }

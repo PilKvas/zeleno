@@ -167,11 +167,11 @@ class _GardenPlantsService implements GardenPlantsService {
     _data.files.addAll(image.map((i) => MapEntry('image', i)));
     final _options = _setStreamType<GardenPlantModel>(
       Options(
-        method: 'POST',
-        headers: _headers,
-        extra: _extra,
-        contentType: 'multipart/form-data',
-      )
+            method: 'POST',
+            headers: _headers,
+            extra: _extra,
+            contentType: 'multipart/form-data',
+          )
           .compose(
             _dio.options,
             '/api/garden/plants/${plantId}/image',

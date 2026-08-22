@@ -18,28 +18,28 @@ class AddGardenPlantCubit extends Cubit<AddGardenPlantState> {
     required int speciesId,
     required int roomId,
     String initialCustomName = '',
-  })  : _repository = gardenPlantsRepository,
-        super(
-          AddGardenPlantState(
-            status: Status.initial,
-            speciesId: speciesId,
-            roomId: roomId,
-            customName: initialCustomName,
-          ),
-        );
+  }) : _repository = gardenPlantsRepository,
+       super(
+         AddGardenPlantState(
+           status: Status.initial,
+           speciesId: speciesId,
+           roomId: roomId,
+           customName: initialCustomName,
+         ),
+       );
 
   AddGardenPlantCubit.edit({
     required IGardenPlantsRepository gardenPlantsRepository,
     required int plantId,
-  })  : _repository = gardenPlantsRepository,
-        super(
-          AddGardenPlantState(
-            status: Status.loading,
-            speciesId: 0,
-            roomId: 0,
-            plantId: plantId,
-          ),
-        ) {
+  }) : _repository = gardenPlantsRepository,
+       super(
+         AddGardenPlantState(
+           status: Status.loading,
+           speciesId: 0,
+           roomId: 0,
+           plantId: plantId,
+         ),
+       ) {
     loadPlantForEdit();
   }
 
@@ -52,8 +52,9 @@ class AddGardenPlantCubit extends Cubit<AddGardenPlantState> {
     }
     emit(state.copyWith(status: Status.loading, error: null));
     try {
-      final GardenPlantModel plant =
-          await _repository.getGardenPlant(plantId: plantId);
+      final GardenPlantModel plant = await _repository.getGardenPlant(
+        plantId: plantId,
+      );
       if (isClosed) {
         return;
       }
@@ -72,29 +73,15 @@ class AddGardenPlantCubit extends Cubit<AddGardenPlantState> {
       if (isClosed) {
         return;
       }
-      emit(
-        state.copyWith(
-          status: Status.failure,
-          error: error,
-        ),
-      );
+      emit(state.copyWith(status: Status.failure, error: error));
     }
   }
 
   void updateCustomName(String value) {
-    emit(
-      state.copyWith(
-        customName: value,
-        validationError: null,
-        error: null,
-      ),
-    );
+    emit(state.copyWith(customName: value, validationError: null, error: null));
   }
 
-  void updatePhoto({
-    required Uint8List bytes,
-    required String fileName,
-  }) {
+  void updatePhoto({required Uint8List bytes, required String fileName}) {
     emit(
       state.copyWith(
         photoBytes: bytes,
@@ -107,20 +94,11 @@ class AddGardenPlantCubit extends Cubit<AddGardenPlantState> {
 
   void clearPhoto() {
     if (state.photoBytes != null) {
-      emit(
-        state.copyWith(
-          photoBytes: null,
-          photoFileName: null,
-        ),
-      );
+      emit(state.copyWith(photoBytes: null, photoFileName: null));
       return;
     }
     if (state.existingImageUrl != null) {
-      emit(
-        state.copyWith(
-          removeExistingPhoto: true,
-        ),
-      );
+      emit(state.copyWith(removeExistingPhoto: true));
     }
   }
 
@@ -165,15 +143,16 @@ class AddGardenPlantCubit extends Cubit<AddGardenPlantState> {
       ),
     );
     try {
-      final CreateGardenPlantResult result = await _repository.createGardenPlant(
-        params: CreateGardenPlantParams(
-          speciesId: state.speciesId,
-          customName: trimmedName,
-          roomId: state.roomId,
-          photoBytes: state.photoBytes,
-          photoFileName: state.photoFileName,
-        ),
-      );
+      final CreateGardenPlantResult result = await _repository
+          .createGardenPlant(
+            params: CreateGardenPlantParams(
+              speciesId: state.speciesId,
+              customName: trimmedName,
+              roomId: state.roomId,
+              photoBytes: state.photoBytes,
+              photoFileName: state.photoFileName,
+            ),
+          );
       if (isClosed) {
         return;
       }
@@ -188,12 +167,7 @@ class AddGardenPlantCubit extends Cubit<AddGardenPlantState> {
       if (isClosed) {
         return;
       }
-      emit(
-        state.copyWith(
-          status: Status.failure,
-          error: error,
-        ),
-      );
+      emit(state.copyWith(status: Status.failure, error: error));
     }
   }
 
@@ -266,12 +240,7 @@ class AddGardenPlantCubit extends Cubit<AddGardenPlantState> {
       if (isClosed) {
         return;
       }
-      emit(
-        state.copyWith(
-          status: Status.failure,
-          error: error,
-        ),
-      );
+      emit(state.copyWith(status: Status.failure, error: error));
     }
   }
 }

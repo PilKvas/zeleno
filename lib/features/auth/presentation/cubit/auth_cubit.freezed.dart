@@ -12,7 +12,8 @@ part of 'auth_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$AuthState {
@@ -47,15 +48,16 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? authStatus = null,
-  }) {
-    return _then(_value.copyWith(
-      authStatus: null == authStatus
-          ? _value.authStatus
-          : authStatus // ignore: cast_nullable_to_non_nullable
-              as AuthStatus,
-    ) as $Val);
+  $Res call({Object? authStatus = null}) {
+    return _then(
+      _value.copyWith(
+            authStatus: null == authStatus
+                ? _value.authStatus
+                : authStatus // ignore: cast_nullable_to_non_nullable
+                      as AuthStatus,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -63,8 +65,9 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
 abstract class _$$AuthStateImplCopyWith<$Res>
     implements $AuthStateCopyWith<$Res> {
   factory _$$AuthStateImplCopyWith(
-          _$AuthStateImpl value, $Res Function(_$AuthStateImpl) then) =
-      __$$AuthStateImplCopyWithImpl<$Res>;
+    _$AuthStateImpl value,
+    $Res Function(_$AuthStateImpl) then,
+  ) = __$$AuthStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({AuthStatus authStatus});
@@ -75,22 +78,23 @@ class __$$AuthStateImplCopyWithImpl<$Res>
     extends _$AuthStateCopyWithImpl<$Res, _$AuthStateImpl>
     implements _$$AuthStateImplCopyWith<$Res> {
   __$$AuthStateImplCopyWithImpl(
-      _$AuthStateImpl _value, $Res Function(_$AuthStateImpl) _then)
-      : super(_value, _then);
+    _$AuthStateImpl _value,
+    $Res Function(_$AuthStateImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? authStatus = null,
-  }) {
-    return _then(_$AuthStateImpl(
-      authStatus: null == authStatus
-          ? _value.authStatus
-          : authStatus // ignore: cast_nullable_to_non_nullable
-              as AuthStatus,
-    ));
+  $Res call({Object? authStatus = null}) {
+    return _then(
+      _$AuthStateImpl(
+        authStatus: null == authStatus
+            ? _value.authStatus
+            : authStatus // ignore: cast_nullable_to_non_nullable
+                  as AuthStatus,
+      ),
+    );
   }
 }
 

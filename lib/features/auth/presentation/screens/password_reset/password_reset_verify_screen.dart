@@ -15,19 +15,15 @@ import 'package:zeleno_v2/uikit/theme/export.dart';
 
 @RoutePage()
 class PasswordResetVerifyScreen extends StatelessWidget {
-  const PasswordResetVerifyScreen({
-    super.key,
-    required this.email,
-  });
+  const PasswordResetVerifyScreen({super.key, required this.email});
 
   final String email;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => PasswordResetVerifyCubit(
-        authRepository: injection(),
-      ),
+      create: (context) =>
+          PasswordResetVerifyCubit(authRepository: injection()),
       child: _Content(email: email),
     );
   }
@@ -58,7 +54,11 @@ class _Content extends StatelessWidget {
               const Positioned.fill(child: AuthBackground()),
               SingleChildScrollView(
                 padding: EdgeInsets.fromLTRB(
-                    16, MediaQuery.sizeOf(context).height * 0.22, 16, 24),
+                  16,
+                  MediaQuery.sizeOf(context).height * 0.22,
+                  16,
+                  24,
+                ),
                 child: _VerifyForm(email: email),
               ),
             ],
@@ -95,10 +95,7 @@ class _VerifyFormState extends State<_VerifyForm> {
           style: typography.body,
         ),
         const SizedBox(height: 24),
-        ZOtpCodeField(
-          length: _otpLength,
-          onChanged: _onOtpChanged,
-        ),
+        ZOtpCodeField(length: _otpLength, onChanged: _onOtpChanged),
         if (_otpError != null) ...[
           const SizedBox(height: 8),
           Text(

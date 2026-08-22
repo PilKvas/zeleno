@@ -60,7 +60,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   _PageViewItem(
                     imageCouple: (
                       ZImages.woollyPlantMom11,
-                      ZImages.woollyPlant412
+                      ZImages.woollyPlant412,
                     ),
                     title: l10n.firstPageTitle,
                     subTitle: l10n.firstPageSubTitle,
@@ -68,7 +68,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   _PageViewItem(
                     imageCouple: (
                       ZImages.woollyPlant421,
-                      ZImages.woollyTakingCareOfPlants22
+                      ZImages.woollyTakingCareOfPlants22,
                     ),
                     title: l10n.secondPageTitle,
                     subTitle: l10n.secondPageSubTitle,

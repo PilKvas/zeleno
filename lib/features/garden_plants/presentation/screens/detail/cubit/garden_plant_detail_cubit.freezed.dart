@@ -12,7 +12,8 @@ part of 'garden_plant_detail_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$GardenPlantDetailState {
@@ -35,28 +36,32 @@ mixin _$GardenPlantDetailState {
 
 /// @nodoc
 abstract class $GardenPlantDetailStateCopyWith<$Res> {
-  factory $GardenPlantDetailStateCopyWith(GardenPlantDetailState value,
-          $Res Function(GardenPlantDetailState) then) =
-      _$GardenPlantDetailStateCopyWithImpl<$Res, GardenPlantDetailState>;
+  factory $GardenPlantDetailStateCopyWith(
+    GardenPlantDetailState value,
+    $Res Function(GardenPlantDetailState) then,
+  ) = _$GardenPlantDetailStateCopyWithImpl<$Res, GardenPlantDetailState>;
   @useResult
-  $Res call(
-      {Status status,
-      int? plantId,
-      String? speciesSlug,
-      GardenPlantModel? plant,
-      PlantDetailsModel? speciesDetails,
-      Object? error,
-      bool isSaving,
-      bool wasUpdated,
-      bool wasDeleted});
+  $Res call({
+    Status status,
+    int? plantId,
+    String? speciesSlug,
+    GardenPlantModel? plant,
+    PlantDetailsModel? speciesDetails,
+    Object? error,
+    bool isSaving,
+    bool wasUpdated,
+    bool wasDeleted,
+  });
 
   $GardenPlantModelCopyWith<$Res>? get plant;
   $PlantDetailsModelCopyWith<$Res>? get speciesDetails;
 }
 
 /// @nodoc
-class _$GardenPlantDetailStateCopyWithImpl<$Res,
-        $Val extends GardenPlantDetailState>
+class _$GardenPlantDetailStateCopyWithImpl<
+  $Res,
+  $Val extends GardenPlantDetailState
+>
     implements $GardenPlantDetailStateCopyWith<$Res> {
   _$GardenPlantDetailStateCopyWithImpl(this._value, this._then);
 
@@ -80,41 +85,44 @@ class _$GardenPlantDetailStateCopyWithImpl<$Res,
     Object? wasUpdated = null,
     Object? wasDeleted = null,
   }) {
-    return _then(_value.copyWith(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as Status,
-      plantId: freezed == plantId
-          ? _value.plantId
-          : plantId // ignore: cast_nullable_to_non_nullable
-              as int?,
-      speciesSlug: freezed == speciesSlug
-          ? _value.speciesSlug
-          : speciesSlug // ignore: cast_nullable_to_non_nullable
-              as String?,
-      plant: freezed == plant
-          ? _value.plant
-          : plant // ignore: cast_nullable_to_non_nullable
-              as GardenPlantModel?,
-      speciesDetails: freezed == speciesDetails
-          ? _value.speciesDetails
-          : speciesDetails // ignore: cast_nullable_to_non_nullable
-              as PlantDetailsModel?,
-      error: freezed == error ? _value.error : error,
-      isSaving: null == isSaving
-          ? _value.isSaving
-          : isSaving // ignore: cast_nullable_to_non_nullable
-              as bool,
-      wasUpdated: null == wasUpdated
-          ? _value.wasUpdated
-          : wasUpdated // ignore: cast_nullable_to_non_nullable
-              as bool,
-      wasDeleted: null == wasDeleted
-          ? _value.wasDeleted
-          : wasDeleted // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            status: null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                      as Status,
+            plantId: freezed == plantId
+                ? _value.plantId
+                : plantId // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            speciesSlug: freezed == speciesSlug
+                ? _value.speciesSlug
+                : speciesSlug // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            plant: freezed == plant
+                ? _value.plant
+                : plant // ignore: cast_nullable_to_non_nullable
+                      as GardenPlantModel?,
+            speciesDetails: freezed == speciesDetails
+                ? _value.speciesDetails
+                : speciesDetails // ignore: cast_nullable_to_non_nullable
+                      as PlantDetailsModel?,
+            error: freezed == error ? _value.error : error,
+            isSaving: null == isSaving
+                ? _value.isSaving
+                : isSaving // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            wasUpdated: null == wasUpdated
+                ? _value.wasUpdated
+                : wasUpdated // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            wasDeleted: null == wasDeleted
+                ? _value.wasDeleted
+                : wasDeleted // ignore: cast_nullable_to_non_nullable
+                      as bool,
+          )
+          as $Val,
+    );
   }
 
   /// Create a copy of GardenPlantDetailState
@@ -150,21 +158,22 @@ class _$GardenPlantDetailStateCopyWithImpl<$Res,
 abstract class _$$GardenPlantDetailStateImplCopyWith<$Res>
     implements $GardenPlantDetailStateCopyWith<$Res> {
   factory _$$GardenPlantDetailStateImplCopyWith(
-          _$GardenPlantDetailStateImpl value,
-          $Res Function(_$GardenPlantDetailStateImpl) then) =
-      __$$GardenPlantDetailStateImplCopyWithImpl<$Res>;
+    _$GardenPlantDetailStateImpl value,
+    $Res Function(_$GardenPlantDetailStateImpl) then,
+  ) = __$$GardenPlantDetailStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {Status status,
-      int? plantId,
-      String? speciesSlug,
-      GardenPlantModel? plant,
-      PlantDetailsModel? speciesDetails,
-      Object? error,
-      bool isSaving,
-      bool wasUpdated,
-      bool wasDeleted});
+  $Res call({
+    Status status,
+    int? plantId,
+    String? speciesSlug,
+    GardenPlantModel? plant,
+    PlantDetailsModel? speciesDetails,
+    Object? error,
+    bool isSaving,
+    bool wasUpdated,
+    bool wasDeleted,
+  });
 
   @override
   $GardenPlantModelCopyWith<$Res>? get plant;
@@ -174,13 +183,13 @@ abstract class _$$GardenPlantDetailStateImplCopyWith<$Res>
 
 /// @nodoc
 class __$$GardenPlantDetailStateImplCopyWithImpl<$Res>
-    extends _$GardenPlantDetailStateCopyWithImpl<$Res,
-        _$GardenPlantDetailStateImpl>
+    extends
+        _$GardenPlantDetailStateCopyWithImpl<$Res, _$GardenPlantDetailStateImpl>
     implements _$$GardenPlantDetailStateImplCopyWith<$Res> {
   __$$GardenPlantDetailStateImplCopyWithImpl(
-      _$GardenPlantDetailStateImpl _value,
-      $Res Function(_$GardenPlantDetailStateImpl) _then)
-      : super(_value, _then);
+    _$GardenPlantDetailStateImpl _value,
+    $Res Function(_$GardenPlantDetailStateImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of GardenPlantDetailState
   /// with the given fields replaced by the non-null parameter values.
@@ -197,57 +206,60 @@ class __$$GardenPlantDetailStateImplCopyWithImpl<$Res>
     Object? wasUpdated = null,
     Object? wasDeleted = null,
   }) {
-    return _then(_$GardenPlantDetailStateImpl(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as Status,
-      plantId: freezed == plantId
-          ? _value.plantId
-          : plantId // ignore: cast_nullable_to_non_nullable
-              as int?,
-      speciesSlug: freezed == speciesSlug
-          ? _value.speciesSlug
-          : speciesSlug // ignore: cast_nullable_to_non_nullable
-              as String?,
-      plant: freezed == plant
-          ? _value.plant
-          : plant // ignore: cast_nullable_to_non_nullable
-              as GardenPlantModel?,
-      speciesDetails: freezed == speciesDetails
-          ? _value.speciesDetails
-          : speciesDetails // ignore: cast_nullable_to_non_nullable
-              as PlantDetailsModel?,
-      error: freezed == error ? _value.error : error,
-      isSaving: null == isSaving
-          ? _value.isSaving
-          : isSaving // ignore: cast_nullable_to_non_nullable
-              as bool,
-      wasUpdated: null == wasUpdated
-          ? _value.wasUpdated
-          : wasUpdated // ignore: cast_nullable_to_non_nullable
-              as bool,
-      wasDeleted: null == wasDeleted
-          ? _value.wasDeleted
-          : wasDeleted // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
+    return _then(
+      _$GardenPlantDetailStateImpl(
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as Status,
+        plantId: freezed == plantId
+            ? _value.plantId
+            : plantId // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        speciesSlug: freezed == speciesSlug
+            ? _value.speciesSlug
+            : speciesSlug // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        plant: freezed == plant
+            ? _value.plant
+            : plant // ignore: cast_nullable_to_non_nullable
+                  as GardenPlantModel?,
+        speciesDetails: freezed == speciesDetails
+            ? _value.speciesDetails
+            : speciesDetails // ignore: cast_nullable_to_non_nullable
+                  as PlantDetailsModel?,
+        error: freezed == error ? _value.error : error,
+        isSaving: null == isSaving
+            ? _value.isSaving
+            : isSaving // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        wasUpdated: null == wasUpdated
+            ? _value.wasUpdated
+            : wasUpdated // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        wasDeleted: null == wasDeleted
+            ? _value.wasDeleted
+            : wasDeleted // ignore: cast_nullable_to_non_nullable
+                  as bool,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$GardenPlantDetailStateImpl implements _GardenPlantDetailState {
-  const _$GardenPlantDetailStateImpl(
-      {required this.status,
-      this.plantId,
-      this.speciesSlug,
-      this.plant,
-      this.speciesDetails,
-      this.error,
-      this.isSaving = false,
-      this.wasUpdated = false,
-      this.wasDeleted = false});
+  const _$GardenPlantDetailStateImpl({
+    required this.status,
+    this.plantId,
+    this.speciesSlug,
+    this.plant,
+    this.speciesDetails,
+    this.error,
+    this.isSaving = false,
+    this.wasUpdated = false,
+    this.wasDeleted = false,
+  });
 
   @override
   final Status status;
@@ -299,16 +311,17 @@ class _$GardenPlantDetailStateImpl implements _GardenPlantDetailState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      status,
-      plantId,
-      speciesSlug,
-      plant,
-      speciesDetails,
-      const DeepCollectionEquality().hash(error),
-      isSaving,
-      wasUpdated,
-      wasDeleted);
+    runtimeType,
+    status,
+    plantId,
+    speciesSlug,
+    plant,
+    speciesDetails,
+    const DeepCollectionEquality().hash(error),
+    isSaving,
+    wasUpdated,
+    wasDeleted,
+  );
 
   /// Create a copy of GardenPlantDetailState
   /// with the given fields replaced by the non-null parameter values.
@@ -316,21 +329,25 @@ class _$GardenPlantDetailStateImpl implements _GardenPlantDetailState {
   @override
   @pragma('vm:prefer-inline')
   _$$GardenPlantDetailStateImplCopyWith<_$GardenPlantDetailStateImpl>
-      get copyWith => __$$GardenPlantDetailStateImplCopyWithImpl<
-          _$GardenPlantDetailStateImpl>(this, _$identity);
+  get copyWith =>
+      __$$GardenPlantDetailStateImplCopyWithImpl<_$GardenPlantDetailStateImpl>(
+        this,
+        _$identity,
+      );
 }
 
 abstract class _GardenPlantDetailState implements GardenPlantDetailState {
-  const factory _GardenPlantDetailState(
-      {required final Status status,
-      final int? plantId,
-      final String? speciesSlug,
-      final GardenPlantModel? plant,
-      final PlantDetailsModel? speciesDetails,
-      final Object? error,
-      final bool isSaving,
-      final bool wasUpdated,
-      final bool wasDeleted}) = _$GardenPlantDetailStateImpl;
+  const factory _GardenPlantDetailState({
+    required final Status status,
+    final int? plantId,
+    final String? speciesSlug,
+    final GardenPlantModel? plant,
+    final PlantDetailsModel? speciesDetails,
+    final Object? error,
+    final bool isSaving,
+    final bool wasUpdated,
+    final bool wasDeleted,
+  }) = _$GardenPlantDetailStateImpl;
 
   @override
   Status get status;
@@ -356,5 +373,5 @@ abstract class _GardenPlantDetailState implements GardenPlantDetailState {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GardenPlantDetailStateImplCopyWith<_$GardenPlantDetailStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

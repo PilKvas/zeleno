@@ -12,10 +12,12 @@ part of 'create_garden_plant_body.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 CreateGardenPlantBody _$CreateGardenPlantBodyFromJson(
-    Map<String, dynamic> json) {
+  Map<String, dynamic> json,
+) {
   return _CreateGardenPlantBody.fromJson(json);
 }
 
@@ -40,19 +42,23 @@ mixin _$CreateGardenPlantBody {
 
 /// @nodoc
 abstract class $CreateGardenPlantBodyCopyWith<$Res> {
-  factory $CreateGardenPlantBodyCopyWith(CreateGardenPlantBody value,
-          $Res Function(CreateGardenPlantBody) then) =
-      _$CreateGardenPlantBodyCopyWithImpl<$Res, CreateGardenPlantBody>;
+  factory $CreateGardenPlantBodyCopyWith(
+    CreateGardenPlantBody value,
+    $Res Function(CreateGardenPlantBody) then,
+  ) = _$CreateGardenPlantBodyCopyWithImpl<$Res, CreateGardenPlantBody>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'species_id') int speciesId,
-      @JsonKey(name: 'custom_name') String customName,
-      @JsonKey(name: 'room_id') int? roomId});
+  $Res call({
+    @JsonKey(name: 'species_id') int speciesId,
+    @JsonKey(name: 'custom_name') String customName,
+    @JsonKey(name: 'room_id') int? roomId,
+  });
 }
 
 /// @nodoc
-class _$CreateGardenPlantBodyCopyWithImpl<$Res,
-        $Val extends CreateGardenPlantBody>
+class _$CreateGardenPlantBodyCopyWithImpl<
+  $Res,
+  $Val extends CreateGardenPlantBody
+>
     implements $CreateGardenPlantBodyCopyWith<$Res> {
   _$CreateGardenPlantBodyCopyWithImpl(this._value, this._then);
 
@@ -70,20 +76,23 @@ class _$CreateGardenPlantBodyCopyWithImpl<$Res,
     Object? customName = null,
     Object? roomId = freezed,
   }) {
-    return _then(_value.copyWith(
-      speciesId: null == speciesId
-          ? _value.speciesId
-          : speciesId // ignore: cast_nullable_to_non_nullable
-              as int,
-      customName: null == customName
-          ? _value.customName
-          : customName // ignore: cast_nullable_to_non_nullable
-              as String,
-      roomId: freezed == roomId
-          ? _value.roomId
-          : roomId // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            speciesId: null == speciesId
+                ? _value.speciesId
+                : speciesId // ignore: cast_nullable_to_non_nullable
+                      as int,
+            customName: null == customName
+                ? _value.customName
+                : customName // ignore: cast_nullable_to_non_nullable
+                      as String,
+            roomId: freezed == roomId
+                ? _value.roomId
+                : roomId // ignore: cast_nullable_to_non_nullable
+                      as int?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -91,25 +100,27 @@ class _$CreateGardenPlantBodyCopyWithImpl<$Res,
 abstract class _$$CreateGardenPlantBodyImplCopyWith<$Res>
     implements $CreateGardenPlantBodyCopyWith<$Res> {
   factory _$$CreateGardenPlantBodyImplCopyWith(
-          _$CreateGardenPlantBodyImpl value,
-          $Res Function(_$CreateGardenPlantBodyImpl) then) =
-      __$$CreateGardenPlantBodyImplCopyWithImpl<$Res>;
+    _$CreateGardenPlantBodyImpl value,
+    $Res Function(_$CreateGardenPlantBodyImpl) then,
+  ) = __$$CreateGardenPlantBodyImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'species_id') int speciesId,
-      @JsonKey(name: 'custom_name') String customName,
-      @JsonKey(name: 'room_id') int? roomId});
+  $Res call({
+    @JsonKey(name: 'species_id') int speciesId,
+    @JsonKey(name: 'custom_name') String customName,
+    @JsonKey(name: 'room_id') int? roomId,
+  });
 }
 
 /// @nodoc
 class __$$CreateGardenPlantBodyImplCopyWithImpl<$Res>
-    extends _$CreateGardenPlantBodyCopyWithImpl<$Res,
-        _$CreateGardenPlantBodyImpl>
+    extends
+        _$CreateGardenPlantBodyCopyWithImpl<$Res, _$CreateGardenPlantBodyImpl>
     implements _$$CreateGardenPlantBodyImplCopyWith<$Res> {
-  __$$CreateGardenPlantBodyImplCopyWithImpl(_$CreateGardenPlantBodyImpl _value,
-      $Res Function(_$CreateGardenPlantBodyImpl) _then)
-      : super(_value, _then);
+  __$$CreateGardenPlantBodyImplCopyWithImpl(
+    _$CreateGardenPlantBodyImpl _value,
+    $Res Function(_$CreateGardenPlantBodyImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of CreateGardenPlantBody
   /// with the given fields replaced by the non-null parameter values.
@@ -120,30 +131,33 @@ class __$$CreateGardenPlantBodyImplCopyWithImpl<$Res>
     Object? customName = null,
     Object? roomId = freezed,
   }) {
-    return _then(_$CreateGardenPlantBodyImpl(
-      speciesId: null == speciesId
-          ? _value.speciesId
-          : speciesId // ignore: cast_nullable_to_non_nullable
-              as int,
-      customName: null == customName
-          ? _value.customName
-          : customName // ignore: cast_nullable_to_non_nullable
-              as String,
-      roomId: freezed == roomId
-          ? _value.roomId
-          : roomId // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ));
+    return _then(
+      _$CreateGardenPlantBodyImpl(
+        speciesId: null == speciesId
+            ? _value.speciesId
+            : speciesId // ignore: cast_nullable_to_non_nullable
+                  as int,
+        customName: null == customName
+            ? _value.customName
+            : customName // ignore: cast_nullable_to_non_nullable
+                  as String,
+        roomId: freezed == roomId
+            ? _value.roomId
+            : roomId // ignore: cast_nullable_to_non_nullable
+                  as int?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$CreateGardenPlantBodyImpl implements _CreateGardenPlantBody {
-  const _$CreateGardenPlantBodyImpl(
-      {@JsonKey(name: 'species_id') required this.speciesId,
-      @JsonKey(name: 'custom_name') required this.customName,
-      @JsonKey(name: 'room_id') required this.roomId});
+  const _$CreateGardenPlantBodyImpl({
+    @JsonKey(name: 'species_id') required this.speciesId,
+    @JsonKey(name: 'custom_name') required this.customName,
+    @JsonKey(name: 'room_id') required this.roomId,
+  });
 
   factory _$CreateGardenPlantBodyImpl.fromJson(Map<String, dynamic> json) =>
       _$$CreateGardenPlantBodyImplFromJson(json);
@@ -185,23 +199,24 @@ class _$CreateGardenPlantBodyImpl implements _CreateGardenPlantBody {
   @override
   @pragma('vm:prefer-inline')
   _$$CreateGardenPlantBodyImplCopyWith<_$CreateGardenPlantBodyImpl>
-      get copyWith => __$$CreateGardenPlantBodyImplCopyWithImpl<
-          _$CreateGardenPlantBodyImpl>(this, _$identity);
+  get copyWith =>
+      __$$CreateGardenPlantBodyImplCopyWithImpl<_$CreateGardenPlantBodyImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CreateGardenPlantBodyImplToJson(
-      this,
-    );
+    return _$$CreateGardenPlantBodyImplToJson(this);
   }
 }
 
 abstract class _CreateGardenPlantBody implements CreateGardenPlantBody {
-  const factory _CreateGardenPlantBody(
-          {@JsonKey(name: 'species_id') required final int speciesId,
-          @JsonKey(name: 'custom_name') required final String customName,
-          @JsonKey(name: 'room_id') required final int? roomId}) =
-      _$CreateGardenPlantBodyImpl;
+  const factory _CreateGardenPlantBody({
+    @JsonKey(name: 'species_id') required final int speciesId,
+    @JsonKey(name: 'custom_name') required final String customName,
+    @JsonKey(name: 'room_id') required final int? roomId,
+  }) = _$CreateGardenPlantBodyImpl;
 
   factory _CreateGardenPlantBody.fromJson(Map<String, dynamic> json) =
       _$CreateGardenPlantBodyImpl.fromJson;
@@ -221,5 +236,5 @@ abstract class _CreateGardenPlantBody implements CreateGardenPlantBody {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreateGardenPlantBodyImplCopyWith<_$CreateGardenPlantBodyImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

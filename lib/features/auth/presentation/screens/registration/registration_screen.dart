@@ -163,9 +163,9 @@ class _RegistrationFormState extends State<_RegistrationForm> {
   void _onRegisterPressed() {
     if (_formKey.currentState?.validate() ?? false) {
       context.read<RegistrationCubit>().registerUser(
-            email: _emailController.text,
-            password: _passwordController.text,
-          );
+        email: _emailController.text,
+        password: _passwordController.text,
+      );
     }
   }
 }
@@ -175,8 +175,9 @@ class _DividerWithText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dividerColor =
-        ZColorScheme.of(context).secondaryText.withValues(alpha: 0.35);
+    final dividerColor = ZColorScheme.of(
+      context,
+    ).secondaryText.withValues(alpha: 0.35);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
       child: Row(

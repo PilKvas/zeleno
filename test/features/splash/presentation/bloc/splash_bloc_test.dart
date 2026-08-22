@@ -18,8 +18,9 @@ void main() {
       'emits [firstTimeInApp] when app is launched for the first time',
       setUp: () {
         when(() => mockFirstRunStorage.getIsFirstRun()).thenReturn(true);
-        when(() => mockFirstRunStorage.setIsFirstRun(value: false))
-            .thenAnswer((_) async {});
+        when(
+          () => mockFirstRunStorage.setIsFirstRun(value: false),
+        ).thenAnswer((_) async {});
       },
       build: () => SplashBloc(firstRunStorage: mockFirstRunStorage),
       act: (bloc) => bloc.add(const SplashEvent.startApp()),

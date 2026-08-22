@@ -21,10 +21,7 @@ class GardenPlantStatsGradientCard extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         gradient: LinearGradient(
-          colors: <Color>[
-            colors.mainGradientColor,
-            colors.mainGradientColor2,
-          ],
+          colors: <Color>[colors.mainGradientColor, colors.mainGradientColor2],
         ),
       ),
       child: Row(
@@ -40,10 +37,7 @@ class GardenPlantStatsGradientCard extends StatelessWidget {
 }
 
 class _StatItem extends StatelessWidget {
-  const _StatItem({
-    required this.icon,
-    required this.text,
-  });
+  const _StatItem({required this.icon, required this.text});
 
   final IconData icon;
   final String text;
@@ -66,10 +60,7 @@ class _StatItem extends StatelessWidget {
         Text(
           text,
           textAlign: TextAlign.center,
-          style: typography.body.copyWith(
-            fontSize: 12,
-            color: onGradient,
-          ),
+          style: typography.body.copyWith(fontSize: 12, color: onGradient),
         ),
       ],
     );

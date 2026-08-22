@@ -8,11 +8,7 @@ import 'package:zeleno_v2/uikit/inputs/export.dart';
 import 'package:zeleno_v2/uikit/theme/export.dart';
 
 class PlantRoomFormBottomSheet extends StatefulWidget {
-  const PlantRoomFormBottomSheet({
-    super.key,
-    this.room,
-    this.onRoomDeleted,
-  });
+  const PlantRoomFormBottomSheet({super.key, this.room, this.onRoomDeleted});
 
   final PlantRoomModel? room;
   final Future<void> Function(int roomId)? onRoomDeleted;
@@ -99,9 +95,7 @@ class _PlantRoomFormBottomSheetState extends State<PlantRoomFormBottomSheet> {
                     onPressed: () => _confirmDeleteRoom(cubit),
                     child: Text(
                       context.l10n.plantRoomsDeleteConfirm,
-                      style: typography.body.copyWith(
-                        color: colorScheme.error,
-                      ),
+                      style: typography.body.copyWith(color: colorScheme.error),
                     ),
                   ),
                 ),

@@ -109,8 +109,8 @@ class _Tab extends StatelessWidget {
         child: Text(
           label,
           style: ZTypography.of(context).body.copyWith(
-                color: isSelected ? activeTextColor : inactiveTextColor,
-              ),
+            color: isSelected ? activeTextColor : inactiveTextColor,
+          ),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),

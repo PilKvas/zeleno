@@ -9,10 +9,10 @@ enum HomeTab {
   profile;
 
   PageRouteInfo get route => switch (this) {
-        HomeTab.garden => const GardenStackRoute(),
-        HomeTab.search => const PlantSearchStackRoute(),
-        HomeTab.profile => const ProfileStackRoute(),
-      };
+    HomeTab.garden => const GardenStackRoute(),
+    HomeTab.search => const PlantSearchStackRoute(),
+    HomeTab.profile => const ProfileStackRoute(),
+  };
 }
 
 extension HomeTabsRouterX on TabsRouter {

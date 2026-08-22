@@ -16,11 +16,9 @@ class SplashScreen extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider(
-      create: (context) => SplashBloc(
-        firstRunStorage: injection<IFirstRunStorage>(),
-      )..add(
-          const SplashEvent.startApp(),
-        ),
+      create: (context) =>
+          SplashBloc(firstRunStorage: injection<IFirstRunStorage>())
+            ..add(const SplashEvent.startApp()),
       child: this,
     );
   }
@@ -36,7 +34,7 @@ class SplashScreen extends StatelessWidget implements AutoRouteWrapper {
         FlutterNativeSplash.remove();
         final bool isAuthenticated =
             context.read<AuthCubit>().state.authStatus ==
-                AuthStatus.authenticated;
+            AuthStatus.authenticated;
         // Гость стартует с «Поиска», авторизованный — с «Моего сада».
         context.router.replace(
           isAuthenticated

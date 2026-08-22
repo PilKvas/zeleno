@@ -85,9 +85,7 @@ class _PlantRoomsSelectionView extends StatelessWidget {
     final AuthStatus authStatus = context.watch<AuthCubit>().state.authStatus;
     return Scaffold(
       backgroundColor: colorScheme.background,
-      appBar: AppBar(
-        centerTitle: false,
-      ),
+      appBar: AppBar(centerTitle: false),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -163,18 +161,18 @@ class _PlantRoomsSelectionView extends StatelessWidget {
                                             const NeverScrollableScrollPhysics(),
                                         itemBuilder:
                                             (BuildContext context, int index) {
-                                          final PlantRoomModel room =
-                                              state.rooms[index];
-                                          return ZButton.gradient2(
-                                            onPressed: () =>
-                                                _openAddPlantScreen(
-                                              context,
-                                              room,
-                                            ),
-                                            height: 67,
-                                            child: Text(room.name),
-                                          );
-                                        },
+                                              final PlantRoomModel room =
+                                                  state.rooms[index];
+                                              return ZButton.gradient2(
+                                                onPressed: () =>
+                                                    _openAddPlantScreen(
+                                                      context,
+                                                      room,
+                                                    ),
+                                                height: 67,
+                                                child: Text(room.name),
+                                              );
+                                            },
                                         separatorBuilder:
                                             (BuildContext context, int index) =>
                                                 const SizedBox(height: 12),
@@ -201,9 +199,7 @@ class _PlantRoomsSelectionView extends StatelessWidget {
                   onGoToProfile: () {
                     context.router.navigate(
                       const HomeRoute(
-                        children: <PageRouteInfo<dynamic>>[
-                          ProfileStackRoute(),
-                        ],
+                        children: <PageRouteInfo<dynamic>>[ProfileStackRoute()],
                       ),
                     );
                   },

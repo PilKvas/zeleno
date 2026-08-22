@@ -29,10 +29,7 @@ class _ZOtpCodeFieldState extends State<ZOtpCodeField> {
       widget.length,
       (_) => TextEditingController(),
     );
-    _focusNodes = List<FocusNode>.generate(
-      widget.length,
-      (_) => FocusNode(),
-    );
+    _focusNodes = List<FocusNode>.generate(widget.length, (_) => FocusNode());
     if (widget.autofocus) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (!mounted) {
@@ -76,13 +73,9 @@ class _ZOtpCodeFieldState extends State<ZOtpCodeField> {
               height: 1.0,
               color: colors.secondaryTextFieldColor,
             ),
-            inputFormatters: [
-              FilteringTextInputFormatter.digitsOnly,
-            ],
-            onChanged: (String value) => _onFieldChanged(
-              index: index,
-              value: value,
-            ),
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+            onChanged: (String value) =>
+                _onFieldChanged(index: index, value: value),
             decoration: InputDecoration(
               counterText: '',
               isDense: true,
@@ -102,10 +95,7 @@ class _ZOtpCodeFieldState extends State<ZOtpCodeField> {
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(
-                  color: colors.action,
-                  width: 2,
-                ),
+                borderSide: BorderSide(color: colors.action, width: 2),
               ),
             ),
           ),
@@ -114,10 +104,7 @@ class _ZOtpCodeFieldState extends State<ZOtpCodeField> {
     );
   }
 
-  void _onFieldChanged({
-    required int index,
-    required String value,
-  }) {
+  void _onFieldChanged({required int index, required String value}) {
     if (value.length > 1) {
       _applyPastedOtp(startIndex: index, pastedValue: value);
       _notifyValueChanged();
@@ -131,10 +118,7 @@ class _ZOtpCodeFieldState extends State<ZOtpCodeField> {
     _notifyValueChanged();
   }
 
-  void _applyPastedOtp({
-    required int startIndex,
-    required String pastedValue,
-  }) {
+  void _applyPastedOtp({required int startIndex, required String pastedValue}) {
     final String digitsOnly = pastedValue.replaceAll(RegExp(r'\D'), '');
     if (digitsOnly.isEmpty) {
       _controllers[startIndex].clear();

@@ -49,7 +49,7 @@ class _ProfileStackScreenState extends State<ProfileStackScreen>
       case AuthStatus.unknown:
         final bool isOnlyLogin =
             profileRouter.current.name == LoginRoute.name &&
-                profileRouter.stack.length == 1;
+            profileRouter.stack.length == 1;
         if (isOnlyLogin) {
           break;
         }
@@ -105,9 +105,9 @@ class ProfileScreen extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider(
-      create: (context) => ProfileCubit(
-        profileRepository: injection<IProfileRepository>(),
-      )..loadUser(),
+      create: (context) =>
+          ProfileCubit(profileRepository: injection<IProfileRepository>())
+            ..loadUser(),
       child: this,
     );
   }
@@ -136,8 +136,9 @@ class ProfileScreen extends StatelessWidget implements AutoRouteWrapper {
                   children: [
                     Text(
                       'Не удалось загрузить профиль',
-                      style: typography.body
-                          .copyWith(color: colorScheme.secondaryText),
+                      style: typography.body.copyWith(
+                        color: colorScheme.secondaryText,
+                      ),
                     ),
                     const SizedBox(height: ZDimensions.basicMargin),
                     ZButton.secondary(
@@ -186,8 +187,9 @@ class _ProfileContent extends StatelessWidget {
         const SizedBox(height: ZDimensions.basicMargin),
         Text(
           'Профиль',
-          style:
-              typography.headline200.copyWith(color: colorScheme.onBackground),
+          style: typography.headline200.copyWith(
+            color: colorScheme.onBackground,
+          ),
         ),
         const SizedBox(height: ZDimensions.basicMargin * 2),
         Center(
@@ -209,8 +211,9 @@ class _ProfileContent extends StatelessWidget {
         const SizedBox(height: ZDimensions.normalMargin),
         Text(
           displayName,
-          style:
-              typography.headline300.copyWith(color: colorScheme.onBackground),
+          style: typography.headline300.copyWith(
+            color: colorScheme.onBackground,
+          ),
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: ZDimensions.smallMargin),
@@ -222,10 +225,7 @@ class _ProfileContent extends StatelessWidget {
         const SizedBox(height: ZDimensions.basicMargin * 2),
         const PushPermissionTile(),
         const Spacer(),
-        ZButton.ghost(
-          onPressed: onLogout,
-          child: const Text('Выйти'),
-        ),
+        ZButton.ghost(onPressed: onLogout, child: const Text('Выйти')),
         const SizedBox(height: ZDimensions.basicMargin),
       ],
     );

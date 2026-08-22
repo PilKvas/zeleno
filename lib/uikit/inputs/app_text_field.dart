@@ -69,10 +69,8 @@ class _ZTextFieldState extends State<ZTextField> {
   void initState() {
     super.initState();
     _isObscured = widget.isPassword;
-    _textController = widget.controller ??
-        TextEditingController(
-          text: widget.initialValue,
-        );
+    _textController =
+        widget.controller ?? TextEditingController(text: widget.initialValue);
   }
 
   @override
@@ -109,9 +107,9 @@ class _ZTextFieldState extends State<ZTextField> {
   @override
   Widget build(BuildContext context) {
     final colors = ZColorScheme.of(context);
-    final TextStyle fieldTextStyle = ZTypography.of(context).body.copyWith(
-          color: colors.secondaryTextFieldColor,
-        );
+    final TextStyle fieldTextStyle = ZTypography.of(
+      context,
+    ).body.copyWith(color: colors.secondaryTextFieldColor);
     return TextFormField(
       style: fieldTextStyle,
       keyboardType: widget.keyboardType,
@@ -126,20 +124,16 @@ class _ZTextFieldState extends State<ZTextField> {
         if (widget.isDebounsed == false) {
           widget.onChanged?.call(text);
         } else {
-          _debouncer.run(
-            () {
-              widget.onChanged?.call(text);
-            },
-          );
+          _debouncer.run(() {
+            widget.onChanged?.call(text);
+          });
         }
       },
       decoration: InputDecoration(
         isDense: true,
         hintStyle: fieldTextStyle,
         errorText: widget.errorText,
-        errorStyle: TextStyle(
-          color: colors.error,
-        ),
+        errorStyle: TextStyle(color: colors.error),
         filled: true,
         fillColor: widget.fillColor,
         contentPadding: widget.contentPadding ?? const EdgeInsets.all(8),

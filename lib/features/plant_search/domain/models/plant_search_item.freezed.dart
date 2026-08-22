@@ -12,7 +12,8 @@ part of 'plant_search_item.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$PlantSearchItem {
@@ -31,14 +32,16 @@ mixin _$PlantSearchItem {
 /// @nodoc
 abstract class $PlantSearchItemCopyWith<$Res> {
   factory $PlantSearchItemCopyWith(
-          PlantSearchItem value, $Res Function(PlantSearchItem) then) =
-      _$PlantSearchItemCopyWithImpl<$Res, PlantSearchItem>;
+    PlantSearchItem value,
+    $Res Function(PlantSearchItem) then,
+  ) = _$PlantSearchItemCopyWithImpl<$Res, PlantSearchItem>;
   @useResult
-  $Res call(
-      {String slug,
-      String? latinName,
-      String? mainCommonName,
-      String? imageUrl});
+  $Res call({
+    String slug,
+    String? latinName,
+    String? mainCommonName,
+    String? imageUrl,
+  });
 }
 
 /// @nodoc
@@ -61,40 +64,45 @@ class _$PlantSearchItemCopyWithImpl<$Res, $Val extends PlantSearchItem>
     Object? mainCommonName = freezed,
     Object? imageUrl = freezed,
   }) {
-    return _then(_value.copyWith(
-      slug: null == slug
-          ? _value.slug
-          : slug // ignore: cast_nullable_to_non_nullable
-              as String,
-      latinName: freezed == latinName
-          ? _value.latinName
-          : latinName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      mainCommonName: freezed == mainCommonName
-          ? _value.mainCommonName
-          : mainCommonName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      imageUrl: freezed == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            slug: null == slug
+                ? _value.slug
+                : slug // ignore: cast_nullable_to_non_nullable
+                      as String,
+            latinName: freezed == latinName
+                ? _value.latinName
+                : latinName // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            mainCommonName: freezed == mainCommonName
+                ? _value.mainCommonName
+                : mainCommonName // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            imageUrl: freezed == imageUrl
+                ? _value.imageUrl
+                : imageUrl // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$PlantSearchItemImplCopyWith<$Res>
     implements $PlantSearchItemCopyWith<$Res> {
-  factory _$$PlantSearchItemImplCopyWith(_$PlantSearchItemImpl value,
-          $Res Function(_$PlantSearchItemImpl) then) =
-      __$$PlantSearchItemImplCopyWithImpl<$Res>;
+  factory _$$PlantSearchItemImplCopyWith(
+    _$PlantSearchItemImpl value,
+    $Res Function(_$PlantSearchItemImpl) then,
+  ) = __$$PlantSearchItemImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String slug,
-      String? latinName,
-      String? mainCommonName,
-      String? imageUrl});
+  $Res call({
+    String slug,
+    String? latinName,
+    String? mainCommonName,
+    String? imageUrl,
+  });
 }
 
 /// @nodoc
@@ -102,8 +110,9 @@ class __$$PlantSearchItemImplCopyWithImpl<$Res>
     extends _$PlantSearchItemCopyWithImpl<$Res, _$PlantSearchItemImpl>
     implements _$$PlantSearchItemImplCopyWith<$Res> {
   __$$PlantSearchItemImplCopyWithImpl(
-      _$PlantSearchItemImpl _value, $Res Function(_$PlantSearchItemImpl) _then)
-      : super(_value, _then);
+    _$PlantSearchItemImpl _value,
+    $Res Function(_$PlantSearchItemImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of PlantSearchItem
   /// with the given fields replaced by the non-null parameter values.
@@ -115,32 +124,38 @@ class __$$PlantSearchItemImplCopyWithImpl<$Res>
     Object? mainCommonName = freezed,
     Object? imageUrl = freezed,
   }) {
-    return _then(_$PlantSearchItemImpl(
-      slug: null == slug
-          ? _value.slug
-          : slug // ignore: cast_nullable_to_non_nullable
-              as String,
-      latinName: freezed == latinName
-          ? _value.latinName
-          : latinName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      mainCommonName: freezed == mainCommonName
-          ? _value.mainCommonName
-          : mainCommonName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      imageUrl: freezed == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    return _then(
+      _$PlantSearchItemImpl(
+        slug: null == slug
+            ? _value.slug
+            : slug // ignore: cast_nullable_to_non_nullable
+                  as String,
+        latinName: freezed == latinName
+            ? _value.latinName
+            : latinName // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        mainCommonName: freezed == mainCommonName
+            ? _value.mainCommonName
+            : mainCommonName // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        imageUrl: freezed == imageUrl
+            ? _value.imageUrl
+            : imageUrl // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$PlantSearchItemImpl implements _PlantSearchItem {
-  const _$PlantSearchItemImpl(
-      {required this.slug, this.latinName, this.mainCommonName, this.imageUrl});
+  const _$PlantSearchItemImpl({
+    required this.slug,
+    this.latinName,
+    this.mainCommonName,
+    this.imageUrl,
+  });
 
   @override
   final String slug;
@@ -181,15 +196,18 @@ class _$PlantSearchItemImpl implements _PlantSearchItem {
   @pragma('vm:prefer-inline')
   _$$PlantSearchItemImplCopyWith<_$PlantSearchItemImpl> get copyWith =>
       __$$PlantSearchItemImplCopyWithImpl<_$PlantSearchItemImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _PlantSearchItem implements PlantSearchItem {
-  const factory _PlantSearchItem(
-      {required final String slug,
-      final String? latinName,
-      final String? mainCommonName,
-      final String? imageUrl}) = _$PlantSearchItemImpl;
+  const factory _PlantSearchItem({
+    required final String slug,
+    final String? latinName,
+    final String? mainCommonName,
+    final String? imageUrl,
+  }) = _$PlantSearchItemImpl;
 
   @override
   String get slug;

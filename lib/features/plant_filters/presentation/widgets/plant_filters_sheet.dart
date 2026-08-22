@@ -51,9 +51,7 @@ class _PlantFiltersSheetState extends State<PlantFiltersSheet> {
         16,
         16,
         16,
-        16 + MediaQuery
-            .viewInsetsOf(context)
-            .bottom,
+        16 + MediaQuery.viewInsetsOf(context).bottom,
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -67,11 +65,9 @@ class _PlantFiltersSheetState extends State<PlantFiltersSheet> {
             children: [
               Text(
                 context.l10n.filtersSheetTitle,
-                style: ZTypography
-                    .of(context)
-                    .headline300,
+                style: ZTypography.of(context).headline300,
               ),
-              _ResetButton(onReset: _reset)
+              _ResetButton(onReset: _reset),
             ],
           ),
           const SizedBox(height: 16),
@@ -146,12 +142,11 @@ class _FiltersForm extends StatelessWidget {
           children: [
             if (isLoading)
               const _ChoicesLoading()
-            else
-              ...[
-                if (state.status == FiltersStatus.failure)
-                  const _ChoicesLoadError(),
-                _SoilSelectors(state: state),
-              ],
+            else ...[
+              if (state.status == FiltersStatus.failure)
+                const _ChoicesLoadError(),
+              _SoilSelectors(state: state),
+            ],
             const SizedBox(height: 16),
             _HeightRangeField(selected: state.selected),
             const SizedBox(height: 16),
@@ -191,10 +186,7 @@ class _ChoicesLoadError extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 12),
       child: Text(
         context.l10n.filtersSheetLoadError,
-        style: ZTypography
-            .of(context)
-            .body
-            .copyWith(color: colors.error),
+        style: ZTypography.of(context).body.copyWith(color: colors.error),
       ),
     );
   }
@@ -216,8 +208,9 @@ class _SoilSelectors extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     final cubit = context.read<PlantFiltersCubit>();
-    final moistureValues =
-    state.soilMoistureChoices.map((e) => e.value).toList();
+    final moistureValues = state.soilMoistureChoices
+        .map((e) => e.value)
+        .toList();
     final phValues = state.soilPhChoices.map((e) => e.value).toList();
     // Пока справочники не загрузились, выбор не должен ничего менять.
     final bool isEnabled = state.status == FiltersStatus.success;
@@ -241,8 +234,9 @@ class _SoilSelectors extends StatelessWidget {
           title: l10n.filtersSheetPh,
           tabs: state.soilPhChoices.map((e) => e.label).toList(),
           selectedIndexes: _selectedIndexes(phValues, state.selected.soilPh),
-          onToggled:
-          isEnabled ? (i) => cubit.toggleSoilPh(phValues[i]) : (_) {},
+          onToggled: isEnabled
+              ? (i) => cubit.toggleSoilPh(phValues[i])
+              : (_) {},
         ),
       ],
     );
@@ -267,9 +261,7 @@ class _HeightRangeField extends StatelessWidget {
       children: [
         Text(
           l10n.filtersSheetHeightRange,
-          style: ZTypography
-              .of(context)
-              .title,
+          style: ZTypography.of(context).title,
         ),
         const SizedBox(height: 4),
         RangeSlider(
@@ -281,11 +273,9 @@ class _HeightRangeField extends StatelessWidget {
             l10n.filtersSheetHeightCm('${rangeStart.toInt()}'),
             l10n.filtersSheetHeightCm('${rangeEnd.toInt()}'),
           ),
-          onChanged: (values) =>
-              context.read<PlantFiltersCubit>().setHeightRange(
-                from: values.start,
-                to: values.end,
-              ),
+          onChanged: (values) => context
+              .read<PlantFiltersCubit>()
+              .setHeightRange(from: values.start, to: values.end),
         ),
       ],
     );

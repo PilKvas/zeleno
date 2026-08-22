@@ -12,7 +12,8 @@ part of 'plant_filter_item_dto.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 PlantFilterItemDto _$PlantFilterItemDtoFromJson(Map<String, dynamic> json) {
   return _PlantFilterItemDto.fromJson(json);
@@ -22,7 +23,7 @@ PlantFilterItemDto _$PlantFilterItemDtoFromJson(Map<String, dynamic> json) {
 mixin _$PlantFilterItemDto {
   String get name =>
       throw _privateConstructorUsedError; // По схеме ChoiceItemSchema slug может быть null (например, у tags),
-// такой элемент нельзя отправить в фильтр.
+  // такой элемент нельзя отправить в фильтр.
   String? get slug => throw _privateConstructorUsedError;
 
   /// Serializes this PlantFilterItemDto to a JSON map.
@@ -38,8 +39,9 @@ mixin _$PlantFilterItemDto {
 /// @nodoc
 abstract class $PlantFilterItemDtoCopyWith<$Res> {
   factory $PlantFilterItemDtoCopyWith(
-          PlantFilterItemDto value, $Res Function(PlantFilterItemDto) then) =
-      _$PlantFilterItemDtoCopyWithImpl<$Res, PlantFilterItemDto>;
+    PlantFilterItemDto value,
+    $Res Function(PlantFilterItemDto) then,
+  ) = _$PlantFilterItemDtoCopyWithImpl<$Res, PlantFilterItemDto>;
   @useResult
   $Res call({String name, String? slug});
 }
@@ -58,29 +60,30 @@ class _$PlantFilterItemDtoCopyWithImpl<$Res, $Val extends PlantFilterItemDto>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = null,
-    Object? slug = freezed,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      slug: freezed == slug
-          ? _value.slug
-          : slug // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  $Res call({Object? name = null, Object? slug = freezed}) {
+    return _then(
+      _value.copyWith(
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
+            slug: freezed == slug
+                ? _value.slug
+                : slug // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$PlantFilterItemDtoImplCopyWith<$Res>
     implements $PlantFilterItemDtoCopyWith<$Res> {
-  factory _$$PlantFilterItemDtoImplCopyWith(_$PlantFilterItemDtoImpl value,
-          $Res Function(_$PlantFilterItemDtoImpl) then) =
-      __$$PlantFilterItemDtoImplCopyWithImpl<$Res>;
+  factory _$$PlantFilterItemDtoImplCopyWith(
+    _$PlantFilterItemDtoImpl value,
+    $Res Function(_$PlantFilterItemDtoImpl) then,
+  ) = __$$PlantFilterItemDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, String? slug});
@@ -90,28 +93,28 @@ abstract class _$$PlantFilterItemDtoImplCopyWith<$Res>
 class __$$PlantFilterItemDtoImplCopyWithImpl<$Res>
     extends _$PlantFilterItemDtoCopyWithImpl<$Res, _$PlantFilterItemDtoImpl>
     implements _$$PlantFilterItemDtoImplCopyWith<$Res> {
-  __$$PlantFilterItemDtoImplCopyWithImpl(_$PlantFilterItemDtoImpl _value,
-      $Res Function(_$PlantFilterItemDtoImpl) _then)
-      : super(_value, _then);
+  __$$PlantFilterItemDtoImplCopyWithImpl(
+    _$PlantFilterItemDtoImpl _value,
+    $Res Function(_$PlantFilterItemDtoImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of PlantFilterItemDto
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = null,
-    Object? slug = freezed,
-  }) {
-    return _then(_$PlantFilterItemDtoImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      slug: freezed == slug
-          ? _value.slug
-          : slug // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+  $Res call({Object? name = null, Object? slug = freezed}) {
+    return _then(
+      _$PlantFilterItemDtoImpl(
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        slug: freezed == slug
+            ? _value.slug
+            : slug // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
@@ -125,8 +128,8 @@ class _$PlantFilterItemDtoImpl implements _PlantFilterItemDto {
 
   @override
   final String name;
-// По схеме ChoiceItemSchema slug может быть null (например, у tags),
-// такой элемент нельзя отправить в фильтр.
+  // По схеме ChoiceItemSchema slug может быть null (например, у tags),
+  // такой элемент нельзя отправить в фильтр.
   @override
   final String? slug;
 
@@ -155,28 +158,28 @@ class _$PlantFilterItemDtoImpl implements _PlantFilterItemDto {
   @pragma('vm:prefer-inline')
   _$$PlantFilterItemDtoImplCopyWith<_$PlantFilterItemDtoImpl> get copyWith =>
       __$$PlantFilterItemDtoImplCopyWithImpl<_$PlantFilterItemDtoImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PlantFilterItemDtoImplToJson(
-      this,
-    );
+    return _$$PlantFilterItemDtoImplToJson(this);
   }
 }
 
 abstract class _PlantFilterItemDto implements PlantFilterItemDto {
-  const factory _PlantFilterItemDto(
-      {required final String name,
-      final String? slug}) = _$PlantFilterItemDtoImpl;
+  const factory _PlantFilterItemDto({
+    required final String name,
+    final String? slug,
+  }) = _$PlantFilterItemDtoImpl;
 
   factory _PlantFilterItemDto.fromJson(Map<String, dynamic> json) =
       _$PlantFilterItemDtoImpl.fromJson;
 
   @override
-  String
-      get name; // По схеме ChoiceItemSchema slug может быть null (например, у tags),
-// такой элемент нельзя отправить в фильтр.
+  String get name; // По схеме ChoiceItemSchema slug может быть null (например, у tags),
+  // такой элемент нельзя отправить в фильтр.
   @override
   String? get slug;
 

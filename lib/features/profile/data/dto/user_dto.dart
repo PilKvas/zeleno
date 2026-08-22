@@ -25,9 +25,4 @@ abstract class UserDto with _$UserDto {
 enum Gender { male, female }
 
 @JsonEnum()
-enum Hemisphere {
-  north,
-  east,
-  south,
-  west,
-}
+enum Hemisphere { north, east, south, west }
