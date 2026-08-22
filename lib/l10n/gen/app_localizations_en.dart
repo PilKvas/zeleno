@@ -45,7 +45,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get tags => 'Теги';
 
   @override
-  String get unknownName => 'Неизвестное имя';
+  String get unknownName => 'Unknown name';
 
   @override
   String get noTagsAvailable => 'Нет тегов';
@@ -447,6 +447,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get unknownRegistrationError => 'Произошла ошибка при регистрации';
+
+  @override
+  String get plantSearchHint => 'Search';
+
+  @override
+  String get plantSearchEmpty => 'Nothing found';
 
   @override
   String get filtersSheetTitle => 'Filters';

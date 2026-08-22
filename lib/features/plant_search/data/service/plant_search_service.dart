@@ -13,7 +13,9 @@ abstract class PlantSearchService {
     @Query('page') required int page,
     @Query('page_size') int? pageSize,
     @Query('search') String? name,
-    @Query('soil_moisture') String? soilMoisture,
-    @Query('soil_ph') String? soilPh,
+    @Query('soil_moisture') List<String>? soilMoisture,
+    @Query('soil_ph') List<String>? soilPh,
+    @Query('height_min') int? heightMin,
+    @Query('height_max') int? heightMax,
   });
 }

@@ -12,6 +12,8 @@ final class PlantFiltersCubit extends Cubit<PlantFiltersState> {
   final PlantFiltersUsecase _plantFiltersUsecase;
 
   Future<void> loadChoices() async {
+    if (state.status == FiltersStatus.success) return;
+
     emit(state.copyWith(status: FiltersStatus.loading, error: null));
     try {
       final List<List<PlantFilterItem>> results =
@@ -30,25 +32,39 @@ final class PlantFiltersCubit extends Cubit<PlantFiltersState> {
     }
   }
 
-  void setSoilPhValue(String? value) {
-    emit(state.copyWith(soilPhValue: value));
+  void hydrate(PlantSearchFilters filters) {
+    emit(state.copyWith(selected: filters));
   }
 
-  void setSoilMoistureValue(String? value) {
-    emit(state.copyWith(soilMoistureValue: value));
-  }
-
-  void hydrateSoilSelections({
-    required String? soilPhValue,
-    required String? soilMoistureValue,
-  }) {
+  void toggleSoilPh(String value) {
     emit(state.copyWith(
-      soilPhValue: soilPhValue,
-      soilMoistureValue: soilMoistureValue,
+      selected: state.selected.copyWith(
+        soilPh: _toggled(state.selected.soilPh, value),
+      ),
     ));
   }
 
-  void resetSelections() {
-    emit(state.copyWith(soilPhValue: null, soilMoistureValue: null));
+  void toggleSoilMoisture(String value) {
+    emit(state.copyWith(
+      selected: state.selected.copyWith(
+        soilMoisture: _toggled(state.selected.soilMoisture, value),
+      ),
+    ));
+  }
+
+  void setHeightRange({required double from, required double to}) {
+    emit(state.copyWith(
+      selected: state.selected.copyWith(heightFrom: from, heightTo: to),
+    ));
+  }
+
+  void reset() {
+    emit(state.copyWith(selected: const PlantSearchFilters()));
+  }
+
+  List<String> _toggled(List<String> values, String value) {
+    return values.contains(value)
+        ? (List<String>.from(values)..remove(value))
+        : <String>[...values, value];
   }
 }

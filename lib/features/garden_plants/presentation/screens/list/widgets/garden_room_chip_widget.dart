@@ -20,8 +20,7 @@ class GardenRoomChipWidget extends StatelessWidget {
     final ZTypography typography = ZTypography.of(context);
     return ZPressable(
       onTap: onTap,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 160),
+      child: Container(
         height: 40,
         padding: const EdgeInsets.symmetric(horizontal: 16),
         alignment: Alignment.center,
@@ -39,9 +38,7 @@ class GardenRoomChipWidget extends StatelessWidget {
         ),
         child: Text(
           label,
-          style: isSelected
-              ? typography.headline400.copyWith(color: colorScheme.brand)
-              : typography.body.copyWith(color: colorScheme.onBackground),
+          style: typography.body.copyWith(color: colorScheme.onBackground),
         ),
       ),
     );

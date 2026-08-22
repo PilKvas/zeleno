@@ -449,6 +449,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get unknownRegistrationError => 'Произошла ошибка при регистрации';
 
   @override
+  String get plantSearchHint => 'Поиск';
+
+  @override
+  String get plantSearchEmpty => 'Ничего не найдено';
+
+  @override
   String get filtersSheetTitle => 'Фильтры';
 
   @override

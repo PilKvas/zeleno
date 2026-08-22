@@ -1,5 +1,8 @@
 {
   "@@locale": "en",
+  "plantSearchHint": "Search",
+  "plantSearchEmpty": "Nothing found",
+  "unknownName": "Unknown name",
   "filtersSheetTitle": "Filters",
   "filtersSheetReset": "Reset",
   "filtersSheetLoadError": "Failed to load filter values",

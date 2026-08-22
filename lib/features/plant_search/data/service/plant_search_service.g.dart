@@ -22,8 +22,10 @@ class _PlantSearchService implements PlantSearchService {
     required int page,
     int? pageSize,
     String? name,
-    String? soilMoisture,
-    String? soilPh,
+    List<String>? soilMoisture,
+    List<String>? soilPh,
+    int? heightMin,
+    int? heightMax,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -32,6 +34,8 @@ class _PlantSearchService implements PlantSearchService {
       r'search': name,
       r'soil_moisture': soilMoisture,
       r'soil_ph': soilPh,
+      r'height_min': heightMin,
+      r'height_max': heightMax,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
