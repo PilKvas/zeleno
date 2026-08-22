@@ -453,12 +453,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get plantSearchEmpty => 'Nothing found';
 
   @override
-  String get plantSearchHint => 'Search';
-
-  @override
-  String get plantSearchEmpty => 'Nothing found';
-
-  @override
   String get filtersSheetTitle => 'Filters';
 
   @override
