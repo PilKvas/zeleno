@@ -1,5 +1,206 @@
 {
   "@@locale": "en",
+  "positiveResponse": "Yes",
+  "bottomMenuFirstItem": "My garden",
+  "bottomMenuSecondItem": "Search",
+  "bottomMenuThirdItem": "Profile",
+  "startWithTutorialButtonTitle": "Grow with a tutorial",
+  "toTheGardenButtonTitle": "Add to my garden",
+  "plantDetailMenuSpecifications": "Specifications",
+  "plantDetailMenuCare": "Care",
+  "plantDetailMenuGrowth": "Growth",
+  "plantDetailDescription": "Description",
+  "plantDetailScientificClassification": "Scientific classification",
+  "tags": "Tags",
+  "unknownName": "Unknown name",
+  "noTagsAvailable": "No tags",
+  "noInfoAboutRegularEvents": "No information about regular events",
+  "plantHeightRange": "{from} - {to} cm",
+  "@plantHeightRange": {
+    "placeholders": {
+      "from": {
+        "type": "String"
+      },
+      "to": {
+        "type": "String"
+      }
+    }
+  },
+  "plantWidthRange": "{from} - {to} cm",
+  "@plantWidthRange": {
+    "placeholders": {
+      "from": {
+        "type": "String"
+      },
+      "to": {
+        "type": "String"
+      }
+    }
+  },
+  "plantYearsToMaxHeightRange": "{from}-{to} years",
+  "@plantYearsToMaxHeightRange": {
+    "placeholders": {
+      "from": {
+        "type": "String"
+      },
+      "to": {
+        "type": "String"
+      }
+    }
+  },
+  "examplesTitle": "Examples",
+  "examplesLocalizationTitle": "Localization examples",
+  "string": "Hello, {name}!",
+  "@string": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "weekDay": "{date}",
+  "@weekDay": {
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "E"
+      }
+    }
+  },
+  "dateAndTime": "{date}, {time}",
+  "@dateAndTime": {
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "MMMMd"
+      },
+      "time": {
+        "type": "DateTime",
+        "format": "jm"
+      }
+    }
+  },
+  "inboxCount": "{count, plural, zero{You have no new messages} one{You have 1 new message} other{You have {count} new messages}}",
+  "@inboxCount": {
+    "description": "Количетво сообщений",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "tempScreenDashNavBarItemLabel": "Dash screen",
+  "tempScreenInfoNavBarItemLabel": "Info screen",
+  "tempScreenDebugNavBarItemLabel": "Debug screen",
+  "debugScreenTitle": "Debug screen",
+  "debugScreenServerSubtitle": "Server",
+  "debugScreenServerConnectButton": "Switch server",
+  "debugScreenProxySubtitle": "Proxy",
+  "debugScreenProxyInfo": "Enables traffic through a proxy server.",
+  "debugScreenProxyEditTextLabel": "Enter the proxy server address",
+  "debugScreenProxyConnectButton": "Connect",
+  "debugScreenThemeSubtitle": "App theme",
+  "debugScreenThemeLight": "Light theme",
+  "debugScreenThemeDark": "Dark theme",
+  "debugScreenThemeSystem": "System theme",
+  "debugScreenUikitNavigateButton": "Open UIKit",
+  "debugScreenReloadAppMessage": "Restart the app to see the applied changes",
+  "uiKitScreenTitle": "UI Kit",
+  "uiKitScreenTextFieldLabel": "Text Field",
+  "uiKitScreenCardText": "Card",
+  "uiKitScreenText": "Text",
+  "uiKitScreenPrimaryButtonText": "Primary Button",
+  "uiKitScreenPrimaryButtonSnackText": "Primary Button Pressed",
+  "uiKitScreenSecondaryButtonText": "Secondary Button",
+  "uiKitScreenSecondaryButtonSnackText": "Secondary Button Pressed",
+  "uiKitScreenTertiaryButtonText": "Tertiary Button",
+  "uiKitScreenTertiaryButtonSnackText": "Tertiary Button Pressed",
+  "uiKitScreenTetradicButtonText": "Tetradic button",
+  "uiKitScreenTetradicButtonSnackText": "Tetradic Button Pressed",
+  "uiKitScreenDangerSnackButtonText": "Danger snack",
+  "uiKitScreenDangerSnackText": "Danger snack",
+  "uiKitScreenPositiveSnackButtonText": "Positive snack",
+  "uiKitScreenPositiveSnackText": "Positive snack",
+  "uiKitScreenColorCardPrimaryName": "Primary",
+  "uiKitScreenColorCardSecondaryName": "Secondary",
+  "uiKitScreenColorCardSurfaceName": "Surface",
+  "uiKitScreenColorCardSurfaceSecondaryName": "Surface Secondary",
+  "uiKitScreenColorCardBackgroundName": "Background",
+  "uiKitScreenColorCardBackgroundSecondaryName": "Background Secondary",
+  "uiKitScreenColorCardBackgroundTertiaryName": "Background Tertiary",
+  "uiKitScreenColorCardBackgroundTetradicName": "Tetradic Background",
+  "uiKitScreenColorCardDangerName": "Danger",
+  "uiKitScreenColorCardDangerSecondaryName": "Danger Secondary",
+  "uiKitScreenColorCardTextFieldName": "Text Field",
+  "uiKitScreenColorCardTextFieldLabelName": "Text Field Label",
+  "uiKitScreenColorCardTextFieldHelperName": "Text Field Helper",
+  "uiKitScreenColorCardFrameTextFieldSecondaryName": "Frame Text Field Secondary",
+  "uiKitScreenColorCardInactiveName": "Inactive",
+  "uiKitScreenColorCardPositiveName": "Positive",
+  "uiKitScreenColorCardSkeletonPrimaryName": "Skeleton Primary",
+  "uiKitScreenColorCardSkeletonSecondaryName": "Skeleton Secondary",
+  "uiKitScreenColorCardSkeletonTertiaryName": "Skeleton Tertiary",
+  "featureExampleFailedLoadIpMessage": "Failed to load IP address",
+  "search": "Search",
+  "title": "FROM SEED",
+  "firstPageTitle": "An encyclopedia in your pocket",
+  "firstPageSubTitle": "Over 500,000 species with detailed descriptions. Find the plant you need in seconds with smart search.",
+  "secondPageTitle": "Plant care without the hassle",
+  "secondPageSubTitle": "Clear plant cards with the care details that matter. Know exactly when to water and repot.",
+  "thirdPageTitle": "Become a growing expert",
+  "thirdPageSubTitle": "Personalized guides with step-by-step instructions. From seed to blooming plant under your care.",
+  "next": "Next",
+  "start": "Get started",
+  "login": "Sign in to your account",
+  "register": "Create an account",
+  "nameHint": "Name",
+  "passwordHint": "Password",
+  "loginButton": "Sign in",
+  "enterNameError": "Enter your name",
+  "nameTooShortError": "Name is too short",
+  "enterPasswordError": "Enter your password",
+  "passwordTooShortError": "Password is shorter than 8 characters",
+  "loginSuccess": "Signed in successfully!",
+  "orSeparator": "OR",
+  "noAccountQuestion": "Don't have an account?",
+  "registerAction": "Sign up!",
+  "enterEmailError": "Enter your email",
+  "emailInvalidError": "Enter a valid email",
+  "registrationSuccess": "Registration successful! You can now sign in.",
+  "emailHint": "Email",
+  "confirmPasswordHint": "Repeat password",
+  "passwordMatchError": "Passwords do not match",
+  "registerButton": "Sign up",
+  "alreadyHaveAccountQuestion": "Already have an account?",
+  "loginAction": "Sign in!",
+  "forgotPasswordAction": "Forgot your password?",
+  "forgotPasswordTitle": "Password recovery",
+  "forgotPasswordEmailDescription": "Enter your email and we will send a confirmation code.",
+  "forgotPasswordCodeTitle": "Enter the code",
+  "forgotPasswordCodeDescription": "Enter the one-time code from the email sent to {email}.",
+  "@forgotPasswordCodeDescription": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "forgotPasswordOtpHint": "Code from the email",
+  "forgotPasswordOtpEmptyError": "Enter the code from the email",
+  "forgotPasswordOtpLengthError": "The code must contain 6 digits",
+  "forgotPasswordNewPasswordTitle": "New password",
+  "forgotPasswordNewPasswordDescription": "Set a new password for your account.",
+  "forgotPasswordConfirmAction": "Save password",
+  "forgotPasswordSuccess": "Password changed successfully. Sign in with the new password.",
+  "loginError": "Sign-in error",
+  "invalidCredentialsError": "Invalid username or password",
+  "badRequestError": "Invalid sign-in data",
+  "noInternetError": "No internet connection",
+  "serverUnavailableError": "The server is temporarily unavailable, please try again later",
+  "unknownError": "An error occurred while signing in",
+  "registrationError": "Registration error",
+  "usernameAlreadyExists": "A user with this name already exists",
+  "emailAlreadyExists": "A user with this email already exists",
+  "badRequestRegistrationError": "Invalid registration data",
+  "unknownRegistrationError": "An error occurred during registration",
   "filtersSheetTitle": "Filters",
   "filtersSheetReset": "Reset",
   "filtersSheetLoadError": "Failed to load filter values",
