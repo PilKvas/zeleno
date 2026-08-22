@@ -17,7 +17,6 @@ class PlantFiltersState with _$PlantFiltersState {
     Object? error,
     @Default(<PlantFilterItem>[]) List<PlantFilterItem> soilPhChoices,
     @Default(<PlantFilterItem>[]) List<PlantFilterItem> soilMoistureChoices,
-    String? soilPhValue,
-    String? soilMoistureValue,
+    @Default(PlantSearchFilters()) PlantSearchFilters selected,
   }) = _PlantFiltersState;
 }

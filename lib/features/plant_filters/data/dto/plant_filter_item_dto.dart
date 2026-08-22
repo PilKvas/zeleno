@@ -7,8 +7,10 @@ part 'plant_filter_item_dto.g.dart';
 @freezed
 class PlantFilterItemDto with _$PlantFilterItemDto {
   const factory PlantFilterItemDto({
-    required String label,
-    required String value,
+    required String name,
+    // По схеме ChoiceItemSchema slug может быть null (например, у tags),
+    // такой элемент нельзя отправить в фильтр.
+    String? slug,
   }) = _PlantFilterItemDto;
 
   factory PlantFilterItemDto.fromJson(Map<String, dynamic> json) =>
@@ -16,10 +18,9 @@ class PlantFilterItemDto with _$PlantFilterItemDto {
 }
 
 extension PlantFilterItemDtoMapper on PlantFilterItemDto {
-  PlantFilterItem toModel() {
-    return PlantFilterItem(
-      label: label,
-      value: value,
-    );
+  PlantFilterItem? toModel() {
+    final String? filterValue = slug;
+    if (filterValue == null) return null;
+    return PlantFilterItem(label: name, value: filterValue);
   }
 }

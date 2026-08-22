@@ -12,6 +12,8 @@ part 'plant_search_event.dart';
 part 'plant_search_state.dart';
 
 class PlantSearchBloc extends Bloc<PlantSearchEvent, PlantSearchState> {
+  static const int _pageSize = 20;
+
   final PlantsSearchUsecase _plantsSearchUsecase;
 
   PlantSearchBloc(this._plantsSearchUsecase)
@@ -22,7 +24,7 @@ class PlantSearchBloc extends Bloc<PlantSearchEvent, PlantSearchState> {
       (event, emit) async {
         if (state.hasReachedEnd && !event.refresh) return;
 
-        var page = (state.items.length ~/ 20) + 1;
+        var page = (state.items.length ~/ _pageSize) + 1;
         emit(
           state.copyWith(
             status: Status.loading,
@@ -38,21 +40,18 @@ class PlantSearchBloc extends Bloc<PlantSearchEvent, PlantSearchState> {
 
         final plantList = await _plantsSearchUsecase.loadPlants(
           page: page,
-          name: nextName,
-          pageSize: 20,
-          soilMoisture: nextFilters.soilMoisture,
-          soilPh: nextFilters.soilPh,
+          pageSize: _pageSize,
+          filters: nextFilters,
         );
 
         emit(
           state.copyWith(
-              status: Status.success,
-              items: event.refresh ? plantList : [...state.items, ...plantList],
-              name: nextName,
-              filters: nextFilters,
-              hasReachedEnd:
-                  plantList.length < 20 // TODO(darbinyan): Вынести в константы,
-              ),
+            status: Status.success,
+            items: event.refresh ? plantList : [...state.items, ...plantList],
+            name: nextName,
+            filters: nextFilters,
+            hasReachedEnd: plantList.length < _pageSize,
+          ),
         );
       },
       transformer: droppable(),
