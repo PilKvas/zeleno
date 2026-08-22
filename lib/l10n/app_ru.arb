@@ -245,6 +245,13 @@
   "badRequestRegistrationError": "Некорректные данные для регистрации",
   "unknownRegistrationError": "Произошла ошибка при регистрации",
 
+  "@segmentPlantSearch": {
+    "---------": "---------",
+    "description": "Plant search"
+  },
+  "plantSearchHint": "Поиск",
+  "plantSearchEmpty": "Ничего не найдено",
+
   "@segmentPlantFilters": {
     "---------": "---------",
     "description": "Plant filters sheet"

@@ -21,8 +21,10 @@ mixin _$PlantFiltersState {
   List<PlantFilterItem> get soilPhChoices => throw _privateConstructorUsedError;
   List<PlantFilterItem> get soilMoistureChoices =>
       throw _privateConstructorUsedError;
-  String? get soilPhValue => throw _privateConstructorUsedError;
-  String? get soilMoistureValue => throw _privateConstructorUsedError;
+
+  /// Все выбранные значения формы, включая высоту: у шита не должно быть
+  /// собственного состояния фильтров.
+  PlantSearchFilters get selected => throw _privateConstructorUsedError;
 
   /// Create a copy of PlantFiltersState
   /// with the given fields replaced by the non-null parameter values.
@@ -42,8 +44,9 @@ abstract class $PlantFiltersStateCopyWith<$Res> {
       Object? error,
       List<PlantFilterItem> soilPhChoices,
       List<PlantFilterItem> soilMoistureChoices,
-      String? soilPhValue,
-      String? soilMoistureValue});
+      PlantSearchFilters selected});
+
+  $PlantSearchFiltersCopyWith<$Res> get selected;
 }
 
 /// @nodoc
@@ -65,8 +68,7 @@ class _$PlantFiltersStateCopyWithImpl<$Res, $Val extends PlantFiltersState>
     Object? error = freezed,
     Object? soilPhChoices = null,
     Object? soilMoistureChoices = null,
-    Object? soilPhValue = freezed,
-    Object? soilMoistureValue = freezed,
+    Object? selected = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -82,15 +84,21 @@ class _$PlantFiltersStateCopyWithImpl<$Res, $Val extends PlantFiltersState>
           ? _value.soilMoistureChoices
           : soilMoistureChoices // ignore: cast_nullable_to_non_nullable
               as List<PlantFilterItem>,
-      soilPhValue: freezed == soilPhValue
-          ? _value.soilPhValue
-          : soilPhValue // ignore: cast_nullable_to_non_nullable
-              as String?,
-      soilMoistureValue: freezed == soilMoistureValue
-          ? _value.soilMoistureValue
-          : soilMoistureValue // ignore: cast_nullable_to_non_nullable
-              as String?,
+      selected: null == selected
+          ? _value.selected
+          : selected // ignore: cast_nullable_to_non_nullable
+              as PlantSearchFilters,
     ) as $Val);
+  }
+
+  /// Create a copy of PlantFiltersState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PlantSearchFiltersCopyWith<$Res> get selected {
+    return $PlantSearchFiltersCopyWith<$Res>(_value.selected, (value) {
+      return _then(_value.copyWith(selected: value) as $Val);
+    });
   }
 }
 
@@ -107,8 +115,10 @@ abstract class _$$PlantFiltersStateImplCopyWith<$Res>
       Object? error,
       List<PlantFilterItem> soilPhChoices,
       List<PlantFilterItem> soilMoistureChoices,
-      String? soilPhValue,
-      String? soilMoistureValue});
+      PlantSearchFilters selected});
+
+  @override
+  $PlantSearchFiltersCopyWith<$Res> get selected;
 }
 
 /// @nodoc
@@ -128,8 +138,7 @@ class __$$PlantFiltersStateImplCopyWithImpl<$Res>
     Object? error = freezed,
     Object? soilPhChoices = null,
     Object? soilMoistureChoices = null,
-    Object? soilPhValue = freezed,
-    Object? soilMoistureValue = freezed,
+    Object? selected = null,
   }) {
     return _then(_$PlantFiltersStateImpl(
       status: null == status
@@ -145,14 +154,10 @@ class __$$PlantFiltersStateImplCopyWithImpl<$Res>
           ? _value._soilMoistureChoices
           : soilMoistureChoices // ignore: cast_nullable_to_non_nullable
               as List<PlantFilterItem>,
-      soilPhValue: freezed == soilPhValue
-          ? _value.soilPhValue
-          : soilPhValue // ignore: cast_nullable_to_non_nullable
-              as String?,
-      soilMoistureValue: freezed == soilMoistureValue
-          ? _value.soilMoistureValue
-          : soilMoistureValue // ignore: cast_nullable_to_non_nullable
-              as String?,
+      selected: null == selected
+          ? _value.selected
+          : selected // ignore: cast_nullable_to_non_nullable
+              as PlantSearchFilters,
     ));
   }
 }
@@ -166,8 +171,7 @@ class _$PlantFiltersStateImpl implements _PlantFiltersState {
       final List<PlantFilterItem> soilPhChoices = const <PlantFilterItem>[],
       final List<PlantFilterItem> soilMoistureChoices =
           const <PlantFilterItem>[],
-      this.soilPhValue,
-      this.soilMoistureValue})
+      this.selected = const PlantSearchFilters()})
       : _soilPhChoices = soilPhChoices,
         _soilMoistureChoices = soilMoistureChoices;
 
@@ -195,14 +199,15 @@ class _$PlantFiltersStateImpl implements _PlantFiltersState {
     return EqualUnmodifiableListView(_soilMoistureChoices);
   }
 
+  /// Все выбранные значения формы, включая высоту: у шита не должно быть
+  /// собственного состояния фильтров.
   @override
-  final String? soilPhValue;
-  @override
-  final String? soilMoistureValue;
+  @JsonKey()
+  final PlantSearchFilters selected;
 
   @override
   String toString() {
-    return 'PlantFiltersState(status: $status, error: $error, soilPhChoices: $soilPhChoices, soilMoistureChoices: $soilMoistureChoices, soilPhValue: $soilPhValue, soilMoistureValue: $soilMoistureValue)';
+    return 'PlantFiltersState(status: $status, error: $error, soilPhChoices: $soilPhChoices, soilMoistureChoices: $soilMoistureChoices, selected: $selected)';
   }
 
   @override
@@ -216,10 +221,8 @@ class _$PlantFiltersStateImpl implements _PlantFiltersState {
                 .equals(other._soilPhChoices, _soilPhChoices) &&
             const DeepCollectionEquality()
                 .equals(other._soilMoistureChoices, _soilMoistureChoices) &&
-            (identical(other.soilPhValue, soilPhValue) ||
-                other.soilPhValue == soilPhValue) &&
-            (identical(other.soilMoistureValue, soilMoistureValue) ||
-                other.soilMoistureValue == soilMoistureValue));
+            (identical(other.selected, selected) ||
+                other.selected == selected));
   }
 
   @override
@@ -229,8 +232,7 @@ class _$PlantFiltersStateImpl implements _PlantFiltersState {
       const DeepCollectionEquality().hash(error),
       const DeepCollectionEquality().hash(_soilPhChoices),
       const DeepCollectionEquality().hash(_soilMoistureChoices),
-      soilPhValue,
-      soilMoistureValue);
+      selected);
 
   /// Create a copy of PlantFiltersState
   /// with the given fields replaced by the non-null parameter values.
@@ -248,8 +250,7 @@ abstract class _PlantFiltersState implements PlantFiltersState {
       final Object? error,
       final List<PlantFilterItem> soilPhChoices,
       final List<PlantFilterItem> soilMoistureChoices,
-      final String? soilPhValue,
-      final String? soilMoistureValue}) = _$PlantFiltersStateImpl;
+      final PlantSearchFilters selected}) = _$PlantFiltersStateImpl;
 
   @override
   FiltersStatus get status;
@@ -259,10 +260,11 @@ abstract class _PlantFiltersState implements PlantFiltersState {
   List<PlantFilterItem> get soilPhChoices;
   @override
   List<PlantFilterItem> get soilMoistureChoices;
+
+  /// Все выбранные значения формы, включая высоту: у шита не должно быть
+  /// собственного состояния фильтров.
   @override
-  String? get soilPhValue;
-  @override
-  String? get soilMoistureValue;
+  PlantSearchFilters get selected;
 
   /// Create a copy of PlantFiltersState
   /// with the given fields replaced by the non-null parameter values.

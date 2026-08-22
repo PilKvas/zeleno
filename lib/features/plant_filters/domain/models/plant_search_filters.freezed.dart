@@ -19,8 +19,8 @@ mixin _$PlantSearchFilters {
   String? get searchQuery => throw _privateConstructorUsedError;
   double? get heightFrom => throw _privateConstructorUsedError;
   double? get heightTo => throw _privateConstructorUsedError;
-  String? get soilPh => throw _privateConstructorUsedError;
-  String? get soilMoisture => throw _privateConstructorUsedError;
+  List<String> get soilPh => throw _privateConstructorUsedError;
+  List<String> get soilMoisture => throw _privateConstructorUsedError;
 
   /// Create a copy of PlantSearchFilters
   /// with the given fields replaced by the non-null parameter values.
@@ -39,8 +39,8 @@ abstract class $PlantSearchFiltersCopyWith<$Res> {
       {String? searchQuery,
       double? heightFrom,
       double? heightTo,
-      String? soilPh,
-      String? soilMoisture});
+      List<String> soilPh,
+      List<String> soilMoisture});
 }
 
 /// @nodoc
@@ -61,8 +61,8 @@ class _$PlantSearchFiltersCopyWithImpl<$Res, $Val extends PlantSearchFilters>
     Object? searchQuery = freezed,
     Object? heightFrom = freezed,
     Object? heightTo = freezed,
-    Object? soilPh = freezed,
-    Object? soilMoisture = freezed,
+    Object? soilPh = null,
+    Object? soilMoisture = null,
   }) {
     return _then(_value.copyWith(
       searchQuery: freezed == searchQuery
@@ -77,14 +77,14 @@ class _$PlantSearchFiltersCopyWithImpl<$Res, $Val extends PlantSearchFilters>
           ? _value.heightTo
           : heightTo // ignore: cast_nullable_to_non_nullable
               as double?,
-      soilPh: freezed == soilPh
+      soilPh: null == soilPh
           ? _value.soilPh
           : soilPh // ignore: cast_nullable_to_non_nullable
-              as String?,
-      soilMoisture: freezed == soilMoisture
+              as List<String>,
+      soilMoisture: null == soilMoisture
           ? _value.soilMoisture
           : soilMoisture // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as List<String>,
     ) as $Val);
   }
 }
@@ -101,8 +101,8 @@ abstract class _$$PlantSearchFiltersImplCopyWith<$Res>
       {String? searchQuery,
       double? heightFrom,
       double? heightTo,
-      String? soilPh,
-      String? soilMoisture});
+      List<String> soilPh,
+      List<String> soilMoisture});
 }
 
 /// @nodoc
@@ -121,8 +121,8 @@ class __$$PlantSearchFiltersImplCopyWithImpl<$Res>
     Object? searchQuery = freezed,
     Object? heightFrom = freezed,
     Object? heightTo = freezed,
-    Object? soilPh = freezed,
-    Object? soilMoisture = freezed,
+    Object? soilPh = null,
+    Object? soilMoisture = null,
   }) {
     return _then(_$PlantSearchFiltersImpl(
       searchQuery: freezed == searchQuery
@@ -137,14 +137,14 @@ class __$$PlantSearchFiltersImplCopyWithImpl<$Res>
           ? _value.heightTo
           : heightTo // ignore: cast_nullable_to_non_nullable
               as double?,
-      soilPh: freezed == soilPh
-          ? _value.soilPh
+      soilPh: null == soilPh
+          ? _value._soilPh
           : soilPh // ignore: cast_nullable_to_non_nullable
-              as String?,
-      soilMoisture: freezed == soilMoisture
-          ? _value.soilMoisture
+              as List<String>,
+      soilMoisture: null == soilMoisture
+          ? _value._soilMoisture
           : soilMoisture // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as List<String>,
     ));
   }
 }
@@ -156,9 +156,11 @@ class _$PlantSearchFiltersImpl extends _PlantSearchFilters {
       {this.searchQuery,
       this.heightFrom,
       this.heightTo,
-      this.soilPh,
-      this.soilMoisture})
-      : super._();
+      final List<String> soilPh = const <String>[],
+      final List<String> soilMoisture = const <String>[]})
+      : _soilPh = soilPh,
+        _soilMoisture = soilMoisture,
+        super._();
 
   @override
   final String? searchQuery;
@@ -166,10 +168,23 @@ class _$PlantSearchFiltersImpl extends _PlantSearchFilters {
   final double? heightFrom;
   @override
   final double? heightTo;
+  final List<String> _soilPh;
   @override
-  final String? soilPh;
+  @JsonKey()
+  List<String> get soilPh {
+    if (_soilPh is EqualUnmodifiableListView) return _soilPh;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_soilPh);
+  }
+
+  final List<String> _soilMoisture;
   @override
-  final String? soilMoisture;
+  @JsonKey()
+  List<String> get soilMoisture {
+    if (_soilMoisture is EqualUnmodifiableListView) return _soilMoisture;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_soilMoisture);
+  }
 
   @override
   String toString() {
@@ -187,14 +202,19 @@ class _$PlantSearchFiltersImpl extends _PlantSearchFilters {
                 other.heightFrom == heightFrom) &&
             (identical(other.heightTo, heightTo) ||
                 other.heightTo == heightTo) &&
-            (identical(other.soilPh, soilPh) || other.soilPh == soilPh) &&
-            (identical(other.soilMoisture, soilMoisture) ||
-                other.soilMoisture == soilMoisture));
+            const DeepCollectionEquality().equals(other._soilPh, _soilPh) &&
+            const DeepCollectionEquality()
+                .equals(other._soilMoisture, _soilMoisture));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, searchQuery, heightFrom, heightTo, soilPh, soilMoisture);
+      runtimeType,
+      searchQuery,
+      heightFrom,
+      heightTo,
+      const DeepCollectionEquality().hash(_soilPh),
+      const DeepCollectionEquality().hash(_soilMoisture));
 
   /// Create a copy of PlantSearchFilters
   /// with the given fields replaced by the non-null parameter values.
@@ -211,8 +231,8 @@ abstract class _PlantSearchFilters extends PlantSearchFilters {
       {final String? searchQuery,
       final double? heightFrom,
       final double? heightTo,
-      final String? soilPh,
-      final String? soilMoisture}) = _$PlantSearchFiltersImpl;
+      final List<String> soilPh,
+      final List<String> soilMoisture}) = _$PlantSearchFiltersImpl;
   const _PlantSearchFilters._() : super._();
 
   @override
@@ -222,9 +242,9 @@ abstract class _PlantSearchFilters extends PlantSearchFilters {
   @override
   double? get heightTo;
   @override
-  String? get soilPh;
+  List<String> get soilPh;
   @override
-  String? get soilMoisture;
+  List<String> get soilMoisture;
 
   /// Create a copy of PlantSearchFilters
   /// with the given fields replaced by the non-null parameter values.

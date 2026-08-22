@@ -447,6 +447,12 @@ class AppLocalizationsEn extends AppLocalizations {
       'An error occurred during registration';
 
   @override
+  String get plantSearchHint => 'Search';
+
+  @override
+  String get plantSearchEmpty => 'Nothing found';
+
+  @override
   String get filtersSheetTitle => 'Filters';
 
   @override

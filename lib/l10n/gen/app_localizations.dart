@@ -884,6 +884,18 @@ abstract class AppLocalizations {
   /// **'Произошла ошибка при регистрации'**
   String get unknownRegistrationError;
 
+  /// No description provided for @plantSearchHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Поиск'**
+  String get plantSearchHint;
+
+  /// No description provided for @plantSearchEmpty.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ничего не найдено'**
+  String get plantSearchEmpty;
+
   /// No description provided for @filtersSheetTitle.
   ///
   /// In ru, this message translates to:
