@@ -201,6 +201,8 @@
   "emailAlreadyExists": "A user with this email already exists",
   "badRequestRegistrationError": "Invalid registration data",
   "unknownRegistrationError": "An error occurred during registration",
+  "plantSearchHint": "Search",
+  "plantSearchEmpty": "Nothing found",
   "filtersSheetTitle": "Filters",
   "filtersSheetReset": "Reset",
   "filtersSheetLoadError": "Failed to load filter values",
