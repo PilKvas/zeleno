@@ -6,7 +6,7 @@ class ProfileRepository implements IProfileRepository {
   final ProfileService _profileService;
 
   ProfileRepository({required ProfileService profileService})
-      : _profileService = profileService;
+    : _profileService = profileService;
 
   @override
   Future<User> getCurrentUser() async {

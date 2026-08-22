@@ -4,10 +4,7 @@ import 'package:zeleno_v2/uikit/theme/export.dart';
 class TagWidget extends StatelessWidget {
   final String text;
 
-  const TagWidget({
-    super.key,
-    required this.text,
-  });
+  const TagWidget({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +22,7 @@ class TagWidget extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: typography.body.copyWith(
-          fontSize: 12,
-          color: colors.onSurface,
-        ),
+        style: typography.body.copyWith(fontSize: 12, color: colors.onSurface),
       ),
     );
   }

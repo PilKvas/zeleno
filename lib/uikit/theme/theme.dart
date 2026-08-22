@@ -52,7 +52,8 @@ final class ZTheme {
   }
 
   static SystemUiOverlayStyle statusBarStyleForBrightness(
-      Brightness brightness) {
+    Brightness brightness,
+  ) {
     final bool isDark = brightness == Brightness.dark;
     return SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,

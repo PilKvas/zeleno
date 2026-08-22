@@ -12,7 +12,8 @@ part of 'garden_plant_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 GardenPlantModel _$GardenPlantModelFromJson(Map<String, dynamic> json) {
   return _GardenPlantModel.fromJson(json);
@@ -65,27 +66,28 @@ mixin _$GardenPlantModel {
 /// @nodoc
 abstract class $GardenPlantModelCopyWith<$Res> {
   factory $GardenPlantModelCopyWith(
-          GardenPlantModel value, $Res Function(GardenPlantModel) then) =
-      _$GardenPlantModelCopyWithImpl<$Res, GardenPlantModel>;
+    GardenPlantModel value,
+    $Res Function(GardenPlantModel) then,
+  ) = _$GardenPlantModelCopyWithImpl<$Res, GardenPlantModel>;
   @useResult
-  $Res call(
-      {int id,
-      @JsonKey(name: 'custom_name') String customName,
-      @JsonKey(name: 'species_id') int? speciesId,
-      @JsonKey(name: 'species_slug') String? speciesSlug,
-      @JsonKey(name: 'species_latin_name') String? speciesLatinName,
-      @JsonKey(name: 'room_id') int? roomId,
-      @JsonKey(name: 'image_url') String? imageUrl,
-      @JsonKey(name: 'sunlight_exposure') String? sunlightExposure,
-      @JsonKey(name: 'plant_size') String? plantSize,
-      @JsonKey(name: 'pot_size_mm') int? potSizeMm,
-      @JsonKey(name: 'last_watering') String? lastWatering,
-      @JsonKey(name: 'last_watering_exact_date') String? lastWateringExactDate,
-      @JsonKey(name: 'last_repotting') String? lastRepotting,
-      @JsonKey(name: 'last_repotting_exact_date')
-      String? lastRepottingExactDate,
-      @JsonKey(name: 'created_at') DateTime? createdAt,
-      @JsonKey(name: 'updated_at') DateTime? updatedAt});
+  $Res call({
+    int id,
+    @JsonKey(name: 'custom_name') String customName,
+    @JsonKey(name: 'species_id') int? speciesId,
+    @JsonKey(name: 'species_slug') String? speciesSlug,
+    @JsonKey(name: 'species_latin_name') String? speciesLatinName,
+    @JsonKey(name: 'room_id') int? roomId,
+    @JsonKey(name: 'image_url') String? imageUrl,
+    @JsonKey(name: 'sunlight_exposure') String? sunlightExposure,
+    @JsonKey(name: 'plant_size') String? plantSize,
+    @JsonKey(name: 'pot_size_mm') int? potSizeMm,
+    @JsonKey(name: 'last_watering') String? lastWatering,
+    @JsonKey(name: 'last_watering_exact_date') String? lastWateringExactDate,
+    @JsonKey(name: 'last_repotting') String? lastRepotting,
+    @JsonKey(name: 'last_repotting_exact_date') String? lastRepottingExactDate,
+    @JsonKey(name: 'created_at') DateTime? createdAt,
+    @JsonKey(name: 'updated_at') DateTime? updatedAt,
+  });
 }
 
 /// @nodoc
@@ -120,110 +122,115 @@ class _$GardenPlantModelCopyWithImpl<$Res, $Val extends GardenPlantModel>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      customName: null == customName
-          ? _value.customName
-          : customName // ignore: cast_nullable_to_non_nullable
-              as String,
-      speciesId: freezed == speciesId
-          ? _value.speciesId
-          : speciesId // ignore: cast_nullable_to_non_nullable
-              as int?,
-      speciesSlug: freezed == speciesSlug
-          ? _value.speciesSlug
-          : speciesSlug // ignore: cast_nullable_to_non_nullable
-              as String?,
-      speciesLatinName: freezed == speciesLatinName
-          ? _value.speciesLatinName
-          : speciesLatinName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      roomId: freezed == roomId
-          ? _value.roomId
-          : roomId // ignore: cast_nullable_to_non_nullable
-              as int?,
-      imageUrl: freezed == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      sunlightExposure: freezed == sunlightExposure
-          ? _value.sunlightExposure
-          : sunlightExposure // ignore: cast_nullable_to_non_nullable
-              as String?,
-      plantSize: freezed == plantSize
-          ? _value.plantSize
-          : plantSize // ignore: cast_nullable_to_non_nullable
-              as String?,
-      potSizeMm: freezed == potSizeMm
-          ? _value.potSizeMm
-          : potSizeMm // ignore: cast_nullable_to_non_nullable
-              as int?,
-      lastWatering: freezed == lastWatering
-          ? _value.lastWatering
-          : lastWatering // ignore: cast_nullable_to_non_nullable
-              as String?,
-      lastWateringExactDate: freezed == lastWateringExactDate
-          ? _value.lastWateringExactDate
-          : lastWateringExactDate // ignore: cast_nullable_to_non_nullable
-              as String?,
-      lastRepotting: freezed == lastRepotting
-          ? _value.lastRepotting
-          : lastRepotting // ignore: cast_nullable_to_non_nullable
-              as String?,
-      lastRepottingExactDate: freezed == lastRepottingExactDate
-          ? _value.lastRepottingExactDate
-          : lastRepottingExactDate // ignore: cast_nullable_to_non_nullable
-              as String?,
-      createdAt: freezed == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      updatedAt: freezed == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int,
+            customName: null == customName
+                ? _value.customName
+                : customName // ignore: cast_nullable_to_non_nullable
+                      as String,
+            speciesId: freezed == speciesId
+                ? _value.speciesId
+                : speciesId // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            speciesSlug: freezed == speciesSlug
+                ? _value.speciesSlug
+                : speciesSlug // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            speciesLatinName: freezed == speciesLatinName
+                ? _value.speciesLatinName
+                : speciesLatinName // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            roomId: freezed == roomId
+                ? _value.roomId
+                : roomId // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            imageUrl: freezed == imageUrl
+                ? _value.imageUrl
+                : imageUrl // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            sunlightExposure: freezed == sunlightExposure
+                ? _value.sunlightExposure
+                : sunlightExposure // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            plantSize: freezed == plantSize
+                ? _value.plantSize
+                : plantSize // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            potSizeMm: freezed == potSizeMm
+                ? _value.potSizeMm
+                : potSizeMm // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            lastWatering: freezed == lastWatering
+                ? _value.lastWatering
+                : lastWatering // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            lastWateringExactDate: freezed == lastWateringExactDate
+                ? _value.lastWateringExactDate
+                : lastWateringExactDate // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            lastRepotting: freezed == lastRepotting
+                ? _value.lastRepotting
+                : lastRepotting // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            lastRepottingExactDate: freezed == lastRepottingExactDate
+                ? _value.lastRepottingExactDate
+                : lastRepottingExactDate // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            createdAt: freezed == createdAt
+                ? _value.createdAt
+                : createdAt // ignore: cast_nullable_to_non_nullable
+                      as DateTime?,
+            updatedAt: freezed == updatedAt
+                ? _value.updatedAt
+                : updatedAt // ignore: cast_nullable_to_non_nullable
+                      as DateTime?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$GardenPlantModelImplCopyWith<$Res>
     implements $GardenPlantModelCopyWith<$Res> {
-  factory _$$GardenPlantModelImplCopyWith(_$GardenPlantModelImpl value,
-          $Res Function(_$GardenPlantModelImpl) then) =
-      __$$GardenPlantModelImplCopyWithImpl<$Res>;
+  factory _$$GardenPlantModelImplCopyWith(
+    _$GardenPlantModelImpl value,
+    $Res Function(_$GardenPlantModelImpl) then,
+  ) = __$$GardenPlantModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int id,
-      @JsonKey(name: 'custom_name') String customName,
-      @JsonKey(name: 'species_id') int? speciesId,
-      @JsonKey(name: 'species_slug') String? speciesSlug,
-      @JsonKey(name: 'species_latin_name') String? speciesLatinName,
-      @JsonKey(name: 'room_id') int? roomId,
-      @JsonKey(name: 'image_url') String? imageUrl,
-      @JsonKey(name: 'sunlight_exposure') String? sunlightExposure,
-      @JsonKey(name: 'plant_size') String? plantSize,
-      @JsonKey(name: 'pot_size_mm') int? potSizeMm,
-      @JsonKey(name: 'last_watering') String? lastWatering,
-      @JsonKey(name: 'last_watering_exact_date') String? lastWateringExactDate,
-      @JsonKey(name: 'last_repotting') String? lastRepotting,
-      @JsonKey(name: 'last_repotting_exact_date')
-      String? lastRepottingExactDate,
-      @JsonKey(name: 'created_at') DateTime? createdAt,
-      @JsonKey(name: 'updated_at') DateTime? updatedAt});
+  $Res call({
+    int id,
+    @JsonKey(name: 'custom_name') String customName,
+    @JsonKey(name: 'species_id') int? speciesId,
+    @JsonKey(name: 'species_slug') String? speciesSlug,
+    @JsonKey(name: 'species_latin_name') String? speciesLatinName,
+    @JsonKey(name: 'room_id') int? roomId,
+    @JsonKey(name: 'image_url') String? imageUrl,
+    @JsonKey(name: 'sunlight_exposure') String? sunlightExposure,
+    @JsonKey(name: 'plant_size') String? plantSize,
+    @JsonKey(name: 'pot_size_mm') int? potSizeMm,
+    @JsonKey(name: 'last_watering') String? lastWatering,
+    @JsonKey(name: 'last_watering_exact_date') String? lastWateringExactDate,
+    @JsonKey(name: 'last_repotting') String? lastRepotting,
+    @JsonKey(name: 'last_repotting_exact_date') String? lastRepottingExactDate,
+    @JsonKey(name: 'created_at') DateTime? createdAt,
+    @JsonKey(name: 'updated_at') DateTime? updatedAt,
+  });
 }
 
 /// @nodoc
 class __$$GardenPlantModelImplCopyWithImpl<$Res>
     extends _$GardenPlantModelCopyWithImpl<$Res, _$GardenPlantModelImpl>
     implements _$$GardenPlantModelImplCopyWith<$Res> {
-  __$$GardenPlantModelImplCopyWithImpl(_$GardenPlantModelImpl _value,
-      $Res Function(_$GardenPlantModelImpl) _then)
-      : super(_value, _then);
+  __$$GardenPlantModelImplCopyWithImpl(
+    _$GardenPlantModelImpl _value,
+    $Res Function(_$GardenPlantModelImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of GardenPlantModel
   /// with the given fields replaced by the non-null parameter values.
@@ -247,95 +254,98 @@ class __$$GardenPlantModelImplCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_$GardenPlantModelImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      customName: null == customName
-          ? _value.customName
-          : customName // ignore: cast_nullable_to_non_nullable
-              as String,
-      speciesId: freezed == speciesId
-          ? _value.speciesId
-          : speciesId // ignore: cast_nullable_to_non_nullable
-              as int?,
-      speciesSlug: freezed == speciesSlug
-          ? _value.speciesSlug
-          : speciesSlug // ignore: cast_nullable_to_non_nullable
-              as String?,
-      speciesLatinName: freezed == speciesLatinName
-          ? _value.speciesLatinName
-          : speciesLatinName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      roomId: freezed == roomId
-          ? _value.roomId
-          : roomId // ignore: cast_nullable_to_non_nullable
-              as int?,
-      imageUrl: freezed == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      sunlightExposure: freezed == sunlightExposure
-          ? _value.sunlightExposure
-          : sunlightExposure // ignore: cast_nullable_to_non_nullable
-              as String?,
-      plantSize: freezed == plantSize
-          ? _value.plantSize
-          : plantSize // ignore: cast_nullable_to_non_nullable
-              as String?,
-      potSizeMm: freezed == potSizeMm
-          ? _value.potSizeMm
-          : potSizeMm // ignore: cast_nullable_to_non_nullable
-              as int?,
-      lastWatering: freezed == lastWatering
-          ? _value.lastWatering
-          : lastWatering // ignore: cast_nullable_to_non_nullable
-              as String?,
-      lastWateringExactDate: freezed == lastWateringExactDate
-          ? _value.lastWateringExactDate
-          : lastWateringExactDate // ignore: cast_nullable_to_non_nullable
-              as String?,
-      lastRepotting: freezed == lastRepotting
-          ? _value.lastRepotting
-          : lastRepotting // ignore: cast_nullable_to_non_nullable
-              as String?,
-      lastRepottingExactDate: freezed == lastRepottingExactDate
-          ? _value.lastRepottingExactDate
-          : lastRepottingExactDate // ignore: cast_nullable_to_non_nullable
-              as String?,
-      createdAt: freezed == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      updatedAt: freezed == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-    ));
+    return _then(
+      _$GardenPlantModelImpl(
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int,
+        customName: null == customName
+            ? _value.customName
+            : customName // ignore: cast_nullable_to_non_nullable
+                  as String,
+        speciesId: freezed == speciesId
+            ? _value.speciesId
+            : speciesId // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        speciesSlug: freezed == speciesSlug
+            ? _value.speciesSlug
+            : speciesSlug // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        speciesLatinName: freezed == speciesLatinName
+            ? _value.speciesLatinName
+            : speciesLatinName // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        roomId: freezed == roomId
+            ? _value.roomId
+            : roomId // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        imageUrl: freezed == imageUrl
+            ? _value.imageUrl
+            : imageUrl // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        sunlightExposure: freezed == sunlightExposure
+            ? _value.sunlightExposure
+            : sunlightExposure // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        plantSize: freezed == plantSize
+            ? _value.plantSize
+            : plantSize // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        potSizeMm: freezed == potSizeMm
+            ? _value.potSizeMm
+            : potSizeMm // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        lastWatering: freezed == lastWatering
+            ? _value.lastWatering
+            : lastWatering // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        lastWateringExactDate: freezed == lastWateringExactDate
+            ? _value.lastWateringExactDate
+            : lastWateringExactDate // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        lastRepotting: freezed == lastRepotting
+            ? _value.lastRepotting
+            : lastRepotting // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        lastRepottingExactDate: freezed == lastRepottingExactDate
+            ? _value.lastRepottingExactDate
+            : lastRepottingExactDate // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        createdAt: freezed == createdAt
+            ? _value.createdAt
+            : createdAt // ignore: cast_nullable_to_non_nullable
+                  as DateTime?,
+        updatedAt: freezed == updatedAt
+            ? _value.updatedAt
+            : updatedAt // ignore: cast_nullable_to_non_nullable
+                  as DateTime?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$GardenPlantModelImpl implements _GardenPlantModel {
-  const _$GardenPlantModelImpl(
-      {required this.id,
-      @JsonKey(name: 'custom_name') required this.customName,
-      @JsonKey(name: 'species_id') this.speciesId,
-      @JsonKey(name: 'species_slug') this.speciesSlug,
-      @JsonKey(name: 'species_latin_name') this.speciesLatinName,
-      @JsonKey(name: 'room_id') this.roomId,
-      @JsonKey(name: 'image_url') this.imageUrl,
-      @JsonKey(name: 'sunlight_exposure') this.sunlightExposure,
-      @JsonKey(name: 'plant_size') this.plantSize,
-      @JsonKey(name: 'pot_size_mm') this.potSizeMm,
-      @JsonKey(name: 'last_watering') this.lastWatering,
-      @JsonKey(name: 'last_watering_exact_date') this.lastWateringExactDate,
-      @JsonKey(name: 'last_repotting') this.lastRepotting,
-      @JsonKey(name: 'last_repotting_exact_date') this.lastRepottingExactDate,
-      @JsonKey(name: 'created_at') this.createdAt,
-      @JsonKey(name: 'updated_at') this.updatedAt});
+  const _$GardenPlantModelImpl({
+    required this.id,
+    @JsonKey(name: 'custom_name') required this.customName,
+    @JsonKey(name: 'species_id') this.speciesId,
+    @JsonKey(name: 'species_slug') this.speciesSlug,
+    @JsonKey(name: 'species_latin_name') this.speciesLatinName,
+    @JsonKey(name: 'room_id') this.roomId,
+    @JsonKey(name: 'image_url') this.imageUrl,
+    @JsonKey(name: 'sunlight_exposure') this.sunlightExposure,
+    @JsonKey(name: 'plant_size') this.plantSize,
+    @JsonKey(name: 'pot_size_mm') this.potSizeMm,
+    @JsonKey(name: 'last_watering') this.lastWatering,
+    @JsonKey(name: 'last_watering_exact_date') this.lastWateringExactDate,
+    @JsonKey(name: 'last_repotting') this.lastRepotting,
+    @JsonKey(name: 'last_repotting_exact_date') this.lastRepottingExactDate,
+    @JsonKey(name: 'created_at') this.createdAt,
+    @JsonKey(name: 'updated_at') this.updatedAt,
+  });
 
   factory _$GardenPlantModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$GardenPlantModelImplFromJson(json);
@@ -433,23 +443,24 @@ class _$GardenPlantModelImpl implements _GardenPlantModel {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      customName,
-      speciesId,
-      speciesSlug,
-      speciesLatinName,
-      roomId,
-      imageUrl,
-      sunlightExposure,
-      plantSize,
-      potSizeMm,
-      lastWatering,
-      lastWateringExactDate,
-      lastRepotting,
-      lastRepottingExactDate,
-      createdAt,
-      updatedAt);
+    runtimeType,
+    id,
+    customName,
+    speciesId,
+    speciesSlug,
+    speciesLatinName,
+    roomId,
+    imageUrl,
+    sunlightExposure,
+    plantSize,
+    potSizeMm,
+    lastWatering,
+    lastWateringExactDate,
+    lastRepotting,
+    lastRepottingExactDate,
+    createdAt,
+    updatedAt,
+  );
 
   /// Create a copy of GardenPlantModel
   /// with the given fields replaced by the non-null parameter values.
@@ -458,37 +469,37 @@ class _$GardenPlantModelImpl implements _GardenPlantModel {
   @pragma('vm:prefer-inline')
   _$$GardenPlantModelImplCopyWith<_$GardenPlantModelImpl> get copyWith =>
       __$$GardenPlantModelImplCopyWithImpl<_$GardenPlantModelImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GardenPlantModelImplToJson(
-      this,
-    );
+    return _$$GardenPlantModelImplToJson(this);
   }
 }
 
 abstract class _GardenPlantModel implements GardenPlantModel {
-  const factory _GardenPlantModel(
-          {required final int id,
-          @JsonKey(name: 'custom_name') required final String customName,
-          @JsonKey(name: 'species_id') final int? speciesId,
-          @JsonKey(name: 'species_slug') final String? speciesSlug,
-          @JsonKey(name: 'species_latin_name') final String? speciesLatinName,
-          @JsonKey(name: 'room_id') final int? roomId,
-          @JsonKey(name: 'image_url') final String? imageUrl,
-          @JsonKey(name: 'sunlight_exposure') final String? sunlightExposure,
-          @JsonKey(name: 'plant_size') final String? plantSize,
-          @JsonKey(name: 'pot_size_mm') final int? potSizeMm,
-          @JsonKey(name: 'last_watering') final String? lastWatering,
-          @JsonKey(name: 'last_watering_exact_date')
-          final String? lastWateringExactDate,
-          @JsonKey(name: 'last_repotting') final String? lastRepotting,
-          @JsonKey(name: 'last_repotting_exact_date')
-          final String? lastRepottingExactDate,
-          @JsonKey(name: 'created_at') final DateTime? createdAt,
-          @JsonKey(name: 'updated_at') final DateTime? updatedAt}) =
-      _$GardenPlantModelImpl;
+  const factory _GardenPlantModel({
+    required final int id,
+    @JsonKey(name: 'custom_name') required final String customName,
+    @JsonKey(name: 'species_id') final int? speciesId,
+    @JsonKey(name: 'species_slug') final String? speciesSlug,
+    @JsonKey(name: 'species_latin_name') final String? speciesLatinName,
+    @JsonKey(name: 'room_id') final int? roomId,
+    @JsonKey(name: 'image_url') final String? imageUrl,
+    @JsonKey(name: 'sunlight_exposure') final String? sunlightExposure,
+    @JsonKey(name: 'plant_size') final String? plantSize,
+    @JsonKey(name: 'pot_size_mm') final int? potSizeMm,
+    @JsonKey(name: 'last_watering') final String? lastWatering,
+    @JsonKey(name: 'last_watering_exact_date')
+    final String? lastWateringExactDate,
+    @JsonKey(name: 'last_repotting') final String? lastRepotting,
+    @JsonKey(name: 'last_repotting_exact_date')
+    final String? lastRepottingExactDate,
+    @JsonKey(name: 'created_at') final DateTime? createdAt,
+    @JsonKey(name: 'updated_at') final DateTime? updatedAt,
+  }) = _$GardenPlantModelImpl;
 
   factory _GardenPlantModel.fromJson(Map<String, dynamic> json) =
       _$GardenPlantModelImpl.fromJson;

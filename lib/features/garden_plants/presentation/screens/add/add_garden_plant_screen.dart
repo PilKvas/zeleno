@@ -105,26 +105,22 @@ class _AddGardenPlantViewState extends State<_AddGardenPlantView> {
         // Имя, загруженное для редактирования, попадает в контроллер
         // ровно один раз — когда растение пришло с сервера.
         BlocListener<AddGardenPlantCubit, AddGardenPlantState>(
-          listenWhen: (
-            AddGardenPlantState previous,
-            AddGardenPlantState current,
-          ) =>
-              previous.editingPlant == null && current.editingPlant != null,
+          listenWhen:
+              (AddGardenPlantState previous, AddGardenPlantState current) =>
+                  previous.editingPlant == null && current.editingPlant != null,
           listener: (BuildContext context, AddGardenPlantState state) {
             _nameController.text = state.customName;
           },
         ),
         BlocListener<AddGardenPlantCubit, AddGardenPlantState>(
-          listenWhen: (
-            AddGardenPlantState previous,
-            AddGardenPlantState current,
-          ) {
-            if (current.plantId != null) {
-              return !previous.wasUpdated && current.wasUpdated;
-            }
-            return previous.status != current.status &&
-                current.status.isSuccess;
-          },
+          listenWhen:
+              (AddGardenPlantState previous, AddGardenPlantState current) {
+                if (current.plantId != null) {
+                  return !previous.wasUpdated && current.wasUpdated;
+                }
+                return previous.status != current.status &&
+                    current.status.isSuccess;
+              },
           listener: (BuildContext context, AddGardenPlantState state) {
             if (state.plantId != null) {
               context.router.maybePop(true);
@@ -155,11 +151,7 @@ class _AddGardenPlantViewState extends State<_AddGardenPlantView> {
                   state.status.isLoading &&
                   state.editingPlant == null) {
                 return const Center(
-                  child: SizedBox(
-                    height: 72,
-                    width: 72,
-                    child: ZLoading(),
-                  ),
+                  child: SizedBox(height: 72, width: 72, child: ZLoading()),
                 );
               }
               if (widget.isEditMode &&
@@ -193,8 +185,10 @@ class _AddGardenPlantViewState extends State<_AddGardenPlantView> {
                   ),
                 );
               }
-              final String? validationText =
-                  _validationMessage(context, state.validationError);
+              final String? validationText = _validationMessage(
+                context,
+                state.validationError,
+              );
               final String? errorText = state.error == null
                   ? null
                   : mapErrorToMessage(state.error!, context.l10n);
@@ -243,12 +237,13 @@ class _AddGardenPlantViewState extends State<_AddGardenPlantView> {
                                 return;
                               }
                               context.read<AddGardenPlantCubit>().updatePhoto(
-                                    bytes: bytes,
-                                    fileName: fileName,
-                                  );
+                                bytes: bytes,
+                                fileName: fileName,
+                              );
                             },
-                            onPhotoCleared:
-                                context.read<AddGardenPlantCubit>().clearPhoto,
+                            onPhotoCleared: context
+                                .read<AddGardenPlantCubit>()
+                                .clearPhoto,
                           ),
                           if (errorText != null) ...<Widget>[
                             const SizedBox(height: 16),
@@ -274,8 +269,9 @@ class _AddGardenPlantViewState extends State<_AddGardenPlantView> {
                             ),
                           )
                         : ZButton.gradient1(
-                            onPressed:
-                                context.read<AddGardenPlantCubit>().submit,
+                            onPressed: context
+                                .read<AddGardenPlantCubit>()
+                                .submit,
                             child: Text(
                               widget.isEditMode
                                   ? context.l10n.addGardenPlantSave
@@ -313,8 +309,9 @@ class _GardenPlantNameField extends StatelessWidget {
       decoration: BoxDecoration(
         color: colorScheme.secondaryBg,
         borderRadius: BorderRadius.circular(10),
-        border:
-            hasError ? Border.all(color: colorScheme.error, width: 1) : null,
+        border: hasError
+            ? Border.all(color: colorScheme.error, width: 1)
+            : null,
       ),
       alignment: Alignment.center,
       padding: const EdgeInsets.symmetric(horizontal: 16),

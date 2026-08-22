@@ -1,5 +1,3 @@
-
-
 /// Server url.
 enum Url {
   /// Dev url.

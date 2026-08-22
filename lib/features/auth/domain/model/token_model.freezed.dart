@@ -12,7 +12,8 @@ part of 'token_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 TokenModel _$TokenModelFromJson(Map<String, dynamic> json) {
   return _TokenModel.fromJson(json);
@@ -36,8 +37,9 @@ mixin _$TokenModel {
 /// @nodoc
 abstract class $TokenModelCopyWith<$Res> {
   factory $TokenModelCopyWith(
-          TokenModel value, $Res Function(TokenModel) then) =
-      _$TokenModelCopyWithImpl<$Res, TokenModel>;
+    TokenModel value,
+    $Res Function(TokenModel) then,
+  ) = _$TokenModelCopyWithImpl<$Res, TokenModel>;
   @useResult
   $Res call({String refresh, String? access});
 }
@@ -56,20 +58,20 @@ class _$TokenModelCopyWithImpl<$Res, $Val extends TokenModel>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? refresh = null,
-    Object? access = freezed,
-  }) {
-    return _then(_value.copyWith(
-      refresh: null == refresh
-          ? _value.refresh
-          : refresh // ignore: cast_nullable_to_non_nullable
-              as String,
-      access: freezed == access
-          ? _value.access
-          : access // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  $Res call({Object? refresh = null, Object? access = freezed}) {
+    return _then(
+      _value.copyWith(
+            refresh: null == refresh
+                ? _value.refresh
+                : refresh // ignore: cast_nullable_to_non_nullable
+                      as String,
+            access: freezed == access
+                ? _value.access
+                : access // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -77,8 +79,9 @@ class _$TokenModelCopyWithImpl<$Res, $Val extends TokenModel>
 abstract class _$$TokenModelImplCopyWith<$Res>
     implements $TokenModelCopyWith<$Res> {
   factory _$$TokenModelImplCopyWith(
-          _$TokenModelImpl value, $Res Function(_$TokenModelImpl) then) =
-      __$$TokenModelImplCopyWithImpl<$Res>;
+    _$TokenModelImpl value,
+    $Res Function(_$TokenModelImpl) then,
+  ) = __$$TokenModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String refresh, String? access});
@@ -89,27 +92,27 @@ class __$$TokenModelImplCopyWithImpl<$Res>
     extends _$TokenModelCopyWithImpl<$Res, _$TokenModelImpl>
     implements _$$TokenModelImplCopyWith<$Res> {
   __$$TokenModelImplCopyWithImpl(
-      _$TokenModelImpl _value, $Res Function(_$TokenModelImpl) _then)
-      : super(_value, _then);
+    _$TokenModelImpl _value,
+    $Res Function(_$TokenModelImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of TokenModel
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? refresh = null,
-    Object? access = freezed,
-  }) {
-    return _then(_$TokenModelImpl(
-      refresh: null == refresh
-          ? _value.refresh
-          : refresh // ignore: cast_nullable_to_non_nullable
-              as String,
-      access: freezed == access
-          ? _value.access
-          : access // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+  $Res call({Object? refresh = null, Object? access = freezed}) {
+    return _then(
+      _$TokenModelImpl(
+        refresh: null == refresh
+            ? _value.refresh
+            : refresh // ignore: cast_nullable_to_non_nullable
+                  as String,
+        access: freezed == access
+            ? _value.access
+            : access // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
@@ -154,15 +157,15 @@ class _$TokenModelImpl implements _TokenModel {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$TokenModelImplToJson(
-      this,
-    );
+    return _$$TokenModelImplToJson(this);
   }
 }
 
 abstract class _TokenModel implements TokenModel {
-  const factory _TokenModel(
-      {required final String refresh, final String? access}) = _$TokenModelImpl;
+  const factory _TokenModel({
+    required final String refresh,
+    final String? access,
+  }) = _$TokenModelImpl;
 
   factory _TokenModel.fromJson(Map<String, dynamic> json) =
       _$TokenModelImpl.fromJson;

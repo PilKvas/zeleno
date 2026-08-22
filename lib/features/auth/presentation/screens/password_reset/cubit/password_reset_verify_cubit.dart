@@ -7,17 +7,13 @@ part 'password_reset_verify_cubit.freezed.dart';
 part 'password_reset_verify_state.dart';
 
 class PasswordResetVerifyCubit extends Cubit<PasswordResetVerifyState> {
-  PasswordResetVerifyCubit({
-    required IAuthRepository authRepository,
-  })  : _authRepository = authRepository,
-        super(const PasswordResetVerifyState(status: Status.initial));
+  PasswordResetVerifyCubit({required IAuthRepository authRepository})
+    : _authRepository = authRepository,
+      super(const PasswordResetVerifyState(status: Status.initial));
 
   final IAuthRepository _authRepository;
 
-  Future<void> verifyOtp({
-    required String email,
-    required String otp,
-  }) async {
+  Future<void> verifyOtp({required String email, required String otp}) async {
     emit(state.copyWith(status: Status.loading));
     try {
       final String token = await _authRepository.verifyPasswordResetOtp(

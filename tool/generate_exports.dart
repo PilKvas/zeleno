@@ -48,8 +48,7 @@ Future<({int created, int updated, int removed})> _generateExport(
   Directory dir,
 ) async {
   final exports = <String>[];
-  final entities = dir.listSync()
-    ..sort((a, b) => a.path.compareTo(b.path));
+  final entities = dir.listSync()..sort((a, b) => a.path.compareTo(b.path));
 
   for (final entity in entities) {
     if (entity is! File || !entity.path.endsWith('.dart')) continue;

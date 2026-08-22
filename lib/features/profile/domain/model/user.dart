@@ -12,27 +12,28 @@ class User extends Equatable {
   final String? location;
   final Hemisphere? hemisphere;
 
-  const User(
-      {required this.email,
-      required this.username,
-      required this.firstName,
-      required this.lastName,
-      required this.gender,
-      required this.bio,
-      required this.birthday,
-      required this.location,
-      required this.hemisphere});
+  const User({
+    required this.email,
+    required this.username,
+    required this.firstName,
+    required this.lastName,
+    required this.gender,
+    required this.bio,
+    required this.birthday,
+    required this.location,
+    required this.hemisphere,
+  });
 
   @override
   List<Object?> get props => [
-        email,
-        username,
-        firstName,
-        lastName,
-        gender,
-        bio,
-        birthday,
-        location,
-        hemisphere,
-      ];
+    email,
+    username,
+    firstName,
+    lastName,
+    gender,
+    bio,
+    birthday,
+    location,
+    hemisphere,
+  ];
 }

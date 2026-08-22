@@ -55,8 +55,9 @@ void main() {
 
     expect(result.plant, createdPlant);
     expect(result.imageUploadFailed, isFalse);
-    verify(() => mockService.createGardenPlant(body: any(named: 'body')))
-        .called(1);
+    verify(
+      () => mockService.createGardenPlant(body: any(named: 'body')),
+    ).called(1);
     verifyNever(
       () => mockService.uploadGardenPlantImage(
         plantId: any(named: 'plantId'),
@@ -170,8 +171,7 @@ void main() {
     expect(result.imageUploadFailed, isFalse);
   });
 
-  test(
-      'does not throw when both upload and status refresh fail — '
+  test('does not throw when both upload and status refresh fail — '
       'plant is already created', () async {
     when(
       () => mockService.createGardenPlant(body: any(named: 'body')),
@@ -210,9 +210,9 @@ void main() {
       id: 3,
       customName: 'My palm',
     );
-    when(() => mockService.getGardenPlants()).thenAnswer(
-      (_) async => <GardenPlantModel>[inRoom, withoutRoom],
-    );
+    when(
+      () => mockService.getGardenPlants(),
+    ).thenAnswer((_) async => <GardenPlantModel>[inRoom, withoutRoom]);
 
     final List<GardenPlantModel> plants = await repository.getGardenPlants();
 

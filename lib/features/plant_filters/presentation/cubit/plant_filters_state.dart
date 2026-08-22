@@ -3,12 +3,7 @@ import 'package:zeleno_v2/features/plant_filters/domain/models/export.dart';
 
 part 'plant_filters_state.freezed.dart';
 
-enum FiltersStatus {
-  initial,
-  loading,
-  success,
-  failure,
-}
+enum FiltersStatus { initial, loading, success, failure }
 
 @freezed
 class PlantFiltersState with _$PlantFiltersState {
@@ -17,7 +12,6 @@ class PlantFiltersState with _$PlantFiltersState {
     Object? error,
     @Default(<PlantFilterItem>[]) List<PlantFilterItem> soilPhChoices,
     @Default(<PlantFilterItem>[]) List<PlantFilterItem> soilMoistureChoices,
-    String? soilPhValue,
-    String? soilMoistureValue,
+    @Default(PlantSearchFilters()) PlantSearchFilters selected,
   }) = _PlantFiltersState;
 }

@@ -20,9 +20,8 @@ class PasswordResetRequestScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => PasswordResetRequestCubit(
-        authRepository: injection(),
-      ),
+      create: (context) =>
+          PasswordResetRequestCubit(authRepository: injection()),
       child: const _Content(),
     );
   }
@@ -51,7 +50,11 @@ class _Content extends StatelessWidget {
               const Positioned.fill(child: AuthBackground()),
               SingleChildScrollView(
                 padding: EdgeInsets.fromLTRB(
-                    16, MediaQuery.sizeOf(context).height * 0.22, 16, 24),
+                  16,
+                  MediaQuery.sizeOf(context).height * 0.22,
+                  16,
+                  24,
+                ),
                 child: const _RequestForm(),
               ),
             ],

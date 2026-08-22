@@ -12,7 +12,8 @@ part of 'update_garden_room_body.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 UpdateGardenRoomBody _$UpdateGardenRoomBodyFromJson(Map<String, dynamic> json) {
   return _UpdateGardenRoomBody.fromJson(json);
@@ -42,21 +43,25 @@ mixin _$UpdateGardenRoomBody {
 
 /// @nodoc
 abstract class $UpdateGardenRoomBodyCopyWith<$Res> {
-  factory $UpdateGardenRoomBodyCopyWith(UpdateGardenRoomBody value,
-          $Res Function(UpdateGardenRoomBody) then) =
-      _$UpdateGardenRoomBodyCopyWithImpl<$Res, UpdateGardenRoomBody>;
+  factory $UpdateGardenRoomBodyCopyWith(
+    UpdateGardenRoomBody value,
+    $Res Function(UpdateGardenRoomBody) then,
+  ) = _$UpdateGardenRoomBodyCopyWithImpl<$Res, UpdateGardenRoomBody>;
   @useResult
-  $Res call(
-      {String name,
-      @JsonKey(name: 'temperature_celsius') double? temperatureCelsius,
-      @JsonKey(name: 'humidity_percent') int? humidityPercent,
-      @JsonKey(name: 'illuminance_lux') int? illuminanceLux,
-      @JsonKey(name: 'window_direction') String? windowDirection});
+  $Res call({
+    String name,
+    @JsonKey(name: 'temperature_celsius') double? temperatureCelsius,
+    @JsonKey(name: 'humidity_percent') int? humidityPercent,
+    @JsonKey(name: 'illuminance_lux') int? illuminanceLux,
+    @JsonKey(name: 'window_direction') String? windowDirection,
+  });
 }
 
 /// @nodoc
-class _$UpdateGardenRoomBodyCopyWithImpl<$Res,
-        $Val extends UpdateGardenRoomBody>
+class _$UpdateGardenRoomBodyCopyWithImpl<
+  $Res,
+  $Val extends UpdateGardenRoomBody
+>
     implements $UpdateGardenRoomBodyCopyWith<$Res> {
   _$UpdateGardenRoomBodyCopyWithImpl(this._value, this._then);
 
@@ -76,54 +81,60 @@ class _$UpdateGardenRoomBodyCopyWithImpl<$Res,
     Object? illuminanceLux = freezed,
     Object? windowDirection = freezed,
   }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      temperatureCelsius: freezed == temperatureCelsius
-          ? _value.temperatureCelsius
-          : temperatureCelsius // ignore: cast_nullable_to_non_nullable
-              as double?,
-      humidityPercent: freezed == humidityPercent
-          ? _value.humidityPercent
-          : humidityPercent // ignore: cast_nullable_to_non_nullable
-              as int?,
-      illuminanceLux: freezed == illuminanceLux
-          ? _value.illuminanceLux
-          : illuminanceLux // ignore: cast_nullable_to_non_nullable
-              as int?,
-      windowDirection: freezed == windowDirection
-          ? _value.windowDirection
-          : windowDirection // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
+            temperatureCelsius: freezed == temperatureCelsius
+                ? _value.temperatureCelsius
+                : temperatureCelsius // ignore: cast_nullable_to_non_nullable
+                      as double?,
+            humidityPercent: freezed == humidityPercent
+                ? _value.humidityPercent
+                : humidityPercent // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            illuminanceLux: freezed == illuminanceLux
+                ? _value.illuminanceLux
+                : illuminanceLux // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            windowDirection: freezed == windowDirection
+                ? _value.windowDirection
+                : windowDirection // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$UpdateGardenRoomBodyImplCopyWith<$Res>
     implements $UpdateGardenRoomBodyCopyWith<$Res> {
-  factory _$$UpdateGardenRoomBodyImplCopyWith(_$UpdateGardenRoomBodyImpl value,
-          $Res Function(_$UpdateGardenRoomBodyImpl) then) =
-      __$$UpdateGardenRoomBodyImplCopyWithImpl<$Res>;
+  factory _$$UpdateGardenRoomBodyImplCopyWith(
+    _$UpdateGardenRoomBodyImpl value,
+    $Res Function(_$UpdateGardenRoomBodyImpl) then,
+  ) = __$$UpdateGardenRoomBodyImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String name,
-      @JsonKey(name: 'temperature_celsius') double? temperatureCelsius,
-      @JsonKey(name: 'humidity_percent') int? humidityPercent,
-      @JsonKey(name: 'illuminance_lux') int? illuminanceLux,
-      @JsonKey(name: 'window_direction') String? windowDirection});
+  $Res call({
+    String name,
+    @JsonKey(name: 'temperature_celsius') double? temperatureCelsius,
+    @JsonKey(name: 'humidity_percent') int? humidityPercent,
+    @JsonKey(name: 'illuminance_lux') int? illuminanceLux,
+    @JsonKey(name: 'window_direction') String? windowDirection,
+  });
 }
 
 /// @nodoc
 class __$$UpdateGardenRoomBodyImplCopyWithImpl<$Res>
     extends _$UpdateGardenRoomBodyCopyWithImpl<$Res, _$UpdateGardenRoomBodyImpl>
     implements _$$UpdateGardenRoomBodyImplCopyWith<$Res> {
-  __$$UpdateGardenRoomBodyImplCopyWithImpl(_$UpdateGardenRoomBodyImpl _value,
-      $Res Function(_$UpdateGardenRoomBodyImpl) _then)
-      : super(_value, _then);
+  __$$UpdateGardenRoomBodyImplCopyWithImpl(
+    _$UpdateGardenRoomBodyImpl _value,
+    $Res Function(_$UpdateGardenRoomBodyImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of UpdateGardenRoomBody
   /// with the given fields replaced by the non-null parameter values.
@@ -136,40 +147,43 @@ class __$$UpdateGardenRoomBodyImplCopyWithImpl<$Res>
     Object? illuminanceLux = freezed,
     Object? windowDirection = freezed,
   }) {
-    return _then(_$UpdateGardenRoomBodyImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      temperatureCelsius: freezed == temperatureCelsius
-          ? _value.temperatureCelsius
-          : temperatureCelsius // ignore: cast_nullable_to_non_nullable
-              as double?,
-      humidityPercent: freezed == humidityPercent
-          ? _value.humidityPercent
-          : humidityPercent // ignore: cast_nullable_to_non_nullable
-              as int?,
-      illuminanceLux: freezed == illuminanceLux
-          ? _value.illuminanceLux
-          : illuminanceLux // ignore: cast_nullable_to_non_nullable
-              as int?,
-      windowDirection: freezed == windowDirection
-          ? _value.windowDirection
-          : windowDirection // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    return _then(
+      _$UpdateGardenRoomBodyImpl(
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        temperatureCelsius: freezed == temperatureCelsius
+            ? _value.temperatureCelsius
+            : temperatureCelsius // ignore: cast_nullable_to_non_nullable
+                  as double?,
+        humidityPercent: freezed == humidityPercent
+            ? _value.humidityPercent
+            : humidityPercent // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        illuminanceLux: freezed == illuminanceLux
+            ? _value.illuminanceLux
+            : illuminanceLux // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        windowDirection: freezed == windowDirection
+            ? _value.windowDirection
+            : windowDirection // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$UpdateGardenRoomBodyImpl implements _UpdateGardenRoomBody {
-  const _$UpdateGardenRoomBodyImpl(
-      {required this.name,
-      @JsonKey(name: 'temperature_celsius') this.temperatureCelsius,
-      @JsonKey(name: 'humidity_percent') this.humidityPercent,
-      @JsonKey(name: 'illuminance_lux') this.illuminanceLux,
-      @JsonKey(name: 'window_direction') this.windowDirection});
+  const _$UpdateGardenRoomBodyImpl({
+    required this.name,
+    @JsonKey(name: 'temperature_celsius') this.temperatureCelsius,
+    @JsonKey(name: 'humidity_percent') this.humidityPercent,
+    @JsonKey(name: 'illuminance_lux') this.illuminanceLux,
+    @JsonKey(name: 'window_direction') this.windowDirection,
+  });
 
   factory _$UpdateGardenRoomBodyImpl.fromJson(Map<String, dynamic> json) =>
       _$$UpdateGardenRoomBodyImplFromJson(json);
@@ -212,8 +226,14 @@ class _$UpdateGardenRoomBodyImpl implements _UpdateGardenRoomBody {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, name, temperatureCelsius,
-      humidityPercent, illuminanceLux, windowDirection);
+  int get hashCode => Object.hash(
+    runtimeType,
+    name,
+    temperatureCelsius,
+    humidityPercent,
+    illuminanceLux,
+    windowDirection,
+  );
 
   /// Create a copy of UpdateGardenRoomBody
   /// with the given fields replaced by the non-null parameter values.
@@ -221,26 +241,26 @@ class _$UpdateGardenRoomBodyImpl implements _UpdateGardenRoomBody {
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateGardenRoomBodyImplCopyWith<_$UpdateGardenRoomBodyImpl>
-      get copyWith =>
-          __$$UpdateGardenRoomBodyImplCopyWithImpl<_$UpdateGardenRoomBodyImpl>(
-              this, _$identity);
+  get copyWith =>
+      __$$UpdateGardenRoomBodyImplCopyWithImpl<_$UpdateGardenRoomBodyImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UpdateGardenRoomBodyImplToJson(
-      this,
-    );
+    return _$$UpdateGardenRoomBodyImplToJson(this);
   }
 }
 
 abstract class _UpdateGardenRoomBody implements UpdateGardenRoomBody {
-  const factory _UpdateGardenRoomBody(
-      {required final String name,
-      @JsonKey(name: 'temperature_celsius') final double? temperatureCelsius,
-      @JsonKey(name: 'humidity_percent') final int? humidityPercent,
-      @JsonKey(name: 'illuminance_lux') final int? illuminanceLux,
-      @JsonKey(name: 'window_direction')
-      final String? windowDirection}) = _$UpdateGardenRoomBodyImpl;
+  const factory _UpdateGardenRoomBody({
+    required final String name,
+    @JsonKey(name: 'temperature_celsius') final double? temperatureCelsius,
+    @JsonKey(name: 'humidity_percent') final int? humidityPercent,
+    @JsonKey(name: 'illuminance_lux') final int? illuminanceLux,
+    @JsonKey(name: 'window_direction') final String? windowDirection,
+  }) = _$UpdateGardenRoomBodyImpl;
 
   factory _UpdateGardenRoomBody.fromJson(Map<String, dynamic> json) =
       _$UpdateGardenRoomBodyImpl.fromJson;
@@ -265,5 +285,5 @@ abstract class _UpdateGardenRoomBody implements UpdateGardenRoomBody {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateGardenRoomBodyImplCopyWith<_$UpdateGardenRoomBodyImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

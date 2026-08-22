@@ -12,7 +12,8 @@ part of 'create_garden_room_body.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 CreateGardenRoomBody _$CreateGardenRoomBodyFromJson(Map<String, dynamic> json) {
   return _CreateGardenRoomBody.fromJson(json);
@@ -34,16 +35,19 @@ mixin _$CreateGardenRoomBody {
 
 /// @nodoc
 abstract class $CreateGardenRoomBodyCopyWith<$Res> {
-  factory $CreateGardenRoomBodyCopyWith(CreateGardenRoomBody value,
-          $Res Function(CreateGardenRoomBody) then) =
-      _$CreateGardenRoomBodyCopyWithImpl<$Res, CreateGardenRoomBody>;
+  factory $CreateGardenRoomBodyCopyWith(
+    CreateGardenRoomBody value,
+    $Res Function(CreateGardenRoomBody) then,
+  ) = _$CreateGardenRoomBodyCopyWithImpl<$Res, CreateGardenRoomBody>;
   @useResult
   $Res call({String name});
 }
 
 /// @nodoc
-class _$CreateGardenRoomBodyCopyWithImpl<$Res,
-        $Val extends CreateGardenRoomBody>
+class _$CreateGardenRoomBodyCopyWithImpl<
+  $Res,
+  $Val extends CreateGardenRoomBody
+>
     implements $CreateGardenRoomBodyCopyWith<$Res> {
   _$CreateGardenRoomBodyCopyWithImpl(this._value, this._then);
 
@@ -56,24 +60,26 @@ class _$CreateGardenRoomBodyCopyWithImpl<$Res,
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = null,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  $Res call({Object? name = null}) {
+    return _then(
+      _value.copyWith(
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$CreateGardenRoomBodyImplCopyWith<$Res>
     implements $CreateGardenRoomBodyCopyWith<$Res> {
-  factory _$$CreateGardenRoomBodyImplCopyWith(_$CreateGardenRoomBodyImpl value,
-          $Res Function(_$CreateGardenRoomBodyImpl) then) =
-      __$$CreateGardenRoomBodyImplCopyWithImpl<$Res>;
+  factory _$$CreateGardenRoomBodyImplCopyWith(
+    _$CreateGardenRoomBodyImpl value,
+    $Res Function(_$CreateGardenRoomBodyImpl) then,
+  ) = __$$CreateGardenRoomBodyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name});
@@ -83,23 +89,24 @@ abstract class _$$CreateGardenRoomBodyImplCopyWith<$Res>
 class __$$CreateGardenRoomBodyImplCopyWithImpl<$Res>
     extends _$CreateGardenRoomBodyCopyWithImpl<$Res, _$CreateGardenRoomBodyImpl>
     implements _$$CreateGardenRoomBodyImplCopyWith<$Res> {
-  __$$CreateGardenRoomBodyImplCopyWithImpl(_$CreateGardenRoomBodyImpl _value,
-      $Res Function(_$CreateGardenRoomBodyImpl) _then)
-      : super(_value, _then);
+  __$$CreateGardenRoomBodyImplCopyWithImpl(
+    _$CreateGardenRoomBodyImpl _value,
+    $Res Function(_$CreateGardenRoomBodyImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of CreateGardenRoomBody
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = null,
-  }) {
-    return _then(_$CreateGardenRoomBodyImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? name = null}) {
+    return _then(
+      _$CreateGardenRoomBodyImpl(
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -137,15 +144,15 @@ class _$CreateGardenRoomBodyImpl implements _CreateGardenRoomBody {
   @override
   @pragma('vm:prefer-inline')
   _$$CreateGardenRoomBodyImplCopyWith<_$CreateGardenRoomBodyImpl>
-      get copyWith =>
-          __$$CreateGardenRoomBodyImplCopyWithImpl<_$CreateGardenRoomBodyImpl>(
-              this, _$identity);
+  get copyWith =>
+      __$$CreateGardenRoomBodyImplCopyWithImpl<_$CreateGardenRoomBodyImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CreateGardenRoomBodyImplToJson(
-      this,
-    );
+    return _$$CreateGardenRoomBodyImplToJson(this);
   }
 }
 
@@ -164,5 +171,5 @@ abstract class _CreateGardenRoomBody implements CreateGardenRoomBody {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreateGardenRoomBodyImplCopyWith<_$CreateGardenRoomBodyImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

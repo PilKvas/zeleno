@@ -3,11 +3,7 @@ import 'package:zeleno_v2/features/garden_plants/domain/models/export.dart';
 import 'package:zeleno_v2/uikit/theme/export.dart';
 
 class GardenPlantCardWidget extends StatelessWidget {
-  const GardenPlantCardWidget({
-    super.key,
-    required this.plant,
-    this.onTap,
-  });
+  const GardenPlantCardWidget({super.key, required this.plant, this.onTap});
 
   final GardenPlantModel plant;
   final VoidCallback? onTap;
@@ -35,12 +31,12 @@ class GardenPlantCardWidget extends StatelessWidget {
                       ? Image.network(
                           plant.imageUrl!,
                           fit: BoxFit.cover,
-                          errorBuilder: (
-                            BuildContext context,
-                            Object error,
-                            StackTrace? stackTrace,
-                          ) =>
-                              _PlantPlaceholder(colorScheme: colorScheme),
+                          errorBuilder:
+                              (
+                                BuildContext context,
+                                Object error,
+                                StackTrace? stackTrace,
+                              ) => _PlantPlaceholder(colorScheme: colorScheme),
                         )
                       : _PlantPlaceholder(colorScheme: colorScheme),
                 ),

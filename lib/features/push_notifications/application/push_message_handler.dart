@@ -24,13 +24,15 @@ class PushMessageHandler {
     if (Firebase.apps.isEmpty) {
       return;
     }
-    _foregroundSubscription =
-        FirebaseMessaging.onMessage.listen(_onForegroundMessage);
-    _openedAppSubscription =
-        FirebaseMessaging.onMessageOpenedApp.listen(_onMessageTap);
+    _foregroundSubscription = FirebaseMessaging.onMessage.listen(
+      _onForegroundMessage,
+    );
+    _openedAppSubscription = FirebaseMessaging.onMessageOpenedApp.listen(
+      _onMessageTap,
+    );
 
-    final RemoteMessage? initialMessage =
-        await FirebaseMessaging.instance.getInitialMessage();
+    final RemoteMessage? initialMessage = await FirebaseMessaging.instance
+        .getInitialMessage();
     if (initialMessage != null) {
       // Холодный старт по тапу: даём сплэшу завершить переход на HomeRoute,
       // иначе его replaceAll перекроет нашу навигацию.
@@ -40,8 +42,9 @@ class PushMessageHandler {
   }
 
   void _onMessageTap(RemoteMessage message) {
-    final int? plantId =
-        int.tryParse(message.data['plant_id']?.toString() ?? '');
+    final int? plantId = int.tryParse(
+      message.data['plant_id']?.toString() ?? '',
+    );
     if (plantId == null) {
       return;
     }

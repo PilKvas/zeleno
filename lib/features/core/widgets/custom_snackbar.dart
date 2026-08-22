@@ -16,24 +16,16 @@ class CustomSnackBar {
     final snackBar = SnackBar(
       content: Row(
         children: [
-          Icon(
-            _getIconForType(type),
-            color: contentColor,
-          ),
+          Icon(_getIconForType(type), color: contentColor),
           const SizedBox(width: 16),
           Expanded(
-            child: Text(
-              message,
-              style: TextStyle(color: contentColor),
-            ),
+            child: Text(message, style: TextStyle(color: contentColor)),
           ),
         ],
       ),
       backgroundColor: backgroundColor,
       behavior: SnackBarBehavior.floating,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       margin: const EdgeInsets.all(16),
       duration: duration,
       action: SnackBarAction(
@@ -59,10 +51,7 @@ class CustomSnackBar {
     }
   }
 
-  static Color _backgroundColorForType(
-    SnackBarType type,
-    ZColorScheme colors,
-  ) {
+  static Color _backgroundColorForType(SnackBarType type, ZColorScheme colors) {
     switch (type) {
       case SnackBarType.error:
         return colors.error;

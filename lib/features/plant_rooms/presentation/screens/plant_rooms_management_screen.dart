@@ -40,10 +40,7 @@ class _PlantRoomsManagementView extends StatelessWidget {
     );
   }
 
-  Future<void> _openEditSheet(
-    BuildContext context,
-    PlantRoomModel room,
-  ) async {
+  Future<void> _openEditSheet(BuildContext context, PlantRoomModel room) async {
     final PlantRoomsCubit cubit = context.read<PlantRoomsCubit>();
     final PlantRoomModel? details = await cubit.loadRoomDetails(room.id);
     if (!context.mounted) {
@@ -59,8 +56,8 @@ class _PlantRoomsManagementView extends StatelessWidget {
           child: PlantRoomFormBottomSheet(
             room: details ?? room,
             onRoomDeleted: (int roomId) async {
-              final GardenPlantsListCubit plantsCubit =
-                  context.read<GardenPlantsListCubit>();
+              final GardenPlantsListCubit plantsCubit = context
+                  .read<GardenPlantsListCubit>();
               if (plantsCubit.state.selectedRoomId == roomId) {
                 plantsCubit.selectRoom(null);
               }
@@ -152,23 +149,23 @@ class _PlantRoomsManagementView extends StatelessWidget {
                                           const SizedBox(height: 12),
                                   itemBuilder:
                                       (BuildContext context, int index) {
-                                    if (index == state.rooms.length) {
-                                      return ZButton.secondary(
-                                        onPressed: () =>
-                                            _openCreateSheet(context),
-                                        height: 67,
-                                        child: const Text('+'),
-                                      );
-                                    }
-                                    final PlantRoomModel room =
-                                        state.rooms[index];
-                                    return ZButton.gradient2(
-                                      onPressed: () =>
-                                          _openEditSheet(context, room),
-                                      height: 67,
-                                      child: Text(room.name),
-                                    );
-                                  },
+                                        if (index == state.rooms.length) {
+                                          return ZButton.secondary(
+                                            onPressed: () =>
+                                                _openCreateSheet(context),
+                                            height: 67,
+                                            child: const Text('+'),
+                                          );
+                                        }
+                                        final PlantRoomModel room =
+                                            state.rooms[index];
+                                        return ZButton.gradient2(
+                                          onPressed: () =>
+                                              _openEditSheet(context, room),
+                                          height: 67,
+                                          child: Text(room.name),
+                                        );
+                                      },
                                 ),
                         ),
                       ],
@@ -179,9 +176,7 @@ class _PlantRoomsManagementView extends StatelessWidget {
                   onGoToProfile: () {
                     context.router.navigate(
                       const HomeRoute(
-                        children: <PageRouteInfo<dynamic>>[
-                          ProfileStackRoute(),
-                        ],
+                        children: <PageRouteInfo<dynamic>>[ProfileStackRoute()],
                       ),
                     );
                   },

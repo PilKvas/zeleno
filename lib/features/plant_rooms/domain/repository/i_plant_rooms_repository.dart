@@ -6,13 +6,9 @@ abstract interface class IPlantRoomsRepository {
 
   Future<PlantRoomModel> getGardenRoom({required int roomId});
 
-  Future<void> createGardenRoom({
-    required CreateGardenRoomParams params,
-  });
+  Future<void> createGardenRoom({required CreateGardenRoomParams params});
 
-  Future<void> updateGardenRoom({
-    required UpdateGardenRoomParams params,
-  });
+  Future<void> updateGardenRoom({required UpdateGardenRoomParams params});
 
   Future<void> deleteGardenRoom({required int roomId});
 }

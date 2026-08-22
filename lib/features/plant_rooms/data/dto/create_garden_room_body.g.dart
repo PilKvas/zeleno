@@ -7,13 +7,9 @@ part of 'create_garden_room_body.dart';
 // **************************************************************************
 
 _$CreateGardenRoomBodyImpl _$$CreateGardenRoomBodyImplFromJson(
-        Map<String, dynamic> json) =>
-    _$CreateGardenRoomBodyImpl(
-      name: json['name'] as String,
-    );
+  Map<String, dynamic> json,
+) => _$CreateGardenRoomBodyImpl(name: json['name'] as String);
 
 Map<String, dynamic> _$$CreateGardenRoomBodyImplToJson(
-        _$CreateGardenRoomBodyImpl instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-    };
+  _$CreateGardenRoomBodyImpl instance,
+) => <String, dynamic>{'name': instance.name};

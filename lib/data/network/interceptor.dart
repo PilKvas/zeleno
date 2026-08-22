@@ -151,9 +151,7 @@ class MiddlewareInterceptor extends Interceptor {
     RequestInterceptorHandler handler,
   ) async {
     if (!(await connectivityChecker.hasConnection())) {
-      return handler.reject(
-        NoInternetConnection(requestOptions: options),
-      );
+      return handler.reject(NoInternetConnection(requestOptions: options));
     }
     final accessToken = await tokensStorage.accessToken;
     if (accessToken != null) {

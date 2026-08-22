@@ -32,17 +32,17 @@ final class ZColorScheme extends ThemeExtension<ZColorScheme> {
     Color regularTextColor = _kRegularText,
     Color secondaryTextFieldColor = _kSecondaryTextField,
   }) : this._(
-          brightness: brightness,
-          mainGradientColor: mainGradientColor,
-          secondaryTextColor: secondaryTextColor,
-          mainGradientColor2: mainGradientColor2,
-          secondaryGradientColor: secondaryGradientColor,
-          secondaryBg: secondaryBg,
-          mainBg: mainBg,
-          errorColor: errorColor,
-          regularTextColor: regularTextColor,
-          secondaryTextFieldColor: secondaryTextFieldColor,
-        );
+         brightness: brightness,
+         mainGradientColor: mainGradientColor,
+         secondaryTextColor: secondaryTextColor,
+         mainGradientColor2: mainGradientColor2,
+         secondaryGradientColor: secondaryGradientColor,
+         secondaryBg: secondaryBg,
+         mainBg: mainBg,
+         errorColor: errorColor,
+         regularTextColor: regularTextColor,
+         secondaryTextFieldColor: secondaryTextFieldColor,
+       );
 
   /// Тёмная тема (те же токены палитры, иная семантика фона/текста).
   const ZColorScheme.dark({
@@ -57,17 +57,17 @@ final class ZColorScheme extends ThemeExtension<ZColorScheme> {
     Color regularTextColor = _kRegularText,
     Color secondaryTextFieldColor = _kSecondaryTextField,
   }) : this._(
-          brightness: brightness,
-          mainGradientColor: mainGradientColor,
-          secondaryTextColor: secondaryTextColor,
-          mainGradientColor2: mainGradientColor2,
-          secondaryGradientColor: secondaryGradientColor,
-          secondaryBg: secondaryBg,
-          mainBg: mainBg,
-          errorColor: errorColor,
-          regularTextColor: regularTextColor,
-          secondaryTextFieldColor: secondaryTextFieldColor,
-        );
+         brightness: brightness,
+         mainGradientColor: mainGradientColor,
+         secondaryTextColor: secondaryTextColor,
+         mainGradientColor2: mainGradientColor2,
+         secondaryGradientColor: secondaryGradientColor,
+         secondaryBg: secondaryBg,
+         mainBg: mainBg,
+         errorColor: errorColor,
+         regularTextColor: regularTextColor,
+         secondaryTextFieldColor: secondaryTextFieldColor,
+       );
 
   const ZColorScheme._({
     required this.brightness,
@@ -185,12 +185,21 @@ final class ZColorScheme extends ThemeExtension<ZColorScheme> {
     }
     return ZColorScheme._(
       brightness: t < 0.5 ? brightness : other.brightness,
-      mainGradientColor:
-          Color.lerp(mainGradientColor, other.mainGradientColor, t)!,
-      secondaryTextColor:
-          Color.lerp(secondaryTextColor, other.secondaryTextColor, t)!,
-      mainGradientColor2:
-          Color.lerp(mainGradientColor2, other.mainGradientColor2, t)!,
+      mainGradientColor: Color.lerp(
+        mainGradientColor,
+        other.mainGradientColor,
+        t,
+      )!,
+      secondaryTextColor: Color.lerp(
+        secondaryTextColor,
+        other.secondaryTextColor,
+        t,
+      )!,
+      mainGradientColor2: Color.lerp(
+        mainGradientColor2,
+        other.mainGradientColor2,
+        t,
+      )!,
       secondaryGradientColor: Color.lerp(
         secondaryGradientColor,
         other.secondaryGradientColor,
@@ -199,8 +208,11 @@ final class ZColorScheme extends ThemeExtension<ZColorScheme> {
       secondaryBg: Color.lerp(secondaryBg, other.secondaryBg, t)!,
       mainBg: Color.lerp(mainBg, other.mainBg, t)!,
       errorColor: Color.lerp(errorColor, other.errorColor, t)!,
-      regularTextColor:
-          Color.lerp(regularTextColor, other.regularTextColor, t)!,
+      regularTextColor: Color.lerp(
+        regularTextColor,
+        other.regularTextColor,
+        t,
+      )!,
       secondaryTextFieldColor: Color.lerp(
         secondaryTextFieldColor,
         other.secondaryTextFieldColor,

@@ -2,8 +2,6 @@ part of 'login_cubit.dart';
 
 @freezed
 class LoginState with _$LoginState {
-  const factory LoginState({
-    required Status status,
-    Object? error,
-  }) = _LoginState;
+  const factory LoginState({required Status status, Object? error}) =
+      _LoginState;
 }

@@ -1,7 +1,5 @@
 class CreateGardenRoomParams {
-  const CreateGardenRoomParams({
-    required this.name,
-  });
+  const CreateGardenRoomParams({required this.name});
 
   final String name;
 }

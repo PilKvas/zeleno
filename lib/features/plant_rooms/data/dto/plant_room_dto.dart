@@ -22,11 +22,11 @@ class PlantRoomDto with _$PlantRoomDto {
       _$PlantRoomDtoFromJson(json);
 
   PlantRoomModel toModel() => PlantRoomModel(
-        id: id,
-        name: name,
-        humidityPercent: humidityPercent,
-        illuminanceLux: illuminanceLux,
-        temperatureCelsius: temperatureCelsius,
-        windowDirection: windowDirection,
-      );
+    id: id,
+    name: name,
+    humidityPercent: humidityPercent,
+    illuminanceLux: illuminanceLux,
+    temperatureCelsius: temperatureCelsius,
+    windowDirection: windowDirection,
+  );
 }

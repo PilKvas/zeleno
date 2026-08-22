@@ -22,9 +22,13 @@ final class TokensStorage implements ITokensStorage {
   @override
   Future<void> saveTokens(TokenModel tokens) async {
     await _secureStorage.write(
-        key: TokensStorageKeys.accessToken.keyName, value: tokens.access);
+      key: TokensStorageKeys.accessToken.keyName,
+      value: tokens.access,
+    );
     await _secureStorage.write(
-        key: TokensStorageKeys.refreshToken.keyName, value: tokens.refresh);
+      key: TokensStorageKeys.refreshToken.keyName,
+      value: tokens.refresh,
+    );
   }
 
   @override

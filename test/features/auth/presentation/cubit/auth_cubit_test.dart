@@ -16,15 +16,14 @@ void main() {
   setUp(() {
     mockAuthRepository = MockAuthRepository();
     mockPushTokenManager = MockPushTokenManager();
-    when(() => mockAuthRepository.statusStream)
-        .thenAnswer((_) => const Stream<AuthStatus>.empty());
+    when(
+      () => mockAuthRepository.statusStream,
+    ).thenAnswer((_) => const Stream<AuthStatus>.empty());
   });
 
-  test(
-      'signOut unregisters fcm token BEFORE clearing auth tokens — '
+  test('signOut unregisters fcm token BEFORE clearing auth tokens — '
       'DELETE is an authorized request', () async {
-    when(() => mockPushTokenManager.unregisterToken())
-        .thenAnswer((_) async {});
+    when(() => mockPushTokenManager.unregisterToken()).thenAnswer((_) async {});
     when(() => mockAuthRepository.signOut()).thenAnswer((_) async {});
 
     final AuthCubit cubit = AuthCubit(

@@ -481,7 +481,7 @@ class PlantsSearchRoute extends _i17.PageRouteInfo<void> {
   static _i17.PageInfo page = _i17.PageInfo(
     name,
     builder: (data) {
-      return const _i13.PlantsSearchScreen();
+      return _i17.WrappedRoute(child: const _i13.PlantsSearchScreen());
     },
   );
 }

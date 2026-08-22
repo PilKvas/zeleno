@@ -51,18 +51,30 @@ void main() {
   blocTest<GardenPlantDetailCubit, GardenPlantDetailState>(
     'loadPlant emits success without species details when slug is absent',
     setUp: () {
-      when(() => mockRepository.getGardenPlant(plantId: 1))
-          .thenAnswer((_) async => plant);
+      when(
+        () => mockRepository.getGardenPlant(plantId: 1),
+      ).thenAnswer((_) async => plant);
     },
     build: buildCubit,
     act: (GardenPlantDetailCubit cubit) => cubit.loadPlant(),
     expect: () => <Matcher>[
+      isA<GardenPlantDetailState>().having(
+        (GardenPlantDetailState s) => s.status,
+        'status',
+        Status.loading,
+      ),
       isA<GardenPlantDetailState>()
-          .having((GardenPlantDetailState s) => s.status, 'status', Status.loading),
-      isA<GardenPlantDetailState>()
-          .having((GardenPlantDetailState s) => s.status, 'status', Status.success)
+          .having(
+            (GardenPlantDetailState s) => s.status,
+            'status',
+            Status.success,
+          )
           .having((GardenPlantDetailState s) => s.plant, 'plant', plant)
-          .having((GardenPlantDetailState s) => s.speciesDetails, 'details', isNull),
+          .having(
+            (GardenPlantDetailState s) => s.speciesDetails,
+            'details',
+            isNull,
+          ),
     ],
     verify: (_) {
       verifyNever(() => mockDetailsRepository.getPlant(any()));
@@ -72,18 +84,27 @@ void main() {
   blocTest<GardenPlantDetailCubit, GardenPlantDetailState>(
     'loadPlant loads species details when slug is present',
     setUp: () {
-      when(() => mockRepository.getGardenPlant(plantId: 1))
-          .thenAnswer((_) async => plantWithSlug);
-      when(() => mockDetailsRepository.getPlant('ficus-elastica'))
-          .thenAnswer((_) async => MockPlantDetailsModel());
+      when(
+        () => mockRepository.getGardenPlant(plantId: 1),
+      ).thenAnswer((_) async => plantWithSlug);
+      when(
+        () => mockDetailsRepository.getPlant('ficus-elastica'),
+      ).thenAnswer((_) async => MockPlantDetailsModel());
     },
     build: buildCubit,
     act: (GardenPlantDetailCubit cubit) => cubit.loadPlant(),
     expect: () => <Matcher>[
+      isA<GardenPlantDetailState>().having(
+        (GardenPlantDetailState s) => s.status,
+        'status',
+        Status.loading,
+      ),
       isA<GardenPlantDetailState>()
-          .having((GardenPlantDetailState s) => s.status, 'status', Status.loading),
-      isA<GardenPlantDetailState>()
-          .having((GardenPlantDetailState s) => s.status, 'status', Status.success)
+          .having(
+            (GardenPlantDetailState s) => s.status,
+            'status',
+            Status.success,
+          )
           .having(
             (GardenPlantDetailState s) => s.speciesDetails,
             'details',
@@ -98,25 +119,38 @@ void main() {
   blocTest<GardenPlantDetailCubit, GardenPlantDetailState>(
     'loadPlant emits failure when garden plant load fails',
     setUp: () {
-      when(() => mockRepository.getGardenPlant(plantId: 1))
-          .thenThrow(Exception('network'));
+      when(
+        () => mockRepository.getGardenPlant(plantId: 1),
+      ).thenThrow(Exception('network'));
     },
     build: buildCubit,
     act: (GardenPlantDetailCubit cubit) => cubit.loadPlant(),
     expect: () => <Matcher>[
+      isA<GardenPlantDetailState>().having(
+        (GardenPlantDetailState s) => s.status,
+        'status',
+        Status.loading,
+      ),
       isA<GardenPlantDetailState>()
-          .having((GardenPlantDetailState s) => s.status, 'status', Status.loading),
-      isA<GardenPlantDetailState>()
-          .having((GardenPlantDetailState s) => s.status, 'status', Status.failure)
-          .having((GardenPlantDetailState s) => s.error, 'error', isA<Exception>()),
+          .having(
+            (GardenPlantDetailState s) => s.status,
+            'status',
+            Status.failure,
+          )
+          .having(
+            (GardenPlantDetailState s) => s.error,
+            'error',
+            isA<Exception>(),
+          ),
     ],
   );
 
   blocTest<GardenPlantDetailCubit, GardenPlantDetailState>(
     'loadPlant in species mode loads only species details by slug',
     setUp: () {
-      when(() => mockDetailsRepository.getPlant('ficus-elastica'))
-          .thenAnswer((_) async => MockPlantDetailsModel());
+      when(
+        () => mockDetailsRepository.getPlant('ficus-elastica'),
+      ).thenAnswer((_) async => MockPlantDetailsModel());
     },
     build: () => GardenPlantDetailCubit(
       gardenPlantsRepository: mockRepository,
@@ -125,10 +159,17 @@ void main() {
     ),
     act: (GardenPlantDetailCubit cubit) => cubit.loadPlant(),
     expect: () => <Matcher>[
+      isA<GardenPlantDetailState>().having(
+        (GardenPlantDetailState s) => s.status,
+        'status',
+        Status.loading,
+      ),
       isA<GardenPlantDetailState>()
-          .having((GardenPlantDetailState s) => s.status, 'status', Status.loading),
-      isA<GardenPlantDetailState>()
-          .having((GardenPlantDetailState s) => s.status, 'status', Status.success)
+          .having(
+            (GardenPlantDetailState s) => s.status,
+            'status',
+            Status.success,
+          )
           .having((GardenPlantDetailState s) => s.plant, 'plant', isNull)
           .having(
             (GardenPlantDetailState s) => s.speciesDetails,
@@ -146,8 +187,9 @@ void main() {
   blocTest<GardenPlantDetailCubit, GardenPlantDetailState>(
     'loadPlant in species mode emits failure when species load fails',
     setUp: () {
-      when(() => mockDetailsRepository.getPlant('ficus-elastica'))
-          .thenThrow(Exception('network'));
+      when(
+        () => mockDetailsRepository.getPlant('ficus-elastica'),
+      ).thenThrow(Exception('network'));
     },
     build: () => GardenPlantDetailCubit(
       gardenPlantsRepository: mockRepository,
@@ -156,19 +198,31 @@ void main() {
     ),
     act: (GardenPlantDetailCubit cubit) => cubit.loadPlant(),
     expect: () => <Matcher>[
+      isA<GardenPlantDetailState>().having(
+        (GardenPlantDetailState s) => s.status,
+        'status',
+        Status.loading,
+      ),
       isA<GardenPlantDetailState>()
-          .having((GardenPlantDetailState s) => s.status, 'status', Status.loading),
-      isA<GardenPlantDetailState>()
-          .having((GardenPlantDetailState s) => s.status, 'status', Status.failure)
-          .having((GardenPlantDetailState s) => s.error, 'error', isA<Exception>()),
+          .having(
+            (GardenPlantDetailState s) => s.status,
+            'status',
+            Status.failure,
+          )
+          .having(
+            (GardenPlantDetailState s) => s.error,
+            'error',
+            isA<Exception>(),
+          ),
     ],
   );
 
   blocTest<GardenPlantDetailCubit, GardenPlantDetailState>(
     'reloadAfterEdit reloads the plant and marks wasUpdated',
     setUp: () {
-      when(() => mockRepository.getGardenPlant(plantId: 1))
-          .thenAnswer((_) async => plant.copyWith(customName: 'Renamed'));
+      when(
+        () => mockRepository.getGardenPlant(plantId: 1),
+      ).thenAnswer((_) async => plant.copyWith(customName: 'Renamed'));
     },
     seed: () => const GardenPlantDetailState(
       status: Status.success,
@@ -178,13 +232,27 @@ void main() {
     build: buildCubit,
     act: (GardenPlantDetailCubit cubit) => cubit.reloadAfterEdit(),
     expect: () => <Matcher>[
+      isA<GardenPlantDetailState>().having(
+        (GardenPlantDetailState s) => s.wasUpdated,
+        'wasUpdated',
+        isTrue,
+      ),
+      isA<GardenPlantDetailState>().having(
+        (GardenPlantDetailState s) => s.status,
+        'status',
+        Status.loading,
+      ),
       isA<GardenPlantDetailState>()
-          .having((GardenPlantDetailState s) => s.wasUpdated, 'wasUpdated', isTrue),
-      isA<GardenPlantDetailState>()
-          .having((GardenPlantDetailState s) => s.status, 'status', Status.loading),
-      isA<GardenPlantDetailState>()
-          .having((GardenPlantDetailState s) => s.status, 'status', Status.success)
-          .having((GardenPlantDetailState s) => s.wasUpdated, 'wasUpdated', isTrue)
+          .having(
+            (GardenPlantDetailState s) => s.status,
+            'status',
+            Status.success,
+          )
+          .having(
+            (GardenPlantDetailState s) => s.wasUpdated,
+            'wasUpdated',
+            isTrue,
+          )
           .having(
             (GardenPlantDetailState s) => s.plant?.customName,
             'name',
@@ -199,10 +267,12 @@ void main() {
   blocTest<GardenPlantDetailCubit, GardenPlantDetailState>(
     'deletePhoto removes image then reloads the plant',
     setUp: () {
-      when(() => mockRepository.deleteGardenPlantImage(plantId: 1))
-          .thenAnswer((_) async {});
-      when(() => mockRepository.getGardenPlant(plantId: 1))
-          .thenAnswer((_) async => plant);
+      when(
+        () => mockRepository.deleteGardenPlantImage(plantId: 1),
+      ).thenAnswer((_) async {});
+      when(
+        () => mockRepository.getGardenPlant(plantId: 1),
+      ).thenAnswer((_) async => plant);
     },
     seed: () => GardenPlantDetailState(
       status: Status.success,
@@ -212,11 +282,18 @@ void main() {
     build: buildCubit,
     act: (GardenPlantDetailCubit cubit) => cubit.deletePhoto(),
     expect: () => <Matcher>[
-      isA<GardenPlantDetailState>()
-          .having((GardenPlantDetailState s) => s.isSaving, 'isSaving', isTrue),
+      isA<GardenPlantDetailState>().having(
+        (GardenPlantDetailState s) => s.isSaving,
+        'isSaving',
+        isTrue,
+      ),
       isA<GardenPlantDetailState>()
           .having((GardenPlantDetailState s) => s.isSaving, 'isSaving', isFalse)
-          .having((GardenPlantDetailState s) => s.wasUpdated, 'wasUpdated', isTrue),
+          .having(
+            (GardenPlantDetailState s) => s.wasUpdated,
+            'wasUpdated',
+            isTrue,
+          ),
     ],
     verify: (_) {
       verify(() => mockRepository.deleteGardenPlantImage(plantId: 1)).called(1);
@@ -227,8 +304,9 @@ void main() {
   blocTest<GardenPlantDetailCubit, GardenPlantDetailState>(
     'deletePlant marks wasDeleted on success',
     setUp: () {
-      when(() => mockRepository.deleteGardenPlant(plantId: 1))
-          .thenAnswer((_) async {});
+      when(
+        () => mockRepository.deleteGardenPlant(plantId: 1),
+      ).thenAnswer((_) async {});
     },
     seed: () => const GardenPlantDetailState(
       status: Status.success,
@@ -238,11 +316,18 @@ void main() {
     build: buildCubit,
     act: (GardenPlantDetailCubit cubit) => cubit.deletePlant(),
     expect: () => <Matcher>[
-      isA<GardenPlantDetailState>()
-          .having((GardenPlantDetailState s) => s.isSaving, 'isSaving', isTrue),
+      isA<GardenPlantDetailState>().having(
+        (GardenPlantDetailState s) => s.isSaving,
+        'isSaving',
+        isTrue,
+      ),
       isA<GardenPlantDetailState>()
           .having((GardenPlantDetailState s) => s.isSaving, 'isSaving', isFalse)
-          .having((GardenPlantDetailState s) => s.wasDeleted, 'wasDeleted', isTrue),
+          .having(
+            (GardenPlantDetailState s) => s.wasDeleted,
+            'wasDeleted',
+            isTrue,
+          ),
     ],
     verify: (_) {
       verify(() => mockRepository.deleteGardenPlant(plantId: 1)).called(1);

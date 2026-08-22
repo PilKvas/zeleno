@@ -50,9 +50,9 @@ class AppSearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = ZColorScheme.of(context);
-    final TextStyle fieldTextStyle = ZTypography.of(context).body.copyWith(
-          color: colors.secondaryTextFieldColor,
-        );
+    final TextStyle fieldTextStyle = ZTypography.of(
+      context,
+    ).body.copyWith(color: colors.secondaryTextFieldColor);
     return GestureDetector(
       onTap: onTap,
       behavior: HitTestBehavior.opaque,

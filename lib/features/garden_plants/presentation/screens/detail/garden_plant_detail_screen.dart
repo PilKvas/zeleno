@@ -25,14 +25,11 @@ const int _kVisibleTagsCount = 3;
 /// (открытие из поиска: вместо настроек показывается кнопка «В сад»).
 @RoutePage()
 class GardenPlantDetailScreen extends StatelessWidget {
-  const GardenPlantDetailScreen({
-    super.key,
-    this.plantId,
-    this.speciesSlug,
-  }) : assert(
-          plantId != null || speciesSlug != null,
-          'Нужен plantId (сад) или speciesSlug (каталог)',
-        );
+  const GardenPlantDetailScreen({super.key, this.plantId, this.speciesSlug})
+    : assert(
+        plantId != null || speciesSlug != null,
+        'Нужен plantId (сад) или speciesSlug (каталог)',
+      );
 
   final int? plantId;
   final String? speciesSlug;
@@ -55,8 +52,8 @@ class _GardenPlantDetailView extends StatelessWidget {
   const _GardenPlantDetailView();
 
   Future<void> _openEditScreen(BuildContext context) async {
-    final GardenPlantDetailCubit detailCubit =
-        context.read<GardenPlantDetailCubit>();
+    final GardenPlantDetailCubit detailCubit = context
+        .read<GardenPlantDetailCubit>();
     final GardenPlantModel? plant = detailCubit.state.plant;
     if (plant == null) {
       return;
@@ -75,11 +72,9 @@ class _GardenPlantDetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<GardenPlantDetailCubit, GardenPlantDetailState>(
-      listenWhen: (
-        GardenPlantDetailState previous,
-        GardenPlantDetailState current,
-      ) =>
-          previous.wasDeleted != current.wasDeleted && current.wasDeleted,
+      listenWhen:
+          (GardenPlantDetailState previous, GardenPlantDetailState current) =>
+              previous.wasDeleted != current.wasDeleted && current.wasDeleted,
       listener: (BuildContext context, GardenPlantDetailState state) {
         context.router.maybePop(true);
       },
@@ -89,11 +84,7 @@ class _GardenPlantDetailView extends StatelessWidget {
         if (state.status.isLoading && !hasContent) {
           return const Scaffold(
             body: Center(
-              child: SizedBox(
-                height: 72,
-                width: 72,
-                child: ZLoading(),
-              ),
+              child: SizedBox(height: 72, width: 72, child: ZLoading()),
             ),
           );
         }
@@ -175,7 +166,8 @@ class _GardenPlantDetailContent extends StatelessWidget {
     final PlantDetailsModel? species = state.speciesDetails;
     final bool isSpeciesMode = plant == null;
     final String languageCode = Localizations.localeOf(context).languageCode;
-    final String title = plant?.customName ??
+    final String title =
+        plant?.customName ??
         species?.resolveMainCommonName(lang: languageCode) ??
         context.l10n.unknownName;
     final List<String> commonNames =
@@ -197,10 +189,7 @@ class _GardenPlantDetailContent extends StatelessWidget {
               ),
               child: IconButton(
                 onPressed: () => context.router.maybePop(state.wasUpdated),
-                icon: Icon(
-                  Icons.chevron_left,
-                  color: colorScheme.onSurface,
-                ),
+                icon: Icon(Icons.chevron_left, color: colorScheme.onSurface),
               ),
             ),
             actions: <Widget>[
@@ -270,16 +259,13 @@ class _GardenPlantDetailContent extends StatelessWidget {
                             ),
                           );
                         },
-                        separatorBuilder: (
-                          BuildContext context,
-                          int index,
-                        ) =>
+                        separatorBuilder: (BuildContext context, int index) =>
                             Text(
-                          ' • ',
-                          style: typography.body.copyWith(
-                            color: colorScheme.brand,
-                          ),
-                        ),
+                              ' • ',
+                              style: typography.body.copyWith(
+                                color: colorScheme.brand,
+                              ),
+                            ),
                         itemCount: commonNames.length,
                       ),
                     ),
@@ -290,20 +276,17 @@ class _GardenPlantDetailContent extends StatelessWidget {
                       onPressed: species?.id == null
                           ? null
                           : () => context.router.push(
-                                PlantRoomsSelectionRoute(
-                                  speciesId: species!.id!,
-                                  speciesSlug: state.speciesSlug ?? '',
-                                  defaultPlantName: title,
-                                ),
+                              PlantRoomsSelectionRoute(
+                                speciesId: species!.id!,
+                                speciesSlug: state.speciesSlug ?? '',
+                                defaultPlantName: title,
                               ),
+                            ),
                       child: Text(context.l10n.toTheGardenButtonTitle),
                     ),
                   ],
                   const SizedBox(height: 20),
-                  _CareCardsRow(
-                    plant: plant,
-                    species: species,
-                  ),
+                  _CareCardsRow(plant: plant, species: species),
                   const SizedBox(height: 24),
                   if (species?.genusDescription != null &&
                       species!.genusDescription!.isNotEmpty)
@@ -323,8 +306,7 @@ class _GardenPlantDetailContent extends StatelessWidget {
                   ExpandableSectionWidget(
                     title: context.l10n.plantDetailScientificClassification,
                     content: ScientificClassificationWidget(
-                      latinName:
-                          species?.latinName ?? plant?.speciesLatinName,
+                      latinName: species?.latinName ?? plant?.speciesLatinName,
                       misc: species?.misc,
                     ),
                     isTable: true,
@@ -377,10 +359,7 @@ class _GardenPlantDetailContent extends StatelessWidget {
     return context.l10n.gardenPlantAge(years.toString());
   }
 
-  String _formatSpreadMeters(
-    BuildContext context,
-    PlantDetailsModel? species,
-  ) {
+  String _formatSpreadMeters(BuildContext context, PlantDetailsModel? species) {
     final String value = _averageMeters(
       species?.spreadMinCm,
       species?.spreadMaxCm,
@@ -391,10 +370,7 @@ class _GardenPlantDetailContent extends StatelessWidget {
     return context.l10n.gardenPlantSpreadMeters(value);
   }
 
-  String _formatHeightMeters(
-    BuildContext context,
-    PlantDetailsModel? species,
-  ) {
+  String _formatHeightMeters(BuildContext context, PlantDetailsModel? species) {
     final String value = _averageMeters(
       species?.heightMinCm,
       species?.heightMaxCm,
@@ -426,9 +402,7 @@ class _GardenPlantDetailContent extends StatelessWidget {
             child: Wrap(
               spacing: 8,
               runSpacing: 8,
-              children: tags
-                  .map((String tag) => TagWidget(text: tag))
-                  .toList(),
+              children: tags.map((String tag) => TagWidget(text: tag)).toList(),
             ),
           ),
         );
@@ -438,10 +412,7 @@ class _GardenPlantDetailContent extends StatelessWidget {
 }
 
 class _CareCardsRow extends StatelessWidget {
-  const _CareCardsRow({
-    required this.plant,
-    required this.species,
-  });
+  const _CareCardsRow({required this.plant, required this.species});
 
   final GardenPlantModel? plant;
   final PlantDetailsModel? species;
@@ -457,7 +428,8 @@ class _CareCardsRow extends StatelessWidget {
           GardenPlantCareCardWidget(
             icon: Icons.yard_outlined,
             title: context.l10n.gardenPlantCareRepotting,
-            subtitle: _careSubtitle(
+            subtitle:
+                _careSubtitle(
                   context,
                   exactDate: plant?.lastRepottingExactDate,
                   rawValue: plant?.lastRepotting,
@@ -468,7 +440,8 @@ class _CareCardsRow extends StatelessWidget {
           GardenPlantCareCardWidget(
             icon: Icons.water_drop_outlined,
             title: context.l10n.gardenPlantCareWatering,
-            subtitle: _careSubtitle(
+            subtitle:
+                _careSubtitle(
                   context,
                   exactDate: plant?.lastWateringExactDate,
                   rawValue: plant?.lastWatering,
@@ -535,10 +508,7 @@ class _CareCardsRow extends StatelessWidget {
 }
 
 class _PlantImage extends StatelessWidget {
-  const _PlantImage({
-    required this.imageUrl,
-    required this.colorScheme,
-  });
+  const _PlantImage({required this.imageUrl, required this.colorScheme});
 
   final String? imageUrl;
   final ZColorScheme colorScheme;
@@ -549,12 +519,9 @@ class _PlantImage extends StatelessWidget {
       return Image.network(
         imageUrl!,
         fit: BoxFit.cover,
-        errorBuilder: (
-          BuildContext context,
-          Object error,
-          StackTrace? stackTrace,
-        ) =>
-            _Placeholder(colorScheme: colorScheme),
+        errorBuilder:
+            (BuildContext context, Object error, StackTrace? stackTrace) =>
+                _Placeholder(colorScheme: colorScheme),
       );
     }
     return _Placeholder(colorScheme: colorScheme);

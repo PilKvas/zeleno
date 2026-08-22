@@ -8,8 +8,8 @@ part 'profile_state.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
   ProfileCubit({required IProfileRepository profileRepository})
-      : _profileRepository = profileRepository,
-        super(const ProfileState.initial());
+    : _profileRepository = profileRepository,
+      super(const ProfileState.initial());
 
   final IProfileRepository _profileRepository;
 

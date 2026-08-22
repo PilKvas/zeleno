@@ -45,20 +45,20 @@ class HomeScreen extends StatelessWidget {
   ) {
     final (String icon, String activeIcon, String label) = switch (tab) {
       HomeTab.garden => (
-          SvgIcons.plant,
-          SvgIcons.plant,
-          context.l10n.homeTabGarden,
-        ),
+        SvgIcons.plant,
+        SvgIcons.plant,
+        context.l10n.homeTabGarden,
+      ),
       HomeTab.search => (
-          SvgIcons.search,
-          SvgIcons.searchFilled,
-          context.l10n.homeTabSearch,
-        ),
+        SvgIcons.search,
+        SvgIcons.searchFilled,
+        context.l10n.homeTabSearch,
+      ),
       HomeTab.profile => (
-          SvgIcons.user,
-          SvgIcons.user,
-          context.l10n.homeTabProfile,
-        ),
+        SvgIcons.user,
+        SvgIcons.user,
+        context.l10n.homeTabProfile,
+      ),
     };
 
     return BottomNavigationBarItem(

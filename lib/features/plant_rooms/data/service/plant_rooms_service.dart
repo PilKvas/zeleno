@@ -12,14 +12,10 @@ abstract class PlantRoomsService {
   Future<List<PlantRoomDto>> getGardenRooms();
 
   @GET('/api/garden/rooms/{room_id}')
-  Future<PlantRoomDto> getGardenRoom({
-    @Path('room_id') required int roomId,
-  });
+  Future<PlantRoomDto> getGardenRoom({@Path('room_id') required int roomId});
 
   @POST('/api/garden/rooms')
-  Future<void> createGardenRoom({
-    @Body() required Map<String, dynamic> body,
-  });
+  Future<void> createGardenRoom({@Body() required Map<String, dynamic> body});
 
   @PATCH('/api/garden/rooms/{room_id}')
   Future<void> updateGardenRoom({
@@ -28,7 +24,5 @@ abstract class PlantRoomsService {
   });
 
   @DELETE('/api/garden/rooms/{room_id}')
-  Future<void> deleteGardenRoom({
-    @Path('room_id') required int roomId,
-  });
+  Future<void> deleteGardenRoom({@Path('room_id') required int roomId});
 }

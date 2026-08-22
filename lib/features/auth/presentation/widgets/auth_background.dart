@@ -9,15 +9,8 @@ class AuthBackground extends StatelessWidget {
     return Stack(
       fit: StackFit.expand,
       children: [
-        Positioned(
-          top: 0,
-          left: 70,
-          child: Image.asset(ZImages.woollyBee),
-        ),
-        Positioned(
-          right: 0,
-          child: Image.asset(ZImages.woollyCactus),
-        ),
+        Positioned(top: 0, left: 70, child: Image.asset(ZImages.woollyBee)),
+        Positioned(right: 0, child: Image.asset(ZImages.woollyCactus)),
       ],
     );
   }

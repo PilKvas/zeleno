@@ -105,9 +105,7 @@ class _AddGardenPlantSuccessScreenState
                 Text(
                   context.l10n.addGardenPlantImageUploadFailed,
                   textAlign: TextAlign.center,
-                  style: typography.body.copyWith(
-                    color: colorScheme.error,
-                  ),
+                  style: typography.body.copyWith(color: colorScheme.error),
                 ),
               ],
               const SizedBox(height: 32),

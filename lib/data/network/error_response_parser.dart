@@ -32,10 +32,7 @@ ErrorResponse? _parseLooseErrorResponse(Map<String, dynamic> data) {
     return null;
   }
   final String? errorCode = data['error'] as String?;
-  return ErrorResponse(
-    error: errorCode ?? 'error',
-    message: message,
-  );
+  return ErrorResponse(error: errorCode ?? 'error', message: message);
 }
 
 String? _extractUserFacingMessage(Map<String, dynamic> data) {

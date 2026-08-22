@@ -16,9 +16,7 @@ class PlantSearchItemDto with _$PlantSearchItemDto {
 
   const PlantSearchItemDto._();
 
-  PlantSearchItem toModel({
-    required PlantSearchItemDto dto,
-  }) {
+  PlantSearchItem toModel({required PlantSearchItemDto dto}) {
     return PlantSearchItem(
       mainCommonName: dto.mainCommonName,
       slug: dto.slug,

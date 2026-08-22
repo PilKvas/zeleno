@@ -5,9 +5,8 @@ import 'package:zeleno_v2/features/plant_rooms/domain/models/export.dart';
 import 'package:zeleno_v2/features/plant_rooms/domain/repository/export.dart';
 
 final class PlantRoomsRepository implements IPlantRoomsRepository {
-  PlantRoomsRepository({
-    required PlantRoomsService plantRoomsService,
-  }) : _plantRoomsService = plantRoomsService;
+  PlantRoomsRepository({required PlantRoomsService plantRoomsService})
+    : _plantRoomsService = plantRoomsService;
 
   final PlantRoomsService _plantRoomsService;
 
@@ -19,24 +18,21 @@ final class PlantRoomsRepository implements IPlantRoomsRepository {
 
   @override
   Future<PlantRoomModel> getGardenRoom({required int roomId}) async {
-    final PlantRoomDto dto =
-        await _plantRoomsService.getGardenRoom(roomId: roomId);
+    final PlantRoomDto dto = await _plantRoomsService.getGardenRoom(
+      roomId: roomId,
+    );
     return dto.toModel();
   }
 
   @override
-  Future<void> createGardenRoom({
-    required CreateGardenRoomParams params,
-  }) {
+  Future<void> createGardenRoom({required CreateGardenRoomParams params}) {
     return _plantRoomsService.createGardenRoom(
       body: CreateGardenRoomBody(name: params.name).toJson(),
     );
   }
 
   @override
-  Future<void> updateGardenRoom({
-    required UpdateGardenRoomParams params,
-  }) {
+  Future<void> updateGardenRoom({required UpdateGardenRoomParams params}) {
     return _plantRoomsService.updateGardenRoom(
       roomId: params.roomId,
       body: UpdateGardenRoomBody(

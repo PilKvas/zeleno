@@ -177,9 +177,8 @@ class PlantMisc with _$PlantMisc {
 
 @freezed
 class SynonymItem with _$SynonymItem {
-  const factory SynonymItem({
-    @JsonKey(name: 'name') String? name,
-  }) = _SynonymItem;
+  const factory SynonymItem({@JsonKey(name: 'name') String? name}) =
+      _SynonymItem;
 
   factory SynonymItem.fromJson(Map<String, dynamic> json) =>
       _$SynonymItemFromJson(json);
@@ -187,9 +186,7 @@ class SynonymItem with _$SynonymItem {
 
 @freezed
 class PlantTag with _$PlantTag {
-  const factory PlantTag({
-    @JsonKey(name: 'name') String? name,
-  }) = _PlantTag;
+  const factory PlantTag({@JsonKey(name: 'name') String? name}) = _PlantTag;
 
   factory PlantTag.fromJson(Map<String, dynamic> json) =>
       _$PlantTagFromJson(json);

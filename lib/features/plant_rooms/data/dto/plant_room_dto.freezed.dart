@@ -12,7 +12,8 @@ part of 'plant_room_dto.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 PlantRoomDto _$PlantRoomDtoFromJson(Map<String, dynamic> json) {
   return _PlantRoomDto.fromJson(json);
@@ -44,16 +45,18 @@ mixin _$PlantRoomDto {
 /// @nodoc
 abstract class $PlantRoomDtoCopyWith<$Res> {
   factory $PlantRoomDtoCopyWith(
-          PlantRoomDto value, $Res Function(PlantRoomDto) then) =
-      _$PlantRoomDtoCopyWithImpl<$Res, PlantRoomDto>;
+    PlantRoomDto value,
+    $Res Function(PlantRoomDto) then,
+  ) = _$PlantRoomDtoCopyWithImpl<$Res, PlantRoomDto>;
   @useResult
-  $Res call(
-      {int id,
-      String name,
-      @JsonKey(name: 'humidity_percent') int? humidityPercent,
-      @JsonKey(name: 'illuminance_lux') int? illuminanceLux,
-      @JsonKey(name: 'temperature_celsius') double? temperatureCelsius,
-      @JsonKey(name: 'window_direction') String? windowDirection});
+  $Res call({
+    int id,
+    String name,
+    @JsonKey(name: 'humidity_percent') int? humidityPercent,
+    @JsonKey(name: 'illuminance_lux') int? illuminanceLux,
+    @JsonKey(name: 'temperature_celsius') double? temperatureCelsius,
+    @JsonKey(name: 'window_direction') String? windowDirection,
+  });
 }
 
 /// @nodoc
@@ -78,32 +81,35 @@ class _$PlantRoomDtoCopyWithImpl<$Res, $Val extends PlantRoomDto>
     Object? temperatureCelsius = freezed,
     Object? windowDirection = freezed,
   }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      humidityPercent: freezed == humidityPercent
-          ? _value.humidityPercent
-          : humidityPercent // ignore: cast_nullable_to_non_nullable
-              as int?,
-      illuminanceLux: freezed == illuminanceLux
-          ? _value.illuminanceLux
-          : illuminanceLux // ignore: cast_nullable_to_non_nullable
-              as int?,
-      temperatureCelsius: freezed == temperatureCelsius
-          ? _value.temperatureCelsius
-          : temperatureCelsius // ignore: cast_nullable_to_non_nullable
-              as double?,
-      windowDirection: freezed == windowDirection
-          ? _value.windowDirection
-          : windowDirection // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int,
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
+            humidityPercent: freezed == humidityPercent
+                ? _value.humidityPercent
+                : humidityPercent // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            illuminanceLux: freezed == illuminanceLux
+                ? _value.illuminanceLux
+                : illuminanceLux // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            temperatureCelsius: freezed == temperatureCelsius
+                ? _value.temperatureCelsius
+                : temperatureCelsius // ignore: cast_nullable_to_non_nullable
+                      as double?,
+            windowDirection: freezed == windowDirection
+                ? _value.windowDirection
+                : windowDirection // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -111,17 +117,19 @@ class _$PlantRoomDtoCopyWithImpl<$Res, $Val extends PlantRoomDto>
 abstract class _$$PlantRoomDtoImplCopyWith<$Res>
     implements $PlantRoomDtoCopyWith<$Res> {
   factory _$$PlantRoomDtoImplCopyWith(
-          _$PlantRoomDtoImpl value, $Res Function(_$PlantRoomDtoImpl) then) =
-      __$$PlantRoomDtoImplCopyWithImpl<$Res>;
+    _$PlantRoomDtoImpl value,
+    $Res Function(_$PlantRoomDtoImpl) then,
+  ) = __$$PlantRoomDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int id,
-      String name,
-      @JsonKey(name: 'humidity_percent') int? humidityPercent,
-      @JsonKey(name: 'illuminance_lux') int? illuminanceLux,
-      @JsonKey(name: 'temperature_celsius') double? temperatureCelsius,
-      @JsonKey(name: 'window_direction') String? windowDirection});
+  $Res call({
+    int id,
+    String name,
+    @JsonKey(name: 'humidity_percent') int? humidityPercent,
+    @JsonKey(name: 'illuminance_lux') int? illuminanceLux,
+    @JsonKey(name: 'temperature_celsius') double? temperatureCelsius,
+    @JsonKey(name: 'window_direction') String? windowDirection,
+  });
 }
 
 /// @nodoc
@@ -129,8 +137,9 @@ class __$$PlantRoomDtoImplCopyWithImpl<$Res>
     extends _$PlantRoomDtoCopyWithImpl<$Res, _$PlantRoomDtoImpl>
     implements _$$PlantRoomDtoImplCopyWith<$Res> {
   __$$PlantRoomDtoImplCopyWithImpl(
-      _$PlantRoomDtoImpl _value, $Res Function(_$PlantRoomDtoImpl) _then)
-      : super(_value, _then);
+    _$PlantRoomDtoImpl _value,
+    $Res Function(_$PlantRoomDtoImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of PlantRoomDto
   /// with the given fields replaced by the non-null parameter values.
@@ -144,46 +153,48 @@ class __$$PlantRoomDtoImplCopyWithImpl<$Res>
     Object? temperatureCelsius = freezed,
     Object? windowDirection = freezed,
   }) {
-    return _then(_$PlantRoomDtoImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      humidityPercent: freezed == humidityPercent
-          ? _value.humidityPercent
-          : humidityPercent // ignore: cast_nullable_to_non_nullable
-              as int?,
-      illuminanceLux: freezed == illuminanceLux
-          ? _value.illuminanceLux
-          : illuminanceLux // ignore: cast_nullable_to_non_nullable
-              as int?,
-      temperatureCelsius: freezed == temperatureCelsius
-          ? _value.temperatureCelsius
-          : temperatureCelsius // ignore: cast_nullable_to_non_nullable
-              as double?,
-      windowDirection: freezed == windowDirection
-          ? _value.windowDirection
-          : windowDirection // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    return _then(
+      _$PlantRoomDtoImpl(
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        humidityPercent: freezed == humidityPercent
+            ? _value.humidityPercent
+            : humidityPercent // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        illuminanceLux: freezed == illuminanceLux
+            ? _value.illuminanceLux
+            : illuminanceLux // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        temperatureCelsius: freezed == temperatureCelsius
+            ? _value.temperatureCelsius
+            : temperatureCelsius // ignore: cast_nullable_to_non_nullable
+                  as double?,
+        windowDirection: freezed == windowDirection
+            ? _value.windowDirection
+            : windowDirection // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$PlantRoomDtoImpl extends _PlantRoomDto {
-  const _$PlantRoomDtoImpl(
-      {required this.id,
-      required this.name,
-      @JsonKey(name: 'humidity_percent') this.humidityPercent,
-      @JsonKey(name: 'illuminance_lux') this.illuminanceLux,
-      @JsonKey(name: 'temperature_celsius') this.temperatureCelsius,
-      @JsonKey(name: 'window_direction') this.windowDirection})
-      : super._();
+  const _$PlantRoomDtoImpl({
+    required this.id,
+    required this.name,
+    @JsonKey(name: 'humidity_percent') this.humidityPercent,
+    @JsonKey(name: 'illuminance_lux') this.illuminanceLux,
+    @JsonKey(name: 'temperature_celsius') this.temperatureCelsius,
+    @JsonKey(name: 'window_direction') this.windowDirection,
+  }) : super._();
 
   factory _$PlantRoomDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlantRoomDtoImplFromJson(json);
@@ -229,8 +240,15 @@ class _$PlantRoomDtoImpl extends _PlantRoomDto {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, humidityPercent,
-      illuminanceLux, temperatureCelsius, windowDirection);
+  int get hashCode => Object.hash(
+    runtimeType,
+    id,
+    name,
+    humidityPercent,
+    illuminanceLux,
+    temperatureCelsius,
+    windowDirection,
+  );
 
   /// Create a copy of PlantRoomDto
   /// with the given fields replaced by the non-null parameter values.
@@ -242,21 +260,19 @@ class _$PlantRoomDtoImpl extends _PlantRoomDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PlantRoomDtoImplToJson(
-      this,
-    );
+    return _$$PlantRoomDtoImplToJson(this);
   }
 }
 
 abstract class _PlantRoomDto extends PlantRoomDto {
-  const factory _PlantRoomDto(
-      {required final int id,
-      required final String name,
-      @JsonKey(name: 'humidity_percent') final int? humidityPercent,
-      @JsonKey(name: 'illuminance_lux') final int? illuminanceLux,
-      @JsonKey(name: 'temperature_celsius') final double? temperatureCelsius,
-      @JsonKey(name: 'window_direction')
-      final String? windowDirection}) = _$PlantRoomDtoImpl;
+  const factory _PlantRoomDto({
+    required final int id,
+    required final String name,
+    @JsonKey(name: 'humidity_percent') final int? humidityPercent,
+    @JsonKey(name: 'illuminance_lux') final int? illuminanceLux,
+    @JsonKey(name: 'temperature_celsius') final double? temperatureCelsius,
+    @JsonKey(name: 'window_direction') final String? windowDirection,
+  }) = _$PlantRoomDtoImpl;
   const _PlantRoomDto._() : super._();
 
   factory _PlantRoomDto.fromJson(Map<String, dynamic> json) =

@@ -12,9 +12,9 @@ class AuthCubit extends Cubit<AuthState> {
   AuthCubit({
     required IAuthRepository authRepository,
     required PushTokenManager pushTokenManager,
-  })  : _authRepository = authRepository,
-        _pushTokenManager = pushTokenManager,
-        super(const AuthState()) {
+  }) : _authRepository = authRepository,
+       _pushTokenManager = pushTokenManager,
+       super(const AuthState()) {
     _subscription = _authRepository.statusStream.listen(_onStatus);
   }
 

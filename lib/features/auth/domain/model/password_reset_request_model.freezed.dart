@@ -12,10 +12,12 @@ part of 'password_reset_request_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 PasswordResetRequestModel _$PasswordResetRequestModelFromJson(
-    Map<String, dynamic> json) {
+  Map<String, dynamic> json,
+) {
   return _PasswordResetRequestModel.fromJson(json);
 }
 
@@ -35,16 +37,19 @@ mixin _$PasswordResetRequestModel {
 
 /// @nodoc
 abstract class $PasswordResetRequestModelCopyWith<$Res> {
-  factory $PasswordResetRequestModelCopyWith(PasswordResetRequestModel value,
-          $Res Function(PasswordResetRequestModel) then) =
-      _$PasswordResetRequestModelCopyWithImpl<$Res, PasswordResetRequestModel>;
+  factory $PasswordResetRequestModelCopyWith(
+    PasswordResetRequestModel value,
+    $Res Function(PasswordResetRequestModel) then,
+  ) = _$PasswordResetRequestModelCopyWithImpl<$Res, PasswordResetRequestModel>;
   @useResult
   $Res call({String email});
 }
 
 /// @nodoc
-class _$PasswordResetRequestModelCopyWithImpl<$Res,
-        $Val extends PasswordResetRequestModel>
+class _$PasswordResetRequestModelCopyWithImpl<
+  $Res,
+  $Val extends PasswordResetRequestModel
+>
     implements $PasswordResetRequestModelCopyWith<$Res> {
   _$PasswordResetRequestModelCopyWithImpl(this._value, this._then);
 
@@ -57,15 +62,16 @@ class _$PasswordResetRequestModelCopyWithImpl<$Res,
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? email = null,
-  }) {
-    return _then(_value.copyWith(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  $Res call({Object? email = null}) {
+    return _then(
+      _value.copyWith(
+            email: null == email
+                ? _value.email
+                : email // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -73,9 +79,9 @@ class _$PasswordResetRequestModelCopyWithImpl<$Res,
 abstract class _$$PasswordResetRequestModelImplCopyWith<$Res>
     implements $PasswordResetRequestModelCopyWith<$Res> {
   factory _$$PasswordResetRequestModelImplCopyWith(
-          _$PasswordResetRequestModelImpl value,
-          $Res Function(_$PasswordResetRequestModelImpl) then) =
-      __$$PasswordResetRequestModelImplCopyWithImpl<$Res>;
+    _$PasswordResetRequestModelImpl value,
+    $Res Function(_$PasswordResetRequestModelImpl) then,
+  ) = __$$PasswordResetRequestModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String email});
@@ -83,27 +89,30 @@ abstract class _$$PasswordResetRequestModelImplCopyWith<$Res>
 
 /// @nodoc
 class __$$PasswordResetRequestModelImplCopyWithImpl<$Res>
-    extends _$PasswordResetRequestModelCopyWithImpl<$Res,
-        _$PasswordResetRequestModelImpl>
+    extends
+        _$PasswordResetRequestModelCopyWithImpl<
+          $Res,
+          _$PasswordResetRequestModelImpl
+        >
     implements _$$PasswordResetRequestModelImplCopyWith<$Res> {
   __$$PasswordResetRequestModelImplCopyWithImpl(
-      _$PasswordResetRequestModelImpl _value,
-      $Res Function(_$PasswordResetRequestModelImpl) _then)
-      : super(_value, _then);
+    _$PasswordResetRequestModelImpl _value,
+    $Res Function(_$PasswordResetRequestModelImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of PasswordResetRequestModel
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? email = null,
-  }) {
-    return _then(_$PasswordResetRequestModelImpl(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? email = null}) {
+    return _then(
+      _$PasswordResetRequestModelImpl(
+        email: null == email
+            ? _value.email
+            : email // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -141,14 +150,14 @@ class _$PasswordResetRequestModelImpl implements _PasswordResetRequestModel {
   @override
   @pragma('vm:prefer-inline')
   _$$PasswordResetRequestModelImplCopyWith<_$PasswordResetRequestModelImpl>
-      get copyWith => __$$PasswordResetRequestModelImplCopyWithImpl<
-          _$PasswordResetRequestModelImpl>(this, _$identity);
+  get copyWith =>
+      __$$PasswordResetRequestModelImplCopyWithImpl<
+        _$PasswordResetRequestModelImpl
+      >(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PasswordResetRequestModelImplToJson(
-      this,
-    );
+    return _$$PasswordResetRequestModelImplToJson(this);
   }
 }
 
@@ -167,5 +176,5 @@ abstract class _PasswordResetRequestModel implements PasswordResetRequestModel {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PasswordResetRequestModelImplCopyWith<_$PasswordResetRequestModelImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

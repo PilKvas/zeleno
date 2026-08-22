@@ -10,8 +10,8 @@ part 'garden_plants_list_state.dart';
 class GardenPlantsListCubit extends Cubit<GardenPlantsListState> {
   GardenPlantsListCubit({
     required IGardenPlantsRepository gardenPlantsRepository,
-  })  : _repository = gardenPlantsRepository,
-        super(const GardenPlantsListState(status: Status.initial));
+  }) : _repository = gardenPlantsRepository,
+       super(const GardenPlantsListState(status: Status.initial));
 
   final IGardenPlantsRepository _repository;
 
@@ -28,11 +28,7 @@ class GardenPlantsListCubit extends Cubit<GardenPlantsListState> {
 
   Future<void> loadPlants() async {
     emit(
-      state.copyWith(
-        status: Status.loading,
-        error: null,
-        isRefreshing: false,
-      ),
+      state.copyWith(status: Status.loading, error: null, isRefreshing: false),
     );
     await _fetchPlants();
   }
@@ -58,8 +54,7 @@ class GardenPlantsListCubit extends Cubit<GardenPlantsListState> {
   Future<void> _fetchPlants() async {
     final int requestId = ++_requestId;
     try {
-      final List<GardenPlantModel> plants =
-          await _repository.getGardenPlants();
+      final List<GardenPlantModel> plants = await _repository.getGardenPlants();
       if (isClosed || requestId != _requestId) {
         return;
       }

@@ -36,12 +36,12 @@ final class ZButton extends StatelessWidget {
     VoidCallback? onPressed,
     double? height = 46,
   }) : this._(
-          key: key,
-          child: child,
-          onPressed: onPressed,
-          variant: ZButtonVariant.gradient1,
-          height: height,
-        );
+         key: key,
+         child: child,
+         onPressed: onPressed,
+         variant: ZButtonVariant.gradient1,
+         height: height,
+       );
 
   const ZButton.gradient2({
     Key? key,
@@ -49,12 +49,12 @@ final class ZButton extends StatelessWidget {
     VoidCallback? onPressed,
     double? height = 46,
   }) : this._(
-          key: key,
-          child: child,
-          onPressed: onPressed,
-          variant: ZButtonVariant.gradient2,
-          height: height,
-        );
+         key: key,
+         child: child,
+         onPressed: onPressed,
+         variant: ZButtonVariant.gradient2,
+         height: height,
+       );
 
   const ZButton.gradient3({
     Key? key,
@@ -62,12 +62,12 @@ final class ZButton extends StatelessWidget {
     VoidCallback? onPressed,
     double? height = 46,
   }) : this._(
-          key: key,
-          child: child,
-          onPressed: onPressed,
-          variant: ZButtonVariant.gradient3,
-          height: height,
-        );
+         key: key,
+         child: child,
+         onPressed: onPressed,
+         variant: ZButtonVariant.gradient3,
+         height: height,
+       );
 
   const ZButton.secondary({
     Key? key,
@@ -75,12 +75,12 @@ final class ZButton extends StatelessWidget {
     VoidCallback? onPressed,
     double? height = 46,
   }) : this._(
-          key: key,
-          child: child,
-          onPressed: onPressed,
-          variant: ZButtonVariant.secondary,
-          height: height,
-        );
+         key: key,
+         child: child,
+         onPressed: onPressed,
+         variant: ZButtonVariant.secondary,
+         height: height,
+       );
 
   const ZButton.ghost({
     Key? key,
@@ -88,12 +88,12 @@ final class ZButton extends StatelessWidget {
     VoidCallback? onPressed,
     double? height = 46,
   }) : this._(
-          key: key,
-          child: child,
-          onPressed: onPressed,
-          variant: ZButtonVariant.ghost,
-          height: height,
-        );
+         key: key,
+         child: child,
+         onPressed: onPressed,
+         variant: ZButtonVariant.ghost,
+         height: height,
+       );
 
   final Widget child;
 
@@ -103,8 +103,10 @@ final class ZButton extends StatelessWidget {
 
   final double? height;
 
-  static const EdgeInsets _padding =
-      EdgeInsets.symmetric(horizontal: 16, vertical: 0);
+  static const EdgeInsets _padding = EdgeInsets.symmetric(
+    horizontal: 16,
+    vertical: 0,
+  );
 
   static const BorderRadius _radius = BorderRadius.all(Radius.circular(10));
 
@@ -132,19 +134,16 @@ final class ZButton extends StatelessWidget {
       decoration: decoration,
       child: labeledChild,
     );
-    final Widget wrapped =
-        isEnabled ? core : Opacity(opacity: 0.55, child: core);
-    return ZPressable(
-      onTap: onPressed,
-      child: wrapped,
-    );
+    final Widget wrapped = isEnabled
+        ? core
+        : Opacity(opacity: 0.55, child: core);
+    return ZPressable(onTap: onPressed, child: wrapped);
   }
 
   Color _foregroundForVariant(ZColorScheme colors) {
     return switch (variant) {
       ZButtonVariant.gradient1 ||
-      ZButtonVariant.gradient3 =>
-        colors.secondaryBg,
+      ZButtonVariant.gradient3 => colors.secondaryBg,
       ZButtonVariant.gradient2 => colors.mainGradientColor,
       ZButtonVariant.secondary => colors.secondaryTextColor,
       ZButtonVariant.ghost => colors.mainGradientColor2,
@@ -154,47 +153,44 @@ final class ZButton extends StatelessWidget {
   BoxDecoration _decoration(ZColorScheme colors) {
     return switch (variant) {
       ZButtonVariant.gradient1 => BoxDecoration(
-          borderRadius: _radius,
-          gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: <Color>[
-              colors.mainGradientColor,
-              colors.mainGradientColor2,
-            ],
-          ),
+        borderRadius: _radius,
+        gradient: LinearGradient(
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+          colors: <Color>[colors.mainGradientColor, colors.mainGradientColor2],
         ),
+      ),
       ZButtonVariant.gradient2 => BoxDecoration(
-          borderRadius: _radius,
-          gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: <Color>[
-              colors.secondaryGradientColor,
-              colors.mainGradientColor2,
-            ],
-          ),
+        borderRadius: _radius,
+        gradient: LinearGradient(
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+          colors: <Color>[
+            colors.secondaryGradientColor,
+            colors.mainGradientColor2,
+          ],
         ),
+      ),
       ZButtonVariant.gradient3 => BoxDecoration(
-          borderRadius: _radius,
-          gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: <Color>[
-              colors.mainGradientColor.withValues(alpha: _mutedGradientAlpha),
-              colors.mainGradientColor2.withValues(alpha: _mutedGradientAlpha),
-            ],
-          ),
+        borderRadius: _radius,
+        gradient: LinearGradient(
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+          colors: <Color>[
+            colors.mainGradientColor.withValues(alpha: _mutedGradientAlpha),
+            colors.mainGradientColor2.withValues(alpha: _mutedGradientAlpha),
+          ],
         ),
+      ),
       ZButtonVariant.secondary => BoxDecoration(
-          color: colors.secondaryBg,
-          borderRadius: _radius,
-        ),
+        color: colors.secondaryBg,
+        borderRadius: _radius,
+      ),
       ZButtonVariant.ghost => BoxDecoration(
-          color: Colors.transparent,
-          borderRadius: _radius,
-          border: Border.all(color: colors.mainGradientColor2),
-        ),
+        color: Colors.transparent,
+        borderRadius: _radius,
+        border: Border.all(color: colors.mainGradientColor2),
+      ),
     };
   }
 }

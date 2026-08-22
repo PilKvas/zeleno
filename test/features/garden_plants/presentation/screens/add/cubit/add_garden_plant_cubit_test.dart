@@ -40,10 +40,7 @@ void main() {
       ),
     );
     registerFallbackValue(
-      const UpdateGardenPlantParams(
-        plantId: 7,
-        customName: 'Old name',
-      ),
+      const UpdateGardenPlantParams(plantId: 7, customName: 'Old name'),
     );
   });
 
@@ -83,9 +80,7 @@ void main() {
     'emits success when plant is created',
     setUp: () {
       when(
-        () => mockRepository.createGardenPlant(
-          params: any(named: 'params'),
-        ),
+        () => mockRepository.createGardenPlant(params: any(named: 'params')),
       ).thenAnswer((_) async => const CreateGardenPlantResult(plant: plant));
     },
     build: buildCubit,
@@ -120,9 +115,7 @@ void main() {
     'ignores duplicate submit while loading',
     setUp: () {
       when(
-        () => mockRepository.createGardenPlant(
-          params: any(named: 'params'),
-        ),
+        () => mockRepository.createGardenPlant(params: any(named: 'params')),
       ).thenAnswer((_) async {
         await Future<void>.delayed(const Duration(milliseconds: 100));
         return const CreateGardenPlantResult(plant: plant);
@@ -137,17 +130,16 @@ void main() {
     },
     verify: (_) {
       verify(
-        () => mockRepository.createGardenPlant(
-          params: any(named: 'params'),
-        ),
+        () => mockRepository.createGardenPlant(params: any(named: 'params')),
       ).called(1);
     },
   );
 
   group('edit mode', () {
     test('loads the plant on construction', () async {
-      when(() => mockRepository.getGardenPlant(plantId: 7))
-          .thenAnswer((_) async => editingPlant);
+      when(
+        () => mockRepository.getGardenPlant(plantId: 7),
+      ).thenAnswer((_) async => editingPlant);
 
       final AddGardenPlantCubit cubit = AddGardenPlantCubit.edit(
         gardenPlantsRepository: mockRepository,
@@ -166,8 +158,9 @@ void main() {
     });
 
     test('emits failure when initial load fails', () async {
-      when(() => mockRepository.getGardenPlant(plantId: 7))
-          .thenThrow(Exception('network'));
+      when(
+        () => mockRepository.getGardenPlant(plantId: 7),
+      ).thenThrow(Exception('network'));
 
       final AddGardenPlantCubit cubit = AddGardenPlantCubit.edit(
         gardenPlantsRepository: mockRepository,
@@ -189,17 +182,21 @@ void main() {
         roomId: 3,
         speciesSlug: 'ficus-elastica',
       );
-      when(() => mockRepository.getGardenPlant(plantId: 7))
-          .thenAnswer((_) async => editingPlant);
-      when(() => mockRepository.updateGardenPlant(params: any(named: 'params')))
-          .thenAnswer((_) async => updatedPlant);
+      when(
+        () => mockRepository.getGardenPlant(plantId: 7),
+      ).thenAnswer((_) async => editingPlant);
+      when(
+        () => mockRepository.updateGardenPlant(params: any(named: 'params')),
+      ).thenAnswer((_) async => updatedPlant);
 
       final AddGardenPlantCubit cubit = AddGardenPlantCubit.edit(
         gardenPlantsRepository: mockRepository,
         plantId: 7,
       );
       addTearDown(cubit.close);
-      await cubit.stream.firstWhere((AddGardenPlantState s) => s.status.isSuccess);
+      await cubit.stream.firstWhere(
+        (AddGardenPlantState s) => s.status.isSuccess,
+      );
 
       cubit.updateCustomName('New name');
       await cubit.submit();

@@ -10,47 +10,24 @@ part 'registration_state.dart';
 class RegistrationCubit extends Cubit<RegistrationState> {
   final IAuthRepository _authRepository;
 
-  RegistrationCubit({
-    required IAuthRepository authRepository,
-  })  : _authRepository = authRepository,
-        super(
-          const RegistrationState(
-            status: Status.initial,
-          ),
-        );
+  RegistrationCubit({required IAuthRepository authRepository})
+    : _authRepository = authRepository,
+      super(const RegistrationState(status: Status.initial));
 
   Future<void> registerUser({
     required String email,
     required String password,
   }) async {
     try {
-      emit(
-        state.copyWith(
-          status: Status.loading,
-          error: null,
-        ),
-      );
+      emit(state.copyWith(status: Status.loading, error: null));
 
       await _authRepository.signUp(
-        authModel: AuthModel(
-          email: email,
-          password: password,
-        ),
+        authModel: AuthModel(email: email, password: password),
       );
 
-      emit(
-        state.copyWith(
-          status: Status.success,
-          error: null,
-        ),
-      );
+      emit(state.copyWith(status: Status.success, error: null));
     } catch (e) {
-      emit(
-        state.copyWith(
-          error: e,
-          status: Status.failure,
-        ),
-      );
+      emit(state.copyWith(error: e, status: Status.failure));
     }
   }
 }

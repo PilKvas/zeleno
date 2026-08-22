@@ -6,21 +6,23 @@ import 'package:zeleno_v2/features/plant_filters/domain/repository/export.dart';
 final class PlantFiltersRepository implements IPlantFiltersRepository {
   final PlantFiltersService _plantFiltersService;
 
-  PlantFiltersRepository({
-    required PlantFiltersService plantFiltersService,
-  }) : _plantFiltersService = plantFiltersService;
+  PlantFiltersRepository({required PlantFiltersService plantFiltersService})
+    : _plantFiltersService = plantFiltersService;
 
   @override
   Future<List<PlantFilterItem>> getPlantSoilMoisture() async {
-    final List<PlantFilterItemDto> response =
-        await _plantFiltersService.getPlantsSoilMoisture();
-    return response.map((PlantFilterItemDto dto) => dto.toModel()).toList();
+    return _toModels(await _plantFiltersService.getPlantsSoilMoisture());
   }
 
   @override
   Future<List<PlantFilterItem>> getPlantSoilPh() async {
-    final List<PlantFilterItemDto> response =
-        await _plantFiltersService.getPlantsSoilPh();
-    return response.map((PlantFilterItemDto dto) => dto.toModel()).toList();
+    return _toModels(await _plantFiltersService.getPlantsSoilPh());
+  }
+
+  List<PlantFilterItem> _toModels(List<PlantFilterItemDto> dtos) {
+    return dtos
+        .map((PlantFilterItemDto dto) => dto.toModel())
+        .whereType<PlantFilterItem>()
+        .toList();
   }
 }

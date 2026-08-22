@@ -6,21 +6,21 @@ class ZTabSelector extends StatelessWidget {
   const ZTabSelector({
     super.key,
     required this.title,
-    this.trailingText,
-    this.onTrailingTap,
+    this.trailing,
     required this.tabs,
-    required this.selectedIndex,
-    required this.onSelected,
-    this.allowClearOnReselect = true,
+    required this.selectedIndexes,
+    required this.onToggled,
   });
 
   final String title;
-  final String? trailingText;
-  final VoidCallback? onTrailingTap;
+
+  /// Слот справа от заголовка — например, кнопка сброса.
+  final Widget? trailing;
   final List<String> tabs;
-  final int? selectedIndex;
-  final ValueChanged<int?> onSelected;
-  final bool allowClearOnReselect;
+
+  /// Множественный выбор: повторное нажатие снимает отметку.
+  final Set<int> selectedIndexes;
+  final ValueChanged<int> onToggled;
 
   @override
   Widget build(BuildContext context) {
@@ -43,21 +43,7 @@ class ZTabSelector extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            if (trailingText != null)
-              ZPressable(
-                onTap: onTrailingTap,
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      trailingText!,
-                      style: typography.body.copyWith(color: labelColor),
-                    ),
-                    const SizedBox(width: 6),
-                    Icon(Icons.chevron_right, size: 18, color: labelColor),
-                  ],
-                ),
-              ),
+            if (trailing != null) trailing!,
           ],
         ),
         const SizedBox(height: 16),
@@ -69,17 +55,14 @@ class ZTabSelector extends StatelessWidget {
             child: Row(
               spacing: 10,
               children: List.generate(tabs.length, (index) {
-                final isSelected = index == selectedIndex;
                 return _Tab(
                   label: tabs[index],
-                  isSelected: isSelected,
+                  isSelected: selectedIndexes.contains(index),
                   activeColor: activeColor,
                   inactiveColor: colors.surface,
                   activeTextColor: colors.onAction,
                   inactiveTextColor: labelColor,
-                  onTap: () => allowClearOnReselect && isSelected
-                      ? onSelected(null)
-                      : onSelected(index),
+                  onTap: () => onToggled(index),
                 );
               }),
             ),
@@ -126,8 +109,8 @@ class _Tab extends StatelessWidget {
         child: Text(
           label,
           style: ZTypography.of(context).body.copyWith(
-                color: isSelected ? activeTextColor : inactiveTextColor,
-              ),
+            color: isSelected ? activeTextColor : inactiveTextColor,
+          ),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),

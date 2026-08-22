@@ -7,13 +7,9 @@ part of 'password_reset_request_model.dart';
 // **************************************************************************
 
 _$PasswordResetRequestModelImpl _$$PasswordResetRequestModelImplFromJson(
-        Map<String, dynamic> json) =>
-    _$PasswordResetRequestModelImpl(
-      email: json['email'] as String,
-    );
+  Map<String, dynamic> json,
+) => _$PasswordResetRequestModelImpl(email: json['email'] as String);
 
 Map<String, dynamic> _$$PasswordResetRequestModelImplToJson(
-        _$PasswordResetRequestModelImpl instance) =>
-    <String, dynamic>{
-      'email': instance.email,
-    };
+  _$PasswordResetRequestModelImpl instance,
+) => <String, dynamic>{'email': instance.email};

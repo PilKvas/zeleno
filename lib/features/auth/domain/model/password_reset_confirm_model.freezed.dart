@@ -12,10 +12,12 @@ part of 'password_reset_confirm_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 PasswordResetConfirmModel _$PasswordResetConfirmModelFromJson(
-    Map<String, dynamic> json) {
+  Map<String, dynamic> json,
+) {
   return _PasswordResetConfirmModel.fromJson(json);
 }
 
@@ -37,16 +39,19 @@ mixin _$PasswordResetConfirmModel {
 
 /// @nodoc
 abstract class $PasswordResetConfirmModelCopyWith<$Res> {
-  factory $PasswordResetConfirmModelCopyWith(PasswordResetConfirmModel value,
-          $Res Function(PasswordResetConfirmModel) then) =
-      _$PasswordResetConfirmModelCopyWithImpl<$Res, PasswordResetConfirmModel>;
+  factory $PasswordResetConfirmModelCopyWith(
+    PasswordResetConfirmModel value,
+    $Res Function(PasswordResetConfirmModel) then,
+  ) = _$PasswordResetConfirmModelCopyWithImpl<$Res, PasswordResetConfirmModel>;
   @useResult
   $Res call({String token, @JsonKey(name: 'new_password') String newPassword});
 }
 
 /// @nodoc
-class _$PasswordResetConfirmModelCopyWithImpl<$Res,
-        $Val extends PasswordResetConfirmModel>
+class _$PasswordResetConfirmModelCopyWithImpl<
+  $Res,
+  $Val extends PasswordResetConfirmModel
+>
     implements $PasswordResetConfirmModelCopyWith<$Res> {
   _$PasswordResetConfirmModelCopyWithImpl(this._value, this._then);
 
@@ -59,20 +64,20 @@ class _$PasswordResetConfirmModelCopyWithImpl<$Res,
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? token = null,
-    Object? newPassword = null,
-  }) {
-    return _then(_value.copyWith(
-      token: null == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as String,
-      newPassword: null == newPassword
-          ? _value.newPassword
-          : newPassword // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  $Res call({Object? token = null, Object? newPassword = null}) {
+    return _then(
+      _value.copyWith(
+            token: null == token
+                ? _value.token
+                : token // ignore: cast_nullable_to_non_nullable
+                      as String,
+            newPassword: null == newPassword
+                ? _value.newPassword
+                : newPassword // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -80,9 +85,9 @@ class _$PasswordResetConfirmModelCopyWithImpl<$Res,
 abstract class _$$PasswordResetConfirmModelImplCopyWith<$Res>
     implements $PasswordResetConfirmModelCopyWith<$Res> {
   factory _$$PasswordResetConfirmModelImplCopyWith(
-          _$PasswordResetConfirmModelImpl value,
-          $Res Function(_$PasswordResetConfirmModelImpl) then) =
-      __$$PasswordResetConfirmModelImplCopyWithImpl<$Res>;
+    _$PasswordResetConfirmModelImpl value,
+    $Res Function(_$PasswordResetConfirmModelImpl) then,
+  ) = __$$PasswordResetConfirmModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String token, @JsonKey(name: 'new_password') String newPassword});
@@ -90,41 +95,44 @@ abstract class _$$PasswordResetConfirmModelImplCopyWith<$Res>
 
 /// @nodoc
 class __$$PasswordResetConfirmModelImplCopyWithImpl<$Res>
-    extends _$PasswordResetConfirmModelCopyWithImpl<$Res,
-        _$PasswordResetConfirmModelImpl>
+    extends
+        _$PasswordResetConfirmModelCopyWithImpl<
+          $Res,
+          _$PasswordResetConfirmModelImpl
+        >
     implements _$$PasswordResetConfirmModelImplCopyWith<$Res> {
   __$$PasswordResetConfirmModelImplCopyWithImpl(
-      _$PasswordResetConfirmModelImpl _value,
-      $Res Function(_$PasswordResetConfirmModelImpl) _then)
-      : super(_value, _then);
+    _$PasswordResetConfirmModelImpl _value,
+    $Res Function(_$PasswordResetConfirmModelImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of PasswordResetConfirmModel
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? token = null,
-    Object? newPassword = null,
-  }) {
-    return _then(_$PasswordResetConfirmModelImpl(
-      token: null == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as String,
-      newPassword: null == newPassword
-          ? _value.newPassword
-          : newPassword // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? token = null, Object? newPassword = null}) {
+    return _then(
+      _$PasswordResetConfirmModelImpl(
+        token: null == token
+            ? _value.token
+            : token // ignore: cast_nullable_to_non_nullable
+                  as String,
+        newPassword: null == newPassword
+            ? _value.newPassword
+            : newPassword // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$PasswordResetConfirmModelImpl implements _PasswordResetConfirmModel {
-  const _$PasswordResetConfirmModelImpl(
-      {required this.token,
-      @JsonKey(name: 'new_password') required this.newPassword});
+  const _$PasswordResetConfirmModelImpl({
+    required this.token,
+    @JsonKey(name: 'new_password') required this.newPassword,
+  });
 
   factory _$PasswordResetConfirmModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$PasswordResetConfirmModelImplFromJson(json);
@@ -160,22 +168,22 @@ class _$PasswordResetConfirmModelImpl implements _PasswordResetConfirmModel {
   @override
   @pragma('vm:prefer-inline')
   _$$PasswordResetConfirmModelImplCopyWith<_$PasswordResetConfirmModelImpl>
-      get copyWith => __$$PasswordResetConfirmModelImplCopyWithImpl<
-          _$PasswordResetConfirmModelImpl>(this, _$identity);
+  get copyWith =>
+      __$$PasswordResetConfirmModelImplCopyWithImpl<
+        _$PasswordResetConfirmModelImpl
+      >(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PasswordResetConfirmModelImplToJson(
-      this,
-    );
+    return _$$PasswordResetConfirmModelImplToJson(this);
   }
 }
 
 abstract class _PasswordResetConfirmModel implements PasswordResetConfirmModel {
-  const factory _PasswordResetConfirmModel(
-          {required final String token,
-          @JsonKey(name: 'new_password') required final String newPassword}) =
-      _$PasswordResetConfirmModelImpl;
+  const factory _PasswordResetConfirmModel({
+    required final String token,
+    @JsonKey(name: 'new_password') required final String newPassword,
+  }) = _$PasswordResetConfirmModelImpl;
 
   factory _PasswordResetConfirmModel.fromJson(Map<String, dynamic> json) =
       _$PasswordResetConfirmModelImpl.fromJson;
@@ -191,5 +199,5 @@ abstract class _PasswordResetConfirmModel implements PasswordResetConfirmModel {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PasswordResetConfirmModelImplCopyWith<_$PasswordResetConfirmModelImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

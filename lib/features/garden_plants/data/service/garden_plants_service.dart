@@ -28,9 +28,7 @@ abstract class GardenPlantsService {
   });
 
   @DELETE('/api/garden/plants/{plant_id}')
-  Future<void> deleteGardenPlant({
-    @Path('plant_id') required int plantId,
-  });
+  Future<void> deleteGardenPlant({@Path('plant_id') required int plantId});
 
   // retrofit_generator не поддерживает одиночный MultipartFile-парт,
   // поэтому файл передаётся списком из одного элемента.
@@ -42,7 +40,5 @@ abstract class GardenPlantsService {
   });
 
   @DELETE('/api/garden/plants/{plant_id}/image')
-  Future<void> deleteGardenPlantImage({
-    @Path('plant_id') required int plantId,
-  });
+  Future<void> deleteGardenPlantImage({@Path('plant_id') required int plantId});
 }

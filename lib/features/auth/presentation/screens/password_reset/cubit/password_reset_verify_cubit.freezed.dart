@@ -12,7 +12,8 @@ part of 'password_reset_verify_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$PasswordResetVerifyState {
@@ -29,16 +30,19 @@ mixin _$PasswordResetVerifyState {
 
 /// @nodoc
 abstract class $PasswordResetVerifyStateCopyWith<$Res> {
-  factory $PasswordResetVerifyStateCopyWith(PasswordResetVerifyState value,
-          $Res Function(PasswordResetVerifyState) then) =
-      _$PasswordResetVerifyStateCopyWithImpl<$Res, PasswordResetVerifyState>;
+  factory $PasswordResetVerifyStateCopyWith(
+    PasswordResetVerifyState value,
+    $Res Function(PasswordResetVerifyState) then,
+  ) = _$PasswordResetVerifyStateCopyWithImpl<$Res, PasswordResetVerifyState>;
   @useResult
   $Res call({Status status, String? token, Object? error});
 }
 
 /// @nodoc
-class _$PasswordResetVerifyStateCopyWithImpl<$Res,
-        $Val extends PasswordResetVerifyState>
+class _$PasswordResetVerifyStateCopyWithImpl<
+  $Res,
+  $Val extends PasswordResetVerifyState
+>
     implements $PasswordResetVerifyStateCopyWith<$Res> {
   _$PasswordResetVerifyStateCopyWithImpl(this._value, this._then);
 
@@ -56,17 +60,20 @@ class _$PasswordResetVerifyStateCopyWithImpl<$Res,
     Object? token = freezed,
     Object? error = freezed,
   }) {
-    return _then(_value.copyWith(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as Status,
-      token: freezed == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as String?,
-      error: freezed == error ? _value.error : error,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            status: null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                      as Status,
+            token: freezed == token
+                ? _value.token
+                : token // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            error: freezed == error ? _value.error : error,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -74,9 +81,9 @@ class _$PasswordResetVerifyStateCopyWithImpl<$Res,
 abstract class _$$PasswordResetVerifyStateImplCopyWith<$Res>
     implements $PasswordResetVerifyStateCopyWith<$Res> {
   factory _$$PasswordResetVerifyStateImplCopyWith(
-          _$PasswordResetVerifyStateImpl value,
-          $Res Function(_$PasswordResetVerifyStateImpl) then) =
-      __$$PasswordResetVerifyStateImplCopyWithImpl<$Res>;
+    _$PasswordResetVerifyStateImpl value,
+    $Res Function(_$PasswordResetVerifyStateImpl) then,
+  ) = __$$PasswordResetVerifyStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Status status, String? token, Object? error});
@@ -84,13 +91,16 @@ abstract class _$$PasswordResetVerifyStateImplCopyWith<$Res>
 
 /// @nodoc
 class __$$PasswordResetVerifyStateImplCopyWithImpl<$Res>
-    extends _$PasswordResetVerifyStateCopyWithImpl<$Res,
-        _$PasswordResetVerifyStateImpl>
+    extends
+        _$PasswordResetVerifyStateCopyWithImpl<
+          $Res,
+          _$PasswordResetVerifyStateImpl
+        >
     implements _$$PasswordResetVerifyStateImplCopyWith<$Res> {
   __$$PasswordResetVerifyStateImplCopyWithImpl(
-      _$PasswordResetVerifyStateImpl _value,
-      $Res Function(_$PasswordResetVerifyStateImpl) _then)
-      : super(_value, _then);
+    _$PasswordResetVerifyStateImpl _value,
+    $Res Function(_$PasswordResetVerifyStateImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of PasswordResetVerifyState
   /// with the given fields replaced by the non-null parameter values.
@@ -101,25 +111,30 @@ class __$$PasswordResetVerifyStateImplCopyWithImpl<$Res>
     Object? token = freezed,
     Object? error = freezed,
   }) {
-    return _then(_$PasswordResetVerifyStateImpl(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as Status,
-      token: freezed == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as String?,
-      error: freezed == error ? _value.error : error,
-    ));
+    return _then(
+      _$PasswordResetVerifyStateImpl(
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as Status,
+        token: freezed == token
+            ? _value.token
+            : token // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        error: freezed == error ? _value.error : error,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$PasswordResetVerifyStateImpl implements _PasswordResetVerifyState {
-  const _$PasswordResetVerifyStateImpl(
-      {required this.status, this.token, this.error});
+  const _$PasswordResetVerifyStateImpl({
+    required this.status,
+    this.token,
+    this.error,
+  });
 
   @override
   final Status status;
@@ -145,7 +160,11 @@ class _$PasswordResetVerifyStateImpl implements _PasswordResetVerifyState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, status, token, const DeepCollectionEquality().hash(error));
+    runtimeType,
+    status,
+    token,
+    const DeepCollectionEquality().hash(error),
+  );
 
   /// Create a copy of PasswordResetVerifyState
   /// with the given fields replaced by the non-null parameter values.
@@ -153,15 +172,18 @@ class _$PasswordResetVerifyStateImpl implements _PasswordResetVerifyState {
   @override
   @pragma('vm:prefer-inline')
   _$$PasswordResetVerifyStateImplCopyWith<_$PasswordResetVerifyStateImpl>
-      get copyWith => __$$PasswordResetVerifyStateImplCopyWithImpl<
-          _$PasswordResetVerifyStateImpl>(this, _$identity);
+  get copyWith =>
+      __$$PasswordResetVerifyStateImplCopyWithImpl<
+        _$PasswordResetVerifyStateImpl
+      >(this, _$identity);
 }
 
 abstract class _PasswordResetVerifyState implements PasswordResetVerifyState {
-  const factory _PasswordResetVerifyState(
-      {required final Status status,
-      final String? token,
-      final Object? error}) = _$PasswordResetVerifyStateImpl;
+  const factory _PasswordResetVerifyState({
+    required final Status status,
+    final String? token,
+    final Object? error,
+  }) = _$PasswordResetVerifyStateImpl;
 
   @override
   Status get status;
@@ -175,5 +197,5 @@ abstract class _PasswordResetVerifyState implements PasswordResetVerifyState {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PasswordResetVerifyStateImplCopyWith<_$PasswordResetVerifyStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

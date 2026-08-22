@@ -9,74 +9,74 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get positiveResponse => 'Да';
+  String get positiveResponse => 'Yes';
 
   @override
-  String get bottomMenuFirstItem => 'Мой сад';
+  String get bottomMenuFirstItem => 'My garden';
 
   @override
-  String get bottomMenuSecondItem => 'Поиск';
+  String get bottomMenuSecondItem => 'Search';
 
   @override
-  String get bottomMenuThirdItem => 'Профиль';
+  String get bottomMenuThirdItem => 'Profile';
 
   @override
-  String get startWithTutorialButtonTitle => 'Выращивать по туториалу';
+  String get startWithTutorialButtonTitle => 'Grow with a tutorial';
 
   @override
-  String get toTheGardenButtonTitle => 'Добавить в мой сад';
+  String get toTheGardenButtonTitle => 'Add to my garden';
 
   @override
-  String get plantDetailMenuSpecifications => 'Характеристики';
+  String get plantDetailMenuSpecifications => 'Specifications';
 
   @override
-  String get plantDetailMenuCare => 'Уход';
+  String get plantDetailMenuCare => 'Care';
 
   @override
-  String get plantDetailMenuGrowth => 'Развитие';
+  String get plantDetailMenuGrowth => 'Growth';
 
   @override
-  String get plantDetailDescription => 'Описание';
+  String get plantDetailDescription => 'Description';
 
   @override
-  String get plantDetailScientificClassification => 'Научная классификация';
+  String get plantDetailScientificClassification => 'Scientific classification';
 
   @override
-  String get tags => 'Теги';
+  String get tags => 'Tags';
 
   @override
-  String get unknownName => 'Неизвестное имя';
+  String get unknownName => 'Unknown name';
 
   @override
-  String get noTagsAvailable => 'Нет тегов';
+  String get noTagsAvailable => 'No tags';
 
   @override
-  String get noInfoAboutRegularEvents => 'Нет информации о регулярных событиях';
+  String get noInfoAboutRegularEvents => 'No information about regular events';
 
   @override
   String plantHeightRange(String from, String to) {
-    return '$from - $to см';
+    return '$from - $to cm';
   }
 
   @override
   String plantWidthRange(String from, String to) {
-    return '$from - $to см';
+    return '$from - $to cm';
   }
 
   @override
   String plantYearsToMaxHeightRange(String from, String to) {
-    return '$from-$to лет';
+    return '$from-$to years';
   }
 
   @override
-  String get examplesTitle => 'Примеры';
+  String get examplesTitle => 'Examples';
 
   @override
-  String get examplesLocalizationTitle => 'Примеры локализации';
+  String get examplesLocalizationTitle => 'Localization examples';
 
   @override
   String string(String name) {
-    return 'Привет, $name!';
+    return 'Hello, $name!';
   }
 
   @override
@@ -102,61 +102,61 @@ class AppLocalizationsEn extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'У вас $count новых сообщений',
-      one: 'У вас 1 новое ообщение',
-      zero: 'У вас нет новых сообщений',
+      other: 'You have $count new messages',
+      one: 'You have 1 new message',
+      zero: 'You have no new messages',
     );
     return '$_temp0';
   }
 
   @override
-  String get tempScreenDashNavBarItemLabel => 'Dash экран';
+  String get tempScreenDashNavBarItemLabel => 'Dash screen';
 
   @override
-  String get tempScreenInfoNavBarItemLabel => 'Инфо экран';
+  String get tempScreenInfoNavBarItemLabel => 'Info screen';
 
   @override
-  String get tempScreenDebugNavBarItemLabel => 'Дебаг экран';
+  String get tempScreenDebugNavBarItemLabel => 'Debug screen';
 
   @override
-  String get debugScreenTitle => 'Экран отладки';
+  String get debugScreenTitle => 'Debug screen';
 
   @override
-  String get debugScreenServerSubtitle => 'Сервер';
+  String get debugScreenServerSubtitle => 'Server';
 
   @override
-  String get debugScreenServerConnectButton => 'Переключить сервер';
+  String get debugScreenServerConnectButton => 'Switch server';
 
   @override
-  String get debugScreenProxySubtitle => 'Прокси';
+  String get debugScreenProxySubtitle => 'Proxy';
 
   @override
-  String get debugScreenProxyInfo => 'Активирует передачу через прокси сервер.';
+  String get debugScreenProxyInfo => 'Enables traffic through a proxy server.';
 
   @override
-  String get debugScreenProxyEditTextLabel => 'Введите адресс прокси сервера';
+  String get debugScreenProxyEditTextLabel => 'Enter the proxy server address';
 
   @override
-  String get debugScreenProxyConnectButton => 'Подключить';
+  String get debugScreenProxyConnectButton => 'Connect';
 
   @override
-  String get debugScreenThemeSubtitle => 'Тема приложения';
+  String get debugScreenThemeSubtitle => 'App theme';
 
   @override
-  String get debugScreenThemeLight => 'Светлая тема';
+  String get debugScreenThemeLight => 'Light theme';
 
   @override
-  String get debugScreenThemeDark => 'Темная темя';
+  String get debugScreenThemeDark => 'Dark theme';
 
   @override
-  String get debugScreenThemeSystem => 'Системная тема';
+  String get debugScreenThemeSystem => 'System theme';
 
   @override
-  String get debugScreenUikitNavigateButton => 'Открыть UIKit';
+  String get debugScreenUikitNavigateButton => 'Open UIKit';
 
   @override
   String get debugScreenReloadAppMessage =>
-      'Перезагрузите приложение, чтобы увидеть примененные изменения';
+      'Restart the app to see the applied changes';
 
   @override
   String get uiKitScreenTitle => 'UI Kit';
@@ -268,185 +268,189 @@ class AppLocalizationsEn extends AppLocalizations {
   String get uiKitScreenColorCardSkeletonTertiaryName => 'Skeleton Tertiary';
 
   @override
-  String get featureExampleFailedLoadIpMessage =>
-      'Не удалось загрузить IP-адрес';
+  String get featureExampleFailedLoadIpMessage => 'Failed to load IP address';
 
   @override
-  String get search => 'Поиск';
+  String get search => 'Search';
 
   @override
   String get title => 'FROM SEED';
 
   @override
-  String get firstPageTitle => 'Энциклопедия в вашем телефоне';
+  String get firstPageTitle => 'An encyclopedia in your pocket';
 
   @override
   String get firstPageSubTitle =>
-      'Более 500 000 видов с детальным описанием.Находите нужное растение за секунды через умный поиск.';
+      'Over 500,000 species with detailed descriptions. Find the plant you need in seconds with smart search.';
 
   @override
-  String get secondPageTitle => 'Уход за растениями без сложностей';
+  String get secondPageTitle => 'Plant care without the hassle';
 
   @override
   String get secondPageSubTitle =>
-      'Понятные карточки растений с важными параметрами ухода.Точно знайте, когда поливать и пересаживать';
+      'Clear plant cards with the care details that matter. Know exactly when to water and repot.';
 
   @override
-  String get thirdPageTitle => 'Станьте экспертом по выращиванию';
+  String get thirdPageTitle => 'Become a growing expert';
 
   @override
   String get thirdPageSubTitle =>
-      'Персонализированные гайды с пошаговыми инструкциями.От семечка до цветущего растения под вашим руководством';
+      'Personalized guides with step-by-step instructions. From seed to blooming plant under your care.';
 
   @override
-  String get next => 'Далее';
+  String get next => 'Next';
 
   @override
-  String get start => 'Начать';
+  String get start => 'Get started';
 
   @override
-  String get login => 'Войдите в аккаунт';
+  String get login => 'Sign in to your account';
 
   @override
-  String get register => 'Создайте аккаунт';
+  String get register => 'Create an account';
 
   @override
-  String get nameHint => 'Имя';
+  String get nameHint => 'Name';
 
   @override
-  String get passwordHint => 'Пароль';
+  String get passwordHint => 'Password';
 
   @override
-  String get loginButton => 'Войти';
+  String get loginButton => 'Sign in';
 
   @override
-  String get enterNameError => 'Введите имя';
+  String get enterNameError => 'Enter your name';
 
   @override
-  String get nameTooShortError => 'Имя слишком короткое';
+  String get nameTooShortError => 'Name is too short';
 
   @override
-  String get enterPasswordError => 'Введите пароль';
+  String get enterPasswordError => 'Enter your password';
 
   @override
-  String get passwordTooShortError => 'Пароль меньше 8 символов';
+  String get passwordTooShortError => 'Password is shorter than 8 characters';
 
   @override
-  String get loginSuccess => 'Успешный вход в аккаунт!';
+  String get loginSuccess => 'Signed in successfully!';
 
   @override
-  String get orSeparator => 'ИЛИ';
+  String get orSeparator => 'OR';
 
   @override
-  String get noAccountQuestion => 'Не имеете аккаунта?';
+  String get noAccountQuestion => 'Don\'t have an account?';
 
   @override
-  String get registerAction => 'Зарегистрируйтесь!';
+  String get registerAction => 'Sign up!';
 
   @override
-  String get enterEmailError => 'Введите email';
+  String get enterEmailError => 'Enter your email';
 
   @override
-  String get emailInvalidError => 'Введите корректный email';
+  String get emailInvalidError => 'Enter a valid email';
 
   @override
   String get registrationSuccess =>
-      'Регистрация прошла успешно! Теперь вы можете войти в систему.';
+      'Registration successful! You can now sign in.';
 
   @override
-  String get emailHint => 'Почта';
+  String get emailHint => 'Email';
 
   @override
-  String get confirmPasswordHint => 'Повторите пароль';
+  String get confirmPasswordHint => 'Repeat password';
 
   @override
-  String get passwordMatchError => 'Пароли не совпадают';
+  String get passwordMatchError => 'Passwords do not match';
 
   @override
-  String get registerButton => 'Зарегистрироваться';
+  String get registerButton => 'Sign up';
 
   @override
-  String get alreadyHaveAccountQuestion => 'Уже есть аккаунт?';
+  String get alreadyHaveAccountQuestion => 'Already have an account?';
 
   @override
-  String get loginAction => 'Войдите!';
+  String get loginAction => 'Sign in!';
 
   @override
-  String get forgotPasswordAction => 'Забыли пароль?';
+  String get forgotPasswordAction => 'Forgot your password?';
 
   @override
-  String get forgotPasswordTitle => 'Восстановление пароля';
+  String get forgotPasswordTitle => 'Password recovery';
 
   @override
   String get forgotPasswordEmailDescription =>
-      'Введите email, мы отправим код подтверждения.';
+      'Enter your email and we will send a confirmation code.';
 
   @override
-  String get forgotPasswordCodeTitle => 'Введите код';
+  String get forgotPasswordCodeTitle => 'Enter the code';
 
   @override
   String forgotPasswordCodeDescription(String email) {
-    return 'Введите одноразовый код из письма, отправленного на $email.';
+    return 'Enter the one-time code from the email sent to $email.';
   }
 
   @override
-  String get forgotPasswordOtpHint => 'Код из письма';
+  String get forgotPasswordOtpHint => 'Code from the email';
 
   @override
-  String get forgotPasswordOtpEmptyError => 'Введите код из письма';
+  String get forgotPasswordOtpEmptyError => 'Enter the code from the email';
 
   @override
-  String get forgotPasswordOtpLengthError => 'Код должен содержать 6 цифр';
+  String get forgotPasswordOtpLengthError => 'The code must contain 6 digits';
 
   @override
-  String get forgotPasswordNewPasswordTitle => 'Новый пароль';
+  String get forgotPasswordNewPasswordTitle => 'New password';
 
   @override
   String get forgotPasswordNewPasswordDescription =>
-      'Укажите новый пароль для вашего аккаунта.';
+      'Set a new password for your account.';
 
   @override
-  String get forgotPasswordConfirmAction => 'Сохранить пароль';
+  String get forgotPasswordConfirmAction => 'Save password';
 
   @override
   String get forgotPasswordSuccess =>
-      'Пароль успешно изменен. Войдите с новым паролем.';
+      'Password changed successfully. Sign in with the new password.';
 
   @override
-  String get loginError => 'Ошибка входа';
+  String get loginError => 'Sign-in error';
 
   @override
-  String get invalidCredentialsError => 'Неверное имя пользователя или пароль';
+  String get invalidCredentialsError => 'Invalid username or password';
 
   @override
-  String get badRequestError => 'Некорректные данные для входа';
+  String get badRequestError => 'Invalid sign-in data';
 
   @override
-  String get noInternetError => 'Отсутствует подключение к интернету';
+  String get noInternetError => 'No internet connection';
 
   @override
   String get serverUnavailableError =>
-      'Сервер временно недоступен, попробуйте позже';
+      'The server is temporarily unavailable, please try again later';
 
   @override
-  String get unknownError => 'Произошла ошибка при входе в приложение';
+  String get unknownError => 'An error occurred while signing in';
 
   @override
-  String get registrationError => 'Ошибка регистрации';
+  String get registrationError => 'Registration error';
 
   @override
-  String get usernameAlreadyExists =>
-      'Пользователь с таким именем уже существует';
+  String get usernameAlreadyExists => 'A user with this name already exists';
 
   @override
-  String get emailAlreadyExists => 'Пользователь с таким email уже существует';
+  String get emailAlreadyExists => 'A user with this email already exists';
 
   @override
-  String get badRequestRegistrationError =>
-      'Некорректные данные для регистрации';
+  String get badRequestRegistrationError => 'Invalid registration data';
 
   @override
-  String get unknownRegistrationError => 'Произошла ошибка при регистрации';
+  String get unknownRegistrationError =>
+      'An error occurred during registration';
+
+  @override
+  String get plantSearchHint => 'Search';
+
+  @override
+  String get plantSearchEmpty => 'Nothing found';
 
   @override
   String get filtersSheetTitle => 'Filters';

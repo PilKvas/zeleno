@@ -11,12 +11,7 @@ class ZPressable extends StatefulWidget {
   final ValueChanged<bool>? onHover;
 
   /// @nodoc
-  const ZPressable({
-    required this.child,
-    this.onTap,
-    super.key,
-    this.onHover,
-  });
+  const ZPressable({required this.child, this.onTap, super.key, this.onHover});
 
   @override
   State<ZPressable> createState() => _ZPressableState();

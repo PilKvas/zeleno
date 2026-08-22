@@ -9,9 +9,7 @@ abstract class AuthService {
   factory AuthService(Dio dio) = _AuthService;
 
   @POST('/api/users/register')
-  Future<void> signUp({
-    @Body() required AuthModel authModel,
-  });
+  Future<void> signUp({@Body() required AuthModel authModel});
 
   @POST('/api/users/login')
   Future<TokenModel> signIn({

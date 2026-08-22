@@ -13,7 +13,4 @@ _$AuthModelImpl _$$AuthModelImplFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$$AuthModelImplToJson(_$AuthModelImpl instance) =>
-    <String, dynamic>{
-      'email': instance.email,
-      'password': instance.password,
-    };
+    <String, dynamic>{'email': instance.email, 'password': instance.password};

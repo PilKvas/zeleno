@@ -9,7 +9,5 @@ abstract class PlantDetailsService {
   factory PlantDetailsService(Dio dio) = _PlantDetailsService;
 
   @GET('/api/species/{slug}')
-  Future<PlantDetailsModel> getPlant({
-    @Path('slug') required String slug,
-  });
+  Future<PlantDetailsModel> getPlant({@Path('slug') required String slug});
 }

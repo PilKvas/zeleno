@@ -5,9 +5,8 @@ import 'package:zeleno_v2/features/plant_details/domain/repository/export.dart';
 class PlantDetailsRepository implements IPlantDetailsRepository {
   final PlantDetailsService _plantDetailsService;
 
-  PlantDetailsRepository({
-    required PlantDetailsService plantDetailsService,
-  }) : _plantDetailsService = plantDetailsService;
+  PlantDetailsRepository({required PlantDetailsService plantDetailsService})
+    : _plantDetailsService = plantDetailsService;
 
   @override
   Future<PlantDetailsModel> getPlant(String slug) async {

@@ -7,9 +7,8 @@ import 'package:zeleno_v2/features/garden_plants/domain/models/export.dart';
 import 'package:zeleno_v2/features/garden_plants/domain/repository/export.dart';
 
 final class GardenPlantsRepository implements IGardenPlantsRepository {
-  GardenPlantsRepository({
-    required GardenPlantsService gardenPlantsService,
-  }) : _gardenPlantsService = gardenPlantsService;
+  GardenPlantsRepository({required GardenPlantsService gardenPlantsService})
+    : _gardenPlantsService = gardenPlantsService;
 
   final GardenPlantsService _gardenPlantsService;
 
@@ -42,8 +41,9 @@ final class GardenPlantsRepository implements IGardenPlantsRepository {
       // сабмит создаст дубль. Пробуем уточнить статус фото, но любая
       // ошибка здесь тоже означает лишь «фото не подтвердилось».
       try {
-        final GardenPlantModel refreshedPlant =
-            await getGardenPlant(plantId: plant.id);
+        final GardenPlantModel refreshedPlant = await getGardenPlant(
+          plantId: plant.id,
+        );
         final String? imageUrl = refreshedPlant.imageUrl;
         if (imageUrl != null && imageUrl.isNotEmpty) {
           return CreateGardenPlantResult(plant: refreshedPlant);

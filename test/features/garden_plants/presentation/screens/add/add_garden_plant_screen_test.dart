@@ -25,11 +25,7 @@ void main() {
 
   setUpAll(() {
     registerFallbackValue(
-      const CreateGardenPlantParams(
-        speciesId: 0,
-        customName: '',
-        roomId: 0,
-      ),
+      const CreateGardenPlantParams(speciesId: 0, customName: '', roomId: 0),
     );
   });
 
@@ -63,8 +59,9 @@ void main() {
     );
   }
 
-  testWidgets('shows validation message and skips API when name is empty',
-      (WidgetTester tester) async {
+  testWidgets('shows validation message and skips API when name is empty', (
+    WidgetTester tester,
+  ) async {
     await pumpScreen(tester);
 
     await tester.tap(find.text('Дальше'));
@@ -76,8 +73,9 @@ void main() {
     );
   });
 
-  testWidgets('submits the entered name to the repository',
-      (WidgetTester tester) async {
+  testWidgets('submits the entered name to the repository', (
+    WidgetTester tester,
+  ) async {
     when(
       () => mockRepository.createGardenPlant(params: any(named: 'params')),
     ).thenThrow(Exception('network'));
@@ -88,11 +86,13 @@ void main() {
     await tester.tap(find.text('Дальше'));
     await tester.pump();
 
-    final CreateGardenPlantParams params = verify(
-      () => mockRepository.createGardenPlant(
-        params: captureAny(named: 'params'),
-      ),
-    ).captured.single as CreateGardenPlantParams;
+    final CreateGardenPlantParams params =
+        verify(
+              () => mockRepository.createGardenPlant(
+                params: captureAny(named: 'params'),
+              ),
+            ).captured.single
+            as CreateGardenPlantParams;
 
     expect(params.customName, 'Тестовый фикус');
     expect(params.speciesId, 42);
@@ -102,8 +102,9 @@ void main() {
     expect(find.text('Укажите имя растения'), findsNothing);
   });
 
-  testWidgets('does not create a plant instance until submit is confirmed',
-      (WidgetTester tester) async {
+  testWidgets('does not create a plant instance until submit is confirmed', (
+    WidgetTester tester,
+  ) async {
     await pumpScreen(tester);
 
     await tester.enterText(find.byType(TextField), 'Черновик');

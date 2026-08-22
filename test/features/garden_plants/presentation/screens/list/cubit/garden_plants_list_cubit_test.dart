@@ -42,20 +42,15 @@ void main() {
     act: (GardenPlantsListCubit cubit) => cubit.loadPlants(),
     expect: () => <GardenPlantsListState>[
       const GardenPlantsListState(status: Status.loading),
-      const GardenPlantsListState(
-        status: Status.success,
-        plants: plants,
-      ),
+      const GardenPlantsListState(status: Status.success, plants: plants),
     ],
   );
 
   blocTest<GardenPlantsListCubit, GardenPlantsListState>(
     'selectRoom filters loaded plants in memory without repository call',
     build: () => GardenPlantsListCubit(gardenPlantsRepository: mockRepository),
-    seed: () => const GardenPlantsListState(
-      status: Status.success,
-      plants: plants,
-    ),
+    seed: () =>
+        const GardenPlantsListState(status: Status.success, plants: plants),
     act: (GardenPlantsListCubit cubit) => cubit.selectRoom(3),
     expect: () => <GardenPlantsListState>[
       const GardenPlantsListState(
@@ -105,9 +100,15 @@ void main() {
       const GardenPlantsListState(status: Status.loading),
       isA<GardenPlantsListState>()
           .having(
-              (GardenPlantsListState s) => s.status, 'status', Status.failure)
+            (GardenPlantsListState s) => s.status,
+            'status',
+            Status.failure,
+          )
           .having(
-              (GardenPlantsListState s) => s.error, 'error', isA<Exception>()),
+            (GardenPlantsListState s) => s.error,
+            'error',
+            isA<Exception>(),
+          ),
     ],
   );
 }

@@ -14,7 +14,6 @@ class PlantFiltersSheet extends StatefulWidget {
 }
 
 class _PlantFiltersSheetState extends State<PlantFiltersSheet> {
-  late PlantSearchFilters _filters;
   late final PlantSearchBloc _searchBloc;
   late final PlantFiltersCubit _filtersCubit;
 
@@ -23,56 +22,30 @@ class _PlantFiltersSheetState extends State<PlantFiltersSheet> {
     super.initState();
     _searchBloc = context.read<PlantSearchBloc>();
     _filtersCubit = context.read<PlantFiltersCubit>();
-    _filters = _searchBloc.state.filters;
-    _filtersCubit.hydrateSoilSelections(
-      soilPhValue: _searchBloc.state.filters.soilPh,
-      soilMoistureValue: _searchBloc.state.filters.soilMoisture,
-    );
+    _filtersCubit.hydrate(_searchBloc.state.filters);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _filtersCubit.loadChoices();
     });
   }
 
-  void _apply(PlantFiltersState filtersState) {
+  void _applySelected(PlantSearchFilters selected) {
     _searchBloc.add(
       PlantSearchEvent.loadPlantList(
         refresh: true,
         name: _searchBloc.state.name,
-        filters: _filters.copyWith(
-          searchQuery: _searchBloc.state.name,
-          soilPh: filtersState.soilPhValue,
-          soilMoisture: filtersState.soilMoistureValue,
-        ),
+        filters: selected.copyWith(searchQuery: _searchBloc.state.name),
       ),
     );
     Navigator.pop(context);
   }
 
   void _reset() {
-    _searchBloc.add(
-      PlantSearchEvent.loadPlantList(
-        refresh: true,
-        name: _searchBloc.state.name,
-        filters: PlantSearchFilters(searchQuery: _searchBloc.state.name),
-      ),
-    );
-    _filtersCubit.resetSelections();
-    setState(() => _filters = const PlantSearchFilters());
-    Navigator.pop(context);
-  }
-
-  int? _selectedIndex(List<String> values, String? current) {
-    if (current == null) return null;
-    final i = values.indexOf(current);
-    return i == -1 ? null : i;
+    _filtersCubit.reset();
+    _applySelected(const PlantSearchFilters());
   }
 
   @override
   Widget build(BuildContext context) {
-    final l10n = context.l10n;
-    final typography = ZTypography.of(context);
-    final colors = ZColorScheme.of(context);
-
     return Padding(
       padding: EdgeInsets.fromLTRB(
         16,
@@ -84,137 +57,225 @@ class _PlantFiltersSheetState extends State<PlantFiltersSheet> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Center(
-            child: Container(
-              width: 40,
-              height: 5,
-              decoration: BoxDecoration(
-                color: colors.secondaryText.withValues(alpha: 0.3),
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
-          ),
+          const _SheetHandle(),
           const SizedBox(height: 16),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: .center,
+            mainAxisAlignment: .spaceBetween,
             children: [
-              Text(l10n.filtersSheetTitle, style: typography.headline300),
-              BlocSelector<PlantSearchBloc, PlantSearchState, bool>(
-                selector: (state) => state.filters.hasActiveFilters,
-                builder: (context, hasActive) => hasActive
-                    ? GestureDetector(
-                        onTap: _reset,
-                        child: Text(
-                          l10n.filtersSheetReset,
-                          style:
-                              typography.action.copyWith(color: colors.action),
-                        ),
-                      )
-                    : const SizedBox.shrink(),
+              Text(
+                context.l10n.filtersSheetTitle,
+                style: ZTypography.of(context).headline300,
               ),
+              _ResetButton(onReset: _reset),
             ],
           ),
           const SizedBox(height: 16),
-          BlocBuilder<PlantFiltersCubit, PlantFiltersState>(
-            builder: (context, filtersState) {
-              return Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  if (filtersState.status == FiltersStatus.loading)
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 20),
-                      child: Center(
-                        child:
-                            SizedBox(height: 40, width: 40, child: ZLoading()),
-                      ),
-                    )
-                  else ...[
-                    if (filtersState.status == FiltersStatus.failure)
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 12),
-                        child: Text(
-                          l10n.filtersSheetLoadError,
-                          style: typography.body.copyWith(color: colors.error),
-                        ),
-                      ),
-                    _buildTabSelectors(context, filtersState),
-                  ],
-                  const SizedBox(height: 16),
-                  Text(l10n.filtersSheetHeightRange, style: typography.title),
-                  const SizedBox(height: 4),
-                  RangeSlider(
-                    values: RangeValues(
-                      _filters.heightFrom ?? 0,
-                      _filters.heightTo ?? 1000,
-                    ),
-                    min: 0,
-                    max: 1000,
-                    divisions: 100,
-                    labels: RangeLabels(
-                      l10n.filtersSheetHeightCm(
-                          '${_filters.heightFrom?.toInt() ?? 0}'),
-                      l10n.filtersSheetHeightCm(
-                          '${_filters.heightTo?.toInt() ?? 1000}'),
-                    ),
-                    onChanged: (values) => setState(() {
-                      _filters = _filters.copyWith(
-                        heightFrom: values.start,
-                        heightTo: values.end,
-                      );
-                    }),
-                  ),
-                  const SizedBox(height: 16),
-                  ZButton.gradient1(
-                    onPressed: filtersState.status == FiltersStatus.loading
-                        ? null
-                        : () => _apply(filtersState),
-                    child: Text(l10n.filtersSheetApply),
-                  ),
-                ],
-              );
-            },
-          ),
+          _FiltersForm(onApply: _applySelected),
         ],
       ),
     );
   }
+}
 
-  Widget _buildTabSelectors(
-      BuildContext context, PlantFiltersState filtersState) {
+class _SheetHandle extends StatelessWidget {
+  const _SheetHandle();
+
+  @override
+  Widget build(BuildContext context) {
+    const double width = 40;
+    const double height = 5;
+    final ZColorScheme colors = ZColorScheme.of(context);
+    return Center(
+      child: Container(
+        width: width,
+        height: height,
+        decoration: BoxDecoration(
+          color: colors.secondaryText.withValues(alpha: 0.3),
+          borderRadius: BorderRadius.circular(10),
+        ),
+      ),
+    );
+  }
+}
+
+class _ResetButton extends StatelessWidget {
+  final VoidCallback onReset;
+
+  const _ResetButton({required this.onReset});
+
+  @override
+  Widget build(BuildContext context) {
+    final ZTypography typography = ZTypography.of(context);
+    final ZColorScheme colors = ZColorScheme.of(context);
+    // Кнопка смотрит на форму, а не на уже применённые фильтры:
+    // сбрасывать нужно то, что выбрано прямо сейчас.
+    return BlocSelector<PlantFiltersCubit, PlantFiltersState, bool>(
+      selector: (state) => state.selected.hasActiveFilters,
+      builder: (context, hasActive) {
+        if (!hasActive) return const SizedBox.shrink();
+        return GestureDetector(
+          onTap: onReset,
+          child: Text(
+            context.l10n.filtersSheetReset,
+            style: typography.action.copyWith(color: colors.action),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _FiltersForm extends StatelessWidget {
+  final ValueChanged<PlantSearchFilters> onApply;
+
+  const _FiltersForm({required this.onApply});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<PlantFiltersCubit, PlantFiltersState>(
+      builder: (context, state) {
+        final bool isLoading = state.status == FiltersStatus.loading;
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            if (isLoading)
+              const _ChoicesLoading()
+            else ...[
+              if (state.status == FiltersStatus.failure)
+                const _ChoicesLoadError(),
+              _SoilSelectors(state: state),
+            ],
+            const SizedBox(height: 16),
+            _HeightRangeField(selected: state.selected),
+            const SizedBox(height: 16),
+            ZButton.gradient1(
+              onPressed: isLoading ? null : () => onApply(state.selected),
+              child: Text(context.l10n.filtersSheetApply),
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class _ChoicesLoading extends StatelessWidget {
+  const _ChoicesLoading();
+
+  @override
+  Widget build(BuildContext context) {
+    const double size = 40;
+    return const Padding(
+      padding: EdgeInsets.symmetric(vertical: 20),
+      child: Center(
+        child: SizedBox(height: size, width: size, child: ZLoading()),
+      ),
+    );
+  }
+}
+
+class _ChoicesLoadError extends StatelessWidget {
+  const _ChoicesLoadError();
+
+  @override
+  Widget build(BuildContext context) {
+    final ZColorScheme colors = ZColorScheme.of(context);
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: Text(
+        context.l10n.filtersSheetLoadError,
+        style: ZTypography.of(context).body.copyWith(color: colors.error),
+      ),
+    );
+  }
+}
+
+class _SoilSelectors extends StatelessWidget {
+  final PlantFiltersState state;
+
+  const _SoilSelectors({required this.state});
+
+  Set<int> _selectedIndexes(List<String> values, List<String> selected) {
+    return <int>{
+      for (int i = 0; i < values.length; i++)
+        if (selected.contains(values[i])) i,
+    };
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final l10n = context.l10n;
-    final moistureLabels =
-        filtersState.soilMoistureChoices.map((e) => e.label).toList();
-    final moistureValues =
-        filtersState.soilMoistureChoices.map((e) => e.value).toList();
-    final phLabels = filtersState.soilPhChoices.map((e) => e.label).toList();
-    final phValues = filtersState.soilPhChoices.map((e) => e.value).toList();
-    final isEnabled = filtersState.status == FiltersStatus.success;
+    final cubit = context.read<PlantFiltersCubit>();
+    final moistureValues = state.soilMoistureChoices
+        .map((e) => e.value)
+        .toList();
+    final phValues = state.soilPhChoices.map((e) => e.value).toList();
+    // Пока справочники не загрузились, выбор не должен ничего менять.
+    final bool isEnabled = state.status == FiltersStatus.success;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         ZTabSelector(
           title: l10n.filtersSheetMoisture,
-          tabs: moistureLabels,
-          selectedIndex:
-              _selectedIndex(moistureValues, filtersState.soilMoistureValue),
-          onSelected: isEnabled
-              ? (i) => context.read<PlantFiltersCubit>().setSoilMoistureValue(
-                    i == null ? null : moistureValues[i],
-                  )
+          tabs: state.soilMoistureChoices.map((e) => e.label).toList(),
+          selectedIndexes: _selectedIndexes(
+            moistureValues,
+            state.selected.soilMoisture,
+          ),
+          onToggled: isEnabled
+              ? (i) => cubit.toggleSoilMoisture(moistureValues[i])
               : (_) {},
         ),
         const SizedBox(height: 16),
         ZTabSelector(
           title: l10n.filtersSheetPh,
-          tabs: phLabels,
-          selectedIndex: _selectedIndex(phValues, filtersState.soilPhValue),
-          onSelected: isEnabled
-              ? (i) => context.read<PlantFiltersCubit>().setSoilPhValue(
-                    i == null ? null : phValues[i],
-                  )
+          tabs: state.soilPhChoices.map((e) => e.label).toList(),
+          selectedIndexes: _selectedIndexes(phValues, state.selected.soilPh),
+          onToggled: isEnabled
+              ? (i) => cubit.toggleSoilPh(phValues[i])
               : (_) {},
+        ),
+      ],
+    );
+  }
+}
+
+class _HeightRangeField extends StatelessWidget {
+  final PlantSearchFilters selected;
+
+  const _HeightRangeField({required this.selected});
+
+  @override
+  Widget build(BuildContext context) {
+    const int divisions = 100;
+    final l10n = context.l10n;
+    final double rangeStart =
+        selected.heightFrom ?? PlantSearchFilters.minHeight;
+    final double rangeEnd = selected.heightTo ?? PlantSearchFilters.maxHeight;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          l10n.filtersSheetHeightRange,
+          style: ZTypography.of(context).title,
+        ),
+        const SizedBox(height: 4),
+        RangeSlider(
+          values: RangeValues(rangeStart, rangeEnd),
+          min: PlantSearchFilters.minHeight,
+          max: PlantSearchFilters.maxHeight,
+          divisions: divisions,
+          labels: RangeLabels(
+            l10n.filtersSheetHeightCm('${rangeStart.toInt()}'),
+            l10n.filtersSheetHeightCm('${rangeEnd.toInt()}'),
+          ),
+          onChanged: (values) => context
+              .read<PlantFiltersCubit>()
+              .setHeightRange(from: values.start, to: values.end),
         ),
       ],
     );

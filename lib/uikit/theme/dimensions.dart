@@ -5,26 +5,20 @@ class ZDimensions extends ThemeExtension<ZDimensions> {
       Theme.of(context).extension<ZDimensions>()!;
 
   const ZDimensions({
-    this.horizontalPadding100 = const EdgeInsets.symmetric(
-      horizontal: 16,
-    ),
-    this.corner100 = const BorderRadius.all(
-      Radius.circular(32),
-    ),
-    this.cornerButton = const BorderRadius.all(
-      Radius.circular(16),
-    ),
+    this.horizontalPadding100 = const EdgeInsets.symmetric(horizontal: 16),
+    this.corner100 = const BorderRadius.all(Radius.circular(32)),
+    this.cornerButton = const BorderRadius.all(Radius.circular(16)),
   });
 
-// Insets
+  // Insets
   final EdgeInsets horizontalPadding100;
 
-// Radius
+  // Radius
   static const Radius basicRadius = Radius.circular(10);
   final BorderRadius corner100;
   final BorderRadius cornerButton;
 
-// Margins
+  // Margins
   /// Отступ 16px
   static const double basicMargin = 16;
 
@@ -49,10 +43,7 @@ class ZDimensions extends ThemeExtension<ZDimensions> {
   }
 
   @override
-  ThemeExtension<ZDimensions> lerp(
-    covariant ZDimensions? other,
-    double t,
-  ) {
+  ThemeExtension<ZDimensions> lerp(covariant ZDimensions? other, double t) {
     if (other == null) return this;
 
     return ZDimensions(
@@ -61,11 +52,7 @@ class ZDimensions extends ThemeExtension<ZDimensions> {
         other.horizontalPadding100,
         t,
       )!,
-      corner100: BorderRadius.lerp(
-        corner100,
-        other.corner100,
-        t,
-      )!,
+      corner100: BorderRadius.lerp(corner100, other.corner100, t)!,
     );
   }
 }

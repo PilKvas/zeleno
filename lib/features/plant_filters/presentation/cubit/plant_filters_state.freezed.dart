@@ -12,7 +12,8 @@ part of 'plant_filters_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$PlantFiltersState {
@@ -21,8 +22,7 @@ mixin _$PlantFiltersState {
   List<PlantFilterItem> get soilPhChoices => throw _privateConstructorUsedError;
   List<PlantFilterItem> get soilMoistureChoices =>
       throw _privateConstructorUsedError;
-  String? get soilPhValue => throw _privateConstructorUsedError;
-  String? get soilMoistureValue => throw _privateConstructorUsedError;
+  PlantSearchFilters get selected => throw _privateConstructorUsedError;
 
   /// Create a copy of PlantFiltersState
   /// with the given fields replaced by the non-null parameter values.
@@ -34,16 +34,19 @@ mixin _$PlantFiltersState {
 /// @nodoc
 abstract class $PlantFiltersStateCopyWith<$Res> {
   factory $PlantFiltersStateCopyWith(
-          PlantFiltersState value, $Res Function(PlantFiltersState) then) =
-      _$PlantFiltersStateCopyWithImpl<$Res, PlantFiltersState>;
+    PlantFiltersState value,
+    $Res Function(PlantFiltersState) then,
+  ) = _$PlantFiltersStateCopyWithImpl<$Res, PlantFiltersState>;
   @useResult
-  $Res call(
-      {FiltersStatus status,
-      Object? error,
-      List<PlantFilterItem> soilPhChoices,
-      List<PlantFilterItem> soilMoistureChoices,
-      String? soilPhValue,
-      String? soilMoistureValue});
+  $Res call({
+    FiltersStatus status,
+    Object? error,
+    List<PlantFilterItem> soilPhChoices,
+    List<PlantFilterItem> soilMoistureChoices,
+    PlantSearchFilters selected,
+  });
+
+  $PlantSearchFiltersCopyWith<$Res> get selected;
 }
 
 /// @nodoc
@@ -65,59 +68,72 @@ class _$PlantFiltersStateCopyWithImpl<$Res, $Val extends PlantFiltersState>
     Object? error = freezed,
     Object? soilPhChoices = null,
     Object? soilMoistureChoices = null,
-    Object? soilPhValue = freezed,
-    Object? soilMoistureValue = freezed,
+    Object? selected = null,
   }) {
-    return _then(_value.copyWith(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as FiltersStatus,
-      error: freezed == error ? _value.error : error,
-      soilPhChoices: null == soilPhChoices
-          ? _value.soilPhChoices
-          : soilPhChoices // ignore: cast_nullable_to_non_nullable
-              as List<PlantFilterItem>,
-      soilMoistureChoices: null == soilMoistureChoices
-          ? _value.soilMoistureChoices
-          : soilMoistureChoices // ignore: cast_nullable_to_non_nullable
-              as List<PlantFilterItem>,
-      soilPhValue: freezed == soilPhValue
-          ? _value.soilPhValue
-          : soilPhValue // ignore: cast_nullable_to_non_nullable
-              as String?,
-      soilMoistureValue: freezed == soilMoistureValue
-          ? _value.soilMoistureValue
-          : soilMoistureValue // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            status: null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                      as FiltersStatus,
+            error: freezed == error ? _value.error : error,
+            soilPhChoices: null == soilPhChoices
+                ? _value.soilPhChoices
+                : soilPhChoices // ignore: cast_nullable_to_non_nullable
+                      as List<PlantFilterItem>,
+            soilMoistureChoices: null == soilMoistureChoices
+                ? _value.soilMoistureChoices
+                : soilMoistureChoices // ignore: cast_nullable_to_non_nullable
+                      as List<PlantFilterItem>,
+            selected: null == selected
+                ? _value.selected
+                : selected // ignore: cast_nullable_to_non_nullable
+                      as PlantSearchFilters,
+          )
+          as $Val,
+    );
+  }
+
+  /// Create a copy of PlantFiltersState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PlantSearchFiltersCopyWith<$Res> get selected {
+    return $PlantSearchFiltersCopyWith<$Res>(_value.selected, (value) {
+      return _then(_value.copyWith(selected: value) as $Val);
+    });
   }
 }
 
 /// @nodoc
 abstract class _$$PlantFiltersStateImplCopyWith<$Res>
     implements $PlantFiltersStateCopyWith<$Res> {
-  factory _$$PlantFiltersStateImplCopyWith(_$PlantFiltersStateImpl value,
-          $Res Function(_$PlantFiltersStateImpl) then) =
-      __$$PlantFiltersStateImplCopyWithImpl<$Res>;
+  factory _$$PlantFiltersStateImplCopyWith(
+    _$PlantFiltersStateImpl value,
+    $Res Function(_$PlantFiltersStateImpl) then,
+  ) = __$$PlantFiltersStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {FiltersStatus status,
-      Object? error,
-      List<PlantFilterItem> soilPhChoices,
-      List<PlantFilterItem> soilMoistureChoices,
-      String? soilPhValue,
-      String? soilMoistureValue});
+  $Res call({
+    FiltersStatus status,
+    Object? error,
+    List<PlantFilterItem> soilPhChoices,
+    List<PlantFilterItem> soilMoistureChoices,
+    PlantSearchFilters selected,
+  });
+
+  @override
+  $PlantSearchFiltersCopyWith<$Res> get selected;
 }
 
 /// @nodoc
 class __$$PlantFiltersStateImplCopyWithImpl<$Res>
     extends _$PlantFiltersStateCopyWithImpl<$Res, _$PlantFiltersStateImpl>
     implements _$$PlantFiltersStateImplCopyWith<$Res> {
-  __$$PlantFiltersStateImplCopyWithImpl(_$PlantFiltersStateImpl _value,
-      $Res Function(_$PlantFiltersStateImpl) _then)
-      : super(_value, _then);
+  __$$PlantFiltersStateImplCopyWithImpl(
+    _$PlantFiltersStateImpl _value,
+    $Res Function(_$PlantFiltersStateImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of PlantFiltersState
   /// with the given fields replaced by the non-null parameter values.
@@ -128,48 +144,43 @@ class __$$PlantFiltersStateImplCopyWithImpl<$Res>
     Object? error = freezed,
     Object? soilPhChoices = null,
     Object? soilMoistureChoices = null,
-    Object? soilPhValue = freezed,
-    Object? soilMoistureValue = freezed,
+    Object? selected = null,
   }) {
-    return _then(_$PlantFiltersStateImpl(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as FiltersStatus,
-      error: freezed == error ? _value.error : error,
-      soilPhChoices: null == soilPhChoices
-          ? _value._soilPhChoices
-          : soilPhChoices // ignore: cast_nullable_to_non_nullable
-              as List<PlantFilterItem>,
-      soilMoistureChoices: null == soilMoistureChoices
-          ? _value._soilMoistureChoices
-          : soilMoistureChoices // ignore: cast_nullable_to_non_nullable
-              as List<PlantFilterItem>,
-      soilPhValue: freezed == soilPhValue
-          ? _value.soilPhValue
-          : soilPhValue // ignore: cast_nullable_to_non_nullable
-              as String?,
-      soilMoistureValue: freezed == soilMoistureValue
-          ? _value.soilMoistureValue
-          : soilMoistureValue // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    return _then(
+      _$PlantFiltersStateImpl(
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as FiltersStatus,
+        error: freezed == error ? _value.error : error,
+        soilPhChoices: null == soilPhChoices
+            ? _value._soilPhChoices
+            : soilPhChoices // ignore: cast_nullable_to_non_nullable
+                  as List<PlantFilterItem>,
+        soilMoistureChoices: null == soilMoistureChoices
+            ? _value._soilMoistureChoices
+            : soilMoistureChoices // ignore: cast_nullable_to_non_nullable
+                  as List<PlantFilterItem>,
+        selected: null == selected
+            ? _value.selected
+            : selected // ignore: cast_nullable_to_non_nullable
+                  as PlantSearchFilters,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$PlantFiltersStateImpl implements _PlantFiltersState {
-  const _$PlantFiltersStateImpl(
-      {this.status = FiltersStatus.initial,
-      this.error,
-      final List<PlantFilterItem> soilPhChoices = const <PlantFilterItem>[],
-      final List<PlantFilterItem> soilMoistureChoices =
-          const <PlantFilterItem>[],
-      this.soilPhValue,
-      this.soilMoistureValue})
-      : _soilPhChoices = soilPhChoices,
-        _soilMoistureChoices = soilMoistureChoices;
+  const _$PlantFiltersStateImpl({
+    this.status = FiltersStatus.initial,
+    this.error,
+    final List<PlantFilterItem> soilPhChoices = const <PlantFilterItem>[],
+    final List<PlantFilterItem> soilMoistureChoices = const <PlantFilterItem>[],
+    this.selected = const PlantSearchFilters(),
+  }) : _soilPhChoices = soilPhChoices,
+       _soilMoistureChoices = soilMoistureChoices;
 
   @override
   @JsonKey()
@@ -196,13 +207,12 @@ class _$PlantFiltersStateImpl implements _PlantFiltersState {
   }
 
   @override
-  final String? soilPhValue;
-  @override
-  final String? soilMoistureValue;
+  @JsonKey()
+  final PlantSearchFilters selected;
 
   @override
   String toString() {
-    return 'PlantFiltersState(status: $status, error: $error, soilPhChoices: $soilPhChoices, soilMoistureChoices: $soilMoistureChoices, soilPhValue: $soilPhValue, soilMoistureValue: $soilMoistureValue)';
+    return 'PlantFiltersState(status: $status, error: $error, soilPhChoices: $soilPhChoices, soilMoistureChoices: $soilMoistureChoices, selected: $selected)';
   }
 
   @override
@@ -212,25 +222,27 @@ class _$PlantFiltersStateImpl implements _PlantFiltersState {
             other is _$PlantFiltersStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             const DeepCollectionEquality().equals(other.error, error) &&
-            const DeepCollectionEquality()
-                .equals(other._soilPhChoices, _soilPhChoices) &&
-            const DeepCollectionEquality()
-                .equals(other._soilMoistureChoices, _soilMoistureChoices) &&
-            (identical(other.soilPhValue, soilPhValue) ||
-                other.soilPhValue == soilPhValue) &&
-            (identical(other.soilMoistureValue, soilMoistureValue) ||
-                other.soilMoistureValue == soilMoistureValue));
+            const DeepCollectionEquality().equals(
+              other._soilPhChoices,
+              _soilPhChoices,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._soilMoistureChoices,
+              _soilMoistureChoices,
+            ) &&
+            (identical(other.selected, selected) ||
+                other.selected == selected));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      status,
-      const DeepCollectionEquality().hash(error),
-      const DeepCollectionEquality().hash(_soilPhChoices),
-      const DeepCollectionEquality().hash(_soilMoistureChoices),
-      soilPhValue,
-      soilMoistureValue);
+    runtimeType,
+    status,
+    const DeepCollectionEquality().hash(error),
+    const DeepCollectionEquality().hash(_soilPhChoices),
+    const DeepCollectionEquality().hash(_soilMoistureChoices),
+    selected,
+  );
 
   /// Create a copy of PlantFiltersState
   /// with the given fields replaced by the non-null parameter values.
@@ -239,17 +251,19 @@ class _$PlantFiltersStateImpl implements _PlantFiltersState {
   @pragma('vm:prefer-inline')
   _$$PlantFiltersStateImplCopyWith<_$PlantFiltersStateImpl> get copyWith =>
       __$$PlantFiltersStateImplCopyWithImpl<_$PlantFiltersStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _PlantFiltersState implements PlantFiltersState {
-  const factory _PlantFiltersState(
-      {final FiltersStatus status,
-      final Object? error,
-      final List<PlantFilterItem> soilPhChoices,
-      final List<PlantFilterItem> soilMoistureChoices,
-      final String? soilPhValue,
-      final String? soilMoistureValue}) = _$PlantFiltersStateImpl;
+  const factory _PlantFiltersState({
+    final FiltersStatus status,
+    final Object? error,
+    final List<PlantFilterItem> soilPhChoices,
+    final List<PlantFilterItem> soilMoistureChoices,
+    final PlantSearchFilters selected,
+  }) = _$PlantFiltersStateImpl;
 
   @override
   FiltersStatus get status;
@@ -260,9 +274,7 @@ abstract class _PlantFiltersState implements PlantFiltersState {
   @override
   List<PlantFilterItem> get soilMoistureChoices;
   @override
-  String? get soilPhValue;
-  @override
-  String? get soilMoistureValue;
+  PlantSearchFilters get selected;
 
   /// Create a copy of PlantFiltersState
   /// with the given fields replaced by the non-null parameter values.

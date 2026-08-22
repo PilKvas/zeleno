@@ -13,7 +13,4 @@ _$TokenModelImpl _$$TokenModelImplFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$$TokenModelImplToJson(_$TokenModelImpl instance) =>
-    <String, dynamic>{
-      'refresh': instance.refresh,
-      'access': instance.access,
-    };
+    <String, dynamic>{'refresh': instance.refresh, 'access': instance.access};
