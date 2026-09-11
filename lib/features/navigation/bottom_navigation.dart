@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:zeleno_v2/features/navigation/home_tab.dart';
+import 'package:zeleno_v2/features/navigation/widgets/export.dart';
 import 'package:zeleno_v2/l10n/export.dart';
 import 'package:zeleno_v2/resources/export.dart';
 import 'package:zeleno_v2/uikit/theme/export.dart';
@@ -43,34 +44,33 @@ class HomeScreen extends StatelessWidget {
     HomeTab tab,
     ZColorScheme colorScheme,
   ) {
-    final (String icon, String activeIcon, String label) = switch (tab) {
+    final (Widget icon, Widget activeIcon, String label) = switch (tab) {
       HomeTab.garden => (
-        SvgIcons.plant,
-        SvgIcons.plant,
+        const GardenTabIcon(active: false),
+        const GardenTabIcon(active: true),
         context.l10n.homeTabGarden,
       ),
       HomeTab.search => (
-        SvgIcons.search,
-        SvgIcons.searchFilled,
+        const SearchTabIcon(active: false),
+        const SearchTabIcon(active: true),
         context.l10n.homeTabSearch,
       ),
       HomeTab.profile => (
-        SvgIcons.user,
-        SvgIcons.user,
+        _svgIcon(SvgIcons.user, colorScheme.onSurface),
+        _svgIcon(SvgIcons.user, colorScheme.action),
         context.l10n.homeTabProfile,
       ),
     };
 
     return BottomNavigationBarItem(
-      icon: SvgPicture.asset(
-        icon,
-        colorFilter: ColorFilter.mode(colorScheme.onSurface, BlendMode.srcIn),
-      ),
-      activeIcon: SvgPicture.asset(
-        activeIcon,
-        colorFilter: ColorFilter.mode(colorScheme.action, BlendMode.srcIn),
-      ),
+      icon: icon,
+      activeIcon: activeIcon,
       label: label,
     );
   }
+
+  Widget _svgIcon(String asset, Color color) => SvgPicture.asset(
+    asset,
+    colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
+  );
 }

@@ -5,3 +5,4 @@ export 'bottom_navigation.dart';
 export 'home_tab.dart';
 export 'router.dart';
 export 'router.gr.dart';
+export 'widgets/export.dart';

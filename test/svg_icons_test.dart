@@ -15,7 +15,12 @@ void main() {
     expect(File(SvgIcons.photoPlaceholder).existsSync(), isTrue);
     expect(File(SvgIcons.plant).existsSync(), isTrue);
     expect(File(SvgIcons.plantFilled).existsSync(), isTrue);
+    expect(File(SvgIcons.plantLeafLeft).existsSync(), isTrue);
+    expect(File(SvgIcons.plantLeafRight).existsSync(), isTrue);
+    expect(File(SvgIcons.plantStem).existsSync(), isTrue);
     expect(File(SvgIcons.searchFilled).existsSync(), isTrue);
+    expect(File(SvgIcons.searchGlint).existsSync(), isTrue);
+    expect(File(SvgIcons.searchPupil).existsSync(), isTrue);
     expect(File(SvgIcons.testSvg).existsSync(), isTrue);
     expect(File(SvgIcons.time).existsSync(), isTrue);
     expect(File(SvgIcons.width).existsSync(), isTrue);
