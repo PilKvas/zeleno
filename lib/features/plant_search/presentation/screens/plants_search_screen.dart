@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zeleno_v2/app/di/export.dart';
 import 'package:zeleno_v2/core/helper/export.dart';
 import 'package:zeleno_v2/features/core/enums/export.dart';
+import 'package:zeleno_v2/features/core/widgets/export.dart';
 import 'package:zeleno_v2/features/navigation/export.dart';
 import 'package:zeleno_v2/features/plant_filters/presentation/cubit/export.dart';
 import 'package:zeleno_v2/features/plant_filters/presentation/widgets/export.dart';
@@ -260,7 +261,7 @@ class _ShimmerList extends StatelessWidget {
       padding: _kListPadding,
       sliver: SliverList.separated(
         itemCount: _kShimmerItemCount,
-        itemBuilder: (_, __) => const PlantItemShimmer(),
+        itemBuilder: (_, __) => const PlantCardShimmer(),
         separatorBuilder: (_, __) => const SizedBox(height: _kItemSpacing),
       ),
     );
