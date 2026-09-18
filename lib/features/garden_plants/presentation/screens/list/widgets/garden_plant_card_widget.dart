@@ -12,6 +12,7 @@ class GardenPlantCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return PlantCardWidget(
       title: plant.customName,
+      subtitle: plant.speciesLatinName,
       imageUrl: plant.imageUrl,
       onTap: onTap,
     );
