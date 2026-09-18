@@ -8,9 +8,10 @@ import 'package:zeleno_v2/features/auth/domain/model/export.dart';
 import 'package:zeleno_v2/features/auth/presentation/cubit/export.dart';
 import 'package:zeleno_v2/features/navigation/export.dart';
 import 'package:zeleno_v2/features/splash/presentation/bloc/export.dart';
+import 'package:zeleno_v2/features/splash/presentation/widgets/export.dart';
 
 @RoutePage()
-class SplashScreen extends StatelessWidget implements AutoRouteWrapper {
+class SplashScreen extends StatefulWidget implements AutoRouteWrapper {
   const SplashScreen({super.key});
 
   @override
@@ -23,15 +24,42 @@ class SplashScreen extends StatelessWidget implements AutoRouteWrapper {
     );
   }
 
-  void authenticationListener(BuildContext context, SplashState state) {
-    state.map(
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  // Уходим с экрана, когда и интро доиграло, и блок решил, куда идти.
+  bool _introComplete = false;
+  SplashState? _destination;
+
+  @override
+  void initState() {
+    super.initState();
+    // Нативный сплеш снимаем после первого кадра сцены: фон у обоих
+    // белый, поэтому переход бесшовный, а интро видно с самого начала.
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => FlutterNativeSplash.remove(),
+    );
+  }
+
+  void _onIntroComplete() {
+    _introComplete = true;
+    _navigate();
+  }
+
+  void _onSplashState(BuildContext context, SplashState state) {
+    _destination = state;
+    _navigate();
+  }
+
+  void _navigate() {
+    final destination = _destination;
+    if (!_introComplete || destination == null || !mounted) return;
+    destination.map(
       initial: (_) {},
-      firstTimeInApp: (_) {
-        FlutterNativeSplash.remove();
-        context.router.replace(const OnBoardingRoute());
-      },
+      firstTimeInApp: (_) => context.router.replace(const OnBoardingRoute()),
       readyToHome: (_) {
-        FlutterNativeSplash.remove();
         final bool isAuthenticated =
             context.read<AuthCubit>().state.authStatus ==
             AuthStatus.authenticated;
@@ -51,8 +79,8 @@ class SplashScreen extends StatelessWidget implements AutoRouteWrapper {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocListener<SplashBloc, SplashState>(
-        listener: authenticationListener,
-        child: const SizedBox(),
+        listener: _onSplashState,
+        child: SplashScene(onIntroComplete: _onIntroComplete),
       ),
     );
   }

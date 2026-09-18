@@ -714,5 +714,77 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get gardenPlantNotesTile => 'Notes';
+
+  @override
+  String get gardenPlantNotesTileSubtitle => 'Observations and care';
+
+  @override
+  String get gardenPlantNotesTitle => 'Notes';
+
+  @override
+  String get gardenPlantNotesEmpty =>
+      'Write down observations and care — notes help you remember what you did and when';
+
+  @override
+  String get gardenPlantNotesLoadError => 'Failed to load notes';
+
+  @override
+  String get gardenPlantNotesAdd => 'Add note';
+
+  @override
+  String get gardenPlantNoteNewTitle => 'New note';
+
+  @override
+  String get gardenPlantNoteEditTitle => 'Edit note';
+
+  @override
+  String get gardenPlantNoteTitleHint => 'Title';
+
+  @override
+  String get gardenPlantNoteContentHint => 'Note text';
+
+  @override
+  String get gardenPlantNoteTitleRequired => 'Enter a title';
+
+  @override
+  String gardenPlantNoteTitleTooLong(int max) {
+    return 'Title must not exceed $max characters';
+  }
+
+  @override
+  String get gardenPlantNoteContentRequired => 'Enter the note text';
+
+  @override
+  String gardenPlantNoteContentTooLong(int max) {
+    return 'Text must not exceed $max characters';
+  }
+
+  @override
+  String gardenPlantNoteCounter(int current, int max) {
+    return '$current/$max';
+  }
+
+  @override
+  String get gardenPlantNoteSave => 'Save';
+
+  @override
+  String get gardenPlantNoteDelete => 'Delete note';
+
+  @override
+  String get gardenPlantNoteDeleteTitle => 'Delete note?';
+
+  @override
+  String gardenPlantNoteDeleteMessage(String title) {
+    return 'The note \"$title\" will be permanently deleted.';
+  }
+
+  @override
+  String get gardenPlantNoteDeleteCancel => 'Cancel';
+
+  @override
+  String get gardenPlantNoteDeleteConfirm => 'Delete';
+
+  @override
   String get retry => 'Retry';
 }

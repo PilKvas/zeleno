@@ -396,5 +396,57 @@
       }
     }
   },
+  "gardenPlantNotesTile": "Заметки",
+  "gardenPlantNotesTileSubtitle": "Наблюдения и уход",
+  "gardenPlantNotesTitle": "Заметки",
+  "gardenPlantNotesEmpty": "Записывайте наблюдения и уход — заметки помогут не забыть, что и когда вы делали",
+  "gardenPlantNotesLoadError": "Не удалось загрузить заметки",
+  "gardenPlantNotesAdd": "Добавить заметку",
+  "gardenPlantNoteNewTitle": "Новая заметка",
+  "gardenPlantNoteEditTitle": "Редактировать заметку",
+  "gardenPlantNoteTitleHint": "Заголовок",
+  "gardenPlantNoteContentHint": "Текст заметки",
+  "gardenPlantNoteTitleRequired": "Введите заголовок",
+  "gardenPlantNoteTitleTooLong": "Заголовок не должен превышать {max} символов",
+  "@gardenPlantNoteTitleTooLong": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "gardenPlantNoteContentRequired": "Введите текст заметки",
+  "gardenPlantNoteContentTooLong": "Текст не должен превышать {max} символов",
+  "@gardenPlantNoteContentTooLong": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "gardenPlantNoteCounter": "{current}/{max}",
+  "@gardenPlantNoteCounter": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "gardenPlantNoteSave": "Сохранить",
+  "gardenPlantNoteDelete": "Удалить заметку",
+  "gardenPlantNoteDeleteTitle": "Удалить заметку?",
+  "gardenPlantNoteDeleteMessage": "Заметка «{title}» будет удалена без возможности восстановления.",
+  "@gardenPlantNoteDeleteMessage": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "gardenPlantNoteDeleteCancel": "Отмена",
+  "gardenPlantNoteDeleteConfirm": "Удалить",
   "retry": "Повторить"
 }

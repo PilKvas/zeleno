@@ -10,6 +10,9 @@ import 'package:zeleno_v2/features/auth/data/persistence/storage/tokens_storage/
 import 'package:zeleno_v2/features/auth/data/repository/export.dart';
 import 'package:zeleno_v2/features/auth/data/service/export.dart';
 import 'package:zeleno_v2/features/auth/domain/repository/export.dart';
+import 'package:zeleno_v2/features/garden_plant_notes/data/repository/export.dart';
+import 'package:zeleno_v2/features/garden_plant_notes/data/service/export.dart';
+import 'package:zeleno_v2/features/garden_plant_notes/domain/repository/export.dart';
 import 'package:zeleno_v2/features/garden_plants/data/repository/export.dart';
 import 'package:zeleno_v2/features/garden_plants/data/service/export.dart';
 import 'package:zeleno_v2/features/garden_plants/domain/repository/export.dart';
@@ -69,6 +72,7 @@ Future<void> initializeDependencies() async {
     ..registerLazySingleton<PlantDetailsService>(() => PlantDetailsService(dio))
     ..registerLazySingleton<PlantRoomsService>(() => PlantRoomsService(dio))
     ..registerLazySingleton<GardenPlantsService>(() => GardenPlantsService(dio))
+    ..registerLazySingleton<PlantNotesService>(() => PlantNotesService(dio))
     ..registerLazySingleton<ProfileService>(() => ProfileService(dio))
     ..registerLazySingleton<PushTokenService>(() => PushTokenService(dio));
 
@@ -93,6 +97,9 @@ Future<void> initializeDependencies() async {
     )
     ..registerLazySingleton<IGardenPlantsRepository>(
       () => GardenPlantsRepository(gardenPlantsService: injection()),
+    )
+    ..registerLazySingleton<IPlantNotesRepository>(
+      () => PlantNotesRepository(plantNotesService: injection()),
     )
     ..registerLazySingleton<IProfileRepository>(
       () => ProfileRepository(profileService: injection()),
