@@ -3,3 +3,4 @@
 
 export 'bloc/export.dart';
 export 'splash_screen.dart';
+export 'widgets/export.dart';

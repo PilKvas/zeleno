@@ -7,6 +7,7 @@ class SvgIcons {
   static const String search = 'assets/icons/Search.svg';
   static const String user = 'assets/icons/User.svg';
   static const String userFilled = 'assets/icons/User_filled.svg';
+  static const String drop = 'assets/icons/drop.svg';
   static const String eye = 'assets/icons/eye.svg';
   static const String height = 'assets/icons/height.svg';
   static const String openEye = 'assets/icons/open_eye.svg';

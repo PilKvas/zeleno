@@ -116,6 +116,7 @@ class _ZTextFieldState extends State<ZTextField> {
       inputFormatters: widget.inputFormatters,
       obscureText: _isObscured,
       readOnly: widget.readOnly ?? false,
+      maxLines: widget.maxLines ?? 1,
       validator: widget.validator,
       controller: _textController,
       focusNode: _focusNode,
