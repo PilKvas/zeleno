@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zeleno_v2/app/di/export.dart';
 import 'package:zeleno_v2/core/helper/export.dart';
 import 'package:zeleno_v2/features/core/enums/export.dart';
+import 'package:zeleno_v2/features/core/widgets/export.dart';
 import 'package:zeleno_v2/features/navigation/export.dart';
 import 'package:zeleno_v2/features/plant_filters/presentation/cubit/export.dart';
 import 'package:zeleno_v2/features/plant_filters/presentation/widgets/export.dart';
@@ -11,6 +12,7 @@ import 'package:zeleno_v2/features/plant_search/domain/models/export.dart';
 import 'package:zeleno_v2/features/plant_search/presentation/bloc/export.dart';
 import 'package:zeleno_v2/features/plant_search/presentation/widgets/export.dart';
 import 'package:zeleno_v2/l10n/export.dart';
+import 'package:zeleno_v2/resources/export.dart';
 import 'package:zeleno_v2/uikit/export.dart';
 
 @RoutePage()
@@ -117,9 +119,9 @@ class _PlantListSection extends StatelessWidget {
           return _PlantList(items: state.items, onItemTap: onItemTap);
         }
         if (state.status.isLoading) return const _ShimmerList();
-        return SliverFillRemaining(
+        return const SliverFillRemaining(
           hasScrollBody: false,
-          child: Center(child: Text(context.l10n.plantSearchEmpty)),
+          child: _EmptyState(),
         );
       },
     );
@@ -154,13 +156,11 @@ class _SearchAppBar extends StatelessWidget {
       floating: true,
       pinned: false,
       snap: true,
-      bottom: PreferredSize(
-        preferredSize: const Size.fromHeight(4.0),
-        child: Container(color: colors.action, height: 1),
-      ),
-      flexibleSpace: FlexibleSpaceBar(
-        background: Container(color: colors.background),
-      ),
+      backgroundColor: colors.background,
+      surfaceTintColor: Colors.transparent,
+      scrolledUnderElevation: 0,
+      titleSpacing: _kHorizontalPadding,
+      toolbarHeight: 62,
       title: Row(
         children: [
           Expanded(
@@ -168,25 +168,20 @@ class _SearchAppBar extends StatelessWidget {
               onChanged: onSearch,
               hintText: context.l10n.plantSearchHint,
               fillColor: colors.surface,
+              prefixIcon: Icon(
+                Icons.search_rounded,
+                color: colors.secondaryTextFieldColor,
+              ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: BlocBuilder<PlantSearchBloc, PlantSearchState>(
-              buildWhen: (previous, current) =>
-                  previous.filters.hasActiveFilters !=
-                  current.filters.hasActiveFilters,
-              builder: (context, state) {
-                return IconButton(
-                  onPressed: () => _openFilters(context),
-                  icon: Icon(
-                    Icons.filter_list,
-                    color: state.filters.hasActiveFilters
-                        ? colors.action
-                        : colors.onBackground,
-                  ),
-                );
-              },
+          const SizedBox(width: 10),
+          BlocBuilder<PlantSearchBloc, PlantSearchState>(
+            buildWhen: (previous, current) =>
+                previous.filters.hasActiveFilters !=
+                current.filters.hasActiveFilters,
+            builder: (context, state) => FilterButton(
+              active: state.filters.hasActiveFilters,
+              onTap: () => _openFilters(context),
             ),
           ),
         ],
@@ -196,8 +191,14 @@ class _SearchAppBar extends StatelessWidget {
 }
 
 const int _kShimmerItemCount = 6;
-const double _kItemSpacing = 20;
-const EdgeInsets _kListPadding = EdgeInsets.only(top: 5, left: 8, right: 8);
+const double _kItemSpacing = 12;
+const double _kHorizontalPadding = 16;
+const EdgeInsets _kListPadding = EdgeInsets.fromLTRB(
+  _kHorizontalPadding,
+  4,
+  _kHorizontalPadding,
+  16,
+);
 
 class _PlantList extends StatelessWidget {
   final List<PlantSearchItem> items;
@@ -215,10 +216,10 @@ class _PlantList extends StatelessWidget {
         // и картинки не перезагружаются.
         itemBuilder: (context, index) {
           final item = items[index];
-          return GestureDetector(
+          return PlantItemWidget(
             key: ValueKey(item.slug),
+            item: item,
             onTap: () => onItemTap(item.slug),
-            child: PlantItemWidget(item: item),
           );
         },
         separatorBuilder: (_, __) => const SizedBox(height: _kItemSpacing),
@@ -260,8 +261,33 @@ class _ShimmerList extends StatelessWidget {
       padding: _kListPadding,
       sliver: SliverList.separated(
         itemCount: _kShimmerItemCount,
-        itemBuilder: (_, __) => const PlantItemShimmer(),
+        itemBuilder: (_, __) => const PlantCardShimmer(),
         separatorBuilder: (_, __) => const SizedBox(height: _kItemSpacing),
+      ),
+    );
+  }
+}
+
+class _EmptyState extends StatelessWidget {
+  const _EmptyState();
+
+  @override
+  Widget build(BuildContext context) {
+    final ZTypography typography = ZTypography.of(context);
+    final ZColorScheme colors = ZColorScheme.of(context);
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 32),
+      child: Column(
+        mainAxisAlignment: .center,
+        children: [
+          Image.asset(ZImages.dryTree, width: 72, height: 72),
+          const SizedBox(height: 16),
+          Text(
+            context.l10n.plantSearchEmpty,
+            textAlign: TextAlign.center,
+            style: typography.title.copyWith(color: colors.secondaryText),
+          ),
+        ],
       ),
     );
   }

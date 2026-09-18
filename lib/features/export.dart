@@ -3,6 +3,7 @@
 
 export 'auth/export.dart';
 export 'core/export.dart';
+export 'garden_plant_notes/export.dart';
 export 'garden_plants/export.dart';
 export 'navigation/export.dart';
 export 'onboarding/export.dart';

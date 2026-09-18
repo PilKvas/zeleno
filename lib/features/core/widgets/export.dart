@@ -2,3 +2,4 @@
 // Run `make exports` to regenerate.
 
 export 'custom_snackbar.dart';
+export 'plant_card_widget.dart';

@@ -1352,6 +1352,24 @@ abstract class AppLocalizations {
   /// **'Открыть все'**
   String get gardenPlantOpenAllTags;
 
+  /// No description provided for @gardenPlantStatAge.
+  ///
+  /// In ru, this message translates to:
+  /// **'Возраст'**
+  String get gardenPlantStatAge;
+
+  /// No description provided for @gardenPlantStatSpread.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ширина'**
+  String get gardenPlantStatSpread;
+
+  /// No description provided for @gardenPlantStatHeight.
+  ///
+  /// In ru, this message translates to:
+  /// **'Высота'**
+  String get gardenPlantStatHeight;
+
   /// No description provided for @gardenPlantAge.
   ///
   /// In ru, this message translates to:
@@ -1375,6 +1393,132 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'каждые {min}–{max} {unit}'**
   String gardenPlantCareInterval(String min, String max, String unit);
+
+  /// No description provided for @gardenPlantNotesTile.
+  ///
+  /// In ru, this message translates to:
+  /// **'Заметки'**
+  String get gardenPlantNotesTile;
+
+  /// No description provided for @gardenPlantNotesTileSubtitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Наблюдения и уход'**
+  String get gardenPlantNotesTileSubtitle;
+
+  /// No description provided for @gardenPlantNotesTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Заметки'**
+  String get gardenPlantNotesTitle;
+
+  /// No description provided for @gardenPlantNotesEmpty.
+  ///
+  /// In ru, this message translates to:
+  /// **'Записывайте наблюдения и уход — заметки помогут не забыть, что и когда вы делали'**
+  String get gardenPlantNotesEmpty;
+
+  /// No description provided for @gardenPlantNotesLoadError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Не удалось загрузить заметки'**
+  String get gardenPlantNotesLoadError;
+
+  /// No description provided for @gardenPlantNotesAdd.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добавить заметку'**
+  String get gardenPlantNotesAdd;
+
+  /// No description provided for @gardenPlantNoteNewTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Новая заметка'**
+  String get gardenPlantNoteNewTitle;
+
+  /// No description provided for @gardenPlantNoteEditTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Редактировать заметку'**
+  String get gardenPlantNoteEditTitle;
+
+  /// No description provided for @gardenPlantNoteTitleHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Заголовок'**
+  String get gardenPlantNoteTitleHint;
+
+  /// No description provided for @gardenPlantNoteContentHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Текст заметки'**
+  String get gardenPlantNoteContentHint;
+
+  /// No description provided for @gardenPlantNoteTitleRequired.
+  ///
+  /// In ru, this message translates to:
+  /// **'Введите заголовок'**
+  String get gardenPlantNoteTitleRequired;
+
+  /// No description provided for @gardenPlantNoteTitleTooLong.
+  ///
+  /// In ru, this message translates to:
+  /// **'Заголовок не должен превышать {max} символов'**
+  String gardenPlantNoteTitleTooLong(int max);
+
+  /// No description provided for @gardenPlantNoteContentRequired.
+  ///
+  /// In ru, this message translates to:
+  /// **'Введите текст заметки'**
+  String get gardenPlantNoteContentRequired;
+
+  /// No description provided for @gardenPlantNoteContentTooLong.
+  ///
+  /// In ru, this message translates to:
+  /// **'Текст не должен превышать {max} символов'**
+  String gardenPlantNoteContentTooLong(int max);
+
+  /// No description provided for @gardenPlantNoteCounter.
+  ///
+  /// In ru, this message translates to:
+  /// **'{current}/{max}'**
+  String gardenPlantNoteCounter(int current, int max);
+
+  /// No description provided for @gardenPlantNoteSave.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранить'**
+  String get gardenPlantNoteSave;
+
+  /// No description provided for @gardenPlantNoteDelete.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удалить заметку'**
+  String get gardenPlantNoteDelete;
+
+  /// No description provided for @gardenPlantNoteDeleteTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удалить заметку?'**
+  String get gardenPlantNoteDeleteTitle;
+
+  /// No description provided for @gardenPlantNoteDeleteMessage.
+  ///
+  /// In ru, this message translates to:
+  /// **'Заметка «{title}» будет удалена без возможности восстановления.'**
+  String gardenPlantNoteDeleteMessage(String title);
+
+  /// No description provided for @gardenPlantNoteDeleteCancel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Отмена'**
+  String get gardenPlantNoteDeleteCancel;
+
+  /// No description provided for @gardenPlantNoteDeleteConfirm.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удалить'**
+  String get gardenPlantNoteDeleteConfirm;
 
   /// No description provided for @retry.
   ///

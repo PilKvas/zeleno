@@ -5,7 +5,6 @@ import 'package:zeleno_v2/app/di/export.dart';
 import 'package:zeleno_v2/core/helper/export.dart';
 import 'package:zeleno_v2/features/auth/presentation/screens/registration/cubit/export.dart';
 import 'package:zeleno_v2/features/auth/presentation/widgets/export.dart';
-import 'package:zeleno_v2/features/core/enums/export.dart';
 import 'package:zeleno_v2/features/core/widgets/export.dart';
 import 'package:zeleno_v2/features/navigation/export.dart';
 import 'package:zeleno_v2/l10n/export.dart';
@@ -34,19 +33,22 @@ class _Content extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<RegistrationCubit, RegistrationState>(
       listener: (context, state) {
-        if (state.status == Status.success) {
-          CustomSnackBar.show(
-            context: context,
-            message: context.l10n.registrationSuccess,
-            type: SnackBarType.success,
-          );
-          if (context.mounted) context.router.popForced();
-        } else if (state.status == Status.failure && state.error != null) {
-          CustomSnackBar.show(
-            context: context,
-            message: mapRegistrationErrorToMessage(state.error!, context.l10n),
-            type: SnackBarType.error,
-          );
+        switch (state) {
+          case RegistrationSuccess():
+            CustomSnackBar.show(
+              context: context,
+              message: context.l10n.registrationSuccess,
+              type: SnackBarType.success,
+            );
+            if (context.mounted) context.router.popForced();
+          case RegistrationFailure(:final error):
+            CustomSnackBar.show(
+              context: context,
+              message: mapRegistrationErrorToMessage(error, context.l10n),
+              type: SnackBarType.error,
+            );
+          case RegistrationLoading() || RegistrationInitial():
+            break;
         }
       },
       child: Scaffold(
@@ -143,11 +145,12 @@ class _RegistrationFormState extends State<_RegistrationForm> {
             ],
           ),
           const SizedBox(height: 30),
-          BlocBuilder<RegistrationCubit, RegistrationState>(
-            builder: (context, state) {
+          BlocSelector<RegistrationCubit, RegistrationState, bool>(
+            selector: (state) => state.isLoading,
+            builder: (context, isLoading) {
               return ZButton.gradient1(
-                onPressed: state.status.isLoading ? null : _onRegisterPressed,
-                child: state.status.isLoading
+                onPressed: isLoading ? null : _onRegisterPressed,
+                child: isLoading
                     ? CircularProgressIndicator(color: colors.secondaryBg)
                     : Text(l10n.registerButton),
               );

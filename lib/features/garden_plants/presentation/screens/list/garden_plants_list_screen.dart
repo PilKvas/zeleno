@@ -183,7 +183,7 @@ class _GardenPlantsListView extends StatelessWidget {
         child: BlocBuilder<GardenPlantsListCubit, GardenPlantsListState>(
           builder: (BuildContext context, GardenPlantsListState plantsState) {
             return BlocBuilder<PlantRoomsCubit, PlantRoomsState>(
-              builder: (BuildContext context, PlantRoomsState roomsState) {
+                  builder: (BuildContext context, PlantRoomsState roomsState) {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[

@@ -26,6 +26,8 @@ class AppRouter extends RootStackRouter {
             AutoRoute(page: PlantRoomsManagementRoute.page),
             AutoRoute(page: GardenPlantDetailRoute.page),
             AutoRoute(page: AddGardenPlantRoute.page),
+            AutoRoute(page: GardenPlantNotesRoute.page),
+            AutoRoute(page: GardenPlantNoteEditRoute.page),
           ],
         ),
         AutoRoute(

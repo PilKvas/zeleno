@@ -5,7 +5,6 @@ import 'package:zeleno_v2/app/di/export.dart';
 import 'package:zeleno_v2/core/helper/export.dart';
 import 'package:zeleno_v2/features/auth/presentation/screens/password_reset/cubit/export.dart';
 import 'package:zeleno_v2/features/auth/presentation/widgets/export.dart';
-import 'package:zeleno_v2/features/core/enums/export.dart';
 import 'package:zeleno_v2/features/core/widgets/export.dart';
 import 'package:zeleno_v2/features/navigation/export.dart';
 import 'package:zeleno_v2/l10n/export.dart';
@@ -38,10 +37,10 @@ class _Content extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<PasswordResetVerifyCubit, PasswordResetVerifyState>(
       listener: (context, state) {
-        if (state.status == Status.failure && state.error != null) {
+        if (state case PasswordResetVerifyFailure(:final error)) {
           CustomSnackBar.show(
             context: context,
-            message: mapErrorToMessage(state.error!, context.l10n),
+            message: mapErrorToMessage(error, context.l10n),
             type: SnackBarType.error,
           );
         }
@@ -104,13 +103,12 @@ class _VerifyFormState extends State<_VerifyForm> {
           ),
         ],
         const SizedBox(height: 24),
-        BlocBuilder<PasswordResetVerifyCubit, PasswordResetVerifyState>(
-          builder: (context, state) {
+        BlocSelector<PasswordResetVerifyCubit, PasswordResetVerifyState, bool>(
+          selector: (state) => state.isLoading,
+          builder: (context, isLoading) {
             return ZButton.gradient1(
-              onPressed: state.status.isLoading
-                  ? null
-                  : () => _onContinuePressed(context),
-              child: state.status.isLoading
+              onPressed: isLoading ? null : () => _onContinuePressed(context),
+              child: isLoading
                   ? CircularProgressIndicator(color: colors.secondaryBg)
                   : Text(context.l10n.next),
             );
@@ -140,9 +138,8 @@ class _VerifyFormState extends State<_VerifyForm> {
     final router = context.router;
     await cubit.verifyOtp(email: widget.email, otp: _otpValue);
     if (!mounted) return;
-    final state = cubit.state;
-    if (state.status.isSuccess && state.token != null) {
-      router.push(PasswordResetConfirmRoute(token: state.token!));
+    if (cubit.state case PasswordResetVerifySuccess(:final token)) {
+      router.push(PasswordResetConfirmRoute(token: token));
     }
   }
 }
