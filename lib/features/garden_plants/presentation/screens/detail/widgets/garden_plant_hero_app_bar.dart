@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:zeleno_v2/uikit/theme/export.dart';
 
 const double _kMinHeroHeight = 280;
 const double _kMaxHeroHeight = 420;
 const double _kSheetEdgeHeight = 20;
 const double _kScrimHeight = 140;
+
+/// Ниже этой доли раскрытия FlexibleSpaceBar уже гасит фото.
+const double _kPhotoVisibleRatio = 0.2;
 
 /// Растягиваемый аппбар с фото: при сворачивании фото уезжает с параллаксом,
 /// а в тулбаре проявляется название растения.
@@ -70,43 +74,54 @@ class GardenPlantHeroAppBar extends StatelessWidget {
             0.0,
             1.0,
           );
-          return Stack(
-            fit: .expand,
-            children: <Widget>[
-              FlexibleSpaceBar(
-                collapseMode: .parallax,
-                stretchModes: const <StretchMode>[.zoomBackground],
-                background: Stack(
-                  fit: .expand,
-                  children: <Widget>[
-                    _PlantImage(imageUrl: imageUrl),
-                    const _TopScrim(),
-                  ],
+          // Пока видно фото — светлый статусбар; когда шапка свернулась
+          // до фона — по яркости темы. Вложенный AnnotatedRegion побеждает
+          // стиль самого AppBar.
+          final bool photoVisible =
+              imageUrl != null && expandRatio > _kPhotoVisibleRatio;
+          final Brightness overlayBrightness = photoVisible
+              ? Brightness.dark
+              : Theme.of(context).brightness;
+          return AnnotatedRegion<SystemUiOverlayStyle>(
+            value: ZTheme.statusBarStyleForBrightness(overlayBrightness),
+            child: Stack(
+              fit: .expand,
+              children: <Widget>[
+                FlexibleSpaceBar(
+                  collapseMode: .parallax,
+                  stretchModes: const <StretchMode>[.zoomBackground],
+                  background: Stack(
+                    fit: .expand,
+                    children: <Widget>[
+                      _PlantImage(imageUrl: imageUrl),
+                      const _TopScrim(),
+                    ],
+                  ),
                 ),
-              ),
-              Positioned(
-                top: topPadding,
-                left: 72,
-                right: 72,
-                height: kToolbarHeight,
-                child: IgnorePointer(
-                  child: Opacity(
-                    opacity: titleOpacity,
-                    child: Align(
-                      alignment: .centerLeft,
-                      child: Text(
-                        title,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: typography.headline400.copyWith(
-                          color: colors.onBackground,
+                Positioned(
+                  top: topPadding,
+                  left: 72,
+                  right: 72,
+                  height: kToolbarHeight,
+                  child: IgnorePointer(
+                    child: Opacity(
+                      opacity: titleOpacity,
+                      child: Align(
+                        alignment: .centerLeft,
+                        child: Text(
+                          title,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: typography.headline400.copyWith(
+                            color: colors.onBackground,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           );
         },
       ),
@@ -194,12 +209,19 @@ class _PlantImage extends StatelessWidget {
     if (url == null) {
       return const _Placeholder();
     }
-    return Image.network(
-      url,
-      fit: BoxFit.cover,
-      errorBuilder:
-          (BuildContext context, Object error, StackTrace? stackTrace) =>
-              const _Placeholder(),
+    // Плейсхолдер под фото: пока оно грузится, hero не пустой.
+    return Stack(
+      fit: .expand,
+      children: <Widget>[
+        const _Placeholder(),
+        Image.network(
+          url,
+          fit: BoxFit.cover,
+          errorBuilder:
+              (BuildContext context, Object error, StackTrace? stackTrace) =>
+                  const _Placeholder(),
+        ),
+      ],
     );
   }
 }
