@@ -717,5 +717,77 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
+  String get gardenPlantNotesTile => 'Заметки';
+
+  @override
+  String get gardenPlantNotesTileSubtitle => 'Наблюдения и уход';
+
+  @override
+  String get gardenPlantNotesTitle => 'Заметки';
+
+  @override
+  String get gardenPlantNotesEmpty =>
+      'Записывайте наблюдения и уход — заметки помогут не забыть, что и когда вы делали';
+
+  @override
+  String get gardenPlantNotesLoadError => 'Не удалось загрузить заметки';
+
+  @override
+  String get gardenPlantNotesAdd => 'Добавить заметку';
+
+  @override
+  String get gardenPlantNoteNewTitle => 'Новая заметка';
+
+  @override
+  String get gardenPlantNoteEditTitle => 'Редактировать заметку';
+
+  @override
+  String get gardenPlantNoteTitleHint => 'Заголовок';
+
+  @override
+  String get gardenPlantNoteContentHint => 'Текст заметки';
+
+  @override
+  String get gardenPlantNoteTitleRequired => 'Введите заголовок';
+
+  @override
+  String gardenPlantNoteTitleTooLong(int max) {
+    return 'Заголовок не должен превышать $max символов';
+  }
+
+  @override
+  String get gardenPlantNoteContentRequired => 'Введите текст заметки';
+
+  @override
+  String gardenPlantNoteContentTooLong(int max) {
+    return 'Текст не должен превышать $max символов';
+  }
+
+  @override
+  String gardenPlantNoteCounter(int current, int max) {
+    return '$current/$max';
+  }
+
+  @override
+  String get gardenPlantNoteSave => 'Сохранить';
+
+  @override
+  String get gardenPlantNoteDelete => 'Удалить заметку';
+
+  @override
+  String get gardenPlantNoteDeleteTitle => 'Удалить заметку?';
+
+  @override
+  String gardenPlantNoteDeleteMessage(String title) {
+    return 'Заметка «$title» будет удалена без возможности восстановления.';
+  }
+
+  @override
+  String get gardenPlantNoteDeleteCancel => 'Отмена';
+
+  @override
+  String get gardenPlantNoteDeleteConfirm => 'Удалить';
+
+  @override
   String get retry => 'Повторить';
 }

@@ -287,6 +287,14 @@ class _GardenPlantDetailContent extends StatelessWidget {
                   ],
                   const SizedBox(height: 20),
                   _CareCardsRow(plant: plant, species: species),
+                  if (plant != null) ...<Widget>[
+                    const SizedBox(height: 12),
+                    GardenPlantNotesTileWidget(
+                      onTap: () => context.router.push(
+                        GardenPlantNotesRoute(plantId: plant.id),
+                      ),
+                    ),
+                  ],
                   const SizedBox(height: 24),
                   if (species?.genusDescription != null &&
                       species!.genusDescription!.isNotEmpty)
