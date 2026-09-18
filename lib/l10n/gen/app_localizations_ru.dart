@@ -697,6 +697,15 @@ class AppLocalizationsRu extends AppLocalizations {
   String get gardenPlantOpenAllTags => 'Открыть все';
 
   @override
+  String get gardenPlantStatAge => 'Возраст';
+
+  @override
+  String get gardenPlantStatSpread => 'Ширина';
+
+  @override
+  String get gardenPlantStatHeight => 'Высота';
+
+  @override
   String gardenPlantAge(String years) {
     return '$years лет';
   }

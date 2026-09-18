@@ -1352,6 +1352,24 @@ abstract class AppLocalizations {
   /// **'Открыть все'**
   String get gardenPlantOpenAllTags;
 
+  /// No description provided for @gardenPlantStatAge.
+  ///
+  /// In ru, this message translates to:
+  /// **'Возраст'**
+  String get gardenPlantStatAge;
+
+  /// No description provided for @gardenPlantStatSpread.
+  ///
+  /// In ru, this message translates to:
+  /// **'Ширина'**
+  String get gardenPlantStatSpread;
+
+  /// No description provided for @gardenPlantStatHeight.
+  ///
+  /// In ru, this message translates to:
+  /// **'Высота'**
+  String get gardenPlantStatHeight;
+
   /// No description provided for @gardenPlantAge.
   ///
   /// In ru, this message translates to:

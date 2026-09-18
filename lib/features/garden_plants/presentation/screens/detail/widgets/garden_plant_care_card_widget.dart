@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:zeleno_v2/uikit/theme/export.dart';
 
+/// Карточка ухода; ширину задаёт родитель (Expanded в ряду), высота — по
+/// контенту, чтобы длинные заголовки не переполняли карточку.
 class GardenPlantCareCardWidget extends StatelessWidget {
   const GardenPlantCareCardWidget({
     super.key,
@@ -22,7 +24,6 @@ class GardenPlantCareCardWidget extends StatelessWidget {
       colors.surface,
     );
     return Container(
-      width: 108,
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
       decoration: BoxDecoration(
         color: colors.background,
@@ -35,7 +36,7 @@ class GardenPlantCareCardWidget extends StatelessWidget {
         ),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: .start,
         children: <Widget>[
           Container(
             padding: const EdgeInsets.all(8),
@@ -48,7 +49,12 @@ class GardenPlantCareCardWidget extends StatelessWidget {
           const SizedBox(height: 10),
           Text(
             title,
-            style: typography.title.copyWith(color: colors.onBackground),
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: typography.body.copyWith(
+              fontWeight: FontWeight.w600,
+              color: colors.onBackground,
+            ),
           ),
           const SizedBox(height: 4),
           Text(

@@ -300,6 +300,9 @@
   "gardenPlantCareFertilizing": "Fertilizing",
   "gardenPlantCareNoData": "No data",
   "gardenPlantOpenAllTags": "Show all",
+  "gardenPlantStatAge": "Age",
+  "gardenPlantStatSpread": "Spread",
+  "gardenPlantStatHeight": "Height",
   "gardenPlantAge": "{years} years",
   "@gardenPlantAge": {
     "placeholders": {
