@@ -9,6 +9,7 @@ void main() {
     expect(File(SvgIcons.search).existsSync(), isTrue);
     expect(File(SvgIcons.user).existsSync(), isTrue);
     expect(File(SvgIcons.userFilled).existsSync(), isTrue);
+    expect(File(SvgIcons.drop).existsSync(), isTrue);
     expect(File(SvgIcons.eye).existsSync(), isTrue);
     expect(File(SvgIcons.height).existsSync(), isTrue);
     expect(File(SvgIcons.openEye).existsSync(), isTrue);
