@@ -13,11 +13,11 @@ import 'package:auto_route/auto_route.dart' as _i19;
 import 'package:flutter/material.dart' as _i20;
 import 'package:zeleno_v2/features/auth/presentation/screens/login/login_screen.dart'
     as _i8;
-import 'package:zeleno_v2/features/auth/presentation/screens/password_reset/password_reset_confirm_screen.dart'
+import 'package:zeleno_v2/features/auth/presentation/screens/password_reset/screens/password_reset_confirm_screen.dart'
     as _i10;
-import 'package:zeleno_v2/features/auth/presentation/screens/password_reset/password_reset_request_screen.dart'
+import 'package:zeleno_v2/features/auth/presentation/screens/password_reset/screens/password_reset_request_screen.dart'
     as _i11;
-import 'package:zeleno_v2/features/auth/presentation/screens/password_reset/password_reset_verify_screen.dart'
+import 'package:zeleno_v2/features/auth/presentation/screens/password_reset/screens/password_reset_verify_screen.dart'
     as _i12;
 import 'package:zeleno_v2/features/auth/presentation/screens/registration/registration_screen.dart'
     as _i17;
