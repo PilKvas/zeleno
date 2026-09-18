@@ -5,7 +5,6 @@ import 'package:zeleno_v2/app/di/export.dart';
 import 'package:zeleno_v2/core/helper/export.dart';
 import 'package:zeleno_v2/features/auth/presentation/screens/login/cubit/export.dart';
 import 'package:zeleno_v2/features/auth/presentation/widgets/export.dart';
-import 'package:zeleno_v2/features/core/enums/export.dart';
 import 'package:zeleno_v2/features/core/widgets/export.dart';
 import 'package:zeleno_v2/features/navigation/export.dart';
 import 'package:zeleno_v2/l10n/export.dart';
@@ -34,14 +33,17 @@ class _Content extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LoginState>(
       listener: (context, state) {
-        if (state.status == Status.success) {
-          context.router.replace(const ProfileRoute());
-        } else if (state.status == Status.failure && state.error != null) {
-          CustomSnackBar.show(
-            context: context,
-            message: mapErrorToMessage(state.error!, context.l10n),
-            type: SnackBarType.error,
-          );
+        switch (state) {
+          case LoginSuccess():
+            context.router.replace(const ProfileRoute());
+          case LoginFailure(:final error):
+            CustomSnackBar.show(
+              context: context,
+              message: mapErrorToMessage(error, context.l10n),
+              type: SnackBarType.error,
+            );
+          case LoginLoading() || LoginInitial():
+            break;
         }
       },
       child: Scaffold(
@@ -129,11 +131,12 @@ class _LoginFormState extends State<_LoginForm> {
             l10n: l10n,
           ),
           const SizedBox(height: 44),
-          BlocBuilder<LoginCubit, LoginState>(
-            builder: (context, state) {
+          BlocSelector<LoginCubit, LoginState, bool>(
+            selector: (state) => state.isLoading,
+            builder: (context, isLoading) {
               return ZButton.gradient1(
-                onPressed: state.status.isLoading ? null : _onLoginPressed,
-                child: state.status.isLoading
+                onPressed: isLoading ? null : _onLoginPressed,
+                child: isLoading
                     ? CircularProgressIndicator(color: colors.secondaryBg)
                     : Text(l10n.loginButton),
               );
