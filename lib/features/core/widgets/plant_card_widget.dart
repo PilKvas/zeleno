@@ -7,56 +7,89 @@ import 'package:zeleno_v2/uikit/theme/export.dart';
 // Геометрия карточки и её шиммера должна совпадать, иначе список прыгает
 // при подмене заглушек реальными данными — поэтому оба виджета лежат здесь
 // и читают одни и те же размеры.
-const double _kCardHeight = 171;
-const double _kImageWidth = 136;
-const double _kTextGap = 12;
-const BorderRadius _kImageBorderRadius = BorderRadius.only(
-  topLeft: Radius.circular(10),
-  bottomLeft: Radius.circular(10),
-);
+const double _kImageSize = 104;
+const double _kCardPadding = 8;
+const double _kCardHeight = _kImageSize + _kCardPadding * 2;
+const double _kTextGap = 14;
+const BorderRadius _kCardBorderRadius = BorderRadius.all(Radius.circular(16));
+const BorderRadius _kImageBorderRadius = BorderRadius.all(Radius.circular(12));
 
 /// Общая карточка растения: один вид в поиске и в «Моём саду».
+///
+/// [subtitle] — латинское название; набирается курсивом, как принято
+/// в ботанике.
 class PlantCardWidget extends StatelessWidget {
   final String title;
+  final String? subtitle;
   final String? imageUrl;
   final VoidCallback? onTap;
 
   const PlantCardWidget({
     required this.title,
     required this.imageUrl,
+    this.subtitle,
     this.onTap,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    const int titleMaxLines = 2;
+    final ZColorScheme colors = ZColorScheme.of(context);
     final ZTypography typography = ZTypography.of(context);
+    final String? subtitle = this.subtitle;
     return Material(
-      color: Colors.transparent,
+      color: colors.surface,
+      borderRadius: _kCardBorderRadius,
+      clipBehavior: Clip.antiAlias,
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(10),
         child: SizedBox(
           height: _kCardHeight,
-          child: Row(
-            children: [
-              _PlantCardImage(url: imageUrl),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: _kTextGap),
-                  child: Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      title,
-                      maxLines: titleMaxLines,
-                      overflow: .ellipsis,
-                      style: typography.title,
-                    ),
+          child: Padding(
+            padding: const EdgeInsets.all(_kCardPadding),
+            child: Row(
+              children: [
+                _PlantCardImage(url: imageUrl),
+                const SizedBox(width: _kTextGap),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: .center,
+                    crossAxisAlignment: .start,
+                    children: [
+                      Text(
+                        title,
+                        maxLines: 2,
+                        overflow: .ellipsis,
+                        style: typography.title.copyWith(
+                          fontWeight: FontWeight.w600,
+                          color: colors.onSurface,
+                        ),
+                      ),
+                      if (subtitle != null && subtitle.isNotEmpty) ...[
+                        const SizedBox(height: 4),
+                        Text(
+                          subtitle,
+                          maxLines: 1,
+                          overflow: .ellipsis,
+                          style: typography.body.copyWith(
+                            fontStyle: FontStyle.italic,
+                            color: colors.secondaryText,
+                          ),
+                        ),
+                      ],
+                    ],
                   ),
                 ),
-              ),
-            ],
+                if (onTap != null)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 6),
+                    child: Icon(
+                      Icons.chevron_right_rounded,
+                      color: colors.secondaryText.withValues(alpha: 0.6),
+                    ),
+                  ),
+              ],
+            ),
           ),
         ),
       ),
@@ -75,20 +108,25 @@ class PlantCardShimmer extends StatelessWidget {
       colors.secondaryText.withValues(alpha: 0.22),
       colors.background,
     );
-    return Shimmer.fromColors(
-      baseColor: baseColor,
-      highlightColor: colors.surface,
-      child: SizedBox(
-        height: _kCardHeight,
+    // Фон карточки снаружи шиммера, иначе он тоже уходит в переливы.
+    return Container(
+      height: _kCardHeight,
+      padding: const EdgeInsets.all(_kCardPadding),
+      decoration: BoxDecoration(
+        color: colors.surface,
+        borderRadius: _kCardBorderRadius,
+      ),
+      child: Shimmer.fromColors(
+        baseColor: baseColor,
+        highlightColor: colors.background,
         child: Row(
-          crossAxisAlignment: .start,
           children: [
-            ClipRRect(
-              borderRadius: _kImageBorderRadius,
-              child: Container(
-                height: _kCardHeight,
-                width: _kImageWidth,
+            Container(
+              height: _kImageSize,
+              width: _kImageSize,
+              decoration: BoxDecoration(
                 color: baseColor,
+                borderRadius: _kImageBorderRadius,
               ),
             ),
             const SizedBox(width: _kTextGap),
@@ -112,13 +150,12 @@ class _PlantCardImage extends StatelessWidget {
     final String? imageUrl = url;
     return ClipRRect(
       borderRadius: _kImageBorderRadius,
-      child: SizedBox(
-        height: _kCardHeight,
-        width: _kImageWidth,
+      child: SizedBox.square(
+        dimension: _kImageSize,
         // Однотонная подложка держит место картинки, поэтому после загрузки
         // не проскакивает белый кадр.
         child: ColoredBox(
-          color: colors.surface,
+          color: colors.background,
           child: imageUrl == null || imageUrl.isEmpty
               ? const _PlantCardFallback()
               : CachedNetworkImage(
@@ -141,7 +178,7 @@ class _PlantCardFallback extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const double size = 50;
+    const double size = 40;
     return Center(
       child: Image.asset(ZImages.dryTree, width: size, height: size),
     );
@@ -155,13 +192,14 @@ class _ShimmerTextLines extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const double titleHeight = 20;
-    const double subtitleHeight = 16;
-    const double subtitleWidth = 150;
+    const double titleHeight = 18;
+    const double subtitleHeight = 14;
+    const double subtitleWidth = 120;
     return Column(
+      mainAxisAlignment: .center,
       crossAxisAlignment: .start,
       children: [
-        _ShimmerBar(color: color, width: double.infinity, height: titleHeight),
+        _ShimmerBar(color: color, width: 170, height: titleHeight),
         const SizedBox(height: 8),
         _ShimmerBar(color: color, width: subtitleWidth, height: subtitleHeight),
       ],

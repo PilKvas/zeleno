@@ -11,6 +11,7 @@ class AppSearchField extends StatelessWidget {
   final bool autofocus;
   final InputBorder? border;
   final String? hintText;
+  final Widget? prefixIcon;
   final Widget? suffixIcon;
   final FocusNode? focusNode;
   final VoidCallback? onTap;
@@ -27,6 +28,7 @@ class AppSearchField extends StatelessWidget {
     this.onChanged,
     this.onSubmitted,
     this.autofocus = false,
+    this.prefixIcon,
     this.suffixIcon,
     this.focusNode,
     this.onTap,
@@ -75,6 +77,7 @@ class AppSearchField extends StatelessWidget {
               hintText: hintText,
               filled: fillColor != null,
               fillColor: fillColor,
+              prefixIcon: prefixIcon,
               suffixIcon: suffixIcon,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
