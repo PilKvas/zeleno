@@ -17,14 +17,50 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$PasswordResetConfirmState {
-  Status get status => throw _privateConstructorUsedError;
-  Object? get error => throw _privateConstructorUsedError;
-
-  /// Create a copy of PasswordResetConfirmState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $PasswordResetConfirmStateCopyWith<PasswordResetConfirmState> get copyWith =>
-      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(Object error) failure,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function(Object error)? failure,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(Object error)? failure,
+    required TResult orElse(),
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PasswordResetConfirmInitial value) initial,
+    required TResult Function(PasswordResetConfirmLoading value) loading,
+    required TResult Function(PasswordResetConfirmSuccess value) success,
+    required TResult Function(PasswordResetConfirmFailure value) failure,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(PasswordResetConfirmInitial value)? initial,
+    TResult? Function(PasswordResetConfirmLoading value)? loading,
+    TResult? Function(PasswordResetConfirmSuccess value)? success,
+    TResult? Function(PasswordResetConfirmFailure value)? failure,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PasswordResetConfirmInitial value)? initial,
+    TResult Function(PasswordResetConfirmLoading value)? loading,
+    TResult Function(PasswordResetConfirmSuccess value)? success,
+    TResult Function(PasswordResetConfirmFailure value)? failure,
+    required TResult orElse(),
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -33,8 +69,6 @@ abstract class $PasswordResetConfirmStateCopyWith<$Res> {
     PasswordResetConfirmState value,
     $Res Function(PasswordResetConfirmState) then,
   ) = _$PasswordResetConfirmStateCopyWithImpl<$Res, PasswordResetConfirmState>;
-  @useResult
-  $Res call({Status status, Object? error});
 }
 
 /// @nodoc
@@ -52,122 +86,541 @@ class _$PasswordResetConfirmStateCopyWithImpl<
 
   /// Create a copy of PasswordResetConfirmState
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? status = null, Object? error = freezed}) {
-    return _then(
-      _value.copyWith(
-            status: null == status
-                ? _value.status
-                : status // ignore: cast_nullable_to_non_nullable
-                      as Status,
-            error: freezed == error ? _value.error : error,
-          )
-          as $Val,
-    );
-  }
 }
 
 /// @nodoc
-abstract class _$$PasswordResetConfirmStateImplCopyWith<$Res>
-    implements $PasswordResetConfirmStateCopyWith<$Res> {
-  factory _$$PasswordResetConfirmStateImplCopyWith(
-    _$PasswordResetConfirmStateImpl value,
-    $Res Function(_$PasswordResetConfirmStateImpl) then,
-  ) = __$$PasswordResetConfirmStateImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Status status, Object? error});
+abstract class _$$PasswordResetConfirmInitialImplCopyWith<$Res> {
+  factory _$$PasswordResetConfirmInitialImplCopyWith(
+    _$PasswordResetConfirmInitialImpl value,
+    $Res Function(_$PasswordResetConfirmInitialImpl) then,
+  ) = __$$PasswordResetConfirmInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$PasswordResetConfirmStateImplCopyWithImpl<$Res>
+class __$$PasswordResetConfirmInitialImplCopyWithImpl<$Res>
     extends
         _$PasswordResetConfirmStateCopyWithImpl<
           $Res,
-          _$PasswordResetConfirmStateImpl
+          _$PasswordResetConfirmInitialImpl
         >
-    implements _$$PasswordResetConfirmStateImplCopyWith<$Res> {
-  __$$PasswordResetConfirmStateImplCopyWithImpl(
-    _$PasswordResetConfirmStateImpl _value,
-    $Res Function(_$PasswordResetConfirmStateImpl) _then,
+    implements _$$PasswordResetConfirmInitialImplCopyWith<$Res> {
+  __$$PasswordResetConfirmInitialImplCopyWithImpl(
+    _$PasswordResetConfirmInitialImpl _value,
+    $Res Function(_$PasswordResetConfirmInitialImpl) _then,
   ) : super(_value, _then);
 
   /// Create a copy of PasswordResetConfirmState
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? status = null, Object? error = freezed}) {
-    return _then(
-      _$PasswordResetConfirmStateImpl(
-        status: null == status
-            ? _value.status
-            : status // ignore: cast_nullable_to_non_nullable
-                  as Status,
-        error: freezed == error ? _value.error : error,
-      ),
-    );
-  }
 }
 
 /// @nodoc
 
-class _$PasswordResetConfirmStateImpl implements _PasswordResetConfirmState {
-  const _$PasswordResetConfirmStateImpl({required this.status, this.error});
-
-  @override
-  final Status status;
-  @override
-  final Object? error;
+class _$PasswordResetConfirmInitialImpl extends PasswordResetConfirmInitial {
+  const _$PasswordResetConfirmInitialImpl() : super._();
 
   @override
   String toString() {
-    return 'PasswordResetConfirmState(status: $status, error: $error)';
+    return 'PasswordResetConfirmState.initial()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PasswordResetConfirmStateImpl &&
-            (identical(other.status, status) || other.status == status) &&
+            other is _$PasswordResetConfirmInitialImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(Object error) failure,
+  }) {
+    return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function(Object error)? failure,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(Object error)? failure,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PasswordResetConfirmInitial value) initial,
+    required TResult Function(PasswordResetConfirmLoading value) loading,
+    required TResult Function(PasswordResetConfirmSuccess value) success,
+    required TResult Function(PasswordResetConfirmFailure value) failure,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(PasswordResetConfirmInitial value)? initial,
+    TResult? Function(PasswordResetConfirmLoading value)? loading,
+    TResult? Function(PasswordResetConfirmSuccess value)? success,
+    TResult? Function(PasswordResetConfirmFailure value)? failure,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PasswordResetConfirmInitial value)? initial,
+    TResult Function(PasswordResetConfirmLoading value)? loading,
+    TResult Function(PasswordResetConfirmSuccess value)? success,
+    TResult Function(PasswordResetConfirmFailure value)? failure,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PasswordResetConfirmInitial extends PasswordResetConfirmState {
+  const factory PasswordResetConfirmInitial() =
+      _$PasswordResetConfirmInitialImpl;
+  const PasswordResetConfirmInitial._() : super._();
+}
+
+/// @nodoc
+abstract class _$$PasswordResetConfirmLoadingImplCopyWith<$Res> {
+  factory _$$PasswordResetConfirmLoadingImplCopyWith(
+    _$PasswordResetConfirmLoadingImpl value,
+    $Res Function(_$PasswordResetConfirmLoadingImpl) then,
+  ) = __$$PasswordResetConfirmLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$PasswordResetConfirmLoadingImplCopyWithImpl<$Res>
+    extends
+        _$PasswordResetConfirmStateCopyWithImpl<
+          $Res,
+          _$PasswordResetConfirmLoadingImpl
+        >
+    implements _$$PasswordResetConfirmLoadingImplCopyWith<$Res> {
+  __$$PasswordResetConfirmLoadingImplCopyWithImpl(
+    _$PasswordResetConfirmLoadingImpl _value,
+    $Res Function(_$PasswordResetConfirmLoadingImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of PasswordResetConfirmState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$PasswordResetConfirmLoadingImpl extends PasswordResetConfirmLoading {
+  const _$PasswordResetConfirmLoadingImpl() : super._();
+
+  @override
+  String toString() {
+    return 'PasswordResetConfirmState.loading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PasswordResetConfirmLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(Object error) failure,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function(Object error)? failure,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(Object error)? failure,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PasswordResetConfirmInitial value) initial,
+    required TResult Function(PasswordResetConfirmLoading value) loading,
+    required TResult Function(PasswordResetConfirmSuccess value) success,
+    required TResult Function(PasswordResetConfirmFailure value) failure,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(PasswordResetConfirmInitial value)? initial,
+    TResult? Function(PasswordResetConfirmLoading value)? loading,
+    TResult? Function(PasswordResetConfirmSuccess value)? success,
+    TResult? Function(PasswordResetConfirmFailure value)? failure,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PasswordResetConfirmInitial value)? initial,
+    TResult Function(PasswordResetConfirmLoading value)? loading,
+    TResult Function(PasswordResetConfirmSuccess value)? success,
+    TResult Function(PasswordResetConfirmFailure value)? failure,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PasswordResetConfirmLoading extends PasswordResetConfirmState {
+  const factory PasswordResetConfirmLoading() =
+      _$PasswordResetConfirmLoadingImpl;
+  const PasswordResetConfirmLoading._() : super._();
+}
+
+/// @nodoc
+abstract class _$$PasswordResetConfirmSuccessImplCopyWith<$Res> {
+  factory _$$PasswordResetConfirmSuccessImplCopyWith(
+    _$PasswordResetConfirmSuccessImpl value,
+    $Res Function(_$PasswordResetConfirmSuccessImpl) then,
+  ) = __$$PasswordResetConfirmSuccessImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$PasswordResetConfirmSuccessImplCopyWithImpl<$Res>
+    extends
+        _$PasswordResetConfirmStateCopyWithImpl<
+          $Res,
+          _$PasswordResetConfirmSuccessImpl
+        >
+    implements _$$PasswordResetConfirmSuccessImplCopyWith<$Res> {
+  __$$PasswordResetConfirmSuccessImplCopyWithImpl(
+    _$PasswordResetConfirmSuccessImpl _value,
+    $Res Function(_$PasswordResetConfirmSuccessImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of PasswordResetConfirmState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$PasswordResetConfirmSuccessImpl extends PasswordResetConfirmSuccess {
+  const _$PasswordResetConfirmSuccessImpl() : super._();
+
+  @override
+  String toString() {
+    return 'PasswordResetConfirmState.success()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PasswordResetConfirmSuccessImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(Object error) failure,
+  }) {
+    return success();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function(Object error)? failure,
+  }) {
+    return success?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(Object error)? failure,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PasswordResetConfirmInitial value) initial,
+    required TResult Function(PasswordResetConfirmLoading value) loading,
+    required TResult Function(PasswordResetConfirmSuccess value) success,
+    required TResult Function(PasswordResetConfirmFailure value) failure,
+  }) {
+    return success(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(PasswordResetConfirmInitial value)? initial,
+    TResult? Function(PasswordResetConfirmLoading value)? loading,
+    TResult? Function(PasswordResetConfirmSuccess value)? success,
+    TResult? Function(PasswordResetConfirmFailure value)? failure,
+  }) {
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PasswordResetConfirmInitial value)? initial,
+    TResult Function(PasswordResetConfirmLoading value)? loading,
+    TResult Function(PasswordResetConfirmSuccess value)? success,
+    TResult Function(PasswordResetConfirmFailure value)? failure,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PasswordResetConfirmSuccess extends PasswordResetConfirmState {
+  const factory PasswordResetConfirmSuccess() =
+      _$PasswordResetConfirmSuccessImpl;
+  const PasswordResetConfirmSuccess._() : super._();
+}
+
+/// @nodoc
+abstract class _$$PasswordResetConfirmFailureImplCopyWith<$Res> {
+  factory _$$PasswordResetConfirmFailureImplCopyWith(
+    _$PasswordResetConfirmFailureImpl value,
+    $Res Function(_$PasswordResetConfirmFailureImpl) then,
+  ) = __$$PasswordResetConfirmFailureImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Object error});
+}
+
+/// @nodoc
+class __$$PasswordResetConfirmFailureImplCopyWithImpl<$Res>
+    extends
+        _$PasswordResetConfirmStateCopyWithImpl<
+          $Res,
+          _$PasswordResetConfirmFailureImpl
+        >
+    implements _$$PasswordResetConfirmFailureImplCopyWith<$Res> {
+  __$$PasswordResetConfirmFailureImplCopyWithImpl(
+    _$PasswordResetConfirmFailureImpl _value,
+    $Res Function(_$PasswordResetConfirmFailureImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of PasswordResetConfirmState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? error = null}) {
+    return _then(
+      _$PasswordResetConfirmFailureImpl(null == error ? _value.error : error),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$PasswordResetConfirmFailureImpl extends PasswordResetConfirmFailure {
+  const _$PasswordResetConfirmFailureImpl(this.error) : super._();
+
+  @override
+  final Object error;
+
+  @override
+  String toString() {
+    return 'PasswordResetConfirmState.failure(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PasswordResetConfirmFailureImpl &&
             const DeepCollectionEquality().equals(other.error, error));
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    status,
-    const DeepCollectionEquality().hash(error),
-  );
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
 
   /// Create a copy of PasswordResetConfirmState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$PasswordResetConfirmStateImplCopyWith<_$PasswordResetConfirmStateImpl>
+  _$$PasswordResetConfirmFailureImplCopyWith<_$PasswordResetConfirmFailureImpl>
   get copyWith =>
-      __$$PasswordResetConfirmStateImplCopyWithImpl<
-        _$PasswordResetConfirmStateImpl
+      __$$PasswordResetConfirmFailureImplCopyWithImpl<
+        _$PasswordResetConfirmFailureImpl
       >(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(Object error) failure,
+  }) {
+    return failure(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function(Object error)? failure,
+  }) {
+    return failure?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(Object error)? failure,
+    required TResult orElse(),
+  }) {
+    if (failure != null) {
+      return failure(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PasswordResetConfirmInitial value) initial,
+    required TResult Function(PasswordResetConfirmLoading value) loading,
+    required TResult Function(PasswordResetConfirmSuccess value) success,
+    required TResult Function(PasswordResetConfirmFailure value) failure,
+  }) {
+    return failure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(PasswordResetConfirmInitial value)? initial,
+    TResult? Function(PasswordResetConfirmLoading value)? loading,
+    TResult? Function(PasswordResetConfirmSuccess value)? success,
+    TResult? Function(PasswordResetConfirmFailure value)? failure,
+  }) {
+    return failure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PasswordResetConfirmInitial value)? initial,
+    TResult Function(PasswordResetConfirmLoading value)? loading,
+    TResult Function(PasswordResetConfirmSuccess value)? success,
+    TResult Function(PasswordResetConfirmFailure value)? failure,
+    required TResult orElse(),
+  }) {
+    if (failure != null) {
+      return failure(this);
+    }
+    return orElse();
+  }
 }
 
-abstract class _PasswordResetConfirmState implements PasswordResetConfirmState {
-  const factory _PasswordResetConfirmState({
-    required final Status status,
-    final Object? error,
-  }) = _$PasswordResetConfirmStateImpl;
+abstract class PasswordResetConfirmFailure extends PasswordResetConfirmState {
+  const factory PasswordResetConfirmFailure(final Object error) =
+      _$PasswordResetConfirmFailureImpl;
+  const PasswordResetConfirmFailure._() : super._();
 
-  @override
-  Status get status;
-  @override
-  Object? get error;
+  Object get error;
 
   /// Create a copy of PasswordResetConfirmState
   /// with the given fields replaced by the non-null parameter values.
-  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PasswordResetConfirmStateImplCopyWith<_$PasswordResetConfirmStateImpl>
+  _$$PasswordResetConfirmFailureImplCopyWith<_$PasswordResetConfirmFailureImpl>
   get copyWith => throw _privateConstructorUsedError;
 }

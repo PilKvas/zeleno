@@ -5,7 +5,6 @@ import 'package:zeleno_v2/app/di/export.dart';
 import 'package:zeleno_v2/core/helper/export.dart';
 import 'package:zeleno_v2/features/auth/presentation/screens/password_reset/cubit/export.dart';
 import 'package:zeleno_v2/features/auth/presentation/widgets/export.dart';
-import 'package:zeleno_v2/features/core/enums/export.dart';
 import 'package:zeleno_v2/features/core/widgets/export.dart';
 import 'package:zeleno_v2/features/navigation/export.dart';
 import 'package:zeleno_v2/l10n/export.dart';
@@ -38,21 +37,22 @@ class _Content extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<PasswordResetConfirmCubit, PasswordResetConfirmState>(
       listener: (context, state) {
-        if (state.status == Status.failure && state.error != null) {
-          CustomSnackBar.show(
-            context: context,
-            message: mapErrorToMessage(state.error!, context.l10n),
-            type: SnackBarType.error,
-          );
-          return;
-        }
-        if (state.status == Status.success) {
-          CustomSnackBar.show(
-            context: context,
-            message: context.l10n.forgotPasswordSuccess,
-            type: SnackBarType.success,
-          );
-          context.router.popUntilRouteWithName(LoginRoute.name);
+        switch (state) {
+          case PasswordResetConfirmSuccess():
+            CustomSnackBar.show(
+              context: context,
+              message: context.l10n.forgotPasswordSuccess,
+              type: SnackBarType.success,
+            );
+            context.router.popUntilRouteWithName(LoginRoute.name);
+          case PasswordResetConfirmFailure(:final error):
+            CustomSnackBar.show(
+              context: context,
+              message: mapErrorToMessage(error, context.l10n),
+              type: SnackBarType.error,
+            );
+          case PasswordResetConfirmLoading() || PasswordResetConfirmInitial():
+            break;
         }
       },
       child: Scaffold(
@@ -135,13 +135,16 @@ class _ConfirmFormState extends State<_ConfirmForm> {
             ),
           ),
           const SizedBox(height: 24),
-          BlocBuilder<PasswordResetConfirmCubit, PasswordResetConfirmState>(
-            builder: (context, state) {
+          BlocSelector<
+            PasswordResetConfirmCubit,
+            PasswordResetConfirmState,
+            bool
+          >(
+            selector: (state) => state.isLoading,
+            builder: (context, isLoading) {
               return ZButton.gradient1(
-                onPressed: state.status.isLoading
-                    ? null
-                    : () => _onContinuePressed(context),
-                child: state.status.isLoading
+                onPressed: isLoading ? null : () => _onContinuePressed(context),
+                child: isLoading
                     ? CircularProgressIndicator(color: colors.secondaryBg)
                     : Text(context.l10n.forgotPasswordConfirmAction),
               );
