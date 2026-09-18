@@ -4,3 +4,4 @@
 export 'fitted_scene.dart';
 export 'intro_idle_animation.dart';
 export 'keyframe_timeline.dart';
+export 'timeline_events.dart';

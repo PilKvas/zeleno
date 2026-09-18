@@ -5,7 +5,6 @@ import 'package:zeleno_v2/app/di/export.dart';
 import 'package:zeleno_v2/core/helper/export.dart';
 import 'package:zeleno_v2/features/auth/presentation/screens/password_reset/cubit/export.dart';
 import 'package:zeleno_v2/features/auth/presentation/widgets/export.dart';
-import 'package:zeleno_v2/features/core/enums/export.dart';
 import 'package:zeleno_v2/features/core/widgets/export.dart';
 import 'package:zeleno_v2/features/navigation/export.dart';
 import 'package:zeleno_v2/l10n/export.dart';
@@ -34,10 +33,10 @@ class _Content extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<PasswordResetRequestCubit, PasswordResetRequestState>(
       listener: (context, state) {
-        if (state.status == Status.failure && state.error != null) {
+        if (state case PasswordResetRequestFailure(:final error)) {
           CustomSnackBar.show(
             context: context,
-            message: mapErrorToMessage(state.error!, context.l10n),
+            message: mapErrorToMessage(error, context.l10n),
             type: SnackBarType.error,
           );
         }
@@ -103,13 +102,16 @@ class _RequestFormState extends State<_RequestForm> {
             validator: Validator.email(context.l10n),
           ),
           const SizedBox(height: 24),
-          BlocBuilder<PasswordResetRequestCubit, PasswordResetRequestState>(
-            builder: (context, state) {
+          BlocSelector<
+            PasswordResetRequestCubit,
+            PasswordResetRequestState,
+            bool
+          >(
+            selector: (state) => state.isLoading,
+            builder: (context, isLoading) {
               return ZButton.gradient1(
-                onPressed: state.status.isLoading
-                    ? null
-                    : () => _onContinuePressed(context),
-                child: state.status.isLoading
+                onPressed: isLoading ? null : () => _onContinuePressed(context),
+                child: isLoading
                     ? CircularProgressIndicator(color: colors.secondaryBg)
                     : Text(context.l10n.next),
               );
@@ -127,7 +129,7 @@ class _RequestFormState extends State<_RequestForm> {
     final router = context.router;
     await cubit.requestPasswordReset(email: email);
     if (!mounted) return;
-    if (cubit.state.status.isSuccess) {
+    if (cubit.state is PasswordResetRequestSuccess) {
       router.push(PasswordResetVerifyRoute(email: email));
     }
   }

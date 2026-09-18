@@ -16,7 +16,6 @@ import 'package:zeleno_v2/features/plant_details/presentation/widgets/export.dar
 import 'package:zeleno_v2/l10n/export.dart';
 import 'package:zeleno_v2/uikit/export.dart';
 
-const double _kHeroImageHeight = 360;
 const int _kVisibleTagsCount = 3;
 
 /// Единый детальный экран растения.
@@ -79,18 +78,6 @@ class _GardenPlantDetailView extends StatelessWidget {
         context.router.maybePop(true);
       },
       builder: (BuildContext context, GardenPlantDetailState state) {
-        final bool hasContent =
-            state.plant != null || state.speciesDetails != null;
-        if (state.status.isLoading && !hasContent) {
-          return const Scaffold(
-            body: Center(
-              child: SizedBox(height: 72, width: 72, child: ZLoading()),
-            ),
-          );
-        }
-        if (state.status.isFailure && !hasContent) {
-          return _ErrorScaffold(state: state);
-        }
         return _GardenPlantDetailContent(
           state: state,
           onOpenEdit: () => _openEditScreen(context),
@@ -100,55 +87,9 @@ class _GardenPlantDetailView extends StatelessWidget {
   }
 }
 
-class _ErrorScaffold extends StatelessWidget {
-  const _ErrorScaffold({required this.state});
-
-  final GardenPlantDetailState state;
-
-  @override
-  Widget build(BuildContext context) {
-    final ZColorScheme colorScheme = ZColorScheme.of(context);
-    final ZTypography typography = ZTypography.of(context);
-    final String message = state.error == null
-        ? context.l10n.gardenPlantLoadError
-        : mapErrorToMessage(state.error!, context.l10n);
-    return Scaffold(
-      backgroundColor: colorScheme.background,
-      appBar: AppBar(
-        backgroundColor: colorScheme.background,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.chevron_left, color: colorScheme.onBackground),
-          onPressed: () => context.router.maybePop(),
-        ),
-      ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Text(
-                message,
-                textAlign: TextAlign.center,
-                style: typography.body.copyWith(
-                  color: colorScheme.secondaryText,
-                ),
-              ),
-              const SizedBox(height: 16),
-              ZButton.gradient1(
-                onPressed: () =>
-                    context.read<GardenPlantDetailCubit>().loadPlant(),
-                child: Text(context.l10n.retry),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
+/// Скаффолд с hero-аппбаром строится всегда: загрузка и ошибка живут внутри
+/// того же CustomScrollView, чтобы кнопка «назад» не пропадала и экран не
+/// перескакивал при появлении контента.
 class _GardenPlantDetailContent extends StatelessWidget {
   const _GardenPlantDetailContent({
     required this.state,
@@ -161,186 +102,204 @@ class _GardenPlantDetailContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ZColorScheme colorScheme = ZColorScheme.of(context);
-    final ZTypography typography = ZTypography.of(context);
     final GardenPlantModel? plant = state.plant;
     final PlantDetailsModel? species = state.speciesDetails;
+    final bool hasContent = plant != null || species != null;
     final bool isSpeciesMode = plant == null;
     final String languageCode = Localizations.localeOf(context).languageCode;
-    final String title =
-        plant?.customName ??
-        species?.resolveMainCommonName(lang: languageCode) ??
-        context.l10n.unknownName;
-    final List<String> commonNames =
-        species?.commonNamesForLang(languageCode) ?? <String>[];
-    final List<String> tags = species?.tags ?? <String>[];
-    final List<String> visibleTags = tags.length > _kVisibleTagsCount
-        ? tags.sublist(0, _kVisibleTagsCount)
-        : tags;
+    final String title = !hasContent
+        ? ''
+        : plant?.customName ??
+              species?.resolveMainCommonName(lang: languageCode) ??
+              context.l10n.unknownName;
+    final int? speciesId = species?.id;
+    final bool showAddToGarden = hasContent && isSpeciesMode;
+
     return Scaffold(
       backgroundColor: colorScheme.background,
       body: CustomScrollView(
+        physics: const BouncingScrollPhysics(
+          parent: AlwaysScrollableScrollPhysics(),
+        ),
         slivers: <Widget>[
-          SliverAppBar(
-            leading: Container(
-              margin: const EdgeInsets.only(left: 8),
-              decoration: BoxDecoration(
-                color: colorScheme.surface,
-                shape: BoxShape.circle,
-              ),
-              child: IconButton(
-                onPressed: () => context.router.maybePop(state.wasUpdated),
-                icon: Icon(Icons.chevron_left, color: colorScheme.onSurface),
-              ),
-            ),
-            actions: <Widget>[
-              if (!isSpeciesMode)
-                Container(
-                  margin: const EdgeInsets.only(right: 8),
-                  decoration: BoxDecoration(
-                    color: colorScheme.surface,
-                    shape: BoxShape.circle,
-                  ),
-                  child: IconButton(
-                    icon: Icon(
-                      Icons.settings_outlined,
-                      color: colorScheme.brand,
-                    ),
-                    onPressed: state.isSaving ? null : onOpenEdit,
-                  ),
-                ),
-            ],
-            expandedHeight: _kHeroImageHeight,
-            pinned: true,
-            backgroundColor: colorScheme.surface,
-            flexibleSpace: FlexibleSpaceBar(
-              background: _PlantImage(
-                imageUrl: plant?.imageUrl ?? species?.imageUrl,
-                colorScheme: colorScheme,
-              ),
-            ),
-            bottom: PreferredSize(
-              preferredSize: const Size.fromHeight(0),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: colorScheme.background,
-                  borderRadius: const BorderRadius.vertical(
-                    top: Radius.circular(20),
-                  ),
-                ),
-                height: 20,
-              ),
-            ),
+          GardenPlantHeroAppBar(
+            title: title,
+            imageUrl: plant?.imageUrl ?? species?.imageUrl,
+            onBack: () => context.router.maybePop(state.wasUpdated),
+            onSettings: plant == null || state.isSaving ? null : onOpenEdit,
           ),
-          SliverToBoxAdapter(
-            child: Container(
+          if (!hasContent && state.status.isFailure)
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: _ErrorBody(error: state.error),
+            )
+          else if (!hasContent)
+            const SliverFillRemaining(
+              hasScrollBody: false,
+              child: Center(
+                child: SizedBox(height: 72, width: 72, child: ZLoading()),
+              ),
+            )
+          else ...<Widget>[
+            _HeaderSliver(
+              title: title,
+              commonNames: species?.commonNamesForLang(languageCode),
+              plant: plant,
+              species: species,
+            ),
+            if (species?.genusDescription case final String description
+                when description.isNotEmpty)
+              GardenPlantSectionSliver(
+                title: context.l10n.plantDetailDescription,
+                child: Text(
+                  description,
+                  style: ZTypography.of(
+                    context,
+                  ).body.copyWith(color: colorScheme.onBackground),
+                ),
+              ),
+            GardenPlantSectionSliver(
+              title: context.l10n.plantDetailScientificClassification,
+              child: ScientificClassificationWidget(
+                latinName: species?.latinName ?? plant?.speciesLatinName,
+                misc: species?.misc,
+              ),
+            ),
+            GardenPlantSectionSliver(
+              title: context.l10n.tags,
+              child: _TagsWrap(tags: species?.tags ?? const <String>[]),
+            ),
+          ],
+          const SliverSafeArea(
+            top: false,
+            sliver: SliverPadding(padding: EdgeInsets.only(bottom: 24)),
+          ),
+        ],
+      ),
+      bottomNavigationBar: showAddToGarden
+          ? ColoredBox(
               color: colorScheme.background,
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    title,
-                    style: typography.largeTitle.copyWith(
-                      color: colorScheme.onBackground,
-                    ),
-                  ),
-                  if (commonNames.isNotEmpty) ...<Widget>[
-                    const SizedBox(height: 8),
-                    SizedBox(
-                      height: 20,
-                      width: MediaQuery.sizeOf(context).width,
-                      child: ListView.separated(
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Text(
-                            commonNames[index],
-                            style: typography.body.copyWith(
-                              color: colorScheme.brand,
-                            ),
-                          );
-                        },
-                        separatorBuilder: (BuildContext context, int index) =>
-                            Text(
-                              ' • ',
-                              style: typography.body.copyWith(
-                                color: colorScheme.brand,
-                              ),
-                            ),
-                        itemCount: commonNames.length,
-                      ),
-                    ),
-                  ],
-                  if (isSpeciesMode) ...<Widget>[
-                    const SizedBox(height: 16),
-                    ZButton.gradient1(
-                      onPressed: species?.id == null
-                          ? null
-                          : () => context.router.push(
-                              PlantRoomsSelectionRoute(
-                                speciesId: species!.id!,
-                                speciesSlug: state.speciesSlug ?? '',
-                                defaultPlantName: title,
-                              ),
-                            ),
-                      child: Text(context.l10n.toTheGardenButtonTitle),
-                    ),
-                  ],
-                  const SizedBox(height: 20),
-                  _CareCardsRow(plant: plant, species: species),
-                  const SizedBox(height: 24),
-                  if (species?.genusDescription != null &&
-                      species!.genusDescription!.isNotEmpty)
-                    ExpandableSectionWidget(
-                      title: context.l10n.plantDetailDescription,
-                      content: species.genusDescription!,
-                    ),
-                  if (species?.genusDescription != null &&
-                      species!.genusDescription!.isNotEmpty)
-                    const SizedBox(height: 16),
-                  GardenPlantStatsGradientCard(
-                    ageText: _formatAge(context, plant?.createdAt),
-                    spreadText: _formatSpreadMeters(context, species),
-                    heightText: _formatHeightMeters(context, species),
-                  ),
-                  const SizedBox(height: 16),
-                  ExpandableSectionWidget(
-                    title: context.l10n.plantDetailScientificClassification,
-                    content: ScientificClassificationWidget(
-                      latinName: species?.latinName ?? plant?.speciesLatinName,
-                      misc: species?.misc,
-                    ),
-                    isTable: true,
-                  ),
-                  const SizedBox(height: 16),
-                  Text(
-                    context.l10n.tags,
-                    style: typography.headline300.copyWith(
-                      color: colorScheme.onBackground,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Wrap(
-                    spacing: 8,
-                    runSpacing: 8,
-                    children: <Widget>[
-                      if (visibleTags.isEmpty)
-                        TagWidget(text: context.l10n.noTagsAvailable)
-                      else
-                        ...visibleTags.map(
-                          (String tag) => TagWidget(text: tag),
-                        ),
-                      if (tags.length > _kVisibleTagsCount)
-                        GestureDetector(
-                          onTap: () => _showAllTags(context, tags),
-                          child: TagWidget(
-                            text: context.l10n.gardenPlantOpenAllTags,
+              child: SafeArea(
+                top: false,
+                minimum: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+                child: ZButton.gradient1(
+                  onPressed: speciesId == null
+                      ? null
+                      : () => context.router.push(
+                          PlantRoomsSelectionRoute(
+                            speciesId: speciesId,
+                            speciesSlug: state.speciesSlug ?? '',
+                            defaultPlantName: title,
                           ),
                         ),
-                    ],
-                  ),
-                  const SizedBox(height: 32),
-                ],
+                  child: Text(context.l10n.toTheGardenButtonTitle),
+                ),
               ),
+            )
+          : null,
+    );
+  }
+}
+
+class _ErrorBody extends StatelessWidget {
+  const _ErrorBody({required this.error});
+
+  final Object? error;
+
+  @override
+  Widget build(BuildContext context) {
+    final ZColorScheme colorScheme = ZColorScheme.of(context);
+    final ZTypography typography = ZTypography.of(context);
+    final Object? error = this.error;
+    final String message = error == null
+        ? context.l10n.gardenPlantLoadError
+        : mapErrorToMessage(error, context.l10n);
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          mainAxisSize: .min,
+          children: <Widget>[
+            Text(
+              message,
+              textAlign: .center,
+              style: typography.body.copyWith(color: colorScheme.secondaryText),
+            ),
+            const SizedBox(height: 16),
+            ZButton.gradient1(
+              onPressed: () =>
+                  context.read<GardenPlantDetailCubit>().loadPlant(),
+              child: Text(context.l10n.retry),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Название, общие имена, карточки ухода, заметки и статы.
+class _HeaderSliver extends StatelessWidget {
+  const _HeaderSliver({
+    required this.title,
+    required this.commonNames,
+    required this.plant,
+    required this.species,
+  });
+
+  final String title;
+  final List<String>? commonNames;
+  final GardenPlantModel? plant;
+  final PlantDetailsModel? species;
+
+  @override
+  Widget build(BuildContext context) {
+    final ZColorScheme colorScheme = ZColorScheme.of(context);
+    final ZTypography typography = ZTypography.of(context);
+    final List<String> names = commonNames ?? const <String>[];
+    final GardenPlantModel? plant = this.plant;
+    return SliverPadding(
+      padding: const EdgeInsets.fromLTRB(16, 4, 16, 8),
+      sliver: SliverList.list(
+        children: <Widget>[
+          Text(
+            title,
+            style: typography.largeTitle.copyWith(
+              color: colorScheme.onBackground,
+            ),
+          ),
+          if (names.isNotEmpty) ...<Widget>[
+            const SizedBox(height: 8),
+            Text(
+              names.join(' • '),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: typography.body.copyWith(color: colorScheme.brand),
+            ),
+          ],
+          const SizedBox(height: 20),
+          _CareCardsRow(plant: plant, species: species),
+          if (plant != null) ...<Widget>[
+            const SizedBox(height: 12),
+            GardenPlantNotesTileWidget(
+              onTap: () =>
+                  context.router.push(GardenPlantNotesRoute(plantId: plant.id)),
+            ),
+          ],
+          const SizedBox(height: 16),
+          GardenPlantStatsGradientCard(
+            ageText: _formatAge(context, plant?.createdAt),
+            spreadText: _formatMeters(
+              context,
+              species?.spreadMinCm,
+              species?.spreadMaxCm,
+              context.l10n.gardenPlantSpreadMeters,
+            ),
+            heightText: _formatMeters(
+              context,
+              species?.heightMinCm,
+              species?.heightMaxCm,
+              context.l10n.gardenPlantHeightMeters,
             ),
           ),
         ],
@@ -348,9 +307,9 @@ class _GardenPlantDetailContent extends StatelessWidget {
     );
   }
 
-  String _formatAge(BuildContext context, DateTime? createdAt) {
+  String? _formatAge(BuildContext context, DateTime? createdAt) {
     if (createdAt == null) {
-      return '-';
+      return null;
     }
     final int years = DateTime.now().difference(createdAt).inDays ~/ 365;
     if (years <= 0) {
@@ -359,39 +318,50 @@ class _GardenPlantDetailContent extends StatelessWidget {
     return context.l10n.gardenPlantAge(years.toString());
   }
 
-  String _formatSpreadMeters(BuildContext context, PlantDetailsModel? species) {
-    final String value = _averageMeters(
-      species?.spreadMinCm,
-      species?.spreadMaxCm,
-    );
-    if (value == '-') {
-      return value;
-    }
-    return context.l10n.gardenPlantSpreadMeters(value);
-  }
-
-  String _formatHeightMeters(BuildContext context, PlantDetailsModel? species) {
-    final String value = _averageMeters(
-      species?.heightMinCm,
-      species?.heightMaxCm,
-    );
-    if (value == '-') {
-      return value;
-    }
-    return context.l10n.gardenPlantHeightMeters(value);
-  }
-
-  String _averageMeters(int? minCm, int? maxCm) {
+  String? _formatMeters(
+    BuildContext context,
+    int? minCm,
+    int? maxCm,
+    String Function(String value) format,
+  ) {
     if (minCm == null && maxCm == null) {
-      return '-';
+      return null;
     }
     final double min = (minCm ?? maxCm!) / 100;
     final double max = (maxCm ?? minCm!) / 100;
     final double average = (min + max) / 2;
-    return average.toStringAsFixed(1);
+    return format(average.toStringAsFixed(1));
+  }
+}
+
+class _TagsWrap extends StatelessWidget {
+  const _TagsWrap({required this.tags});
+
+  final List<String> tags;
+
+  @override
+  Widget build(BuildContext context) {
+    final List<String> visibleTags = tags.length > _kVisibleTagsCount
+        ? tags.sublist(0, _kVisibleTagsCount)
+        : tags;
+    return Wrap(
+      spacing: 8,
+      runSpacing: 8,
+      children: <Widget>[
+        if (visibleTags.isEmpty)
+          TagWidget(text: context.l10n.noTagsAvailable)
+        else
+          ...visibleTags.map((String tag) => TagWidget(text: tag)),
+        if (tags.length > _kVisibleTagsCount)
+          GestureDetector(
+            onTap: () => _showAllTags(context),
+            child: TagWidget(text: context.l10n.gardenPlantOpenAllTags),
+          ),
+      ],
+    );
   }
 
-  void _showAllTags(BuildContext context, List<String> tags) {
+  void _showAllTags(BuildContext context) {
     showModalBottomSheet<void>(
       context: context,
       backgroundColor: ZColorScheme.of(context).surface,
@@ -420,39 +390,44 @@ class _CareCardsRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String noData = context.l10n.gardenPlantCareNoData;
-    return SizedBox(
-      height: 120,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
+    return IntrinsicHeight(
+      child: Row(
+        crossAxisAlignment: .stretch,
         children: <Widget>[
-          GardenPlantCareCardWidget(
-            icon: Icons.yard_outlined,
-            title: context.l10n.gardenPlantCareRepotting,
-            subtitle:
-                _careSubtitle(
-                  context,
-                  exactDate: plant?.lastRepottingExactDate,
-                  rawValue: plant?.lastRepotting,
-                ) ??
-                noData,
+          Expanded(
+            child: GardenPlantCareCardWidget(
+              icon: Icons.yard_outlined,
+              title: context.l10n.gardenPlantCareRepotting,
+              subtitle:
+                  _careSubtitle(
+                    context,
+                    exactDate: plant?.lastRepottingExactDate,
+                    rawValue: plant?.lastRepotting,
+                  ) ??
+                  noData,
+            ),
           ),
           const SizedBox(width: 8),
-          GardenPlantCareCardWidget(
-            icon: Icons.water_drop_outlined,
-            title: context.l10n.gardenPlantCareWatering,
-            subtitle:
-                _careSubtitle(
-                  context,
-                  exactDate: plant?.lastWateringExactDate,
-                  rawValue: plant?.lastWatering,
-                ) ??
-                noData,
+          Expanded(
+            child: GardenPlantCareCardWidget(
+              icon: Icons.water_drop_outlined,
+              title: context.l10n.gardenPlantCareWatering,
+              subtitle:
+                  _careSubtitle(
+                    context,
+                    exactDate: plant?.lastWateringExactDate,
+                    rawValue: plant?.lastWatering,
+                  ) ??
+                  noData,
+            ),
           ),
           const SizedBox(width: 8),
-          GardenPlantCareCardWidget(
-            icon: Icons.eco_outlined,
-            title: context.l10n.gardenPlantCareFertilizing,
-            subtitle: _fertilizerSubtitle(context) ?? noData,
+          Expanded(
+            child: GardenPlantCareCardWidget(
+              icon: Icons.eco_outlined,
+              title: context.l10n.gardenPlantCareFertilizing,
+              subtitle: _fertilizerSubtitle(context) ?? noData,
+            ),
           ),
         ],
       ),
@@ -503,45 +478,6 @@ class _CareCardsRow extends StatelessWidget {
       min.toString(),
       max.toString(),
       unit,
-    );
-  }
-}
-
-class _PlantImage extends StatelessWidget {
-  const _PlantImage({required this.imageUrl, required this.colorScheme});
-
-  final String? imageUrl;
-  final ZColorScheme colorScheme;
-
-  @override
-  Widget build(BuildContext context) {
-    if (imageUrl != null) {
-      return Image.network(
-        imageUrl!,
-        fit: BoxFit.cover,
-        errorBuilder:
-            (BuildContext context, Object error, StackTrace? stackTrace) =>
-                _Placeholder(colorScheme: colorScheme),
-      );
-    }
-    return _Placeholder(colorScheme: colorScheme);
-  }
-}
-
-class _Placeholder extends StatelessWidget {
-  const _Placeholder({required this.colorScheme});
-
-  final ZColorScheme colorScheme;
-
-  @override
-  Widget build(BuildContext context) {
-    return ColoredBox(
-      color: colorScheme.secondaryBg,
-      child: Icon(
-        Icons.local_florist_outlined,
-        color: colorScheme.brand,
-        size: 64,
-      ),
     );
   }
 }

@@ -300,6 +300,9 @@
   "gardenPlantCareFertilizing": "Fertilizing",
   "gardenPlantCareNoData": "No data",
   "gardenPlantOpenAllTags": "Show all",
+  "gardenPlantStatAge": "Age",
+  "gardenPlantStatSpread": "Spread",
+  "gardenPlantStatHeight": "Height",
   "gardenPlantAge": "{years} years",
   "@gardenPlantAge": {
     "placeholders": {
@@ -338,5 +341,57 @@
       }
     }
   },
+  "gardenPlantNotesTile": "Notes",
+  "gardenPlantNotesTileSubtitle": "Observations and care",
+  "gardenPlantNotesTitle": "Notes",
+  "gardenPlantNotesEmpty": "Write down observations and care — notes help you remember what you did and when",
+  "gardenPlantNotesLoadError": "Failed to load notes",
+  "gardenPlantNotesAdd": "Add note",
+  "gardenPlantNoteNewTitle": "New note",
+  "gardenPlantNoteEditTitle": "Edit note",
+  "gardenPlantNoteTitleHint": "Title",
+  "gardenPlantNoteContentHint": "Note text",
+  "gardenPlantNoteTitleRequired": "Enter a title",
+  "gardenPlantNoteTitleTooLong": "Title must not exceed {max} characters",
+  "@gardenPlantNoteTitleTooLong": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "gardenPlantNoteContentRequired": "Enter the note text",
+  "gardenPlantNoteContentTooLong": "Text must not exceed {max} characters",
+  "@gardenPlantNoteContentTooLong": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "gardenPlantNoteCounter": "{current}/{max}",
+  "@gardenPlantNoteCounter": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "gardenPlantNoteSave": "Save",
+  "gardenPlantNoteDelete": "Delete note",
+  "gardenPlantNoteDeleteTitle": "Delete note?",
+  "gardenPlantNoteDeleteMessage": "The note \"{title}\" will be permanently deleted.",
+  "@gardenPlantNoteDeleteMessage": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "gardenPlantNoteDeleteCancel": "Cancel",
+  "gardenPlantNoteDeleteConfirm": "Delete",
   "retry": "Retry"
 }
