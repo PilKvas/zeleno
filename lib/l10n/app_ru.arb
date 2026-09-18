@@ -358,6 +358,9 @@
   "gardenPlantCareFertilizing": "Удобрение",
   "gardenPlantCareNoData": "Нет данных",
   "gardenPlantOpenAllTags": "Открыть все",
+  "gardenPlantStatAge": "Возраст",
+  "gardenPlantStatSpread": "Ширина",
+  "gardenPlantStatHeight": "Высота",
   "gardenPlantAge": "{years} лет",
   "@gardenPlantAge": {
     "placeholders": {

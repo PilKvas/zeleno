@@ -694,6 +694,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get gardenPlantOpenAllTags => 'Show all';
 
   @override
+  String get gardenPlantStatAge => 'Age';
+
+  @override
+  String get gardenPlantStatSpread => 'Spread';
+
+  @override
+  String get gardenPlantStatHeight => 'Height';
+
+  @override
   String gardenPlantAge(String years) {
     return '$years years';
   }
